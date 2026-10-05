@@ -32,6 +32,8 @@ export interface GeneratedMap {
 
 /** Height above the bottom edge that is under water at the start of the game. */
 const WATER_DEPTH = 60;
+/** Strength of domain warping, in pixels. */
+const WARP = 90;
 
 export function generateMap(input: Partial<MapParams> = {}): GeneratedMap {
   const p: MapParams = { ...DEFAULT_MAP_PARAMS, ...input };
@@ -57,7 +59,7 @@ export function generateMap(input: Partial<MapParams> = {}): GeneratedMap {
       masses.push({
         x: slot * (i + 0.5) + rng.range(-0.12, 0.12) * slot,
         w: slot * rng.range(0.38, 0.55),
-        top: rng.range(0.38, 0.62),
+        top: rng.range(0.4, 0.62),
       });
     }
   }
@@ -66,7 +68,10 @@ export function generateMap(input: Partial<MapParams> = {}): GeneratedMap {
     const ny = y / height;
     for (let x = 0; x < width; x++) {
       const nx = x / width;
-      const n = fbm(x * scale, y * scale, noiseSeed, octaves);
+      // Domain warping bends the shapes into overhangs, arches and ledges.
+      const wx = x + fbm(x * scale * 1.5, y * scale * 1.5, noiseSeed + 7, 3) * WARP;
+      const wy = y + fbm(x * scale * 1.5 + 31.7, y * scale * 1.5, noiseSeed + 13, 3) * WARP;
+      const n = fbm(wx * scale, wy * scale, noiseSeed, octaves);
       let density: number;
       if (p.style === 'island') {
         // Islands: a rounded mass per island that gets solid below its peak height,
@@ -74,11 +79,13 @@ export function generateMap(input: Partial<MapParams> = {}): GeneratedMap {
         let shape = -2;
         for (const m of masses) {
           const d = Math.abs(x - m.x) / m.w;
-          const v = 0.55 - d * d * 1.1 + Math.min(ny - m.top, 0.25) * 2.2;
+          // The peak is highest at the centre and slopes down towards the island edges.
+          const v = 0.5 - d * d * 0.7 + Math.min(ny - (m.top + d * d * 0.35), 0.2) * 2.6;
           if (v > shape) shape = v;
         }
         // Keep the side edges clear so worms can fall off the map.
-        const edge = Math.min(nx, 1 - nx) < 0.03 ? -2 : 0;
+        const side = Math.min(nx, 1 - nx);
+        const edge = side < 0.07 ? (side - 0.07) * 30 : 0;
         // Always leave some sky above the highest peaks.
         const sky = ny < 0.12 ? (ny - 0.12) * 20 : 0;
         density = n * 1.1 + shape + amount + edge + sky;
@@ -86,8 +93,8 @@ export function generateMap(input: Partial<MapParams> = {}): GeneratedMap {
         // Caverns: solid frame (ceiling, walls, floor), open tunnels inside.
         const ex = Math.min(nx, 1 - nx) * 2;
         const ey = Math.min(ny, 1 - ny) * 2;
-        const frame = 0.75 - Math.min(ex * 2.2, ey * 2.6, 1) * 1.15;
-        density = n * 1.3 + frame + amount * 0.8 + (ny - 0.5) * 0.4;
+        const frame = 0.6 - Math.min(ex * 2.2, ey * 2.6, 1) * 0.95;
+        density = n * 1.8 + frame + amount * 0.8 + (ny - 0.5) * 0.3 + 0.08;
       }
       data[y * width + x] = density > 0 ? Material.Soil : Material.Air;
     }
