@@ -5,3 +5,6 @@ export * from './core/math';
 export * from './core/rng';
 export * from './core/hash';
 export * from './terrain/terrain';
+export * from './world/entity';
+export * from './world/events';
+export * from './world/world';
