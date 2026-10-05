@@ -1,6 +1,6 @@
-import { Application, Container, FillGradient, Graphics } from 'pixi.js';
+import { Application, Container } from 'pixi.js';
 import { generateMap } from '@wr/mapgen';
-import { TerrainView, themeById } from '@wr/render';
+import { Background, Camera, TerrainView, WaterView, themeById } from '@wr/render';
 import { FixedLoop } from './loop';
 
 async function boot() {
@@ -23,47 +23,49 @@ async function boot() {
   const map = generateMap({ seed, style });
   const { terrain } = map;
 
-  const sky = new Graphics();
-  app.stage.addChild(sky);
+  const camera = new Camera(terrain);
+  camera.zoom = Number(params.get('zoom') ?? 1);
+  camera.lookAt(terrain.width / 2, map.waterLevel - 300);
+
+  const background = new Background(theme, terrain.width, terrain.height, seed);
   const world = new Container();
-  app.stage.addChild(world);
   const terrainView = new TerrainView(terrain, theme);
-  world.addChild(terrainView.container);
-  const water = new Graphics()
-    .rect(-4000, map.waterLevel, terrain.width + 8000, 4000)
-    .fill({ color: theme.water, alpha: 0.85 });
-  world.addChild(water);
+  const water = new WaterView(theme, terrain.width);
+  world.addChild(water.back, terrainView.container, water.front);
+  app.stage.addChild(background.container, world);
 
-  const layout = () => {
-    const scale = Math.min(app.screen.width / terrain.width, app.screen.height / terrain.height);
-    world.scale.set(scale);
-    world.position.set(
-      (app.screen.width - terrain.width * scale) / 2,
-      (app.screen.height - terrain.height * scale) / 2,
-    );
-    const gradient = new FillGradient({
-      type: 'linear',
-      start: { x: 0, y: 0 },
-      end: { x: 0, y: 1 },
-      colorStops: [
-        { offset: 0, color: theme.skyTop },
-        { offset: 1, color: theme.skyBottom },
-      ],
-    });
-    sky.clear().rect(0, 0, app.screen.width, app.screen.height).fill(gradient);
-  };
-  layout();
-  window.addEventListener('resize', layout);
-
-  // Debug: click to blow a hole.
+  // Camera controls: drag to pan, wheel to zoom. Shift+click blows a debug hole.
+  let dragging = false;
   app.canvas.addEventListener('pointerdown', (e) => {
-    const p = world.toLocal({ x: e.offsetX, y: e.offsetY });
-    terrain.carveCircle(p.x, p.y, 40);
+    if (e.shiftKey) {
+      const p = camera.toWorld(e.offsetX, e.offsetY);
+      terrain.carveCircle(p.x, p.y, 40);
+      camera.shake(6);
+      return;
+    }
+    dragging = true;
   });
+  window.addEventListener('pointerup', () => (dragging = false));
+  window.addEventListener('pointermove', (e) => {
+    if (dragging) camera.pan(-e.movementX, -e.movementY);
+  });
+  app.canvas.addEventListener(
+    'wheel',
+    (e) => {
+      e.preventDefault();
+      camera.zoomAt(e.deltaY < 0 ? 1.15 : 1 / 1.15, e.offsetX, e.offsetY);
+    },
+    { passive: false },
+  );
 
   const loop = new FixedLoop(
     () => {},
-    () => {
+    (_alpha, dt) => {
+      camera.resize(app.screen.width, app.screen.height);
+      camera.update(dt);
+      camera.apply(world);
+      background.update(camera, app.screen.width, app.screen.height);
+      water.update(dt, map.waterLevel);
       terrainView.update();
       app.render();
     },
