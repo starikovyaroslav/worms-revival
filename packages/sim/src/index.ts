@@ -8,3 +8,4 @@ export * from './terrain/terrain';
 export * from './world/entity';
 export * from './world/events';
 export * from './world/world';
+export * from './worm/worm';
