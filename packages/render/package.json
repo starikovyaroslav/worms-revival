@@ -1,0 +1,13 @@
+{
+  "name": "@wr/render",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@wr/sim": "*",
+    "pixi.js": "^8.22.0"
+  }
+}
