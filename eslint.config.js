@@ -36,6 +36,10 @@ export default tseslint.config(
     },
   },
   {
+    files: ['tools/**'],
+    languageOptions: { globals: { process: 'readonly', console: 'readonly' } },
+  },
+  {
     files: ['packages/sim/src/**', 'packages/mapgen/src/**'],
     rules: {
       'no-restricted-properties': [
