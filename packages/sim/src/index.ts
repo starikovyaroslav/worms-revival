@@ -23,3 +23,4 @@ export * from './weapons/mine';
 export * from './weapons/fire';
 export * from './weapons/barrel';
 export * from './weapons/sheep';
+export * from './weapons/digTool';

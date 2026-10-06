@@ -1,6 +1,7 @@
 import { Material } from '../../terrain/terrain';
 import type { World } from '../../world/world';
 import { Worm, WORM_H, WORM_HALF_W } from '../../worm/worm';
+import { DigTool } from '../digTool';
 import { registerWeapon } from '../weapon';
 
 export const GIRDER_HALF_LENGTH = 30;
@@ -95,4 +96,46 @@ registerWeapon({
   charge: false,
   action: 'surrender',
   fire: () => {},
+});
+
+registerWeapon({
+  id: 'blowtorch',
+  name: 'Blow Torch',
+  row: 7,
+  col: 0,
+  aim: 'angle',
+  charge: false,
+  fire: (ctx) => {
+    const tool = ctx.world.spawn(new DigTool('torch', ctx.worm.id, ctx.worm));
+    ctx.control(tool.id);
+  },
+});
+
+registerWeapon({
+  id: 'drill',
+  name: 'Pneumatic Drill',
+  row: 7,
+  col: 1,
+  aim: 'none',
+  charge: false,
+  retreat: 0,
+  fire: (ctx) => {
+    const tool = ctx.world.spawn(new DigTool('drill', ctx.worm.id, ctx.worm));
+    ctx.control(tool.id);
+  },
+});
+
+registerWeapon({
+  id: 'parachute',
+  name: 'Parachute',
+  row: 8,
+  col: 2,
+  aim: 'none',
+  charge: false,
+  airborneOnly: true,
+  endsTurn: false,
+  fire: (ctx) => {
+    ctx.worm.chute = true;
+    ctx.world.emit({ type: 'sound', id: 'parachute', x: ctx.worm.x, y: ctx.worm.y });
+  },
 });

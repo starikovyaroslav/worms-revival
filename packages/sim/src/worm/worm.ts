@@ -26,6 +26,9 @@ const JUMP_WINDOW = 9;
 const FALL_SAFE_SPEED = 8;
 const FALL_COEF = 50;
 
+/** Max sink speed under a parachute, px/tick. */
+const CHUTE_FALL = 1.1;
+
 /** Bounce response for worms sent flying by explosions. */
 const RESTITUTION = 0.35;
 const SLIDE_FRICTION = 0.82;
@@ -65,6 +68,8 @@ export class Worm extends Entity {
   pendingDamage = 0;
   poisoned = false;
   drowned = false;
+  /** Parachute open: slow, wind-blown descent. */
+  chute = false;
   control: WormControl = { left: false, right: false, up: false, down: false };
   private jumpTimer = 0;
   /** Ticks since the worm last stood still on the ground. */
@@ -243,6 +248,10 @@ export class Worm extends Entity {
   private flyStep(world: World): boolean {
     const g = world.physics.gravity;
     this.vy += g;
+    if (this.chute) {
+      if (this.vy > CHUTE_FALL) this.vy = CHUTE_FALL;
+      this.vx = this.vx * 0.96 + world.wind * world.physics.maxWind * 3;
+    }
     const max = world.physics.maxSpeed;
     if (this.vx > max) this.vx = max;
     if (this.vx < -max) this.vx = -max;
@@ -320,6 +329,7 @@ export class Worm extends Entity {
     }
     this.state = 'idle';
     this.blasted = false;
+    this.chute = false;
     this.walkFrame = 0;
   }
 
@@ -346,6 +356,7 @@ export class Worm extends Entity {
       .u32(this.jumpTimer)
       .u32(this.stuckTicks)
       .f64(this.pendingDamage)
-      .bool(this.poisoned);
+      .bool(this.poisoned)
+      .bool(this.chute);
   }
 }
