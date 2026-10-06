@@ -4,7 +4,7 @@ import type { Terrain } from '../terrain/terrain';
 import { Barrel } from '../weapons/barrel';
 import { explode } from '../weapons/explosion';
 import { Mine } from '../weapons/mine';
-import { getWeapon, type WeaponDef } from '../weapons/weapon';
+import { getWeapon, isRemoteControlled, type WeaponDef } from '../weapons/weapon';
 import { Gravestone } from '../world/gravestone';
 import { World } from '../world/world';
 import { Worm } from '../worm/worm';
@@ -84,6 +84,10 @@ export class Game {
   target: { x: number; y: number } | null = null;
   shotsLeft = 0;
   firedThisTurn = false;
+  /** Entity currently steered by the player (sheep), 0 if none. */
+  controlledId = 0;
+  /** Arrow keys as last sent by the player. */
+  private held = { left: false, right: false, up: false, down: false };
 
   /** Entity the camera should follow. Presentation only. */
   focusId = 0;
@@ -197,7 +201,8 @@ export class Game {
 
     switch (c.t) {
       case 'move': {
-        const walk = !this.scheme.artillery;
+        const walk = !this.scheme.artillery && !this.controlledId;
+        this.held = { left: c.left, right: c.right, up: c.up, down: c.down };
         worm.control = { left: walk && c.left, right: walk && c.right, up: c.up, down: c.down };
         if (this.phase === 'ready' && (c.left || c.right || c.up || c.down)) this.beginTurnTimer();
         break;
@@ -228,7 +233,10 @@ export class Game {
         this.target = { x: c.x, y: c.y };
         break;
       case 'fire':
-        if (c.down) this.pressFire(worm);
+        if (c.down && this.controlledId) {
+          const e = this.world.byId(this.controlledId);
+          if (isRemoteControlled(e)) e.remoteFire(this.world);
+        } else if (c.down) this.pressFire(worm);
         else if (this.charging) this.fire(worm, this.power);
         break;
       case 'skip':
@@ -284,18 +292,36 @@ export class Game {
       setting: weaponSetting(this.scheme, def.id),
       upgrades: this.scheme.upgrades,
       focus: (id) => (this.focusId = id),
+      control: (id) => {
+        this.controlledId = id;
+        this.focusId = id;
+        worm.control = { left: false, right: false, up: false, down: false };
+      },
     });
     const ammo = team.ammo[def.id] ?? 0;
     if (ammo > 0) team.ammo[def.id] = ammo - 1;
     this.firedThisTurn = true;
     this.shotsLeft--;
-    if (def.endsTurn !== false && this.shotsLeft <= 0) {
+    if (def.endsTurn !== false && this.shotsLeft <= 0 && !this.controlledId) {
       this.phase = 'retreat';
       this.timer = Math.round((def.retreat ?? this.scheme.retreatTime) * TPS);
     }
   }
 
   private tickControls(): void {
+    if (this.controlledId) {
+      const e = this.world.byId(this.controlledId);
+      if (!e || e.removed) {
+        // The sheep is gone: now run for it.
+        this.controlledId = 0;
+        if (this.phase === 'turn') {
+          this.phase = 'retreat';
+          this.timer = Math.round((this.weapon?.retreat ?? this.scheme.retreatTime) * TPS);
+        }
+      } else if (isRemoteControlled(e)) {
+        e.steer?.(this.held.left, this.held.right);
+      }
+    }
     const worm = this.activeWorm;
     if (!worm) return;
     if (this.phase === 'turn' || this.phase === 'ready') {
@@ -319,7 +345,11 @@ export class Game {
       case 'turn':
       case 'retreat':
         this.tickRound();
-        if (--this.timer <= 0 || !worm || this.wormHurt(worm)) this.endTurn();
+        if (--this.timer <= 0 || !worm || this.wormHurt(worm)) {
+          const e = this.controlledId ? this.world.byId(this.controlledId) : undefined;
+          if (isRemoteControlled(e)) e.timeout?.(this.world);
+          this.endTurn();
+        }
         break;
       case 'settling': {
         this.settleTotal++;
@@ -349,6 +379,7 @@ export class Game {
     const worm = this.activeWorm;
     if (worm) worm.control = { left: false, right: false, up: false, down: false };
     this.charging = false;
+    this.controlledId = 0;
     this.phase = 'settling';
     this.settleTicks = 0;
     this.settleTotal = 0;
@@ -500,5 +531,6 @@ export class Game {
       .u32(this.turn)
       .u32(this.activeTeam + 1);
     h.u32(this.activeWormId).str(this.weaponId).f64(this.power).bool(this.charging);
+    h.u32(this.controlledId);
   }
 }

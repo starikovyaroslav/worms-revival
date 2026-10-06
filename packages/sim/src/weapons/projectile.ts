@@ -30,6 +30,10 @@ export interface ProjectileSpec {
   friction?: number;
   blast: BlastSpec;
   cluster?: ClusterSpec;
+  /** Only explode once the fuse is out AND it stopped moving (Holy Hand Grenade). */
+  waitForRest?: boolean;
+  /** Sound played, followed by a pause of `ticks`, before the explosion ("Hallelujah!"). */
+  preSound?: { id: string; ticks: number };
 }
 
 /** Ticks during which a projectile ignores the worm that fired it. */
@@ -43,6 +47,9 @@ export class Projectile extends PhysBody {
   fuseLeft: number;
   age = 0;
   ownerId: number;
+  private fuseOut = false;
+  /** Ticks of dramatic pause before the explosion, -1 when not started. */
+  private finale = -1;
 
   constructor(
     x: number,
@@ -74,9 +81,25 @@ export class Projectile extends PhysBody {
 
   override update(world: World): void {
     this.age++;
-    if (this.fuseLeft > 0 && --this.fuseLeft === 0) {
-      this.detonate(world);
-      return;
+    if (this.finale > 0) {
+      if (--this.finale === 0) {
+        this.detonate(world);
+        return;
+      }
+    } else if (this.fuseLeft > 0 && --this.fuseLeft === 0) {
+      this.fuseLeft = -1;
+      this.fuseOut = true;
+    }
+    if (this.fuseOut && this.finale < 0 && (!this.spec.waitForRest || this.resting)) {
+      const pre = this.spec.preSound;
+      if (pre) {
+        // Pause for effect ("Hallelujah!"), then go bang.
+        world.emit({ type: 'sound', id: pre.id, x: this.x, y: this.y });
+        this.finale = pre.ticks;
+      } else {
+        this.detonate(world);
+        return;
+      }
     }
     super.update(world);
     if (this.removed || this.spec.impact !== 'explode') return;

@@ -46,6 +46,10 @@ export const INTERMEDIATE: Scheme = {
     dynamite: w(1),
     mine: w(2),
     airstrike: w(1, 3, 2),
+    banana: w(1, 3, 3),
+    hhg: w(1, 3, 3),
+    sheep: w(1),
+    supersheep: w(1, 3, 2),
   },
 };
 

@@ -3,3 +3,4 @@ import './artillery';
 import './melee';
 import './placed';
 import './strikes';
+import './specials';

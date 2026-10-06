@@ -21,6 +21,22 @@ export interface FireContext {
   upgrades: Upgrades;
   /** Ask the camera to follow an entity. */
   focus(entityId: number): void;
+  /** Hand the controls over to an entity (sheep): fire and arrows go to it until it is gone. */
+  control(entityId: number): void;
+}
+
+/** Entities the player keeps controlling after the shot (sheep, super sheep). */
+export interface RemoteControlled {
+  /** Fire pressed again. */
+  remoteFire(world: World): void;
+  /** Arrow keys while in control. */
+  steer?(left: boolean, right: boolean): void;
+  /** The turn timer ran out while still in control. */
+  timeout?(world: World): void;
+}
+
+export function isRemoteControlled(e: unknown): e is RemoteControlled {
+  return typeof (e as RemoteControlled | undefined)?.remoteFire === 'function';
 }
 
 export interface WeaponDef {
