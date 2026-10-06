@@ -1,5 +1,5 @@
 import { Container, Graphics } from 'pixi.js';
-import { Barrel, Flame, Gravestone, Mine, Projectile, type Entity } from '@wr/sim';
+import { Barrel, Flame, Gravestone, Mine, Projectile, Sheep, type Entity } from '@wr/sim';
 import { TEAM_COLORS } from './wormView';
 
 const OUTLINE = 0x1a1a1a;
@@ -46,6 +46,24 @@ class ProjectileView implements EntityView {
         g.roundRect(-2.5, -5, 5, 10, 1).fill(0xc0392b).stroke({ color: OUTLINE, width: 1 });
         g.rect(-2.5, -1.5, 5, 1.5).fill(0xf0d080);
         g.moveTo(0, -5).quadraticCurveTo(2, -8, 1, -10).stroke({ color: 0x333333, width: 1 });
+        break;
+      case 'banana':
+      case 'bananalet': {
+        const k = this.p.look === 'banana' ? 1 : 0.7;
+        g.moveTo(-5 * k, -2 * k)
+          .quadraticCurveTo(0, 5 * k, 5 * k, -2 * k)
+          .quadraticCurveTo(0, 2 * k, -5 * k, -2 * k)
+          .closePath()
+          .fill(0xffe135)
+          .stroke({ color: OUTLINE, width: 1 });
+        g.circle(5 * k, -2 * k, 0.9).fill(0x5a3a10);
+        break;
+      }
+      case 'hhg':
+        g.circle(0, 0, 4.5).fill(0xf2c230).stroke({ color: OUTLINE, width: 1 });
+        g.rect(-0.8, -9, 1.6, 5).fill(0xf2c230);
+        g.rect(-2.5, -7.5, 5, 1.4).fill(0xf2c230);
+        g.circle(-1.5, -1.5, 1.3).fill({ color: 0xffffff, alpha: 0.6 });
         break;
       case 'clusterlet':
         g.circle(0, 0, 2.2).fill(0x5a2020).stroke({ color: OUTLINE, width: 0.8 });
@@ -170,6 +188,64 @@ class FlameView implements EntityView {
   }
 }
 
+class SheepView implements EntityView {
+  readonly container = new Container();
+  private body = new Graphics();
+  private t = 0;
+
+  constructor(private readonly s: Sheep) {
+    this.container.addChild(this.body);
+  }
+
+  update(alpha: number, dtMs: number): void {
+    const s = this.s;
+    place(this.container, s, alpha);
+    this.t += dtMs / 1000;
+    const g = this.body.clear();
+    const flying = s.mode === 'fly';
+    // Fluffy body: a cluster of white puffs.
+    const bob = flying ? 0 : Math.abs(Math.sin(this.t * 14)) * 1.2;
+    for (const [x, y, r] of [
+      [-3, -1, 3.5],
+      [0, -2.5, 3.8],
+      [3, -1, 3.5],
+      [0, 0.5, 3.5],
+    ] as const) {
+      g.circle(x, y - bob, r + 0.9).fill(OUTLINE);
+    }
+    for (const [x, y, r] of [
+      [-3, -1, 3.5],
+      [0, -2.5, 3.8],
+      [3, -1, 3.5],
+      [0, 0.5, 3.5],
+    ] as const) {
+      g.circle(x, y - bob, r).fill(0xf8f8f0);
+    }
+    // Head and legs.
+    g.ellipse(5.5, -2.5 - bob, 2.6, 2).fill(0x2a2a2a);
+    g.circle(6.3, -3 - bob, 0.7).fill(0xffffff);
+    if (!flying) {
+      const step = Math.sin(this.t * 14) * 1.2;
+      g.rect(-3 + step, 2.5 - bob, 1.2, 3).fill(0x2a2a2a);
+      g.rect(2 - step, 2.5 - bob, 1.2, 3).fill(0x2a2a2a);
+    } else {
+      // Super Sheep cape.
+      g.moveTo(-2, -4)
+        .lineTo(-9, -6 + Math.sin(this.t * 20) * 2)
+        .lineTo(-8, 0)
+        .closePath()
+        .fill(0xd02020);
+    }
+    if (flying) {
+      this.container.rotation = s.heading;
+      this.container.scale.set(1, 1);
+    } else {
+      this.container.rotation = 0;
+      this.container.scale.set(s.dir, 1);
+    }
+  }
+}
+
 /** Creates a view for a non-worm entity, or null if it has no visual. */
 export function createEntityView(e: Entity): EntityView | null {
   if (e instanceof Projectile) return new ProjectileView(e);
@@ -177,5 +253,6 @@ export function createEntityView(e: Entity): EntityView | null {
   if (e instanceof Mine) return new MineView(e);
   if (e instanceof Barrel) return new BarrelView(e);
   if (e instanceof Flame) return new FlameView(e);
+  if (e instanceof Sheep) return new SheepView(e);
   return null;
 }
