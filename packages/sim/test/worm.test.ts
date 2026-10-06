@@ -108,6 +108,20 @@ describe('Worm', () => {
     expect(blasted.state).toBe('idle');
   });
 
+  it('comes to rest on steep slopes instead of jittering in the air', () => {
+    const t = new Terrain(400, 400);
+    // A 60° slope: x + y/2 >= 250 is solid.
+    for (let y = 0; y < 400; y++)
+      for (let x = 0; x < 400; x++) if (x * 2 + y >= 500) t.set(x, y, Material.Soil);
+    const w = new World({ seed: 1, terrain: t, waterLevel: 390 });
+    for (const sx of [150, 170, 190]) {
+      const worm = w.spawn(new Worm(sx, 100, 'A', 0, 100));
+      worm.launch(0, 0, false);
+    }
+    run(w, 300);
+    for (const worm of w.ofKind<Worm>('worm')) expect(worm.state).toBe('idle');
+  });
+
   it('drowns in water', () => {
     const t = new Terrain(400, 400);
     const w = new World({ seed: 1, terrain: t, waterLevel: 300 });

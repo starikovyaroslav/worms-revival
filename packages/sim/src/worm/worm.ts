@@ -66,6 +66,7 @@ export class Worm extends Entity {
   private jumpTimer = 0;
   /** Ticks since the worm last stood still on the ground. */
   airTicks = 0;
+  private stuckTicks = 0;
 
   constructor(x: number, y: number, name: string, team: number, health: number) {
     super(x, y);
@@ -101,7 +102,7 @@ export class Worm extends Entity {
   private onGround(world: World): boolean {
     const t = world.terrain;
     const y = Math.floor(this.y) + 1;
-    for (let dx = -WORM_HALF_W + 1; dx <= WORM_HALF_W - 1; dx++) {
+    for (let dx = -WORM_HALF_W; dx <= WORM_HALF_W; dx++) {
       if (t.isSolid(this.x + dx, y)) return true;
     }
     return false;
@@ -208,6 +209,21 @@ export class Worm extends Entity {
   }
 
   private fly(world: World): void {
+    const startX = this.x;
+    const startY = this.y;
+    if (this.flyStep(world)) {
+      // Pinned against terrain without making progress (resting on a steep slope or wedged in
+      // a gap): settle after a few ticks instead of jittering forever.
+      const moved = Math.abs(this.x - startX) + Math.abs(this.y - startY);
+      this.stuckTicks = moved < 0.3 ? this.stuckTicks + 1 : 0;
+      if (this.stuckTicks >= 3 && this.state === 'airborne') this.land(world, true);
+    } else {
+      this.stuckTicks = 0;
+    }
+  }
+
+  /** Integrates one tick of flight. Returns true if the worm hit terrain. */
+  private flyStep(world: World): boolean {
     const g = world.physics.gravity;
     this.vy += g;
     const max = world.physics.maxSpeed;
@@ -227,10 +243,10 @@ export class Worm extends Entity {
         this.y = ny;
         continue;
       }
-      // Try sliding along one axis before treating it as a real impact.
       this.collide(world, nx, ny);
-      return;
+      return true;
     }
+    return false;
   }
 
   private collide(world: World, nx: number, ny: number): void {
@@ -260,13 +276,18 @@ export class Worm extends Entity {
     }
     if (-vn > 2) world.emit({ type: 'sound', id: 'worm-bounce', x: this.x, y: this.y });
 
-    if (groundLike && Math.abs(this.vx) + Math.abs(this.vy) < SETTLE_SPEED) {
+    // Come to rest once slow enough, even against a steep slope or an edge, as long as
+    // something supports the worm from below.
+    if (
+      Math.abs(this.vx) + Math.abs(this.vy) < SETTLE_SPEED &&
+      (groundLike || this.onGround(world))
+    ) {
       this.land(world);
     }
   }
 
-  /** Snaps the worm onto the ground below it and stops. */
-  private land(world: World): void {
+  /** Snaps the worm onto the ground below it and stops. `force` settles even without support. */
+  private land(world: World, force = false): void {
     this.vx = 0;
     this.vy = 0;
     // Resolve any overlap by lifting, then settle down onto the surface.
@@ -275,7 +296,7 @@ export class Worm extends Entity {
     guard = 0;
     while (!this.bodyCollides(world, this.x, this.y + 1) && guard++ < 3) this.y++;
     this.y = Math.floor(this.y);
-    if (!this.onGround(world)) {
+    if (!force && !this.onGround(world)) {
       // Still not supported (landed on a steep edge): keep falling.
       this.state = 'airborne';
       return;
@@ -305,6 +326,7 @@ export class Worm extends Entity {
       .u32(this.walkFrame)
       .bool(this.blasted)
       .u32(this.jumpTimer)
+      .u32(this.stuckTicks)
       .f64(this.pendingDamage)
       .bool(this.poisoned);
   }
