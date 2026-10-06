@@ -16,3 +16,6 @@ export * from './weapons/weapon';
 export * from './game/commands';
 export * from './game/scheme';
 export * from './game/game';
+export * from './weapons/projectile';
+export * from './weapons/blast';
+export * from './weapons/defs';
