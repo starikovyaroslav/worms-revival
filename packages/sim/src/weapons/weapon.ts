@@ -1,0 +1,70 @@
+import type { Upgrades, WeaponSetting } from '../game/scheme';
+import type { World } from '../world/world';
+import type { Worm } from '../worm/worm';
+
+/** How the player points the weapon. */
+export type AimMode = 'angle' | 'target' | 'none';
+
+export interface FireContext {
+  world: World;
+  worm: Worm;
+  /** Unit aim direction (screen coordinates: y grows downwards). */
+  dirX: number;
+  dirY: number;
+  /** Charge 0..1 for charged weapons, 1 otherwise. */
+  power: number;
+  /** Fuse in ticks. */
+  fuse: number;
+  bounceHigh: boolean;
+  target: { x: number; y: number } | null;
+  setting: WeaponSetting;
+  upgrades: Upgrades;
+  /** Ask the camera to follow an entity. */
+  focus(entityId: number): void;
+}
+
+export interface WeaponDef {
+  id: string;
+  name: string;
+  /** Panel position: row 0 = utilities, 1..12 = F1..F12; column 0..4. */
+  row: number;
+  col: number;
+  aim: AimMode;
+  /** Hold fire to charge the power bar. */
+  charge: boolean;
+  /** Fuse (1-5 s) and bounce settings apply. */
+  fuse?: boolean;
+  bounce?: boolean;
+  /** Shots per turn (shotgun: 2). */
+  shots?: number;
+  /** Retreat time override in seconds. */
+  retreat?: number;
+  /** False for tools that don't end the turn (girder starter pack, utilities). */
+  endsTurn?: boolean;
+  /** Needs open sky (air strikes): unavailable on cavern maps. */
+  needsSky?: boolean;
+  /** Can be fired while airborne (from a rope, parachute or jet pack). */
+  airborne?: boolean;
+  fire(ctx: FireContext): void;
+}
+
+const registry = new Map<string, WeaponDef>();
+
+export function registerWeapon(def: WeaponDef): WeaponDef {
+  registry.set(def.id, def);
+  return def;
+}
+
+export function getWeapon(id: string): WeaponDef | undefined {
+  return registry.get(id);
+}
+
+/** All registered weapons in panel order. */
+export function allWeapons(): WeaponDef[] {
+  return [...registry.values()].sort((a, b) => a.row - b.row || a.col - b.col);
+}
+
+/** Damage and size multiplier for the scheme's 1..5 power stars (3 = standard). */
+export function powerScale(level: number): number {
+  return [0.5, 0.75, 1, 1.25, 1.5][Math.min(4, Math.max(0, level - 1))] as number;
+}

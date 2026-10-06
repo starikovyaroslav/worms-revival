@@ -51,6 +51,8 @@ export class Worm extends Entity {
   name: string;
   team: number;
   health: number;
+  /** Health shown on the label; catches up with `health` at the end of each turn (W:A). */
+  shownHealth: number;
   state: WormState = 'idle';
   /** 1 = facing right, -1 = facing left. */
   facing: 1 | -1 = 1;
@@ -74,6 +76,7 @@ export class Worm extends Entity {
     this.name = name;
     this.team = team;
     this.health = health;
+    this.shownHealth = health;
   }
 
   get alive(): boolean {
@@ -335,6 +338,7 @@ export class Worm extends Entity {
     h.str(this.state)
       .u32(this.team)
       .f64(this.health)
+      .f64(this.shownHealth)
       .f64(this.aim)
       .u32(this.facing === 1 ? 1 : 0)
       .u32(this.walkFrame)
