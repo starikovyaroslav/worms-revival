@@ -129,16 +129,16 @@ export class TerrainView {
             g = g * 0.35 + s[1] * 0.65;
             b = b * 0.35 + s[2] * 0.65;
           } else {
-            // Surface layer: soil with open sky a few pixels above becomes grass/sand/snow.
+            // Surface layer: original soil with open sky a few pixels above becomes
+            // grass/sand/snow. Freshly blasted surfaces (scorched rim) stay bare.
             let depth = 0;
-            while (
-              depth < SURFACE_DEPTH &&
-              t.data[(y - depth - 1) * t.width + x] !== Material.Air &&
-              y - depth - 1 >= 0
-            ) {
+            let above: number = Material.Soil;
+            while (depth < SURFACE_DEPTH && y - depth - 1 >= 0) {
+              above = t.data[(y - depth - 1) * t.width + x] as number;
+              if (above !== Material.Soil) break;
               depth++;
             }
-            if (depth < SURFACE_DEPTH && y - depth - 1 >= 0) {
+            if (depth < SURFACE_DEPTH && y - depth - 1 >= 0 && above === Material.Air) {
               const k = depth / SURFACE_DEPTH;
               const top = th.surfaceRgb;
               const bot = th.surfaceDarkRgb;
