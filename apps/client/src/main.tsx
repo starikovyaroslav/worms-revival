@@ -1,4 +1,6 @@
 import { Application } from 'pixi.js';
+import { render } from 'preact';
+import { Hud, type Announcement } from './ui/Hud';
 import { Game, Rng, WORM_H, WORM_HALF_W } from '@wr/sim';
 import { findSurfaces, generateMap, pickSpread } from '@wr/mapgen';
 import { TEAM_PRESETS, schemeById } from '@wr/content';
@@ -79,6 +81,21 @@ async function boot() {
     },
     { passive: false },
   );
+
+  let announcements: Announcement[] = [];
+  let nextAnnouncement = 1;
+  const ui = document.getElementById('ui')!;
+  const renderHud = () => render(<Hud game={game} announcements={announcements} />, ui);
+  scene.onMessage = (text) => {
+    const a = { id: nextAnnouncement++, text };
+    announcements = [...announcements, a];
+    renderHud();
+    setTimeout(() => {
+      announcements = announcements.filter((x) => x !== a);
+      renderHud();
+    }, 3000);
+  };
+  renderHud();
 
   (window as unknown as { __game: unknown }).__game = { game, scene };
 

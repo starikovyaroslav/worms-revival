@@ -29,6 +29,7 @@ export class GameScene {
   private entities = new Map<number, EntityView>();
   /** Pause camera following after the user scrolls manually. */
   userScrolled = false;
+  onMessage: (text: string) => void = () => {};
 
   constructor(
     private readonly app: Application,
@@ -102,6 +103,9 @@ export class GameScene {
           }
           break;
         }
+        case 'message':
+          this.onMessage(ev.text);
+          break;
         default:
           break;
       }

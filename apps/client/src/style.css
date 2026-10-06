@@ -22,3 +22,178 @@ body {
   inset: 0;
   pointer-events: none;
 }
+
+/* ---------- HUD ---------- */
+
+.hud {
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  text-shadow:
+    0 0 3px #000,
+    1px 1px 0 #000;
+}
+
+.hud-bottom {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.timer-box {
+  background: rgba(10, 14, 30, 0.75);
+  border: 2px solid #fff;
+  border-radius: 8px;
+  padding: 2px 12px 4px;
+  min-width: 52px;
+  text-align: center;
+}
+
+.timer {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.timer.urgent {
+  color: #ff4040;
+  animation: pulse 0.5s infinite alternate;
+}
+
+.timer.waiting {
+  opacity: 0.6;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(1.15);
+  }
+}
+
+.round {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.round.sd {
+  color: #ff5050;
+  font-weight: bold;
+}
+
+.teams {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.team.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.team-name {
+  font-size: 13px;
+  font-weight: bold;
+  width: 170px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-bar {
+  height: 12px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  transition: width 0.8s ease;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.right-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.weapon {
+  background: rgba(10, 14, 30, 0.75);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 14px;
+}
+
+.wind {
+  display: flex;
+  width: 200px;
+  height: 14px;
+  background: rgba(10, 14, 30, 0.75);
+  border: 2px solid #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.wind-half {
+  flex: 1;
+  display: flex;
+}
+
+.wind-half.left {
+  justify-content: flex-end;
+  border-right: 1px solid #fff8;
+}
+
+.wind-bar {
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #4af 0 6px, #8cf 6px 12px);
+  animation: wind-flow 0.6s linear infinite;
+}
+
+.wind-half.left .wind-bar {
+  animation-direction: reverse;
+}
+
+@keyframes wind-flow {
+  to {
+    background-position: 12px 0;
+  }
+}
+
+.announcements {
+  position: absolute;
+  top: 18%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.announcement {
+  font-size: 34px;
+  font-weight: bold;
+  color: #ffe14a;
+  animation: pop 0.35s ease-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
