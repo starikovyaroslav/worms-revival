@@ -29,17 +29,23 @@ async function boot() {
   const scheme = schemeById(params.get('scheme') ?? 'intermediate');
   const map = generateMap({ seed, style });
   const teamCount = 2;
-  const spawns = pickSpread(
-    findSurfaces(map.terrain, {
-      halfWidth: WORM_HALF_W,
-      height: WORM_H,
-      waterMargin: 40,
-      waterLevel: map.waterLevel,
-    }),
-    scheme.wormsPerTeam * teamCount,
-    150,
-    new Rng(seed ^ 0x5eed),
-  );
+  const surfaces = findSurfaces(map.terrain, {
+    halfWidth: WORM_HALF_W,
+    height: WORM_H,
+    waterMargin: 40,
+    waterLevel: map.waterLevel,
+  });
+  const placeRng = new Rng(seed ^ 0x5eed);
+  const wormCount = scheme.wormsPerTeam * teamCount;
+  const picks = pickSpread(surfaces, wormCount + scheme.mines + scheme.barrels, 70, placeRng);
+  // Worms get the most spread-out spots; objects fill in between.
+  const spawns = pickSpread(picks, wormCount, 150, placeRng);
+  const rest = picks.filter((p) => !spawns.includes(p));
+  const objects = rest.slice(0, scheme.mines + scheme.barrels).map((p, i) => ({
+    kind: i < scheme.mines ? ('mine' as const) : ('barrel' as const),
+    x: p.x,
+    y: p.y,
+  }));
   const teams = new Rng(seed).shuffle(TEAM_PRESETS.slice()).slice(0, teamCount);
   const game = new Game({
     seed,
@@ -48,6 +54,7 @@ async function boot() {
     terrain: map.terrain,
     waterLevel: map.waterLevel,
     spawns,
+    objects,
     cavern: style === 'cavern',
   });
 

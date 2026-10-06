@@ -1,5 +1,5 @@
 import { Container, Graphics } from 'pixi.js';
-import { Gravestone, Projectile, type Entity } from '@wr/sim';
+import { Barrel, Flame, Gravestone, Mine, Projectile, type Entity } from '@wr/sim';
 import { TEAM_COLORS } from './wormView';
 
 const OUTLINE = 0x1a1a1a;
@@ -41,6 +41,11 @@ class ProjectileView implements EntityView {
       case 'cluster':
         g.circle(0, 0, 4).fill(0xc0392b).stroke({ color: OUTLINE, width: 1 });
         g.circle(-1.3, -1.3, 1.2).fill({ color: 0xffffff, alpha: 0.5 });
+        break;
+      case 'dynamite':
+        g.roundRect(-2.5, -5, 5, 10, 1).fill(0xc0392b).stroke({ color: OUTLINE, width: 1 });
+        g.rect(-2.5, -1.5, 5, 1.5).fill(0xf0d080);
+        g.moveTo(0, -5).quadraticCurveTo(2, -8, 1, -10).stroke({ color: 0x333333, width: 1 });
         break;
       case 'clusterlet':
         g.circle(0, 0, 2.2).fill(0x5a2020).stroke({ color: OUTLINE, width: 0.8 });
@@ -90,9 +95,87 @@ class GravestoneView implements EntityView {
   }
 }
 
+/** Interpolated position helper. */
+function place(c: Container, e: Entity, alpha: number): void {
+  c.position.set(e.prevX + (e.x - e.prevX) * alpha, e.prevY + (e.y - e.prevY) * alpha);
+}
+
+class MineView implements EntityView {
+  readonly container = new Container();
+  private light = new Graphics();
+  private t = 0;
+
+  constructor(private readonly m: Mine) {
+    const g = new Graphics();
+    g.ellipse(0, 1, 5, 3.2).fill(0x30343a).stroke({ color: OUTLINE, width: 1 });
+    g.rect(-1, -3.5, 2, 2).fill(0x555555);
+    this.container.addChild(g, this.light);
+  }
+
+  update(alpha: number, dtMs: number): void {
+    place(this.container, this.m, alpha);
+    this.t += dtMs / 1000;
+    const m = this.m;
+    // Slow blink when armed, frantic when triggered, nothing for a fizzled dud.
+    const rate = m.triggered ? 10 : 1.5;
+    const on = m.armed && Math.sin(this.t * rate * Math.PI) > 0;
+    this.light.clear();
+    if (on) this.light.circle(0, -0.5, 1.4).fill(0xff2020);
+    else if (m.spent) this.light.circle(0, -0.5, 1.2).fill(0x444444);
+  }
+}
+
+class BarrelView implements EntityView {
+  readonly container = new Container();
+
+  constructor(private readonly b: Barrel) {
+    const g = new Graphics();
+    g.roundRect(-5.5, -7, 11, 14, 2).fill(0xb83a2a).stroke({ color: OUTLINE, width: 1 });
+    g.rect(-5.5, -3.5, 11, 1.4).fill(0x6a1a12);
+    g.rect(-5.5, 2.5, 11, 1.4).fill(0x6a1a12);
+    g.rect(-3.5, -6, 2, 12).fill({ color: 0xffffff, alpha: 0.18 });
+    // Flame warning sign.
+    g.moveTo(0, -2).lineTo(2, 1.5).lineTo(-2, 1.5).closePath().fill(0xffd23a);
+    this.container.addChild(g);
+  }
+
+  update(alpha: number): void {
+    place(this.container, this.b, alpha);
+  }
+}
+
+class FlameView implements EntityView {
+  readonly container = new Container();
+  private g = new Graphics();
+  private t = Math.random() * 10;
+
+  constructor(private readonly f: Flame) {
+    this.container.addChild(this.g);
+  }
+
+  update(alpha: number, dtMs: number): void {
+    place(this.container, this.f, alpha);
+    this.t += dtMs / 1000;
+    const flicker = 0.75 + Math.sin(this.t * 25) * 0.25;
+    const fade = Math.min(1, this.f.life / 40);
+    const r = 3.5 * flicker * (0.5 + fade * 0.5);
+    this.g
+      .clear()
+      .circle(0, -r * 0.6, r * 1.3)
+      .fill({ color: 0xff5a10, alpha: 0.55 * fade })
+      .circle(0, -r * 0.5, r)
+      .fill({ color: 0xffb030, alpha: 0.9 * fade })
+      .circle(0, -r * 0.3, r * 0.5)
+      .fill({ color: 0xfff0a0, alpha: fade });
+  }
+}
+
 /** Creates a view for a non-worm entity, or null if it has no visual. */
 export function createEntityView(e: Entity): EntityView | null {
   if (e instanceof Projectile) return new ProjectileView(e);
   if (e instanceof Gravestone) return new GravestoneView(e);
+  if (e instanceof Mine) return new MineView(e);
+  if (e instanceof Barrel) return new BarrelView(e);
+  if (e instanceof Flame) return new FlameView(e);
   return null;
 }
