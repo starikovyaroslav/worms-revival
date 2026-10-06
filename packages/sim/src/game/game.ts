@@ -1,7 +1,9 @@
 import { Hasher } from '../core/hash';
 import { HALF_PI, cos, sin } from '../core/math';
 import type { Terrain } from '../terrain/terrain';
+import { Barrel } from '../weapons/barrel';
 import { explode } from '../weapons/explosion';
+import { Mine } from '../weapons/mine';
 import { getWeapon, type WeaponDef } from '../weapons/weapon';
 import { Gravestone } from '../world/gravestone';
 import { World } from '../world/world';
@@ -37,6 +39,8 @@ export interface GameSetup {
   /** Spawn points for worms, used in order (team-interleaved). */
   spawns: { x: number; y: number }[];
   cavern?: boolean;
+  /** Mines and oil drums scattered at the start. */
+  objects?: { kind: 'mine' | 'barrel'; x: number; y: number }[];
 }
 
 export class Team {
@@ -116,6 +120,19 @@ export class Game {
         worm.launch(0, 0, false);
         (this.teams[ti] as Team).wormIds.push(worm.id);
       });
+    }
+    for (const o of setup.objects ?? []) {
+      if (o.kind === 'mine') {
+        this.world.spawn(
+          new Mine(o.x, o.y - 3, {
+            armTicks: 0,
+            fuseTicks: this.scheme.mineFuse < 0 ? -1 : this.scheme.mineFuse * TPS,
+            dudsAllowed: this.scheme.duds,
+          }),
+        );
+      } else {
+        this.world.spawn(new Barrel(o.x, o.y - 6));
+      }
     }
     // Teams start in a random order.
     this.activeTeam = this.world.rng.int(0, this.teams.length - 1) - 1;
