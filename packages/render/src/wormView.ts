@@ -27,7 +27,7 @@ export class WormView {
       fontSize: 13,
       fontWeight: 'bold' as const,
       fill: color,
-      stroke: { color: 0x000000, width: 3 },
+      stroke: { color: 0x000000, width: 3, join: 'round' as const },
     };
     this.nameText = new Text({ text: worm.name, style });
     this.hpText = new Text({ text: String(worm.health), style });

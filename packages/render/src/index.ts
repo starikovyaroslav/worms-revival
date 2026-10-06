@@ -5,3 +5,6 @@ export * from './camera';
 export * from './background';
 export * from './water';
 export * from './wormView';
+export * from './entityViews';
+export * from './aimView';
+export * from './fx';
