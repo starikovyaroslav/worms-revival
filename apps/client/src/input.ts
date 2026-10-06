@@ -89,7 +89,10 @@ export class Input {
     const game = this.game();
     const usable = allWeapons().filter((w) => w.row === row && game.canUse(w.id));
     if (!usable.length) return;
-    const idx = usable.findIndex((w) => w.id === game.weaponId);
+    // Count selections still waiting in the queue, so fast repeated presses keep cycling.
+    const pending = this.queue.filter((c) => c.t === 'select').pop();
+    const current = pending?.t === 'select' ? pending.weapon : game.weaponId;
+    const idx = usable.findIndex((w) => w.id === current);
     const next = usable[(idx + 1) % usable.length]!;
     this.queue.push({ t: 'select', weapon: next.id });
   }
