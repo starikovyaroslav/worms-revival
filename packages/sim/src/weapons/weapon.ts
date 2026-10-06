@@ -61,6 +61,18 @@ export interface WeaponDef {
   needsSky?: boolean;
   /** Can be fired while airborne (from a rope, parachute or jet pack). */
   airborne?: boolean;
+  /** Can only be used while airborne (parachute). */
+  airborneOnly?: boolean;
+  /** Turn-control items handled by the game itself. */
+  action?: 'skip' | 'surrender';
+  /** Rejects bad targets (teleporting into rock) before anything is spent. */
+  validTarget?(
+    world: World,
+    worm: Worm,
+    target: { x: number; y: number },
+    dirX: number,
+    dirY: number,
+  ): boolean;
   fire(ctx: FireContext): void;
 }
 

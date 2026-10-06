@@ -4,3 +4,4 @@ import './melee';
 import './placed';
 import './strikes';
 import './specials';
+import './tools';

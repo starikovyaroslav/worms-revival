@@ -50,6 +50,10 @@ export const INTERMEDIATE: Scheme = {
     hhg: w(1, 3, 3),
     sheep: w(1),
     supersheep: w(1, 3, 2),
+    girder: w(2),
+    teleport: w(2),
+    skipgo: w(INF, 3, 0, 0),
+    surrender: w(INF, 3, 0, 0),
   },
 };
 
@@ -67,6 +71,8 @@ export const BNG: Scheme = {
   weapons: {
     bazooka: w(INF, 3, 0, 0),
     grenade: w(INF, 3, 0, 0),
+    skipgo: w(INF, 3, 0, 0),
+    surrender: w(INF, 3, 0, 0),
   },
 };
 

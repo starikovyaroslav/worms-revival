@@ -259,12 +259,35 @@ export class Game {
     this.timer = Math.round(this.scheme.turnTime * TPS);
   }
 
+  /** Aim direction of the worm (screen coordinates). */
+  private aimDir(worm: Worm, def: WeaponDef): { x: number; y: number } {
+    if (def.aim === 'none') return { x: worm.facing, y: 0 };
+    return { x: cos(worm.aim) * worm.facing, y: -sin(worm.aim) };
+  }
+
   private pressFire(worm: Worm): void {
     if (this.phase !== 'turn' || this.shotsLeft <= 0) return;
     const def = this.weapon;
     if (!def || !this.canUse(def.id)) return;
-    if (!worm.grounded && !def.airborne) return;
-    if (def.aim === 'target' && !this.target) return;
+    if (def.action === 'skip') {
+      this.endTurn();
+      return;
+    }
+    if (def.action === 'surrender') {
+      this.handle({ t: 'surrender' });
+      return;
+    }
+    if (def.airborneOnly ? worm.grounded : !worm.grounded && !def.airborne) return;
+    if (def.aim === 'target') {
+      const d = this.aimDir(worm, def);
+      if (
+        !this.target ||
+        (def.validTarget && !def.validTarget(this.world, worm, this.target, d.x, d.y))
+      ) {
+        this.world.emit({ type: 'sound', id: 'nope', x: worm.x, y: worm.y });
+        return;
+      }
+    }
     if (def.charge) {
       this.charging = true;
       this.power = 0;
@@ -278,13 +301,12 @@ export class Game {
     this.charging = false;
     if (!def) return;
     const team = this.teams[this.activeTeam] as Team;
-    const dirX = cos(worm.aim) * worm.facing;
-    const dirY = -sin(worm.aim);
+    const dir = this.aimDir(worm, def);
     def.fire({
       world: this.world,
       worm,
-      dirX: def.aim === 'angle' ? dirX : worm.facing,
-      dirY: def.aim === 'angle' ? dirY : 0,
+      dirX: dir.x,
+      dirY: dir.y,
       power: Math.max(0.05, Math.min(1, power)),
       fuse: this.fuseSeconds * TPS,
       bounceHigh: this.bounceHigh,
