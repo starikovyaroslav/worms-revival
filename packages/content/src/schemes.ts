@@ -39,6 +39,10 @@ export const INTERMEDIATE: Scheme = {
     bazooka: w(INF),
     grenade: w(INF),
     cluster: w(5),
+    shotgun: w(INF),
+    firepunch: w(INF),
+    bat: w(1),
+    prod: w(INF),
   },
 };
 
