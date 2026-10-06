@@ -43,6 +43,9 @@ export const INTERMEDIATE: Scheme = {
     firepunch: w(INF),
     bat: w(1),
     prod: w(INF),
+    dynamite: w(1),
+    mine: w(2),
+    airstrike: w(1, 3, 2),
   },
 };
 

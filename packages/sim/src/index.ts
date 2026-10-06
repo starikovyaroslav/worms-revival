@@ -19,3 +19,4 @@ export * from './game/game';
 export * from './weapons/projectile';
 export * from './weapons/blast';
 export * from './weapons/defs';
+export * from './weapons/mine';
