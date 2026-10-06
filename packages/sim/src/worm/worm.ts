@@ -1,4 +1,5 @@
 import type { Hasher } from '../core/hash';
+import { blastDamage, blastImpulse, type Blast } from '../weapons/explosion';
 import { Entity } from '../world/entity';
 import type { World } from '../world/world';
 
@@ -143,6 +144,19 @@ export class Worm extends Entity {
     this.health -= dealt;
     this.pendingDamage += dealt;
     world.emit({ type: 'damage', wormId: this.id, amount: dealt });
+  }
+
+  override onBlast(world: World, b: Blast): void {
+    if (!this.alive) return;
+    const dx = this.cx - b.x;
+    const dy = this.cy - b.y;
+    // Distance to the body rather than its centre: a direct hit does full damage.
+    const d = Math.sqrt(dx * dx + dy * dy) - WORM_H / 2;
+    const dmg = blastDamage(b, d);
+    if (dmg <= 0) return;
+    this.takeDamage(world, dmg);
+    const v = blastImpulse(b, this.cx, this.cy, dmg);
+    this.push(v.x, v.y);
   }
 
   update(world: World): void {

@@ -9,3 +9,4 @@ export * from './world/entity';
 export * from './world/events';
 export * from './world/world';
 export * from './worm/worm';
+export * from './weapons/explosion';

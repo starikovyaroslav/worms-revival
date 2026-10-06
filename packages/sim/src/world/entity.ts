@@ -1,4 +1,5 @@
 import type { Hasher } from '../core/hash';
+import type { Blast } from '../weapons/explosion';
 import type { World } from './world';
 
 /** Base class for everything that moves or ticks in the world. */
@@ -25,6 +26,9 @@ export abstract class Entity {
   }
 
   abstract update(world: World): void;
+
+  /** Reaction to an explosion nearby (damage, knockback, chain reactions). */
+  onBlast(_world: World, _blast: Blast): void {}
 
   /**
    * True while the entity is still "busy" (flying, fuse burning, sliding).
