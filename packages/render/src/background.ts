@@ -25,12 +25,12 @@ export class Background {
   ) {
     this.container.addChild(this.sky);
     const sky = hex(theme.skyBottom);
-    const ground = hex(theme.soil.dark);
     const count = 3;
     for (let i = 0; i < count; i++) {
       const depth = (i + 1) / (count + 1);
-      // Far layers fade into the sky colour (aerial perspective).
-      const c = mix(sky, ground, 0.25 + depth * 0.35);
+      // Far layers fade into the sky (aerial perspective).
+      const base = hex(theme.hills[i] ?? theme.skyTop);
+      const c = mix(sky, base, 0.45 + depth * 0.5);
       const color = (Math.round(c[0]) << 16) | (Math.round(c[1]) << 8) | Math.round(c[2]);
       const g = new Graphics();
       const width = mapWidth * 2 + 2000;

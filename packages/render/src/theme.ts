@@ -15,6 +15,8 @@ export interface ThemeSpec {
   scorch: number;
   rock: PatternSpec;
   girder: number;
+  /** Background silhouettes, far to near. */
+  hills: [number, number, number];
 }
 
 export interface Theme extends ThemeSpec {
@@ -31,6 +33,7 @@ export interface Theme extends ThemeSpec {
 export const THEMES: ThemeSpec[] = [
   {
     id: 'meadow',
+    hills: [0x5b7fb0, 0x4f8a5a, 0x3f7a3a],
     name: 'Луг',
     skyTop: 0x3b6fb6,
     skyBottom: 0xbfe3f2,
@@ -45,6 +48,7 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'desert',
+    hills: [0xc08060, 0xb87a40, 0x9a6030],
     name: 'Пустыня',
     skyTop: 0xe08a3c,
     skyBottom: 0xf7d9a0,
@@ -59,6 +63,7 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'arctic',
+    hills: [0x7a9cc0, 0xa8c4dc, 0xd0e4f2],
     name: 'Арктика',
     skyTop: 0x1d3557,
     skyBottom: 0x9cc7e6,
@@ -73,6 +78,7 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'hell',
+    hills: [0x3a0a0a, 0x5a1408, 0x2a0606],
     name: 'Преисподняя',
     skyTop: 0x1a0505,
     skyBottom: 0x7a1d0d,
