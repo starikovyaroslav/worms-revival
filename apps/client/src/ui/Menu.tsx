@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { SCHEMES, TEAM_PRESETS, type MatchConfig, type Replay } from '@wr/content';
+import { SCHEMES, SCHEME_INFO, TEAM_PRESETS, type MatchConfig, type Replay } from '@wr/content';
 import { THEMES, TEAM_COLORS } from '@wr/render';
 import { drawMapPreview } from './mapPreview';
 
@@ -162,7 +162,11 @@ export function Menu({ initial, onStart, onReplay }: Props) {
             Схема
             <select
               value={cfg.schemeId}
-              onChange={(e) => set({ schemeId: (e.target as HTMLSelectElement).value })}
+              onChange={(e) => {
+                const schemeId = (e.target as HTMLSelectElement).value;
+                const style = SCHEME_INFO[schemeId]?.style;
+                set(style ? { schemeId, style } : { schemeId });
+              }}
             >
               {SCHEMES.map((s) => (
                 <option value={s.id} key={s.id}>
@@ -171,6 +175,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
               ))}
             </select>
           </label>
+          <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
         </section>
       </div>
       <button class="btn big" onClick={() => onStart(cfg)}>

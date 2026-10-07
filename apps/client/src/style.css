@@ -559,3 +559,10 @@ body {
 .gameover-card .row {
   flex-wrap: wrap;
 }
+
+.scheme-desc {
+  margin: 0;
+  font-size: 12px;
+  max-width: 320px;
+  color: #e0e6ff;
+}
