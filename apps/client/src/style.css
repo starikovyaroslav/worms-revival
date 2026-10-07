@@ -497,3 +497,65 @@ body {
 .gameover-card .row {
   justify-content: center;
 }
+
+/* ---------- Replays ---------- */
+
+.replay-bar {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  pointer-events: auto;
+  background: rgba(10, 14, 30, 0.75);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.replay-badge {
+  color: #ff5050;
+  font-weight: bold;
+  margin-right: 6px;
+  animation: pulse 1s infinite alternate;
+}
+
+.file-btn {
+  display: inline-block;
+}
+
+.gameover-card .row {
+  flex-wrap: wrap;
+}
+
+/* ---------- Replays ---------- */
+
+.replay-bar {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  pointer-events: auto;
+  background: rgba(10, 14, 30, 0.75);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.replay-badge {
+  color: #ff5050;
+  font-weight: bold;
+  margin-right: 6px;
+  animation: pulse 1s infinite alternate;
+}
+
+.file-btn {
+  display: inline-block;
+}
+
+.gameover-card .row {
+  flex-wrap: wrap;
+}

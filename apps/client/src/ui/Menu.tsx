@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { SCHEMES, TEAM_PRESETS, type MatchConfig } from '@wr/content';
+import { SCHEMES, TEAM_PRESETS, type MatchConfig, type Replay } from '@wr/content';
 import { THEMES, TEAM_COLORS } from '@wr/render';
 import { drawMapPreview } from './mapPreview';
 
@@ -19,9 +19,19 @@ export function defaultConfig(): MatchConfig {
 interface Props {
   initial: MatchConfig;
   onStart: (cfg: MatchConfig) => void;
+  onReplay: (replay: Replay) => void;
 }
 
-export function Menu({ initial, onStart }: Props) {
+export function Menu({ initial, onStart, onReplay }: Props) {
+  const openReplay = async (e: Event) => {
+    const file = (e.target as HTMLInputElement).files?.[0];
+    if (!file) return;
+    try {
+      onReplay(JSON.parse(await file.text()) as Replay);
+    } catch {
+      alert('Не удалось прочитать файл повтора');
+    }
+  };
   const [cfg, setCfg] = useState<MatchConfig>(initial);
   const preview = useRef<HTMLCanvasElement>(null);
   const set = (patch: Partial<MatchConfig>) => setCfg((c) => ({ ...c, ...patch }));
@@ -166,6 +176,10 @@ export function Menu({ initial, onStart }: Props) {
       <button class="btn big" onClick={() => onStart(cfg)}>
         В бой!
       </button>
+      <label class="btn small secondary file-btn">
+        Открыть повтор…
+        <input type="file" accept=".wrr,application/json" onChange={openReplay} hidden />
+      </label>
       <p class="controls-help">
         ←→ ходьба · ↑↓ прицел · Enter прыжок (×2 сальто) · Пробел огонь · 1–5 фитиль · ПКМ оружие ·
         F1–F12 ряды оружия

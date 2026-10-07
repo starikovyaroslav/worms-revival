@@ -1,7 +1,13 @@
 import type { Application } from 'pixi.js';
 import { Game, type Command } from '@wr/sim';
 import { Bot, type Plan } from '@wr/ai';
-import { buildGameSetup, type MatchConfig } from '@wr/content';
+import {
+  ReplayPlayer,
+  ReplayRecorder,
+  buildGameSetup,
+  type MatchConfig,
+  type Replay,
+} from '@wr/content';
 import { themeById } from '@wr/render';
 import { FixedLoop } from './loop';
 import { Input } from './input';
@@ -22,14 +28,22 @@ export class Match {
   /** Computer player state for the current turn. */
   private bot: { turn: number; thinking: Generator<void, Plan> | null; plan: Plan | null } | null =
     null;
+  readonly recorder: ReplayRecorder;
+  /** Set when watching a replay instead of playing. */
+  readonly player: ReplayPlayer | null;
+  /** Whether replay playback matched the recording (null until the end is reached). */
+  replayVerified: boolean | null = null;
 
   constructor(
     app: Application,
     readonly config: MatchConfig,
     hooks: MatchHooks,
+    replay?: Replay,
   ) {
-    const game = new Game(buildGameSetup(config));
+    this.player = replay ? new ReplayPlayer(replay) : null;
+    const game = this.player?.game ?? new Game(buildGameSetup(config));
     this.game = game;
+    this.recorder = new ReplayRecorder(config);
     const scene = new GameScene(app, game, themeById(config.themeId), config.seed);
     this.scene = scene;
     scene.camera.zoom = 1.4;
@@ -109,7 +123,7 @@ export class Match {
       },
     );
     this.loop.start();
-    (window as unknown as { __game: unknown }).__game = { game, scene };
+    (window as unknown as { __game: unknown }).__game = { game, scene, match: this };
   }
 
   /** Difficulty of the team whose turn it is, 0 for humans. */
@@ -120,7 +134,24 @@ export class Match {
 
   /** Human input on human turns, the bot's plan on computer turns. */
   private commandsForTick(): Command[] {
+    const cmds = this.nextCommands();
+    this.recorder.record(this.game.world.tick, cmds);
+    return cmds;
+  }
+
+  private nextCommands(): Command[] {
     const game = this.game;
+    if (this.player) {
+      this.input.enabled = false;
+      this.input.drain();
+      if (this.player.done && this.replayVerified === null) {
+        // Reached the end of the recording: the state must match exactly.
+        this.replayVerified = game.hash() === this.player.replay.finalHash;
+        if (!this.replayVerified)
+          console.warn('Replay desync: final state differs from the recording');
+      }
+      return this.player.commands();
+    }
     const human = this.cpuLevel === 0;
     this.input.enabled = human;
     const fromInput = this.input.drain();
@@ -147,6 +178,15 @@ export class Match {
         return;
       }
     }
+  }
+
+  /** Playback speed (replays). */
+  setSpeed(speed: number): void {
+    this.loop.speed = speed;
+  }
+
+  replay(): Replay {
+    return this.recorder.finish(this.game);
   }
 
   destroy(): void {
