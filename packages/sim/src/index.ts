@@ -29,3 +29,4 @@ export * from './weapons/crate';
 export * from './weapons/homing';
 export * from './weapons/pigeon';
 export * from './weapons/gunfire';
+export * from './weapons/arrow';

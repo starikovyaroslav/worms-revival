@@ -1,3 +1,4 @@
+import { Arrow } from '../arrow';
 import { Gunfire, type BurstSpec } from '../gunfire';
 import { powerScale, registerWeapon, type FireContext } from '../weapon';
 
@@ -69,4 +70,32 @@ registerWeapon({
       range: 600,
       sound: 'shot',
     }),
+});
+
+registerWeapon({
+  id: 'longbow',
+  name: 'Longbow',
+  row: 3,
+  col: 4,
+  aim: 'angle',
+  charge: false,
+  shots: 2,
+  fire: (ctx) => {
+    // Can't shoot much below the horizontal.
+    const dirY = Math.min(ctx.dirY, 0.35);
+    const n = Math.sqrt(ctx.dirX * ctx.dirX + dirY * dirY);
+    const speed = 16;
+    const arrow = ctx.world.spawn(
+      new Arrow(
+        ctx.worm.cx + (ctx.dirX / n) * 9,
+        ctx.worm.cy + (dirY / n) * 9,
+        (ctx.dirX / n) * speed,
+        (dirY / n) * speed,
+        (ctx.upgrades.longbow ? 25 : 15) * powerScale(ctx.setting.power),
+        ctx.worm.id,
+      ),
+    );
+    ctx.world.emit({ type: 'sound', id: 'throw', x: arrow.x, y: arrow.y });
+    ctx.focus(arrow.id);
+  },
 });
