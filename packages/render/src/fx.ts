@@ -96,7 +96,8 @@ export class Fx {
     }
   }
 
-  damage(x: number, y: number, amount: number, color: number): void {
+  /** Floating text: damage numbers, crate contents. */
+  damage(x: number, y: number, amount: number | string, color: number): void {
     const text = new Text({
       text: String(amount),
       style: {

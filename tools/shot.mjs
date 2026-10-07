@@ -16,7 +16,11 @@ page.on('pageerror', (e) => logs.push(`[pageerror] ${e.message}`));
 await page.goto(url);
 await page.waitForTimeout(Number(wait));
 for (const action of actions.split(';').filter(Boolean)) {
-  const [kind, a, b] = action.split(':');
+  const sep = action.indexOf(':');
+  const kind = sep < 0 ? action : action.slice(0, sep);
+  const rest = sep < 0 ? '' : action.slice(sep + 1);
+  // Expressions may contain colons; other actions are "a:b".
+  const [a, b] = kind === 'e' ? [rest] : rest.split(':');
   if (kind === 'c' || kind === 's') {
     const [x, y] = a.split(',').map(Number);
     if (kind === 's') await page.keyboard.down('Shift');

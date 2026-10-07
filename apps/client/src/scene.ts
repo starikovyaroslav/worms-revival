@@ -1,5 +1,6 @@
 import { Container, type Application } from 'pixi.js';
 import { Worm, type Game } from '@wr/sim';
+import { weaponInfo } from '@wr/content';
 import {
   AimView,
   TargetView,
@@ -105,6 +106,14 @@ export class GameScene {
           if (worm instanceof Worm) {
             const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
             this.fx.damage(worm.x, worm.y - 40, ev.amount, color);
+          }
+          break;
+        }
+        case 'crate': {
+          const worm = this.game.world.byId(ev.wormId);
+          if (worm instanceof Worm) {
+            const text = ev.text.startsWith('+') ? ev.text : weaponInfo(ev.text).name;
+            this.fx.damage(worm.x, worm.y - 40, text, 0xffffff);
           }
           break;
         }

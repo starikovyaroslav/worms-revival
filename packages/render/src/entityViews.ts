@@ -1,6 +1,7 @@
 import { Container, Graphics } from 'pixi.js';
 import {
   Barrel,
+  Crate,
   DigTool,
   Flame,
   Gravestone,
@@ -315,6 +316,50 @@ class DigToolView implements EntityView {
   }
 }
 
+class CrateView implements EntityView {
+  readonly container = new Container();
+  private chute = new Graphics();
+  private t = Math.random() * 5;
+
+  constructor(private readonly c: Crate) {
+    const g = new Graphics();
+    if (c.content === 'health') {
+      g.roundRect(-7, -7, 14, 14, 2).fill(0xf4f4f4).stroke({ color: OUTLINE, width: 1 });
+      g.rect(-1.8, -5, 3.6, 10).fill(0xd82020);
+      g.rect(-5, -1.8, 10, 3.6).fill(0xd82020);
+    } else {
+      g.roundRect(-7, -7, 14, 14, 2).fill(0x9a6a32).stroke({ color: OUTLINE, width: 1 });
+      g.moveTo(-6, -6)
+        .lineTo(6, 6)
+        .moveTo(6, -6)
+        .lineTo(-6, 6)
+        .stroke({ color: 0x6a4420, width: 1.5 });
+      g.rect(-7, -1, 14, 2).fill(0x6a4420);
+      g.circle(0, 0, 3.2).fill(0xffd23a).stroke({ color: OUTLINE, width: 0.8 });
+    }
+    this.container.addChild(this.chute, g);
+  }
+
+  update(alpha: number, dtMs: number): void {
+    place(this.container, this.c, alpha);
+    this.t += dtMs / 1000;
+    const g = this.chute.clear();
+    if (!this.c.chute) return;
+    // Swaying canopy.
+    const sway = Math.sin(this.t * 2.5) * 3;
+    g.moveTo(-16 + sway, -26)
+      .quadraticCurveTo(sway, -44, 16 + sway, -26)
+      .closePath();
+    g.fill(0xffffff).stroke({ color: OUTLINE, width: 1 });
+    for (const s of [-10, 0, 10]) g.rect(s - 2 + sway, -31, 4, 4).fill(0x3a7ad8);
+    g.moveTo(-16 + sway, -26)
+      .lineTo(-6, -7)
+      .moveTo(16 + sway, -26)
+      .lineTo(6, -7)
+      .stroke({ color: 0x666666, width: 0.6 });
+  }
+}
+
 /** Creates a view for a non-worm entity, or null if it has no visual. */
 export function createEntityView(e: Entity, world: World): EntityView | null {
   if (e instanceof Projectile) return new ProjectileView(e);
@@ -324,6 +369,7 @@ export function createEntityView(e: Entity, world: World): EntityView | null {
   if (e instanceof Flame) return new FlameView(e);
   if (e instanceof Sheep) return new SheepView(e);
   if (e instanceof Rope) return new RopeView(e, world);
+  if (e instanceof Crate) return new CrateView(e);
   if (e instanceof DigTool) return new DigToolView(e);
   return null;
 }
