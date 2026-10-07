@@ -18,26 +18,40 @@ export class Input {
   constructor(
     private readonly game: () => Game,
     target: HTMLElement,
+    signal: AbortSignal,
   ) {
-    window.addEventListener('keydown', (e) => this.onKey(e, true));
-    window.addEventListener('keyup', (e) => this.onKey(e, false));
-    window.addEventListener('blur', () => {
-      this.held = { left: false, right: false, up: false, down: false };
-    });
-    target.addEventListener('pointermove', (e) => {
-      this.mouseWorld = this.toWorld(e.offsetX, e.offsetY);
-    });
-    target.addEventListener('pointerleave', () => (this.mouseWorld = null));
-    target.addEventListener('pointerdown', (e) => {
-      if (e.button !== 0 || e.shiftKey || !this.enabled) return;
-      const def = this.game().weapon;
-      if (def?.aim === 'target') {
-        // Clicking a target uses the weapon right away, as in W:A.
-        const p = this.toWorld(e.offsetX, e.offsetY);
-        this.queue.push({ t: 'target', x: Math.round(p.x), y: Math.round(p.y) });
-        this.queue.push({ t: 'fire', down: true }, { t: 'fire', down: false });
-      }
-    });
+    const opts = { signal };
+    window.addEventListener('keydown', (e) => this.onKey(e, true), opts);
+    window.addEventListener('keyup', (e) => this.onKey(e, false), opts);
+    window.addEventListener(
+      'blur',
+      () => {
+        this.held = { left: false, right: false, up: false, down: false };
+      },
+      opts,
+    );
+    target.addEventListener(
+      'pointermove',
+      (e) => {
+        this.mouseWorld = this.toWorld(e.offsetX, e.offsetY);
+      },
+      opts,
+    );
+    target.addEventListener('pointerleave', () => (this.mouseWorld = null), opts);
+    target.addEventListener(
+      'pointerdown',
+      (e) => {
+        if (e.button !== 0 || e.shiftKey || !this.enabled) return;
+        const def = this.game().weapon;
+        if (def?.aim === 'target') {
+          // Clicking a target uses the weapon right away, as in W:A.
+          const p = this.toWorld(e.offsetX, e.offsetY);
+          this.queue.push({ t: 'target', x: Math.round(p.x), y: Math.round(p.y) });
+          this.queue.push({ t: 'fire', down: true }, { t: 'fire', down: false });
+        }
+      },
+      opts,
+    );
   }
 
   push(cmd: Command): void {

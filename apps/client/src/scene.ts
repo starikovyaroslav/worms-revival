@@ -63,6 +63,12 @@ export class GameScene {
     if (w) this.camera.lookAt(w.x, w.y - 40);
   }
 
+  destroy(): void {
+    this.app.stage.removeChildren();
+    this.background.container.destroy({ children: true });
+    this.world.destroy({ children: true });
+  }
+
   private sync(): void {
     const live = new Set<number>();
     for (const e of this.game.world.all()) {

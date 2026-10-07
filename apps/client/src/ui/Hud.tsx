@@ -27,7 +27,15 @@ function formatClock(sec: number) {
   return `${m}:${String(s).padStart(2, '0')}`;
 }
 
-export function Hud({ game, announcements }: { game: Game; announcements: Announcement[] }) {
+export function Hud({
+  game,
+  announcements,
+  onOver,
+}: {
+  game: Game;
+  announcements: Announcement[];
+  onOver?: (over: HudState['over']) => void;
+}) {
   const [s, setS] = useState<HudState>(() => hudState(game));
 
   useEffect(() => {
@@ -39,12 +47,13 @@ export function Hud({ game, announcements }: { game: Game; announcements: Announ
       if (key !== last) {
         last = key;
         setS(next);
+        onOver?.(next.over);
       }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [game]);
+  }, [game, onOver]);
 
   return (
     <div class="hud">

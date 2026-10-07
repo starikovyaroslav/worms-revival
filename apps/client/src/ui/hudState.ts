@@ -20,12 +20,15 @@ export interface HudState {
   teams: TeamBar[];
   maxHp: number;
   weapon: { name: string; fuse: number | null; bounce: string | null } | null;
+  /** Set when the match is over. */
+  over: { winner: string | null; color: string } | null;
 }
 
 const hex = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
 
 export function hudState(game: Game): HudState {
   const def = game.weapon;
+  const winner = game.winner !== null && game.winner >= 0 ? game.teams[game.winner] : undefined;
   const timed = game.phase === 'turn' || game.phase === 'retreat' || game.phase === 'ready';
   return {
     timer: timed ? Math.ceil(game.timer / TPS) : null,
@@ -50,5 +53,14 @@ export function hudState(game: Game): HudState {
           bounce: def.bounce ? (game.bounceHigh ? 'Макс' : 'Мин') : null,
         }
       : null,
+    over:
+      game.phase === 'gameover'
+        ? {
+            winner: winner?.name ?? null,
+            color: winner
+              ? hex(TEAM_COLORS[winner.index % TEAM_COLORS.length] as number)
+              : '#ffffff',
+          }
+        : null,
   };
 }

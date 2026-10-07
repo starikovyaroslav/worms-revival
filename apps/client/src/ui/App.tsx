@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'preact/hooks';
 import type { Game } from '@wr/sim';
 import { Hud, type Announcement } from './Hud';
+import { GameOver } from './GameOver';
+import type { HudState } from './hudState';
 import { WeaponPanel } from './WeaponPanel';
 
 /** Imperative hooks the game loop uses to drive the UI. */
@@ -15,11 +17,14 @@ interface Props {
   game: Game;
   api: Partial<UiApi>;
   onPick: (weaponId: string) => void;
+  onRematch: () => void;
+  onMenu: () => void;
 }
 
-export function App({ game, api, onPick }: Props) {
+export function App({ game, api, onPick, onRematch, onMenu }: Props) {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [panel, setPanel] = useState(false);
+  const [over, setOver] = useState<HudState['over']>(null);
 
   useEffect(() => {
     let next = 1;
@@ -35,7 +40,10 @@ export function App({ game, api, onPick }: Props) {
 
   return (
     <>
-      <Hud game={game} announcements={announcements} />
+      <Hud game={game} announcements={announcements} onOver={setOver} />
+      {over && (
+        <GameOver winner={over.winner} color={over.color} onRematch={onRematch} onMenu={onMenu} />
+      )}
       {panel && (
         <WeaponPanel
           game={game}
