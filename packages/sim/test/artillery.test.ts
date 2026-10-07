@@ -81,3 +81,20 @@ describe('artillery', () => {
     expect(g.world.ofKind<Projectile>('projectile').length).toBe(5);
   });
 });
+
+describe('fast shells', () => {
+  it('hit a worm they would otherwise skip past in one tick', () => {
+    const g = ready();
+    const me = g.activeWorm!;
+    const enemy = g.worms.find((w) => w.team !== me.team)!;
+    enemy.x = me.x + 40;
+    enemy.y = me.y;
+    me.facing = 1;
+    me.aim = 0;
+    g.step([{ t: 'select', weapon: 'bazooka' }]);
+    g.step([{ t: 'fire', down: true }]);
+    for (let i = 0; i < 54; i++) g.step();
+    stepUntil(g, () => g.world.ofKind('projectile').length === 0);
+    expect(enemy.health).toBeLessThan(60);
+  });
+});

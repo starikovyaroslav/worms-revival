@@ -1,5 +1,5 @@
 import type { Hasher } from '../core/hash';
-import { cos, sin } from '../core/math';
+import { cos, segmentDist2, sin } from '../core/math';
 import { PhysBody, type Impact } from '../world/body';
 import type { World } from '../world/world';
 import { Worm } from '../worm/worm';
@@ -105,9 +105,11 @@ export class Projectile extends PhysBody {
     if (this.removed || this.spec.impact !== 'explode') return;
     for (const w of world.ofKind<Worm>('worm')) {
       if (!w.alive || (w.id === this.ownerId && this.age < SAFE_TICKS)) continue;
-      const dx = w.cx - this.x;
-      const dy = w.cy - this.y;
-      if (dx * dx + dy * dy < WORM_HIT_RADIUS * WORM_HIT_RADIUS) {
+      // Swept test: fast shells move further than a worm's width in one tick.
+      if (
+        segmentDist2(this.prevX, this.prevY, this.x, this.y, w.cx, w.cy) <
+        WORM_HIT_RADIUS * WORM_HIT_RADIUS
+      ) {
         this.detonate(world);
         return;
       }

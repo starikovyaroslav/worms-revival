@@ -77,3 +77,21 @@ export function clamp(v: number, lo: number, hi: number): number {
 export function lerp(a: number, b: number, t: number): number {
   return a + (b - a) * t;
 }
+
+/** Squared distance from point (px, py) to the segment (x0, y0)-(x1, y1). */
+export function segmentDist2(
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+  px: number,
+  py: number,
+): number {
+  const dx = x1 - x0;
+  const dy = y1 - y0;
+  const len2 = dx * dx + dy * dy;
+  const t = len2 > 0 ? Math.max(0, Math.min(1, ((px - x0) * dx + (py - y0) * dy) / len2)) : 0;
+  const ex = x0 + dx * t - px;
+  const ey = y0 + dy * t - py;
+  return ex * ex + ey * ey;
+}
