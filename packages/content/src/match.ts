@@ -1,6 +1,7 @@
 import { Rng, WORM_H, WORM_HALF_W, type GameSetup } from '@wr/sim';
 import { findSurfaces, generateMap, pickSpread, type MapStyle } from '@wr/mapgen';
 import { schemeById } from './schemes';
+import { applyWormpot } from './wormpot';
 
 export interface TeamConfig {
   name: string;
@@ -16,11 +17,13 @@ export interface MatchConfig {
   themeId: string;
   schemeId: string;
   teams: TeamConfig[];
+  /** Wormpot modifier ids (up to three). */
+  wormpot?: string[];
 }
 
 /** Builds the deterministic starting state for a match: map, worm spawns, mines and drums. */
 export function buildGameSetup(cfg: MatchConfig): GameSetup {
-  const scheme = schemeById(cfg.schemeId);
+  const scheme = applyWormpot(schemeById(cfg.schemeId), cfg.wormpot ?? []);
   const map = generateMap({ seed: cfg.seed, style: cfg.style });
   const surfaces = findSurfaces(map.terrain, {
     halfWidth: WORM_HALF_W,

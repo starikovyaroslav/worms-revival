@@ -4,3 +4,4 @@ export * from './weapons';
 export * from './match';
 export * from './replay';
 export * from './phrases';
+export * from './wormpot';
