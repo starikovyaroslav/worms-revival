@@ -26,3 +26,4 @@ export * from './weapons/sheep';
 export * from './weapons/digTool';
 export * from './weapons/rope';
 export * from './weapons/crate';
+export * from './weapons/homing';

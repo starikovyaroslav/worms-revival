@@ -43,7 +43,11 @@ export class Input {
       (e) => {
         if (e.button !== 0 || e.shiftKey || !this.enabled) return;
         const def = this.game().weapon;
-        if (def?.aim === 'target') {
+        if (def?.needsTarget) {
+          // Homing weapons: the click only marks the target.
+          const p = this.toWorld(e.offsetX, e.offsetY);
+          this.queue.push({ t: 'target', x: Math.round(p.x), y: Math.round(p.y) });
+        } else if (def?.aim === 'target') {
           // Clicking a target uses the weapon right away, as in W:A.
           const p = this.toWorld(e.offsetX, e.offsetY);
           this.queue.push({ t: 'target', x: Math.round(p.x), y: Math.round(p.y) });

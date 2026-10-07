@@ -68,6 +68,8 @@ export interface WeaponDef {
   airborne?: boolean;
   /** Can only be used while airborne (parachute). */
   airborneOnly?: boolean;
+  /** Aimed by angle and power, but also needs a target marked first (homing weapons). */
+  needsTarget?: boolean;
   /** Turn-control items handled by the game itself. */
   action?: 'skip' | 'surrender';
   /** Rejects bad targets (teleporting into rock) before anything is spent. */
