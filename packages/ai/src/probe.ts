@@ -1,4 +1,4 @@
-import { Barrel, World, Worm, cos, sin, type Game, type WeaponDef } from '@wr/sim';
+import { Barrel, World, Worm, cos, sin, type Game, type Terrain, type WeaponDef } from '@wr/sim';
 
 export interface ShotParams {
   weapon: WeaponDef;
@@ -20,14 +20,44 @@ export interface ShotOutcome {
 const PROBE_TICKS = 420;
 
 /**
- * Plays a shot out in a throwaway copy of the world (own copy of the land, copies of worms and
- * oil drums) and reports what it did to every worm.
+ * Scratch copy of the land shared by many probes. After each probe only the areas it blew up
+ * are copied back from the real terrain, which is far cheaper than cloning the whole map.
  */
-export function probeShot(game: Game, shooterId: number, shot: ShotParams): ShotOutcome {
+export class ProbeLand {
+  readonly terrain: Terrain;
+
+  constructor(private readonly source: Terrain) {
+    this.terrain = source.clone();
+  }
+
+  restore(): void {
+    const t = this.terrain;
+    for (const r of t.dirty) {
+      for (let y = r.y0; y <= r.y1; y++) {
+        const row = y * t.width;
+        t.data.set(this.source.data.subarray(row + r.x0, row + r.x1 + 1), row + r.x0);
+      }
+    }
+    t.dirty.length = 0;
+  }
+}
+
+/**
+ * Plays a shot out in a throwaway copy of the world (scratch land, copies of worms and oil drums)
+ * and reports what it did to every worm.
+ */
+export function probeShot(
+  game: Game,
+  shooterId: number,
+  shot: ShotParams,
+  land?: ProbeLand,
+): ShotOutcome {
   const src = game.world;
+  const scratch = land ?? new ProbeLand(src.terrain);
+  scratch.terrain.dirty.length = 0;
   const world = new World({
     seed: src.tick + 1,
-    terrain: src.terrain.clone(),
+    terrain: scratch.terrain,
     waterLevel: src.waterLevel,
     physics: src.physics,
   });
@@ -97,6 +127,7 @@ export function probeShot(game: Game, shooterId: number, shot: ShotParams): Shot
     world.events.length = 0;
     quiet = world.isBusy() ? 0 : quiet + 1;
   }
+  scratch.restore();
   for (const [id, w] of copies) {
     const before = (src.byId(id) as Worm).health;
     const lost = w.alive ? before - Math.max(0, w.health) : before;

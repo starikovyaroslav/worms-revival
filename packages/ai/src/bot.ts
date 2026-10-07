@@ -9,7 +9,7 @@ import {
   type Game,
   type WeaponDef,
 } from '@wr/sim';
-import { probeShot, type ShotParams } from './probe';
+import { ProbeLand, probeShot, type ShotParams } from './probe';
 
 /** Weapons the bot knows how to use, roughly in order of preference. */
 const ARSENAL = [
@@ -25,14 +25,21 @@ const ARSENAL = [
   'airstrike',
 ];
 
-/** Per difficulty 1..5: how finely to search and how much to fumble the final shot. */
+/**
+ * Per difficulty 1..5: which weapons it considers, whether it refines its best guesses, and how
+ * much it fumbles the final shot (in aim key ticks and charge ticks).
+ */
 const LEVELS = [
-  { angleStep: 6, powerStep: 9, aimError: 4, powerError: 7, weapons: 2 },
-  { angleStep: 5, powerStep: 7, aimError: 3, powerError: 5, weapons: 3 },
-  { angleStep: 4, powerStep: 5, aimError: 2, powerError: 3, weapons: 5 },
-  { angleStep: 3, powerStep: 4, aimError: 1, powerError: 2, weapons: 8 },
-  { angleStep: 2, powerStep: 3, aimError: 0, powerError: 0, weapons: 10 },
+  { weapons: 2, refine: 0, aimError: 4, powerError: 7 },
+  { weapons: 3, refine: 1, aimError: 3, powerError: 5 },
+  { weapons: 4, refine: 2, aimError: 2, powerError: 3 },
+  { weapons: 6, refine: 3, aimError: 1, powerError: 1 },
+  { weapons: 10, refine: 4, aimError: 0, powerError: 0 },
 ] as const;
+
+/** Coarse search grid. */
+const COARSE_AIM_STEP = 5;
+const COARSE_CHARGES = [10, 18, 26, 34, 42, 50, 55];
 
 /** A planned turn: a list of command batches, one batch per tick. */
 export type Plan = Command[][];
@@ -103,17 +110,42 @@ export class Bot {
       .map((id) => getWeapon(id))
       .filter((d): d is WeaponDef => !!d);
 
-    let best: Candidate | null = null;
+    const land = new ProbeLand(game.world.terrain);
+    const tried = new Set<string>();
+    const results: Candidate[] = [];
     const consider = (c: Omit<Candidate, 'score'>) => {
-      const out = probeShot(game, worm.id, c.shot);
-      const score = this.score(worm, out.damage, out.killed);
-      if (!best || score > best.score) best = { ...c, score };
+      const key = `${c.shot.weapon.id}|${c.shot.facing}|${c.aimTicks}|${c.chargeTicks}|${c.shot.fuseSeconds}|${c.shot.target?.x}`;
+      if (tried.has(key)) return;
+      tried.add(key);
+      const out = probeShot(game, worm.id, c.shot, land);
+      results.push({ ...c, score: this.score(worm, out.damage, out.killed) });
     };
+    const make = (
+      def: WeaponDef,
+      facing: 1 | -1,
+      aimTicks: number,
+      chargeTicks: number,
+      fuseSeconds: number,
+    ) => ({
+      shot: {
+        weapon: def,
+        facing,
+        aim: aimAfter(worm.aim, aimTicks),
+        power: def.charge ? powerAfter(chargeTicks) : 1,
+        fuseSeconds,
+        bounceHigh: false,
+        target: null,
+      },
+      aimTicks,
+      chargeTicks,
+    });
 
     // Range of aim key presses that stays within -90°..90°.
     const minTicks = -Math.ceil((worm.aim + HALF_PI) / AIM_SPEED);
     const maxTicks = Math.ceil((HALF_PI - worm.aim) / AIM_SPEED);
+    const clampAim = (t: number) => Math.max(minTicks, Math.min(maxTicks, t));
 
+    // 1. Coarse sweep over every usable weapon.
     for (const def of usable) {
       for (const facing of facings) {
         if (def.aim === 'target') {
@@ -135,37 +167,45 @@ export class Bot {
           }
           continue;
         }
-        const angleTicks: number[] = [];
+        // Melee only makes sense with someone close by.
+        if (
+          def.aim === 'none' &&
+          !enemies.some((e) => Math.abs(e.x - worm.x) < 40 && Math.abs(e.y - worm.y) < 30)
+        )
+          continue;
+        const aims: number[] = [];
         if (def.aim === 'angle')
-          for (let t = minTicks; t <= maxTicks; t += level.angleStep) angleTicks.push(t);
-        else angleTicks.push(0);
-        const charges: number[] = [];
-        if (def.charge) for (let k = 6; k <= CHARGE_TICKS; k += level.powerStep) charges.push(k);
-        else charges.push(0);
-        const fuses = def.fuse ? [2, 3] : [3];
-        for (const aimTicks of angleTicks) {
-          for (const chargeTicks of charges) {
-            for (const fuseSeconds of fuses) {
-              consider({
-                shot: {
-                  weapon: def,
-                  facing,
-                  aim: aimAfter(worm.aim, aimTicks),
-                  power: def.charge ? powerAfter(chargeTicks) : 1,
-                  fuseSeconds,
-                  bounceHigh: false,
-                  target: null,
-                },
-                aimTicks,
-                chargeTicks,
-              });
-            }
-            yield;
-          }
+          for (let t = minTicks; t <= maxTicks; t += COARSE_AIM_STEP) aims.push(t);
+        else aims.push(0);
+        const charges = def.charge ? COARSE_CHARGES : [0];
+        for (const a of aims) {
+          for (const k of charges) consider(make(def, facing, a, k, 3));
+          yield;
         }
       }
     }
 
+    // 2. Refine around the most promising shots.
+    const top = results
+      .filter((r) => r.score > 0 && r.shot.weapon.aim === 'angle')
+      .sort((a, b) => b.score - a.score)
+      .slice(0, level.refine);
+    for (const c of top) {
+      const def = c.shot.weapon;
+      const fuses = def.fuse ? [2, 3, 4] : [3];
+      for (let da = -3; da <= 3; da++) {
+        for (let dk = def.charge ? -6 : 0; dk <= (def.charge ? 6 : 0); dk += 2) {
+          for (const f of fuses) {
+            const k = def.charge ? Math.max(3, Math.min(55, c.chargeTicks + dk)) : 0;
+            consider(make(def, c.shot.facing, clampAim(c.aimTicks + da), k, f));
+          }
+        }
+        yield;
+      }
+    }
+
+    let best: Candidate | null = null;
+    for (const r of results) if (!best || r.score > best.score) best = r;
     const chosen = best as Candidate | null;
     if (!chosen || chosen.score <= 0) return this.planSkip();
     // Human-like imprecision.
