@@ -120,3 +120,11 @@ describe('Game turns', () => {
     expect(run()).toBe(run());
   });
 });
+
+describe('scheme options', () => {
+  it('indestructible land survives explosions', () => {
+    const g = makeGame({ indestructible: true });
+    explode(g.world, 500, 205, { crater: 30, radius: 40, damage: 50 });
+    expect(g.world.terrain.isSolid(500, 205)).toBe(true);
+  });
+});

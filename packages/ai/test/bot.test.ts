@@ -23,7 +23,9 @@ function scheme(): Scheme {
     duds: false,
     barrels: 0,
     crateChance: 0,
+    healthCrateShare: 0.4,
     healthCrate: 25,
+    indestructible: false,
     weapons: {
       bazooka: { ammo: -1, power: 3, delay: 0, crate: 0 },
       grenade: { ammo: -1, power: 3, delay: 0, crate: 0 },

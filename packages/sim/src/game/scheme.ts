@@ -49,7 +49,11 @@ export interface Scheme {
   barrels: number;
   /** Chance per turn, 0..100. */
   crateChance: number;
+  /** Fraction of crates that are health crates (the rest carry weapons). */
+  healthCrateShare: number;
   healthCrate: number;
+  /** All land is indestructible (Shopper and race maps). */
+  indestructible: boolean;
   weapons: Record<string, WeaponSetting>;
   upgrades: Upgrades;
 }

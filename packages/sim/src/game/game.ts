@@ -1,6 +1,6 @@
 import { Hasher } from '../core/hash';
 import { HALF_PI, cos, sin } from '../core/math';
-import type { Terrain } from '../terrain/terrain';
+import { Material, type Terrain } from '../terrain/terrain';
 import { Barrel } from '../weapons/barrel';
 import { Crate } from '../weapons/crate';
 import { explode } from '../weapons/explosion';
@@ -107,6 +107,11 @@ export class Game {
       terrain: setup.terrain,
       waterLevel: setup.waterLevel,
     });
+    if (this.scheme.indestructible) {
+      const d = setup.terrain.data;
+      for (let i = 0; i < d.length; i++) if (d[i] === Material.Soil) d[i] = Material.Rock;
+      setup.terrain.markAllDirty();
+    }
     this.roundTimer = Math.round(this.scheme.roundTime * TPS);
     this.teams = setup.teams.map((t, i) => {
       const team = new Team(i, t.name);
@@ -435,7 +440,7 @@ export class Game {
     const weights = Object.entries(s.weapons).filter(([, w]) => w.crate > 0);
     const total = weights.reduce((n, [, w]) => n + w.crate, 0);
     let crate: Crate;
-    if (total > 0 && rng.chance(0.6)) {
+    if (total > 0 && !rng.chance(s.healthCrateShare)) {
       let pick = rng.float() * total;
       let id = (weights[0] as [string, unknown])[0];
       for (const [wid, w] of weights) {
