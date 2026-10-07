@@ -128,3 +128,22 @@ describe('scheme options', () => {
     expect(g.world.terrain.isSolid(500, 205)).toBe(true);
   });
 });
+
+describe('physics overrides', () => {
+  it('turning fall damage off protects worms from long drops', () => {
+    const g = makeGame({ fallDamage: false });
+    const w = g.worms[0]!;
+    w.y = 0;
+    w.launch(0, 0, false);
+    stepUntil(g, () => w.grounded);
+    expect(w.health).toBe(100);
+  });
+
+  it('scales explosion damage', () => {
+    const g = makeGame({ physics: { damageScale: 2 } });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    const w = g.worms[0]!;
+    explode(g.world, w.cx, w.cy, { crater: 10, radius: 30, damage: 20 });
+    expect(w.health).toBe(60);
+  });
+});

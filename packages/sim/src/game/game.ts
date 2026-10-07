@@ -106,6 +106,7 @@ export class Game {
       seed: setup.seed,
       terrain: setup.terrain,
       waterLevel: setup.waterLevel,
+      physics: { fallDamage: this.scheme.fallDamage, ...this.scheme.physics },
     });
     if (this.scheme.indestructible) {
       const d = setup.terrain.data;

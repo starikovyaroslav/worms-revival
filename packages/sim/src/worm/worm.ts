@@ -285,7 +285,7 @@ export class Worm extends Entity {
     const groundLike = n.y < -0.55;
 
     if (groundLike && !this.blasted) {
-      const dmg = fallDamage(this.vy);
+      const dmg = world.physics.fallDamage ? fallDamage(this.vy) : 0;
       this.land(world);
       if (dmg > 0) {
         world.emit({ type: 'speech', wormId: this.id, line: 'fall' });

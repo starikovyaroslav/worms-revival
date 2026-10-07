@@ -20,6 +20,8 @@ export interface Upgrades {
   aquaSheep: boolean;
 }
 
+import type { PhysicsConfig } from '../world/world';
+
 export interface Scheme {
   id: string;
   name: string;
@@ -56,6 +58,8 @@ export interface Scheme {
   indestructible: boolean;
   weapons: Record<string, WeaponSetting>;
   upgrades: Upgrades;
+  /** Physics overrides (gravity, wind strength...), for Wormpot-style modifiers. */
+  physics?: Partial<PhysicsConfig>;
 }
 
 export const NO_UPGRADES: Upgrades = {

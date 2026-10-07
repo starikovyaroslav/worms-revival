@@ -11,12 +11,18 @@ export interface PhysicsConfig {
   maxWind: number;
   /** Absolute speed cap, px / tick (W:A caps at 32). */
   maxSpeed: number;
+  /** Worms take damage from hard landings. */
+  fallDamage: boolean;
+  /** Multiplier on all explosion damage. */
+  damageScale: number;
 }
 
 export const DEFAULT_PHYSICS: PhysicsConfig = {
   gravity: 0.2,
   maxWind: 0.05,
   maxSpeed: 32,
+  fallDamage: true,
+  damageScale: 1,
 };
 
 export interface WorldOptions {

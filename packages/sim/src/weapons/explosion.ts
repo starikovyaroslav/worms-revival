@@ -61,6 +61,7 @@ export function blastImpulse(
 /** Carves the crater, notifies every entity and emits presentation events. */
 export function explode(world: World, x: number, y: number, spec: BlastSpec): Blast {
   const blast: Blast = { push: 1, noCrater: false, ...spec, x, y };
+  blast.damage *= world.physics.damageScale;
   if (!blast.noCrater && blast.crater > 0) world.terrain.carveCircle(x, y, blast.crater);
   for (const e of world.all()) {
     if (!e.removed) e.onBlast(world, blast);
