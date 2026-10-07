@@ -513,7 +513,11 @@ export class Game {
     if (alive.length <= 1) {
       this.phase = 'gameover';
       this.winner = alive[0]?.index ?? -1;
-      this.world.emit({ type: 'message', text: alive[0] ? `${alive[0].name} wins!` : 'Draw!' });
+      this.world.emit(
+        alive[0]
+          ? { type: 'message', key: 'win', team: alive[0].index }
+          : { type: 'message', key: 'draw' },
+      );
       return;
     }
     if (!this.suddenDeath && this.roundTimer <= 0) this.startSuddenDeath();
@@ -522,7 +526,7 @@ export class Game {
 
   private startSuddenDeath(): void {
     this.suddenDeath = true;
-    this.world.emit({ type: 'message', text: 'Sudden Death!' });
+    this.world.emit({ type: 'message', key: 'suddenDeath' });
     switch (this.scheme.suddenDeath) {
       case 'health1':
         for (const w of this.worms) if (w.alive) w.health = w.shownHealth = Math.min(w.health, 1);

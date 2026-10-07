@@ -8,7 +8,8 @@ export type SimEvent =
   | { type: 'sound'; id: string; x: number; y: number }
   | { type: 'speech'; wormId: number; line: string }
   | { type: 'damage'; wormId: number; amount: number }
-  | { type: 'message'; text: string }
+  /** Announcement; the presentation layer turns the key into localised text. */
+  | { type: 'message'; key: 'win' | 'draw' | 'suddenDeath'; team?: number }
   /** A worm picked up a crate: `text` is a weapon id or "+25" for health. */
   | { type: 'crate'; wormId: number; text: string }
   | { type: 'focus'; entityId: number };

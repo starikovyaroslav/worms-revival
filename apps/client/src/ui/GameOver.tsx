@@ -9,7 +9,7 @@ export function GameOver({ winner, color, onRematch, onMenu }: Props) {
   return (
     <div class="gameover">
       <div class="gameover-card">
-        <h1 style={{ color }}>{winner ? `${winner} побеждает!` : 'Ничья!'}</h1>
+        <h1 style={{ color }}>{winner ? `Победа: ${winner}!` : 'Ничья!'}</h1>
         <div class="row">
           <button class="btn" onClick={onRematch}>
             Реванш

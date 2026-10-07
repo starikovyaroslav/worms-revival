@@ -124,7 +124,8 @@ export class GameScene {
           break;
         }
         case 'message':
-          this.onMessage(ev.text);
+          // The game over screen announces the winner itself.
+          if (ev.key === 'suddenDeath') this.onMessage('Внезапная смерть!');
           break;
         default:
           break;
