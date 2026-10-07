@@ -63,6 +63,8 @@ async function boot() {
       style: params.get('style') === 'cavern' ? 'cavern' : 'island',
       themeId: params.get('theme') ?? 'meadow',
       schemeId: params.get('scheme') ?? 'intermediate',
+      // ?cpu=3 makes every team a computer player (watch bots fight).
+      teams: lastConfig.teams.map((t) => ({ ...t, cpu: Number(params.get('cpu') ?? 0) })),
     });
     const zoom = params.get('zoom');
     if (zoom && match) (match as Match).scene.camera.zoom = Number(zoom);

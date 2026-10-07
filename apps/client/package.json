@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@wr/ai": "*",
     "@wr/content": "*",
     "@wr/mapgen": "*",
     "@wr/render": "*",
