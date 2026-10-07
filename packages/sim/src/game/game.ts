@@ -518,6 +518,9 @@ export class Game {
     if (alive.length <= 1) {
       this.phase = 'gameover';
       this.winner = alive[0]?.index ?? -1;
+      for (const w of alive[0] ? this.teamWorms(alive[0]) : []) {
+        if (w.alive) this.world.emit({ type: 'speech', wormId: w.id, line: 'win' });
+      }
       this.world.emit(
         alive[0]
           ? { type: 'message', key: 'win', team: alive[0].index }
@@ -611,6 +614,8 @@ export class Game {
     this.target = null;
     this.firedThisTurn = false;
     this.focusId = this.activeWormId;
+    if (this.activeWormId)
+      this.world.emit({ type: 'speech', wormId: this.activeWormId, line: 'turn' });
     this.dropCrate();
     this.phase = 'ready';
     this.timer = Math.round(this.scheme.hotSeatTime * TPS);

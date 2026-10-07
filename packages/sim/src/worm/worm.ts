@@ -153,6 +153,7 @@ export class Worm extends Entity {
     this.health -= dealt;
     this.pendingDamage += dealt;
     world.emit({ type: 'damage', wormId: this.id, amount: dealt });
+    if (dealt >= 15) world.emit({ type: 'speech', wormId: this.id, line: 'hurt' });
   }
 
   override onBlast(world: World, b: Blast): void {
@@ -287,6 +288,7 @@ export class Worm extends Entity {
       const dmg = fallDamage(this.vy);
       this.land(world);
       if (dmg > 0) {
+        world.emit({ type: 'speech', wormId: this.id, line: 'fall' });
         this.takeDamage(world, dmg);
         world.emit({ type: 'sound', id: 'fall-hurt', x: this.x, y: this.y });
       }
@@ -343,6 +345,7 @@ export class Worm extends Entity {
     this.health = 0;
     this.vx = this.vy = 0;
     world.emit({ type: 'splash', x: this.x, y: world.waterLevel, size: 1 });
+    world.emit({ type: 'speech', wormId: this.id, line: 'drown' });
     world.emit({ type: 'sound', id: 'splash', x: this.x, y: world.waterLevel });
   }
 
