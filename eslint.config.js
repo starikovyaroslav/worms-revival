@@ -24,7 +24,7 @@ const NON_DETERMINISTIC_MATH = Object.getOwnPropertyNames(Math).filter(
 );
 
 export default tseslint.config(
-  { ignores: ['**/dist/**', '**/node_modules/**', 'coverage/**'] },
+  { ignores: ['**/dist/**', '**/node_modules/**', 'coverage/**', '.determinism/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -37,7 +37,9 @@ export default tseslint.config(
   },
   {
     files: ['tools/**'],
-    languageOptions: { globals: { process: 'readonly', console: 'readonly' } },
+    languageOptions: {
+      globals: { process: 'readonly', console: 'readonly', URL: 'readonly', Blob: 'readonly' },
+    },
   },
   {
     files: ['packages/sim/src/**', 'packages/mapgen/src/**'],

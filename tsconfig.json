@@ -4,5 +4,11 @@
     "noEmit": true,
     "types": ["vite/client"]
   },
-  "include": ["packages/*/src", "packages/*/test", "apps/*/src", "*.config.ts"]
+  "include": [
+    "packages/*/src",
+    "packages/*/test",
+    "apps/*/src",
+    "tools/determinism/harness.ts",
+    "*.config.ts"
+  ]
 }
