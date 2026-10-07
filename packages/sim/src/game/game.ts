@@ -2,6 +2,7 @@ import { Hasher } from '../core/hash';
 import { HALF_PI, cos, sin } from '../core/math';
 import type { Terrain } from '../terrain/terrain';
 import { Barrel } from '../weapons/barrel';
+import { Crate } from '../weapons/crate';
 import { explode } from '../weapons/explosion';
 import { Mine } from '../weapons/mine';
 import { getWeapon, isRemoteControlled, type WeaponDef } from '../weapons/weapon';
@@ -368,6 +369,12 @@ export class Game {
   }
 
   private tickPhase(): void {
+    this.collectCrates();
+    // Once the thing we were watching has landed or exploded, look back at the active worm.
+    const focus = this.world.byId(this.focusId);
+    if ((!focus || (!(focus instanceof Worm) && !focus.isBusy())) && this.activeWormId) {
+      this.focusId = this.activeWormId;
+    }
     const worm = this.activeWorm;
     switch (this.phase) {
       case 'ready':
@@ -393,6 +400,57 @@ export class Game {
       case 'gameover':
         break;
     }
+  }
+
+  /** Applies the contents of crates picked up this tick. */
+  private collectCrates(): void {
+    for (const c of this.world.ofKind<Crate>('crate')) {
+      if (!c.collectorId) continue;
+      const worm = this.world.byId(c.collectorId);
+      c.removed = true;
+      if (!(worm instanceof Worm)) continue;
+      if (c.content === 'health') {
+        worm.health += c.amount;
+        worm.shownHealth += c.amount;
+        worm.poisoned = false;
+        this.world.emit({ type: 'crate', wormId: worm.id, text: `+${c.amount}` });
+      } else {
+        const team = this.teams[worm.team];
+        if (team) {
+          const ammo = team.ammo[c.weaponId] ?? 0;
+          if (ammo >= 0) team.ammo[c.weaponId] = ammo + 1;
+        }
+        this.world.emit({ type: 'crate', wormId: worm.id, text: c.weaponId });
+      }
+      this.world.emit({ type: 'sound', id: 'collect', x: c.x, y: c.y });
+    }
+  }
+
+  /** Maybe drops a crate at the start of a turn. */
+  private dropCrate(): void {
+    const s = this.scheme;
+    if (s.crateChance <= 0 || !this.world.rng.chance(s.crateChance / 100)) return;
+    const rng = this.world.rng;
+    const x = rng.range(40, this.world.terrain.width - 40);
+    const weights = Object.entries(s.weapons).filter(([, w]) => w.crate > 0);
+    const total = weights.reduce((n, [, w]) => n + w.crate, 0);
+    let crate: Crate;
+    if (total > 0 && rng.chance(0.6)) {
+      let pick = rng.float() * total;
+      let id = (weights[0] as [string, unknown])[0];
+      for (const [wid, w] of weights) {
+        pick -= w.crate;
+        if (pick < 0) {
+          id = wid;
+          break;
+        }
+      }
+      crate = new Crate(x, -40, 'weapon', id, 1);
+    } else {
+      crate = new Crate(x, -40, 'health', '', s.healthCrate);
+    }
+    this.world.spawn(crate);
+    this.focusId = crate.id;
   }
 
   private tickRound(): void {
@@ -544,6 +602,7 @@ export class Game {
     this.target = null;
     this.firedThisTurn = false;
     this.focusId = this.activeWormId;
+    this.dropCrate();
     this.phase = 'ready';
     this.timer = Math.round(this.scheme.hotSeatTime * TPS);
     team.turnsTaken++;

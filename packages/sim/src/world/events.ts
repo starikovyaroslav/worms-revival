@@ -9,4 +9,6 @@ export type SimEvent =
   | { type: 'speech'; wormId: number; line: string }
   | { type: 'damage'; wormId: number; amount: number }
   | { type: 'message'; text: string }
+  /** A worm picked up a crate: `text` is a weapon id or "+25" for health. */
+  | { type: 'crate'; wormId: number; text: string }
   | { type: 'focus'; entityId: number };
