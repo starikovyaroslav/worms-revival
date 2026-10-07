@@ -15,3 +15,14 @@ describe('content', () => {
     for (const t of TEAM_PRESETS) expect(new Set(t.worms).size).toBe(8);
   });
 });
+
+describe('weapon info', () => {
+  it('every registered weapon has a localised name and icon', async () => {
+    const { allWeapons } = await import('@wr/sim');
+    const { WEAPON_INFO } = await import('../src/weapons');
+    for (const w of allWeapons()) {
+      if (w.id.startsWith('test-')) continue;
+      expect(WEAPON_INFO[w.id], w.id).toBeDefined();
+    }
+  });
+});
