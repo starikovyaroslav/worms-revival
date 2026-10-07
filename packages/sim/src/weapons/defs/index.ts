@@ -1,5 +1,5 @@
 // Importing this module registers every weapon.
-import './artillery';
+export * from './artillery';
 import './melee';
 import './placed';
 import './strikes';

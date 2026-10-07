@@ -14,9 +14,9 @@ import { weaponSetting, type Scheme } from './scheme';
 
 export const TPS = 50;
 /** Aim speed, radians per tick (W:A: about 1.5 s from straight down to straight up). */
-const AIM_SPEED = HALF_PI / 38;
+export const AIM_SPEED = HALF_PI / 38;
 /** Ticks to charge the power bar fully. */
-const CHARGE_TICKS = 55;
+export const CHARGE_TICKS = 55;
 /** Ticks everything must stay still before the turn is over. */
 const SETTLE_TICKS = 12;
 /** Give up waiting for things to stop moving after this long. */
