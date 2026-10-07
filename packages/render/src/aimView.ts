@@ -14,7 +14,7 @@ export class AimView {
 
   update(worm: Worm | null, alpha: number, show: boolean, power: number, charging: boolean): void {
     const g = this.g.clear();
-    if (!worm || !show || !worm.grounded) return;
+    if (!worm || !show || !(worm.grounded || worm.state === 'roped')) return;
     const x = worm.prevX + (worm.x - worm.prevX) * alpha;
     const y = worm.prevY + (worm.y - worm.prevY) * alpha - 6.5;
     const dx = Math.cos(worm.aim) * worm.facing;

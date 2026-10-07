@@ -69,7 +69,7 @@ export class GameScene {
           this.wormLayer.addChild(v.container);
         }
       } else if (!this.entities.has(e.id)) {
-        const v = createEntityView(e);
+        const v = createEntityView(e, this.game.world);
         if (v) {
           this.entities.set(e.id, v);
           this.entityLayer.addChild(v.container);

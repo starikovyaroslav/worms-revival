@@ -126,6 +126,22 @@ export class WormView {
       g.circle(q.x, q.y, s.r * 0.3).fill({ color: BODY_SHADE, alpha: 0.6 });
     }
 
+    if (w.chute) {
+      // Canopy with lines down to the worm.
+      g.moveTo(-14, -34)
+        .quadraticCurveTo(0, -52, 14, -34)
+        .closePath()
+        .fill(0xf0f0f0)
+        .stroke({ color: OUTLINE, width: 1 });
+      for (const s of [-12, -4, 4, 12])
+        g.rect(s - 1.5, -38, 3, 4).fill(s % 8 === 0 ? 0xd03030 : 0xf0f0f0);
+      g.moveTo(-14, -34)
+        .lineTo(-2, -16)
+        .moveTo(14, -34)
+        .lineTo(3, -16)
+        .stroke({ color: 0x555555, width: 0.6 });
+    }
+
     // Eyes look along the aim when active, otherwise forwards.
     const look = active ? w.aim : 0;
     const lx = cos(look) * f;

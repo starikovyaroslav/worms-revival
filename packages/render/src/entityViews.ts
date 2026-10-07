@@ -1,5 +1,17 @@
 import { Container, Graphics } from 'pixi.js';
-import { Barrel, Flame, Gravestone, Mine, Projectile, Sheep, type Entity } from '@wr/sim';
+import {
+  Barrel,
+  DigTool,
+  Flame,
+  Gravestone,
+  Mine,
+  Projectile,
+  Rope,
+  Sheep,
+  Worm,
+  type Entity,
+  type World,
+} from '@wr/sim';
 import { TEAM_COLORS } from './wormView';
 
 const OUTLINE = 0x1a1a1a;
@@ -246,13 +258,72 @@ class SheepView implements EntityView {
   }
 }
 
+class RopeView implements EntityView {
+  readonly container = new Container();
+  private g = new Graphics();
+
+  constructor(
+    private readonly r: Rope,
+    private readonly world: World,
+  ) {
+    this.container.addChild(this.g);
+  }
+
+  update(alpha: number): void {
+    const g = this.g.clear();
+    const worm = this.world.byId(this.r.wormId);
+    if (!(worm instanceof Worm)) return;
+    const wx = worm.prevX + (worm.x - worm.prevX) * alpha;
+    const wy = worm.prevY + (worm.y - worm.prevY) * alpha - 7;
+    if (this.r.state === 'shooting') {
+      g.moveTo(wx, wy).lineTo(this.r.hookX, this.r.hookY).stroke({ color: 0x3a2a1a, width: 1.5 });
+      g.circle(this.r.hookX, this.r.hookY, 2).fill(0x888888);
+      return;
+    }
+    if (this.r.state !== 'attached') return;
+    const pts = [...this.r.anchors].reverse();
+    g.moveTo(wx, wy);
+    for (const p of pts) g.lineTo(p.x, p.y);
+    g.stroke({ color: 0x3a2a1a, width: 1.8 });
+    const hook = this.r.anchors[0];
+    if (hook) g.circle(hook.x, hook.y, 2.2).fill(0x888888).stroke({ color: OUTLINE, width: 0.8 });
+  }
+}
+
+class DigToolView implements EntityView {
+  readonly container = new Container();
+  private g = new Graphics();
+
+  constructor(private readonly d: DigTool) {
+    this.container.addChild(this.g);
+  }
+
+  update(alpha: number): void {
+    place(this.container, this.d, alpha);
+    const g = this.g.clear();
+    // A burst of sparks at the business end.
+    const torch = this.d.mode === 'torch';
+    for (let i = 0; i < 6; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const r = Math.random() * 6;
+      g.circle(
+        Math.cos(a) * r + (torch ? 0 : 0),
+        Math.sin(a) * r + (torch ? -7 : 2),
+        1 + Math.random(),
+      ).fill(torch ? 0xffa030 : 0xd8c8a0);
+    }
+  }
+}
+
 /** Creates a view for a non-worm entity, or null if it has no visual. */
-export function createEntityView(e: Entity): EntityView | null {
+export function createEntityView(e: Entity, world: World): EntityView | null {
   if (e instanceof Projectile) return new ProjectileView(e);
   if (e instanceof Gravestone) return new GravestoneView(e);
   if (e instanceof Mine) return new MineView(e);
   if (e instanceof Barrel) return new BarrelView(e);
   if (e instanceof Flame) return new FlameView(e);
   if (e instanceof Sheep) return new SheepView(e);
+  if (e instanceof Rope) return new RopeView(e, world);
+  if (e instanceof DigTool) return new DigToolView(e);
   return null;
 }
