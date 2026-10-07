@@ -30,6 +30,9 @@ export abstract class PhysBody extends Entity {
   resting = false;
   /** Removed when it touches water (most objects sink out of play). */
   sinks = true;
+  /** Ticks in a row it hit land without really moving (resting on a steep slope). */
+  private stuckTicks = 0;
+  private impacted = false;
 
   override isBusy(): boolean {
     return !this.resting;
@@ -86,8 +89,18 @@ export abstract class PhysBody extends Entity {
       if (!world.terrain.circleCollides(this.x, this.y + 1, this.radius)) this.resting = false;
       else return;
     }
+    const x0 = this.x;
+    const y0 = this.y;
+    this.impacted = false;
     this.integrate(world);
-    if (!this.removed && this.y > world.waterLevel) this.onWater(world);
+    if (this.removed) return;
+    // Pinned against a steep slope, creeping by fractions of a pixel: call it resting.
+    if (this.impacted && !this.resting && Math.abs(this.x - x0) + Math.abs(this.y - y0) < 0.3) {
+      if (++this.stuckTicks >= 3) this.rest(world);
+    } else {
+      this.stuckTicks = 0;
+    }
+    if (this.y > world.waterLevel) this.onWater(world);
   }
 
   /** Moves the body for one tick in small sub-steps; returns after the first impact. */
@@ -116,6 +129,7 @@ export abstract class PhysBody extends Entity {
       const len = Math.sqrt(n.x * n.x + n.y * n.y) || 1;
       const hit = { nx: n.x / len, ny: n.y / len, speed: 0 };
       hit.speed = -(this.vx * hit.nx + this.vy * hit.ny);
+      this.impacted = true;
       this.onImpact(world, hit);
       return;
     }
@@ -125,6 +139,6 @@ export abstract class PhysBody extends Entity {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.bool(this.resting);
+    h.bool(this.resting).u32(this.stuckTicks);
   }
 }

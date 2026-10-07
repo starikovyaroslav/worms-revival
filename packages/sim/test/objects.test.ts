@@ -11,6 +11,17 @@ function world() {
 }
 
 describe('oil drums and fire', () => {
+  it('a drum on a steep slope comes to rest instead of jittering forever', () => {
+    const t = flatTerrain();
+    // 60° slope.
+    for (let y = 0; y < 400; y++)
+      for (let x = 0; x < 1000; x++) if (x * 2 + y >= 900) t.set(x, y, 1);
+    const w = new World({ seed: 3, terrain: t, waterLevel: 390 });
+    const barrel = w.spawn(new Barrel(330, 200));
+    for (let i = 0; i < 600; i++) w.step();
+    expect(barrel.isBusy()).toBe(false);
+  });
+
   it('a nearby explosion sets off a drum that sprays flames', () => {
     const w = world();
     const barrel = w.spawn(new Barrel(300, 193));
