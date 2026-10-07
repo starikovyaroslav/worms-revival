@@ -15,4 +15,6 @@ export type SimEvent =
   | { type: 'message'; key: 'win' | 'draw' | 'suddenDeath'; team?: number }
   /** A worm picked up a crate: `text` is a weapon id or "+25" for health. */
   | { type: 'crate'; wormId: number; text: string }
-  | { type: 'focus'; entityId: number };
+  | { type: 'focus'; entityId: number }
+  /** Bullet trail for hitscan weapons. */
+  | { type: 'tracer'; x0: number; y0: number; x1: number; y1: number };

@@ -1,6 +1,6 @@
 import type { World } from '../../world/world';
 import { Worm } from '../../worm/worm';
-import { explode } from '../explosion';
+import { hitscan } from '../hitscan';
 import { powerScale, registerWeapon, type FireContext } from '../weapon';
 
 /** Living worms (other than `except`) whose body centre is within `r` of a point. */
@@ -34,38 +34,14 @@ function strike(
   return victims.length > 0;
 }
 
-const SHOTGUN_RANGE = 700;
-const PELLET_HIT_RADIUS = 6;
-
-/** Fires one hitscan pellet; hits the first worm or land along the ray. */
+/** One shotgun blast. */
 function pellet(ctx: FireContext): void {
-  const { world, worm, dirX, dirY } = ctx;
-  const sx = worm.cx + dirX * 8;
-  const sy = worm.cy + dirY * 8;
-  const worms = world.ofKind<Worm>('worm').filter((w) => w.alive && w !== worm);
-  const damage = 25 * powerScale(ctx.setting.power);
-  for (let d = 0; d <= SHOTGUN_RANGE; d += 1) {
-    const x = sx + dirX * d;
-    const y = sy + dirY * d;
-    for (const w of worms) {
-      const dx = w.cx - x;
-      const dy = w.cy - y;
-      if (dx * dx + dy * dy <= PELLET_HIT_RADIUS * PELLET_HIT_RADIUS) {
-        w.takeDamage(world, damage);
-        w.push(dirX * 2.6, dirY * 2.6 - 1.2);
-        world.emit({ type: 'explosion', x, y, radius: 6 });
-        return;
-      }
-    }
-    if (world.terrain.isSolid(x, y)) {
-      explode(world, x, y, { crater: 8, radius: 14, damage: 8 });
-      return;
-    }
-    if (y > world.waterLevel) {
-      world.emit({ type: 'splash', x, y: world.waterLevel, size: 0.3 });
-      return;
-    }
-  }
+  hitscan(ctx.world, ctx.worm, ctx.dirX, ctx.dirY, {
+    damage: 25 * powerScale(ctx.setting.power),
+    push: 2.6,
+    crater: 8,
+    range: 700,
+  });
 }
 
 registerWeapon({
