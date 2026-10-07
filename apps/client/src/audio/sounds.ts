@@ -71,6 +71,9 @@ export const SOUNDS: Record<string, Synth> = {
   shotgun: (a, out) => {
     noise(a, voice(a, out, 0.9, 0.002, 0.25), a.now, 0.3, 'lowpass', 6000, 300);
   },
+  shot: (a, out) => {
+    noise(a, voice(a, out, 0.35, 0.001, 0.06), a.now, 0.08, 'highpass', 2500, 1200);
+  },
   launch: (a, out) => {
     noise(a, voice(a, out, 0.4, 0.02, 0.4), a.now, 0.45, 'bandpass', 400, 2500, 2);
   },

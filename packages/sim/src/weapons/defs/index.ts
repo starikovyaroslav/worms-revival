@@ -4,5 +4,6 @@ import './melee';
 import './placed';
 import './strikes';
 import './homing';
+import './guns';
 import './specials';
 export * from './tools';
