@@ -26,7 +26,9 @@ const BASE: Omit<Scheme, 'id' | 'name' | 'weapons'> = {
   duds: true,
   barrels: 4,
   crateChance: 40,
+  healthCrateShare: 0.4,
   healthCrate: 25,
+  indestructible: false,
   upgrades: NO_UPGRADES,
 };
 
@@ -83,7 +85,163 @@ export const BNG: Scheme = {
   },
 };
 
-export const SCHEMES: Scheme[] = [INTERMEDIATE, BNG];
+/** Tighter competitive play: fewer power weapons, fewer crates. */
+export const PRO: Scheme = {
+  ...BASE,
+  id: 'pro',
+  name: 'Pro',
+  crateChance: 20,
+  mines: 5,
+  barrels: 3,
+  weapons: {
+    bazooka: w(INF),
+    grenade: w(INF),
+    cluster: w(2),
+    shotgun: w(INF),
+    firepunch: w(INF),
+    bat: w(1, 3, 1),
+    prod: w(INF),
+    dynamite: w(1, 3, 1),
+    mine: w(1),
+    airstrike: w(1, 3, 3),
+    banana: w(1, 3, 4),
+    hhg: w(0, 3, 0, 1),
+    sheep: w(1, 3, 1),
+    supersheep: w(1, 3, 3),
+    girder: w(1),
+    teleport: w(1),
+    blowtorch: w(INF),
+    drill: w(INF),
+    parachute: w(1),
+    rope: w(3),
+    skipgo: w(INF, 3, 0, 0),
+    surrender: w(INF, 3, 0, 0),
+  },
+};
+
+/** Short turns and an early, fast flood: plan under pressure. */
+export const ELITE: Scheme = {
+  ...BASE,
+  id: 'elite',
+  name: 'Elite',
+  turnTime: 30,
+  retreatTime: 3,
+  roundTime: 7 * 60,
+  suddenDeath: 'water',
+  waterRise: 45,
+  crateChance: 30,
+  weapons: {
+    bazooka: w(INF),
+    grenade: w(INF),
+    cluster: w(3),
+    shotgun: w(3),
+    firepunch: w(INF),
+    bat: w(1),
+    prod: w(INF),
+    dynamite: w(1),
+    mine: w(2),
+    airstrike: w(1, 3, 3),
+    banana: w(1, 3, 3),
+    hhg: w(1, 3, 4),
+    sheep: w(1),
+    supersheep: w(1),
+    girder: w(1),
+    teleport: w(1),
+    blowtorch: w(INF),
+    drill: w(INF),
+    parachute: w(1),
+    rope: w(2),
+    skipgo: w(INF, 3, 0, 0),
+    surrender: w(INF, 3, 0, 0),
+  },
+};
+
+/** Ten seconds to think, one second to act. Pure chaos. */
+export const HYSTERIA: Scheme = {
+  ...BASE,
+  id: 'hysteria',
+  name: 'Hysteria',
+  hotSeatTime: 10,
+  turnTime: 1,
+  retreatTime: 3,
+  crateChance: 30,
+  weapons: {
+    bazooka: w(INF),
+    grenade: w(INF),
+    shotgun: w(INF),
+    firepunch: w(INF),
+    dynamite: w(INF),
+    airstrike: w(INF),
+    bat: w(INF),
+    teleport: w(INF),
+    hhg: w(1),
+    skipgo: w(INF, 3, 0, 0),
+    surrender: w(INF, 3, 0, 0),
+  },
+};
+
+/** Indestructible caves, only a rope to start with: race for the crates. */
+export const SHOPPER: Scheme = {
+  ...BASE,
+  id: 'shopper',
+  name: 'Shopper',
+  turnTime: 30,
+  retreatTime: 3,
+  roundTime: 20 * 60,
+  suddenDeath: 'water',
+  mines: 0,
+  barrels: 0,
+  crateChance: 100,
+  healthCrateShare: 0.15,
+  indestructible: true,
+  weapons: {
+    rope: w(INF, 3, 0, 0),
+    parachute: w(INF, 3, 0, 0),
+    bazooka: w(0, 3, 0, 4),
+    grenade: w(0, 3, 0, 4),
+    cluster: w(0, 3, 0, 2),
+    shotgun: w(0, 3, 0, 3),
+    firepunch: w(0, 3, 0, 3),
+    bat: w(0, 3, 0, 3),
+    prod: w(0, 3, 0, 3),
+    dynamite: w(0, 3, 0, 3),
+    mine: w(0, 3, 0, 2),
+    banana: w(0, 3, 0, 1),
+    hhg: w(0, 3, 0, 1),
+    sheep: w(0, 3, 0, 2),
+    supersheep: w(0, 3, 0, 1),
+    skipgo: w(INF, 3, 0, 0),
+    surrender: w(INF, 3, 0, 0),
+  },
+};
+
+/** Sudden Death from the first turn: everyone poisoned, the water rising. */
+export const ARMAGEDDON: Scheme = {
+  ...INTERMEDIATE,
+  id: 'armageddon',
+  name: 'Armageddon',
+  turnTime: 30,
+  roundTime: 0,
+  wormHealth: 150,
+  suddenDeath: 'nuclear',
+  waterRise: 20,
+};
+
+export const SCHEMES: Scheme[] = [INTERMEDIATE, PRO, ELITE, BNG, HYSTERIA, SHOPPER, ARMAGEDDON];
+
+/** Menu blurbs, and the map style that suits each scheme. */
+export const SCHEME_INFO: Record<string, { description: string; style?: 'island' | 'cavern' }> = {
+  intermediate: { description: 'Классика: базовое оружие без ограничений, мощное — по чуть-чуть.' },
+  pro: { description: 'Соревновательный вариант: меньше хаоса, меньше ящиков, больше точности.' },
+  elite: { description: 'Ходы по 30 секунд, через 7 минут быстро поднимается вода.' },
+  bng: { description: 'Только базука и граната. Читай ветер, считай отскоки.' },
+  hysteria: { description: '10 секунд подумать, 1 секунда на ход. Безумие.' },
+  shopper: {
+    description: 'Неразрушаемые пещеры, только верёвка. Собирай ящики и атакуй.',
+    style: 'cavern',
+  },
+  armageddon: { description: 'Внезапная смерть сразу: 150 HP, яд и поднимающаяся вода.' },
+};
 
 export function schemeById(id: string): Scheme {
   return SCHEMES.find((s) => s.id === id) ?? INTERMEDIATE;
