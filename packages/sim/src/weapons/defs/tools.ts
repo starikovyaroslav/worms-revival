@@ -2,6 +2,7 @@ import { Material } from '../../terrain/terrain';
 import type { World } from '../../world/world';
 import { Worm, WORM_H, WORM_HALF_W } from '../../worm/worm';
 import { DigTool } from '../digTool';
+import { Rope } from '../rope';
 import { registerWeapon } from '../weapon';
 
 export const GIRDER_HALF_LENGTH = 30;
@@ -137,5 +138,21 @@ registerWeapon({
   fire: (ctx) => {
     ctx.worm.chute = true;
     ctx.world.emit({ type: 'sound', id: 'parachute', x: ctx.worm.x, y: ctx.worm.y });
+  },
+});
+
+registerWeapon({
+  id: 'rope',
+  name: 'Ninja Rope',
+  row: 8,
+  col: 0,
+  aim: 'angle',
+  charge: false,
+  airborne: true,
+  endsTurn: false,
+  fire: (ctx) => {
+    const rope = ctx.world.spawn(new Rope(ctx.worm.id, ctx.worm, ctx.dirX, ctx.dirY));
+    ctx.world.emit({ type: 'sound', id: 'rope-shoot', x: ctx.worm.x, y: ctx.worm.y });
+    ctx.control(rope.id);
   },
 });

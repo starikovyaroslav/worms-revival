@@ -34,7 +34,8 @@ const RESTITUTION = 0.35;
 const SLIDE_FRICTION = 0.82;
 const SETTLE_SPEED = 1.1;
 
-export type WormState = 'idle' | 'walking' | 'airborne' | 'dead';
+/** `roped`: hanging from the ninja rope, which moves the worm itself. */
+export type WormState = 'idle' | 'walking' | 'airborne' | 'roped' | 'dead';
 
 export interface WormControl {
   left: boolean;
@@ -101,7 +102,7 @@ export class Worm extends Entity {
   }
 
   override isBusy(): boolean {
-    return this.state === 'airborne' || this.jumpTimer > 0;
+    return this.state === 'airborne' || this.state === 'roped' || this.jumpTimer > 0;
   }
 
   bodyCollides(world: World, x: number, y: number): boolean {
@@ -174,7 +175,9 @@ export class Worm extends Entity {
       this.launch(JUMP.vx * this.facing, JUMP.vy, false);
     }
 
-    if (this.state === 'airborne') {
+    if (this.state === 'roped') {
+      // The rope entity drives the worm.
+    } else if (this.state === 'airborne') {
       this.airTicks++;
       this.fly(world);
     } else {

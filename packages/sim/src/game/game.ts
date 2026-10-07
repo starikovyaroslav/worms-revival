@@ -86,6 +86,8 @@ export class Game {
   firedThisTurn = false;
   /** Entity currently steered by the player (sheep), 0 if none. */
   controlledId = 0;
+  /** Whether losing the controlled entity starts the retreat (sheep) or not (rope). */
+  private controlledEndsTurn = true;
   /** Arrow keys as last sent by the player. */
   private held = { left: false, right: false, up: false, down: false };
 
@@ -232,13 +234,15 @@ export class Game {
       case 'target':
         this.target = { x: c.x, y: c.y };
         break;
-      case 'fire':
-        if (c.down && this.controlledId) {
-          const e = this.world.byId(this.controlledId);
-          if (isRemoteControlled(e)) e.remoteFire(this.world);
-        } else if (c.down) this.pressFire(worm);
+      case 'fire': {
+        const e = this.controlledId ? this.world.byId(this.controlledId) : undefined;
+        // On the rope with another weapon selected: use that weapon from the rope.
+        const attackFromTool = isRemoteControlled(e) && e.weaponId && e.weaponId !== this.weaponId;
+        if (c.down && isRemoteControlled(e) && !attackFromTool) e.remoteFire(this.world);
+        else if (c.down) this.pressFire(worm);
         else if (this.charging) this.fire(worm, this.power);
         break;
+      }
       case 'skip':
         if (this.phase !== 'retreat') this.endTurn();
         break;
@@ -277,7 +281,8 @@ export class Game {
       this.handle({ t: 'surrender' });
       return;
     }
-    if (def.airborneOnly ? worm.grounded : !worm.grounded && !def.airborne) return;
+    const onRope = worm.state === 'roped';
+    if (def.airborneOnly ? worm.grounded : !worm.grounded && !onRope && !def.airborne) return;
     if (def.aim === 'target') {
       const d = this.aimDir(worm, def);
       if (
@@ -302,6 +307,7 @@ export class Game {
     if (!def) return;
     const team = this.teams[this.activeTeam] as Team;
     const dir = this.aimDir(worm, def);
+    const controlledBefore = this.controlledId;
     def.fire({
       world: this.world,
       worm,
@@ -316,15 +322,20 @@ export class Game {
       focus: (id) => (this.focusId = id),
       control: (id) => {
         this.controlledId = id;
+        this.controlledEndsTurn = def.endsTurn !== false;
         this.focusId = id;
         worm.control = { left: false, right: false, up: false, down: false };
       },
     });
     const ammo = team.ammo[def.id] ?? 0;
     if (ammo > 0) team.ammo[def.id] = ammo - 1;
+    // Movement tools (rope, parachute) don't use up the turn's attack.
+    if (def.endsTurn === false) return;
     this.firedThisTurn = true;
     this.shotsLeft--;
-    if (def.endsTurn !== false && this.shotsLeft <= 0 && !this.controlledId) {
+    // A sheep keeps the turn going until it blows up; everything else starts the retreat.
+    const tookControl = this.controlledId !== controlledBefore;
+    if (this.shotsLeft <= 0 && !tookControl) {
       this.phase = 'retreat';
       this.timer = Math.round((def.retreat ?? this.scheme.retreatTime) * TPS);
     }
@@ -334,14 +345,14 @@ export class Game {
     if (this.controlledId) {
       const e = this.world.byId(this.controlledId);
       if (!e || e.removed) {
-        // The sheep is gone: now run for it.
+        // The sheep is gone: now run for it. (The rope is just put away.)
         this.controlledId = 0;
-        if (this.phase === 'turn') {
+        if (this.phase === 'turn' && this.controlledEndsTurn) {
           this.phase = 'retreat';
           this.timer = Math.round((this.weapon?.retreat ?? this.scheme.retreatTime) * TPS);
         }
       } else if (isRemoteControlled(e)) {
-        e.steer?.(this.held.left, this.held.right);
+        e.steer?.(this.held.left, this.held.right, this.held.up, this.held.down);
       }
     }
     const worm = this.activeWorm;
@@ -367,11 +378,7 @@ export class Game {
       case 'turn':
       case 'retreat':
         this.tickRound();
-        if (--this.timer <= 0 || !worm || this.wormHurt(worm)) {
-          const e = this.controlledId ? this.world.byId(this.controlledId) : undefined;
-          if (isRemoteControlled(e)) e.timeout?.(this.world);
-          this.endTurn();
-        }
+        if (--this.timer <= 0 || !worm || this.wormHurt(worm)) this.endTurn();
         break;
       case 'settling': {
         this.settleTotal++;
@@ -401,6 +408,9 @@ export class Game {
     const worm = this.activeWorm;
     if (worm) worm.control = { left: false, right: false, up: false, down: false };
     this.charging = false;
+    // Whatever the player still controls goes off (sheep) or lets go (rope).
+    const e = this.controlledId ? this.world.byId(this.controlledId) : undefined;
+    if (isRemoteControlled(e)) e.timeout?.(this.world);
     this.controlledId = 0;
     this.phase = 'settling';
     this.settleTicks = 0;
@@ -553,6 +563,6 @@ export class Game {
       .u32(this.turn)
       .u32(this.activeTeam + 1);
     h.u32(this.activeWormId).str(this.weaponId).f64(this.power).bool(this.charging);
-    h.u32(this.controlledId);
+    h.u32(this.controlledId).bool(this.controlledEndsTurn);
   }
 }

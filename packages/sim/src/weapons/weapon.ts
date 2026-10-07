@@ -30,7 +30,12 @@ export interface RemoteControlled {
   /** Fire pressed again. */
   remoteFire(world: World): void;
   /** Arrow keys while in control. */
-  steer?(left: boolean, right: boolean): void;
+  steer?(left: boolean, right: boolean, up: boolean, down: boolean): void;
+  /**
+   * The worm may use other weapons while this is active (attack from the rope): fire then goes
+   * to the selected weapon instead of `remoteFire` unless the controlling weapon is selected.
+   */
+  readonly weaponId?: string;
   /** The turn timer ran out while still in control. */
   timeout?(world: World): void;
 }
