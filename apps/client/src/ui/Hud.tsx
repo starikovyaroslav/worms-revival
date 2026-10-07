@@ -31,18 +31,20 @@ export function Hud({
   game,
   announcements,
   onOver,
+  wormpot,
 }: {
   game: Game;
   announcements: Announcement[];
+  wormpot?: string[];
   onOver?: (over: HudState['over']) => void;
 }) {
-  const [s, setS] = useState<HudState>(() => hudState(game));
+  const [s, setS] = useState<HudState>(() => hudState(game, wormpot));
 
   useEffect(() => {
     let raf = 0;
     let last = '';
     const tick = () => {
-      const next = hudState(game);
+      const next = hudState(game, wormpot);
       const key = JSON.stringify(next);
       if (key !== last) {
         last = key;
@@ -53,7 +55,7 @@ export function Hud({
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [game, onOver]);
+  }, [game, onOver, wormpot]);
 
   return (
     <div class="hud">
@@ -65,6 +67,15 @@ export function Hud({
         ))}
       </div>
 
+      {s.mods.length > 0 && (
+        <div class="hud-mods">
+          {s.mods.map((m) => (
+            <span key={m.name} title={m.name}>
+              {m.icon}
+            </span>
+          ))}
+        </div>
+      )}
       <div class="hud-bottom">
         <div class="timer-box">
           <div

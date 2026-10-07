@@ -21,11 +21,22 @@ interface Props {
   onMenu: () => void;
   onWatch: () => void;
   onDownload: () => void;
+  wormpot?: string[];
   /** Watching a replay: show the badge and speed controls. */
   replay?: { onSpeed: (speed: number) => void };
 }
 
-export function App({ game, api, onPick, onRematch, onMenu, onWatch, onDownload, replay }: Props) {
+export function App({
+  game,
+  api,
+  onPick,
+  onRematch,
+  onMenu,
+  onWatch,
+  onDownload,
+  replay,
+  wormpot,
+}: Props) {
   const [speed, setSpeed] = useState(1);
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [panel, setPanel] = useState(false);
@@ -45,7 +56,7 @@ export function App({ game, api, onPick, onRematch, onMenu, onWatch, onDownload,
 
   return (
     <>
-      <Hud game={game} announcements={announcements} onOver={setOver} />
+      <Hud game={game} announcements={announcements} onOver={setOver} wormpot={wormpot} />
       {replay && (
         <div class="replay-bar">
           <span class="replay-badge">● ПОВТОР</span>

@@ -78,6 +78,7 @@ async function boot() {
         }}
         onDownload={() => download(currentReplay())}
         replay={replay ? { onSpeed: (x) => m.setSpeed(x) } : undefined}
+        wormpot={cfg.wormpot}
       />,
       root,
     );

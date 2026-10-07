@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { SCHEMES, SCHEME_INFO, TEAM_PRESETS, type MatchConfig, type Replay } from '@wr/content';
 import { THEMES, TEAM_COLORS } from '@wr/render';
 import { drawMapPreview } from './mapPreview';
+import { Wormpot } from './Wormpot';
 
 const hex = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
 const randomSeed = () => Math.floor(Math.random() * 1e9);
@@ -176,6 +177,11 @@ export function Menu({ initial, onStart, onReplay }: Props) {
             </select>
           </label>
           <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
+        </section>
+
+        <section class="menu-card">
+          <h2>Wormpot</h2>
+          <Wormpot value={cfg.wormpot ?? []} onChange={(wormpot) => set({ wormpot })} />
         </section>
       </div>
       <button class="btn big" onClick={() => onStart(cfg)}>

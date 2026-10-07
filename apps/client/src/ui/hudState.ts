@@ -1,6 +1,6 @@
 import { TPS, type Game } from '@wr/sim';
 import { TEAM_COLORS } from '@wr/render';
-import { weaponInfo } from '@wr/content';
+import { WORMPOT, weaponInfo } from '@wr/content';
 
 export interface TeamBar {
   name: string;
@@ -20,13 +20,15 @@ export interface HudState {
   teams: TeamBar[];
   maxHp: number;
   weapon: { name: string; fuse: number | null; bounce: string | null } | null;
+  /** Active Wormpot modifiers (icons). */
+  mods: { icon: string; name: string }[];
   /** Set when the match is over. */
   over: { winner: string | null; color: string } | null;
 }
 
 const hex = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
 
-export function hudState(game: Game): HudState {
+export function hudState(game: Game, wormpot: readonly string[] = []): HudState {
   const def = game.weapon;
   const winner = game.winner !== null && game.winner >= 0 ? game.teams[game.winner] : undefined;
   const timed = game.phase === 'turn' || game.phase === 'retreat' || game.phase === 'ready';
@@ -53,6 +55,10 @@ export function hudState(game: Game): HudState {
           bounce: def.bounce ? (game.bounceHigh ? 'Макс' : 'Мин') : null,
         }
       : null,
+    mods: wormpot
+      .map((id) => WORMPOT.find((m) => m.id === id))
+      .filter((m) => !!m)
+      .map((m) => ({ icon: m.icon, name: m.name })),
     over:
       game.phase === 'gameover'
         ? {
