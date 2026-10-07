@@ -6,6 +6,7 @@ import { BOUNCE_HIGH, BOUNCE_LOW, MAX_LAUNCH } from './artillery';
 
 function throwIt(ctx: FireContext, p: Projectile): void {
   ctx.world.spawn(p);
+  ctx.world.emit({ type: 'sound', id: 'throw', x: p.x, y: p.y });
   ctx.focus(p.id);
 }
 
