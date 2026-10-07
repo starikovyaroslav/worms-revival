@@ -1,6 +1,6 @@
 import { Application } from 'pixi.js';
 import { render } from 'preact';
-import { Hud, type Announcement } from './ui/Hud';
+import { App, type UiApi } from './ui/App';
 import { Game, Rng, WORM_H, WORM_HALF_W } from '@wr/sim';
 import { findSurfaces, generateMap, pickSpread } from '@wr/mapgen';
 import { TEAM_PRESETS, schemeById } from '@wr/content';
@@ -71,7 +71,11 @@ async function boot() {
       game.world.terrain.carveCircle(p.x, p.y, 40);
       return;
     }
-    if (e.button === 1 || e.button === 2 || game.weapon?.aim !== 'target') dragging = true;
+    if (e.button === 2) {
+      ui.togglePanel?.();
+      return;
+    }
+    if (e.button === 1 || game.weapon?.aim !== 'target') dragging = true;
   });
   app.canvas.addEventListener('contextmenu', (e) => e.preventDefault());
   window.addEventListener('pointerup', () => (dragging = false));
@@ -89,20 +93,12 @@ async function boot() {
     { passive: false },
   );
 
-  let announcements: Announcement[] = [];
-  let nextAnnouncement = 1;
-  const ui = document.getElementById('ui')!;
-  const renderHud = () => render(<Hud game={game} announcements={announcements} />, ui);
-  scene.onMessage = (text) => {
-    const a = { id: nextAnnouncement++, text };
-    announcements = [...announcements, a];
-    renderHud();
-    setTimeout(() => {
-      announcements = announcements.filter((x) => x !== a);
-      renderHud();
-    }, 3000);
-  };
-  renderHud();
+  const ui: Partial<UiApi> = {};
+  render(
+    <App game={game} api={ui} onPick={(weapon) => input.push({ t: 'select', weapon })} />,
+    document.getElementById('ui')!,
+  );
+  scene.onMessage = (text) => ui.announce?.(text);
 
   (window as unknown as { __game: unknown }).__game = { game, scene };
 

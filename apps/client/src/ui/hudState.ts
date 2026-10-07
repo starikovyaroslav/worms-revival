@@ -1,5 +1,6 @@
 import { TPS, type Game } from '@wr/sim';
 import { TEAM_COLORS } from '@wr/render';
+import { weaponInfo } from '@wr/content';
 
 export interface TeamBar {
   name: string;
@@ -44,7 +45,7 @@ export function hudState(game: Game): HudState {
     maxHp: game.scheme.wormHealth * game.scheme.wormsPerTeam,
     weapon: def
       ? {
-          name: def.name,
+          name: weaponInfo(def.id).name,
           fuse: def.fuse ? game.fuseSeconds : null,
           bounce: def.bounce ? (game.bounceHigh ? 'Макс' : 'Мин') : null,
         }
