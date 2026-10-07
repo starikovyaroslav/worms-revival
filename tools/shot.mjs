@@ -1,6 +1,6 @@
 // Screenshots the running client with scripted input.
 // Usage: node tools/shot.mjs <url> <out.png> [actions] [waitMs]
-// actions, separated by ";" (e:expr evaluates JS and logs it, r:x,y right-clicks):  c:x,y (click)  s:x,y (shift+click)  h:Key:ms (hold key)
+// actions, separated by ";" (e:expr evaluates JS and logs it, r:x,y right-clicks, m:x,y moves):  c:x,y (click)  s:x,y (shift+click)  h:Key:ms (hold key)
 //                             p:Key (press key)  w:ms (wait)  shot:path.png (extra screenshot)
 import { chromium } from 'playwright';
 
@@ -22,6 +22,9 @@ for (const action of actions.split(';').filter(Boolean)) {
     if (kind === 's') await page.keyboard.down('Shift');
     await page.mouse.click(x, y);
     if (kind === 's') await page.keyboard.up('Shift');
+  } else if (kind === 'm') {
+    const [x, y] = a.split(',').map(Number);
+    await page.mouse.move(x, y);
   } else if (kind === 'r') {
     const [x, y] = a.split(',').map(Number);
     await page.mouse.click(x, y, { button: 'right' });

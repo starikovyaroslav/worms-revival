@@ -114,6 +114,7 @@ async function boot() {
       }
     },
     (alpha, dt) => {
+      scene.mouseWorld = input.mouseWorld;
       scene.render(alpha, dt);
       app.render();
     },

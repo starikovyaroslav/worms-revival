@@ -2,6 +2,7 @@ import { Container, type Application } from 'pixi.js';
 import { Worm, type Game } from '@wr/sim';
 import {
   AimView,
+  TargetView,
   Background,
   Camera,
   Fx,
@@ -24,6 +25,9 @@ export class GameScene {
   private entityLayer = new Container();
   private wormLayer = new Container();
   private aim = new AimView();
+  private targetView = new TargetView();
+  /** Mouse position in world coordinates, set by the input layer. */
+  mouseWorld: { x: number; y: number } | null = null;
   private fx: Fx;
   private worms = new Map<number, WormView>();
   private entities = new Map<number, EntityView>();
@@ -49,6 +53,7 @@ export class GameScene {
       this.entityLayer,
       this.wormLayer,
       this.aim.container,
+      this.targetView.container,
       this.fx.container,
       this.water.front,
     );
@@ -133,6 +138,7 @@ export class GameScene {
     const def = game.weapon;
     const aiming = (game.phase === 'turn' || game.phase === 'ready') && def?.aim === 'angle';
     this.aim.update(game.activeWorm, alpha, aiming, game.power, game.charging);
+    this.targetView.update(game, this.mouseWorld, dtMs);
     this.fx.update(dtMs);
   }
 }

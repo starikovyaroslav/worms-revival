@@ -8,3 +8,4 @@ export * from './wormView';
 export * from './entityViews';
 export * from './aimView';
 export * from './fx';
+export * from './targetView';

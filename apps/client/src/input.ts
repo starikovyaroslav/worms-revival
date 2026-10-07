@@ -12,6 +12,8 @@ export class Input {
   /** Screen → world conversion supplied by the scene. */
   toWorld: (sx: number, sy: number) => { x: number; y: number } = (x, y) => ({ x, y });
   enabled = true;
+  /** Mouse position in world coordinates, for target previews. */
+  mouseWorld: { x: number; y: number } | null = null;
 
   constructor(
     private readonly game: () => Game,
@@ -22,12 +24,18 @@ export class Input {
     window.addEventListener('blur', () => {
       this.held = { left: false, right: false, up: false, down: false };
     });
+    target.addEventListener('pointermove', (e) => {
+      this.mouseWorld = this.toWorld(e.offsetX, e.offsetY);
+    });
+    target.addEventListener('pointerleave', () => (this.mouseWorld = null));
     target.addEventListener('pointerdown', (e) => {
       if (e.button !== 0 || e.shiftKey || !this.enabled) return;
       const def = this.game().weapon;
       if (def?.aim === 'target') {
+        // Clicking a target uses the weapon right away, as in W:A.
         const p = this.toWorld(e.offsetX, e.offsetY);
         this.queue.push({ t: 'target', x: Math.round(p.x), y: Math.round(p.y) });
+        this.queue.push({ t: 'fire', down: true }, { t: 'fire', down: false });
       }
     });
   }
