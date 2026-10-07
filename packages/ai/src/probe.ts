@@ -1,4 +1,14 @@
-import { Barrel, World, Worm, cos, sin, type Game, type Terrain, type WeaponDef } from '@wr/sim';
+import {
+  Barrel,
+  Mine,
+  World,
+  Worm,
+  cos,
+  sin,
+  type Game,
+  type Terrain,
+  type WeaponDef,
+} from '@wr/sim';
 
 export interface ShotParams {
   weapon: WeaponDef;
@@ -73,6 +83,17 @@ export function probeShot(
       w.vy = e.vy;
       copies.set(e.id, w);
       if (e.id === shooterId) shooter = w;
+    } else if (e instanceof Mine && !e.spent) {
+      // Duds are unknown to players, so the bot assumes every mine is live.
+      const m = world.spawn(
+        new Mine(e.x, e.y, {
+          armTicks: e.armTicks,
+          fuseTicks: e.fuseTicks < 0 ? 100 : e.fuseTicks,
+          dudsAllowed: false,
+        }),
+      );
+      m.fuse = e.fuse;
+      m.resting = e.resting;
     } else if (e instanceof Barrel) {
       const b = world.spawn(new Barrel(e.x, e.y));
       b.health = e.health;
