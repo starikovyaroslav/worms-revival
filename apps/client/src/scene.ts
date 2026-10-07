@@ -1,6 +1,7 @@
 import { Container, type Application } from 'pixi.js';
 import { Worm, type Game } from '@wr/sim';
 import { weaponInfo } from '@wr/content';
+import { Sfx } from './audio/sfx';
 import {
   AimView,
   TargetView,
@@ -35,6 +36,7 @@ export class GameScene {
   /** Pause camera following after the user scrolls manually. */
   userScrolled = false;
   onMessage: (text: string) => void = () => {};
+  readonly sfx = new Sfx();
 
   constructor(
     private readonly app: Application,
@@ -100,11 +102,16 @@ export class GameScene {
   handleEvents(): void {
     for (const ev of this.game.world.drainEvents()) {
       switch (ev.type) {
+        case 'sound':
+          this.sound(ev.id, ev.x, ev.y);
+          break;
         case 'explosion':
+          this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
           this.fx.explosion(ev.x, ev.y, ev.radius);
           this.camera.shake(Math.min(10, ev.radius / 6));
           break;
         case 'splash':
+          this.sound('splash', ev.x, ev.y, ev.size);
           this.fx.splash(ev.x, ev.y, ev.size);
           break;
         case 'damage': {
@@ -131,6 +138,12 @@ export class GameScene {
           break;
       }
     }
+  }
+
+  /** Plays a sound positioned relative to what the camera shows. */
+  sound(id: string, x: number, y: number, size = 0.5): void {
+    const c = this.camera;
+    this.sfx.play(id, x, y, { x: c.x, y: c.y, halfW: c.viewW / 2 / c.zoom }, size);
   }
 
   render(alpha: number, dtMs: number): void {

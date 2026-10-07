@@ -74,10 +74,27 @@ export class Match {
     );
 
     let lastFocus = game.focusId;
+    let lastTurn = game.turn;
+    let lastSecond = -1;
+    let wasCharging = false;
+    // Cues that come from game state rather than simulation events.
+    const cues = () => {
+      const w = game.activeWorm;
+      if (game.turn !== lastTurn) {
+        lastTurn = game.turn;
+        scene.sfx.ui('turn-start');
+      }
+      const sec = Math.ceil(game.timer / 50);
+      if (game.phase === 'turn' && sec <= 5 && sec > 0 && sec !== lastSecond) scene.sfx.ui('tick');
+      lastSecond = sec;
+      if (game.charging && !wasCharging && w) scene.sound('charge', w.x, w.y);
+      wasCharging = game.charging;
+    };
     this.loop = new FixedLoop(
       () => {
         game.step(this.commandsForTick());
         scene.handleEvents();
+        cues();
         // New action (turn start, shot) brings the camera back.
         if (game.focusId !== lastFocus) {
           lastFocus = game.focusId;
