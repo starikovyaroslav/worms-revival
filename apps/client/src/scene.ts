@@ -1,9 +1,10 @@
 import { Container, type Application } from 'pixi.js';
 import { Worm, type Game } from '@wr/sim';
-import { weaponInfo } from '@wr/content';
+import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
 import {
   AimView,
+  SpeechView,
   TargetView,
   Background,
   Camera,
@@ -28,6 +29,9 @@ export class GameScene {
   private wormLayer = new Container();
   private aim = new AimView();
   private targetView = new TargetView();
+  private speech = new SpeechView();
+  /** Last time each worm spoke, so they don't chatter non-stop. */
+  private lastSpoke = new Map<number, number>();
   /** Mouse position in world coordinates, set by the input layer. */
   mouseWorld: { x: number; y: number } | null = null;
   private fx: Fx;
@@ -59,6 +63,7 @@ export class GameScene {
       this.targetView.container,
       this.fx.container,
       this.water.front,
+      this.speech.container,
     );
     app.stage.addChild(this.background.container, this.world);
     const w = game.activeWorm;
@@ -130,6 +135,22 @@ export class GameScene {
           }
           break;
         }
+        case 'speech': {
+          const worm = this.game.world.byId(ev.wormId);
+          const now = performance.now();
+          const important = ev.line === 'death' || ev.line === 'win' || ev.line === 'drown';
+          if (
+            !(worm instanceof Worm) ||
+            (!important && now - (this.lastSpoke.get(worm.id) ?? -Infinity) < 2500)
+          )
+            break;
+          this.lastSpoke.set(worm.id, now);
+          const lines = PHRASES[ev.line];
+          const text = lines[Math.floor(Math.random() * lines.length)] ?? '';
+          this.speech.say(worm, text);
+          this.sfx.babble(text.length, worm.id, worm.x - this.camera.x);
+          break;
+        }
         case 'message':
           // The game over screen announces the winner itself.
           if (ev.key === 'suddenDeath') this.onMessage('Внезапная смерть!');
@@ -168,6 +189,7 @@ export class GameScene {
     const aiming = (game.phase === 'turn' || game.phase === 'ready') && def?.aim === 'angle';
     this.aim.update(game.activeWorm, alpha, aiming, game.power, game.charging);
     this.targetView.update(game, this.mouseWorld, dtMs);
+    this.speech.update(dtMs);
     this.fx.update(dtMs);
   }
 }
