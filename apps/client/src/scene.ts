@@ -74,7 +74,7 @@ export class GameScene {
       shake: (p) => this.camera.shake(p),
       punch: (a) => this.camera.punch(a),
       timeScale: (s, d) => this.onTimeScale(s, d),
-      glow: (g) => this.post.flash(g),
+      glow: () => {},
       light: (x, y, color, radius, life, intensity) =>
         this.lights.flash(x, y, color, radius, life, intensity),
       shockwave: (x, y, s) => {

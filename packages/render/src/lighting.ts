@@ -143,7 +143,7 @@ export class LightLayer {
       l.sprite.position.set(p.x * scale, p.y * scale);
       l.sprite.scale.set(r);
       // Day: subtle warm pool. Night: strong, since it is what reveals the scene.
-      l.sprite.alpha = Math.min(1, l.intensity * fade * (dark ? 1 : 0.28));
+      l.sprite.alpha = Math.min(1, l.intensity * fade * (dark ? 1 : 0.1));
       if (l.sprite.parent !== root) root.addChild(l.sprite);
     }
 

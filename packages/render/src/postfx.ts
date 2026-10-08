@@ -1,5 +1,5 @@
 import { Container, Rectangle, Sprite, Texture, type Application } from 'pixi.js';
-import { AdjustmentFilter, AdvancedBloomFilter, ShockwaveFilter } from 'pixi-filters';
+import { AdjustmentFilter, ShockwaveFilter } from 'pixi-filters';
 
 /** Per-theme look: colour grading and how readily things glow. */
 export interface GradeSpec {
@@ -9,9 +9,6 @@ export interface GradeSpec {
   brightness: number;
   /** Channel multipliers for a colour cast. */
   tint: [number, number, number];
-  /** Only pixels brighter than this bloom (0..1). */
-  bloomThreshold: number;
-  bloomScale: number;
   /** 0..1 darkening of the screen edges. */
   vignette: number;
 }
@@ -22,8 +19,6 @@ export const DEFAULT_GRADE: GradeSpec = {
   gamma: 1,
   brightness: 1,
   tint: [1, 1, 1],
-  bloomThreshold: 0.9,
-  bloomScale: 0.55,
   vignette: 0.45,
 };
 
@@ -49,16 +44,13 @@ function vignetteTexture(): Texture {
 }
 
 /**
- * Whole-screen post effects: bloom so explosions and fire glow, a per-theme colour grade,
+ * Whole-screen post effects: a per-theme colour grade, shockwave distortion on blasts,
  * and a vignette that turns red as the turn timer runs out.
  */
 export class PostFx {
-  private readonly bloom: AdvancedBloomFilter;
   private readonly adjust: AdjustmentFilter;
   private readonly vignette: Sprite;
   private grade: GradeSpec = DEFAULT_GRADE;
-  /** Extra glow after a blast, decays to 0. */
-  private kick = 0;
   private shock: ShockwaveFilter | null = null;
   private shockTime = 0;
   private shockLife = 0;
@@ -70,17 +62,10 @@ export class PostFx {
     private readonly app: Application,
     private readonly stage: Container,
   ) {
-    this.bloom = new AdvancedBloomFilter({
-      threshold: 0.7,
-      bloomScale: 0.5,
-      brightness: 1,
-      blur: 6,
-      quality: 4,
-    });
     this.adjust = new AdjustmentFilter();
     this.vignette = new Sprite(vignetteTexture());
     this.vignette.eventMode = 'none';
-    stage.filters = [this.adjust, this.bloom];
+    stage.filters = [this.adjust];
     stage.filterArea = new Rectangle(0, 0, app.screen.width, app.screen.height);
     app.stage.addChild(this.vignette);
     this.setGrade(DEFAULT_GRADE);
@@ -96,12 +81,6 @@ export class PostFx {
     this.adjust.red = t.tint[0];
     this.adjust.green = t.tint[1];
     this.adjust.blue = t.tint[2];
-    this.bloom.threshold = t.bloomThreshold;
-  }
-
-  /** A blast just happened: briefly intensify the glow. */
-  flash(strength: number): void {
-    this.kick = Math.min(1.2, Math.max(this.kick, strength));
   }
 
   /**
@@ -122,7 +101,7 @@ export class PostFx {
     this.shockTime = 0;
     this.shockLife = 0.55 + 0.25 * Math.min(1.5, strength);
     if (!this.stage.filters || !(this.stage.filters as unknown[]).includes(f)) {
-      this.stage.filters = [this.adjust, this.bloom, f];
+      this.stage.filters = [this.adjust, f];
     }
   }
 
@@ -134,7 +113,6 @@ export class PostFx {
   update(dtMs: number): void {
     const dt = dtMs / 1000;
     this.time += dt;
-    this.kick = Math.max(0, this.kick - dt * 2.4);
     this.danger += (this.dangerTarget - this.danger) * Math.min(1, dt * 6);
 
     if (this.shock && this.shockLife > 0) {
@@ -145,7 +123,7 @@ export class PostFx {
       this.shock.amplitude *= left < 0.5 ? 0.9 : 1;
       if (this.shockTime >= this.shockLife) {
         this.shockLife = 0;
-        this.stage.filters = [this.adjust, this.bloom];
+        this.stage.filters = [this.adjust];
       }
     }
 
@@ -156,8 +134,6 @@ export class PostFx {
       area.width = w;
       area.height = h;
     }
-    this.bloom.bloomScale = this.grade.bloomScale * (1 + this.kick * 1.6);
-    this.bloom.brightness = 1 + this.kick * 0.25;
 
     // Vignette: black normally, pulsing red when time is short.
     const pulse = this.danger * (0.5 + 0.5 * Math.sin(this.time * 9));

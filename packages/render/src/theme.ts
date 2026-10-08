@@ -70,7 +70,7 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'arctic',
-    grade: { saturation: 1.0, contrast: 1.05, tint: [0.94, 1.0, 1.07], bloomThreshold: 0.8 },
+    grade: { saturation: 1.0, contrast: 1.05, tint: [0.94, 1.0, 1.07] },
     hills: [0x7a9cc0, 0xa8c4dc, 0xd0e4f2],
     name: 'Арктика',
     skyTop: 0x1d3557,
@@ -91,8 +91,6 @@ export const THEMES: ThemeSpec[] = [
       saturation: 1.05,
       contrast: 1.04,
       tint: [1.04, 0.98, 0.97],
-      bloomThreshold: 0.6,
-      bloomScale: 0.8,
       vignette: 0.45,
     },
     hills: [0x3a0a0a, 0x5a1408, 0x2a0606],

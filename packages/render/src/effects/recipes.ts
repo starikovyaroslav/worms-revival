@@ -105,19 +105,18 @@ export const RECIPES: Record<string, Recipe> = {
     layers: [
       { type: 'camera', shake: 1, glow: 1, punch: 0.035 },
       { type: 'time', scale: 0.3, duration: 0.2, minK: 1.15 },
-      { type: 'shockwave', strength: 1, minK: 0.9 },
       { type: 'light', color: 0xffc070, radius: 3.6, life: 0.7, intensity: 1.3 },
       // Instant white-hot flash.
-      { type: 'flash', tex: 'soft', blend: 'add', color: 0xfff6d0, scale: [0.6, 3.2], life: 0.14 },
+      { type: 'flash', tex: 'soft', blend: 'add', color: 0xfff6d0, scale: [0.6, 2.2], life: 0.12 },
       // Wide warm glow that lingers.
       {
         type: 'flash',
         tex: 'soft',
         blend: 'add',
         color: 0xff8a30,
-        scale: [1.6, 3.4],
-        life: 0.5,
-        alpha: 0.55,
+        scale: [1.0, 1.9],
+        life: 0.4,
+        alpha: 0.3,
       },
       // Expanding shock ring.
       {
@@ -125,9 +124,9 @@ export const RECIPES: Record<string, Recipe> = {
         tex: 'ring',
         blend: 'add',
         color: 0xffe9c0,
-        scale: [0.3, 3.4],
-        life: 0.42,
-        alpha: 0.75,
+        scale: [0.3, 1.8],
+        life: 0.35,
+        alpha: 0.4,
       },
       // Fireball: overlapping blobs that cool from white to deep red.
       {
