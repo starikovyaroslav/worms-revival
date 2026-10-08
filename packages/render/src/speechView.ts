@@ -32,12 +32,12 @@ export class SpeechView {
     const h = label.height + 8;
     const g = new Graphics()
       .roundRect(-w / 2, -h / 2, w, h, 7)
-      .fill(0xffffff)
+      .fill(0xe9e6dc)
       .stroke({ color: 0x222222, width: 1.5 })
       .moveTo(-4, h / 2 - 1)
       .lineTo(0, h / 2 + 6)
       .lineTo(4, h / 2 - 1)
-      .fill(0xffffff);
+      .fill(0xe9e6dc);
     const box = new Container();
     box.addChild(g, label);
     this.container.addChild(box);

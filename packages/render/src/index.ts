@@ -10,3 +10,4 @@ export * from './aimView';
 export * from './fx';
 export * from './targetView';
 export * from './speechView';
+export * from './postfx';

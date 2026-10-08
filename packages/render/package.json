@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@wr/sim": "*",
+    "pixi-filters": "^6.1.5",
     "pixi.js": "^8.22.0"
   }
 }

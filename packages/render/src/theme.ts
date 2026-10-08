@@ -1,5 +1,6 @@
 import { hex, type RGB } from './color';
 import { makePattern, type PatternSpec } from './pattern';
+import type { GradeSpec } from './postfx';
 
 export interface ThemeSpec {
   id: string;
@@ -17,6 +18,8 @@ export interface ThemeSpec {
   girder: number;
   /** Background silhouettes, far to near. */
   hills: [number, number, number];
+  /** Colour grading and glow. */
+  grade?: Partial<GradeSpec>;
 }
 
 export interface Theme extends ThemeSpec {
@@ -33,6 +36,7 @@ export interface Theme extends ThemeSpec {
 export const THEMES: ThemeSpec[] = [
   {
     id: 'meadow',
+    grade: { saturation: 1.15, contrast: 1.06, tint: [1.03, 1.0, 0.96] },
     hills: [0x5b7fb0, 0x4f8a5a, 0x3f7a3a],
     name: 'Луг',
     skyTop: 0x3b6fb6,
@@ -48,6 +52,7 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'desert',
+    grade: { saturation: 1.1, contrast: 1.08, tint: [1.06, 1.0, 0.9], vignette: 0.5 },
     hills: [0xc08060, 0xb87a40, 0x9a6030],
     name: 'Пустыня',
     skyTop: 0xe08a3c,
@@ -63,6 +68,7 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'arctic',
+    grade: { saturation: 1.0, contrast: 1.05, tint: [0.94, 1.0, 1.07], bloomThreshold: 0.8 },
     hills: [0x7a9cc0, 0xa8c4dc, 0xd0e4f2],
     name: 'Арктика',
     skyTop: 0x1d3557,
@@ -78,6 +84,14 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'hell',
+    grade: {
+      saturation: 1.25,
+      contrast: 1.15,
+      tint: [1.1, 0.95, 0.9],
+      bloomThreshold: 0.55,
+      bloomScale: 0.8,
+      vignette: 0.65,
+    },
     hills: [0x3a0a0a, 0x5a1408, 0x2a0606],
     name: 'Преисподняя',
     skyTop: 0x1a0505,

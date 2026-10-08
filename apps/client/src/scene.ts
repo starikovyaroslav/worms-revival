@@ -4,6 +4,7 @@ import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
 import {
   AimView,
+  PostFx,
   SpeechView,
   TargetView,
   Background,
@@ -30,6 +31,7 @@ export class GameScene {
   private aim = new AimView();
   private targetView = new TargetView();
   private speech = new SpeechView();
+  private post: PostFx;
   /** Last time each worm spoke, so they don't chatter non-stop. */
   private lastSpoke = new Map<number, number>();
   /** Mouse position in world coordinates, set by the input layer. */
@@ -66,11 +68,14 @@ export class GameScene {
       this.speech.container,
     );
     app.stage.addChild(this.background.container, this.world);
+    this.post = new PostFx(app, app.stage);
+    this.post.setGrade(theme.grade ?? {});
     const w = game.activeWorm;
     if (w) this.camera.lookAt(w.x, w.y - 40);
   }
 
   destroy(): void {
+    this.post.destroy();
     this.app.stage.removeChildren();
     this.background.container.destroy({ children: true });
     this.world.destroy({ children: true });
@@ -113,6 +118,7 @@ export class GameScene {
         case 'explosion':
           this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
           this.fx.explosion(ev.x, ev.y, ev.radius);
+          this.post.flash(Math.min(1.2, ev.radius / 40));
           this.camera.shake(Math.min(10, ev.radius / 6));
           break;
         case 'splash':
@@ -188,6 +194,9 @@ export class GameScene {
     const def = game.weapon;
     const aiming = (game.phase === 'turn' || game.phase === 'ready') && def?.aim === 'angle';
     this.aim.update(game.activeWorm, alpha, aiming, game.power, game.charging);
+    const secLeft = game.timer / 50;
+    this.post.setDanger(game.phase === 'turn' && secLeft <= 5 ? 1 - secLeft / 5 : 0);
+    this.post.update(dtMs);
     this.targetView.update(game, this.mouseWorld, dtMs);
     this.speech.update(dtMs);
     this.fx.update(dtMs);
