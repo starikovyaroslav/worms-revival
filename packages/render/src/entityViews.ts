@@ -1,11 +1,13 @@
 import { Container, Graphics } from 'pixi.js';
 import {
+  Arrow,
   Barrel,
   Crate,
   DigTool,
   Flame,
   Gravestone,
   Mine,
+  Pigeon,
   Projectile,
   Rope,
   Sheep,
@@ -35,6 +37,21 @@ class ProjectileView implements EntityView {
   private draw(): void {
     const g = this.g;
     switch (this.p.look) {
+      case 'homing':
+        g.roundRect(-8, -2.5, 14, 5, 2).fill(0xc8c8d0).stroke({ color: OUTLINE, width: 1 });
+        g.moveTo(6, -2.5)
+          .lineTo(11, 0)
+          .lineTo(6, 2.5)
+          .closePath()
+          .fill(0x2a8ad8)
+          .stroke({ color: OUTLINE, width: 1 });
+        g.moveTo(-8, -2.5).lineTo(-11, -6).lineTo(-6, -1).closePath().fill(0x2a8ad8);
+        g.moveTo(-8, 2.5).lineTo(-11, 6).lineTo(-6, 1).closePath().fill(0x2a8ad8);
+        break;
+      case 'mortar':
+        g.circle(0, 0, 3.2).fill(0x4a5238).stroke({ color: OUTLINE, width: 1 });
+        g.circle(-1, -1, 1).fill({ color: 0xffffff, alpha: 0.5 });
+        break;
       case 'missile':
         g.roundRect(-7, -2.5, 12, 5, 2).fill(0x7a8a6a).stroke({ color: OUTLINE, width: 1 });
         g.moveTo(5, -2.5)
@@ -360,8 +377,74 @@ class CrateView implements EntityView {
   }
 }
 
+class PigeonView implements EntityView {
+  readonly container = new Container();
+  private g = new Graphics();
+  private t = 0;
+
+  constructor(private readonly p: Pigeon) {
+    this.container.addChild(this.g);
+  }
+
+  update(alpha: number, dtMs: number): void {
+    place(this.container, this.p, alpha);
+    this.t += dtMs / 1000;
+    const p = this.p;
+    const left = Math.cos(p.heading) < 0;
+    this.container.scale.set(left ? -1 : 1, 1);
+    // Flapping wing, banking with the flight direction.
+    const flap = Math.sin(this.t * 28) * 5;
+    const g = this.g.clear();
+    g.ellipse(0, 0, 6, 3.6).fill(0xe8e8ee).stroke({ color: OUTLINE, width: 1 });
+    g.circle(6, -1.5, 2.4).fill(0xe8e8ee).stroke({ color: OUTLINE, width: 1 });
+    g.moveTo(8, -1.5).lineTo(11, -0.8).lineTo(8, -0.4).closePath().fill(0xf2a030);
+    g.circle(6.8, -2.2, 0.6).fill(0x111111);
+    g.moveTo(-6, 0).lineTo(-10, 1.5).lineTo(-6, 2).closePath().fill(0xb8b8c4);
+    g.moveTo(-1, -1)
+      .quadraticCurveTo(-3, -6 - flap, 2, -7 - flap)
+      .lineTo(2, -1)
+      .closePath()
+      .fill(0xcfcfd8);
+    g.stroke({ color: OUTLINE, width: 0.8 });
+    // The mail it carries.
+    g.rect(-3, 3, 4, 3).fill(0xffffff).stroke({ color: OUTLINE, width: 0.6 });
+  }
+}
+
+class ArrowView implements EntityView {
+  readonly container = new Container();
+
+  constructor(private readonly a: Arrow) {
+    const g = new Graphics();
+    g.moveTo(-9, 0).lineTo(5, 0).stroke({ color: 0x8a6a3a, width: 1.6 });
+    g.moveTo(5, -2)
+      .lineTo(9, 0)
+      .lineTo(5, 2)
+      .closePath()
+      .fill(0xcfd2d8)
+      .stroke({ color: OUTLINE, width: 0.6 });
+    g.moveTo(-9, 0)
+      .lineTo(-12, -3)
+      .moveTo(-9, 0)
+      .lineTo(-12, 3)
+      .moveTo(-7, 0)
+      .lineTo(-10, -3)
+      .moveTo(-7, 0)
+      .lineTo(-10, 3);
+    g.stroke({ color: 0xd04040, width: 1.2 });
+    this.container.addChild(g);
+  }
+
+  update(alpha: number): void {
+    place(this.container, this.a, alpha);
+    this.container.rotation = Math.atan2(this.a.vy, this.a.vx);
+  }
+}
+
 /** Creates a view for a non-worm entity, or null if it has no visual. */
 export function createEntityView(e: Entity, world: World): EntityView | null {
+  if (e instanceof Pigeon) return new PigeonView(e);
+  if (e instanceof Arrow) return new ArrowView(e);
   if (e instanceof Projectile) return new ProjectileView(e);
   if (e instanceof Gravestone) return new GravestoneView(e);
   if (e instanceof Mine) return new MineView(e);

@@ -148,12 +148,14 @@ export class GameScene {
       switch (ev.type) {
         case 'sound':
           this.sound(ev.id, ev.x, ev.y);
-          // Muzzle flash for guns and launchers.
-          if (ev.id === 'launch' || ev.id === 'shotgun' || ev.id === 'shot') {
+          // Muzzle flash for launchers and shotguns; automatic guns fire a lot, so a small one.
+          if (ev.id === 'launch' || ev.id === 'shotgun') {
             this.effects.play('muzzle', ev.x, ev.y, 30, {
               dirt: this.dirt,
               wind: this.game.world.wind,
             });
+          } else if (ev.id === 'shot') {
+            this.effects.play('impact', ev.x, ev.y, 12, { dirt: this.dirt, wind: 0 });
           }
           break;
         case 'tracer':
