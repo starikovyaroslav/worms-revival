@@ -5,8 +5,17 @@ import type { Theme } from './theme';
 const CHUNK = 256;
 /** Depth of the surface (grass) layer in pixels. */
 const SURFACE_DEPTH = 7;
-/** Recolour this far around a change, because colours depend on neighbouring pixels. */
-const MARGIN = SURFACE_DEPTH + 2;
+/** Shading depends on distance to the nearest air up to this many pixels. */
+const DEPTH_REACH = 24;
+/** Recolour this far around a change, because colours depend on nearby land. */
+const MARGIN = DEPTH_REACH + 2;
+/** Distance field padding around a repainted region. */
+const FIELD_PAD = DEPTH_REACH + 4;
+/** Chamfer distance units per pixel (3 = orthogonal step, 4 = diagonal step). */
+const CH = 3;
+/** Direction towards the light (from the top left), unit-ish. */
+const LIGHT_X = -0.62;
+const LIGHT_Y = -0.78;
 
 interface Chunk {
   cx: number;
@@ -22,6 +31,8 @@ export class TerrainView {
   readonly container = new Container();
   private chunks: Chunk[] = [];
   private cols: number;
+  /** Distance-to-air field for the region currently being repainted. */
+  private field = { x0: 0, y0: 0, w: 0, h: 0, data: new Uint8Array(0) };
 
   constructor(
     private readonly terrain: Terrain,
@@ -74,6 +85,7 @@ export class TerrainView {
     x1 = Math.min(t.width - 1, x1);
     y1 = Math.min(t.height - 1, y1);
     if (x0 > x1 || y0 > y1) return;
+    this.buildField(x0, y0, x1, y1);
     for (let cy = Math.floor(y0 / CHUNK); cy <= Math.floor(y1 / CHUNK); cy++) {
       for (let cx = Math.floor(x0 / CHUNK); cx <= Math.floor(x1 / CHUNK); cx++) {
         const chunk = this.chunks[cy * this.cols + cx];
@@ -86,6 +98,76 @@ export class TerrainView {
         chunk.source.update(ly0 * chunk.w, (ly1 + 1) * chunk.w);
       }
     }
+  }
+
+  /**
+   * Distance from every land pixel to the nearest air pixel, in chamfer units (CH per pixel),
+   * for the region plus padding. The land outside the map counts as air.
+   */
+  private buildField(x0: number, y0: number, x1: number, y1: number): void {
+    const t = this.terrain;
+    const rx0 = Math.max(0, x0 - FIELD_PAD);
+    const ry0 = Math.max(0, y0 - FIELD_PAD);
+    const rx1 = Math.min(t.width - 1, x1 + FIELD_PAD);
+    const ry1 = Math.min(t.height - 1, y1 + FIELD_PAD);
+    const w = rx1 - rx0 + 1;
+    const h = ry1 - ry0 + 1;
+    const W = w + 2;
+    const d = new Uint8Array(W * (h + 2)).fill(255);
+    // A frame of air where the region touches the map edge, "unknown/far" elsewhere.
+    for (let j = 0; j < h + 2; j++) {
+      if (rx0 === 0) d[j * W] = 0;
+      if (rx1 === t.width - 1) d[j * W + w + 1] = 0;
+    }
+    for (let i = 0; i < W; i++) {
+      if (ry0 === 0) d[i] = 0;
+      if (ry1 === t.height - 1) d[(h + 1) * W + i] = 0;
+    }
+    for (let j = 0; j < h; j++) {
+      const row = (ry0 + j) * t.width + rx0;
+      const o = (j + 1) * W + 1;
+      for (let i = 0; i < w; i++) d[o + i] = t.data[row + i] === Material.Air ? 0 : 255;
+    }
+    for (let j = 1; j <= h; j++) {
+      for (let i = 1; i <= w; i++) {
+        const k = j * W + i;
+        const v = d[k] as number;
+        if (v === 0) continue;
+        const a = Math.min(
+          v,
+          (d[k - 1] as number) + CH,
+          (d[k - W] as number) + CH,
+          (d[k - W - 1] as number) + CH + 1,
+          (d[k - W + 1] as number) + CH + 1,
+        );
+        d[k] = Math.min(255, a);
+      }
+    }
+    for (let j = h; j >= 1; j--) {
+      for (let i = w; i >= 1; i--) {
+        const k = j * W + i;
+        const v = d[k] as number;
+        if (v === 0) continue;
+        const a = Math.min(
+          v,
+          (d[k + 1] as number) + CH,
+          (d[k + W] as number) + CH,
+          (d[k + W + 1] as number) + CH + 1,
+          (d[k + W - 1] as number) + CH + 1,
+        );
+        d[k] = Math.min(255, a);
+      }
+    }
+    this.field = { x0: rx0 - 1, y0: ry0 - 1, w: W, h: h + 2, data: d };
+  }
+
+  /** Distance to air in chamfer units; 255 when unknown. */
+  private depthAt(x: number, y: number): number {
+    const f = this.field;
+    const i = x - f.x0;
+    const j = y - f.y0;
+    if (i < 0 || j < 0 || i >= f.w || j >= f.h) return 255;
+    return f.data[j * f.w + i] as number;
   }
 
   private paint(chunk: Chunk, lx0: number, ly0: number, lx1: number, ly1: number): void {
@@ -148,16 +230,25 @@ export class TerrainView {
             }
           }
         }
+        // Volume: land gets darker the deeper it is, and its rim is lit from the top left,
+        // so ledges and crater edges read as three-dimensional.
+        const dpx = this.depthAt(x, y) / CH;
+        let shade = 1.1 - 0.32 * (Math.min(dpx, DEPTH_REACH) / DEPTH_REACH);
+        if (dpx < 7) {
+          const gx = this.depthAt(x + 2, y) - this.depthAt(x - 2, y);
+          const gy = this.depthAt(x, y + 2) - this.depthAt(x, y - 2);
+          const len = Math.sqrt(gx * gx + gy * gy);
+          if (len > 0) {
+            // The gradient points into the land; the surface normal points out of it.
+            const lit = (-gx / len) * LIGHT_X + (-gy / len) * LIGHT_Y;
+            shade += lit * 0.26 * (1 - dpx / 7);
+          }
+        }
+        r *= shade;
+        g *= shade;
+        b *= shade;
         // Cartoon outline wherever land meets air.
-        if (
-          !t.isSolid(x - 1, y) ||
-          !t.isSolid(x + 1, y) ||
-          !t.isSolid(x, y - 1) ||
-          !t.isSolid(x, y + 1) ||
-          !t.isSolid(x - 2, y) ||
-          !t.isSolid(x + 2, y) ||
-          !t.isSolid(x, y + 2)
-        ) {
+        if (dpx <= 1.7) {
           const ol = th.outlineRgb;
           r = r * 0.25 + ol[0] * 0.75;
           g = g * 0.25 + ol[1] * 0.75;
