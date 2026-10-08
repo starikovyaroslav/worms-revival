@@ -20,6 +20,8 @@ export interface ThemeSpec {
   hills: [number, number, number];
   /** Colour grading and glow. */
   grade?: Partial<GradeSpec>;
+  /** Scene brightness colour: white = daylight, darker = night (lights matter more). */
+  ambient?: number;
 }
 
 export interface Theme extends ThemeSpec {
@@ -84,20 +86,21 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'hell',
+    ambient: 0xb59ca3,
     grade: {
-      saturation: 1.25,
-      contrast: 1.15,
-      tint: [1.1, 0.95, 0.9],
-      bloomThreshold: 0.55,
+      saturation: 1.05,
+      contrast: 1.04,
+      tint: [1.04, 0.98, 0.97],
+      bloomThreshold: 0.6,
       bloomScale: 0.8,
-      vignette: 0.65,
+      vignette: 0.45,
     },
     hills: [0x3a0a0a, 0x5a1408, 0x2a0606],
     name: 'Преисподняя',
     skyTop: 0x1a0505,
     skyBottom: 0x7a1d0d,
     water: 0x8a2a05,
-    soil: { base: 0x5a2a2a, dark: 0x2a0e0e, speck: 0xd04a20, speckDensity: 0.07, seed: 41 },
+    soil: { base: 0x8a4a40, dark: 0x4a2220, speck: 0xff7a30, speckDensity: 0.07, seed: 41 },
     surface: 0x3a3a3a,
     surfaceDark: 0x1a1a1a,
     outline: 0x0a0000,

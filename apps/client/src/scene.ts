@@ -1,9 +1,10 @@
 import { Container, type Application } from 'pixi.js';
-import { Worm, type Game } from '@wr/sim';
+import { Worm, type Game, type Mine, type Projectile } from '@wr/sim';
 import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
 import {
   AimView,
+  LightLayer,
   EffectsSystem,
   PostFx,
   SpeechView,
@@ -19,6 +20,12 @@ import {
   type EntityView,
   type Theme,
 } from '@wr/render';
+
+function mixToward(a: number, b: number, t: number): number {
+  const ch = (c: number, sh: number) => (c >> sh) & 255;
+  const m = (sh: number) => Math.round(ch(a, sh) + (ch(b, sh) - ch(a, sh)) * t);
+  return (m(16) << 16) | (m(8) << 8) | m(0);
+}
 
 /** Everything visible in a match, kept in sync with the simulation. */
 export class GameScene {
@@ -40,6 +47,8 @@ export class GameScene {
   mouseWorld: { x: number; y: number } | null = null;
   private fx: Fx;
   private effects: EffectsSystem;
+  private lights: LightLayer;
+  private baseAmbient: number;
   private worms = new Map<number, WormView>();
   private entities = new Map<number, EntityView>();
   /** Pause camera following after the user scrolls manually. */
@@ -62,6 +71,8 @@ export class GameScene {
     this.effects = new EffectsSystem({
       shake: (p) => this.camera.shake(p),
       glow: (g) => this.post.flash(g),
+      light: (x, y, color, radius, life, intensity) =>
+        this.lights.flash(x, y, color, radius, life, intensity),
       shockwave: (x, y, s) => {
         const p = this.camera.toScreen(x, y);
         this.post.shockwave(p.x, p.y, s);
@@ -82,6 +93,10 @@ export class GameScene {
       this.speech.container,
     );
     app.stage.addChild(this.background.container, this.world);
+    this.lights = new LightLayer(app);
+    this.baseAmbient = theme.ambient ?? 0xffffff;
+    this.lights.setAmbient(this.baseAmbient, true);
+    app.stage.addChild(this.lights.container);
     this.post = new PostFx(app, app.stage);
     this.post.setGrade(theme.grade ?? {});
     const w = game.activeWorm;
@@ -89,6 +104,7 @@ export class GameScene {
   }
 
   destroy(): void {
+    this.lights.destroy();
     this.post.destroy();
     this.app.stage.removeChildren();
     this.background.container.destroy({ children: true });
@@ -183,6 +199,42 @@ export class GameScene {
     }
   }
 
+  /** Persistent light sources (fire, rockets, mines) and the scene's ambient mood. */
+  private updateLights(dtMs: number): void {
+    const game = this.game;
+    // Sudden Death turns the light blood-red and dim.
+    const target = game.suddenDeath ? mixToward(this.baseAmbient, 0x9a6a6e, 0.6) : this.baseAmbient;
+    this.lights.setAmbient(target);
+    for (const e of game.world.all()) {
+      if (e.removed) continue;
+      switch (e.kind) {
+        case 'flame':
+          this.lights.frame(e.x, e.y - 4, 0xff8a30, 38, 0.7, 0.25);
+          break;
+        case 'projectile': {
+          const look = (e as Projectile).look;
+          if (look === 'missile' || look === 'homing')
+            this.lights.frame(e.x, e.y, 0xffb050, 55, 0.8, 0.15);
+          else if (look === 'hhg') this.lights.frame(e.x, e.y, 0xffe9a0, 70, 0.9, 0.1);
+          break;
+        }
+        case 'mine': {
+          const m = e as Mine;
+          if (m.armed && Math.sin(performance.now() / (m.triggered ? 50 : 330)) > 0) {
+            this.lights.frame(e.x, e.y - 2, 0xff3020, 22, 0.6);
+          }
+          break;
+        }
+        case 'crate':
+          this.lights.frame(e.x, e.y - 20, 0xfff0c0, 30, 0.25);
+          break;
+        default:
+          break;
+      }
+    }
+    this.lights.update(dtMs, this.camera);
+  }
+
   /** Debug: plays an effect near the active worm (used by tools/shot.mjs: `e:__game.fx('explosion')`). */
   debugEffect(id: string, size = 60, dx = 90, dy = -40): void {
     const w = this.game.activeWorm;
@@ -223,6 +275,7 @@ export class GameScene {
     const secLeft = game.timer / 50;
     this.post.setDanger(game.phase === 'turn' && secLeft <= 5 ? 1 - secLeft / 5 : 0);
     this.post.update(dtMs);
+    this.updateLights(dtMs);
     this.targetView.update(game, this.mouseWorld, dtMs);
     this.speech.update(dtMs);
     this.fx.update(dtMs);
