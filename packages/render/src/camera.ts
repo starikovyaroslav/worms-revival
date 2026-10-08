@@ -118,6 +118,13 @@ export class Camera {
     );
   }
 
+  toScreen(wx: number, wy: number): { x: number; y: number } {
+    return {
+      x: (wx - this.x) * this.zoom + this.viewW / 2,
+      y: (wy - this.y) * this.zoom + this.viewH / 2,
+    };
+  }
+
   toWorld(sx: number, sy: number): { x: number; y: number } {
     return {
       x: (sx - this.viewW / 2) / this.zoom + this.x,

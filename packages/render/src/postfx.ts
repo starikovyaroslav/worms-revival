@@ -1,5 +1,5 @@
 import { Container, Rectangle, Sprite, Texture, type Application } from 'pixi.js';
-import { AdjustmentFilter, AdvancedBloomFilter } from 'pixi-filters';
+import { AdjustmentFilter, AdvancedBloomFilter, ShockwaveFilter } from 'pixi-filters';
 
 /** Per-theme look: colour grading and how readily things glow. */
 export interface GradeSpec {
@@ -59,6 +59,9 @@ export class PostFx {
   private grade: GradeSpec = DEFAULT_GRADE;
   /** Extra glow after a blast, decays to 0. */
   private kick = 0;
+  private shock: ShockwaveFilter | null = null;
+  private shockTime = 0;
+  private shockLife = 0;
   private danger = 0;
   private dangerTarget = 0;
   private time = 0;
@@ -101,6 +104,28 @@ export class PostFx {
     this.kick = Math.min(1.2, Math.max(this.kick, strength));
   }
 
+  /**
+   * Distorts the screen with an expanding ring centred on a screen position. Only one wave is
+   * active at a time (the newest wins); a full-screen pass is only paid for while it lasts.
+   */
+  shockwave(screenX: number, screenY: number, strength: number): void {
+    this.shock ??= new ShockwaveFilter({
+      speed: 520,
+      wavelength: 150,
+      amplitude: 18,
+      brightness: 1.04,
+    });
+    const f = this.shock;
+    f.center = { x: screenX, y: screenY };
+    f.amplitude = 6 + 12 * Math.min(1.5, strength);
+    f.time = 0;
+    this.shockTime = 0;
+    this.shockLife = 0.55 + 0.25 * Math.min(1.5, strength);
+    if (!this.stage.filters || !(this.stage.filters as unknown[]).includes(f)) {
+      this.stage.filters = [this.adjust, this.bloom, f];
+    }
+  }
+
   /** 0..1: how urgent the moment is (timer running out). */
   setDanger(level: number): void {
     this.dangerTarget = level;
@@ -111,6 +136,18 @@ export class PostFx {
     this.time += dt;
     this.kick = Math.max(0, this.kick - dt * 2.4);
     this.danger += (this.dangerTarget - this.danger) * Math.min(1, dt * 6);
+
+    if (this.shock && this.shockLife > 0) {
+      this.shockTime += dt;
+      this.shock.time = this.shockTime;
+      // Fade the distortion out over the second half of its life.
+      const left = 1 - this.shockTime / this.shockLife;
+      this.shock.amplitude *= left < 0.5 ? 0.9 : 1;
+      if (this.shockTime >= this.shockLife) {
+        this.shockLife = 0;
+        this.stage.filters = [this.adjust, this.bloom];
+      }
+    }
 
     const w = this.app.screen.width;
     const h = this.app.screen.height;

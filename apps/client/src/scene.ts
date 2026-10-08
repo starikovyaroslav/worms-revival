@@ -4,6 +4,7 @@ import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
 import {
   AimView,
+  EffectsSystem,
   PostFx,
   SpeechView,
   TargetView,
@@ -32,11 +33,13 @@ export class GameScene {
   private targetView = new TargetView();
   private speech = new SpeechView();
   private post: PostFx;
+  private dirt: number;
   /** Last time each worm spoke, so they don't chatter non-stop. */
   private lastSpoke = new Map<number, number>();
   /** Mouse position in world coordinates, set by the input layer. */
   mouseWorld: { x: number; y: number } | null = null;
   private fx: Fx;
+  private effects: EffectsSystem;
   private worms = new Map<number, WormView>();
   private entities = new Map<number, EntityView>();
   /** Pause camera following after the user scrolls manually. */
@@ -56,6 +59,15 @@ export class GameScene {
     this.terrainView = new TerrainView(terrain, theme);
     this.water = new WaterView(theme, terrain.width);
     this.fx = new Fx(theme.soil.base);
+    this.effects = new EffectsSystem({
+      shake: (p) => this.camera.shake(p),
+      glow: (g) => this.post.flash(g),
+      shockwave: (x, y, s) => {
+        const p = this.camera.toScreen(x, y);
+        this.post.shockwave(p.x, p.y, s);
+      },
+    });
+    this.dirt = theme.soil.base;
     this.world.addChild(
       this.water.back,
       this.terrainView.container,
@@ -63,6 +75,8 @@ export class GameScene {
       this.wormLayer,
       this.aim.container,
       this.targetView.container,
+      this.effects.back,
+      this.effects.front,
       this.fx.container,
       this.water.front,
       this.speech.container,
@@ -117,13 +131,15 @@ export class GameScene {
           break;
         case 'explosion':
           this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
-          this.fx.explosion(ev.x, ev.y, ev.radius);
-          this.post.flash(Math.min(1.2, ev.radius / 40));
+          this.effects.play('explosion', ev.x, ev.y, ev.radius, {
+            dirt: this.dirt,
+            wind: this.game.world.wind,
+          });
           this.camera.shake(Math.min(10, ev.radius / 6));
           break;
         case 'splash':
           this.sound('splash', ev.x, ev.y, ev.size);
-          this.fx.splash(ev.x, ev.y, ev.size);
+          this.effects.play('splash', ev.x, ev.y, 18 + ev.size * 30, { dirt: this.dirt, wind: 0 });
           break;
         case 'damage': {
           const worm = this.game.world.byId(ev.wormId);
@@ -167,6 +183,16 @@ export class GameScene {
     }
   }
 
+  /** Debug: plays an effect near the active worm (used by tools/shot.mjs: `e:__game.fx('explosion')`). */
+  debugEffect(id: string, size = 60, dx = 90, dy = -40): void {
+    const w = this.game.activeWorm;
+    if (w)
+      this.effects.play(id, w.x + dx, w.y + dy, size, {
+        dirt: this.dirt,
+        wind: this.game.world.wind,
+      });
+  }
+
   /** Plays a sound positioned relative to what the camera shows. */
   sound(id: string, x: number, y: number, size = 0.5): void {
     const c = this.camera;
@@ -200,5 +226,6 @@ export class GameScene {
     this.targetView.update(game, this.mouseWorld, dtMs);
     this.speech.update(dtMs);
     this.fx.update(dtMs);
+    this.effects.update(dtMs);
   }
 }

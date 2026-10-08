@@ -123,7 +123,13 @@ export class Match {
       },
     );
     this.loop.start();
-    (window as unknown as { __game: unknown }).__game = { game, scene, match: this };
+    (window as unknown as { __game: unknown }).__game = {
+      game,
+      scene,
+      match: this,
+      fx: (id: string, size?: number, dx?: number, dy?: number) =>
+        scene.debugEffect(id, size, dx, dy),
+    };
   }
 
   /** Difficulty of the team whose turn it is, 0 for humans. */
