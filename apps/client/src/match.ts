@@ -26,6 +26,9 @@ export class Match {
   private loop: FixedLoop;
   private abort = new AbortController();
   /** Computer player state for the current turn. */
+  private userSpeed = 1;
+  /** Slow motion / hit-stop in progress. */
+  private slow = { scale: 1, left: 0 };
   private bot: { turn: number; thinking: Generator<void, Plan> | null; plan: Plan | null } | null =
     null;
   readonly recorder: ReplayRecorder;
@@ -48,6 +51,10 @@ export class Match {
     this.scene = scene;
     scene.camera.zoom = 1.4;
     scene.onMessage = hooks.onMessage;
+    // Effects and big hits may briefly slow the game clock. Only pacing changes, never results.
+    scene.onTimeScale = (scale, seconds) => {
+      if (seconds > this.slow.left || scale < this.slow.scale) this.slow = { scale, left: seconds };
+    };
     const signal = this.abort.signal;
     const input = new Input(() => game, app.canvas, signal);
     this.input = input;
@@ -116,6 +123,8 @@ export class Match {
         }
       },
       (alpha, dt) => {
+        if (this.slow.left > 0) this.slow.left -= dt / 1000;
+        this.loop.speed = this.userSpeed * (this.slow.left > 0 ? this.slow.scale : 1);
         this.thinkBot();
         scene.mouseWorld = input.mouseWorld;
         scene.render(alpha, dt);
@@ -188,7 +197,7 @@ export class Match {
 
   /** Playback speed (replays). */
   setSpeed(speed: number): void {
-    this.loop.speed = speed;
+    this.userSpeed = speed;
   }
 
   replay(): Replay {

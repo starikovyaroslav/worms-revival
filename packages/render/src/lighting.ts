@@ -139,7 +139,7 @@ export class LightLayer {
       const p = camera.toScreen(l.x, l.y);
       const fade = l.life > 0 ? 1 - l.age / l.life : 1;
       const flick = l.flicker ? 1 + Math.sin(this.time * 19 + l.x) * l.flicker : 1;
-      const r = (l.radius * camera.zoom * flick * scale * 2) / this.tex.width;
+      const r = (l.radius * camera.scale * flick * scale * 2) / this.tex.width;
       l.sprite.position.set(p.x * scale, p.y * scale);
       l.sprite.scale.set(r);
       // Day: subtle warm pool. Night: strong, since it is what reveals the scene.

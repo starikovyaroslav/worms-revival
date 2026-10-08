@@ -23,6 +23,7 @@ export class Camera {
   private targetX = 0;
   private targetY = 0;
   private following = false;
+  private punchAmount = 0;
   private shakeTime = 0;
   private shakePower = 0;
   private shakeX = 0;
@@ -73,6 +74,16 @@ export class Camera {
     this.targetY += before.y - after.y;
   }
 
+  /** Quick zoom-in that eases back (explosions, big hits). */
+  punch(amount: number): void {
+    this.punchAmount = Math.min(0.12, Math.max(this.punchAmount, amount));
+  }
+
+  /** Zoom including the punch. */
+  get scale(): number {
+    return this.zoom * (1 + this.punchAmount);
+  }
+
   shake(power: number, seconds = 0.4): void {
     this.shakePower = Math.max(this.shakePower, power);
     this.shakeTime = Math.max(this.shakeTime, seconds);
@@ -80,6 +91,8 @@ export class Camera {
 
   update(dtMs: number): void {
     const dt = dtMs / 1000;
+    this.punchAmount *= Math.exp(-dt * 7);
+    if (this.punchAmount < 0.0005) this.punchAmount = 0;
     if (this.following) {
       // Frame-rate independent exponential smoothing.
       const k = 1 - Math.exp(-dt * 6);
@@ -111,24 +124,25 @@ export class Camera {
 
   /** Applies the camera transform to a world container. */
   apply(world: Container): void {
-    world.scale.set(this.zoom);
+    const z = this.scale;
+    world.scale.set(z);
     world.position.set(
-      Math.round(this.viewW / 2 - (this.x + this.shakeX) * this.zoom),
-      Math.round(this.viewH / 2 - (this.y + this.shakeY) * this.zoom),
+      Math.round(this.viewW / 2 - (this.x + this.shakeX) * z),
+      Math.round(this.viewH / 2 - (this.y + this.shakeY) * z),
     );
   }
 
   toScreen(wx: number, wy: number): { x: number; y: number } {
     return {
-      x: (wx - this.x) * this.zoom + this.viewW / 2,
-      y: (wy - this.y) * this.zoom + this.viewH / 2,
+      x: (wx - this.x) * this.scale + this.viewW / 2,
+      y: (wy - this.y) * this.scale + this.viewH / 2,
     };
   }
 
   toWorld(sx: number, sy: number): { x: number; y: number } {
     return {
-      x: (sx - this.viewW / 2) / this.zoom + this.x,
-      y: (sy - this.viewH / 2) / this.zoom + this.y,
+      x: (sx - this.viewW / 2) / this.scale + this.x,
+      y: (sy - this.viewH / 2) / this.scale + this.y,
     };
   }
 }

@@ -5,7 +5,7 @@ import type { FxTextureId } from './textures';
  * Sizes are relative to the effect "size" k (blast radius / 50), so one recipe scales from a
  * bazooka shell to a nuke. They can later be loaded from `*.fx.json` unchanged.
  */
-export type Layer = FlashLayer | BurstLayer | CameraLayer | ShockwaveLayer | GlowLayer;
+export type Layer = FlashLayer | BurstLayer | CameraLayer | ShockwaveLayer | GlowLayer | TimeLayer;
 
 export type Range = [number, number];
 
@@ -62,6 +62,18 @@ export interface CameraLayer {
   at?: number;
   shake: number;
   glow: number;
+  /** Quick zoom-in "punch" that settles back (fraction of zoom per k). */
+  punch?: number;
+}
+
+/** Slow motion / hit-stop: the game clock runs at `scale` for `duration` real seconds. */
+export interface TimeLayer {
+  type: 'time';
+  at?: number;
+  scale: number;
+  duration: number;
+  /** Only for effects at least this large. */
+  minK: number;
 }
 
 export interface ShockwaveLayer {
@@ -91,7 +103,8 @@ export const RECIPES: Record<string, Recipe> = {
   explosion: {
     id: 'explosion',
     layers: [
-      { type: 'camera', shake: 1, glow: 1 },
+      { type: 'camera', shake: 1, glow: 1, punch: 0.035 },
+      { type: 'time', scale: 0.3, duration: 0.2, minK: 1.15 },
       { type: 'shockwave', strength: 1, minK: 0.9 },
       { type: 'light', color: 0xffc070, radius: 3.6, life: 0.7, intensity: 1.3 },
       // Instant white-hot flash.
@@ -288,6 +301,117 @@ export const RECIPES: Record<string, Recipe> = {
         colors: [0xffffff, 0xffb040, 0xc04010],
         fade: 'out',
         stretch: true,
+      },
+    ],
+  },
+
+  /** Rocket exhaust: a puff of smoke and a lick of fire, spawned every frame. */
+  'trail-rocket': {
+    id: 'trail-rocket',
+    layers: [
+      {
+        type: 'burst',
+        tex: 'smoke',
+        blend: 'normal',
+        count: [2, 0],
+        spread: 0.06,
+        speed: [4, 18],
+        dir: 'radial',
+        gravity: -14,
+        drag: 0.3,
+        life: [0.7, 1.3],
+        scaleStart: [0.2, 0.3],
+        scaleEnd: [0.7, 1.2],
+        colors: [0xe8dcc8, 0xa8a49c, 0x6e6c6a],
+        fade: 'inout',
+        alpha: 0.75,
+        spin: [-1, 1],
+        wind: 40,
+      },
+      {
+        type: 'burst',
+        tex: 'soft',
+        blend: 'add',
+        count: [1, 0],
+        spread: 0.04,
+        speed: [0, 12],
+        dir: 'radial',
+        gravity: 0,
+        drag: 0.2,
+        life: [0.12, 0.22],
+        scaleStart: [0.3, 0.42],
+        scaleEnd: [0.05, 0.1],
+        colors: [0xfffbe0, 0xffa040, 0xc03010],
+        fade: 'out',
+      },
+    ],
+  },
+
+  /** Burning fuse spark on grenades and dynamite. */
+  'trail-fuse': {
+    id: 'trail-fuse',
+    layers: [
+      {
+        type: 'burst',
+        tex: 'ember',
+        blend: 'add',
+        count: [1, 0],
+        spread: 0.03,
+        speed: [10, 60],
+        dir: 'up',
+        cone: 1.4,
+        gravity: 120,
+        drag: 0.6,
+        life: [0.2, 0.45],
+        scaleStart: [0.06, 0.1],
+        scaleEnd: [0.01, 0.03],
+        colors: [0xffffff, 0xffc050, 0xe05010],
+        fade: 'out',
+      },
+    ],
+  },
+
+  /** Muzzle flash with a puff of smoke. */
+  muzzle: {
+    id: 'muzzle',
+    layers: [
+      { type: 'camera', shake: 0.12, glow: 0.12 },
+      { type: 'light', color: 0xffd090, radius: 1.8, life: 0.12, intensity: 0.9 },
+      { type: 'flash', tex: 'soft', blend: 'add', color: 0xfff0c0, scale: [0.5, 1.5], life: 0.07 },
+      {
+        type: 'burst',
+        tex: 'spark',
+        blend: 'add',
+        count: [3, 0],
+        spread: 0.02,
+        speed: [140, 340],
+        dir: 'radial',
+        gravity: 300,
+        drag: 0.4,
+        life: [0.1, 0.28],
+        scaleStart: [0.1, 0.18],
+        scaleEnd: [0.02, 0.05],
+        colors: [0xffffff, 0xffb040, 0xb04010],
+        fade: 'out',
+        stretch: true,
+      },
+      {
+        type: 'burst',
+        tex: 'smoke',
+        blend: 'normal',
+        count: [2, 0],
+        spread: 0.1,
+        speed: [10, 40],
+        dir: 'radial',
+        gravity: -16,
+        drag: 0.3,
+        life: [0.5, 0.9],
+        scaleStart: [0.12, 0.2],
+        scaleEnd: [0.4, 0.7],
+        colors: [0xd8d2c4, 0x8a8782],
+        fade: 'inout',
+        alpha: 0.5,
+        wind: 30,
       },
     ],
   },

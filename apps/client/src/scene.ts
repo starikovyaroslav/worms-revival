@@ -54,6 +54,8 @@ export class GameScene {
   /** Pause camera following after the user scrolls manually. */
   userScrolled = false;
   onMessage: (text: string) => void = () => {};
+  /** Slow motion / hit-stop request: game clock at `scale` for `seconds` of real time. */
+  onTimeScale: (scale: number, seconds: number) => void = () => {};
   readonly sfx = new Sfx();
 
   constructor(
@@ -70,6 +72,8 @@ export class GameScene {
     this.fx = new Fx(theme.soil.base);
     this.effects = new EffectsSystem({
       shake: (p) => this.camera.shake(p),
+      punch: (a) => this.camera.punch(a),
+      timeScale: (s, d) => this.onTimeScale(s, d),
       glow: (g) => this.post.flash(g),
       light: (x, y, color, radius, life, intensity) =>
         this.lights.flash(x, y, color, radius, life, intensity),
@@ -144,6 +148,16 @@ export class GameScene {
       switch (ev.type) {
         case 'sound':
           this.sound(ev.id, ev.x, ev.y);
+          // Muzzle flash for guns and launchers.
+          if (ev.id === 'launch' || ev.id === 'shotgun' || ev.id === 'shot') {
+            this.effects.play('muzzle', ev.x, ev.y, 30, {
+              dirt: this.dirt,
+              wind: this.game.world.wind,
+            });
+          }
+          break;
+        case 'tracer':
+          this.effects.tracer(ev.x0, ev.y0, ev.x1, ev.y1);
           break;
         case 'explosion':
           this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
@@ -158,6 +172,11 @@ export class GameScene {
           this.effects.play('splash', ev.x, ev.y, 18 + ev.size * 30, { dirt: this.dirt, wind: 0 });
           break;
         case 'damage': {
+          // Hit-stop: a brief freeze on a solid hit makes impacts feel heavy.
+          if (ev.amount >= 20) {
+            this.onTimeScale(0.06, 0.05 + Math.min(0.12, ev.amount / 500));
+            this.camera.shake(Math.min(8, ev.amount / 7), 0.3);
+          }
           const worm = this.game.world.byId(ev.wormId);
           if (worm instanceof Worm) {
             const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
@@ -232,7 +251,24 @@ export class GameScene {
           break;
       }
     }
+    this.trails(dtMs);
     this.lights.update(dtMs, this.camera);
+  }
+
+  /** Smoke trails behind rockets and burning fuses on grenades and dynamite. */
+  private trails(dtMs: number): void {
+    const gate = Math.min(1, dtMs / 16.7);
+    const ctx = { dirt: this.dirt, wind: this.game.world.wind };
+    for (const e of this.game.world.ofKind<Projectile>('projectile')) {
+      if (Math.random() > gate) continue;
+      const bx = e.x - e.vx * 0.4;
+      const by = e.y - e.vy * 0.4;
+      if (e.look === 'missile' || e.look === 'homing' || e.look === 'mortar') {
+        this.effects.play('trail-rocket', bx, by, 40, ctx);
+      } else if (e.fuseLeft > 0 && e.look !== 'clusterlet') {
+        this.effects.play('trail-fuse', e.x, e.y - 5, 20, ctx);
+      }
+    }
   }
 
   /** Debug: plays an effect near the active worm (used by tools/shot.mjs: `e:__game.fx('explosion')`). */

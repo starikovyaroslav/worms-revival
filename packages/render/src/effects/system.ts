@@ -13,6 +13,10 @@ import { createFxTextures, type FxTextureId } from './textures';
 export interface FxHooks {
   shake(power: number): void;
   glow(strength: number): void;
+  /** Quick zoom punch (fraction of zoom). */
+  punch(amount: number): void;
+  /** Slow motion or hit-stop: game clock at `scale` for `seconds` of real time. */
+  timeScale(scale: number, seconds: number): void;
   /** Screen-space shockwave distortion at a world point. */
   shockwave(worldX: number, worldY: number, strength: number): void;
   /** Dynamic light (consumed by the lighting pass when present). */
@@ -53,6 +57,9 @@ interface Particle {
   stretch: boolean;
   phase: number;
   pool: Sprite[];
+  /** Extra non-uniform scale multipliers (tracers). */
+  sx: number;
+  sy: number;
 }
 
 interface Pending {
@@ -127,6 +134,10 @@ export class EffectsSystem {
       case 'camera':
         this.hooks.shake(layer.shake * Math.min(10, k * 6));
         this.hooks.glow(layer.glow * Math.min(1.2, k * 0.8));
+        if (layer.punch) this.hooks.punch(layer.punch * Math.min(2, k));
+        break;
+      case 'time':
+        if (k >= layer.minK) this.hooks.timeScale(layer.scale, layer.duration);
         break;
       case 'shockwave':
         if (k >= layer.minK) this.hooks.shockwave(x, y, layer.strength * Math.min(1.5, k * 0.7));
@@ -184,6 +195,46 @@ export class EffectsSystem {
       stretch: false,
       phase: 0,
       pool: this.pool,
+      sx: 1,
+      sy: 1,
+    });
+  }
+
+  /** A bullet trail: a thin bright streak that fades quickly. */
+  tracer(x0: number, y0: number, x1: number, y1: number): void {
+    const sprite = this.take(this.textures.spark[0] as Texture);
+    sprite.blendMode = 'add';
+    sprite.tint = 0xffe8a8;
+    const dx = x1 - x0;
+    const dy = y1 - y0;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len < 1) return;
+    sprite.position.set((x0 + x1) / 2, (y0 + y1) / 2);
+    sprite.rotation = Math.atan2(dy, dx);
+    this.front.addChild(sprite);
+    const base = this.textureSize(sprite);
+    this.particles.push({
+      sprite,
+      age: 0,
+      life: 0.1,
+      x: (x0 + x1) / 2,
+      y: (y0 + y1) / 2,
+      vx: 0,
+      vy: 0,
+      gravity: 0,
+      drag: 1,
+      wind: 0,
+      spin: 0,
+      scale0: len / base,
+      scale1: len / base,
+      colors: [0xffe8a8],
+      fade: 'out',
+      alpha: 0.9,
+      stretch: false,
+      phase: 0,
+      pool: this.pool,
+      sx: 1,
+      sy: 2.2 / len,
     });
   }
 
@@ -233,6 +284,8 @@ export class EffectsSystem {
         stretch: !!l.stretch,
         phase: Math.random() * 10,
         pool: this.pool,
+        sx: 1,
+        sy: 1,
       };
       sprite.position.set(px, py);
       sprite.rotation = l.spin || l.tex === 'smoke' ? Math.random() * Math.PI * 2 : 0;
@@ -283,7 +336,7 @@ export class EffectsSystem {
         s.rotation = Math.atan2(p.vy, p.vx);
         s.scale.set(scale * (1 + Math.min(5, speed / 160)), scale * 0.7);
       } else {
-        s.scale.set(scale);
+        s.scale.set(scale * p.sx, scale * p.sy);
         if (p.spin) s.rotation += p.spin * dt;
       }
       let a: number;
