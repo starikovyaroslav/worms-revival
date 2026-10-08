@@ -88,8 +88,7 @@
 - [x] F8: Ninja Rope (маятник, обмотка углов, перебрасывание, атака с верёвки), Parachute, Teleport
 - [x] F9: Holy Hand Grenade
 - [x] F12: Skip Go, Surrender
-- [~] **Не подключены к схемам и без отрисовки:** Homing, Mortar, Pigeon, Handgun, Uzi, Minigun, Longbow
-  (есть в `sim` и тестах; нет в `content/schemes.ts`, нет вида в `render`, нет части звуков)
+- [x] Homing, Mortar, Pigeon, Handgun, Uzi, Minigun, Longbow подключены к схемам, отрисовке и боту (2026-10-08)
 
 ### Фаза 4 — Рендер v1 (процедурный) `[~]` — **заменяется Фазой V**
 
