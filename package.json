@@ -15,7 +15,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "npm run typecheck && npm run lint && npm test",
-    "test:determinism": "node tools/determinism/run.mjs"
+    "test:determinism": "node tools/determinism/run.mjs",
+    "art": "node tools/art/build.mjs"
   },
   "engines": {
     "node": ">=22"
