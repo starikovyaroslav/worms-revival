@@ -31,7 +31,7 @@ async function boot() {
     document.fonts.load('16px "Press Start 2P"', 'Аб Ab'),
   ]);
   // Artwork is optional: anything missing falls back to the built-in drawing.
-  await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'));
+  await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'), __BUILD_ID__);
   const root = document.getElementById('ui')!;
 
   let match: Match | null = null;

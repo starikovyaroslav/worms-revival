@@ -21,10 +21,13 @@ export class AssetStore {
   manifest: AssetManifest | null = null;
 
   /** Loads a manifest and its images; later loads override earlier ones with the same id. */
-  async load(baseUrl: string): Promise<void> {
+  async load(baseUrl: string, version = ''): Promise<void> {
+    // Files keep their names between releases, so a version query keeps browsers and CDNs from
+    // serving stale copies.
+    const q = version ? `?v=${version}` : '';
     let manifest: AssetManifest;
     try {
-      const res = await fetch(`${baseUrl}/manifest.json`);
+      const res = await fetch(`${baseUrl}/manifest.json${q}`, { cache: 'no-cache' });
       if (!res.ok) return;
       manifest = (await res.json()) as AssetManifest;
     } catch {
@@ -41,11 +44,11 @@ export class AssetStore {
     await Promise.all(
       Object.entries(manifest.assets).map(async ([id, a]) => {
         try {
-          const tex = (await Assets.load(`${baseUrl}/${a.file}`)) as Texture;
+          const tex = (await Assets.load(`${baseUrl}/${a.file}${q}`)) as Texture;
           // Pixel art: never blur it when scaled.
           tex.source.scaleMode = 'nearest';
           this.textures.set(id, tex);
-          this.urls.set(id, `${baseUrl}/${a.file}`);
+          this.urls.set(id, `${baseUrl}/${a.file}${q}`);
         } catch {
           // A broken file just means "use the fallback".
         }
