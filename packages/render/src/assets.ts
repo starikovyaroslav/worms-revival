@@ -6,6 +6,8 @@ export interface AssetManifest {
   /** `pixel`: retro art, 1 art pixel = 1 world pixel. */
   style?: string;
   assets: Record<string, { file: string; w: number; h: number }>;
+  /** Id prefixes whose previously loaded assets are dropped first (an override replaces a whole set). */
+  remove?: string[];
 }
 
 /**
@@ -28,6 +30,10 @@ export class AssetStore {
       return;
     }
     this.manifest = manifest;
+    for (const prefix of manifest.remove ?? []) {
+      for (const id of [...this.textures.keys()])
+        if (id.startsWith(prefix)) this.textures.delete(id);
+    }
     await Promise.all(
       Object.entries(manifest.assets).map(async ([id, a]) => {
         try {

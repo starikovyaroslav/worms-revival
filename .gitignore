@@ -10,3 +10,4 @@ test-results/
 assets-in/*.png
 apps/client/personal/*
 !apps/client/personal/README.md
+apps/client/personal/raw/

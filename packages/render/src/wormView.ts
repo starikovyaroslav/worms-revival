@@ -125,11 +125,13 @@ export class WormView {
       this.wasAirborne = air;
       this.landTimer = Math.max(0, this.landTimer - dt);
       const name = this.frameName(w);
-      const body = assets.get(`worm/${name}`);
+      // Missing frames fall back to the first idle frame; a set without a bandana layer is fine.
+      const body = assets.get(`worm/${name}`) ?? assets.get('worm/idle_0');
       const band = assets.get(`worm/${name}_band`);
-      if (body && band) {
+      if (body) {
         this.pixel.body.texture = body;
-        this.pixel.band.texture = band;
+        this.pixel.band.visible = !!band;
+        if (band) this.pixel.band.texture = band;
       }
       for (const s of [this.pixel.body, this.pixel.band]) s.scale.x = w.facing;
     } else {
