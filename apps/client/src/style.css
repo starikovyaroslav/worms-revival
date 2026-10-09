@@ -29,7 +29,7 @@ body {
   position: absolute;
   inset: 0;
   color: #fff;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-family: 'Pixelify Sans', 'Trebuchet MS', sans-serif;
   text-shadow:
     0 0 3px #000,
     1px 1px 0 #000;
@@ -55,6 +55,7 @@ body {
 }
 
 .timer {
+  font-family: 'Press Start 2P', monospace;
   font-size: 32px;
   font-weight: bold;
   line-height: 1.1;
@@ -322,13 +323,15 @@ body {
   gap: 18px;
   padding: 28px 16px;
   color: #fff;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-family: 'Pixelify Sans', 'Trebuchet MS', sans-serif;
   background:
     radial-gradient(ellipse at 50% 120%, #3a8a3a 0 30%, transparent 31%),
     linear-gradient(180deg, #2a5aa8, #8fd0f0);
 }
 
 .logo {
+  font-family: 'Press Start 2P', monospace;
+  font-weight: 400;
   margin: 0;
   font-size: 64px;
   letter-spacing: 2px;
@@ -361,6 +364,8 @@ body {
 }
 
 .menu-card h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-weight: 400;
   margin: 0;
   font-size: 20px;
   color: #ffd23a;
@@ -485,7 +490,7 @@ body {
   border-radius: 14px;
   padding: 24px 36px;
   text-align: center;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-family: 'Pixelify Sans', 'Trebuchet MS', sans-serif;
 }
 
 .gameover-card h1 {

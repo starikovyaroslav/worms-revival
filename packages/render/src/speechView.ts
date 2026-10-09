@@ -20,20 +20,19 @@ export class SpeechView {
     const label = new Text({
       text,
       style: {
-        fontFamily: 'Trebuchet MS, Arial, sans-serif',
-        fontSize: 12,
-        fontWeight: 'bold',
+        fontFamily: '"Press Start 2P", monospace',
+        fontSize: 8,
+        fontWeight: '400',
         fill: 0x222222,
       },
     });
-    label.resolution = 2;
     label.anchor.set(0.5);
-    const w = label.width + 12;
-    const h = label.height + 8;
+    const w = Math.round(label.width / 2) * 2 + 16;
+    const h = Math.round(label.height / 2) * 2 + 10;
     const g = new Graphics()
-      .roundRect(-w / 2, -h / 2, w, h, 7)
+      .roundRect(-w / 2, -h / 2, w, h, 4)
       .fill(0xe9e6dc)
-      .stroke({ color: 0x222222, width: 1.5 })
+      .stroke({ color: 0x222222, width: 2 })
       .moveTo(-4, h / 2 - 1)
       .lineTo(0, h / 2 + 6)
       .lineTo(4, h / 2 - 1)
@@ -44,11 +43,12 @@ export class SpeechView {
     this.bubbles.push({ worm, box, t: 0 });
   }
 
-  update(dtMs: number): void {
+  update(dtMs: number, project: (x: number, y: number) => { x: number; y: number }): void {
     const dt = dtMs / 1000;
     for (const b of this.bubbles) {
       b.t += dt;
-      b.box.position.set(b.worm.x, b.worm.y - 84);
+      const p = project(b.worm.x, b.worm.y - 30);
+      b.box.position.set(Math.round(p.x), Math.round(p.y - 46));
       b.box.alpha = b.t < LIFETIME - 0.3 ? 1 : Math.max(0, (LIFETIME - b.t) / 0.3);
       b.box.scale.set(Math.min(1, b.t * 8));
     }

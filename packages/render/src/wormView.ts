@@ -14,7 +14,8 @@ const OUTLINE = 0x3a1020;
 export class WormView {
   readonly container = new Container();
   private body = new Graphics();
-  private label = new Container();
+  /** Name and health, drawn in screen space (added to the label layer by the scene). */
+  readonly label = new Container();
   private nameText: Text;
   private hpText: Text;
   private time = Math.random() * 10;
@@ -30,20 +31,18 @@ export class WormView {
   constructor(readonly worm: Worm) {
     const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
     const style = {
-      fontFamily: 'Trebuchet MS, Arial, sans-serif',
-      fontSize: 13,
-      fontWeight: 'bold' as const,
+      fontFamily: '"Press Start 2P", monospace',
+      fontSize: 8,
+      fontWeight: '400' as const,
       fill: color,
-      stroke: { color: 0x000000, width: 3, join: 'round' as const },
+      stroke: { color: 0x000000, width: 3, join: 'miter' as const },
     };
     this.nameText = new Text({ text: worm.name, style });
     this.hpText = new Text({ text: String(worm.health), style });
     this.nameText.anchor.set(0.5, 1);
     this.hpText.anchor.set(0.5, 1);
-    this.nameText.resolution = 2;
-    this.hpText.resolution = 2;
     this.hpText.y = 0;
-    this.nameText.y = -14;
+    this.nameText.y = -10;
     this.label.addChild(this.nameText, this.hpText);
     this.lastHealth = worm.health;
     if (assets.has('worm/idle_0')) {
@@ -52,9 +51,9 @@ export class WormView {
       for (const s of [body, band]) s.anchor.set(0.5, 22 / 24);
       band.tint = color;
       this.pixel = { body, band };
-      this.container.addChild(body, band, this.label);
+      this.container.addChild(body, band);
     } else {
-      this.container.addChild(this.body, this.label);
+      this.container.addChild(this.body);
     }
   }
 
@@ -82,7 +81,12 @@ export class WormView {
     this.hpText.text = String(Math.max(0, hp));
   }
 
-  update(alpha: number, dtMs: number, active: boolean): void {
+  update(
+    alpha: number,
+    dtMs: number,
+    active: boolean,
+    project: (x: number, y: number) => { x: number; y: number },
+  ): void {
     const w = this.worm;
     const dt = dtMs / 1000;
     this.time += dt;
@@ -94,6 +98,7 @@ export class WormView {
     this.container.visible = w.alive || !w.drowned;
     if (!w.alive) {
       this.container.visible = false;
+      this.label.visible = false;
       return;
     }
 
@@ -124,7 +129,10 @@ export class WormView {
     } else {
       this.draw(w, active);
     }
-    this.label.position.set(0, -26 - (active ? Math.abs(Math.sin(this.time * 4)) * 3 : 0));
+    // Labels sit above the worm at a fixed pixel size, whatever the zoom.
+    const p = project(x, y - 22);
+    const bob = active ? Math.abs(Math.sin(this.time * 4)) * 3 : 0;
+    this.label.position.set(Math.round(p.x), Math.round(p.y - 6 - bob));
     this.label.visible = true;
   }
 

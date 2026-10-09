@@ -1,5 +1,8 @@
 import type { Container } from 'pixi.js';
 
+/** Allowed zoom levels (whole numbers keep pixel art crisp; 0.5 is a map overview). */
+export const ZOOM_STEPS = [0.5, 1, 2, 3, 4, 5];
+
 export interface CameraBounds {
   width: number;
   height: number;
@@ -66,7 +69,14 @@ export class Camera {
   /** Zoom around a screen point so the world point under the cursor stays put. */
   zoomAt(factor: number, sx: number, sy: number): void {
     const before = this.toWorld(sx, sy);
-    this.zoom = Math.min(this.maxZoom, Math.max(this.minZoom, this.zoom * factor));
+    // Pixel art stays crisp only at whole-number zoom: step through fixed levels.
+    const i = ZOOM_STEPS.reduce(
+      (best, z, k) =>
+        Math.abs(z - this.zoom) < Math.abs((ZOOM_STEPS[best] as number) - this.zoom) ? k : best,
+      0,
+    );
+    const next = Math.min(ZOOM_STEPS.length - 1, Math.max(0, i + (factor > 1 ? 1 : -1)));
+    this.zoom = ZOOM_STEPS[next] as number;
     const after = this.toWorld(sx, sy);
     this.x += before.x - after.x;
     this.y += before.y - after.y;

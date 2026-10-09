@@ -39,6 +39,8 @@ export class GameScene {
   private aim = new AimView();
   private targetView = new TargetView();
   private speech = new SpeechView();
+  /** Text drawn at a fixed pixel size above the zoomed world (labels, speech, damage numbers). */
+  private labelLayer = new Container();
   private post: PostFx;
   private dirt: number;
   /** Last time each worm spoke, so they don't chatter non-stop. */
@@ -92,15 +94,14 @@ export class GameScene {
       this.targetView.container,
       this.effects.back,
       this.effects.front,
-      this.fx.container,
       this.water.front,
-      this.speech.container,
     );
     app.stage.addChild(this.background.container, this.world);
+    this.labelLayer.addChild(this.fx.container, this.speech.container);
     this.lights = new LightLayer(app);
     this.baseAmbient = theme.ambient ?? 0xffffff;
     this.lights.setAmbient(this.baseAmbient, true);
-    app.stage.addChild(this.lights.container);
+    app.stage.addChild(this.lights.container, this.labelLayer);
     this.post = new PostFx(app, app.stage);
     this.post.setGrade(theme.grade ?? {});
     const w = game.activeWorm;
@@ -125,6 +126,7 @@ export class GameScene {
           const v = new WormView(e);
           this.worms.set(e.id, v);
           this.wormLayer.addChild(v.container);
+          this.labelLayer.addChild(v.label);
         }
       } else if (!this.entities.has(e.id)) {
         const v = createEntityView(e, this.game.world);
@@ -297,12 +299,13 @@ export class GameScene {
     this.camera.resize(this.app.screen.width, this.app.screen.height);
     this.camera.update(dtMs);
     this.camera.apply(this.world);
+    const project = (x: number, y: number) => this.camera.toScreen(x, y);
     this.background.update(this.camera, this.app.screen.width, this.app.screen.height);
     this.water.update(dtMs, game.world.waterLevel);
     this.terrainView.update();
 
     for (const [, v] of this.worms) {
-      v.update(alpha, dtMs, v.worm.id === game.activeWormId && game.phase !== 'settling');
+      v.update(alpha, dtMs, v.worm.id === game.activeWormId && game.phase !== 'settling', project);
       v.setShownHealth(v.worm.shownHealth);
     }
     for (const [, v] of this.entities) v.update(alpha, dtMs);
@@ -315,8 +318,8 @@ export class GameScene {
     this.post.update(dtMs);
     this.updateLights(dtMs);
     this.targetView.update(game, this.mouseWorld, dtMs);
-    this.speech.update(dtMs);
-    this.fx.update(dtMs);
+    this.speech.update(dtMs, project);
+    this.fx.update(dtMs, project);
     this.effects.update(dtMs);
   }
 }

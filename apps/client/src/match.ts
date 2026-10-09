@@ -49,7 +49,7 @@ export class Match {
     this.recorder = new ReplayRecorder(config);
     const scene = new GameScene(app, game, themeById(config.themeId), config.seed);
     this.scene = scene;
-    scene.camera.zoom = 1.4;
+    scene.camera.zoom = 2;
     scene.onMessage = hooks.onMessage;
     // Effects and big hits may briefly slow the game clock. Only pacing changes, never results.
     scene.onTimeScale = (scale, seconds) => {

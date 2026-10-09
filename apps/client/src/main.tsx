@@ -1,3 +1,9 @@
+import '@fontsource/pixelify-sans/latin-600.css';
+import '@fontsource/pixelify-sans/cyrillic-600.css';
+import '@fontsource/pixelify-sans/latin-700.css';
+import '@fontsource/pixelify-sans/cyrillic-700.css';
+import '@fontsource/press-start-2p/latin-400.css';
+import '@fontsource/press-start-2p/cyrillic-400.css';
 import { Application } from 'pixi.js';
 import { render } from 'preact';
 import type { MatchConfig, Replay } from '@wr/content';
@@ -18,6 +24,12 @@ async function boot() {
   });
   document.getElementById('game')!.appendChild(app.canvas);
   app.ticker.stop();
+  // Pixel fonts must be ready before any text is drawn.
+  await Promise.all([
+    document.fonts.load('700 14px "Pixelify Sans"', 'Аб Ab'),
+    document.fonts.load('600 14px "Pixelify Sans"', 'Аб Ab'),
+    document.fonts.load('16px "Press Start 2P"', 'Аб Ab'),
+  ]);
   // Artwork is optional: anything missing falls back to the built-in drawing.
   await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'));
   const root = document.getElementById('ui')!;
