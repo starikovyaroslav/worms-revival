@@ -4,28 +4,28 @@
   "assets": {
     "weapons/icon/grenade": {
       "file": "weapons/icon/grenade.png",
-      "w": 24,
-      "h": 32
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/dynamite": {
       "file": "weapons/icon/dynamite.png",
-      "w": 25,
-      "h": 32
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/mine": {
       "file": "weapons/icon/mine.png",
-      "w": 32,
-      "h": 25
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/bazooka": {
       "file": "weapons/icon/bazooka.png",
-      "w": 32,
-      "h": 24
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/sheep": {
       "file": "weapons/icon/sheep.png",
-      "w": 32,
-      "h": 30
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/homing": {
       "file": "weapons/icon/homing.png",
@@ -34,8 +34,8 @@
     },
     "weapons/icon/mortar": {
       "file": "weapons/icon/mortar.png",
-      "w": 24,
-      "h": 32
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/pigeon": {
       "file": "weapons/icon/pigeon.png",
@@ -44,28 +44,28 @@
     },
     "weapons/icon/cluster": {
       "file": "weapons/icon/cluster.png",
-      "w": 32,
-      "h": 28
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/banana": {
       "file": "weapons/icon/banana.png",
-      "w": 32,
-      "h": 31
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/shotgun": {
       "file": "weapons/icon/shotgun.png",
-      "w": 32,
-      "h": 17
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/handgun": {
       "file": "weapons/icon/handgun.png",
-      "w": 32,
-      "h": 24
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/uzi": {
       "file": "weapons/icon/uzi.png",
-      "w": 32,
-      "h": 21
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/minigun": {
       "file": "weapons/icon/minigun.png",
@@ -74,33 +74,33 @@
     },
     "weapons/icon/longbow": {
       "file": "weapons/icon/longbow.png",
-      "w": 32,
-      "h": 31
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/firepunch": {
       "file": "weapons/icon/firepunch.png",
-      "w": 32,
-      "h": 20
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/prod": {
       "file": "weapons/icon/prod.png",
-      "w": 32,
-      "h": 16
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/supersheep": {
       "file": "weapons/icon/supersheep.png",
-      "w": 32,
-      "h": 24
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/airstrike": {
       "file": "weapons/icon/airstrike.png",
-      "w": 32,
-      "h": 26
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/blowtorch": {
       "file": "weapons/icon/blowtorch.png",
-      "w": 32,
-      "h": 16
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/drill": {
       "file": "weapons/icon/drill.png",
@@ -109,23 +109,23 @@
     },
     "weapons/icon/girder": {
       "file": "weapons/icon/girder.png",
-      "w": 32,
-      "h": 21
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/bat": {
       "file": "weapons/icon/bat.png",
-      "w": 32,
-      "h": 26
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/rope": {
       "file": "weapons/icon/rope.png",
-      "w": 32,
-      "h": 27
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/parachute": {
       "file": "weapons/icon/parachute.png",
-      "w": 32,
-      "h": 27
+      "w": 14,
+      "h": 14
     },
     "weapons/icon/teleport": {
       "file": "weapons/icon/teleport.png",
@@ -601,6 +601,26 @@
       "file": "worm/tumble_7_band.png",
       "w": 24,
       "h": 24
+    },
+    "weapons/icon/petrol": {
+      "file": "weapons/icon/petrol.png",
+      "w": 14,
+      "h": 14
+    },
+    "weapons/icon/madcow": {
+      "file": "weapons/icon/madcow.png",
+      "w": 14,
+      "h": 14
+    },
+    "weapons/icon/skunk": {
+      "file": "weapons/icon/skunk.png",
+      "w": 14,
+      "h": 14
+    },
+    "weapons/icon/donkey": {
+      "file": "weapons/icon/donkey.png",
+      "w": 14,
+      "h": 14
     }
   }
 }

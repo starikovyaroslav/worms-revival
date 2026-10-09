@@ -41,9 +41,36 @@ const icon = {
   surrender: B.surrender,
 };
 
+const RIPPED_ICONS = new Set([
+  'airstrike',
+  'banana',
+  'bat',
+  'bazooka',
+  'blowtorch',
+  'cluster',
+  'dynamite',
+  'firepunch',
+  'girder',
+  'grenade',
+  'handgun',
+  'longbow',
+  'mine',
+  'mortar',
+  'parachute',
+  'prod',
+  'rope',
+  'sheep',
+  'shotgun',
+  'supersheep',
+  'uzi',
+]);
+
 /** @type {{ id: string, svg: string, px: number, crop?: boolean, tintable?: boolean }[]} */
 export const CATALOG = [
-  ...Object.entries(icon).map(([id, svg]) => ({ id: `weapons/icon/${id}`, svg, px: 32 })),
+  // Weapons that have a ripped GBA icon in public/assets use it; only the rest are drawn from code.
+  ...Object.entries(icon)
+    .filter(([id]) => !RIPPED_ICONS.has(id))
+    .map(([id, svg]) => ({ id: `weapons/icon/${id}`, svg, px: 32 })),
 
   // Objects lying around the map.
   { id: 'objects/crate-weapon', svg: A['objects/crate-weapon'], px: 18 },

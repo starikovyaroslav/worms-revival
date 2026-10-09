@@ -1,6 +1,6 @@
 // Renders the catalog to retro pixel-art PNGs with headless Chrome and writes a contact sheet.
 //   node tools/art/build.mjs [--out apps/client/public/assets] [--sheet docs/design/img/art-sheet.png]
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { chromium } from 'playwright';
 import { CATALOG } from './catalog.mjs';
@@ -16,7 +16,11 @@ const page = await browser.newPage();
 await page.setContent('<body></body>');
 await page.addScriptTag({ content: `${PIXELIZE_SOURCE};window.pixelize=pixelize;` });
 
-const manifest = { version: 2, style: 'pixel', assets: {} };
+// Keep entries this script does not own (ripped sprites, sliced sheets); replace only catalog ones.
+const manifestPath = join(outDir, 'manifest.json');
+const manifest = existsSync(manifestPath)
+  ? JSON.parse(readFileSync(manifestPath, 'utf8'))
+  : { version: 2, style: 'pixel', assets: {} };
 const rendered = [];
 for (const a of CATALOG) {
   const uri = `data:image/svg+xml;utf8,${encodeURIComponent(a.svg)}`;
@@ -30,7 +34,7 @@ for (const a of CATALOG) {
   manifest.assets[a.id] = { file: `${a.id}.png`, w: r.w, h: r.h };
   rendered.push({ id: a.id, url: r.url, w: r.w, h: r.h });
 }
-writeFileSync(join(outDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
+writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 console.log(`rendered ${rendered.length} pixel assets into ${outDir}`);
 
 // Contact sheet at 3x, nearest-neighbour, on a game-like green.
