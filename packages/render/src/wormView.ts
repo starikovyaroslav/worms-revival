@@ -1,4 +1,4 @@
-import { Container, Graphics, Sprite, Text } from 'pixi.js';
+import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import { assets } from './assets';
 import { cos, sin, type Worm } from '@wr/sim';
 
@@ -57,6 +57,13 @@ export class WormView {
     }
   }
 
+  /** Worm-with-weapon frame for an aim angle: 4 frames upwards (0..90°), 5 downwards (0..-90°). */
+  private holdFrame(weapon: string, aim: number): Texture | undefined {
+    const a = Math.max(-1, Math.min(1, aim / (Math.PI / 2)));
+    const idx = a >= 0 ? Math.round(a * 3) : 4 + Math.round(-a * 4);
+    return assets.get(`hold/${weapon}_${idx}`);
+  }
+
   /** Picks the frame for the worm's current state. */
   private frameName(w: Worm): string {
     if (this.hurtTimer > 0 && w.state !== 'airborne') {
@@ -92,6 +99,8 @@ export class WormView {
     dtMs: number,
     active: boolean,
     project: (x: number, y: number) => { x: number; y: number },
+    /** Weapon id when this worm is aiming it (shows the worm-with-weapon frames), else ''. */
+    hold = '',
   ): void {
     const w = this.worm;
     const dt = dtMs / 1000;
@@ -126,10 +135,27 @@ export class WormView {
       this.landTimer = Math.max(0, this.landTimer - dt);
       const name = this.frameName(w);
       // Missing frames fall back to the first idle frame; a set without a bandana layer is fine.
-      const body = assets.get(`worm/${name}`) ?? assets.get('worm/idle_0');
-      const band = assets.get(`worm/${name}_band`);
+      let body = assets.get(`worm/${name}`) ?? assets.get('worm/idle_0');
+      let band = assets.get(`worm/${name}_band`);
+      // Aiming a weapon: the worm-with-weapon frame for the current angle.
+      const held = hold && w.grounded ? this.holdFrame(hold, w.aim) : undefined;
+      if (held) {
+        body = held;
+        band = undefined;
+      } else if (w.chute) {
+        const n = assets.count('chute/');
+        const chute = n ? assets.get(`chute/${Math.floor(this.time * 8) % n}`) : undefined;
+        if (chute) {
+          body = chute;
+          band = undefined;
+        }
+      }
       if (body) {
         this.pixel.body.texture = body;
+        // Frames come on 24 or 32 pixel canvases with the feet at a fixed spot.
+        const ay = body.height >= 32 ? 29 / 32 : 22 / 24;
+        this.pixel.body.anchor.set(0.5, ay);
+        this.pixel.band.anchor.set(0.5, ay);
         this.pixel.band.visible = !!band;
         if (band) this.pixel.band.texture = band;
       }
