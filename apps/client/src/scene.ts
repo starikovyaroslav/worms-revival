@@ -196,6 +196,9 @@ export class GameScene {
           }
           break;
         }
+        case 'shake':
+          this.camera.shake(ev.amount);
+          break;
         case 'fired':
           this.worms.get(ev.wormId)?.playAct(ev.weapon);
           break;

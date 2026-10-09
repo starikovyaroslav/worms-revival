@@ -222,3 +222,69 @@ describe('animals', () => {
     expect(g.world.terrain.isSolid(me.x + 300, 300)).toBe(false);
   });
 });
+
+describe('disasters and specials', () => {
+  const ids = ['earthquake', 'armageddon', 'nuke', 'vase', 'magicbullet', 'superbanana'];
+  const W = Object.fromEntries(ids.map((id) => [id, { ammo: -1, power: 3, delay: 0, crate: 0 }]));
+  const setup = () => {
+    const g = makeGame({ weapons: W, wind: 0, turnTime: 60 });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    const me = g.activeWorm!;
+    me.facing = 1;
+    me.aim = 0.5;
+    return { g, me, enemy: g.worms.find((w) => w.team !== me.team) as Worm };
+  };
+
+  it('earthquake tosses worms without hurting them', () => {
+    const { g, enemy } = setup();
+    g.step([{ t: 'select', weapon: 'earthquake' }]);
+    g.step([{ t: 'fire', down: true }]);
+    let hopped = false;
+    for (let i = 0; i < 100; i++) {
+      g.step();
+      if (enemy.state === 'airborne') hopped = true;
+    }
+    expect(hopped).toBe(true);
+    stepUntil(g, () => g.world.ofKind('earthquake').length === 0, 400);
+    expect(enemy.health).toBe(100);
+  });
+
+  it('armageddon rains meteors', () => {
+    const { g } = setup();
+    g.step([{ t: 'select', weapon: 'armageddon' }]);
+    g.step([{ t: 'fire', down: true }]);
+    for (let i = 0; i < 60; i++) g.step();
+    expect(g.world.ofKind('projectile').length).toBeGreaterThan(3);
+  });
+
+  it('nuclear test poisons everyone and raises the water', () => {
+    const { g } = setup();
+    const water = g.world.waterLevel;
+    g.step([{ t: 'select', weapon: 'nuke' }]);
+    g.step([{ t: 'fire', down: true }]);
+    expect(g.worms.every((w) => w.poisoned)).toBe(true);
+    expect(g.world.waterLevel).toBe(water - 30);
+  });
+
+  it('ming vase breaks into twelve shards', () => {
+    const { g } = setup();
+    g.step([{ t: 'select', weapon: 'vase' }]);
+    g.step([{ t: 'fire', down: true }]);
+    for (let i = 0; i < 20; i++) g.step();
+    g.step([{ t: 'fire', down: false }]);
+    const vase = g.world.ofKind('projectile')[0]!;
+    stepUntil(g, () => vase.removed, 400);
+    g.step();
+    expect(g.world.ofKind('projectile').length).toBe(12);
+  });
+
+  it("patsy's bullet homes in on the marked worm", () => {
+    const { g, me, enemy } = setup();
+    me.aim = 1.2;
+    g.step([{ t: 'select', weapon: 'magicbullet' }]);
+    g.step([{ t: 'target', x: enemy.cx, y: enemy.cy }]);
+    g.step([{ t: 'fire', down: true }]);
+    stepUntil(g, () => g.world.ofKind('projectile').length === 0, 700);
+    expect(enemy.health).toBeLessThan(100);
+  });
+});

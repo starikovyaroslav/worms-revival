@@ -193,6 +193,9 @@ export const SOUNDS: Record<string, Synth> = {
     o.frequency.linearRampToValueAtTime(70, a.now + 1.6);
     noise(a, voice(a, out, 0.2, 0.4, 1.2), a.now, 1.7, 'lowpass', 700, 300);
   },
+  quake: (a, out) => {
+    noise(a, voice(a, out, 0.35, 0.1, 4), a.now, 4.5, 'lowpass', 160, 80);
+  },
   flame: (a, out) => {
     noise(a, voice(a, out, 0.2, 0.05, 0.8), a.now, 0.9, 'lowpass', 1800, 500);
   },

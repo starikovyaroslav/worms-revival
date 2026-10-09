@@ -159,6 +159,20 @@ class ProjectileView implements EntityView {
         g.rect(-2.5, -7.5, 5, 1.4).fill(0xf2c230);
         g.circle(-1.5, -1.5, 1.3).fill({ color: 0xffffff, alpha: 0.6 });
         break;
+      case 'meteor':
+        g.circle(0, 0, 3.6).fill(0x6a3a2a).stroke({ color: OUTLINE, width: 1 });
+        g.circle(-1, -4, 2.4).fill({ color: 0xff8a20, alpha: 0.8 });
+        break;
+      case 'vase':
+        g.ellipse(0, 0, 3.4, 4.6).fill(0xe8e8f0).stroke({ color: 0x2a60c0, width: 1.2 });
+        g.rect(-1.4, -6, 2.8, 2).fill(0xe8e8f0);
+        break;
+      case 'shard':
+        g.moveTo(-2, 1).lineTo(0, -2).lineTo(2, 1).closePath().fill(0xe8e8f0);
+        break;
+      case 'bullet':
+        g.circle(0, 0, 2.2).fill(0xffe060).stroke({ color: OUTLINE, width: 0.8 });
+        break;
       case 'mbbomb':
         g.circle(0, 0, 5.5).fill(0x5a5a62).stroke({ color: OUTLINE, width: 1.2 });
         g.rect(-3, -3, 6, 6).fill(0xd8b020);

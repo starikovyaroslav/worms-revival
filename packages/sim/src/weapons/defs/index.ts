@@ -5,6 +5,7 @@ import './placed';
 import './strikes';
 import './fire';
 import './animals';
+import './disasters';
 import './homing';
 import './guns';
 import './specials';
