@@ -18,6 +18,9 @@ export class WormView {
   readonly label = new Container();
   /** Bouncing team-coloured arrow over the worm whose turn it is. */
   private arrow = new Graphics();
+  private color = 0xffffff;
+  /** Backgrounds of the name and health tags. */
+  private plates = new Graphics();
   private nameText: Text;
   private hpText: Text;
   private time = Math.random() * 10;
@@ -34,22 +37,25 @@ export class WormView {
 
   constructor(readonly worm: Worm) {
     const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
-    const style = {
+    const font = {
       fontFamily: '"Press Start 2P", monospace',
       fontSize: 8,
       fontWeight: '400' as const,
-      fill: color,
-      stroke: { color: 0x000000, width: 3, join: 'miter' as const },
     };
-    this.nameText = new Text({ text: worm.name, style });
-    this.hpText = new Text({ text: String(worm.health), style });
-    this.nameText.anchor.set(0.5, 1);
-    this.hpText.anchor.set(0.5, 1);
-    this.hpText.y = 0;
-    this.nameText.y = -10;
-    this.drawArrow(color);
-    this.label.addChild(this.nameText, this.hpText, this.arrow);
+    this.color = color;
+    // Name: white on a dark plate with a team-coloured edge. Health: dark on a solid team-coloured
+    // plate right below it, so the two never run together.
+    this.nameText = new Text({ text: worm.name, style: { ...font, fill: 0xffffff } });
+    this.hpText = new Text({ text: String(worm.health), style: { ...font, fill: 0x14101c } });
+    this.nameText.anchor.set(0.5, 0.5);
+    this.hpText.anchor.set(0.5, 0.5);
+    this.hpText.y = -6;
+    this.nameText.y = -21;
     this.lastHealth = worm.health;
+    this.label.addChild(this.plates, this.nameText, this.hpText);
+    this.drawPlates();
+    this.drawArrow(color);
+    this.label.addChild(this.arrow);
     if (assets.has('worm/idle_0')) {
       const body = new Sprite();
       const band = new Sprite();
@@ -60,6 +66,20 @@ export class WormView {
     } else {
       this.container.addChild(this.body);
     }
+  }
+
+  /** Draws the two tags behind the texts, sized to them. */
+  private drawPlates(): void {
+    const g = this.plates.clear();
+    const nw = Math.round(this.nameText.width) + 8;
+    const hw = Math.max(18, Math.round(this.hpText.width) + 8);
+    // Name tag: black edge, dark fill, team-coloured line along the top.
+    g.rect(-nw / 2 - 1, -28, nw + 2, 14).fill(0x000000);
+    g.rect(-nw / 2, -27, nw, 12).fill({ color: 0x14101c, alpha: 0.92 });
+    g.rect(-nw / 2, -27, nw, 2).fill(this.color);
+    // Health tag: black edge, solid team colour.
+    g.rect(-hw / 2 - 1, -13, hw + 2, 14).fill(0x000000);
+    g.rect(-hw / 2, -12, hw, 12).fill(this.color);
   }
 
   /** A chunky pixel arrow pointing down: dark outline, team-coloured fill, light top edge. */
@@ -136,7 +156,10 @@ export class WormView {
 
   /** The health shown on the label; the game updates it at the end of each turn. */
   setShownHealth(hp: number): void {
-    this.hpText.text = String(Math.max(0, hp));
+    const text = String(Math.max(0, hp));
+    if (this.hpText.text === text) return;
+    this.hpText.text = text;
+    this.drawPlates();
   }
 
   update(
@@ -221,7 +244,7 @@ export class WormView {
     this.label.visible = true;
     this.arrow.visible = arrow;
     // Bounces on whole pixels, like the original.
-    this.arrow.position.set(0, -24 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
+    this.arrow.position.set(0, -32 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
   }
 
   private draw(w: Worm, active: boolean): void {
