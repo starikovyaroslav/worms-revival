@@ -18,6 +18,10 @@ export interface ThemeSpec {
   girder: number;
   /** Background silhouettes, far to near. */
   hills: [number, number, number];
+  /** Retro sky: flat palette bands from top to horizon. */
+  sky?: number[];
+  /** Retro hills far → near: [fill, lower shade, ridge outline], all palette colours. */
+  hillColors?: [number, number, number][];
   /** Colour grading and glow. */
   grade?: Partial<GradeSpec>;
   /** Scene brightness colour: white = daylight, darker = night (lights matter more). */
@@ -38,7 +42,12 @@ export interface Theme extends ThemeSpec {
 export const THEMES: ThemeSpec[] = [
   {
     id: 'meadow',
-    grade: { saturation: 1.15, contrast: 1.06, tint: [1.03, 1.0, 0.96] },
+    sky: [0x5b6ee1, 0x5b6ee1, 0x639bff, 0x639bff, 0x639bff, 0x5fcde4, 0x5fcde4, 0xcbdbfc, 0xcbdbfc],
+    hillColors: [
+      [0x9badb7, 0x847e87, 0x696a6a],
+      [0x37946e, 0x306082, 0x222034],
+      [0x4b692f, 0x323c39, 0x222034],
+    ],
     hills: [0x5b7fb0, 0x4f8a5a, 0x3f7a3a],
     name: 'Луг',
     skyTop: 0x3b6fb6,
@@ -54,13 +63,18 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'desert',
-    grade: { saturation: 1.1, contrast: 1.08, tint: [1.06, 1.0, 0.9], vignette: 0.5 },
+    sky: [0x639bff, 0x639bff, 0x5fcde4, 0xcbdbfc, 0xeec39a, 0xeec39a, 0xd9a066, 0xd9a066, 0xd9a066],
+    hillColors: [
+      [0xd9a066, 0x8a6f30, 0x8f563b],
+      [0x8f563b, 0x663931, 0x45283c],
+      [0x663931, 0x45283c, 0x222034],
+    ],
     hills: [0xc08060, 0xb87a40, 0x9a6030],
     name: 'Пустыня',
     skyTop: 0xe08a3c,
     skyBottom: 0xf7d9a0,
     water: 0x3a7c8c,
-    soil: { base: 0xd9a35b, dark: 0xa26a2e, speck: 0xf2e0b0, speckDensity: 0.08, seed: 21 },
+    soil: { base: 0xd9a066, dark: 0xc08850, speck: 0xeec39a, speckDensity: 0.08, seed: 21 },
     surface: 0xf5d27a,
     surfaceDark: 0xc79a3c,
     outline: 0x4a2c10,
@@ -70,13 +84,18 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'arctic',
-    grade: { saturation: 1.0, contrast: 1.05, tint: [0.94, 1.0, 1.07] },
+    sky: [0x306082, 0x306082, 0x5b6ee1, 0x639bff, 0x639bff, 0x5fcde4, 0xcbdbfc, 0xcbdbfc, 0xffffff],
+    hillColors: [
+      [0x9badb7, 0x847e87, 0x696a6a],
+      [0xcbdbfc, 0x9badb7, 0x847e87],
+      [0xffffff, 0xcbdbfc, 0x9badb7],
+    ],
     hills: [0x7a9cc0, 0xa8c4dc, 0xd0e4f2],
     name: 'Арктика',
     skyTop: 0x1d3557,
     skyBottom: 0x9cc7e6,
     water: 0x16425f,
-    soil: { base: 0x9fc4dc, dark: 0x5b85a8, speck: 0xe8f4ff, speckDensity: 0.07, seed: 31 },
+    soil: { base: 0x9badb7, dark: 0x7f94b8, speck: 0xcbdbfc, speckDensity: 0.07, seed: 31 },
     surface: 0xffffff,
     surfaceDark: 0xc6dcef,
     outline: 0x1c3248,
@@ -86,13 +105,13 @@ export const THEMES: ThemeSpec[] = [
   },
   {
     id: 'hell',
+    sky: [0x222034, 0x222034, 0x45283c, 0x45283c, 0x663931, 0x663931, 0xac3232, 0xac3232, 0xdf7126],
+    hillColors: [
+      [0x663931, 0x45283c, 0x222034],
+      [0x45283c, 0x222034, 0x000000],
+      [0x222034, 0x000000, 0x000000],
+    ],
     ambient: 0xb59ca3,
-    grade: {
-      saturation: 1.05,
-      contrast: 1.04,
-      tint: [1.04, 0.98, 0.97],
-      vignette: 0.45,
-    },
     hills: [0x3a0a0a, 0x5a1408, 0x2a0606],
     name: 'Преисподняя',
     skyTop: 0x1a0505,

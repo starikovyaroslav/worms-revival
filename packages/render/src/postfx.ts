@@ -19,7 +19,7 @@ export const DEFAULT_GRADE: GradeSpec = {
   gamma: 1,
   brightness: 1,
   tint: [1, 1, 1],
-  vignette: 0.45,
+  vignette: 0,
 };
 
 function vignetteTexture(): Texture {
