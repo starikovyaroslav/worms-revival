@@ -43,3 +43,20 @@ describe('explosions', () => {
     expect(worm.health).toBe(55);
   });
 });
+
+describe('W:A power table', () => {
+  it('maps damage to crater diameter like the Bazooka/Grenade table', async () => {
+    const { craterDiameter, scaledBlast } = await import('../src/weapons/blast');
+    expect(craterDiameter(25)).toBe(47);
+    expect(craterDiameter(50)).toBe(97);
+    expect(craterDiameter(100)).toBe(199);
+    // Standard bazooka (power 3): 50 hp, 97 px crater.
+    const std = scaledBlast(50, 3);
+    expect(std.damage).toBe(50);
+    expect(std.crater * 2).toBeCloseTo(97, 5);
+    // Power stars: 40, 45, 50, 55, 60 hp.
+    expect([1, 2, 3, 4, 5].map((p) => Math.round(scaledBlast(50, p).damage))).toEqual([
+      40, 45, 50, 55, 60,
+    ]);
+  });
+});

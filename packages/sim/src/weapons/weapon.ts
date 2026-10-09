@@ -101,5 +101,6 @@ export function allWeapons(): WeaponDef[] {
 
 /** Damage and size multiplier for the scheme's 1..5 power stars (3 = standard). */
 export function powerScale(level: number): number {
-  return [0.5, 0.75, 1, 1.25, 1.5][Math.min(4, Math.max(0, level - 1))] as number;
+  // Bazooka/Grenade: power 1..5 = 40/45/50/55/60 hp, power 3 is the standard 50.
+  return [0.8, 0.9, 1, 1.1, 1.2][Math.min(4, Math.max(0, level - 1))] as number;
 }
