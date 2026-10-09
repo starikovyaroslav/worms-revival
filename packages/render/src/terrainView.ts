@@ -1,5 +1,6 @@
 import { BufferImageSource, Container, Sprite, Texture } from 'pixi.js';
 import { Material, type Terrain } from '@wr/sim';
+import { snap } from './palette';
 import type { Theme } from './theme';
 
 const CHUNK = 256;
@@ -13,6 +14,8 @@ const MARGIN = DEPTH_REACH + 2;
 const FIELD_PAD = DEPTH_REACH + 4;
 /** Chamfer distance units per pixel (3 = orthogonal step, 4 = diagonal step). */
 const CH = 3;
+/** Ordered-dither strength (0..255) when snapping the land to the palette. */
+const DITHER = 14;
 /** Direction towards the light (from the top left), unit-ish. */
 const LIGHT_X = -0.62;
 const LIGHT_Y = -0.78;
@@ -233,7 +236,7 @@ export class TerrainView {
         // Volume: land gets darker the deeper it is, and its rim is lit from the top left,
         // so ledges and crater edges read as three-dimensional.
         const dpx = this.depthAt(x, y) / CH;
-        let shade = 1.1 - 0.32 * (Math.min(dpx, DEPTH_REACH) / DEPTH_REACH);
+        let shade = 1.12 - 0.2 * (Math.min(dpx, DEPTH_REACH) / DEPTH_REACH);
         if (dpx < 7) {
           const gx = this.depthAt(x + 2, y) - this.depthAt(x - 2, y);
           const gy = this.depthAt(x, y + 2) - this.depthAt(x, y - 2);
@@ -241,7 +244,7 @@ export class TerrainView {
           if (len > 0) {
             // The gradient points into the land; the surface normal points out of it.
             const lit = (-gx / len) * LIGHT_X + (-gy / len) * LIGHT_Y;
-            shade += lit * 0.26 * (1 - dpx / 7);
+            shade += lit * 0.12 * (1 - dpx / 7);
           }
         }
         r *= shade;
@@ -254,9 +257,11 @@ export class TerrainView {
           g = g * 0.25 + ol[1] * 0.75;
           b = b * 0.25 + ol[2] * 0.75;
         }
-        px[o] = r;
-        px[o + 1] = g;
-        px[o + 2] = b;
+        // Retro look: snap to the palette, dithering the gradients into checkerboard blends.
+        const c = snap(r, g, b, x, y, DITHER);
+        px[o] = (c >> 16) & 255;
+        px[o + 1] = (c >> 8) & 255;
+        px[o + 2] = c & 255;
         px[o + 3] = 255;
       }
     }

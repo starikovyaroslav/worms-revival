@@ -44,7 +44,7 @@ export const THEMES: ThemeSpec[] = [
     skyTop: 0x3b6fb6,
     skyBottom: 0xbfe3f2,
     water: 0x2a5d8f,
-    soil: { base: 0x8a5a33, dark: 0x5a3519, speck: 0xc9a27a, speckDensity: 0.06, seed: 11 },
+    soil: { base: 0xa8683f, dark: 0x7a4a30, speck: 0xd9a066, speckDensity: 0.06, seed: 11 },
     surface: 0x5fc436,
     surfaceDark: 0x2f7d1e,
     outline: 0x2b1a0c,
