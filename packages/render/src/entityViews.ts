@@ -1,4 +1,5 @@
-import { Container, Graphics } from 'pixi.js';
+import { Container, Graphics, Sprite } from 'pixi.js';
+import { assets } from './assets';
 import {
   Arrow,
   Barrel,
@@ -19,6 +20,38 @@ import { TEAM_COLORS } from './wormView';
 
 const OUTLINE = 0x1a1a1a;
 
+/**
+ * A pixel-art sprite from the asset store at its native size (1 art pixel = 1 world pixel), or
+ * null when the asset is missing (the view then draws its built-in fallback).
+ */
+function artSprite(id: string, anchorY = 0.5): Sprite | null {
+  const tex = assets.get(id);
+  if (!tex) return null;
+  const s = new Sprite(tex);
+  s.anchor.set(0.5, anchorY);
+  return s;
+}
+
+function mixColor(a: number, b: number, t: number): number {
+  const ch = (c: number, sh: number) => (c >> sh) & 255;
+  const m = (sh: number) => Math.round(ch(a, sh) + (ch(b, sh) - ch(a, sh)) * t);
+  return (m(16) << 16) | (m(8) << 8) | m(0);
+}
+
+/** Projectile looks that have pixel art. */
+const PROJECTILE_ART: Record<string, string> = {
+  grenade: 'proj/grenade',
+  cluster: 'proj/cluster',
+  clusterlet: 'proj/bomblet',
+  mortar: 'proj/bomblet',
+  banana: 'proj/banana',
+  bananalet: 'proj/banana',
+  hhg: 'proj/hhg',
+  dynamite: 'proj/dynamite',
+  missile: 'proj/rocket',
+  homing: 'proj/rocket',
+};
+
 export interface EntityView {
   readonly container: Container;
   update(alpha: number, dtMs: number): void;
@@ -29,9 +62,18 @@ class ProjectileView implements EntityView {
   private g = new Graphics();
   private spin = 0;
 
+  private art: Sprite | null = null;
+
   constructor(private readonly p: Projectile) {
-    this.container.addChild(this.g);
-    this.draw();
+    const artId = PROJECTILE_ART[p.look];
+    const art = artId ? artSprite(artId) : null;
+    if (art) {
+      this.art = art;
+      this.container.addChild(art);
+    } else {
+      this.container.addChild(this.g);
+      this.draw();
+    }
   }
 
   private draw(): void {
@@ -126,6 +168,13 @@ class GravestoneView implements EntityView {
 
   constructor(private readonly s: Gravestone) {
     const color = TEAM_COLORS[s.team % TEAM_COLORS.length] as number;
+    const art = artSprite('objects/tombstone', 0.8);
+    if (art) {
+      // A hint of the team's colour on the whole stone.
+      art.tint = mixColor(0xffffff, color, 0.4);
+      this.container.addChild(art);
+      return;
+    }
     const g = new Graphics();
     g.moveTo(-5, 5).lineTo(-5, -3).arc(0, -3, 5, Math.PI, 0).lineTo(5, 5).closePath();
     g.fill(0xa0a0a8).stroke({ color: OUTLINE, width: 1 });
@@ -154,10 +203,16 @@ class MineView implements EntityView {
   private t = 0;
 
   constructor(private readonly m: Mine) {
-    const g = new Graphics();
-    g.ellipse(0, 1, 5, 3.2).fill(0x30343a).stroke({ color: OUTLINE, width: 1 });
-    g.rect(-1, -3.5, 2, 2).fill(0x555555);
-    this.container.addChild(g, this.light);
+    const art = artSprite('objects/mine', 0.7);
+    if (art) {
+      this.container.addChild(art);
+    } else {
+      const g = new Graphics();
+      g.ellipse(0, 1, 5, 3.2).fill(0x30343a).stroke({ color: OUTLINE, width: 1 });
+      g.rect(-1, -3.5, 2, 2).fill(0x555555);
+      this.container.addChild(g);
+    }
+    this.container.addChild(this.light);
   }
 
   update(alpha: number, dtMs: number): void {
@@ -177,6 +232,11 @@ class BarrelView implements EntityView {
   readonly container = new Container();
 
   constructor(private readonly b: Barrel) {
+    const art = artSprite('objects/barrel');
+    if (art) {
+      this.container.addChild(art);
+      return;
+    }
     const g = new Graphics();
     g.roundRect(-5.5, -7, 11, 14, 2).fill(0xb83a2a).stroke({ color: OUTLINE, width: 1 });
     g.rect(-5.5, -3.5, 11, 1.4).fill(0x6a1a12);
@@ -223,7 +283,11 @@ class SheepView implements EntityView {
   private body = new Graphics();
   private t = 0;
 
+  private art: Sprite | null;
+
   constructor(private readonly s: Sheep) {
+    this.art = artSprite('proj/sheep', 0.56);
+    if (this.art) this.container.addChild(this.art);
     this.container.addChild(this.body);
   }
 
@@ -235,6 +299,15 @@ class SheepView implements EntityView {
     const flying = s.mode === 'fly';
     // Fluffy body: a cluster of white puffs.
     const bob = flying ? 0 : Math.abs(Math.sin(this.t * 14)) * 1.2;
+    if (this.art) {
+      // Artwork: it bounces as it trots, and the Super Sheep gets a cape.
+      this.art.y = -bob;
+      const superTex = assets.get('proj/supersheep');
+      if (flying && superTex) this.art.texture = superTex;
+      this.container.rotation = flying ? s.heading : 0;
+      this.container.scale.set(flying ? 1 : s.dir, 1);
+      return;
+    }
     for (const [x, y, r] of [
       [-3, -1, 3.5],
       [0, -2.5, 3.8],
@@ -336,9 +409,20 @@ class DigToolView implements EntityView {
 class CrateView implements EntityView {
   readonly container = new Container();
   private chute = new Graphics();
+  private canopy: Sprite | null = null;
   private t = Math.random() * 5;
 
   constructor(private readonly c: Crate) {
+    const art = artSprite(c.content === 'health' ? 'objects/crate-health' : 'objects/crate-weapon');
+    if (art) {
+      this.canopy = artSprite('objects/parachute', 1);
+      if (this.canopy) {
+        this.canopy.y = -8;
+        this.container.addChild(this.canopy);
+      }
+      this.container.addChild(this.chute, art);
+      return;
+    }
     const g = new Graphics();
     if (c.content === 'health') {
       g.roundRect(-7, -7, 14, 14, 2).fill(0xf4f4f4).stroke({ color: OUTLINE, width: 1 });
@@ -361,6 +445,11 @@ class CrateView implements EntityView {
     place(this.container, this.c, alpha);
     this.t += dtMs / 1000;
     const g = this.chute.clear();
+    if (this.canopy) {
+      this.canopy.visible = this.c.chute;
+      this.canopy.rotation = Math.sin(this.t * 2.5) * 0.06;
+      return;
+    }
     if (!this.c.chute) return;
     // Swaying canopy.
     const sway = Math.sin(this.t * 2.5) * 3;
@@ -382,8 +471,11 @@ class PigeonView implements EntityView {
   private g = new Graphics();
   private t = 0;
 
+  private art: Sprite | null;
+
   constructor(private readonly p: Pigeon) {
-    this.container.addChild(this.g);
+    this.art = artSprite('proj/pigeon');
+    this.container.addChild(this.art ?? this.g);
   }
 
   update(alpha: number, dtMs: number): void {
@@ -392,6 +484,7 @@ class PigeonView implements EntityView {
     const p = this.p;
     const left = Math.cos(p.heading) < 0;
     this.container.scale.set(left ? -1 : 1, 1);
+    if (this.art) return;
     // Flapping wing, banking with the flight direction.
     const flap = Math.sin(this.t * 28) * 5;
     const g = this.g.clear();
@@ -415,6 +508,11 @@ class ArrowView implements EntityView {
   readonly container = new Container();
 
   constructor(private readonly a: Arrow) {
+    const art = artSprite('proj/arrow');
+    if (art) {
+      this.container.addChild(art);
+      return;
+    }
     const g = new Graphics();
     g.moveTo(-9, 0).lineTo(5, 0).stroke({ color: 0x8a6a3a, width: 1.6 });
     g.moveTo(5, -2)

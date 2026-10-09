@@ -14,3 +14,4 @@ export * from './postfx';
 export * from './effects';
 export * from './fx';
 export * from './lighting';
+export * from './assets';

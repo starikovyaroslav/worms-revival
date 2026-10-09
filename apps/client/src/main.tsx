@@ -3,6 +3,7 @@ import { render } from 'preact';
 import type { MatchConfig, Replay } from '@wr/content';
 import { App, type UiApi } from './ui/App';
 import { Menu, defaultConfig } from './ui/Menu';
+import { assets } from '@wr/render';
 import { Match } from './match';
 
 async function boot() {
@@ -17,6 +18,8 @@ async function boot() {
   });
   document.getElementById('game')!.appendChild(app.canvas);
   app.ticker.stop();
+  // Artwork is optional: anything missing falls back to the built-in drawing.
+  await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'));
   const root = document.getElementById('ui')!;
 
   let match: Match | null = null;

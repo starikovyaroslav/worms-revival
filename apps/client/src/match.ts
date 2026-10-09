@@ -138,6 +138,15 @@ export class Match {
       match: this,
       fx: (id: string, size?: number, dx?: number, dy?: number) =>
         scene.debugEffect(id, size, dx, dy),
+      /** Debug: centre the camera on the first entity of a kind (`e:__game.look('barrel', 4)`). */
+      look: (kind: string, zoom = 4) => {
+        const e = game.world.ofKind(kind)[0];
+        if (!e) return false;
+        scene.camera.zoom = zoom;
+        scene.camera.lookAt(e.x, e.y);
+        scene.userScrolled = true;
+        return true;
+      },
     };
   }
 
