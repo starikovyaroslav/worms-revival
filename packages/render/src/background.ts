@@ -41,14 +41,17 @@ export class Background {
       const set = theme.hillColors?.[i];
       const raw = set ? hex(set[0]) : base;
       const rawShade = set ? hex(set[1]) : mix(raw, [0, 0, 0], 0.25);
-      const fade = (col: RGB): number => {
+      // Aerial fade: toward the near-horizon haze plus a gentle desaturation. Returns an RGB the
+      // caller can shade further (for the rim) without reintroducing the raw, saturated hue.
+      const faded = (col: RGB): RGB => {
         const m = mix(haze, col, keep);
         const luma = 0.3 * m[0] + 0.59 * m[1] + 0.11 * m[2];
-        return snapRgb(mix(m, [luma, luma, luma], 0.35));
+        return mix(m, [luma, luma, luma], 0.35);
       };
-      const color = fade(raw);
-      const shadeColor = fade(mix(raw, rawShade, 0.55));
-      const rimColor = snapRgb(mix(haze, raw, keep + 0.12));
+      const fillRGB = faded(raw);
+      const color = snapRgb(fillRGB);
+      const shadeColor = snapRgb(faded(mix(raw, rawShade, 0.55)));
+      const rimColor = snapRgb(mix(fillRGB, [255, 255, 255], 0.2));
 
       // Render the layer at a LOW resolution, then upscale with nearest-neighbour so it becomes
       // chunky, defocused "big pixels" — exactly how the original backgrounds were low-detail
