@@ -45,12 +45,27 @@ export class WormView {
     this.color = color;
     // Name: white on a dark plate with a team-coloured edge. Health: dark on a solid team-coloured
     // plate right below it, so the two never run together.
-    this.nameText = new Text({ text: worm.name, style: { ...font, fill: 0xffffff } });
-    this.hpText = new Text({ text: String(worm.health), style: { ...font, fill: 0x14101c } });
+    this.nameText = new Text({
+      text: worm.name,
+      style: {
+        ...font,
+        fill: 0xffffff,
+        stroke: { color: 0x000000, width: 2, join: 'miter' as const },
+      },
+    });
+    this.hpText = new Text({
+      text: String(worm.health),
+      style: {
+        ...font,
+        fontSize: 16,
+        fill: 0xffffff,
+        stroke: { color: 0x000000, width: 3, join: 'miter' as const },
+      },
+    });
     this.nameText.anchor.set(0.5, 0.5);
     this.hpText.anchor.set(0.5, 0.5);
-    this.hpText.y = -6;
-    this.nameText.y = -21;
+    this.hpText.y = -11;
+    this.nameText.y = -31;
     this.lastHealth = worm.health;
     this.label.addChild(this.plates, this.nameText, this.hpText);
     this.drawPlates();
@@ -72,14 +87,14 @@ export class WormView {
   private drawPlates(): void {
     const g = this.plates.clear();
     const nw = Math.round(this.nameText.width) + 8;
-    const hw = Math.max(18, Math.round(this.hpText.width) + 8);
+    const hw = Math.max(30, Math.round(this.hpText.width) + 10);
     // Name tag: black edge, dark fill, team-coloured line along the top.
-    g.rect(-nw / 2 - 1, -28, nw + 2, 14).fill(0x000000);
-    g.rect(-nw / 2, -27, nw, 12).fill({ color: 0x14101c, alpha: 0.92 });
-    g.rect(-nw / 2, -27, nw, 2).fill(this.color);
+    g.rect(-nw / 2 - 1, -39, nw + 2, 16).fill(0x000000);
+    g.rect(-nw / 2, -38, nw, 14).fill({ color: 0x14101c, alpha: 0.92 });
+    g.rect(-nw / 2, -38, nw, 2).fill(this.color);
     // Health tag: black edge, solid team colour.
-    g.rect(-hw / 2 - 1, -13, hw + 2, 14).fill(0x000000);
-    g.rect(-hw / 2, -12, hw, 12).fill(this.color);
+    g.rect(-hw / 2 - 1, -23, hw + 2, 24).fill(0x000000);
+    g.rect(-hw / 2, -22, hw, 22).fill(this.color);
   }
 
   /** A chunky pixel arrow pointing down: dark outline, team-coloured fill, light top edge. */
@@ -244,7 +259,7 @@ export class WormView {
     this.label.visible = true;
     this.arrow.visible = arrow;
     // Bounces on whole pixels, like the original.
-    this.arrow.position.set(0, -32 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
+    this.arrow.position.set(0, -44 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
   }
 
   private draw(w: Worm, active: boolean): void {
