@@ -231,6 +231,376 @@
       "file": "proj/supersheep.png",
       "w": 24,
       "h": 18
+    },
+    "worm/idle_0": {
+      "file": "worm/idle_0.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_0_band": {
+      "file": "worm/idle_0_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_1": {
+      "file": "worm/idle_1.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_1_band": {
+      "file": "worm/idle_1_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_2": {
+      "file": "worm/idle_2.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_2_band": {
+      "file": "worm/idle_2_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_3": {
+      "file": "worm/idle_3.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_3_band": {
+      "file": "worm/idle_3_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_blink": {
+      "file": "worm/idle_blink.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/idle_blink_band": {
+      "file": "worm/idle_blink_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_0": {
+      "file": "worm/walk_0.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_0_band": {
+      "file": "worm/walk_0_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_1": {
+      "file": "worm/walk_1.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_1_band": {
+      "file": "worm/walk_1_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_2": {
+      "file": "worm/walk_2.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_2_band": {
+      "file": "worm/walk_2_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_3": {
+      "file": "worm/walk_3.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_3_band": {
+      "file": "worm/walk_3_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_4": {
+      "file": "worm/walk_4.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_4_band": {
+      "file": "worm/walk_4_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_5": {
+      "file": "worm/walk_5.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_5_band": {
+      "file": "worm/walk_5_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_6": {
+      "file": "worm/walk_6.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_6_band": {
+      "file": "worm/walk_6_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_7": {
+      "file": "worm/walk_7.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_7_band": {
+      "file": "worm/walk_7_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_8": {
+      "file": "worm/walk_8.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_8_band": {
+      "file": "worm/walk_8_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_9": {
+      "file": "worm/walk_9.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_9_band": {
+      "file": "worm/walk_9_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_10": {
+      "file": "worm/walk_10.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_10_band": {
+      "file": "worm/walk_10_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_11": {
+      "file": "worm/walk_11.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_11_band": {
+      "file": "worm/walk_11_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_12": {
+      "file": "worm/walk_12.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_12_band": {
+      "file": "worm/walk_12_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_13": {
+      "file": "worm/walk_13.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_13_band": {
+      "file": "worm/walk_13_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_14": {
+      "file": "worm/walk_14.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/walk_14_band": {
+      "file": "worm/walk_14_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/jump": {
+      "file": "worm/jump.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/jump_band": {
+      "file": "worm/jump_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/fall": {
+      "file": "worm/fall.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/fall_band": {
+      "file": "worm/fall_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/land": {
+      "file": "worm/land.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/land_band": {
+      "file": "worm/land_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/hurt_0": {
+      "file": "worm/hurt_0.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/hurt_0_band": {
+      "file": "worm/hurt_0_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/hurt_1": {
+      "file": "worm/hurt_1.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/hurt_1_band": {
+      "file": "worm/hurt_1_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_0": {
+      "file": "worm/win_0.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_0_band": {
+      "file": "worm/win_0_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_1": {
+      "file": "worm/win_1.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_1_band": {
+      "file": "worm/win_1_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_2": {
+      "file": "worm/win_2.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_2_band": {
+      "file": "worm/win_2_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_3": {
+      "file": "worm/win_3.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/win_3_band": {
+      "file": "worm/win_3_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_0": {
+      "file": "worm/tumble_0.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_0_band": {
+      "file": "worm/tumble_0_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_1": {
+      "file": "worm/tumble_1.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_1_band": {
+      "file": "worm/tumble_1_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_2": {
+      "file": "worm/tumble_2.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_2_band": {
+      "file": "worm/tumble_2_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_3": {
+      "file": "worm/tumble_3.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_3_band": {
+      "file": "worm/tumble_3_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_4": {
+      "file": "worm/tumble_4.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_4_band": {
+      "file": "worm/tumble_4_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_5": {
+      "file": "worm/tumble_5.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_5_band": {
+      "file": "worm/tumble_5_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_6": {
+      "file": "worm/tumble_6.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_6_band": {
+      "file": "worm/tumble_6_band.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_7": {
+      "file": "worm/tumble_7.png",
+      "w": 24,
+      "h": 24
+    },
+    "worm/tumble_7_band": {
+      "file": "worm/tumble_7_band.png",
+      "w": 24,
+      "h": 24
     }
   }
 }

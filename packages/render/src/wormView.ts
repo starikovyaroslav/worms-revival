@@ -1,4 +1,5 @@
-import { Container, Graphics, Text } from 'pixi.js';
+import { Container, Graphics, Sprite, Text } from 'pixi.js';
+import { assets } from './assets';
 import { cos, sin, type Worm } from '@wr/sim';
 
 /** Team colours in the classic order: red, blue, green, yellow, magenta, cyan. */
@@ -19,6 +20,12 @@ export class WormView {
   private time = Math.random() * 10;
   private blink = 0;
   private spin = 0;
+  /** Pre-rendered pixel-art frames (retro look); null when the art is not available. */
+  private pixel: { body: Sprite; band: Sprite } | null = null;
+  private hurtTimer = 0;
+  private lastHealth: number;
+  private landTimer = 0;
+  private wasAirborne = false;
 
   constructor(readonly worm: Worm) {
     const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
@@ -38,7 +45,36 @@ export class WormView {
     this.hpText.y = 0;
     this.nameText.y = -14;
     this.label.addChild(this.nameText, this.hpText);
-    this.container.addChild(this.body, this.label);
+    this.lastHealth = worm.health;
+    if (assets.has('worm/idle_0')) {
+      const body = new Sprite();
+      const band = new Sprite();
+      for (const s of [body, band]) s.anchor.set(0.5, 22 / 24);
+      band.tint = color;
+      this.pixel = { body, band };
+      this.container.addChild(body, band, this.label);
+    } else {
+      this.container.addChild(this.body, this.label);
+    }
+  }
+
+  /** Picks the frame for the worm's current state. */
+  private frameName(w: Worm): string {
+    if (this.hurtTimer > 0 && w.state !== 'airborne')
+      return `hurt_${Math.floor(this.time * 10) % 2}`;
+    switch (w.state) {
+      case 'walking':
+        return `walk_${w.walkFrame % 15}`;
+      case 'roped':
+        return 'jump';
+      case 'airborne':
+        if (w.blasted) return `tumble_${((Math.floor(this.spin * 1.27) % 8) + 8) % 8}`;
+        return w.vy < 0 ? 'jump' : 'fall';
+      default:
+        if (this.landTimer > 0) return 'land';
+        if (this.blink > 0) return 'idle_blink';
+        return `idle_${Math.floor(this.time * 3) % 4}`;
+    }
   }
 
   /** The health shown on the label; the game updates it at the end of each turn. */
@@ -52,7 +88,9 @@ export class WormView {
     this.time += dt;
     const x = w.prevX + (w.x - w.prevX) * alpha;
     const y = w.prevY + (w.y - w.prevY) * alpha;
-    this.container.position.set(x, y);
+    // Pixel art stays on the pixel grid.
+    if (this.pixel) this.container.position.set(Math.round(x), Math.round(y));
+    else this.container.position.set(x, y);
     this.container.visible = w.alive || !w.drowned;
     if (!w.alive) {
       this.container.visible = false;
@@ -66,7 +104,26 @@ export class WormView {
     if (w.state === 'airborne' && w.blasted) this.spin += (w.vx >= 0 ? 1 : -1) * dt * 14;
     else this.spin = 0;
 
-    this.draw(w, active);
+    if (this.pixel) {
+      // Short reactions: flinch when hurt, squash when landing.
+      if (w.health < this.lastHealth) this.hurtTimer = 0.45;
+      this.lastHealth = w.health;
+      this.hurtTimer = Math.max(0, this.hurtTimer - dt);
+      const air = w.state === 'airborne';
+      if (this.wasAirborne && !air) this.landTimer = 0.12;
+      this.wasAirborne = air;
+      this.landTimer = Math.max(0, this.landTimer - dt);
+      const name = this.frameName(w);
+      const body = assets.get(`worm/${name}`);
+      const band = assets.get(`worm/${name}_band`);
+      if (body && band) {
+        this.pixel.body.texture = body;
+        this.pixel.band.texture = band;
+      }
+      for (const s of [this.pixel.body, this.pixel.band]) s.scale.x = w.facing;
+    } else {
+      this.draw(w, active);
+    }
     this.label.position.set(0, -26 - (active ? Math.abs(Math.sin(this.time * 4)) * 3 : 0));
     this.label.visible = true;
   }

@@ -1,5 +1,6 @@
 import { iconAssets } from './icons.mjs';
 import { iconAssets2 } from './icons2.mjs';
+import { wormFrame, wormPoses } from './wormframes.mjs';
 
 // What gets rendered: asset id → source SVG and pixel size (longer side, native game pixels).
 // Retro rule: 1 art pixel = 1 world pixel at zoom 1, shown with nearest-neighbour filtering.
@@ -40,7 +41,7 @@ const icon = {
   surrender: B.surrender,
 };
 
-/** @type {{ id: string, svg: string, px: number }[]} */
+/** @type {{ id: string, svg: string, px: number, crop?: boolean, tintable?: boolean }[]} */
 export const CATALOG = [
   ...Object.entries(icon).map(([id, svg]) => ({ id: `weapons/icon/${id}`, svg, px: 32 })),
 
@@ -65,3 +66,10 @@ export const CATALOG = [
   { id: 'proj/sheep', svg: icon.sheep, px: 22 },
   { id: 'proj/supersheep', svg: icon.supersheep, px: 24 },
 ];
+
+// Worm animation frames: fixed 24×24 canvas (no cropping) so every frame shares the same feet anchor.
+for (const [name, pose] of Object.entries(wormPoses())) {
+  const f = wormFrame(pose);
+  CATALOG.push({ id: `worm/${name}`, svg: f.body, px: 24, crop: false });
+  CATALOG.push({ id: `worm/${name}_band`, svg: f.band, px: 24, crop: false, tintable: true });
+}
