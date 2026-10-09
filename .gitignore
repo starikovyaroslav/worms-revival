@@ -8,6 +8,4 @@ test-results/
 .DS_Store
 .determinism/
 assets-in/*.png
-apps/client/personal/*
-!apps/client/personal/README.md
-apps/client/personal/raw/
+apps/client/personal/

@@ -149,33 +149,33 @@
     },
     "objects/crate-weapon": {
       "file": "objects/crate-weapon.png",
-      "w": 18,
-      "h": 16
+      "w": 16,
+      "h": 15
     },
     "objects/crate-health": {
       "file": "objects/crate-health.png",
-      "w": 18,
-      "h": 16
+      "w": 16,
+      "h": 15
     },
     "objects/barrel": {
       "file": "objects/barrel.png",
-      "w": 15,
-      "h": 18
+      "w": 13,
+      "h": 14
     },
     "objects/mine": {
       "file": "objects/mine.png",
-      "w": 14,
-      "h": 11
+      "w": 8,
+      "h": 5
     },
     "objects/tombstone": {
       "file": "objects/tombstone.png",
-      "w": 13,
-      "h": 18
+      "w": 11,
+      "h": 15
     },
     "objects/parachute": {
       "file": "objects/parachute.png",
-      "w": 30,
-      "h": 25
+      "w": 20,
+      "h": 19
     },
     "proj/grenade": {
       "file": "proj/grenade.png",
@@ -234,373 +234,153 @@
     },
     "worm/idle_0": {
       "file": "worm/idle_0.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/idle_0_band": {
-      "file": "worm/idle_0_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/idle_1": {
       "file": "worm/idle_1.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/idle_1_band": {
-      "file": "worm/idle_1_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/idle_2": {
       "file": "worm/idle_2.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/idle_2_band": {
-      "file": "worm/idle_2_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/idle_3": {
       "file": "worm/idle_3.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/idle_3_band": {
-      "file": "worm/idle_3_band.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/idle_blink": {
-      "file": "worm/idle_blink.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/idle_blink_band": {
-      "file": "worm/idle_blink_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_0": {
       "file": "worm/walk_0.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_0_band": {
-      "file": "worm/walk_0_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_1": {
       "file": "worm/walk_1.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_1_band": {
-      "file": "worm/walk_1_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_2": {
       "file": "worm/walk_2.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_2_band": {
-      "file": "worm/walk_2_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_3": {
       "file": "worm/walk_3.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_3_band": {
-      "file": "worm/walk_3_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_4": {
       "file": "worm/walk_4.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_4_band": {
-      "file": "worm/walk_4_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_5": {
       "file": "worm/walk_5.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_5_band": {
-      "file": "worm/walk_5_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_6": {
       "file": "worm/walk_6.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_6_band": {
-      "file": "worm/walk_6_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_7": {
       "file": "worm/walk_7.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_7_band": {
-      "file": "worm/walk_7_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_8": {
       "file": "worm/walk_8.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_8_band": {
-      "file": "worm/walk_8_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_9": {
       "file": "worm/walk_9.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_9_band": {
-      "file": "worm/walk_9_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_10": {
       "file": "worm/walk_10.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_10_band": {
-      "file": "worm/walk_10_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_11": {
       "file": "worm/walk_11.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_11_band": {
-      "file": "worm/walk_11_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/walk_12": {
       "file": "worm/walk_12.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_12_band": {
-      "file": "worm/walk_12_band.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_13": {
-      "file": "worm/walk_13.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_13_band": {
-      "file": "worm/walk_13_band.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_14": {
-      "file": "worm/walk_14.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/walk_14_band": {
-      "file": "worm/walk_14_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/jump": {
       "file": "worm/jump.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/jump_band": {
-      "file": "worm/jump_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/fall": {
       "file": "worm/fall.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/fall_band": {
-      "file": "worm/fall_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/land": {
       "file": "worm/land.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/land_band": {
-      "file": "worm/land_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/hurt_0": {
       "file": "worm/hurt_0.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/hurt_0_band": {
-      "file": "worm/hurt_0_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/hurt_1": {
       "file": "worm/hurt_1.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/hurt_1_band": {
-      "file": "worm/hurt_1_band.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_0": {
-      "file": "worm/win_0.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_0_band": {
-      "file": "worm/win_0_band.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_1": {
-      "file": "worm/win_1.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_1_band": {
-      "file": "worm/win_1_band.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_2": {
-      "file": "worm/win_2.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_2_band": {
-      "file": "worm/win_2_band.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_3": {
-      "file": "worm/win_3.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/win_3_band": {
-      "file": "worm/win_3_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_0": {
       "file": "worm/tumble_0.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_0_band": {
-      "file": "worm/tumble_0_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_1": {
       "file": "worm/tumble_1.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_1_band": {
-      "file": "worm/tumble_1_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_2": {
       "file": "worm/tumble_2.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_2_band": {
-      "file": "worm/tumble_2_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_3": {
       "file": "worm/tumble_3.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_3_band": {
-      "file": "worm/tumble_3_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_4": {
       "file": "worm/tumble_4.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_4_band": {
-      "file": "worm/tumble_4_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_5": {
       "file": "worm/tumble_5.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_5_band": {
-      "file": "worm/tumble_5_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_6": {
       "file": "worm/tumble_6.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_6_band": {
-      "file": "worm/tumble_6_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "worm/tumble_7": {
       "file": "worm/tumble_7.png",
-      "w": 24,
-      "h": 24
-    },
-    "worm/tumble_7_band": {
-      "file": "worm/tumble_7_band.png",
-      "w": 24,
-      "h": 24
+      "w": 32,
+      "h": 32
     },
     "weapons/icon/petrol": {
       "file": "weapons/icon/petrol.png",
@@ -621,6 +401,1214 @@
       "file": "weapons/icon/donkey.png",
       "w": 14,
       "h": 14
+    },
+    "objects/crate-health-chute_0": {
+      "file": "objects/crate-health-chute_0.png",
+      "w": 20,
+      "h": 32
+    },
+    "objects/crate-health-chute_1": {
+      "file": "objects/crate-health-chute_1.png",
+      "w": 23,
+      "h": 32
+    },
+    "objects/crate-health-chute_2": {
+      "file": "objects/crate-health-chute_2.png",
+      "w": 25,
+      "h": 32
+    },
+    "objects/crate-health-chute_3": {
+      "file": "objects/crate-health-chute_3.png",
+      "w": 26,
+      "h": 30
+    },
+    "objects/crate-health-chute_4": {
+      "file": "objects/crate-health-chute_4.png",
+      "w": 25,
+      "h": 32
+    },
+    "objects/crate-health-chute_5": {
+      "file": "objects/crate-health-chute_5.png",
+      "w": 23,
+      "h": 32
+    },
+    "objects/crate-health-chute_6": {
+      "file": "objects/crate-health-chute_6.png",
+      "w": 23,
+      "h": 32
+    },
+    "objects/crate-health-chute_7": {
+      "file": "objects/crate-health-chute_7.png",
+      "w": 25,
+      "h": 32
+    },
+    "objects/crate-health-chute_8": {
+      "file": "objects/crate-health-chute_8.png",
+      "w": 26,
+      "h": 30
+    },
+    "objects/crate-health-chute_9": {
+      "file": "objects/crate-health-chute_9.png",
+      "w": 25,
+      "h": 32
+    },
+    "objects/crate-health-chute_10": {
+      "file": "objects/crate-health-chute_10.png",
+      "w": 23,
+      "h": 32
+    },
+    "objects/crate-health-chute_11": {
+      "file": "objects/crate-health-chute_11.png",
+      "w": 20,
+      "h": 32
+    },
+    "hold/bazooka_0": {
+      "file": "hold/bazooka_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_1": {
+      "file": "hold/bazooka_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_2": {
+      "file": "hold/bazooka_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_3": {
+      "file": "hold/bazooka_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_4": {
+      "file": "hold/bazooka_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_5": {
+      "file": "hold/bazooka_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_6": {
+      "file": "hold/bazooka_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_7": {
+      "file": "hold/bazooka_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/bazooka_8": {
+      "file": "hold/bazooka_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_0": {
+      "file": "hold/grenade_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_1": {
+      "file": "hold/grenade_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_2": {
+      "file": "hold/grenade_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_3": {
+      "file": "hold/grenade_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_4": {
+      "file": "hold/grenade_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_5": {
+      "file": "hold/grenade_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_6": {
+      "file": "hold/grenade_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_7": {
+      "file": "hold/grenade_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/grenade_8": {
+      "file": "hold/grenade_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_0": {
+      "file": "hold/cluster_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_1": {
+      "file": "hold/cluster_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_2": {
+      "file": "hold/cluster_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_3": {
+      "file": "hold/cluster_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_4": {
+      "file": "hold/cluster_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_5": {
+      "file": "hold/cluster_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_6": {
+      "file": "hold/cluster_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_7": {
+      "file": "hold/cluster_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/cluster_8": {
+      "file": "hold/cluster_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_0": {
+      "file": "hold/banana_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_1": {
+      "file": "hold/banana_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_2": {
+      "file": "hold/banana_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_3": {
+      "file": "hold/banana_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_4": {
+      "file": "hold/banana_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_5": {
+      "file": "hold/banana_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_6": {
+      "file": "hold/banana_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_7": {
+      "file": "hold/banana_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/banana_8": {
+      "file": "hold/banana_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_0": {
+      "file": "hold/shotgun_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_1": {
+      "file": "hold/shotgun_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_2": {
+      "file": "hold/shotgun_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_3": {
+      "file": "hold/shotgun_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_4": {
+      "file": "hold/shotgun_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_5": {
+      "file": "hold/shotgun_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_6": {
+      "file": "hold/shotgun_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_7": {
+      "file": "hold/shotgun_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/shotgun_8": {
+      "file": "hold/shotgun_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_0": {
+      "file": "hold/handgun_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_1": {
+      "file": "hold/handgun_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_2": {
+      "file": "hold/handgun_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_3": {
+      "file": "hold/handgun_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_4": {
+      "file": "hold/handgun_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_5": {
+      "file": "hold/handgun_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_6": {
+      "file": "hold/handgun_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_7": {
+      "file": "hold/handgun_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/handgun_8": {
+      "file": "hold/handgun_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_0": {
+      "file": "hold/uzi_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_1": {
+      "file": "hold/uzi_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_2": {
+      "file": "hold/uzi_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_3": {
+      "file": "hold/uzi_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_4": {
+      "file": "hold/uzi_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_5": {
+      "file": "hold/uzi_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_6": {
+      "file": "hold/uzi_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_7": {
+      "file": "hold/uzi_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/uzi_8": {
+      "file": "hold/uzi_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_0": {
+      "file": "hold/minigun_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_1": {
+      "file": "hold/minigun_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_2": {
+      "file": "hold/minigun_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_3": {
+      "file": "hold/minigun_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_4": {
+      "file": "hold/minigun_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_5": {
+      "file": "hold/minigun_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_6": {
+      "file": "hold/minigun_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_7": {
+      "file": "hold/minigun_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/minigun_8": {
+      "file": "hold/minigun_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_0": {
+      "file": "hold/mortar_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_1": {
+      "file": "hold/mortar_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_2": {
+      "file": "hold/mortar_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_3": {
+      "file": "hold/mortar_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_4": {
+      "file": "hold/mortar_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_5": {
+      "file": "hold/mortar_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_6": {
+      "file": "hold/mortar_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_7": {
+      "file": "hold/mortar_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "hold/mortar_8": {
+      "file": "hold/mortar_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/0": {
+      "file": "chute/0.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/1": {
+      "file": "chute/1.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/2": {
+      "file": "chute/2.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/3": {
+      "file": "chute/3.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/4": {
+      "file": "chute/4.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/5": {
+      "file": "chute/5.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/6": {
+      "file": "chute/6.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/7": {
+      "file": "chute/7.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/8": {
+      "file": "chute/8.png",
+      "w": 32,
+      "h": 32
+    },
+    "chute/9": {
+      "file": "chute/9.png",
+      "w": 32,
+      "h": 32
+    },
+    "spin/grenade_0": {
+      "file": "spin/grenade_0.png",
+      "w": 7,
+      "h": 12
+    },
+    "spin/grenade_1": {
+      "file": "spin/grenade_1.png",
+      "w": 7,
+      "h": 12
+    },
+    "spin/grenade_2": {
+      "file": "spin/grenade_2.png",
+      "w": 10,
+      "h": 9
+    },
+    "spin/grenade_3": {
+      "file": "spin/grenade_3.png",
+      "w": 11,
+      "h": 7
+    },
+    "spin/grenade_4": {
+      "file": "spin/grenade_4.png",
+      "w": 11,
+      "h": 7
+    },
+    "spin/grenade_5": {
+      "file": "spin/grenade_5.png",
+      "w": 12,
+      "h": 7
+    },
+    "spin/grenade_6": {
+      "file": "spin/grenade_6.png",
+      "w": 12,
+      "h": 7
+    },
+    "spin/grenade_7": {
+      "file": "spin/grenade_7.png",
+      "w": 9,
+      "h": 10
+    },
+    "spin/grenade_8": {
+      "file": "spin/grenade_8.png",
+      "w": 7,
+      "h": 11
+    },
+    "spin/grenade_9": {
+      "file": "spin/grenade_9.png",
+      "w": 7,
+      "h": 11
+    },
+    "spin/grenade_10": {
+      "file": "spin/grenade_10.png",
+      "w": 7,
+      "h": 12
+    },
+    "spin/grenade_11": {
+      "file": "spin/grenade_11.png",
+      "w": 10,
+      "h": 9
+    },
+    "spin/grenade_12": {
+      "file": "spin/grenade_12.png",
+      "w": 11,
+      "h": 7
+    },
+    "spin/cluster_0": {
+      "file": "spin/cluster_0.png",
+      "w": 10,
+      "h": 9
+    },
+    "spin/cluster_1": {
+      "file": "spin/cluster_1.png",
+      "w": 11,
+      "h": 9
+    },
+    "spin/cluster_2": {
+      "file": "spin/cluster_2.png",
+      "w": 13,
+      "h": 11
+    },
+    "spin/cluster_3": {
+      "file": "spin/cluster_3.png",
+      "w": 14,
+      "h": 10
+    },
+    "spin/cluster_4": {
+      "file": "spin/cluster_4.png",
+      "w": 13,
+      "h": 11
+    },
+    "spin/cluster_5": {
+      "file": "spin/cluster_5.png",
+      "w": 11,
+      "h": 13
+    },
+    "spin/cluster_6": {
+      "file": "spin/cluster_6.png",
+      "w": 10,
+      "h": 14
+    },
+    "spin/cluster_7": {
+      "file": "spin/cluster_7.png",
+      "w": 11,
+      "h": 13
+    },
+    "spin/cluster_8": {
+      "file": "spin/cluster_8.png",
+      "w": 13,
+      "h": 11
+    },
+    "spin/banana_0": {
+      "file": "spin/banana_0.png",
+      "w": 7,
+      "h": 9
+    },
+    "spin/banana_1": {
+      "file": "spin/banana_1.png",
+      "w": 6,
+      "h": 9
+    },
+    "spin/banana_2": {
+      "file": "spin/banana_2.png",
+      "w": 12,
+      "h": 9
+    },
+    "spin/banana_3": {
+      "file": "spin/banana_3.png",
+      "w": 14,
+      "h": 7
+    },
+    "spin/banana_4": {
+      "file": "spin/banana_4.png",
+      "w": 14,
+      "h": 7
+    },
+    "spin/banana_5": {
+      "file": "spin/banana_5.png",
+      "w": 12,
+      "h": 10
+    },
+    "spin/banana_6": {
+      "file": "spin/banana_6.png",
+      "w": 10,
+      "h": 12
+    },
+    "spin/banana_7": {
+      "file": "spin/banana_7.png",
+      "w": 7,
+      "h": 14
+    },
+    "spin/banana_8": {
+      "file": "spin/banana_8.png",
+      "w": 7,
+      "h": 14
+    },
+    "spin/banana_9": {
+      "file": "spin/banana_9.png",
+      "w": 10,
+      "h": 12
+    },
+    "spin/banana_10": {
+      "file": "spin/banana_10.png",
+      "w": 12,
+      "h": 10
+    },
+    "spin/banana_11": {
+      "file": "spin/banana_11.png",
+      "w": 14,
+      "h": 7
+    },
+    "spin/banana_12": {
+      "file": "spin/banana_12.png",
+      "w": 14,
+      "h": 7
+    },
+    "spin/banana_13": {
+      "file": "spin/banana_13.png",
+      "w": 12,
+      "h": 10
+    },
+    "spin/banana_14": {
+      "file": "spin/banana_14.png",
+      "w": 10,
+      "h": 12
+    },
+    "spin/banana_15": {
+      "file": "spin/banana_15.png",
+      "w": 7,
+      "h": 14
+    },
+    "spin/mortar_0": {
+      "file": "spin/mortar_0.png",
+      "w": 15,
+      "h": 16
+    },
+    "spin/mortar_1": {
+      "file": "spin/mortar_1.png",
+      "w": 17,
+      "h": 13
+    },
+    "spin/mortar_2": {
+      "file": "spin/mortar_2.png",
+      "w": 16,
+      "h": 11
+    },
+    "spin/mortar_3": {
+      "file": "spin/mortar_3.png",
+      "w": 16,
+      "h": 11
+    },
+    "head/rocket_0": {
+      "file": "head/rocket_0.png",
+      "w": 16,
+      "h": 13,
+      "angle": 0.6497367876533734
+    },
+    "head/rocket_1": {
+      "file": "head/rocket_1.png",
+      "w": 16,
+      "h": 10,
+      "angle": 0.39497553647959777
+    },
+    "head/rocket_2": {
+      "file": "head/rocket_2.png",
+      "w": 16,
+      "h": 10,
+      "angle": 0.062418809995957225
+    },
+    "head/rocket_3": {
+      "file": "head/rocket_3.png",
+      "w": 16,
+      "h": 13,
+      "angle": 0.5777869635982483
+    },
+    "head/rocket_4": {
+      "file": "head/rocket_4.png",
+      "w": 16,
+      "h": 10,
+      "angle": 0.21047240812402934
+    },
+    "head/rocket_5": {
+      "file": "head/rocket_5.png",
+      "w": 16,
+      "h": 10,
+      "angle": 0.10243998887737528
+    },
+    "head/rocket_6": {
+      "file": "head/rocket_6.png",
+      "w": 16,
+      "h": 10,
+      "angle": 0.009553849437596065
+    },
+    "head/rocket_7": {
+      "file": "head/rocket_7.png",
+      "w": 16,
+      "h": 10,
+      "angle": -0.06920077184952933
+    },
+    "head/rocket_8": {
+      "file": "head/rocket_8.png",
+      "w": 16,
+      "h": 10,
+      "angle": 0.0
+    },
+    "head/rocket_9": {
+      "file": "head/rocket_9.png",
+      "w": 16,
+      "h": 10,
+      "angle": 0.1071124150650675
+    },
+    "head/rocket_10": {
+      "file": "head/rocket_10.png",
+      "w": 16,
+      "h": 10,
+      "angle": -0.11857818003685024
+    },
+    "head/rocket_11": {
+      "file": "head/rocket_11.png",
+      "w": 16,
+      "h": 10,
+      "angle": -0.12211398044248235
+    },
+    "head/supersheep_0": {
+      "file": "head/supersheep_0.png",
+      "w": 22,
+      "h": 13,
+      "angle": 1.1556465288473563
+    },
+    "head/supersheep_1": {
+      "file": "head/supersheep_1.png",
+      "w": 23,
+      "h": 13,
+      "angle": 0.9808735916308484
+    },
+    "head/supersheep_2": {
+      "file": "head/supersheep_2.png",
+      "w": 21,
+      "h": 19,
+      "angle": 1.3677354079964008
+    },
+    "head/supersheep_3": {
+      "file": "head/supersheep_3.png",
+      "w": 21,
+      "h": 19,
+      "angle": 1.4483231405058683
+    },
+    "head/supersheep_4": {
+      "file": "head/supersheep_4.png",
+      "w": 17,
+      "h": 22,
+      "angle": 1.490059349246934
+    },
+    "head/supersheep_5": {
+      "file": "head/supersheep_5.png",
+      "w": 18,
+      "h": 21,
+      "angle": 1.4141704170459248
+    },
+    "head/supersheep_6": {
+      "file": "head/supersheep_6.png",
+      "w": 17,
+      "h": 22,
+      "angle": 1.2849413410099848
+    },
+    "head/supersheep_7": {
+      "file": "head/supersheep_7.png",
+      "w": 17,
+      "h": 22,
+      "angle": 1.5173088745402115
+    },
+    "head/supersheep_8": {
+      "file": "head/supersheep_8.png",
+      "w": 14,
+      "h": 23,
+      "angle": 1.7449691232313242
+    },
+    "head/supersheep_9": {
+      "file": "head/supersheep_9.png",
+      "w": 13,
+      "h": 21,
+      "angle": 1.7019043138563725
+    },
+    "head/supersheep_10": {
+      "file": "head/supersheep_10.png",
+      "w": 17,
+      "h": 22,
+      "angle": 1.7213566886729275
+    },
+    "head/supersheep_11": {
+      "file": "head/supersheep_11.png",
+      "w": 17,
+      "h": 22,
+      "angle": 1.8559786612187694
+    },
+    "head/supersheep_12": {
+      "file": "head/supersheep_12.png",
+      "w": 17,
+      "h": 20,
+      "angle": 1.5555753410891118
+    },
+    "head/supersheep_13": {
+      "file": "head/supersheep_13.png",
+      "w": 19,
+      "h": 20,
+      "angle": 1.7033478590915707
+    },
+    "head/supersheep_14": {
+      "file": "head/supersheep_14.png",
+      "w": 20,
+      "h": 16,
+      "angle": 1.9922986911490381
+    },
+    "head/supersheep_15": {
+      "file": "head/supersheep_15.png",
+      "w": 20,
+      "h": 16,
+      "angle": 1.9419484398061309
+    },
+    "proj/sheep_0": {
+      "file": "proj/sheep_0.png",
+      "w": 16,
+      "h": 12
+    },
+    "proj/sheep_1": {
+      "file": "proj/sheep_1.png",
+      "w": 16,
+      "h": 12
+    },
+    "proj/sheep_2": {
+      "file": "proj/sheep_2.png",
+      "w": 16,
+      "h": 12
+    },
+    "proj/sheepwalk_0": {
+      "file": "proj/sheepwalk_0.png",
+      "w": 16,
+      "h": 12
+    },
+    "proj/sheepwalk_1": {
+      "file": "proj/sheepwalk_1.png",
+      "w": 16,
+      "h": 12
+    },
+    "proj/sheepwalk_2": {
+      "file": "proj/sheepwalk_2.png",
+      "w": 16,
+      "h": 12
+    },
+    "proj/dynamite_0": {
+      "file": "proj/dynamite_0.png",
+      "w": 5,
+      "h": 13
+    },
+    "proj/dynamite_1": {
+      "file": "proj/dynamite_1.png",
+      "w": 6,
+      "h": 13
+    },
+    "act/dynamite_0": {
+      "file": "act/dynamite_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/mine_0": {
+      "file": "act/mine_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/sheep_0": {
+      "file": "act/sheep_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/supersheep_0": {
+      "file": "act/supersheep_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/prod_0": {
+      "file": "act/prod_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/prod_1": {
+      "file": "act/prod_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/prod_2": {
+      "file": "act/prod_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_0": {
+      "file": "act/firepunch_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_1": {
+      "file": "act/firepunch_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_2": {
+      "file": "act/firepunch_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_3": {
+      "file": "act/firepunch_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_4": {
+      "file": "act/firepunch_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_5": {
+      "file": "act/firepunch_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_6": {
+      "file": "act/firepunch_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_7": {
+      "file": "act/firepunch_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_8": {
+      "file": "act/firepunch_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/firepunch_9": {
+      "file": "act/firepunch_9.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_0": {
+      "file": "act/blowtorch_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_1": {
+      "file": "act/blowtorch_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_2": {
+      "file": "act/blowtorch_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_3": {
+      "file": "act/blowtorch_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_4": {
+      "file": "act/blowtorch_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_5": {
+      "file": "act/blowtorch_5.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_6": {
+      "file": "act/blowtorch_6.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_7": {
+      "file": "act/blowtorch_7.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_8": {
+      "file": "act/blowtorch_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_9": {
+      "file": "act/blowtorch_9.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_10": {
+      "file": "act/blowtorch_10.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_11": {
+      "file": "act/blowtorch_11.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_12": {
+      "file": "act/blowtorch_12.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_13": {
+      "file": "act/blowtorch_13.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_14": {
+      "file": "act/blowtorch_14.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_15": {
+      "file": "act/blowtorch_15.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_16": {
+      "file": "act/blowtorch_16.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_17": {
+      "file": "act/blowtorch_17.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_18": {
+      "file": "act/blowtorch_18.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_19": {
+      "file": "act/blowtorch_19.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_20": {
+      "file": "act/blowtorch_20.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_21": {
+      "file": "act/blowtorch_21.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_22": {
+      "file": "act/blowtorch_22.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_23": {
+      "file": "act/blowtorch_23.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_24": {
+      "file": "act/blowtorch_24.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/blowtorch_25": {
+      "file": "act/blowtorch_25.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/surrender_0": {
+      "file": "act/surrender_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/surrender_1": {
+      "file": "act/surrender_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/surrender_2": {
+      "file": "act/surrender_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/surrender_3": {
+      "file": "act/surrender_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/surrender_4": {
+      "file": "act/surrender_4.png",
+      "w": 32,
+      "h": 32
+    },
+    "worm/tumble_8": {
+      "file": "worm/tumble_8.png",
+      "w": 32,
+      "h": 32
+    },
+    "worm/tumble_9": {
+      "file": "worm/tumble_9.png",
+      "w": 32,
+      "h": 32
+    },
+    "worm/tumble_10": {
+      "file": "worm/tumble_10.png",
+      "w": 32,
+      "h": 32
+    },
+    "worm/tumble_11": {
+      "file": "worm/tumble_11.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/grenade_0": {
+      "file": "act/grenade_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/cluster_0": {
+      "file": "act/cluster_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/banana_0": {
+      "file": "act/banana_0.png",
+      "w": 32,
+      "h": 32
     }
   }
 }

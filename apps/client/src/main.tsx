@@ -32,9 +32,6 @@ async function boot() {
   ]);
   // Artwork is optional: anything missing falls back to the built-in drawing.
   await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'));
-  // Private overrides (dev server only, git-ignored): see apps/client/personal/README.md.
-  if (import.meta.env.DEV)
-    await assets.load(`${import.meta.env.BASE_URL}personal`.replace(/\/\//g, '/'));
   const root = document.getElementById('ui')!;
 
   let match: Match | null = null;

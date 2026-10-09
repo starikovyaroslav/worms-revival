@@ -16,7 +16,7 @@ const page = await browser.newPage();
 await page.setContent('<body></body>');
 await page.addScriptTag({ content: `${PIXELIZE_SOURCE};window.pixelize=pixelize;` });
 
-// Keep entries this script does not own (ripped sprites, sliced sheets); replace only catalog ones.
+// Keep entries this script does not own (hand-made sprites, sliced sheets); replace only catalog ones.
 const manifestPath = join(outDir, 'manifest.json');
 const manifest = existsSync(manifestPath)
   ? JSON.parse(readFileSync(manifestPath, 'utf8'))
