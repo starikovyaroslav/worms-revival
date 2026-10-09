@@ -17,6 +17,7 @@ export class WaterView {
   private frontWaves = new Graphics();
   private depth = new Graphics();
   private deep: [number, number, number];
+  private base: [number, number, number];
   private time = 0;
   private colors: number[];
 
@@ -29,13 +30,15 @@ export class WaterView {
     this.front.addChild(this.depth);
     this.front.addChild(this.frontWaves);
     const base = hex(theme.water);
+    this.base = base;
     this.deep = shade(base, 0.35);
-    // Four flat palette shades, deep to bright.
+    // Four flat palette shades, deep to bright. Cap the highlights toward a soft sky tint so the
+    // near-shore water never turns neon.
     this.colors = [
       snapColor(toNum(shade(base, 0.7))),
       snapColor(toNum(shade(base, 0.9))),
-      snapColor(toNum(mix(base, [255, 255, 255], 0.2))),
-      snapColor(toNum(mix(base, [255, 255, 255], 0.38))),
+      snapColor(toNum(mix(base, [190, 220, 255], 0.16))),
+      snapColor(toNum(mix(base, [190, 220, 255], 0.3))),
     ];
   }
 
@@ -65,22 +68,29 @@ export class WaterView {
       g.fill({ color: this.colors[i] as number, alpha: i < 2 ? 1 : 0.7 });
     }
 
-    // Deep water: flat dark bands instead of a gradient.
+    // Deep water: several low-contrast bands for a gradual falloff instead of one hard step.
     const deep = snapColor(toNum(this.deep));
-    this.depth
-      .clear()
-      .rect(x0, level + 70, x1 - x0, 4000)
-      .fill({ color: deep, alpha: 0.45 })
-      .rect(x0, level + 150, x1 - x0, 4000)
-      .fill({ color: deep, alpha: 0.4 });
-
-    // Foam: a 2 px white line on the crest of the front wave.
-    const foam = this.frontWaves;
-    for (let x = x0; x <= x1; x += 8) {
-      const wy = this.waveY(level, 3, x);
-      if (x === x0) foam.moveTo(x, wy);
-      else foam.lineTo(x, wy);
+    this.depth.clear();
+    for (const [dy, a] of [
+      [70, 0.22],
+      [150, 0.34],
+      [340, 0.5],
+    ] as [number, number][]) {
+      this.depth.rect(x0, level + dy, x1 - x0, 4000).fill({ color: deep, alpha: a });
     }
-    foam.stroke({ color: 0xffffff, width: 2 });
+
+    // Foam: a broken, dithered highlight along the wave crests only — never a solid painted line.
+    const foam = this.frontWaves;
+    const foamColor = snapColor(toNum(mix(this.base, [205, 230, 255], 0.82)));
+    const phase = Math.floor(this.time * 8);
+    for (let x = x0; x <= x1; x += 4) {
+      const wy = this.waveY(level, 3, x);
+      const crest = wy <= this.waveY(level, 3, x - 4);
+      if (crest && ((x >> 2) + phase) % 3 !== 0) {
+        foam.moveTo(x, wy);
+        foam.lineTo(x + 4, wy);
+      }
+    }
+    foam.stroke({ color: foamColor, width: 1, alpha: 0.85 });
   }
 }
