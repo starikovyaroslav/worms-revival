@@ -1,5 +1,6 @@
-import { Container, FillGradient, Graphics } from 'pixi.js';
+import { Container, Graphics } from 'pixi.js';
 import { hex, mix, shade } from './color';
+import { snapColor } from './palette';
 import type { Theme } from './theme';
 
 const toNum = (c: [number, number, number]) =>
@@ -29,12 +30,25 @@ export class WaterView {
     this.front.addChild(this.frontWaves);
     const base = hex(theme.water);
     this.deep = shade(base, 0.35);
+    // Four flat palette shades, deep to bright.
     this.colors = [
-      toNum(shade(base, 0.8)),
-      toNum(base),
-      toNum(mix(base, [255, 255, 255], 0.15)),
-      toNum(mix(base, [255, 255, 255], 0.3)),
+      snapColor(toNum(shade(base, 0.7))),
+      snapColor(toNum(shade(base, 0.9))),
+      snapColor(toNum(mix(base, [255, 255, 255], 0.2))),
+      snapColor(toNum(mix(base, [255, 255, 255], 0.38))),
     ];
+  }
+
+  /** Wave height at x for layer i, rounded to whole pixels (stepped, not smooth). */
+  private waveY(level: number, i: number, x: number): number {
+    const y = level - 14 + i * 9;
+    const amp = 3 + i * 1.2;
+    const speed = (i % 2 ? -1 : 1) * (0.6 + i * 0.25);
+    return Math.round(
+      y +
+        Math.sin(x * 0.03 + this.time * speed * 2 + i) * amp +
+        Math.sin(x * 0.011 - this.time * speed) * amp * 0.6,
+    );
   }
 
   update(dtMs: number, level: number): void {
@@ -43,61 +57,30 @@ export class WaterView {
     const x1 = this.mapWidth + 3000;
     this.backWaves.clear();
     this.frontWaves.clear();
-    const layers = 4;
-    for (let i = 0; i < layers; i++) {
+    for (let i = 0; i < 4; i++) {
       const g = i < 2 ? this.backWaves : this.frontWaves;
-      const y = level - 14 + i * 9;
-      const amp = 3 + i * 1.2;
-      const speed = (i % 2 ? -1 : 1) * (0.6 + i * 0.25);
-      g.moveTo(x0, y + 4000);
-      for (let x = x0; x <= x1; x += 12) {
-        const wy =
-          y +
-          Math.sin(x * 0.03 + this.time * speed * 2 + i) * amp +
-          Math.sin(x * 0.011 - this.time * speed) * amp * 0.6;
-        g.lineTo(x, wy);
-      }
-      g.lineTo(x1, y + 4000).closePath();
-      g.fill({ color: this.colors[i] as number, alpha: i < 2 ? 1 : 0.75 });
+      g.moveTo(x0, level + 4000);
+      for (let x = x0; x <= x1; x += 8) g.lineTo(x, this.waveY(level, i, x));
+      g.lineTo(x1, level + 4000).closePath();
+      g.fill({ color: this.colors[i] as number, alpha: i < 2 ? 1 : 0.7 });
     }
 
-    // Depth: transparent at the surface, dark navy further down.
-    const top = level + 4;
-    const dc = this.deep.map((v) => Math.round(v));
-    const grad = new FillGradient({
-      type: 'linear',
-      start: { x: 0, y: 0 },
-      end: { x: 0, y: 1 },
-      colorStops: [
-        { offset: 0, color: `rgba(${dc[0]},${dc[1]},${dc[2]},0)` },
-        { offset: 1, color: `rgba(${dc[0]},${dc[1]},${dc[2]},0.8)` },
-      ],
-    });
+    // Deep water: flat dark bands instead of a gradient.
+    const deep = snapColor(toNum(this.deep));
     this.depth
       .clear()
-      .rect(x0, top, x1 - x0, 360)
-      .fill(grad)
-      .rect(x0, top + 360, x1 - x0, 4000)
-      .fill({ color: toNum(this.deep as [number, number, number]), alpha: 0.8 });
+      .rect(x0, level + 70, x1 - x0, 4000)
+      .fill({ color: deep, alpha: 0.45 })
+      .rect(x0, level + 150, x1 - x0, 4000)
+      .fill({ color: deep, alpha: 0.4 });
 
-    // Foam: bright wavy lines riding the crest of the front waves.
+    // Foam: a 2 px white line on the crest of the front wave.
     const foam = this.frontWaves;
-    for (const [i, width, alpha] of [
-      [3, 2.2, 0.85],
-      [2, 1.2, 0.4],
-    ] as const) {
-      const y = level - 14 + i * 9;
-      const amp = 3 + i * 1.2;
-      const speed = (i % 2 ? -1 : 1) * (0.6 + i * 0.25);
-      for (let x = x0; x <= x1; x += 12) {
-        const wy =
-          y +
-          Math.sin(x * 0.03 + this.time * speed * 2 + i) * amp +
-          Math.sin(x * 0.011 - this.time * speed) * amp * 0.6;
-        if (x === x0) foam.moveTo(x, wy);
-        else foam.lineTo(x, wy);
-      }
-      foam.stroke({ color: 0xffffff, width, alpha });
+    for (let x = x0; x <= x1; x += 8) {
+      const wy = this.waveY(level, 3, x);
+      if (x === x0) foam.moveTo(x, wy);
+      else foam.lineTo(x, wy);
     }
+    foam.stroke({ color: 0xffffff, width: 2 });
   }
 }
