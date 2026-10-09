@@ -41,6 +41,13 @@ export function WeaponPanel({ game, onPick, onClose }: Props) {
                   onPointerLeave={() => setHover(null)}
                   onClick={() => usable && onPick(def.id)}
                 >
+                  <img
+                    class="slot-img"
+                    src={`${import.meta.env.BASE_URL}assets/weapons/icon/${def.id}.png`}
+                    alt={info.name}
+                    draggable={false}
+                    onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
+                  />
                   <span class="slot-icon">{info.icon}</span>
                   {ammo > 0 && <span class="slot-ammo">{ammo}</span>}
                   {delay > 0 && <span class="slot-delay">{delay}</span>}
