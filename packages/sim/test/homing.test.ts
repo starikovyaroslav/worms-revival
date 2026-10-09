@@ -24,22 +24,39 @@ describe('homing missile', () => {
   });
 });
 
-describe('homing missile forgiveness', () => {
-  it('reaches a target 200 px away from a 45° tap shot', () => {
+describe('homing missile (W:A numbers)', () => {
+  const fireUp = (target: boolean) => {
     const g = makeGame({ weapons: WEAPONS, wind: 0 });
     stepUntil(g, () => g.worms.every((w) => w.grounded));
     const me = g.activeWorm!;
     const enemy = g.worms.find((w) => w.team !== me.team)!;
-    me.facing = enemy.x > me.x ? 1 : -1;
-    me.aim = Math.PI / 4;
+    me.aim = Math.PI / 2 - 0.05;
     g.step([{ t: 'select', weapon: 'homing' }]);
-    g.step([{ t: 'target', x: enemy.cx, y: enemy.cy }]);
+    if (target) g.step([{ t: 'target', x: enemy.cx, y: enemy.cy }]);
     g.step([{ t: 'fire', down: true }]);
-    for (let i = 0; i < 5; i++) g.step();
+    for (let i = 0; i < 60; i++) g.step();
     g.step([{ t: 'fire', down: false }]);
-    stepUntil(g, () => g.world.ofKind('projectile').length === 0, 800);
-    expect(enemy.health).toBeLessThan(100);
-    expect(me.health).toBe(100);
+    return { g, me, enemy };
+  };
+
+  it('can be fired without a marker, as a plain shell', () => {
+    const { g } = fireUp(false);
+    expect(g.world.ofKind('projectile').length).toBe(1);
+  });
+
+  it('locks on 0.5 s after launch, 546 px up when fired straight up at full power', () => {
+    const { g, me } = fireUp(true);
+    const m = g.world.ofKind<import('../src/weapons/homing').HomingMissile>('projectile')[0]!;
+    while (!m.isHoming) g.step();
+    expect(m.age).toBe(26);
+    expect(me.y - m.y).toBeGreaterThan(500);
+    expect(me.y - m.y).toBeLessThan(600);
+  });
+
+  it('explodes by itself after 10 s at the latest', () => {
+    const { g } = fireUp(false);
+    stepUntil(g, () => g.world.ofKind('projectile').length === 0, 700);
+    expect(g.world.ofKind('projectile').length).toBe(0);
   });
 });
 

@@ -290,10 +290,6 @@ export class Game {
     }
     const onRope = worm.state === 'roped';
     if (def.airborneOnly ? worm.grounded : !worm.grounded && !onRope && !def.airborne) return;
-    if (def.needsTarget && !this.target) {
-      this.world.emit({ type: 'sound', id: 'nope', x: worm.x, y: worm.y });
-      return;
-    }
     if (def.aim === 'target') {
       const d = this.aimDir(worm, def);
       if (

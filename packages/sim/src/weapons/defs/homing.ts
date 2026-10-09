@@ -6,6 +6,9 @@ import { scaledBlast } from '../blast';
 import { registerWeapon } from '../weapon';
 import { MAX_LAUNCH } from './artillery';
 
+/** Launch speed at full power, px/tick: lock-on (25 ticks) happens ~546 px up when fired straight up. */
+const HOMING_LAUNCH = 24.3;
+
 registerWeapon({
   id: 'homing',
   name: 'Homing Missile',
@@ -15,10 +18,9 @@ registerWeapon({
   charge: true,
   needsTarget: true,
   fire: (ctx) => {
-    if (!ctx.target) return;
     const p = muzzle(ctx.worm, ctx.dirX, ctx.dirY);
-    // Even a tap launches it properly: the missile steers itself, so power only sets the first burst.
-    const v = MAX_LAUNCH * Math.max(0.6, ctx.power);
+    // Full power lets it lock on 546 px above the ground when fired straight up (worms2d.info).
+    const v = HOMING_LAUNCH * ctx.power;
     const m = ctx.world.spawn(
       new HomingMissile(
         p.x,
@@ -30,14 +32,16 @@ registerWeapon({
           radius: 2,
           wind: 0,
           impact: 'explode',
+          fuse: 10 * 50,
           blast: scaledBlast(50, ctx.setting.power),
-          armTicks: 8,
-          homingTicks: 5 * 50,
-          speed: 10,
-          turn: 0.35,
+          armTicks: 25,
+          lockEndTick: 4 * 50,
+          pull: 2.2,
+          maxSpeed: 24,
         },
-        ctx.target.x,
-        ctx.target.y,
+        // It may also be fired without a marker, as a plain shell.
+        ctx.target?.x ?? null,
+        ctx.target?.y ?? null,
         ctx.worm.id,
       ),
     );
