@@ -907,6 +907,21 @@ body {
     0 0 0 2px var(--panel-hi);
 }
 
+/* Kill the OS dropdown chrome (grey box + native arrow) that clashes with the pixel UI, and
+   draw our own chunky arrow instead. */
+.menu select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='5'%3E%3Cpath d='M0 0h7L3.5 5z' fill='%23eec39a'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 7px center;
+}
+
+.menu select:hover {
+  background-color: #2a2a44;
+}
+
 .menu label,
 .menu-card h2 {
   font-family: 'Press Start 2P', monospace;
@@ -938,9 +953,21 @@ body {
 }
 
 .menu {
-  background: #3f3f74;
-  background-image: linear-gradient(#306082 0 0), none;
-  background-size: 100% 38%;
+  /* Layered retro scene instead of a flat two-colour split: banded sky → crisp grass line → dirt,
+     all in DB32 palette, echoing the in-game backdrop. */
+  background-color: #306082;
+  background-image:
+    linear-gradient(#8f563b, #8f563b),
+    linear-gradient(#6abe30, #37946e),
+    linear-gradient(180deg, #306082 0 18%, #5b6ee1 18% 36%, #639bff 36% 52%, #5fcde4 52% 60%, #cbdbfc 60% 64%, transparent 64%);
+  background-position:
+    0 100%,
+    0 62%,
+    0 0;
+  background-size:
+    100% 34%,
+    100% 5%,
+    100% 100%;
   background-repeat: no-repeat;
 }
 
