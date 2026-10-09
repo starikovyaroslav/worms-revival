@@ -17,6 +17,7 @@ export class AssetStore {
   private textures = new Map<string, Texture>();
   manifest: AssetManifest | null = null;
 
+  /** Loads a manifest and its images; later loads override earlier ones with the same id. */
   async load(baseUrl: string): Promise<void> {
     let manifest: AssetManifest;
     try {
