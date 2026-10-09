@@ -78,6 +78,8 @@ export class Worm extends Entity {
   walkFrame = 0;
   /** Fractional position in the 15-frame walk cycle. */
   walkPhase = 0;
+  /** Ninja rope shots used this turn. */
+  ropeShots = 0;
   /** Sent flying by an explosion: bounces and slides and takes no fall damage. */
   blasted = false;
   /** Damage taken in the current turn, applied to team totals at the end of the turn. */
@@ -378,6 +380,7 @@ export class Worm extends Entity {
       .u32(this.facing === 1 ? 1 : 0)
       .u32(this.walkFrame)
       .f64(this.walkPhase)
+      .u32(this.ropeShots)
       .bool(this.blasted)
       .u32(this.jumpTimer)
       .u32(this.stuckTicks)

@@ -609,6 +609,7 @@ export class Game {
     }
     this.activeWormId = worm?.id ?? 0;
     this.turnStartDamage = worm?.pendingDamage ?? 0;
+    if (worm) worm.ropeShots = 0;
     if (this.scheme.wind > 0)
       this.world.wind = (this.world.rng.int(-10, 10) / 10) * this.scheme.wind;
 

@@ -107,21 +107,56 @@ describe('ninja rope', () => {
     expect(g.activeWorm!.state).toBe('airborne');
   });
 
-  it('wraps around a corner', () => {
+  it('does not bend around the landscape: the rope stays one straight line', () => {
     const g = cave();
     const me = g.activeWorm!;
-    // A pillar hanging from the ceiling to the right of the worm.
     for (let y = 80; y < 150; y++)
       for (let x = me.x + 40; x < me.x + 50; x++) g.world.terrain.set(x, y, Material.Soil);
     me.aim = Math.PI / 2 - 0.2;
     const rope = shootRope(g);
-    expect(rope.state).toBe('attached');
     g.step([keys({ right: true })]);
-    let maxAnchors = 1;
-    for (let i = 0; i < 200; i++) {
-      g.step();
-      maxAnchors = Math.max(maxAnchors, rope.anchors.length);
+    for (let i = 0; i < 200; i++) g.step();
+    expect(rope.anchors.length).toBe(1);
+  });
+
+  it('shortening the rope speeds the swing up (angular momentum is conserved)', () => {
+    const g = cave();
+    const rope = shootRope(g);
+    const me = g.activeWorm!;
+    g.step([keys({ right: true })]);
+    for (let i = 0; i < 60; i++) g.step();
+    g.step([keys({})]);
+    // Angular momentum about the hook: radius × tangential speed.
+    const moment = () => {
+      const p = rope.pivot!;
+      const dx = me.cx - p.x;
+      const dy = me.cy - p.y;
+      const r = Math.hypot(dx, dy);
+      return { r, l: dx * me.vy - dy * me.vx };
+    };
+    const before = moment();
+    g.step([keys({ up: true })]);
+    const after = moment();
+    expect(after.r).toBeLessThan(before.r);
+    expect(Math.abs(after.l - before.l) / Math.abs(before.l)).toBeLessThan(0.12);
+  });
+
+  it('limits re-shots per turn by the weapon power (3 by default) and never fires downwards', () => {
+    const g = cave();
+    const me = g.activeWorm!;
+    const rope = shootRope(g);
+    expect(me.ropeShots).toBe(1);
+    expect(rope.hookY).toBeLessThanOrEqual(g.activeWorm!.cy);
+    for (let n = 2; n <= 3; n++) {
+      g.step([{ t: 'fire', down: true }]);
+      g.step([{ t: 'fire', down: true }]);
+      stepUntil(g, () => rope.state !== 'shooting');
+      expect(me.ropeShots).toBe(n);
     }
-    expect(maxAnchors).toBeGreaterThan(1);
+    // The fourth shot is refused.
+    g.step([{ t: 'fire', down: true }]);
+    g.step([{ t: 'fire', down: true }]);
+    expect(me.ropeShots).toBe(3);
+    expect(me.state).toBe('airborne');
   });
 });

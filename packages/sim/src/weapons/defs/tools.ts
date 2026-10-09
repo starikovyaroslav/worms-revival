@@ -2,7 +2,7 @@ import { Material } from '../../terrain/terrain';
 import type { World } from '../../world/world';
 import { Worm, WORM_H, WORM_HALF_W } from '../../worm/worm';
 import { DigTool } from '../digTool';
-import { Rope } from '../rope';
+import { Rope, ropeShotsFor } from '../rope';
 import { registerWeapon } from '../weapon';
 
 export const GIRDER_HALF_LENGTH = 30;
@@ -151,7 +151,14 @@ registerWeapon({
   airborne: true,
   endsTurn: false,
   fire: (ctx) => {
-    const rope = ctx.world.spawn(new Rope(ctx.worm.id, ctx.worm, ctx.dirX, ctx.dirY));
+    const max = ropeShotsFor(ctx.setting.power);
+    if (ctx.worm.ropeShots >= max) {
+      ctx.world.emit({ type: 'sound', id: 'nope', x: ctx.worm.x, y: ctx.worm.y });
+      return;
+    }
+    const rope = ctx.world.spawn(
+      new Rope(ctx.worm.id, ctx.worm, ctx.dirX, ctx.dirY, ropeShotsFor(ctx.setting.power)),
+    );
     ctx.world.emit({ type: 'sound', id: 'rope-shoot', x: ctx.worm.x, y: ctx.worm.y });
     ctx.control(rope.id);
   },
