@@ -59,20 +59,26 @@ export class WormView {
 
   /** Picks the frame for the worm's current state. */
   private frameName(w: Worm): string {
-    if (this.hurtTimer > 0 && w.state !== 'airborne')
-      return `hurt_${Math.floor(this.time * 10) % 2}`;
+    if (this.hurtTimer > 0 && w.state !== 'airborne') {
+      return `hurt_${Math.floor(this.time * 10) % (assets.count('worm/hurt_') || 2)}`;
+    }
     switch (w.state) {
       case 'walking':
-        return `walk_${w.walkFrame % 15}`;
+        // The simulation cycles through 15 steps; map them onto however many frames exist.
+        return `walk_${Math.floor(((w.walkFrame % 15) / 15) * (assets.count('worm/walk_') || 15))}`;
       case 'roped':
         return 'jump';
       case 'airborne':
-        if (w.blasted) return `tumble_${((Math.floor(this.spin * 1.27) % 8) + 8) % 8}`;
+        if (w.blasted) {
+          const n = assets.count('worm/tumble_');
+          // A sheet without tumble frames just shows the falling pose.
+          return n ? `tumble_${((Math.floor(this.spin * 1.27) % n) + n) % n}` : 'fall';
+        }
         return w.vy < 0 ? 'jump' : 'fall';
       default:
         if (this.landTimer > 0) return 'land';
         if (this.blink > 0) return 'idle_blink';
-        return `idle_${Math.floor(this.time * 3) % 4}`;
+        return `idle_${Math.floor(this.time * 3) % (assets.count('worm/idle_') || 4)}`;
     }
   }
 

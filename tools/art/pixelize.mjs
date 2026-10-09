@@ -90,11 +90,12 @@ async function pixelize(uri, px, opts) {
   // Clean 1px outline: every solid pixel touching empty space becomes the outline colour.
   const out = idx.slice();
   const outline = opts.outline ?? 1;
+  const drawOutline = outline >= 0;
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
     const i = y * w + x;
     if (!a[i]) continue;
     const empty = (xx, yy) => xx < 0 || yy < 0 || xx >= w || yy >= h || !a[yy * w + xx];
-    if (empty(x - 1, y) || empty(x + 1, y) || empty(x, y - 1) || empty(x, y + 1)) out[i] = outline;
+    if (drawOutline && (empty(x - 1, y) || empty(x + 1, y) || empty(x, y - 1) || empty(x, y + 1))) out[i] = outline;
   }
   const o = g.createImageData(w, h);
   for (let i = 0; i < w * h; i++) {

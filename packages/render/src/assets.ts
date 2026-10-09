@@ -45,6 +45,13 @@ export class AssetStore {
     return this.textures.has(id);
   }
 
+  /** How many numbered frames `prefix0`, `prefix1`... exist (so sheets may have fewer frames). */
+  count(prefix: string): number {
+    let n = 0;
+    while (this.textures.has(`${prefix}${n}`)) n++;
+    return n;
+  }
+
   get(id: string): Texture | undefined {
     return this.textures.get(id);
   }

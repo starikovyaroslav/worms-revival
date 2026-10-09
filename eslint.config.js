@@ -45,6 +45,8 @@ export default tseslint.config(
         Blob: 'readonly',
         Buffer: 'readonly',
         window: 'readonly',
+        document: 'readonly',
+        Image: 'readonly',
       },
     },
   },

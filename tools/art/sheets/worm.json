@@ -1,0 +1,32 @@
+{
+  "id": "worm",
+  "file": "assets-in/worm.png",
+  "cols": 5,
+  "rows": 4,
+  "bg": "auto",
+  "canvas": 24,
+  "tintKey": "#00e5ff",
+  "outline": true,
+  "sprites": [
+    "worm/idle_0",
+    "worm/idle_1",
+    "worm/idle_2",
+    "worm/idle_3",
+    "worm/idle_blink",
+    "worm/walk_0",
+    "worm/walk_1",
+    "worm/walk_2",
+    "worm/walk_3",
+    "worm/walk_4",
+    "worm/walk_5",
+    "worm/walk_6",
+    "worm/walk_7",
+    "worm/jump",
+    "worm/fall",
+    "worm/land",
+    "worm/hurt_0",
+    "worm/hurt_1",
+    "worm/win_0",
+    "worm/win_1"
+  ]
+}
