@@ -4,8 +4,9 @@ import { Entity } from '../world/entity';
 import type { World } from '../world/world';
 
 /** Worm body: a box of WORM_W × WORM_H pixels standing on (x, y) — y is the lowest body row. */
-export const WORM_HALF_W = 3;
-export const WORM_H = 13;
+/** Collision box 9×16 px (W:A: "coffin" shaped, up to 9×16). */
+export const WORM_HALF_W = 4;
+export const WORM_H = 16;
 /** Max ledge a walking worm climbs, px (W:A: 8). */
 export const CLIMB = 8;
 /** Max drop a walking worm follows before it starts falling, px. */
@@ -16,9 +17,21 @@ const STEP_DOWN = 4;
  * 0..1.75 px). One frame per tick gives the characteristic uneven "inchworm" gait.
  */
 const WALK_STEPS = [0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 1.5, 1.25, 1, 0.75, 0.5, 0.25, 0.25, 0];
+/** W:A walk loop: 1.00 s (50 ticks) per 15-frame cycle, covering exactly 27 px. */
+export const WALK_LOOP_TICKS = 50;
+export const WALK_LOOP_PX = 27;
+/** Animation frames advanced per tick. */
+const WALK_FRAMES_PER_TICK = WALK_STEPS.length / WALK_LOOP_TICKS;
+/** Scales the step profile so one loop covers WALK_LOOP_PX. */
+const WALK_SCALE =
+  WALK_LOOP_PX / (WALK_STEPS.reduce((a, b) => a + b, 0) * (WALK_LOOP_TICKS / WALK_STEPS.length));
 
-export const JUMP = { vx: 1.6, vy: -3.6 };
-export const BACKFLIP = { vx: -0.7, vy: -5.6 };
+/**
+ * Calibrated to measured W:A jumps at gravity 0.2 px/tick²: a forward jump travels ≈48 px and rises
+ * ≈26 px; a backflip goes ≈19 px back and rises ≈42 px.
+ */
+export const JUMP = { vx: 1.49, vy: -3.22 };
+export const BACKFLIP = { vx: -0.46, vy: -4.1 };
 /** Ticks to wait for a second jump press that turns a jump into a backflip. */
 const JUMP_WINDOW = 9;
 
@@ -63,6 +76,8 @@ export class Worm extends Entity {
   /** Aim angle relative to facing direction: -PI/2 (down) .. PI/2 (up). */
   aim = 0;
   walkFrame = 0;
+  /** Fractional position in the 15-frame walk cycle. */
+  walkPhase = 0;
   /** Sent flying by an explosion: bounces and slides and takes no fall damage. */
   blasted = false;
   /** Damage taken in the current turn, applied to team totals at the end of the turn. */
@@ -199,17 +214,20 @@ export class Worm extends Entity {
     if (dir === 0) {
       this.state = 'idle';
       this.walkFrame = 0;
+      this.walkPhase = 0;
       return;
     }
     if (dir !== this.facing) {
       // Turning around takes a step of its own.
       this.facing = dir;
       this.walkFrame = 0;
+      this.walkPhase = 0;
       return;
     }
     this.state = 'walking';
-    const step = WALK_STEPS[this.walkFrame] as number;
-    this.walkFrame = (this.walkFrame + 1) % WALK_STEPS.length;
+    const step = (WALK_STEPS[this.walkFrame] as number) * WALK_SCALE;
+    this.walkPhase = (this.walkPhase + WALK_FRAMES_PER_TICK) % WALK_STEPS.length;
+    this.walkFrame = Math.floor(this.walkPhase);
     if (step === 0) return;
 
     const nx = this.x + step * dir;
@@ -336,6 +354,7 @@ export class Worm extends Entity {
     this.blasted = false;
     this.chute = false;
     this.walkFrame = 0;
+    this.walkPhase = 0;
   }
 
   private drown(world: World): void {
@@ -358,6 +377,7 @@ export class Worm extends Entity {
       .f64(this.aim)
       .u32(this.facing === 1 ? 1 : 0)
       .u32(this.walkFrame)
+      .f64(this.walkPhase)
       .bool(this.blasted)
       .u32(this.jumpTimer)
       .u32(this.stuckTicks)

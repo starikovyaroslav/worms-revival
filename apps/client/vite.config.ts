@@ -5,6 +5,9 @@ import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
+  // Relative base so the build works when served from a subpath (GitHub Pages project site)
+  // while `vite dev` still serves at the root. Runtime asset URLs derive from BASE_URL (main.tsx).
+  base: './',
   plugins: [
     preact(),
     {
