@@ -1609,6 +1609,31 @@
       "file": "act/banana_0.png",
       "w": 32,
       "h": 32
+    },
+    "act/teleport_0": {
+      "file": "act/teleport_0.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/teleport_1": {
+      "file": "act/teleport_1.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/teleport_2": {
+      "file": "act/teleport_2.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/teleport_3": {
+      "file": "act/teleport_3.png",
+      "w": 32,
+      "h": 32
+    },
+    "act/teleport_4": {
+      "file": "act/teleport_4.png",
+      "w": 32,
+      "h": 32
     }
   }
 }

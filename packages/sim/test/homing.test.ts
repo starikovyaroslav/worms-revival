@@ -76,7 +76,7 @@ describe('mortar and pigeon', () => {
     expect(Math.hypot(shell.vx, shell.vy)).toBeGreaterThan(13);
     stepUntil(g, () => shell.removed);
     g.step();
-    expect(g.world.ofKind('projectile').length).toBe(6);
+    expect(g.world.ofKind('projectile').length).toBe(5);
   });
 
   it('pigeon flies over a wall to reach its target', () => {

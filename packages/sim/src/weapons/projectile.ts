@@ -12,6 +12,8 @@ export interface ClusterSpec {
   maxSpeed: number;
   /** Half-angle of the upward cone they fly out in, radians. */
   spread: number;
+  /** Fly out opposite to the direction the shell was travelling (Mortar), not straight up. */
+  reverse?: boolean;
   projectile: ProjectileSpec;
 }
 
@@ -141,9 +143,16 @@ export class Projectile extends PhysBody {
     for (let i = 0; i < c.count; i++) {
       const a = world.rng.range(-c.spread, c.spread);
       const speed = world.rng.range(c.minSpeed, c.maxSpeed);
-      // Straight up rotated by `a`.
-      const vx = speed * sin(a);
-      const vy = -speed * cos(a);
+      let vx = speed * sin(a);
+      let vy = -speed * cos(a);
+      if (c.reverse) {
+        // The impact direction reversed, rotated by `a`.
+        const len = Math.sqrt(this.vx * this.vx + this.vy * this.vy) || 1;
+        const bx = -this.vx / len;
+        const by = -this.vy / len;
+        vx = speed * (bx * cos(a) - by * sin(a));
+        vy = speed * (bx * sin(a) + by * cos(a));
+      }
       world.spawn(new Projectile(this.x, this.y - 2, vx, vy, c.projectile, this.ownerId));
     }
   }

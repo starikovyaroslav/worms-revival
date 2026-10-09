@@ -3,7 +3,7 @@ import json, math, os, sys
 sys.path.insert(0,'tools/sprites')
 from common import *
 OUT='apps/client/public/assets'
-rows={r['icon']:r for r in json.load(open(f'{OUT}/rows.json'))}
+rows={r['icon']:r for r in json.load(open('tools/sprites/rows.json'))}
 man=json.load(open(f'{OUT}/manifest.json'))
 def blob(ic,li,fi): return keyed(im.crop(tuple(rows[ic]['lines'][li][fi]['box'])))
 def save(id_,img,**extra):

@@ -50,6 +50,20 @@ registerWeapon({
   },
 });
 
+/** Mortar by power level (worms2d.info): bomblets, damage and crater diameter, for the shell and for each bomblet. */
+const MORTAR_TABLE: [clusters: number, damage: number, diameter: number][] = [
+  [4, 12, 23],
+  [4, 13, 23],
+  [5, 15, 35],
+  [5, 16, 35],
+  [6, 18, 35],
+];
+
+function mortarBlast(damage: number, diameter: number) {
+  const crater = diameter / 2;
+  return { damage, crater, radius: crater * 1.15 };
+}
+
 registerWeapon({
   id: 'mortar',
   name: 'Mortar',
@@ -61,6 +75,9 @@ registerWeapon({
     // Always fired at full power: only the angle matters.
     const p = muzzle(ctx.worm, ctx.dirX, ctx.dirY);
     const v = MAX_LAUNCH;
+    const level = Math.min(5, Math.max(1, Math.round(ctx.setting.power)));
+    const [clusters, damage, diameter] = MORTAR_TABLE[level - 1] as [number, number, number];
+    const blast = mortarBlast(damage, diameter);
     const shell = ctx.world.spawn(
       new Projectile(
         p.x,
@@ -72,18 +89,20 @@ registerWeapon({
           radius: 2.5,
           wind: 0,
           impact: 'explode',
-          blast: scaledBlast(20, ctx.setting.power),
+          // The shell explodes like one of its bomblets.
+          blast,
           cluster: {
-            count: ctx.upgrades.clusters ? 9 : 6,
+            count: ctx.upgrades.clusters ? clusters + 3 : clusters,
             minSpeed: 2,
             maxSpeed: 4,
             spread: 0.9,
+            reverse: true,
             projectile: {
               look: 'clusterlet',
               radius: 2,
               wind: 0,
               impact: 'explode',
-              blast: scaledBlast(15, ctx.setting.power),
+              blast,
             },
           },
         },
