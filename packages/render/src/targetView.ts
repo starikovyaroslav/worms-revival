@@ -85,11 +85,11 @@ export class TargetView {
     }
   }
 
-  /** Red target marker: a pulsing ring with a cross, like the original. */
+  /** Yellow target marker: a pulsing ring with a cross, like the original. */
   private marker(g: Graphics, x: number, y: number, alpha = 1): void {
     const r = 9 + Math.sin(this.t * 7) * 1.5;
     g.circle(x, y, r).stroke({ color: 0x000000, width: 4, alpha });
-    g.circle(x, y, r).stroke({ color: 0xff3030, width: 2, alpha });
+    g.circle(x, y, r).stroke({ color: 0xffe030, width: 2, alpha });
     for (const [dx, dy] of [
       [1, 0],
       [-1, 0],
@@ -107,7 +107,7 @@ export class TargetView {
     ] as const) {
       g.moveTo(x + dx * (r - 4), y + dy * (r - 4)).lineTo(x + dx * (r + 5), y + dy * (r + 5));
     }
-    g.stroke({ color: 0xff3030, width: 2, alpha });
-    g.rect(x - 1, y - 1, 2, 2).fill({ color: 0xff3030, alpha });
+    g.stroke({ color: 0xffe030, width: 2, alpha });
+    g.rect(x - 1, y - 1, 2, 2).fill({ color: 0xffe030, alpha });
   }
 }
