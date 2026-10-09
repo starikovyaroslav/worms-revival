@@ -190,7 +190,7 @@
 - [x] Огонь/газ и налёты (2026-10-09, числа из `docs/lore/arsenal.md`, не из точных таблиц): Petrol Bomb, Skunk (газ отравляет), Flamethrower (один залп 36 огней), Napalm Strike, Mail Strike, Mine Strike, Mike's Carpet Bomb, French Sheep Strike. Спрайтов оригинала для них в подключённом листе нет: рисуются кодом, иконки панели — эмодзи
 - [ ] Животные: Mole Bomb, Mole Squadron, Old Woman, Mad Cows, Salvation Army, Concrete Donkey, MB Bomb
 - [x] Авиаудары: сделаны (см. выше)
-- [ ] Ближний бой: Kamikaze, Dragon Ball, Suicide Bomber, Battle Axe
+- [x] Ближний бой (числа не подтверждены): Battle Axe (половина текущего здоровья, добивает 1 hp), Dragon Ball (огненный шар 90 px), Kamikaze (червяк пробивает землю 45 тиков и взрывается, 30), Suicide Bomber (взрыв как динамит 75; по описанию в `arsenal.md` было 25 + яд, расхождение не выяснено)
 - [ ] Особые: Earthquake, Armageddon, Indian Nuclear Test, Ming Vase, Patsy's Magic Bullet
 - [ ] Управление ходом: Freeze, Select Worm, Scales of Justice, Bungee, Jet Pack, Girder Starter Pack
 - [ ] Утилиты (ящики): Fast Walk, Low Gravity, Laser Sight, Invisibility, Double Damage, Crate Spy

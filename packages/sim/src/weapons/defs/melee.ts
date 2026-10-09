@@ -1,6 +1,10 @@
 import type { World } from '../../world/world';
 import { Worm } from '../../worm/worm';
 import { hitscan } from '../hitscan';
+import { KamikazeFlight } from '../kamikaze';
+import { explode } from '../explosion';
+import { scaledBlast } from '../blast';
+import { Projectile } from '../projectile';
 import { powerScale, registerWeapon, type FireContext } from '../weapon';
 
 /** Living worms (other than `except`) whose body centre is within `r` of a point. */
@@ -106,5 +110,90 @@ registerWeapon({
       -1.2,
       'prod',
     );
+  },
+});
+
+registerWeapon({
+  id: 'axe',
+  name: 'Battle Axe',
+  row: 2,
+  col: 3,
+  aim: 'none',
+  charge: false,
+  fire: (ctx) => {
+    const { world, worm } = ctx;
+    const hx = worm.cx + worm.facing * 10;
+    const victims = wormsNear(world, hx, worm.cy, 20, worm);
+    // Takes half of the victim's current health (at least 1): even a 1 hp worm is finished.
+    for (const v of victims) v.takeDamage(world, Math.max(1, Math.ceil(v.health / 2)));
+    world.emit({ type: 'sound', id: victims.length ? 'bat' : 'swish', x: hx, y: worm.cy });
+  },
+});
+
+registerWeapon({
+  id: 'dragonball',
+  name: 'Dragon Ball',
+  row: 4,
+  col: 1,
+  aim: 'none',
+  charge: false,
+  retreat: 3,
+  fire: (ctx) => {
+    const { world, worm } = ctx;
+    // A fireball that flies straight for a short way and goes off on contact.
+    const ball = world.spawn(
+      new Projectile(
+        worm.cx + worm.facing * 10,
+        worm.cy,
+        worm.facing * 4.5,
+        0,
+        {
+          look: 'dragonball',
+          radius: 3,
+          wind: 0,
+          gravity: 0,
+          impact: 'explode',
+          fuse: 20,
+          blast: scaledBlast(30, ctx.setting.power, { push: 1.4 }),
+        },
+        worm.id,
+      ),
+    );
+    world.emit({ type: 'sound', id: 'launch', x: worm.x, y: worm.y });
+    ctx.focus(ball.id);
+  },
+});
+
+registerWeapon({
+  id: 'kamikaze',
+  name: 'Kamikaze',
+  row: 4,
+  col: 2,
+  aim: 'angle',
+  charge: false,
+  retreat: 3,
+  fire: (ctx) => {
+    const { world, worm } = ctx;
+    const f = world.spawn(
+      new KamikazeFlight(worm.id, ctx.dirX, ctx.dirY, scaledBlast(30, ctx.setting.power)),
+    );
+    world.emit({ type: 'sound', id: 'launch', x: worm.x, y: worm.y });
+    ctx.focus(f.id);
+  },
+});
+
+registerWeapon({
+  id: 'suicide',
+  name: 'Suicide Bomber',
+  row: 4,
+  col: 3,
+  aim: 'none',
+  charge: false,
+  retreat: 3,
+  fire: (ctx) => {
+    const { world, worm } = ctx;
+    // The bomber goes with the blast (and the usual death blast follows).
+    explode(world, worm.cx, worm.cy, scaledBlast(75, ctx.setting.power));
+    worm.takeDamage(world, worm.health);
   },
 });

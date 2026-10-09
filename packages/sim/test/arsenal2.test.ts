@@ -98,3 +98,57 @@ describe('air strikes', () => {
     expect(count(strike('frenchsheep'), 'frenchsheep')).toBe(5);
   });
 });
+
+describe('melee specials', () => {
+  const ids = ['axe', 'dragonball', 'kamikaze', 'suicide'];
+  const W = Object.fromEntries(ids.map((id) => [id, { ammo: -1, power: 3, delay: 0, crate: 0 }]));
+  const setup = () => {
+    const g = makeGame({ weapons: W, wind: 0, turnTime: 60 });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    const me = g.activeWorm!;
+    const enemy = g.worms.find((w) => w.team !== me.team) as Worm;
+    me.facing = 1;
+    enemy.x = me.x + 12;
+    enemy.y = me.y;
+    return { g, me, enemy };
+  };
+
+  it('battle axe halves current health, even down to the last hit point', () => {
+    const { g, enemy } = setup();
+    enemy.health = 60;
+    g.step([{ t: 'select', weapon: 'axe' }]);
+    g.step([{ t: 'fire', down: true }]);
+    expect(enemy.health).toBe(30);
+    const g2 = setup();
+    g2.enemy.health = 1;
+    g2.g.step([{ t: 'select', weapon: 'axe' }]);
+    g2.g.step([{ t: 'fire', down: true }]);
+    expect(g2.enemy.health).toBe(0);
+  });
+
+  it('dragon ball burns a worm right in front', () => {
+    const { g, enemy } = setup();
+    g.step([{ t: 'select', weapon: 'dragonball' }]);
+    g.step([{ t: 'fire', down: true }]);
+    stepUntil(g, () => g.world.ofKind('projectile').length === 0, 200);
+    expect(enemy.health).toBeLessThan(100);
+  });
+
+  it('kamikaze flies into the enemy and explodes', () => {
+    const { g, me, enemy } = setup();
+    enemy.x = me.x + 60;
+    me.aim = 0;
+    g.step([{ t: 'select', weapon: 'kamikaze' }]);
+    g.step([{ t: 'fire', down: true }]);
+    stepUntil(g, () => g.world.ofKind('kamikaze').length === 0, 200);
+    expect(enemy.health).toBeLessThan(100);
+  });
+
+  it('suicide bomber takes the bomber and hurts those near', () => {
+    const { g, me, enemy } = setup();
+    g.step([{ t: 'select', weapon: 'suicide' }]);
+    g.step([{ t: 'fire', down: true }]);
+    expect(me.health).toBe(0);
+    expect(enemy.health).toBeLessThan(100);
+  });
+});
