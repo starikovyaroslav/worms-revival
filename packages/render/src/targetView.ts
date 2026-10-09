@@ -1,5 +1,11 @@
 import { Container, Graphics } from 'pixi.js';
-import { GIRDER_HALF_LENGTH, GIRDER_HALF_THICKNESS, girderAxis, type Game } from '@wr/sim';
+import {
+  GIRDER_HALF_LENGTH,
+  GIRDER_HALF_THICKNESS,
+  HomingMissile,
+  girderAxis,
+  type Game,
+} from '@wr/sim';
 
 /** Preview under the mouse for weapons aimed with a click (girder, teleport, strikes). */
 export class TargetView {
@@ -16,6 +22,18 @@ export class TargetView {
     const g = this.g.clear();
     const def = game.weapon;
     const worm = game.activeWorm;
+    // Homing missiles: the chosen marker stays on the map while the weapon is selected and for as long
+    // as a missile is still drawn towards it.
+    if (def?.needsTarget && game.target && (game.phase === 'turn' || game.phase === 'ready'))
+      this.marker(g, game.target.x, game.target.y);
+    for (const m of game.world.ofKind<HomingMissile>('projectile')) {
+      if (m instanceof HomingMissile && m.targetX !== null && m.age <= m.homing.lockEndTick)
+        this.marker(g, m.targetX, m.targetY as number);
+    }
+    if (def?.needsTarget && !game.target && mouse && game.phase === 'turn') {
+      // A faint preview where the click would put the marker.
+      this.marker(g, mouse.x, mouse.y, 0.4);
+    }
     if (!def || def.aim !== 'target' || !worm || !mouse || game.phase !== 'turn') return;
     const dirX = Math.cos(worm.aim) * worm.facing;
     const dirY = -Math.sin(worm.aim);
@@ -65,5 +83,31 @@ export class TargetView {
         .lineTo(x - d * 24, y - 25);
       g.stroke({ color, width: 2 });
     }
+  }
+
+  /** Red target marker: a pulsing ring with a cross, like the original. */
+  private marker(g: Graphics, x: number, y: number, alpha = 1): void {
+    const r = 9 + Math.sin(this.t * 7) * 1.5;
+    g.circle(x, y, r).stroke({ color: 0x000000, width: 4, alpha });
+    g.circle(x, y, r).stroke({ color: 0xff3030, width: 2, alpha });
+    for (const [dx, dy] of [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ] as const) {
+      g.moveTo(x + dx * (r - 4), y + dy * (r - 4)).lineTo(x + dx * (r + 5), y + dy * (r + 5));
+    }
+    g.stroke({ color: 0x000000, width: 4, alpha });
+    for (const [dx, dy] of [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ] as const) {
+      g.moveTo(x + dx * (r - 4), y + dy * (r - 4)).lineTo(x + dx * (r + 5), y + dy * (r + 5));
+    }
+    g.stroke({ color: 0xff3030, width: 2, alpha });
+    g.rect(x - 1, y - 1, 2, 2).fill({ color: 0xff3030, alpha });
   }
 }
