@@ -49,7 +49,9 @@ export function makePattern(spec: PatternSpec, size = 128): Uint8ClampedArray {
         n += tiledNoise((x / size) * period, (y / size) * period, period, spec.seed + o) * amp;
         amp *= 0.5;
       }
-      const c: RGB = mix(dark, base, Math.min(1, Math.max(0, (n - 0.15) * 1.6)));
+      // Keep the base tone dominant with only a subtle dark variation, so large land
+      // masses read as clean earth rather than muddy smudges.
+      const c: RGB = mix(dark, base, Math.min(1, Math.max(0, 0.62 + (n - 0.5) * 0.6)));
       const i = (y * size + x) * 3;
       out[i] = c[0];
       out[i + 1] = c[1];

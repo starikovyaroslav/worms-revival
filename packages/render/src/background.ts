@@ -1,11 +1,11 @@
-import { Container, Graphics } from 'pixi.js';
+import { CanvasSource, Container, Graphics, Sprite, Texture } from 'pixi.js';
 import { hex, mix, type RGB } from './color';
 import { snap } from './palette';
 import type { Theme } from './theme';
 import type { Camera } from './camera';
 
 interface Layer {
-  g: Graphics;
+  g: Container;
   factor: number;
   baseY: number;
 }
@@ -31,16 +31,32 @@ export class Background {
     const count = 3;
     for (let i = 0; i < count; i++) {
       const depth = (i + 1) / (count + 1);
-      // Far layers fade into the sky (aerial perspective).
+      // Atmospheric perspective: the backdrop must read as "far away" and never compete with
+      // the playable terrain. Every layer — even themed ones — is pushed toward the near-horizon
+      // haze, gently desaturated, and the farther the layer the more it dissolves into the sky.
+      // Bold cartoon outlines belong to the foreground, so the ridges get no dark stroke either.
+      const haze = mix(hex(theme.skyTop), sky, 0.5);
+      const keep = 0.4 + depth * 0.42;
       const base = hex(theme.hills[i] ?? theme.skyTop);
-      const c = mix(sky, base, 0.45 + depth * 0.5);
-      // Flat palette colours: the hill, a darker lower half, and a dark outline on the ridge.
       const set = theme.hillColors?.[i];
-      const color = set ? set[0] : snapRgb(c);
-      const shadeColor = set ? set[1] : snapRgb(c, 0.8);
-      const outlineColor = set ? set[2] : snapRgb(c, 0.55);
-      const g = new Graphics();
+      const raw = set ? hex(set[0]) : base;
+      const rawShade = set ? hex(set[1]) : mix(raw, [0, 0, 0], 0.25);
+      const fade = (col: RGB): number => {
+        const m = mix(haze, col, keep);
+        const luma = 0.3 * m[0] + 0.59 * m[1] + 0.11 * m[2];
+        return snapRgb(mix(m, [luma, luma, luma], 0.35));
+      };
+      const color = fade(raw);
+      const shadeColor = fade(mix(raw, rawShade, 0.55));
+      const rimColor = snapRgb(mix(haze, raw, keep + 0.12));
+
+      // Render the layer at a LOW resolution, then upscale with nearest-neighbour so it becomes
+      // chunky, defocused "big pixels" — exactly how the original backgrounds were low-detail
+      // art scaled up. Farther layers use larger pixels, so they blur out more (depth of field).
+      const res = 4 + (count - 1 - i) * 3;
       const width = mapWidth * 2 + 2000;
+      const TOP = -320;
+      const BOTTOM = 2000;
       const ridge = (x: number) => {
         let h = 0;
         for (let o = 0; o < 4; o++) {
@@ -49,23 +65,50 @@ export class Background {
         }
         return h;
       };
-      const STEP = 8;
-      // Heights are rounded to whole pixels so the silhouette is a staircase, not a smooth curve.
-      const ry = (x: number) => Math.round(ridge(x) / 2) * 2;
-      g.moveTo(-1000, 2000);
-      for (let x = -1000; x <= width; x += STEP) g.lineTo(x, ry(x));
-      g.lineTo(width, 2000).closePath().fill(color);
-      // Lower half in shade (two-tone cel look).
-      g.moveTo(-1000, 2000);
-      for (let x = -1000; x <= width; x += STEP) g.lineTo(x, ry(x) + 46);
-      g.lineTo(width, 2000).closePath().fill(shadeColor);
-      for (let x = -1000; x <= width; x += STEP) {
-        if (x === -1000) g.moveTo(x, ry(x));
-        else g.lineTo(x, ry(x));
+      const holder = new Container();
+      const canvas = document.createElement('canvas');
+      const Wc = Math.ceil((width + 1000) / res) + 1;
+      const Hc = Math.ceil((BOTTOM - TOP) / res) + 1;
+      canvas.width = Wc;
+      canvas.height = Hc;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.imageSmoothingEnabled = false;
+        const css = (c: number) => `#${(c >>> 0).toString(16).padStart(6, '0')}`;
+        const cy = (cu: number) => (ridge(-1000 + cu * res) - TOP) / res;
+        ctx.beginPath();
+        ctx.moveTo(0, Hc);
+        for (let cu = 0; cu <= Wc; cu++) ctx.lineTo(cu, cy(cu));
+        ctx.lineTo(Wc, Hc);
+        ctx.closePath();
+        ctx.fillStyle = css(color);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(0, Hc);
+        for (let cu = 0; cu <= Wc; cu++) ctx.lineTo(cu, cy(cu) + 46 / res);
+        ctx.lineTo(Wc, Hc);
+        ctx.closePath();
+        ctx.fillStyle = css(shadeColor);
+        ctx.fill();
+        ctx.beginPath();
+        for (let cu = 0; cu <= Wc; cu++) {
+          const yy = cy(cu);
+          if (cu === 0) ctx.moveTo(cu, yy);
+          else ctx.lineTo(cu, yy);
+        }
+        ctx.strokeStyle = css(rimColor);
+        ctx.lineWidth = 1;
+        ctx.stroke();
       }
-      g.stroke({ color: outlineColor, width: 3 });
-      this.container.addChild(g);
-      this.layers.push({ g, factor: 0.15 + i * 0.2, baseY: mapHeight * (0.35 + i * 0.12) });
+      const source = new CanvasSource({ resource: canvas, scaleMode: 'nearest' });
+      source.scaleMode = 'nearest';
+      const sprite = new Sprite(new Texture({ source }));
+      sprite.scale.set(res);
+      sprite.x = -1000;
+      sprite.y = TOP;
+      holder.addChild(sprite);
+      this.container.addChild(holder);
+      this.layers.push({ g: holder, factor: 0.15 + i * 0.2, baseY: mapHeight * (0.35 + i * 0.12) });
     }
   }
 
@@ -99,17 +142,17 @@ export class Background {
       const y1 = Math.floor(((i + 1) * h) / BANDS);
       g.rect(0, y0, w, y1 - y0 + 1).fill(colors[i] as number);
     }
-    // Dither strips, drawn only where neighbouring bands differ.
+    // Dither strips, drawn only where neighbouring bands differ. Fine 2px cells thin out toward
+    // the upper band so the transition reads as a soft haze, not a holey checkerboard.
     for (let i = 1; i < BANDS; i++) {
       if (colors[i] === colors[i - 1]) continue;
       const y = Math.floor((i * h) / BANDS);
-      for (let row = 0; row < DITHER; row += 4) {
-        // Alternate blocks of the lower colour in a checker pattern, thinning out upwards.
+      for (let row = 0; row < DITHER; row += 2) {
         const density = row / DITHER;
-        for (let x = 0; x < w; x += 8) {
-          const offset = (row / 4) % 2 === 0 ? 0 : 4;
-          if (density < 0.5 || (x / 8) % 2 === 0)
-            g.rect(x + offset, y - DITHER + row, 4, 4).fill(colors[i] as number);
+        for (let x = 0; x < w; x += 4) {
+          const offset = (row / 2) % 2 === 0 ? 0 : 2;
+          if (density < 0.4 || (x / 4) % 2 === 0)
+            g.rect(x + offset, y - DITHER + row, 2, 2).fill(colors[i] as number);
         }
       }
     }

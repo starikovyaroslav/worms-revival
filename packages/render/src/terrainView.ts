@@ -6,6 +6,12 @@ import type { Theme } from './theme';
 const CHUNK = 256;
 /** Depth of the surface (grass) layer in pixels. */
 const SURFACE_DEPTH = 7;
+/** Grass body thickness below the 1px cap. */
+const GRASS_THICK = 3;
+/** Dark root crust between the grass and the open subsoil. */
+const ROOT_THICK = 2;
+/** Vertical period of the geological strata bands in the subsoil. */
+const STRATA_H = 30;
 /** Shading depends on distance to the nearest air up to this many pixels. */
 const DEPTH_REACH = 24;
 /** Recolour this far around a change, because colours depend on nearby land. */
@@ -15,10 +21,17 @@ const FIELD_PAD = DEPTH_REACH + 4;
 /** Chamfer distance units per pixel (3 = orthogonal step, 4 = diagonal step). */
 const CH = 3;
 /** Ordered-dither strength (0..255) when snapping the land to the palette. */
-const DITHER = 14;
+const DITHER = 8;
 /** Direction towards the light (from the top left), unit-ish. */
 const LIGHT_X = -0.62;
 const LIGHT_Y = -0.78;
+
+/** Cheap stable horizontal wobble (px) used to bend the strata lines. */
+function strataWobble(x: number): number {
+  let h = Math.imul(x >> 3, 0x1b873593) ^ Math.imul(0x9e3779b1, 0x85ebca6b);
+  h = (h ^ (h >>> 13)) >>> 0;
+  return (h % 21) - 10;
+}
 
 interface Chunk {
   cx: number;
@@ -214,8 +227,7 @@ export class TerrainView {
             g = g * 0.35 + s[1] * 0.65;
             b = b * 0.35 + s[2] * 0.65;
           } else {
-            // Surface layer: original soil with open sky a few pixels above becomes
-            // grass/sand/snow. Freshly blasted surfaces (scorched rim) stay bare.
+            // Surface detection: how many soil pixels above until air or rock.
             let depth = 0;
             let above: number = Material.Soil;
             while (depth < SURFACE_DEPTH && y - depth - 1 >= 0) {
@@ -223,20 +235,41 @@ export class TerrainView {
               if (above !== Material.Soil) break;
               depth++;
             }
-            if (depth < SURFACE_DEPTH && y - depth - 1 >= 0 && above === Material.Air) {
-              const k = depth / SURFACE_DEPTH;
-              const top = th.surfaceRgb;
-              const bot = th.surfaceDarkRgb;
+            const exposed = y - depth - 1 >= 0 && above === Material.Air;
+            const top = th.surfaceRgb;
+            const bot = th.surfaceDarkRgb;
+            if (exposed && depth === 0) {
+              // Bright grass cap catching the light.
+              r = Math.min(255, top[0] * 1.15);
+              g = Math.min(255, top[1] * 1.15);
+              b = Math.min(255, top[2] * 1.15);
+            } else if (exposed && depth < GRASS_THICK) {
+              const k = depth / GRASS_THICK;
               r = top[0] + (bot[0] - top[0]) * k;
               g = top[1] + (bot[1] - top[1]) * k;
               b = top[2] + (bot[2] - top[2]) * k;
+            } else if (exposed && depth < GRASS_THICK + ROOT_THICK) {
+              // Dark root crust sealing the grass from the dirt.
+              r = bot[0] * 0.66;
+              g = bot[1] * 0.66;
+              b = bot[2] * 0.66;
+            } else {
+              // Subsoil: clean pattern modulated by flat, gently wavy geological strata.
+              const s = y + strataWobble(x);
+              const band = Math.floor(s / STRATA_H);
+              const m = s - band * STRATA_H;
+              let f = (band & 1) === 0 ? 1 : 0.9;
+              if (m < 1) f *= 0.82;
+              r *= f;
+              g *= f;
+              b *= f;
             }
           }
         }
         // Volume: land gets darker the deeper it is, and its rim is lit from the top left,
         // so ledges and crater edges read as three-dimensional.
         const dpx = this.depthAt(x, y) / CH;
-        let shade = 1.12 - 0.2 * (Math.min(dpx, DEPTH_REACH) / DEPTH_REACH);
+        let shade = 1.06 - 0.3 * (Math.min(dpx, DEPTH_REACH) / DEPTH_REACH);
         if (dpx < 7) {
           const gx = this.depthAt(x + 2, y) - this.depthAt(x - 2, y);
           const gy = this.depthAt(x, y + 2) - this.depthAt(x, y - 2);
@@ -244,18 +277,23 @@ export class TerrainView {
           if (len > 0) {
             // The gradient points into the land; the surface normal points out of it.
             const lit = (-gx / len) * LIGHT_X + (-gy / len) * LIGHT_Y;
-            shade += lit * 0.12 * (1 - dpx / 7);
+            shade += lit * 0.17 * (1 - dpx / 7);
           }
         }
         r *= shade;
         g *= shade;
         b *= shade;
-        // Cartoon outline wherever land meets air.
-        if (dpx <= 1.7) {
+        // Crisp cartoon outline where land meets air: a hard 1px line plus a soft falloff.
+        if (dpx <= 1.0) {
           const ol = th.outlineRgb;
-          r = r * 0.25 + ol[0] * 0.75;
-          g = g * 0.25 + ol[1] * 0.75;
-          b = b * 0.25 + ol[2] * 0.75;
+          r = r * 0.4 + ol[0] * 0.6;
+          g = g * 0.4 + ol[1] * 0.6;
+          b = b * 0.4 + ol[2] * 0.6;
+        } else if (dpx <= 1.7) {
+          const ol = th.outlineRgb;
+          r = r * 0.72 + ol[0] * 0.28;
+          g = g * 0.72 + ol[1] * 0.28;
+          b = b * 0.72 + ol[2] * 0.28;
         }
         // Retro look: snap to the palette, dithering the gradients into checkerboard blends.
         const c = snap(r, g, b, x, y, DITHER);
