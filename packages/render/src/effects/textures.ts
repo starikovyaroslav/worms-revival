@@ -128,14 +128,35 @@ function emberTexture(): Texture {
   return Texture.from(c);
 }
 
+/**
+ * Retro look: shrinks a smooth texture to a handful of pixels and makes every pixel fully opaque
+ * or fully transparent, so effects are made of crisp squares, never soft gradients.
+ */
+function pixelate(tex: Texture, w: number, h: number, cut = 0.45): Texture {
+  const src = tex.source.resource as HTMLCanvasElement;
+  const [c, g] = canvas(w, h);
+  g.imageSmoothingQuality = 'high';
+  g.drawImage(src, 0, 0, w, h);
+  const d = g.getImageData(0, 0, w, h);
+  for (let i = 0; i < w * h; i++) {
+    const on = (d.data[i * 4 + 3] as number) / 255 >= cut;
+    d.data[i * 4] = d.data[i * 4 + 1] = d.data[i * 4 + 2] = 255;
+    d.data[i * 4 + 3] = on ? 255 : 0;
+  }
+  g.putImageData(d, 0, 0);
+  const t = Texture.from(c);
+  t.source.scaleMode = 'nearest';
+  return t;
+}
+
 /** All procedural effect textures. Replace with hand-made atlases later (same ids). */
 export function createFxTextures(): Record<FxTextureId, Texture[]> {
   return {
-    soft: [softTexture()],
-    smoke: [smokeTexture(1), smokeTexture(2), smokeTexture(3), smokeTexture(4)],
-    spark: [sparkTexture()],
-    ring: [ringTexture()],
-    chunk: [chunkTexture(1), chunkTexture(2), chunkTexture(3), chunkTexture(4)],
-    ember: [emberTexture()],
+    soft: [pixelate(softTexture(), 16, 16, 0.4)],
+    smoke: [1, 2, 3, 4].map((n) => pixelate(smokeTexture(n), 16, 16, 0.3)),
+    spark: [pixelate(sparkTexture(), 8, 2, 0.35)],
+    ring: [pixelate(ringTexture(), 48, 48, 0.35)],
+    chunk: [1, 2, 3, 4].map((n) => pixelate(chunkTexture(n), 4, 4, 0.5)),
+    ember: [pixelate(emberTexture(), 2, 2, 0.4)],
   };
 }

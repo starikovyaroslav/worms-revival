@@ -7,6 +7,7 @@ import {
   type Range,
   type Recipe,
 } from './recipes';
+import { snapColor } from '../palette';
 import { createFxTextures, type FxTextureId } from './textures';
 
 /** What an effect can ask the rest of the presentation to do. */
@@ -275,7 +276,7 @@ export class EffectsSystem {
         gravity: l.gravity,
         drag: l.drag,
         wind: (l.wind ?? 0) * ctx.wind,
-        spin: l.spin ? rand(l.spin) : 0,
+        spin: 0,
         scale0: (rand(l.scaleStart) * k * 100) / base,
         scale1: (rand(l.scaleEnd) * k * 100) / base,
         colors,
@@ -288,7 +289,8 @@ export class EffectsSystem {
         sy: 1,
       };
       sprite.position.set(px, py);
-      sprite.rotation = l.spin || l.tex === 'smoke' ? Math.random() * Math.PI * 2 : 0;
+      // Pixel art never rotates (it would break the pixel grid); only streaks follow velocity.
+      sprite.rotation = 0;
       sprite.alpha = 0;
       container.addChild(sprite);
       this.particles.push(p);
@@ -329,7 +331,7 @@ export class EffectsSystem {
       p.y += p.vy * dt;
       const s = p.sprite;
       s.position.set(p.x, p.y);
-      s.tint = lerpColor(p.colors, t);
+      s.tint = snapColor(lerpColor(p.colors, t));
       const scale = p.scale0 + (p.scale1 - p.scale0) * (1 - (1 - t) * (1 - t));
       if (p.stretch) {
         const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
