@@ -417,7 +417,7 @@ class CrateView implements EntityView {
     if (art) {
       this.canopy = artSprite('objects/parachute', 1);
       if (this.canopy) {
-        this.canopy.y = -8;
+        this.canopy.y = -5;
         this.container.addChild(this.canopy);
       }
       this.container.addChild(this.chute, art);

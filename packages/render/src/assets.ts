@@ -17,6 +17,7 @@ export interface AssetManifest {
  */
 export class AssetStore {
   private textures = new Map<string, Texture>();
+  private urls = new Map<string, string>();
   manifest: AssetManifest | null = null;
 
   /** Loads a manifest and its images; later loads override earlier ones with the same id. */
@@ -31,8 +32,11 @@ export class AssetStore {
     }
     this.manifest = manifest;
     for (const prefix of manifest.remove ?? []) {
-      for (const id of [...this.textures.keys()])
-        if (id.startsWith(prefix)) this.textures.delete(id);
+      for (const id of [...this.textures.keys()]) {
+        if (!id.startsWith(prefix)) continue;
+        this.textures.delete(id);
+        this.urls.delete(id);
+      }
     }
     await Promise.all(
       Object.entries(manifest.assets).map(async ([id, a]) => {
@@ -41,11 +45,17 @@ export class AssetStore {
           // Pixel art: never blur it when scaled.
           tex.source.scaleMode = 'nearest';
           this.textures.set(id, tex);
+          this.urls.set(id, `${baseUrl}/${a.file}`);
         } catch {
           // A broken file just means "use the fallback".
         }
       }),
     );
+  }
+
+  /** URL of an asset's image (for DOM UI), or undefined when it does not exist. */
+  url(id: string): string | undefined {
+    return this.urls.get(id);
   }
 
   has(id: string): boolean {

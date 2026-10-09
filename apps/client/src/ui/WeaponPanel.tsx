@@ -1,6 +1,9 @@
 import { useState } from 'preact/hooks';
 import { allWeapons, weaponSetting, type Game } from '@wr/sim';
 import { PANEL_ROWS, weaponInfo } from '@wr/content';
+import { assets } from '@wr/render';
+
+const iconUrl = (id: string) => assets.url(`weapons/icon/${id}`);
 
 interface Props {
   game: Game;
@@ -41,14 +44,20 @@ export function WeaponPanel({ game, onPick, onClose }: Props) {
                   onPointerLeave={() => setHover(null)}
                   onClick={() => usable && onPick(def.id)}
                 >
-                  <img
-                    class="slot-img"
-                    src={`${import.meta.env.BASE_URL}assets/weapons/icon/${def.id}.png`}
-                    alt={info.name}
-                    draggable={false}
-                    onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
-                  />
-                  <span class="slot-icon">{info.icon}</span>
+                  {iconUrl(def.id) && (
+                    <img
+                      class="slot-img"
+                      src={iconUrl(def.id)}
+                      alt={info.name}
+                      draggable={false}
+                      onLoad={(e) => {
+                        // Small (GBA-size) icons are doubled so they stay readable.
+                        const img = e.target as HTMLImageElement;
+                        if (img.naturalWidth <= 20) img.style.width = `${img.naturalWidth * 2}px`;
+                      }}
+                    />
+                  )}
+                  {!iconUrl(def.id) && <span class="slot-icon">{info.icon}</span>}
                   {ammo > 0 && <span class="slot-ammo">{ammo}</span>}
                   {delay > 0 && <span class="slot-delay">{delay}</span>}
                 </button>
