@@ -6,6 +6,7 @@ import {
   Crate,
   DigTool,
   Flame,
+  Gas,
   Gravestone,
   Mine,
   Pigeon,
@@ -157,6 +158,32 @@ class ProjectileView implements EntityView {
         g.rect(-2.5, -7.5, 5, 1.4).fill(0xf2c230);
         g.circle(-1.5, -1.5, 1.3).fill({ color: 0xffffff, alpha: 0.6 });
         break;
+      case 'petrol':
+        g.roundRect(-2, -4, 4, 8, 1).fill(0x4a9a5a).stroke({ color: OUTLINE, width: 1 });
+        g.rect(-1, -6, 2, 2.5).fill(0xe8e0c0);
+        g.circle(0, -7, 1.3).fill(0xffa020);
+        break;
+      case 'skunk':
+        g.ellipse(0, 0, 5, 3.4).fill(0x2a2a30).stroke({ color: OUTLINE, width: 1 });
+        g.rect(-3, -2.6, 6, 1.6).fill(0xf4f4f4);
+        g.circle(5, -1, 1.6).fill(0x2a2a30);
+        break;
+      case 'napalm':
+      case 'carpet':
+        g.roundRect(-5, -2, 10, 4, 2)
+          .fill(this.p.look === 'napalm' ? 0xd08030 : 0x6a7a5a)
+          .stroke({ color: OUTLINE, width: 1 });
+        g.moveTo(-5, -2).lineTo(-8, -4).lineTo(-6, 0).closePath().fill(0x444444);
+        break;
+      case 'letter':
+        g.rect(-4, -3, 8, 6).fill(0xf4f0e0).stroke({ color: OUTLINE, width: 1 });
+        g.moveTo(-4, -3).lineTo(0, 0.5).lineTo(4, -3).stroke({ color: OUTLINE, width: 0.8 });
+        break;
+      case 'frenchsheep':
+        g.circle(0, 0, 4.4).fill(0xf8f8f0).stroke({ color: OUTLINE, width: 1 });
+        g.circle(4, -1, 2).fill(0x3a3a40);
+        g.circle(0, 5, 2.2).fill({ color: 0xff7020, alpha: 0.9 });
+        break;
       case 'clusterlet':
         g.circle(0, 0, 2.2).fill(0x5a2020).stroke({ color: OUTLINE, width: 0.8 });
         break;
@@ -299,6 +326,29 @@ class FlameView implements EntityView {
       .fill({ color: 0xffb030, alpha: 0.9 * fade })
       .circle(0, -r * 0.3, r * 0.5)
       .fill({ color: 0xfff0a0, alpha: fade });
+  }
+}
+
+class GasView implements EntityView {
+  readonly container = new Container();
+  private g = new Graphics();
+  private t = Math.random() * 10;
+
+  constructor(private readonly gas: Gas) {
+    this.container.addChild(this.g);
+  }
+
+  update(alpha: number, dtMs: number): void {
+    place(this.container, this.gas, alpha);
+    this.t += dtMs / 1000;
+    const fade = Math.min(1, this.gas.life / 90);
+    const r = 7 + Math.sin(this.t * 2) * 1.5;
+    this.g
+      .clear()
+      .circle(0, 0, r)
+      .fill({ color: 0x8aa840, alpha: 0.22 * fade })
+      .circle(0, 0, r * 0.6)
+      .fill({ color: 0xb4d060, alpha: 0.22 * fade });
   }
 }
 
@@ -572,6 +622,7 @@ export function createEntityView(e: Entity, world: World): EntityView | null {
   if (e instanceof Mine) return new MineView(e);
   if (e instanceof Barrel) return new BarrelView(e);
   if (e instanceof Flame) return new FlameView(e);
+  if (e instanceof Gas) return new GasView(e);
   if (e instanceof Sheep) return new SheepView(e);
   if (e instanceof Rope) return new RopeView(e, world);
   if (e instanceof Crate) return new CrateView(e);

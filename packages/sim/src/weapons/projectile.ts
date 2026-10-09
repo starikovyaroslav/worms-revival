@@ -4,6 +4,8 @@ import { PhysBody, type Impact } from '../world/body';
 import type { World } from '../world/world';
 import { Worm } from '../worm/worm';
 import { explode, type BlastSpec } from './explosion';
+import { sprayFlames } from './fire';
+import { sprayGas } from './gas';
 
 export interface ClusterSpec {
   count: number;
@@ -32,6 +34,10 @@ export interface ProjectileSpec {
   friction?: number;
   blast: BlastSpec;
   cluster?: ClusterSpec;
+  /** Burning napalm released where it goes off. */
+  flames?: { count: number; speed: number };
+  /** A poisonous cloud released where it goes off. */
+  gas?: { count: number };
   /** Only explode once the fuse is out AND it stopped moving (Holy Hand Grenade). */
   waitForRest?: boolean;
   /** Sound played, followed by a pause of `ticks`, before the explosion ("Hallelujah!"). */
@@ -138,6 +144,9 @@ export class Projectile extends PhysBody {
     if (this.removed) return;
     this.removed = true;
     explode(world, this.x, this.y, this.spec.blast);
+    const fl = this.spec.flames;
+    if (fl) sprayFlames(world, this.x, this.y - 2, fl.count, fl.speed);
+    if (this.spec.gas) sprayGas(world, this.x, this.y - 2, this.spec.gas.count);
     const c = this.spec.cluster;
     if (!c) return;
     for (let i = 0; i < c.count; i++) {

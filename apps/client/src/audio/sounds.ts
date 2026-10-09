@@ -193,6 +193,13 @@ export const SOUNDS: Record<string, Synth> = {
     o.frequency.linearRampToValueAtTime(70, a.now + 1.6);
     noise(a, voice(a, out, 0.2, 0.4, 1.2), a.now, 1.7, 'lowpass', 700, 300);
   },
+  flame: (a, out) => {
+    noise(a, voice(a, out, 0.2, 0.05, 0.8), a.now, 0.9, 'lowpass', 1800, 500);
+  },
+  cough: (a, out) => {
+    noise(a, voice(a, out, 0.1, 0.01, 0.12), a.now, 0.15, 'bandpass', 900, 700, 2);
+    osc(a, 'sawtooth', 140, voice(a, out, 0.08, 0.01, 0.12), a.now, 0.15);
+  },
   nope: (a, out) => {
     osc(a, 'square', 110, voice(a, out, 0.15, 0.005, 0.2), a.now, 0.25);
   },
