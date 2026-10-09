@@ -31,7 +31,8 @@ export class Crate extends PhysBody {
     this.radius = 6;
     this.restitution = 0.15;
     this.friction = 0.5;
-    this.windFactor = 1;
+    // A small share of the full wind, with drag, so crates drift under their parachute.
+    this.windFactor = 0.12;
     this.blastFactor = 0.6;
   }
 
@@ -59,7 +60,10 @@ export class Crate extends PhysBody {
     }
     // Under the parachute gravity is cancelled out by drag: sink at a steady speed.
     this.gravityScale = this.chute ? 0 : 1;
-    if (this.chute) this.vy = CHUTE_FALL;
+    if (this.chute) {
+      this.vy = CHUTE_FALL;
+      this.vx *= 0.94;
+    }
     super.update(world);
     if (this.removed || this.collectorId) return;
     for (const w of world.ofKind<Worm>('worm')) {

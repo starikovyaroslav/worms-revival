@@ -1,5 +1,5 @@
 import type { Hasher } from '../core/hash';
-import { cos, sin } from '../core/math';
+import { PI, atan2, cos, sin } from '../core/math';
 import { Entity } from '../world/entity';
 import type { World } from '../world/world';
 import { Worm, WORM_H } from '../worm/worm';
@@ -13,11 +13,37 @@ import type { RemoteControlled } from './weapon';
  *    and lengthen the rope;
  *  - shortening conserves angular momentum, so the swing speeds up as the rope gets shorter;
  *  - bounces off land keep most of the speed (W:A: bouncing while roped can add momentum);
- *  - you can re-fire in mid-air, up to a number of times per turn set by the weapon's power
- *    (5 = unlimited), but never below the horizontal;
- *  - the longest rope (power 5, straight up) is about 462 px.
+ *  - you can re-fire in mid-air (space to let go, space again) a number of times set by the power
+ *    level, without using extra ammo; touching the ground loses the unused swings;
+ *  - the power level also sets the maximum length and how far from vertical you may fire.
+ * Table from worms2d.info (Ninja Rope):
+ *   power  shots  max length   max angle from vertical
+ *     1      1    294–297 px        45°
+ *     2      2    336–339           45°
+ *     3      2    378–381           90°
+ *     4      4    420–423           90°
+ *     5     ∞     462–465           90°
  */
-export const ROPE_MAX = 462;
+export interface RopeSpec {
+  shots: number;
+  maxLength: number;
+  /** Largest allowed angle between the shot and straight up, degrees. */
+  limitDeg: number;
+}
+
+const ROPE_SPECS: RopeSpec[] = [
+  { shots: 1, maxLength: 296, limitDeg: 45 },
+  { shots: 2, maxLength: 338, limitDeg: 45 },
+  { shots: 2, maxLength: 380, limitDeg: 90 },
+  { shots: 4, maxLength: 422, limitDeg: 90 },
+  { shots: Infinity, maxLength: 464, limitDeg: 90 },
+];
+
+export function ropeSpec(power: number): RopeSpec {
+  return ROPE_SPECS[Math.min(5, Math.max(1, Math.round(power))) - 1] as RopeSpec;
+}
+
+export const ROPE_MAX = 464;
 const ROPE_MIN = 10;
 /** Hook travel speed, px/tick. */
 const HOOK_SPEED = 24;
@@ -27,11 +53,6 @@ const SWING = 0.075;
 const REEL = 1.5;
 /** Fraction of the normal velocity kept on a bounce while roped. */
 const BOUNCE = 0.75;
-
-/** Re-shots allowed per turn for a weapon power level (5 = unlimited). */
-export function ropeShotsFor(power: number): number {
-  return power >= 5 ? Infinity : Math.max(1, power);
-}
 
 interface Point {
   x: number;
@@ -53,8 +74,8 @@ export class Rope extends Entity implements RemoteControlled {
   /** Hook position while it is flying. */
   hookX: number;
   hookY: number;
-  private hookDX: number;
-  private hookDY: number;
+  hookDX = 0;
+  hookDY = 0;
   private travelled = 0;
   private keys = { left: false, right: false, up: false, down: false };
 
@@ -63,16 +84,25 @@ export class Rope extends Entity implements RemoteControlled {
     worm: Worm,
     dirX: number,
     dirY: number,
-    /** Re-shots allowed per turn, including this one. */
-    readonly maxShots: number,
+    readonly spec: RopeSpec,
   ) {
     super(worm.cx, worm.cy);
     this.hookX = worm.cx;
     this.hookY = worm.cy;
-    // Never aim below the horizontal.
-    this.hookDX = dirX;
-    this.hookDY = Math.min(0, dirY);
-    worm.ropeShots++;
+    [this.hookDX, this.hookDY] = this.restrict(dirX, dirY);
+  }
+
+  /** Shots fired with this rope so far (the first one included). */
+  shotsUsed = 1;
+
+  /** Clamps a shot direction to the power level's allowed cone around straight up. */
+  private restrict(dirX: number, dirY: number): [number, number] {
+    const side = dirX < 0 ? -1 : 1;
+    // Elevation above the horizontal, 90° = straight up.
+    const elevation = atan2(-dirY, Math.abs(dirX));
+    const min = (90 - this.spec.limitDeg) * (PI / 180);
+    const e = Math.max(elevation, min);
+    return [cos(e) * side, -sin(e)];
   }
 
   get pivot(): Point | undefined {
@@ -94,16 +124,15 @@ export class Rope extends Entity implements RemoteControlled {
       this.letGo(worm);
     } else if (this.state === 'loose') {
       // Shoot again in mid-air, along the current aim, if there are shots left this turn.
-      if (worm.ropeShots >= this.maxShots) {
+      if (this.shotsUsed >= this.spec.shots) {
         world.emit({ type: 'sound', id: 'nope', x: worm.x, y: worm.y });
         return;
       }
-      worm.ropeShots++;
+      this.shotsUsed++;
       this.state = 'shooting';
       this.hookX = worm.cx;
       this.hookY = worm.cy;
-      this.hookDX = cos(worm.aim) * worm.facing;
-      this.hookDY = Math.min(0, -sin(worm.aim));
+      [this.hookDX, this.hookDY] = this.restrict(cos(worm.aim) * worm.facing, -sin(worm.aim));
       this.travelled = 0;
       world.emit({ type: 'sound', id: 'rope-shoot', x: worm.x, y: worm.y });
     }
@@ -164,7 +193,7 @@ export class Rope extends Entity implements RemoteControlled {
         this.attach(world, worm);
         return;
       }
-      if (this.travelled >= ROPE_MAX || this.hookY > world.waterLevel) {
+      if (this.travelled >= this.spec.maxLength || this.hookY > world.waterLevel) {
         // Missed: the rope reels back in.
         this.state = 'loose';
         if (worm.grounded) this.removed = true;
@@ -201,7 +230,7 @@ export class Rope extends Entity implements RemoteControlled {
     // Reeling in or out. Angular momentum is conserved: a shorter rope spins faster.
     const before = this.length;
     if (this.keys.up) this.length = Math.max(ROPE_MIN, this.length - REEL);
-    if (this.keys.down) this.length = Math.min(ROPE_MAX, this.length + REEL);
+    if (this.keys.down) this.length = Math.min(this.spec.maxLength, this.length + REEL);
     let dx = worm.cx - p.x;
     let dy = worm.cy - p.y;
     let d = Math.sqrt(dx * dx + dy * dy) || 1;
@@ -286,7 +315,12 @@ export class Rope extends Entity implements RemoteControlled {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.str(this.state).f64(this.length).f64(this.hookX).f64(this.hookY).u32(this.travelled);
+    h.str(this.state)
+      .f64(this.length)
+      .f64(this.hookX)
+      .f64(this.hookY)
+      .u32(this.travelled)
+      .u32(this.shotsUsed);
     for (const a of this.anchors) h.f64(a.x).f64(a.y);
   }
 }

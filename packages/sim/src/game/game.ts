@@ -609,9 +609,14 @@ export class Game {
     }
     this.activeWormId = worm?.id ?? 0;
     this.turnStartDamage = worm?.pendingDamage ?? 0;
-    if (worm) worm.ropeShots = 0;
-    if (this.scheme.wind > 0)
-      this.world.wind = (this.world.rng.int(-10, 10) / 10) * this.scheme.wind;
+    if (this.scheme.wind > 0) {
+      // W:A: 21 distinct strengths, and the wind is (almost) never the same on two consecutive turns.
+      let next = this.world.wind;
+      for (let i = 0; i < 8 && next === this.world.wind; i++) {
+        next = (this.world.rng.int(-10, 10) / 10) * this.scheme.wind;
+      }
+      this.world.wind = next;
+    }
 
     this.weaponId = team.lastWeapon && this.canUse(team.lastWeapon) ? team.lastWeapon : '';
     this.shotsLeft = this.weapon?.shots ?? 1;

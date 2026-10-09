@@ -16,15 +16,14 @@ const STEP_DOWN = 4;
  * Horizontal movement per frame of the 15-frame walk cycle (W:A: 13 of 15 frames move,
  * 0..1.75 px). One frame per tick gives the characteristic uneven "inchworm" gait.
  */
-const WALK_STEPS = [0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 1.5, 1.25, 1, 0.75, 0.5, 0.25, 0.25, 0];
-/** W:A walk loop: 1.00 s (50 ticks) per 15-frame cycle, covering exactly 27 px. */
-export const WALK_LOOP_TICKS = 50;
-export const WALK_LOOP_PX = 27;
-/** Animation frames advanced per tick. */
-const WALK_FRAMES_PER_TICK = WALK_STEPS.length / WALK_LOOP_TICKS;
-/** Scales the step profile so one loop covers WALK_LOOP_PX. */
-const WALK_SCALE =
-  WALK_LOOP_PX / (WALK_STEPS.reduce((a, b) => a + b, 0) * (WALK_LOOP_TICKS / WALK_STEPS.length));
+/**
+ * Walking, tick by tick (Deadcode, via worms2d.info "Worm Walking"). Starting to walk plays a two tick
+ * warm-up, then a loop of 17 ticks covering 9 px; every third loop is one idle tick shorter, so three
+ * loops take 17 + 17 + 16 = 50 ticks (1.00 s) and cover exactly 27 px.
+ */
+const WALK_WARMUP = [0.5, 0];
+const WALK_LOOP = [0.5, 0.5, 0.5, 0.5, 1.5, 1.75, 1.5, 1.25, 0, 0.25, 0, 0.25, 0.25, 0.25, 0, 0, 0];
+const WALK_FRAMES = 15;
 
 /**
  * Calibrated to measured W:A jumps at gravity 0.2 px/tick²: a forward jump travels ≈48 px and rises
@@ -75,11 +74,12 @@ export class Worm extends Entity {
   facing: 1 | -1 = 1;
   /** Aim angle relative to facing direction: -PI/2 (down) .. PI/2 (up). */
   aim = 0;
+  /** Frame (0..14) of the 15-frame walk sprite. */
   walkFrame = 0;
-  /** Fractional position in the 15-frame walk cycle. */
-  walkPhase = 0;
-  /** Ninja rope shots used this turn. */
-  ropeShots = 0;
+  private walkTick = 0;
+  private walkCycle = 0;
+  /** Warm-up ticks played so far after starting to walk. */
+  private walkWarm = 0;
   /** Sent flying by an explosion: bounces and slides and takes no fall damage. */
   blasted = false;
   /** Damage taken in the current turn, applied to team totals at the end of the turn. */
@@ -211,25 +211,43 @@ export class Worm extends Entity {
     if (this.y - WORM_H > world.waterLevel) this.drown(world);
   }
 
+  private resetWalk(): void {
+    this.state = this.grounded ? 'idle' : this.state;
+    this.walkFrame = 0;
+    this.walkTick = 0;
+    this.walkCycle = 0;
+    this.walkWarm = 0;
+  }
+
   private walk(world: World): void {
     const dir = this.control.left === this.control.right ? 0 : this.control.left ? -1 : 1;
     if (dir === 0) {
       this.state = 'idle';
-      this.walkFrame = 0;
-      this.walkPhase = 0;
+      this.resetWalk();
       return;
     }
     if (dir !== this.facing) {
       // Turning around takes a step of its own.
       this.facing = dir;
-      this.walkFrame = 0;
-      this.walkPhase = 0;
+      this.resetWalk();
       return;
     }
     this.state = 'walking';
-    const step = (WALK_STEPS[this.walkFrame] as number) * WALK_SCALE;
-    this.walkPhase = (this.walkPhase + WALK_FRAMES_PER_TICK) % WALK_STEPS.length;
-    this.walkFrame = Math.floor(this.walkPhase);
+    let step: number;
+    if (this.walkWarm < WALK_WARMUP.length) {
+      step = WALK_WARMUP[this.walkWarm++] as number;
+    } else {
+      step = WALK_LOOP[this.walkTick] as number;
+      const length = this.walkCycle === 2 ? WALK_LOOP.length - 1 : WALK_LOOP.length;
+      this.walkFrame = Math.min(
+        WALK_FRAMES - 1,
+        Math.floor((this.walkTick / length) * WALK_FRAMES),
+      );
+      if (++this.walkTick >= length) {
+        this.walkTick = 0;
+        this.walkCycle = (this.walkCycle + 1) % 3;
+      }
+    }
     if (step === 0) return;
 
     const nx = this.x + step * dir;
@@ -274,7 +292,7 @@ export class Worm extends Entity {
     this.vy += g;
     if (this.chute) {
       if (this.vy > CHUTE_FALL) this.vy = CHUTE_FALL;
-      this.vx = this.vx * 0.96 + world.wind * world.physics.maxWind * 3;
+      this.vx = this.vx * 0.96 + world.wind * world.physics.maxWind * 0.12;
     }
     const max = world.physics.maxSpeed;
     if (this.vx > max) this.vx = max;
@@ -355,8 +373,7 @@ export class Worm extends Entity {
     this.state = 'idle';
     this.blasted = false;
     this.chute = false;
-    this.walkFrame = 0;
-    this.walkPhase = 0;
+    this.resetWalk();
   }
 
   private drown(world: World): void {
@@ -379,8 +396,9 @@ export class Worm extends Entity {
       .f64(this.aim)
       .u32(this.facing === 1 ? 1 : 0)
       .u32(this.walkFrame)
-      .f64(this.walkPhase)
-      .u32(this.ropeShots)
+      .u32(this.walkTick)
+      .u32(this.walkCycle)
+      .u32(this.walkWarm)
       .bool(this.blasted)
       .u32(this.jumpTimer)
       .u32(this.stuckTicks)

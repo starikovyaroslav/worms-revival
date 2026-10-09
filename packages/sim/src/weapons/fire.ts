@@ -29,7 +29,7 @@ export class Flame extends PhysBody {
     this.vy = vy;
     this.life = life;
     this.radius = 1.5;
-    this.windFactor = 1.4;
+    this.windFactor = 0.45;
     this.gravityScale = 0.6;
     this.restitution = 0.1;
     this.friction = 0.5;

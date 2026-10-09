@@ -27,7 +27,7 @@ registerWeapon({
         {
           look: 'homing',
           radius: 2,
-          wind: 1,
+          wind: 0,
           impact: 'explode',
           blast: scaledBlast(50, ctx.setting.power),
           armTicks: 30,
@@ -65,7 +65,7 @@ registerWeapon({
         {
           look: 'mortar',
           radius: 2.5,
-          wind: 1,
+          wind: 0,
           impact: 'explode',
           blast: scaledBlast(20, ctx.setting.power),
           cluster: {

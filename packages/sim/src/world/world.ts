@@ -19,7 +19,8 @@ export interface PhysicsConfig {
 
 export const DEFAULT_PHYSICS: PhysicsConfig = {
   gravity: 0.2,
-  maxWind: 0.05,
+  // Wind is a share of gravity: the strongest W:A wind pushes a bazooka shell with 119% of gravity.
+  maxWind: 0.238,
   maxSpeed: 32,
   fallDamage: true,
   damageScale: 1,

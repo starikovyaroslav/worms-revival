@@ -141,22 +141,37 @@ describe('ninja rope', () => {
     expect(Math.abs(after.l - before.l) / Math.abs(before.l)).toBeLessThan(0.12);
   });
 
-  it('limits re-shots per turn by the weapon power (3 by default) and never fires downwards', () => {
+  it('power 3 allows 2 swings per rope (the first shot plus one re-shot)', () => {
     const g = cave();
-    const me = g.activeWorm!;
     const rope = shootRope(g);
-    expect(me.ropeShots).toBe(1);
-    expect(rope.hookY).toBeLessThanOrEqual(g.activeWorm!.cy);
-    for (let n = 2; n <= 3; n++) {
-      g.step([{ t: 'fire', down: true }]);
-      g.step([{ t: 'fire', down: true }]);
-      stepUntil(g, () => rope.state !== 'shooting');
-      expect(me.ropeShots).toBe(n);
-    }
-    // The fourth shot is refused.
+    expect(rope.shotsUsed).toBe(1);
+    g.step([{ t: 'fire', down: true }]); // let go
+    g.step([{ t: 'fire', down: true }]); // re-fire in mid-air
+    stepUntil(g, () => rope.state !== 'shooting');
+    expect(rope.shotsUsed).toBe(2);
+    expect(rope.state).toBe('attached');
+    g.step([{ t: 'fire', down: true }]); // let go again
+    g.step([{ t: 'fire', down: true }]); // no shots left
+    expect(rope.shotsUsed).toBe(2);
+    expect(g.activeWorm!.state).toBe('airborne');
+  });
+
+  it('power 1 only allows shots within 45° of vertical and a shorter rope', () => {
+    const g = makeGame({
+      weapons: { rope: { ammo: -1, power: 1, delay: 0, crate: 0 } },
+      wind: 0,
+      turnTime: 60,
+    });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    const me = g.activeWorm!;
+    me.facing = 1;
+    me.aim = 0; // horizontal: not allowed, clamped to 45° up
+    g.step([{ t: 'select', weapon: 'rope' }]);
     g.step([{ t: 'fire', down: true }]);
-    g.step([{ t: 'fire', down: true }]);
-    expect(me.ropeShots).toBe(3);
-    expect(me.state).toBe('airborne');
+    const rope = g.world.ofKind<Rope>('rope')[0]!;
+    expect(rope.hookDX).toBeCloseTo(Math.SQRT1_2, 3);
+    expect(rope.hookDY).toBeCloseTo(-Math.SQRT1_2, 3);
+    expect(rope.spec.maxLength).toBe(296);
+    expect(rope.spec.shots).toBe(1);
   });
 });

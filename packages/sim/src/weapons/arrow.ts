@@ -26,7 +26,7 @@ export class Arrow extends PhysBody {
     this.vy = vy;
     this.radius = 1;
     this.gravityScale = 0.5;
-    this.windFactor = 0.5;
+    this.windFactor = 0;
   }
 
   override isBusy(): boolean {
