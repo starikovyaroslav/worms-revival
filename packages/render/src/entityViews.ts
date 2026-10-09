@@ -5,6 +5,7 @@ import {
   Barrel,
   Crate,
   DigTool,
+  Donkey,
   Flame,
   Gas,
   Gravestone,
@@ -157,6 +158,11 @@ class ProjectileView implements EntityView {
         g.rect(-0.8, -9, 1.6, 5).fill(0xf2c230);
         g.rect(-2.5, -7.5, 5, 1.4).fill(0xf2c230);
         g.circle(-1.5, -1.5, 1.3).fill({ color: 0xffffff, alpha: 0.6 });
+        break;
+      case 'mbbomb':
+        g.circle(0, 0, 5.5).fill(0x5a5a62).stroke({ color: OUTLINE, width: 1.2 });
+        g.rect(-3, -3, 6, 6).fill(0xd8b020);
+        g.rect(-1, -9, 2, 4).fill(0x999999);
         break;
       case 'dragonball':
         g.circle(0, 0, 4.5).fill({ color: 0xff5a10, alpha: 0.7 });
@@ -357,6 +363,77 @@ class GasView implements EntityView {
   }
 }
 
+/** Simple code-drawn bodies for the non-sheep walkers; they face right. */
+function drawAnimal(g: Graphics, look: string, bob: number, t: number): void {
+  const step = Math.sin(t * 14) * 1.2;
+  const legs = (color: number) => {
+    g.rect(-3 + step, 2.5 - bob, 1.2, 3).fill(color);
+    g.rect(2 - step, 2.5 - bob, 1.2, 3).fill(color);
+  };
+  switch (look) {
+    case 'mole':
+      g.ellipse(0, -1.5 - bob, 5, 3.4)
+        .fill(0x6a5040)
+        .stroke({ color: OUTLINE, width: 1 });
+      g.moveTo(5, -2 - bob)
+        .lineTo(8.5, -1 - bob)
+        .lineTo(5, 0 - bob)
+        .closePath()
+        .fill(0xe8a0a0);
+      g.circle(3.6, -3 - bob, 0.7).fill(0xffffff);
+      g.rect(-1, 1 - bob, 3, 1.5).fill(0xe8c080);
+      legs(0x3a2a20);
+      break;
+    case 'cow':
+      g.roundRect(-5.5, -5 - bob, 11, 6, 2)
+        .fill(0xf8f8f0)
+        .stroke({ color: OUTLINE, width: 1 });
+      g.rect(-3, -4 - bob, 3, 3).fill(0x2a2a2a);
+      g.rect(1, -3 - bob, 2, 2.4).fill(0x2a2a2a);
+      g.rect(5, -6 - bob, 4, 4)
+        .fill(0xf8f8f0)
+        .stroke({ color: OUTLINE, width: 0.8 });
+      g.rect(6.4, -7.4 - bob, 1.2, 1.4).fill(0xe8e0b0);
+      g.circle(7.6, -4.6 - bob, 0.7).fill(0xd02020);
+      legs(0x2a2a2a);
+      break;
+    case 'oldwoman':
+    case 'nun':
+      g.roundRect(-3.5, -9 - bob, 7, 10, 2)
+        .fill(look === 'nun' ? 0x2a2a30 : 0xa05a8a)
+        .stroke({ color: OUTLINE, width: 1 });
+      g.circle(1, -11 - bob, 2.8)
+        .fill(0xf2c8a8)
+        .stroke({ color: OUTLINE, width: 0.8 });
+      g.rect(-2, -14 - bob, 6, 2.4).fill(look === 'nun' ? 0xf4f4f4 : 0xd8d8d8);
+      g.rect(4, -5 - bob, 1, 7).fill(0x6a4a2a);
+      legs(0x3a2a20);
+      break;
+    default:
+      g.circle(0, -2 - bob, 4).fill(0xffffff);
+  }
+}
+
+class DonkeyView implements EntityView {
+  readonly container = new Container();
+
+  constructor(private readonly d: Donkey) {
+    const g = new Graphics();
+    g.roundRect(-11, -9, 22, 13, 3).fill(0x9a9aa4).stroke({ color: OUTLINE, width: 1.2 });
+    g.rect(8, -15, 8, 9).fill(0x9a9aa4).stroke({ color: OUTLINE, width: 1 });
+    g.rect(10, -21, 2.4, 7).fill(0x9a9aa4);
+    g.rect(14, -21, 2.4, 7).fill(0x9a9aa4);
+    g.circle(14, -11, 1).fill(0x111111);
+    g.rect(-9, 4, 3, 8).fill(0x8a8a94);
+    g.rect(5, 4, 3, 8).fill(0x8a8a94);
+    this.container.addChild(g);
+  }
+
+  update(alpha: number): void {
+    place(this.container, this.d, alpha);
+  }
+}
+
 class SheepView implements EntityView {
   readonly container = new Container();
   private body = new Graphics();
@@ -365,7 +442,8 @@ class SheepView implements EntityView {
   private art: Sprite | null;
 
   constructor(private readonly s: Sheep) {
-    this.art = artSprite('proj/sheep', 0.56);
+    const look = s.opts.look ?? 'sheep';
+    this.art = look === 'sheep' ? artSprite('proj/sheep', 0.56) : null;
     if (this.art) this.container.addChild(this.art);
     this.container.addChild(this.body);
   }
@@ -385,6 +463,12 @@ class SheepView implements EntityView {
       if (flying && superTex) this.art.texture = superTex;
       this.container.rotation = flying ? s.heading : 0;
       this.container.scale.set(flying ? 1 : s.dir, 1);
+      return;
+    }
+    const look = s.opts.look ?? 'sheep';
+    if (look !== 'sheep') {
+      this.container.scale.set(s.dir, 1);
+      drawAnimal(g, look, bob, this.t);
       return;
     }
     for (const [x, y, r] of [
@@ -629,6 +713,7 @@ export function createEntityView(e: Entity, world: World): EntityView | null {
   if (e instanceof Flame) return new FlameView(e);
   if (e instanceof Gas) return new GasView(e);
   if (e instanceof Sheep) return new SheepView(e);
+  if (e instanceof Donkey) return new DonkeyView(e);
   if (e instanceof Rope) return new RopeView(e, world);
   if (e instanceof Crate) return new CrateView(e);
   if (e instanceof DigTool) return new DigToolView(e);

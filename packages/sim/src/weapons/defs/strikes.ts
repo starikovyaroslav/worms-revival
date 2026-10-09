@@ -11,7 +11,7 @@ const STRIKE_SPEED = 4;
  * Releases `count` payloads from a plane flying over the target in the facing direction: the middle
  * one lands on the target, the rest `spacing` px apart along the flight line.
  */
-function airRaid(
+export function airRaid(
   ctx: FireContext,
   count: number,
   spacing: number,

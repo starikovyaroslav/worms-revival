@@ -23,6 +23,7 @@ export * from './weapons/mine';
 export * from './weapons/fire';
 export * from './weapons/gas';
 export * from './weapons/kamikaze';
+export * from './weapons/donkey';
 export * from './weapons/barrel';
 export * from './weapons/sheep';
 export * from './weapons/digTool';

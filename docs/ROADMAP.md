@@ -188,7 +188,7 @@
 Подключить 7 готовых (см. Фазу 3) и добавить ~30 новых. Порядок — по рядам панели W:A:
 
 - [x] Огонь/газ и налёты (2026-10-09, числа из `docs/lore/arsenal.md`, не из точных таблиц): Petrol Bomb, Skunk (газ отравляет), Flamethrower (один залп 36 огней), Napalm Strike, Mail Strike, Mine Strike, Mike's Carpet Bomb, French Sheep Strike. Спрайтов оригинала для них в подключённом листе нет: рисуются кодом, иконки панели — эмодзи
-- [ ] Животные: Mole Bomb, Mole Squadron, Old Woman, Mad Cows, Salvation Army, Concrete Donkey, MB Bomb
+- [x] Животные (упрощённо, числа не подтверждены): Sheep Launcher, Mole Bomb и Mole Squadron (кроты бегают и прыгают, но пока не зарываются), Old Woman (5 с, не остановить), Mad Cows (число по уровню силы, взрыв при касании), Salvation Army (ходит 10 с; бубны не сделаны), Concrete Donkey (пробивает землю до воды), MB Bomb (упругая бомба 100; описание «спускается с небес» не воспроизведено). Рисуются кодом
 - [x] Авиаудары: сделаны (см. выше)
 - [x] Ближний бой (числа не подтверждены): Battle Axe (половина текущего здоровья, добивает 1 hp), Dragon Ball (огненный шар 90 px), Kamikaze (червяк пробивает землю 45 тиков и взрывается, 30), Suicide Bomber (взрыв как динамит 75; по описанию в `arsenal.md` было 25 + яд, расхождение не выяснено)
 - [ ] Особые: Earthquake, Armageddon, Indian Nuclear Test, Ming Vase, Patsy's Magic Bullet

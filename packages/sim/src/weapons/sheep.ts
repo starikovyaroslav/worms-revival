@@ -24,6 +24,14 @@ export interface SheepOptions {
   canFly: boolean;
   /** Aqua Sheep: keeps flying under water. */
   aqua: boolean;
+  /** Which animal it looks like (render only): sheep by default. */
+  look?: 'sheep' | 'mole' | 'cow' | 'oldwoman' | 'nun';
+  /** Walking speed, px/tick. */
+  speed?: number;
+  /** False: fire does not set it off (Old Woman). */
+  manual?: boolean;
+  /** Goes off by itself when it touches a worm (Mad Cows). */
+  contact?: boolean;
 }
 
 /**
@@ -37,6 +45,7 @@ export class Sheep extends PhysBody implements RemoteControlled {
   /** Flight heading in radians (0 = right, screen coordinates). */
   heading = 0;
   fuseLeft: number;
+  age = 0;
   flyLeft = FLY_TICKS;
   private grounded = false;
   private blocked = 0;
@@ -66,6 +75,7 @@ export class Sheep extends PhysBody implements RemoteControlled {
   }
 
   remoteFire(world: World): void {
+    if (this.opts.manual === false) return;
     if (this.mode === 'walk' && this.opts.canFly) {
       this.mode = 'fly';
       this.heading = this.dir > 0 ? -0.9 : -Math.PI + 0.9;
@@ -92,6 +102,8 @@ export class Sheep extends PhysBody implements RemoteControlled {
   }
 
   override update(world: World): void {
+    this.age++;
+    if (this.opts.contact && this.contact(world)) return;
     if (this.mode === 'fly') {
       this.fly(world);
       return;
@@ -115,17 +127,32 @@ export class Sheep extends PhysBody implements RemoteControlled {
     }
   }
 
+  /** Blows up when a worm (not the owner, at first) is touched. */
+  private contact(world: World): boolean {
+    for (const w of world.ofKind<Worm>('worm')) {
+      if (!w.alive || (w.id === this.ownerId && this.age < 40)) continue;
+      const dx = w.cx - this.x;
+      const dy = w.cy - this.y;
+      if (dx * dx + dy * dy < WORM_HIT * WORM_HIT) {
+        this.blowUp(world);
+        return true;
+      }
+    }
+    return false;
+  }
+
   private walk(world: World): void {
     const t = world.terrain;
     const r = this.radius;
     // Fell off an edge or the ground vanished.
     if (!t.circleCollides(this.x, this.y + 2, r)) {
       this.grounded = false;
-      this.vx = this.dir * WALK_SPEED * 0.6;
+      this.vx = this.dir * (this.opts.speed ?? WALK_SPEED) * 0.6;
       this.vy = 0;
       return;
     }
-    const nx = this.x + this.dir * WALK_SPEED;
+    const speed = this.opts.speed ?? WALK_SPEED;
+    const nx = this.x + this.dir * speed;
     let ny = this.y;
     let lift = 0;
     while (t.circleCollides(nx, ny, r) && lift < CLIMB) {
@@ -210,6 +237,7 @@ export class Sheep extends PhysBody implements RemoteControlled {
       .u32(this.dir > 0 ? 1 : 0)
       .f64(this.heading)
       .u32(this.fuseLeft)
+      .u32(this.age)
       .u32(this.flyLeft)
       .bool(this.grounded)
       .u32(this.blocked);

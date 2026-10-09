@@ -4,6 +4,7 @@ import './melee';
 import './placed';
 import './strikes';
 import './fire';
+import './animals';
 import './homing';
 import './guns';
 import './specials';

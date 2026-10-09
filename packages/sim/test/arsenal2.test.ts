@@ -152,3 +152,73 @@ describe('melee specials', () => {
     expect(enemy.health).toBeLessThan(100);
   });
 });
+
+describe('animals', () => {
+  const ids = [
+    'sheeplauncher',
+    'molebomb',
+    'molesquad',
+    'oldwoman',
+    'madcows',
+    'salvation',
+    'donkey',
+    'mbbomb',
+  ];
+  const W = Object.fromEntries(ids.map((id) => [id, { ammo: -1, power: 3, delay: 0, crate: 0 }]));
+  const setup = () => {
+    const g = makeGame({ weapons: W, wind: 0, turnTime: 60 });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    const me = g.activeWorm!;
+    const enemy = g.worms.find((w) => w.team !== me.team) as Worm;
+    me.facing = 1;
+    me.aim = 0.5;
+    return { g, me, enemy };
+  };
+  const use = (g: ReturnType<typeof setup>['g'], id: string, target?: { x: number; y: number }) => {
+    g.step([{ t: 'select', weapon: id }]);
+    if (target) g.step([{ t: 'target', x: target.x, y: target.y }]);
+    g.step([{ t: 'fire', down: true }]);
+  };
+
+  it('mad cows: as many as the power level, and they blow up on contact', () => {
+    const { g, me, enemy } = setup();
+    enemy.x = me.x + 80;
+    enemy.y = me.y;
+    use(g, 'madcows');
+    expect(g.world.ofKind('sheep').length).toBe(3);
+    stepUntil(g, () => g.world.ofKind('sheep').length === 0, 800);
+    expect(enemy.health).toBeLessThan(100);
+  });
+
+  it('old woman cannot be set off by hand but goes off after five seconds', () => {
+    const { g } = setup();
+    use(g, 'oldwoman');
+    const nan = g.world.ofKind('sheep')[0]!;
+    g.step([{ t: 'fire', down: true }]);
+    expect(nan.removed).toBe(false);
+    stepUntil(g, () => nan.removed, 400);
+    expect(nan.removed).toBe(true);
+  });
+
+  it('mole squadron drops five moles', () => {
+    const { g, me } = setup();
+    use(g, 'molesquad', { x: me.x + 200, y: 199 });
+    expect(g.world.ofKind('sheep').length).toBe(5);
+  });
+
+  it('sheep launcher shoots a sheep that lands and walks', () => {
+    const { g } = setup();
+    use(g, 'sheeplauncher');
+    for (let i = 0; i < 20; i++) g.step();
+    g.step([{ t: 'fire', down: false }]);
+    expect(g.world.ofKind('sheep').length).toBe(1);
+  });
+
+  it('concrete donkey bores through the land down to the water', () => {
+    const { g, me } = setup();
+    use(g, 'donkey', { x: me.x + 300, y: 199 });
+    const d = g.world.ofKind('donkey')[0]!;
+    stepUntil(g, () => d.removed, 600);
+    expect(g.world.terrain.isSolid(me.x + 300, 300)).toBe(false);
+  });
+});
