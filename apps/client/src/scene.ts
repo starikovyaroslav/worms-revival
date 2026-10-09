@@ -196,6 +196,9 @@ export class GameScene {
           }
           break;
         }
+        case 'fired':
+          this.worms.get(ev.wormId)?.playAct(ev.weapon);
+          break;
         case 'speech': {
           const worm = this.game.world.byId(ev.wormId);
           const now = performance.now();

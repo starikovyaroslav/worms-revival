@@ -28,6 +28,8 @@ export class WormView {
   private hurtTimer = 0;
   private lastHealth: number;
   private landTimer = 0;
+  /** Use animation (`act/<weapon>_N`) that is playing, and how long it has been going. */
+  private act: { weapon: string; t: number } | null = null;
   private wasAirborne = false;
 
   constructor(readonly worm: Worm) {
@@ -78,6 +80,26 @@ export class WormView {
     draw(0, color);
     // Light edge on the left of the shaft and head.
     g.rect(-u, -rows.length * u, u, 4 * u).fill(0xffffff, 0.45);
+  }
+
+  /** Starts the use animation of a weapon (throw, punch, torch...), if the art has one. */
+  playAct(weapon: string): void {
+    if (assets.has(`act/${weapon}_0`)) this.act = { weapon, t: 0 };
+  }
+
+  /** Current frame of the running use animation; clears it when finished. */
+  private actFrame(dt: number): Texture | undefined {
+    const a = this.act;
+    if (!a) return undefined;
+    a.t += dt;
+    const n = assets.count(`act/${a.weapon}_`);
+    // Multi-frame sets play at 14 fps; a single pose is held briefly.
+    const dur = n > 1 ? n / 14 : 0.35;
+    if (a.t >= dur) {
+      this.act = null;
+      return undefined;
+    }
+    return assets.get(`act/${a.weapon}_${Math.min(n - 1, Math.floor(a.t * 14))}`);
   }
 
   /** Worm-with-weapon frame for an aim angle: 4 frames upwards (0..90°), 5 downwards (0..-90°). */
@@ -164,7 +186,11 @@ export class WormView {
       let band = assets.get(`worm/${name}_band`);
       // Aiming a weapon: the worm-with-weapon frame for the current angle.
       const held = hold && w.grounded ? this.holdFrame(hold, w.aim) : undefined;
-      if (held) {
+      const acting = w.grounded ? this.actFrame(dt) : undefined;
+      if (acting) {
+        body = acting;
+        band = undefined;
+      } else if (held) {
         body = held;
         band = undefined;
       } else if (w.chute) {

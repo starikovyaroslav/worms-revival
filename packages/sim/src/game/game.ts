@@ -334,6 +334,7 @@ export class Game {
         worm.control = { left: false, right: false, up: false, down: false };
       },
     });
+    this.world.emit({ type: 'fired', wormId: worm.id, weapon: def.id });
     const ammo = team.ammo[def.id] ?? 0;
     if (ammo > 0) team.ammo[def.id] = ammo - 1;
     // Movement tools (rope, parachute) don't use up the turn's attack.

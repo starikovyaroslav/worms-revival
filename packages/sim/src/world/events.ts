@@ -16,5 +16,7 @@ export type SimEvent =
   /** A worm picked up a crate: `text` is a weapon id or "+25" for health. */
   | { type: 'crate'; wormId: number; text: string }
   | { type: 'focus'; entityId: number }
+  /** The active worm just used a weapon (presentation plays the use animation). */
+  | { type: 'fired'; wormId: number; weapon: string }
   /** Bullet trail for hitscan weapons. */
   | { type: 'tracer'; x0: number; y0: number; x1: number; y1: number };

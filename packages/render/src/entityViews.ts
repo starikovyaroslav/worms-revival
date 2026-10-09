@@ -1,4 +1,4 @@
-import { Container, Graphics, Sprite } from 'pixi.js';
+import { Container, Graphics, Sprite, type Texture } from 'pixi.js';
 import { assets } from './assets';
 import {
   Arrow,
@@ -52,6 +52,14 @@ const PROJECTILE_ART: Record<string, string> = {
   homing: 'proj/rocket',
 };
 
+/** Looks drawn as a cycle of pre-rotated frames: asset prefix and the rotation (radians) one cycle covers. */
+const SPIN_ART: Record<string, { prefix: string; period: number }> = {
+  grenade: { prefix: 'spin/grenade_', period: Math.PI },
+  cluster: { prefix: 'spin/cluster_', period: Math.PI * 2 },
+  banana: { prefix: 'spin/banana_', period: Math.PI * 2 },
+  bananalet: { prefix: 'spin/banana_', period: Math.PI * 2 },
+};
+
 export interface EntityView {
   readonly container: Container;
   update(alpha: number, dtMs: number): void;
@@ -63,10 +71,22 @@ class ProjectileView implements EntityView {
   private spin = 0;
 
   private art: Sprite | null = null;
+  private frames: Texture[] = [];
+  private period = Math.PI * 2;
 
   constructor(private readonly p: Projectile) {
+    const cycle = SPIN_ART[p.look];
+    if (cycle) {
+      const n = assets.count(cycle.prefix);
+      for (let i = 0; i < n; i++) this.frames.push(assets.get(`${cycle.prefix}${i}`) as Texture);
+      this.period = cycle.period;
+    }
     const artId = PROJECTILE_ART[p.look];
-    const art = artId ? artSprite(artId) : null;
+    const art = this.frames.length
+      ? artSprite(`${cycle!.prefix}0`)
+      : artId
+        ? artSprite(artId)
+        : null;
     if (art) {
       this.art = art;
       this.container.addChild(art);
@@ -158,7 +178,11 @@ class ProjectileView implements EntityView {
       this.container.rotation = Math.atan2(p.vy, p.vx);
     } else if (!p.resting) {
       this.spin += (p.vx * dtMs) / 120;
-      this.container.rotation = this.spin;
+      if (this.frames.length && this.art) {
+        // Pre-rotated frames: step through them instead of rotating (keeps the pixels crisp).
+        const t = (((this.spin / this.period) % 1) + 1) % 1;
+        this.art.texture = this.frames[Math.floor(t * this.frames.length)] as Texture;
+      } else this.container.rotation = this.spin;
     }
   }
 }
