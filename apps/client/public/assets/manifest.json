@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "style": "pixel",
+  "assets": {
+    "weapons/icon/grenade": {
+      "file": "weapons/icon/grenade.png",
+      "w": 24,
+      "h": 32
+    },
+    "weapons/icon/dynamite": {
+      "file": "weapons/icon/dynamite.png",
+      "w": 25,
+      "h": 32
+    },
+    "weapons/icon/mine": {
+      "file": "weapons/icon/mine.png",
+      "w": 32,
+      "h": 25
+    },
+    "weapons/icon/bazooka": {
+      "file": "weapons/icon/bazooka.png",
+      "w": 32,
+      "h": 24
+    },
+    "weapons/icon/sheep": {
+      "file": "weapons/icon/sheep.png",
+      "w": 32,
+      "h": 30
+    },
+    "weapons/icon/homing": {
+      "file": "weapons/icon/homing.png",
+      "w": 32,
+      "h": 25
+    },
+    "weapons/icon/mortar": {
+      "file": "weapons/icon/mortar.png",
+      "w": 24,
+      "h": 32
+    },
+    "weapons/icon/pigeon": {
+      "file": "weapons/icon/pigeon.png",
+      "w": 32,
+      "h": 23
+    },
+    "weapons/icon/cluster": {
+      "file": "weapons/icon/cluster.png",
+      "w": 32,
+      "h": 28
+    },
+    "weapons/icon/banana": {
+      "file": "weapons/icon/banana.png",
+      "w": 32,
+      "h": 31
+    },
+    "weapons/icon/shotgun": {
+      "file": "weapons/icon/shotgun.png",
+      "w": 32,
+      "h": 17
+    },
+    "weapons/icon/handgun": {
+      "file": "weapons/icon/handgun.png",
+      "w": 32,
+      "h": 24
+    },
+    "weapons/icon/uzi": {
+      "file": "weapons/icon/uzi.png",
+      "w": 32,
+      "h": 21
+    },
+    "weapons/icon/minigun": {
+      "file": "weapons/icon/minigun.png",
+      "w": 32,
+      "h": 24
+    },
+    "weapons/icon/longbow": {
+      "file": "weapons/icon/longbow.png",
+      "w": 32,
+      "h": 31
+    },
+    "weapons/icon/firepunch": {
+      "file": "weapons/icon/firepunch.png",
+      "w": 32,
+      "h": 20
+    },
+    "weapons/icon/prod": {
+      "file": "weapons/icon/prod.png",
+      "w": 32,
+      "h": 16
+    },
+    "weapons/icon/supersheep": {
+      "file": "weapons/icon/supersheep.png",
+      "w": 32,
+      "h": 24
+    },
+    "weapons/icon/airstrike": {
+      "file": "weapons/icon/airstrike.png",
+      "w": 32,
+      "h": 26
+    },
+    "weapons/icon/blowtorch": {
+      "file": "weapons/icon/blowtorch.png",
+      "w": 32,
+      "h": 16
+    },
+    "weapons/icon/drill": {
+      "file": "weapons/icon/drill.png",
+      "w": 30,
+      "h": 32
+    },
+    "weapons/icon/girder": {
+      "file": "weapons/icon/girder.png",
+      "w": 32,
+      "h": 21
+    },
+    "weapons/icon/bat": {
+      "file": "weapons/icon/bat.png",
+      "w": 32,
+      "h": 26
+    },
+    "weapons/icon/rope": {
+      "file": "weapons/icon/rope.png",
+      "w": 32,
+      "h": 27
+    },
+    "weapons/icon/parachute": {
+      "file": "weapons/icon/parachute.png",
+      "w": 32,
+      "h": 27
+    },
+    "weapons/icon/teleport": {
+      "file": "weapons/icon/teleport.png",
+      "w": 30,
+      "h": 32
+    },
+    "weapons/icon/hhg": {
+      "file": "weapons/icon/hhg.png",
+      "w": 22,
+      "h": 32
+    },
+    "weapons/icon/skipgo": {
+      "file": "weapons/icon/skipgo.png",
+      "w": 23,
+      "h": 32
+    },
+    "weapons/icon/surrender": {
+      "file": "weapons/icon/surrender.png",
+      "w": 22,
+      "h": 32
+    },
+    "objects/crate-weapon": {
+      "file": "objects/crate-weapon.png",
+      "w": 18,
+      "h": 16
+    },
+    "objects/crate-health": {
+      "file": "objects/crate-health.png",
+      "w": 18,
+      "h": 16
+    },
+    "objects/barrel": {
+      "file": "objects/barrel.png",
+      "w": 15,
+      "h": 18
+    },
+    "objects/mine": {
+      "file": "objects/mine.png",
+      "w": 14,
+      "h": 11
+    },
+    "objects/tombstone": {
+      "file": "objects/tombstone.png",
+      "w": 13,
+      "h": 18
+    },
+    "objects/parachute": {
+      "file": "objects/parachute.png",
+      "w": 30,
+      "h": 25
+    },
+    "proj/grenade": {
+      "file": "proj/grenade.png",
+      "w": 10,
+      "h": 13
+    },
+    "proj/cluster": {
+      "file": "proj/cluster.png",
+      "w": 14,
+      "h": 12
+    },
+    "proj/bomblet": {
+      "file": "proj/bomblet.png",
+      "w": 5,
+      "h": 6
+    },
+    "proj/banana": {
+      "file": "proj/banana.png",
+      "w": 14,
+      "h": 14
+    },
+    "proj/hhg": {
+      "file": "proj/hhg.png",
+      "w": 9,
+      "h": 14
+    },
+    "proj/dynamite": {
+      "file": "proj/dynamite.png",
+      "w": 13,
+      "h": 16
+    },
+    "proj/rocket": {
+      "file": "proj/rocket.png",
+      "w": 20,
+      "h": 10
+    },
+    "proj/arrow": {
+      "file": "proj/arrow.png",
+      "w": 22,
+      "h": 5
+    },
+    "proj/pigeon": {
+      "file": "proj/pigeon.png",
+      "w": 20,
+      "h": 14
+    },
+    "proj/sheep": {
+      "file": "proj/sheep.png",
+      "w": 22,
+      "h": 20
+    },
+    "proj/supersheep": {
+      "file": "proj/supersheep.png",
+      "w": 24,
+      "h": 18
+    }
+  }
+}

@@ -38,7 +38,14 @@ export default tseslint.config(
   {
     files: ['tools/**'],
     languageOptions: {
-      globals: { process: 'readonly', console: 'readonly', URL: 'readonly', Blob: 'readonly' },
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        URL: 'readonly',
+        Blob: 'readonly',
+        Buffer: 'readonly',
+        window: 'readonly',
+      },
     },
   },
   {
