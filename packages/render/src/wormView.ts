@@ -16,6 +16,8 @@ export class WormView {
   private body = new Graphics();
   /** Name and health, drawn in screen space (added to the label layer by the scene). */
   readonly label = new Container();
+  /** Bouncing team-coloured arrow over the worm whose turn it is. */
+  private arrow = new Graphics();
   private nameText: Text;
   private hpText: Text;
   private time = Math.random() * 10;
@@ -43,7 +45,8 @@ export class WormView {
     this.hpText.anchor.set(0.5, 1);
     this.hpText.y = 0;
     this.nameText.y = -10;
-    this.label.addChild(this.nameText, this.hpText);
+    this.drawArrow(color);
+    this.label.addChild(this.nameText, this.hpText, this.arrow);
     this.lastHealth = worm.health;
     if (assets.has('worm/idle_0')) {
       const body = new Sprite();
@@ -55,6 +58,26 @@ export class WormView {
     } else {
       this.container.addChild(this.body);
     }
+  }
+
+  /** A chunky pixel arrow pointing down: dark outline, team-coloured fill, light top edge. */
+  private drawArrow(color: number): void {
+    const u = 2;
+    const g = this.arrow;
+    // Rows of the arrow, widest at the top of the head; [halfWidth] per row, top to bottom.
+    const rows = [1, 1, 1, 1, 4, 3, 2, 1];
+    const draw = (grow: number, fill: number) => {
+      rows.forEach((hw, i) => {
+        const w = (hw + grow) * 2 * u - (hw === 1 ? 0 : 0);
+        g.rect(-(hw + grow) * u, (i - grow) * u - rows.length * u, w, u * (1 + grow * 2)).fill(
+          fill,
+        );
+      });
+    };
+    draw(1, 0x000000);
+    draw(0, color);
+    // Light edge on the left of the shaft and head.
+    g.rect(-u, -rows.length * u, u, 4 * u).fill(0xffffff, 0.45);
   }
 
   /** Worm-with-weapon frame for an aim angle: 4 frames upwards (0..90°), 5 downwards (0..-90°). */
@@ -101,6 +124,8 @@ export class WormView {
     project: (x: number, y: number) => { x: number; y: number },
     /** Weapon id when this worm is aiming it (shows the worm-with-weapon frames), else ''. */
     hold = '',
+    /** Show the turn arrow above this worm. */
+    arrow = false,
   ): void {
     const w = this.worm;
     const dt = dtMs / 1000;
@@ -168,6 +193,9 @@ export class WormView {
     const bob = active ? Math.abs(Math.sin(this.time * 4)) * 3 : 0;
     this.label.position.set(Math.round(p.x), Math.round(p.y - 6 - bob));
     this.label.visible = true;
+    this.arrow.visible = arrow;
+    // Bounces on whole pixels, like the original.
+    this.arrow.position.set(0, -24 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
   }
 
   private draw(w: Worm, active: boolean): void {

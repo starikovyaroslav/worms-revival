@@ -108,6 +108,7 @@ export function Hud({
               <b>{s.weapon.name}</b>
               {s.weapon.fuse !== null && <span> · {s.weapon.fuse} с</span>}
               {s.weapon.bounce && <span> · {s.weapon.bounce}</span>}
+              {s.weapon.hint && <div class="weapon-hint">{s.weapon.hint}</div>}
             </div>
           )}
           <Wind wind={s.wind} />

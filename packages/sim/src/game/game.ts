@@ -24,7 +24,7 @@ const MAX_SETTLE_TICKS = 20 * TPS;
 const DEATH_DELAY = 35;
 const POISON_DAMAGE = 5;
 
-export type Phase = 'ready' | 'turn' | 'retreat' | 'settling' | 'dying' | 'gameover';
+export type Phase = 'crate' | 'ready' | 'turn' | 'retreat' | 'settling' | 'dying' | 'gameover';
 
 export interface TeamSetup {
   name: string;
@@ -387,6 +387,12 @@ export class Game {
     }
     const worm = this.activeWorm;
     switch (this.phase) {
+      case 'crate':
+        this.settleTotal++;
+        this.settleTicks = this.world.isBusy() ? 0 : this.settleTicks + 1;
+        if (this.settleTicks >= SETTLE_TICKS || this.settleTotal > MAX_SETTLE_TICKS)
+          this.beginReady();
+        break;
       case 'ready':
         this.tickRound();
         if (--this.timer <= 0) this.beginTurnTimer();
@@ -437,9 +443,9 @@ export class Game {
   }
 
   /** Maybe drops a crate at the start of a turn. */
-  private dropCrate(): void {
+  private dropCrate(): boolean {
     const s = this.scheme;
-    if (s.crateChance <= 0 || !this.world.rng.chance(s.crateChance / 100)) return;
+    if (s.crateChance <= 0 || !this.world.rng.chance(s.crateChance / 100)) return false;
     const rng = this.world.rng;
     const x = rng.range(40, this.world.terrain.width - 40);
     const weights = Object.entries(s.weapons).filter(([, w]) => w.crate > 0);
@@ -461,6 +467,7 @@ export class Game {
     }
     this.world.spawn(crate);
     this.focusId = crate.id;
+    return true;
   }
 
   private tickRound(): void {
@@ -627,10 +634,21 @@ export class Game {
     this.focusId = this.activeWormId;
     if (this.activeWormId)
       this.world.emit({ type: 'speech', wormId: this.activeWormId, line: 'turn' });
-    this.dropCrate();
-    this.phase = 'ready';
-    this.timer = Math.round(this.scheme.hotSeatTime * TPS);
     team.turnsTaken++;
+    // As in W:A, a falling crate holds the turn back until it has landed.
+    if (this.dropCrate()) {
+      this.phase = 'crate';
+      this.settleTicks = 0;
+      this.settleTotal = 0;
+      return;
+    }
+    this.beginReady();
+  }
+
+  private beginReady(): void {
+    this.phase = 'ready';
+    this.focusId = this.activeWormId;
+    this.timer = Math.round(this.scheme.hotSeatTime * TPS);
     if (this.timer <= 0) this.beginTurnTimer();
   }
 

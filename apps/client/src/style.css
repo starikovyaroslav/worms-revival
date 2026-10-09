@@ -1030,3 +1030,9 @@ body {
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
 }
+
+.weapon-hint {
+  margin-top: 4px;
+  font-size: 10px;
+  color: #ffd23a;
+}

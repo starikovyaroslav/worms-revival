@@ -17,7 +17,8 @@ registerWeapon({
   fire: (ctx) => {
     if (!ctx.target) return;
     const p = muzzle(ctx.worm, ctx.dirX, ctx.dirY);
-    const v = MAX_LAUNCH * ctx.power;
+    // Even a tap launches it properly: the missile steers itself, so power only sets the first burst.
+    const v = MAX_LAUNCH * Math.max(0.6, ctx.power);
     const m = ctx.world.spawn(
       new HomingMissile(
         p.x,
@@ -30,10 +31,10 @@ registerWeapon({
           wind: 0,
           impact: 'explode',
           blast: scaledBlast(50, ctx.setting.power),
-          armTicks: 30,
+          armTicks: 8,
           homingTicks: 5 * 50,
-          speed: 9,
-          turn: 0.25,
+          speed: 10,
+          turn: 0.35,
         },
         ctx.target.x,
         ctx.target.y,

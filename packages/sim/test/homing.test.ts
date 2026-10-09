@@ -24,6 +24,25 @@ describe('homing missile', () => {
   });
 });
 
+describe('homing missile forgiveness', () => {
+  it('reaches a target 200 px away from a 45° tap shot', () => {
+    const g = makeGame({ weapons: WEAPONS, wind: 0 });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    const me = g.activeWorm!;
+    const enemy = g.worms.find((w) => w.team !== me.team)!;
+    me.facing = enemy.x > me.x ? 1 : -1;
+    me.aim = Math.PI / 4;
+    g.step([{ t: 'select', weapon: 'homing' }]);
+    g.step([{ t: 'target', x: enemy.cx, y: enemy.cy }]);
+    g.step([{ t: 'fire', down: true }]);
+    for (let i = 0; i < 5; i++) g.step();
+    g.step([{ t: 'fire', down: false }]);
+    stepUntil(g, () => g.world.ofKind('projectile').length === 0, 800);
+    expect(enemy.health).toBeLessThan(100);
+    expect(me.health).toBe(100);
+  });
+});
+
 describe('mortar and pigeon', () => {
   const W = {
     mortar: { ammo: -1, power: 3, delay: 0, crate: 0 },

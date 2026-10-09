@@ -309,7 +309,8 @@ export class GameScene {
       // The active worm shows its weapon while it is that worm's turn to aim.
       const aiming = isActive && (game.phase === 'ready' || game.phase === 'turn');
       const hold = aiming && game.weapon?.aim === 'angle' ? game.weaponId : '';
-      v.update(alpha, dtMs, isActive && game.phase !== 'settling', project, hold);
+      const showArrow = isActive && (game.phase === 'ready' || game.phase === 'turn');
+      v.update(alpha, dtMs, isActive && game.phase !== 'settling', project, hold, showArrow);
       v.setShownHealth(v.worm.shownHealth);
     }
     for (const [, v] of this.entities) v.update(alpha, dtMs);

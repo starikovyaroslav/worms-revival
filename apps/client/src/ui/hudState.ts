@@ -19,7 +19,7 @@ export interface HudState {
   suddenDeath: boolean;
   teams: TeamBar[];
   maxHp: number;
-  weapon: { name: string; fuse: number | null; bounce: string | null } | null;
+  weapon: { name: string; fuse: number | null; bounce: string | null; hint: string | null } | null;
   /** Active Wormpot modifiers (icons). */
   mods: { icon: string; name: string }[];
   /** Set when the match is over. */
@@ -53,6 +53,12 @@ export function hudState(game: Game, wormpot: readonly string[] = []): HudState 
           name: weaponInfo(def.id).name,
           fuse: def.fuse ? game.fuseSeconds : null,
           bounce: def.bounce ? (game.bounceHigh ? 'Макс' : 'Мин') : null,
+          hint:
+            (def.needsTarget || def.aim === 'target') && !game.target
+              ? 'Кликните по карте, чтобы отметить цель'
+              : def.needsTarget
+                ? 'Цель отмечена: Пробел — пуск'
+                : null,
         }
       : null,
     mods: wormpot
