@@ -9,6 +9,11 @@ const BODY = 0xf7a9b8;
 const BODY_SHADE = 0xd97a90;
 const BELLY = 0xffd6de;
 const OUTLINE = 0x3a1020;
+/** HUD palette (see style.css). */
+const INK = 0x222034;
+const PANEL = 0x323c39;
+const PANEL_HI = 0x595652;
+const PANEL_LO = 0x1b1b2a;
 
 /** Procedurally drawn cartoon worm with name and health labels. */
 export class WormView {
@@ -19,6 +24,8 @@ export class WormView {
   /** Bouncing team-coloured arrow over the worm whose turn it is. */
   private arrow = new Graphics();
   private color = 0xffffff;
+  private maxHp = 100;
+  private shown = 100;
   /** Backgrounds of the name and health tags. */
   private plates = new Graphics();
   private nameText: Text;
@@ -43,29 +50,17 @@ export class WormView {
       fontWeight: '400' as const,
     };
     this.color = color;
-    // Name: white on a dark plate with a team-coloured edge. Health: dark on a solid team-coloured
-    // plate right below it, so the two never run together.
-    this.nameText = new Text({
-      text: worm.name,
-      style: {
-        ...font,
-        fill: 0xffffff,
-        stroke: { color: 0x000000, width: 2, join: 'miter' as const },
-      },
-    });
+    // One bevelled tag in the HUD's panel style: the name on top, a health bar with the number below.
+    const stroke = { color: INK, width: 2, join: 'miter' as const };
+    this.nameText = new Text({ text: worm.name, style: { ...font, fill: 0xffffff, stroke } });
     this.hpText = new Text({
       text: String(worm.health),
-      style: {
-        ...font,
-        fontSize: 16,
-        fill: 0xffffff,
-        stroke: { color: 0x000000, width: 3, join: 'miter' as const },
-      },
+      style: { ...font, fill: 0xffffff, stroke },
     });
     this.nameText.anchor.set(0.5, 0.5);
     this.hpText.anchor.set(0.5, 0.5);
-    this.hpText.y = -11;
-    this.nameText.y = -31;
+    this.maxHp = Math.max(1, worm.health);
+    this.shown = worm.health;
     this.lastHealth = worm.health;
     this.label.addChild(this.plates, this.nameText, this.hpText);
     this.drawPlates();
@@ -83,18 +78,34 @@ export class WormView {
     }
   }
 
-  /** Draws the two tags behind the texts, sized to them. */
+  /** Draws the tag behind the texts; the label origin is the bottom centre of the tag. */
   private drawPlates(): void {
     const g = this.plates.clear();
-    const nw = Math.round(this.nameText.width) + 8;
-    const hw = Math.max(30, Math.round(this.hpText.width) + 10);
-    // Name tag: black edge, dark fill, team-coloured line along the top.
-    g.rect(-nw / 2 - 1, -39, nw + 2, 16).fill(0x000000);
-    g.rect(-nw / 2, -38, nw, 14).fill({ color: 0x14101c, alpha: 0.92 });
-    g.rect(-nw / 2, -38, nw, 2).fill(this.color);
-    // Health tag: black edge, solid team colour.
-    g.rect(-hw / 2 - 1, -23, hw + 2, 24).fill(0x000000);
-    g.rect(-hw / 2, -22, hw, 22).fill(this.color);
+    const w = Math.max(40, Math.round(this.nameText.width) + 12);
+    const h = 30;
+    const x = -w / 2;
+    const y = -h;
+    // Ink outline, panel fill, light edge top-left and dark edge bottom-right (like the HUD panels).
+    g.rect(x - 2, y - 2, w + 4, h + 4).fill(INK);
+    g.rect(x, y, w, h).fill(PANEL);
+    g.rect(x, y, w, 2).fill(PANEL_HI);
+    g.rect(x, y, 2, h).fill(PANEL_HI);
+    g.rect(x, y + h - 2, w, 2).fill(PANEL_LO);
+    g.rect(x + w - 2, y, 2, h).fill(PANEL_LO);
+    // Health bar: dark trough, team-coloured fill (whole pixels), ink outline.
+    const bx = x + 5;
+    const bw = w - 10;
+    const by = y + 15;
+    const bh = 10;
+    g.rect(bx - 1, by - 1, bw + 2, bh + 2).fill(INK);
+    g.rect(bx, by, bw, bh).fill(PANEL_LO);
+    const fill = Math.round((bw * Math.min(1, this.shown / this.maxHp)) / 2) * 2;
+    if (fill > 0) {
+      g.rect(bx, by, fill, bh).fill(this.color);
+      g.rect(bx, by, fill, 2).fill({ color: 0xffffff, alpha: 0.35 });
+    }
+    this.nameText.position.set(0, y + 8);
+    this.hpText.position.set(0, by + bh / 2);
   }
 
   /** A chunky pixel arrow pointing down: dark outline, team-coloured fill, light top edge. */
@@ -174,6 +185,7 @@ export class WormView {
     const text = String(Math.max(0, hp));
     if (this.hpText.text === text) return;
     this.hpText.text = text;
+    this.shown = Math.max(0, hp);
     this.drawPlates();
   }
 
@@ -259,7 +271,7 @@ export class WormView {
     this.label.visible = true;
     this.arrow.visible = arrow;
     // Bounces on whole pixels, like the original.
-    this.arrow.position.set(0, -44 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
+    this.arrow.position.set(0, -40 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
   }
 
   private draw(w: Worm, active: boolean): void {
