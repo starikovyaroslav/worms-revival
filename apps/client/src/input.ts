@@ -12,6 +12,8 @@ export class Input {
   /** Screen → world conversion supplied by the scene. */
   toWorld: (sx: number, sy: number) => { x: number; y: number } = (x, y) => ({ x, y });
   enabled = true;
+  /** Space on the surrender "weapon": asks the player instead of giving up on the spot. */
+  onSurrender: (() => void) | null = null;
   /** Mouse position in world coordinates, for target previews. */
   mouseWorld: { x: number; y: number } | null = null;
 
@@ -59,6 +61,12 @@ export class Input {
     );
   }
 
+  /** Forgets keys and queued commands (pause: key-ups would be missed while the game is frozen). */
+  release(): void {
+    this.held = { left: false, right: false, up: false, down: false };
+    this.queue = [];
+  }
+
   push(cmd: Command): void {
     this.queue.push(cmd);
   }
@@ -100,7 +108,10 @@ export class Input {
     }
     if (code === 'Space') {
       e.preventDefault();
-      if (!e.repeat) this.queue.push({ t: 'fire', down });
+      if (e.repeat) return;
+      if (down && this.onSurrender && this.game().weapon?.action === 'surrender')
+        this.onSurrender();
+      else this.queue.push({ t: 'fire', down });
       return;
     }
     if (!down || e.repeat) return;

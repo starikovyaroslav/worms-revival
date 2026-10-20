@@ -14,6 +14,11 @@ export class FixedLoop {
   private raf = 0;
   /** Simulation speed multiplier (replays, debugging). */
   speed = 1;
+  /**
+   * Pause: no simulation ticks, and no catch-up afterwards. Nothing is stepped, so the command log
+   * of a recording or replay is untouched; frames are still drawn (resize, UI) but time stands still.
+   */
+  paused = false;
 
   constructor(
     private readonly step: () => void,
@@ -26,15 +31,17 @@ export class FixedLoop {
       try {
         const dt = Math.min(now - this.last, 250);
         this.last = now;
-        this.acc += dt * this.speed;
         let ticks = 0;
-        while (this.acc >= TICK_MS && ticks < MAX_TICKS_PER_FRAME) {
-          this.step();
-          this.acc -= TICK_MS;
-          ticks++;
+        if (!this.paused) {
+          this.acc += dt * this.speed;
+          while (this.acc >= TICK_MS && ticks < MAX_TICKS_PER_FRAME) {
+            this.step();
+            this.acc -= TICK_MS;
+            ticks++;
+          }
+          if (ticks === MAX_TICKS_PER_FRAME) this.acc = 0;
         }
-        if (ticks === MAX_TICKS_PER_FRAME) this.acc = 0;
-        this.render(this.acc / TICK_MS, dt);
+        this.render(this.acc / TICK_MS, this.paused ? 0 : dt);
       } catch (err) {
         // A broken frame must not repeat 60 times a second: stop and tell the player.
         showFatal('runtime', err);

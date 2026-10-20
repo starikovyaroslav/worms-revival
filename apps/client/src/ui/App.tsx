@@ -4,6 +4,9 @@ import { Hud, type Announcement } from './Hud';
 import { GameOver } from './GameOver';
 import type { HudState } from './hudState';
 import { WeaponPanel } from './WeaponPanel';
+import { EscMenu } from './EscMenu';
+import { onEscape, type Dialog } from './escFlow';
+import type { Settings, SettingsStore } from '../settings';
 
 /** Imperative hooks the game loop uses to drive the UI. */
 export interface UiApi {
@@ -11,6 +14,8 @@ export interface UiApi {
   togglePanel(): void;
   closePanel(): void;
   isPanelOpen(): boolean;
+  /** Space on the surrender weapon: ask first. */
+  askSurrender(): void;
 }
 
 interface Props {
@@ -22,6 +27,10 @@ interface Props {
   onWatch: () => void;
   onDownload: () => void;
   wormpot?: string[];
+  settings: SettingsStore;
+  /** The Esc menu is open: the loop must stand still. */
+  onPause: (paused: boolean) => void;
+  onSurrender: () => void;
   /** Watching a replay: show the badge and speed controls. */
   replay?: { onSpeed: (speed: number) => void };
 }
@@ -36,11 +45,32 @@ export function App({
   onDownload,
   replay,
   wormpot,
+  settings,
+  onPause,
+  onSurrender,
 }: Props) {
   const [speed, setSpeed] = useState(1);
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [panel, setPanel] = useState(false);
   const [over, setOver] = useState<HudState['over']>(null);
+  const [dialog, setDialog] = useState<Dialog | null>(null);
+  const [prefs, setPrefs] = useState<Settings>(() => settings.get());
+
+  useEffect(() => settings.subscribe(setPrefs), [settings]);
+  useEffect(() => onPause(dialog !== null), [dialog, onPause]);
+
+  // Esc: weapon panel first, then the menu (and one step back inside it).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.code !== 'Escape' || e.repeat) return;
+      e.preventDefault();
+      const r = onEscape(dialog, panel);
+      if (r.closePanel) setPanel(false);
+      setDialog(r.dialog);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [dialog, panel]);
 
   useEffect(() => {
     let next = 1;
@@ -51,6 +81,7 @@ export function App({
     };
     api.togglePanel = () => setPanel((open) => !open);
     api.closePanel = () => setPanel(false);
+    api.askSurrender = () => setDialog('surrender');
   }, [api]);
   api.isPanelOpen = () => panel;
 
@@ -88,7 +119,21 @@ export function App({
           onDownload={onDownload}
         />
       )}
-      {panel && (
+      {dialog && (
+        <EscMenu
+          dialog={dialog}
+          settings={settings}
+          state={prefs}
+          isReplay={!!replay}
+          onDialog={setDialog}
+          onQuit={onMenu}
+          onSurrender={() => {
+            setDialog(null);
+            onSurrender();
+          }}
+        />
+      )}
+      {panel && !dialog && (
         <WeaponPanel
           game={game}
           onClose={() => setPanel(false)}

@@ -12,6 +12,7 @@ import { Menu, defaultConfig } from './ui/Menu';
 import { ManifestError, ZOOM_LEVELS, assets } from '@wr/render';
 import { installGlobalHandlers, showFatal, showWarning } from './fatal';
 import { Match } from './match';
+import { settingsStore } from './settings';
 import { ViewportController, menuScale, parseKOverride, type Viewport } from './viewport';
 
 /** Publishes the viewport to CSS: `--k` (css px per logical px), `--km` (same for the menu), etc. */
@@ -119,6 +120,7 @@ async function boot() {
       {
         onMessage: (text) => ui.announce?.(text),
         onTogglePanel: () => ui.togglePanel?.(),
+        onSurrender: () => ui.askSurrender?.(),
       },
       replay,
     );
@@ -141,6 +143,9 @@ async function boot() {
         onDownload={() => download(currentReplay())}
         replay={replay ? { onSpeed: (x) => m.setSpeed(x) } : undefined}
         wormpot={cfg.wormpot}
+        settings={settingsStore}
+        onPause={(paused) => m.setPaused(paused)}
+        onSurrender={() => m.input.push({ t: 'surrender' })}
       />,
       root,
     );

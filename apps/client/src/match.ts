@@ -11,12 +11,15 @@ import {
 import { themeById } from '@wr/render';
 import { FixedLoop } from './loop';
 import { Input } from './input';
+import { settingsStore } from './settings';
 import { GameScene } from './scene';
 import type { ViewportController } from './viewport';
 
 export interface MatchHooks {
   onMessage(text: string): void;
   onTogglePanel(): void;
+  /** Space on the surrender weapon: the UI asks for confirmation and then pushes the command. */
+  onSurrender(): void;
 }
 
 /** One running match: simulation, scene, input and loop, torn down together. */
@@ -37,6 +40,12 @@ export class Match {
   readonly player: ReplayPlayer | null;
   /** Whether replay playback matched the recording (null until the end is reached). */
   replayVerified: boolean | null = null;
+  /**
+   * Paused by the Esc menu. The loop stops stepping, so nothing is recorded or consumed: the command
+   * log (and a replay's playback position) is exactly what it would be without the pause.
+   */
+  private paused = false;
+  private unsubscribeSettings: () => void;
 
   constructor(
     app: Application,
@@ -61,6 +70,8 @@ export class Match {
     const input = new Input(() => game, app.canvas, signal);
     this.input = input;
     input.toWorld = (x, y) => scene.camera.toWorld(x, y);
+    input.onSurrender = () => hooks.onSurrender();
+    this.unsubscribeSettings = settingsStore.subscribe((s) => scene.sfx.configure(s));
 
     // Camera: drag with the mouse to look around, wheel to zoom; right click opens the panel.
     let dragging = false;
@@ -129,7 +140,7 @@ export class Match {
         this.loop.speed = this.userSpeed * (this.slow.left > 0 ? this.slow.scale : 1);
         // A pending resize / DPR change is applied once per frame, before anything is drawn.
         viewport.flush();
-        this.thinkBot();
+        if (!this.paused) this.thinkBot();
         scene.mouseWorld = input.mouseWorld;
         scene.render(alpha, dt);
         app.render();
@@ -183,7 +194,7 @@ export class Match {
       return this.player.commands();
     }
     const human = this.cpuLevel === 0;
-    this.input.enabled = human;
+    this.input.enabled = human && !this.paused;
     const fromInput = this.input.drain();
     if (human) return fromInput;
     const controllable = game.phase === 'ready' || game.phase === 'turn';
@@ -210,6 +221,18 @@ export class Match {
     }
   }
 
+  get isPaused(): boolean {
+    return this.paused;
+  }
+
+  setPaused(paused: boolean): void {
+    if (paused === this.paused) return;
+    this.paused = paused;
+    this.loop.paused = paused;
+    this.input.enabled = !paused;
+    if (paused) this.input.release();
+  }
+
   /** Playback speed (replays). */
   setSpeed(speed: number): void {
     this.userSpeed = speed;
@@ -221,6 +244,7 @@ export class Match {
 
   destroy(): void {
     this.loop.stop();
+    this.unsubscribeSettings();
     this.abort.abort();
     this.scene.destroy();
   }

@@ -1,15 +1,39 @@
 import { AudioEngine } from './engine';
 import { SOUNDS } from './sounds';
 
+/** The engine's own master and music levels at volume 1 (see AudioEngine). */
+const MASTER_GAIN = 0.8;
+const MUSIC_GAIN = 0.35;
+
 /** Plays simulation sounds positioned relative to the camera. */
 export class Sfx {
   private engine: AudioEngine | null = null;
   private recent = new Map<string, number>();
   muted = false;
+  private volume = 0.8;
+  private music = 1;
 
   private get audio(): AudioEngine {
-    this.engine ??= new AudioEngine();
+    if (!this.engine) {
+      this.engine = new AudioEngine();
+      this.apply();
+    }
     return this.engine;
+  }
+
+  /** Volume (0..1), mute and music switch from the settings; applied at once and whenever the engine starts. */
+  configure(s: { sfxVolume: number; muted: boolean; musicOn: boolean }): void {
+    this.volume = s.sfxVolume;
+    this.muted = s.muted;
+    this.music = s.musicOn ? 1 : 0;
+    this.apply();
+  }
+
+  private apply(): void {
+    const e = this.engine;
+    if (!e) return;
+    e.master.gain.value = this.muted ? 0 : MASTER_GAIN * this.volume;
+    e.music.gain.value = MUSIC_GAIN * this.music;
   }
 
   /**
