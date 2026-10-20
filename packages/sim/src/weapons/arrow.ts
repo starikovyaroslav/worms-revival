@@ -1,3 +1,4 @@
+import type { Hasher } from '../core/hash';
 import { segmentDist2 } from '../core/math';
 import { Material } from '../terrain/terrain';
 import { PhysBody, type Impact } from '../world/body';
@@ -50,6 +51,11 @@ export class Arrow extends PhysBody {
         return;
       }
     }
+  }
+
+  override hashInto(h: Hasher): void {
+    super.hashInto(h);
+    h.u32(this.age).f64(this.damage).u32(this.ownerId);
   }
 
   protected override onImpact(world: World, _hit: Impact): void {

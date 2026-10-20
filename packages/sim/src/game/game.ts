@@ -12,6 +12,7 @@ import { Worm } from '../worm/worm';
 import type { Command } from './commands';
 import { weaponSetting, type Scheme } from './scheme';
 
+/** Simulation ticks per second. */
 export const TPS = 50;
 /** Aim speed, radians per tick (W:A: about 1.5 s from straight down to straight up). */
 export const AIM_SPEED = HALF_PI / 38;
@@ -685,5 +686,15 @@ export class Game {
       .u32(this.activeTeam + 1);
     h.u32(this.activeWormId).str(this.weaponId).f64(this.power).bool(this.charging);
     h.u32(this.controlledId).bool(this.controlledEndsTurn);
+    h.bool(this.suddenDeath).u32((this.winner ?? -2) + 2);
+    h.f64(this.fuseSeconds).bool(this.bounceHigh).value(this.target).u32(this.shotsLeft);
+    h.bool(this.firedThisTurn).value(this.held).f64(this.baseDamageScale);
+    h.u32(this.settleTicks).u32(this.settleTotal).f64(this.turnStartDamage);
+    h.u32(this.dyingQueue.length);
+    for (const id of this.dyingQueue) h.u32(id);
+    for (const t of this.teams) {
+      h.u32(t.nextWorm).u32(t.turnsTaken).bool(t.surrendered).str(t.lastWeapon).value(t.ammo);
+      for (const id of t.wormIds) h.u32(id);
+    }
   }
 }

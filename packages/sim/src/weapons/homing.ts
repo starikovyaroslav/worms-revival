@@ -69,6 +69,6 @@ export class HomingMissile extends Projectile {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.f64(this.targetX ?? -1).f64(this.targetY ?? -1);
+    h.value(this.targetX).value(this.targetY).bool(this.splashed);
   }
 }

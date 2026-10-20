@@ -168,9 +168,12 @@ export class Projectile extends PhysBody {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.str(this.spec.look)
+    h.value(this.spec)
       .u32(this.fuseLeft + 1)
-      .u32(this.age);
+      .u32(this.age)
+      .u32(this.ownerId)
+      .bool(this.fuseOut)
+      .u32(this.finale + 1);
   }
 }
 

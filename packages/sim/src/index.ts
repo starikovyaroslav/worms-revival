@@ -1,5 +1,8 @@
-export const TICKS_PER_SECOND = 50;
-export const TICK_MS = 1000 / TICKS_PER_SECOND;
+import { TPS } from './game/game';
+
+/** Simulation ticks per second (defined next to the game rules that use it). */
+export const TICKS_PER_SECOND = TPS;
+export const TICK_MS = 1000 / TPS;
 
 export * from './core/math';
 export * from './core/rng';

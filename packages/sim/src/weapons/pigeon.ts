@@ -98,6 +98,10 @@ export class Pigeon extends Entity {
     super.hashInto(h);
     h.f64(this.heading)
       .u32(this.life)
-      .u32(this.avoid > 0 ? 1 : 0);
+      .u32(this.avoid > 0 ? 1 : 0)
+      .f64(this.targetX)
+      .f64(this.targetY)
+      .u32(this.ownerId)
+      .value(this.blast);
   }
 }

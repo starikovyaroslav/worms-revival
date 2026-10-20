@@ -97,6 +97,9 @@ export class Mine extends PhysBody {
     h.u32(this.armTicks + 1)
       .u32(this.fuse + 1)
       .bool(this.dud)
-      .bool(this.spent);
+      .bool(this.spent)
+      .u32(this.fuseTicks + 1)
+      .bool(this.dudsAllowed)
+      .f64(this.power);
   }
 }

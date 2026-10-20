@@ -337,7 +337,12 @@ export class Rope extends Entity implements RemoteControlled {
       .f64(this.hookX)
       .f64(this.hookY)
       .u32(this.travelled)
-      .u32(this.shotsUsed);
-    for (const a of this.anchors) h.f64(a.x).f64(a.y);
+      .u32(this.shotsUsed)
+      .u32(this.wormId)
+      .f64(this.hookDX)
+      .f64(this.hookDY)
+      .value(this.keys)
+      .value(this.spec);
+    for (const a of this.anchors) h.f64(a.x).f64(a.y).f64(a.side);
   }
 }

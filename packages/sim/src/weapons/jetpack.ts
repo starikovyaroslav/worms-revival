@@ -78,6 +78,6 @@ export class JetPack extends Entity implements RemoteControlled {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.u32(this.fuel);
+    h.u32(this.fuel).u32(this.wormId).bool(this.thrusting).value(this.keys);
   }
 }

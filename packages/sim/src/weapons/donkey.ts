@@ -55,6 +55,6 @@ export class Donkey extends Entity {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.f64(this.lastBlast);
+    h.f64(this.lastBlast).value(this.blast);
   }
 }

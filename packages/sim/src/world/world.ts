@@ -124,7 +124,7 @@ export class World {
 
   hash(): number {
     const h = new Hasher();
-    h.u32(this.tick).f64(this.wind).f64(this.waterLevel).u32(this.nextId);
+    h.u32(this.tick).f64(this.wind).f64(this.waterLevel).u32(this.nextId).value(this.physics);
     for (const s of this.rng.s) h.u32(s);
     this.terrain.hashInto(h);
     for (const e of this.all()) e.hashInto(h);

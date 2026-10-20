@@ -240,6 +240,10 @@ export class Sheep extends PhysBody implements RemoteControlled {
       .u32(this.age)
       .u32(this.flyLeft)
       .bool(this.grounded)
-      .u32(this.blocked);
+      .u32(this.blocked)
+      .bool(this.steerLeft)
+      .bool(this.steerRight)
+      .u32(this.ownerId)
+      .value(this.opts);
   }
 }

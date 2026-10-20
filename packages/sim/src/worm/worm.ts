@@ -418,6 +418,10 @@ export class Worm extends Entity {
       .bool(this.lowGravity)
       .bool(this.laser)
       .bool(this.invisible)
-      .bool(this.chute);
+      .bool(this.crateSpy)
+      .bool(this.drowned)
+      .bool(this.chute)
+      .u32(this.airTicks)
+      .value(this.control);
   }
 }

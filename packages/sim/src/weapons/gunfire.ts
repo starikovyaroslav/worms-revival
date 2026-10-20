@@ -73,6 +73,8 @@ export class Gunfire extends Entity implements RemoteControlled {
     h.u32(this.left)
       .u32(this.timer + 1)
       .bool(this.up)
-      .bool(this.down);
+      .bool(this.down)
+      .u32(this.wormId)
+      .value(this.spec);
   }
 }

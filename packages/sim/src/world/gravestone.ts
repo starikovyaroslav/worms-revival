@@ -1,3 +1,4 @@
+import type { Hasher } from '../core/hash';
 import { PhysBody } from './body';
 
 /** Left behind by a worm that blew up. Can be knocked around. */
@@ -18,5 +19,10 @@ export class Gravestone extends PhysBody {
   // Gravestones never hold up the turn.
   override isBusy(): boolean {
     return false;
+  }
+
+  override hashInto(h: Hasher): void {
+    super.hashInto(h);
+    h.u32(this.team);
   }
 }

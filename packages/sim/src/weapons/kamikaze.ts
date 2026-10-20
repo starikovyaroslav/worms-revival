@@ -60,6 +60,6 @@ export class KamikazeFlight extends Entity {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.u32(this.left);
+    h.u32(this.left).u32(this.wormId).f64(this.dirX).f64(this.dirY).value(this.blast);
   }
 }

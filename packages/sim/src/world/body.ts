@@ -139,6 +139,14 @@ export abstract class PhysBody extends Entity {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.bool(this.resting).u32(this.stuckTicks);
+    h.f64(this.radius)
+      .f64(this.restitution)
+      .f64(this.friction)
+      .f64(this.windFactor)
+      .f64(this.gravityScale)
+      .f64(this.blastFactor)
+      .bool(this.resting)
+      .bool(this.sinks)
+      .u32(this.stuckTicks);
   }
 }

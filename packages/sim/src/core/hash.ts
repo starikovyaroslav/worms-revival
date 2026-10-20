@@ -45,6 +45,38 @@ export class Hasher {
     return this;
   }
 
+  /**
+   * Hashes a plain value structurally: primitives, arrays and plain objects (keys sorted, so the
+   * order of property insertion never matters). Used for small spec objects carried by entities.
+   */
+  value(v: unknown): this {
+    switch (typeof v) {
+      case 'number':
+        return this.byte(1).f64(v);
+      case 'boolean':
+        return this.byte(2).bool(v);
+      case 'string':
+        return this.byte(3).u32(v.length).str(v);
+      case 'object': {
+        if (v === null) return this.byte(4);
+        if (Array.isArray(v)) {
+          this.byte(5).u32(v.length);
+          for (const item of v) this.value(item);
+          return this;
+        }
+        const keys = Object.keys(v).sort();
+        this.byte(6).u32(keys.length);
+        for (const k of keys)
+          this.u32(k.length)
+            .str(k)
+            .value((v as Record<string, unknown>)[k]);
+        return this;
+      }
+      default:
+        return this.byte(0);
+    }
+  }
+
   digest(): number {
     return this.h >>> 0;
   }

@@ -97,6 +97,6 @@ export class MeteorShower extends Entity {
 
   override hashInto(h: Hasher): void {
     super.hashInto(h);
-    h.u32(this.left);
+    h.u32(this.left).value(this.blast).u32(this.ownerId);
   }
 }
