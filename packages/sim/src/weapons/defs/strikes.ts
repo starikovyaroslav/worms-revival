@@ -7,9 +7,18 @@ import { registerWeapon, type FireContext } from '../weapon';
 const DROP_ALTITUDE = 80;
 const STRIKE_SPEED = 4;
 
+/** How the dropped payload flies, so the plane can lead the target correctly. */
+export interface RaidFlight {
+  /** Gravity scale of the payload (default 1). */
+  gravity?: number;
+  /** Wind factor of the payload (default 0). */
+  wind?: number;
+}
+
 /**
  * Releases `count` payloads from a plane flying over the target in the facing direction: the middle
- * one lands on the target, the rest `spacing` px apart along the flight line.
+ * one lands on the target, the rest `spacing` px apart along the flight line. The release point
+ * is found by replaying the payload's flight (same gravity, wind and speed clamp as `Body`).
  */
 export function airRaid(
   ctx: FireContext,
@@ -17,15 +26,27 @@ export function airRaid(
   spacing: number,
   make: (x: number, y: number, vx: number, i: number) => void,
   speed = STRIKE_SPEED,
+  flight: RaidFlight = {},
 ): void {
   const { world, worm, target } = ctx;
   if (!target) return;
   const dir = worm.facing;
   const vx = speed * dir;
   const y0 = -DROP_ALTITUDE;
-  const fall = target.y - y0;
-  const t = Math.sqrt((2 * fall) / world.physics.gravity);
-  const x0 = target.x - vx * t;
+  const p = world.physics;
+  const g = p.gravity * (flight.gravity ?? 1);
+  const a = world.wind * p.maxWind * (flight.wind ?? 0);
+  let dx = 0;
+  let dy = 0;
+  let svx = vx;
+  let svy = 0;
+  for (let n = 0; n < 2000 && y0 + dy < target.y; n++) {
+    svy = Math.min(p.maxSpeed, svy + g);
+    svx = Math.max(-p.maxSpeed, Math.min(p.maxSpeed, svx + a));
+    dx += svx;
+    dy += svy;
+  }
+  const x0 = target.x - dx;
   world.emit({ type: 'sound', id: 'airstrike', x: target.x, y: 0 });
   const mid = (count - 1) / 2;
   for (let i = 0; i < count; i++) {
@@ -108,7 +129,10 @@ registerWeapon({
       },
       ctx,
     );
-    airRaid(ctx, 5, 26, (x, y, vx, i) => shell(x, y, vx, i, 2));
+    airRaid(ctx, 5, 26, (x, y, vx, i) => shell(x, y, vx, i, 2), STRIKE_SPEED, {
+      gravity: 0.5,
+      wind: 0.6,
+    });
   },
 });
 

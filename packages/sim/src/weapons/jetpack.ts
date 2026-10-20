@@ -6,8 +6,13 @@ import type { RemoteControlled } from './weapon';
 
 /** Thrust ticks available. */
 const FUEL = 5 * 50;
-const LIFT = 0.45;
+// Thrust accelerations in px/tick² (gravity is 0.2, so Up nets a modest climb) and the speed limits
+// thrust can reach, with a light air drag while the engine runs. Hovering is possible by tapping Up.
+const LIFT = 0.32;
 const SIDE = 0.16;
+const MAX_UP = 3;
+const MAX_SIDE = 2.2;
+const DRAG = 0.95;
 
 /**
  * Jet Pack: arrow keys give thrust while there is fuel (Up lifts, Left/Right push sideways); Fire
@@ -64,6 +69,10 @@ export class JetPack extends Entity implements RemoteControlled {
       worm.vx += SIDE;
       worm.facing = 1;
     }
+    worm.vx *= DRAG;
+    if (worm.vy < 0) worm.vy *= DRAG;
+    worm.vx = Math.max(-MAX_SIDE, Math.min(MAX_SIDE, worm.vx));
+    if (worm.vy < -MAX_UP) worm.vy = -MAX_UP;
     world.emit({ type: 'sound', id: 'jet', x: worm.x, y: worm.y });
   }
 

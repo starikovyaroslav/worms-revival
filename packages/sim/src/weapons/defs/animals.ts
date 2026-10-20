@@ -6,6 +6,9 @@ import { registerWeapon, type FireContext } from '../weapon';
 import { MAX_LAUNCH } from './artillery';
 import { airRaid } from './strikes';
 
+/** Horizontal speed of the plane's payload for the mole squad (slower than shells). */
+const MOLE_DROP_SPEED = 2;
+
 function animal(
   ctx: FireContext,
   x: number,
@@ -73,17 +76,23 @@ registerWeapon({
   charge: false,
   needsSky: true,
   fire: (ctx) => {
-    airRaid(ctx, 5, 26, (x, y, vx, i) => {
-      const mole = animal(ctx, x, y, ctx.worm.facing, {
-        damage: 45,
-        fuse: 6 * 50,
-        look: 'mole',
-        speed: 1.1,
-      });
-      mole.vx = vx * 0.5;
-      mole.vy = 0;
-      if (i === 2) ctx.focus(mole.id);
-    });
+    airRaid(
+      ctx,
+      5,
+      26,
+      (x, y, vx, i) => {
+        const mole = animal(ctx, x, y, ctx.worm.facing, {
+          damage: 45,
+          fuse: 6 * 50,
+          look: 'mole',
+          speed: 1.1,
+        });
+        mole.vx = vx;
+        mole.vy = 0;
+        if (i === 2) ctx.focus(mole.id);
+      },
+      MOLE_DROP_SPEED,
+    );
   },
 });
 

@@ -31,11 +31,13 @@ export class Earthquake extends Entity {
     for (const e of world.all()) {
       if (e.removed) continue;
       if (e instanceof Worm && e.alive) {
+        // Only worms standing on the ground hop, so they bounce about instead of flying away.
         // A "blasted" hop: bouncy and free of fall damage.
-        e.launch(world.rng.range(-1.6, 1.6), -world.rng.range(1.2, 2.6), true);
+        if (e.grounded) e.launch(world.rng.range(-1, 1), -world.rng.range(1, 1.8), true);
       } else if (e instanceof PhysBody && e.kind !== 'projectile') {
-        e.vy -= world.rng.range(1, 2.2);
-        e.vx += world.rng.range(-1, 1);
+        if (!e.resting) continue;
+        e.vy -= world.rng.range(0.8, 1.6);
+        e.vx += world.rng.range(-0.6, 0.6);
         e.resting = false;
       }
     }

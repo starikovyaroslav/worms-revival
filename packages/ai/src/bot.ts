@@ -28,7 +28,37 @@ const ARSENAL = [
   'bat',
   'dynamite',
   'airstrike',
+  // Added in Phase W: lobbed angle/power weapons, target strikes and short-range specials.
+  'petrol',
+  'skunk',
+  'sheeplauncher',
+  'flamethrower',
+  'superbanana',
+  'mbbomb',
+  'vase',
+  'napalm',
+  'mail',
+  'minestrike',
+  'carpet',
+  'frenchsheep',
+  'molesquad',
+  'donkey',
+  'axe',
+  'dragonball',
+  'madcows',
+  'oldwoman',
 ];
+
+/**
+ * Weapons with no aiming and a limited reach: the bot only tries them when an enemy is within
+ * `dx` px horizontally and `dy` vertically. The default (other no-aim weapons) is a melee swing.
+ */
+const REACH: Record<string, { dx: number; dy: number }> = {
+  dragonball: { dx: 100, dy: 30 },
+  madcows: { dx: 150, dy: 60 },
+  oldwoman: { dx: 150, dy: 60 },
+};
+const MELEE_REACH = { dx: 40, dy: 30 };
 
 /**
  * Per difficulty 1..5: which weapons it considers, whether it refines its best guesses, and how
@@ -39,7 +69,7 @@ const LEVELS = [
   { weapons: 3, refine: 1, aimError: 3, powerError: 5 },
   { weapons: 4, refine: 2, aimError: 2, powerError: 3 },
   { weapons: 6, refine: 3, aimError: 1, powerError: 1 },
-  { weapons: 10, refine: 4, aimError: 0, powerError: 0 },
+  { weapons: ARSENAL.length, refine: 4, aimError: 0, powerError: 0 },
 ] as const;
 
 /** Coarse search grid. */
@@ -173,11 +203,15 @@ export class Bot {
           continue;
         }
         // Melee only makes sense with someone close by.
-        if (
-          def.aim === 'none' &&
-          !enemies.some((e) => Math.abs(e.x - worm.x) < 40 && Math.abs(e.y - worm.y) < 30)
-        )
-          continue;
+        if (def.aim === 'none') {
+          const reach = REACH[def.id] ?? MELEE_REACH;
+          if (
+            !enemies.some(
+              (e) => Math.abs(e.x - worm.x) < reach.dx && Math.abs(e.y - worm.y) < reach.dy,
+            )
+          )
+            continue;
+        }
         const aims: number[] = [];
         if (def.aim === 'angle')
           for (let t = minTicks; t <= maxTicks; t += COARSE_AIM_STEP) aims.push(t);

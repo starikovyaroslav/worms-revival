@@ -9,6 +9,8 @@ const BODY = 0xf7a9b8;
 const BODY_SHADE = 0xd97a90;
 const BELLY = 0xffd6de;
 const OUTLINE = 0x3a1020;
+/** Tint of a frozen worm. */
+const ICE = 0xb4e4ff;
 /** HUD palette (see style.css). */
 const INK = 0x222034;
 const PANEL = 0x323c39;
@@ -23,6 +25,8 @@ export class WormView {
   readonly label = new Container();
   /** Bouncing team-coloured arrow over the worm whose turn it is. */
   private arrow = new Graphics();
+  /** Ice block overlay drawn over a frozen worm. */
+  private ice = new Graphics();
   private color = 0xffffff;
   private maxHp = 100;
   private shown = 100;
@@ -73,8 +77,9 @@ export class WormView {
       band.tint = color;
       this.pixel = { body, band };
       this.container.addChild(body, band);
+      this.container.addChild(this.ice);
     } else {
-      this.container.addChild(this.body);
+      this.container.addChild(this.body, this.ice);
     }
   }
 
@@ -272,6 +277,18 @@ export class WormView {
     // Invisible worms are faint ghosts, tag included.
     this.container.alpha = w.invisible ? 0.25 : 1;
     this.label.alpha = w.invisible ? 0.35 : 1;
+    // Frozen worms (invulnerable) are tinted ice-blue with a pale outline.
+    const frozen = w.invulnerable;
+    if (this.pixel) {
+      this.pixel.body.tint = frozen ? ICE : 0xffffff;
+      this.pixel.band.tint = frozen ? ICE : this.color;
+    }
+    const ice = this.ice.clear();
+    ice.visible = frozen;
+    if (frozen) {
+      ice.roundRect(-8, -17, 16, 19, 4).fill({ color: ICE, alpha: 0.25 });
+      ice.roundRect(-8, -17, 16, 19, 4).stroke({ color: 0xe6f6ff, width: 1, alpha: 0.9 });
+    }
     this.arrow.visible = arrow;
     // Bounces on whole pixels, like the original.
     this.arrow.position.set(0, -40 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));

@@ -240,11 +240,16 @@ describe('disasters and specials', () => {
     g.step([{ t: 'select', weapon: 'earthquake' }]);
     g.step([{ t: 'fire', down: true }]);
     let hopped = false;
-    for (let i = 0; i < 100; i++) {
+    const groundY = enemy.y;
+    let maxHeight = 0;
+    for (let i = 0; i < 260; i++) {
       g.step();
       if (enemy.state === 'airborne') hopped = true;
+      maxHeight = Math.max(maxHeight, groundY - enemy.y);
     }
     expect(hopped).toBe(true);
+    // Small hops on the ground, not a steady climb.
+    expect(maxHeight).toBeLessThan(60);
     stepUntil(g, () => g.world.ofKind('earthquake').length === 0, 400);
     expect(enemy.health).toBe(100);
   });
@@ -264,6 +269,17 @@ describe('disasters and specials', () => {
     g.step([{ t: 'fire', down: true }]);
     expect(g.worms.every((w) => w.poisoned)).toBe(true);
     expect(g.world.waterLevel).toBe(water - 30);
+  });
+
+  it('nuclear flash is emitted near the active worm, not at the water', () => {
+    const { g, me } = setup();
+    const seen: { y: number }[] = [];
+    g.world.events.length = 0;
+    g.step([{ t: 'select', weapon: 'nuke' }]);
+    g.step([{ t: 'fire', down: true }]);
+    for (const e of g.world.events) if (e.type === 'explosion') seen.push(e);
+    expect(seen.length).toBeGreaterThan(0);
+    expect(seen[0]!.y).toBeCloseTo(me.y - 60, 0);
   });
 
   it('ming vase breaks into twelve shards', () => {
@@ -362,6 +378,27 @@ describe('turn control and movement', () => {
     expect(me.y).toBeLessThan(y0 - 40);
     const jet = g.world.ofKind<import('../src/weapons/jetpack').JetPack>('jetpack')[0]!;
     expect(jet.fuel).toBeLessThan(250);
+  });
+
+  it('jet pack is controllable: a second of thrust lifts ~60-100 px and speed stays capped', () => {
+    const { g, me } = setup();
+    g.step([{ t: 'select', weapon: 'jetpack' }]);
+    g.step([{ t: 'fire', down: true }]);
+    g.step([{ t: 'move', left: false, right: false, up: true, down: false }]);
+    const y0 = me.y;
+    let fastest = 0;
+    for (let i = 0; i < 49; i++) {
+      g.step();
+      fastest = Math.max(fastest, -me.vy);
+    }
+    expect(y0 - me.y).toBeGreaterThan(50);
+    expect(y0 - me.y).toBeLessThan(110);
+    for (let i = 0; i < 100; i++) {
+      g.step();
+      fastest = Math.max(fastest, -me.vy, Math.abs(me.vx));
+    }
+    expect(fastest).toBeLessThanOrEqual(3);
+    expect(me.y).toBeGreaterThan(y0 - 3 * 150);
   });
 
   it('bungee stretches like a spring and holds the worm', () => {

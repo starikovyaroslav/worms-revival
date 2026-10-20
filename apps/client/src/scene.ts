@@ -17,6 +17,7 @@ import {
   WaterView,
   WormView,
   createEntityView,
+  setCrateSpy,
   type EntityView,
   type Theme,
 } from '@wr/render';
@@ -323,6 +324,7 @@ export class GameScene {
       v.update(alpha, dtMs, isActive && game.phase !== 'settling', project, hold, showArrow);
       v.setShownHealth(v.worm.shownHealth);
     }
+    setCrateSpy(!!game.activeWorm?.crateSpy);
     for (const [, v] of this.entities) v.update(alpha, dtMs);
 
     const def = game.weapon;

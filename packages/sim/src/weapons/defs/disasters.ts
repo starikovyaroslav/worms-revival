@@ -41,10 +41,10 @@ registerWeapon({
   charge: false,
   fire: (ctx) => {
     const { world } = ctx;
-    // A blinding flash: everyone is poisoned and the water level rises.
+    // A blinding flash (shown where the player looks, not at the water): everyone is poisoned and the water level rises.
     for (const w of world.ofKind<Worm>('worm')) if (w.alive) w.poisoned = true;
     world.waterLevel -= 30;
-    world.emit({ type: 'explosion', x: ctx.worm.x, y: world.waterLevel, radius: 200 });
+    world.emit({ type: 'explosion', x: ctx.worm.x, y: ctx.worm.y - 60, radius: 300 });
     world.emit({ type: 'shake', amount: 8 });
   },
 });

@@ -12,6 +12,8 @@ export class TargetView {
   readonly container = new Container();
   private g = new Graphics();
   private t = 0;
+  /** Marker of a missile that has exploded, kept until the time its lock would have run out. */
+  private lingering: { x: number; y: number; ms: number } | null = null;
 
   constructor() {
     this.container.addChild(this.g);
@@ -26,9 +28,23 @@ export class TargetView {
     // as a missile is still drawn towards it.
     if (def?.needsTarget && game.target && (game.phase === 'turn' || game.phase === 'ready'))
       this.marker(g, game.target.x, game.target.y);
+    let flying = false;
     for (const m of game.world.ofKind<HomingMissile>('projectile')) {
-      if (m instanceof HomingMissile && m.targetX !== null && m.age <= m.homing.lockEndTick)
+      if (m instanceof HomingMissile && m.targetX !== null && m.age <= m.homing.lockEndTick) {
         this.marker(g, m.targetX, m.targetY as number);
+        flying = true;
+        // 20 ms per tick: remember how long the marker still has to live if the missile bursts early.
+        this.lingering = {
+          x: m.targetX,
+          y: m.targetY as number,
+          ms: (m.homing.lockEndTick - m.age) * 20,
+        };
+      }
+    }
+    if (!flying && this.lingering) {
+      this.lingering.ms -= dtMs;
+      if (this.lingering.ms <= 0 || game.phase === 'ready') this.lingering = null;
+      else this.marker(g, this.lingering.x, this.lingering.y);
     }
     if (def?.needsTarget && !game.target && mouse && game.phase === 'turn') {
       // A faint preview where the click would put the marker.

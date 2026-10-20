@@ -32,6 +32,15 @@ const BASE: Omit<Scheme, 'id' | 'name' | 'weapons'> = {
   upgrades: NO_UPGRADES,
 };
 
+/*
+ * Phase W weapons by scheme. Rule: INTERMEDIATE (and ARMAGEDDON, which inherits it) has everything.
+ * Mid-tier attacks (petrol, napalm, axe, dragonball, mail, minestrike, sheep launcher, mad cows...)
+ * also appear, in small numbers, in PRO / ELITE / HYSTERIA and as crate-only finds in SHOPPER.
+ * Super weapons and utilities (earthquake, armageddon, nuke, donkey, freeze, scales, select worm,
+ * girder pack, mbbomb, vase, magic bullet, super banana, per-turn utilities...) stay INTERMEDIATE-only,
+ * crate weight 1. BNG keeps only bazooka and grenade. Numbers are a first guess, not tuned by play.
+ */
+
 /** The default: plenty of basic weapons, limited powerful ones. */
 export const INTERMEDIATE: Scheme = {
   ...BASE,
@@ -165,6 +174,14 @@ export const PRO: Scheme = {
     drill: w(INF),
     parachute: w(1),
     rope: w(3),
+    petrol: w(1, 3, 3),
+    napalm: w(1, 3, 4),
+    axe: w(1, 3, 2),
+    dragonball: w(1, 3, 3),
+    mail: w(1, 3, 5),
+    minestrike: w(1, 3, 4),
+    sheeplauncher: w(1, 3, 4),
+    madcows: w(1, 3, 4),
     skipgo: w(INF, 3, 0, 0),
     surrender: w(INF, 3, 0, 0),
   },
@@ -205,6 +222,11 @@ export const ELITE: Scheme = {
     drill: w(INF),
     parachute: w(1),
     rope: w(2),
+    petrol: w(1, 3, 3),
+    napalm: w(1, 3, 4),
+    axe: w(1, 3, 2),
+    dragonball: w(1, 3, 3),
+    mail: w(1, 3, 5),
     skipgo: w(INF, 3, 0, 0),
     surrender: w(INF, 3, 0, 0),
   },
@@ -231,6 +253,11 @@ export const HYSTERIA: Scheme = {
     bat: w(INF),
     teleport: w(INF),
     hhg: w(1),
+    petrol: w(INF),
+    flamethrower: w(INF),
+    axe: w(INF),
+    dragonball: w(INF),
+    napalm: w(INF),
     skipgo: w(INF, 3, 0, 0),
     surrender: w(INF, 3, 0, 0),
   },
@@ -272,6 +299,20 @@ export const SHOPPER: Scheme = {
     hhg: w(0, 3, 0, 1),
     sheep: w(0, 3, 0, 2),
     supersheep: w(0, 3, 0, 1),
+    petrol: w(0, 3, 0, 2),
+    skunk: w(0, 3, 0, 1),
+    flamethrower: w(0, 3, 0, 1),
+    sheeplauncher: w(0, 3, 0, 1),
+    axe: w(0, 3, 0, 2),
+    dragonball: w(0, 3, 0, 2),
+    napalm: w(0, 3, 0, 1),
+    mail: w(0, 3, 0, 1),
+    minestrike: w(0, 3, 0, 1),
+    carpet: w(0, 3, 0, 1),
+    frenchsheep: w(0, 3, 0, 1),
+    molesquad: w(0, 3, 0, 1),
+    madcows: w(0, 3, 0, 1),
+    oldwoman: w(0, 3, 0, 1),
     skipgo: w(INF, 3, 0, 0),
     surrender: w(INF, 3, 0, 0),
   },
