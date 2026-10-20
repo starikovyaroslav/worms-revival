@@ -10,6 +10,11 @@ export interface AssetManifest {
   remove?: string[];
 }
 
+/** The asset manifest was found but cannot be used. */
+export class ManifestError extends Error {
+  override name = 'ManifestError';
+}
+
 /**
  * Image assets looked up by id (`objects/barrel`, `character/eye-open`...). Views ask for an id and
  * fall back to their built-in drawing when it is missing, so any asset can be replaced by simply
@@ -25,14 +30,22 @@ export class AssetStore {
     // Files keep their names between releases, so a version query keeps browsers and CDNs from
     // serving stale copies.
     const q = version ? `?v=${version}` : '';
+    let res: Response;
+    try {
+      res = await fetch(`${baseUrl}/manifest.json${q}`, { cache: 'no-cache' });
+    } catch {
+      return; // offline or blocked: play with the built-in drawings
+    }
+    if (!res.ok) return; // no artwork installed
     let manifest: AssetManifest;
     try {
-      const res = await fetch(`${baseUrl}/manifest.json${q}`, { cache: 'no-cache' });
-      if (!res.ok) return;
       manifest = (await res.json()) as AssetManifest;
-    } catch {
-      return;
+    } catch (err) {
+      // A manifest that exists but is broken is a build error, not "missing artwork".
+      throw new ManifestError('manifest.json is not valid JSON', { cause: err });
     }
+    if (!manifest || typeof manifest.assets !== 'object' || manifest.assets === null)
+      throw new ManifestError('manifest.json has no "assets" table');
     this.manifest = manifest;
     for (const prefix of manifest.remove ?? []) {
       for (const id of [...this.textures.keys()]) {

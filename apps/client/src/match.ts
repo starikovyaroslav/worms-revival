@@ -136,22 +136,24 @@ export class Match {
       },
     );
     this.loop.start();
-    (window as unknown as { __game: unknown }).__game = {
-      game,
-      scene,
-      match: this,
-      fx: (id: string, size?: number, dx?: number, dy?: number) =>
-        scene.debugEffect(id, size, dx, dy),
-      /** Debug: centre the camera on the first entity of a kind (`e:__game.look('barrel', 2)`, level 2 = 2x the default view). */
-      look: (kind: string, level = 2) => {
-        const e = game.world.ofKind(kind)[0];
-        if (!e) return false;
-        scene.camera.level = level;
-        scene.camera.lookAt(e.x, e.y);
-        scene.userScrolled = true;
-        return true;
-      },
-    };
+    // Debug handle: dev server and `vite --mode e2e` builds only, never in production.
+    if (import.meta.env.DEV || __E2E__)
+      (window as unknown as { __game: unknown }).__game = {
+        game,
+        scene,
+        match: this,
+        fx: (id: string, size?: number, dx?: number, dy?: number) =>
+          scene.debugEffect(id, size, dx, dy),
+        /** Debug: centre the camera on the first entity of a kind (`e:__game.look('barrel', 2)`, level 2 = 2x the default view). */
+        look: (kind: string, level = 2) => {
+          const e = game.world.ofKind(kind)[0];
+          if (!e) return false;
+          scene.camera.level = level;
+          scene.camera.lookAt(e.x, e.y);
+          scene.userScrolled = true;
+          return true;
+        },
+      };
   }
 
   /** Difficulty of the team whose turn it is, 0 for humans. */

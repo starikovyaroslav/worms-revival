@@ -9,7 +9,8 @@ import { render } from 'preact';
 import type { MatchConfig, Replay } from '@wr/content';
 import { App, type UiApi } from './ui/App';
 import { Menu, defaultConfig } from './ui/Menu';
-import { ZOOM_LEVELS, assets } from '@wr/render';
+import { ManifestError, ZOOM_LEVELS, assets } from '@wr/render';
+import { installGlobalHandlers, showFatal, showWarning } from './fatal';
 import { Match } from './match';
 import { ViewportController, menuScale, parseKOverride, type Viewport } from './viewport';
 
@@ -35,16 +36,21 @@ async function boot() {
   );
   const vp0 = viewport.current;
   const app = new Application();
-  await app.init({
-    width: vp0.cssW,
-    height: vp0.cssH,
-    background: '#0b1020',
-    antialias: false,
-    roundPixels: true,
-    preference: 'webgl',
-    autoDensity: true,
-    resolution: vp0.dpr,
-  });
+  try {
+    await app.init({
+      width: vp0.cssW,
+      height: vp0.cssH,
+      background: '#0b1020',
+      antialias: false,
+      roundPixels: true,
+      preference: 'webgl',
+      autoDensity: true,
+      resolution: vp0.dpr,
+    });
+  } catch (err) {
+    showFatal('webgl', err);
+    return;
+  }
   applyCssVars(vp0);
   viewport.onChange((vp) => {
     app.renderer.resize(vp.cssW, vp.cssH, vp.dpr);
@@ -59,8 +65,19 @@ async function boot() {
     document.fonts.load('600 14px "Pixelify Sans"', 'Аб Ab'),
     document.fonts.load('16px "Press Start 2P"', 'Аб Ab'),
   ]);
-  // Artwork is optional: anything missing falls back to the built-in drawing.
-  await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'), __BUILD_ID__);
+  // `fonts.load` never rejects, so check that the faces really arrived; the game still runs without.
+  if (
+    !document.fonts.check('16px "Press Start 2P"') ||
+    !document.fonts.check('700 14px "Pixelify Sans"')
+  )
+    showWarning('Не удалось загрузить шрифты: текст может выглядеть иначе.');
+  // Artwork is optional: anything missing falls back to the built-in drawing. A broken manifest is fatal.
+  try {
+    await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'), __BUILD_ID__);
+  } catch (err) {
+    showFatal(err instanceof ManifestError ? 'manifest' : 'startup', err);
+    return;
+  }
   const root = document.getElementById('ui')!;
 
   let match: Match | null = null;
@@ -154,4 +171,5 @@ async function boot() {
   }
 }
 
-void boot();
+installGlobalHandlers();
+boot().catch((err) => showFatal('startup', err));

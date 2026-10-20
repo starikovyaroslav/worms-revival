@@ -1,4 +1,5 @@
 import { TICK_MS } from '@wr/sim';
+import { showFatal } from './fatal';
 
 /** Never simulate more than this many ticks per frame (e.g. after the tab was hidden). */
 const MAX_TICKS_PER_FRAME = 10;
@@ -22,17 +23,23 @@ export class FixedLoop {
   start(): void {
     this.last = performance.now();
     const frame = (now: number) => {
-      const dt = Math.min(now - this.last, 250);
-      this.last = now;
-      this.acc += dt * this.speed;
-      let ticks = 0;
-      while (this.acc >= TICK_MS && ticks < MAX_TICKS_PER_FRAME) {
-        this.step();
-        this.acc -= TICK_MS;
-        ticks++;
+      try {
+        const dt = Math.min(now - this.last, 250);
+        this.last = now;
+        this.acc += dt * this.speed;
+        let ticks = 0;
+        while (this.acc >= TICK_MS && ticks < MAX_TICKS_PER_FRAME) {
+          this.step();
+          this.acc -= TICK_MS;
+          ticks++;
+        }
+        if (ticks === MAX_TICKS_PER_FRAME) this.acc = 0;
+        this.render(this.acc / TICK_MS, dt);
+      } catch (err) {
+        // A broken frame must not repeat 60 times a second: stop and tell the player.
+        showFatal('runtime', err);
+        return;
       }
-      if (ticks === MAX_TICKS_PER_FRAME) this.acc = 0;
-      this.render(this.acc / TICK_MS, dt);
       this.raf = requestAnimationFrame(frame);
     };
     this.raf = requestAnimationFrame(frame);
