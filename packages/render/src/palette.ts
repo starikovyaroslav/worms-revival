@@ -1,6 +1,6 @@
 /**
  * The retro palette (DawnBringer's 32 colours) and helpers to snap any colour to it, with optional
- * ordered dithering. Keep in sync with tools/art/pixelize.mjs.
+ * ordered dithering.
  */
 export const DB32 = [
   0x000000, 0x222034, 0x45283c, 0x663931, 0x8f563b, 0xdf7126, 0xd9a066, 0xeec39a, 0xfbf236,

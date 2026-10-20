@@ -1,6 +1,6 @@
-import { Assets, Texture } from 'pixi.js';
+import { Assets, type Texture } from 'pixi.js';
 
-/** Written by `npm run art`: which images exist and how big they are (logical size). */
+/** Which images exist and how big they are (logical size). */
 export interface AssetManifest {
   version: number;
   /** `pixel`: retro art, 1 art pixel = 1 world pixel. */
