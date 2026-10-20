@@ -196,6 +196,9 @@ export const SOUNDS: Record<string, Synth> = {
   quake: (a, out) => {
     noise(a, voice(a, out, 0.35, 0.1, 4), a.now, 4.5, 'lowpass', 160, 80);
   },
+  jet: (a, out) => {
+    noise(a, voice(a, out, 0.06, 0.005, 0.05), a.now, 0.06, 'lowpass', 1400, 600);
+  },
   flame: (a, out) => {
     noise(a, voice(a, out, 0.2, 0.05, 0.8), a.now, 0.9, 'lowpass', 1800, 500);
   },

@@ -6,6 +6,7 @@ import './strikes';
 import './fire';
 import './animals';
 import './disasters';
+import './control';
 import './homing';
 import './guns';
 import './specials';

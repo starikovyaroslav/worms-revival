@@ -122,6 +122,7 @@ export function probeShot(
     upgrades: game.scheme.upgrades,
     focus: () => {},
     control: () => {},
+    switchWorm: () => {},
   });
   // Shotgun: assume both barrels find the same mark.
   if (def.shots && def.shots > 1) {
@@ -139,6 +140,7 @@ export function probeShot(
         upgrades: game.scheme.upgrades,
         focus: () => {},
         control: () => {},
+        switchWorm: () => {},
       });
     }
   }

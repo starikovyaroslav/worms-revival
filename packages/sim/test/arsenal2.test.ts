@@ -288,3 +288,92 @@ describe('disasters and specials', () => {
     expect(enemy.health).toBeLessThan(100);
   });
 });
+
+describe('turn control and movement', () => {
+  const ids = ['scales', 'freeze', 'selectworm', 'girderpack', 'jetpack', 'bungee'];
+  const W = Object.fromEntries(ids.map((id) => [id, { ammo: 1, power: 3, delay: 0, crate: 0 }]));
+  const setup = () => {
+    const g = makeGame({ weapons: W, wind: 0, turnTime: 60 });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    const me = g.activeWorm!;
+    me.facing = 1;
+    me.aim = 0.5;
+    return { g, me };
+  };
+
+  it('scales of justice evens out the teams', () => {
+    const { g } = setup();
+    for (const w of g.worms) w.health = w.team === g.activeWorm!.team ? 100 : 20;
+    g.step([{ t: 'select', weapon: 'scales' }]);
+    g.step([{ t: 'fire', down: true }]);
+    expect(new Set(g.worms.map((w) => w.health)).size).toBe(1);
+    expect(g.worms[0]!.health).toBe(60);
+  });
+
+  it('freeze makes the team invulnerable until its next turn', () => {
+    const { g, me } = setup();
+    g.step([{ t: 'select', weapon: 'freeze' }]);
+    g.step([{ t: 'fire', down: true }]);
+    const mates = g.worms.filter((w) => w.team === me.team);
+    expect(mates.every((w) => w.invulnerable)).toBe(true);
+    mates[0]!.takeDamage(g.world, 50);
+    expect(mates[0]!.health).toBe(100);
+    // Let our retreat run out, then skip through the other team's turn and into ours again.
+    stepUntil(g, () => g.phase !== 'retreat', 600);
+    for (let i = 0; i < 6 && !(g.turn > 1 && g.activeWorm!.team === me.team); i++) {
+      g.step([{ t: 'skip' }]);
+      for (let k = 0; k < 600 && g.phase === 'settling'; k++) g.step();
+    }
+    expect(g.activeWorm!.team).toBe(me.team);
+    expect(mates.every((w) => !w.invulnerable)).toBe(true);
+  });
+
+  it('select worm hands the turn to another worm of the team', () => {
+    const { g, me } = setup();
+    const mate = g.worms.find((w) => w.team === me.team && w !== me)!;
+    g.step([{ t: 'select', weapon: 'selectworm' }]);
+    g.step([{ t: 'target', x: mate.cx, y: mate.cy }]);
+    g.step([{ t: 'fire', down: true }]);
+    expect(g.activeWorm).toBe(mate);
+    expect(g.phase).toBe('turn');
+  });
+
+  it('girder starter pack places five girders for one unit of ammo', () => {
+    const { g, me } = setup();
+    g.step([{ t: 'select', weapon: 'girderpack' }]);
+    let placed = 0;
+    for (let i = 0; i < 6; i++) {
+      g.step([{ t: 'target', x: me.x + 20 + i * 14, y: me.y - 45 - i * 14 }]);
+      g.step([{ t: 'fire', down: true }]);
+      if (g.phase === 'turn') placed++;
+    }
+    expect(placed).toBe(4);
+    expect(g.phase).toBe('retreat');
+    expect(g.teams[g.activeTeam]!.ammo.girderpack).toBe(0);
+  });
+
+  it('jet pack lifts the worm while the up key is held and burns fuel', () => {
+    const { g, me } = setup();
+    g.step([{ t: 'select', weapon: 'jetpack' }]);
+    g.step([{ t: 'fire', down: true }]);
+    g.step([{ t: 'move', left: false, right: false, up: true, down: false }]);
+    const y0 = me.y;
+    for (let i = 0; i < 40; i++) g.step();
+    expect(me.y).toBeLessThan(y0 - 40);
+    const jet = g.world.ofKind<import('../src/weapons/jetpack').JetPack>('jetpack')[0]!;
+    expect(jet.fuel).toBeLessThan(250);
+  });
+
+  it('bungee stretches like a spring and holds the worm', () => {
+    const { g, me } = setup();
+    me.aim = 1.4;
+    for (let y = 60; y < 90; y++)
+      for (let x = me.x - 60; x < me.x + 120; x++) g.world.terrain.set(x, y, 1);
+    g.step([{ t: 'select', weapon: 'bungee' }]);
+    g.step([{ t: 'fire', down: true }]);
+    stepUntil(g, () => me.state === 'roped', 100);
+    expect(me.state).toBe('roped');
+    for (let i = 0; i < 200; i++) g.step();
+    expect(me.state).toBe('roped');
+  });
+});

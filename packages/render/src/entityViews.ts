@@ -9,6 +9,7 @@ import {
   Flame,
   Gas,
   Gravestone,
+  JetPack,
   Mine,
   Pigeon,
   Projectile,
@@ -428,6 +429,44 @@ function drawAnimal(g: Graphics, look: string, bob: number, t: number): void {
   }
 }
 
+class JetPackView implements EntityView {
+  readonly container = new Container();
+  private g = new Graphics();
+  private t = 0;
+
+  constructor(
+    private readonly jet: JetPack,
+    private readonly world: World,
+  ) {
+    this.container.addChild(this.g);
+  }
+
+  update(alpha: number, dtMs: number): void {
+    this.t += dtMs / 1000;
+    const w = this.world.byId(this.jet.wormId) as Worm | undefined;
+    const g = this.g.clear();
+    if (!w || !w.alive) return;
+    this.container.position.set(
+      w.prevX + (w.x - w.prevX) * alpha,
+      w.prevY + (w.y - w.prevY) * alpha,
+    );
+    const f = -w.facing;
+    // The pack on the worm's back.
+    g.roundRect(f * 5 - 2.5, -13, 5, 9, 1)
+      .fill(0x8a8a96)
+      .stroke({ color: OUTLINE, width: 1 });
+    g.rect(f * 5 - 1.5, -6, 3, 2).fill(0x555560);
+    if (this.jet.thrusting) {
+      const fl = 3 + Math.sin(this.t * 60) * 1.5;
+      g.moveTo(f * 5 - 2, -4)
+        .lineTo(f * 5, -4 + 4 + fl)
+        .lineTo(f * 5 + 2, -4)
+        .closePath()
+        .fill(0xffb030);
+    }
+  }
+}
+
 class DonkeyView implements EntityView {
   readonly container = new Container();
 
@@ -728,6 +767,7 @@ export function createEntityView(e: Entity, world: World): EntityView | null {
   if (e instanceof Gas) return new GasView(e);
   if (e instanceof Sheep) return new SheepView(e);
   if (e instanceof Donkey) return new DonkeyView(e);
+  if (e instanceof JetPack) return new JetPackView(e, world);
   if (e instanceof Rope) return new RopeView(e, world);
   if (e instanceof Crate) return new CrateView(e);
   if (e instanceof DigTool) return new DigToolView(e);

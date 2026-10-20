@@ -29,6 +29,8 @@ export interface RopeSpec {
   maxLength: number;
   /** Largest allowed angle between the shot and straight up, degrees. */
   limitDeg: number;
+  /** Bungee: the cord stretches like a spring and cannot be reeled. */
+  elastic?: boolean;
 }
 
 const ROPE_SPECS: RopeSpec[] = [
@@ -38,6 +40,9 @@ const ROPE_SPECS: RopeSpec[] = [
   { shots: 4, maxLength: 422, limitDeg: 90 },
   { shots: Infinity, maxLength: 464, limitDeg: 90 },
 ];
+
+/** Bungee: one shot, elastic. */
+export const BUNGEE_SPEC: RopeSpec = { shots: 1, maxLength: 300, limitDeg: 90, elastic: true };
 
 export function ropeSpec(power: number): RopeSpec {
   return ROPE_SPECS[Math.min(5, Math.max(1, Math.round(power))) - 1] as RopeSpec;
@@ -65,7 +70,7 @@ export type RopeState = 'shooting' | 'attached' | 'loose';
 
 export class Rope extends Entity implements RemoteControlled {
   readonly kind = 'rope';
-  readonly weaponId = 'rope';
+  readonly weaponId: string;
   state: RopeState = 'shooting';
   /** The hook point (one entry; kept as a list for the renderer). */
   anchors: Point[] = [];
@@ -87,6 +92,7 @@ export class Rope extends Entity implements RemoteControlled {
     readonly spec: RopeSpec,
   ) {
     super(worm.cx, worm.cy);
+    this.weaponId = spec.elastic ? 'bungee' : 'rope';
     this.hookX = worm.cx;
     this.hookY = worm.cy;
     [this.hookDX, this.hookDY] = this.restrict(dirX, dirY);
@@ -229,8 +235,10 @@ export class Rope extends Entity implements RemoteControlled {
 
     // Reeling in or out. Angular momentum is conserved: a shorter rope spins faster.
     const before = this.length;
-    if (this.keys.up) this.length = Math.max(ROPE_MIN, this.length - REEL);
-    if (this.keys.down) this.length = Math.min(this.spec.maxLength, this.length + REEL);
+    if (!this.spec.elastic) {
+      if (this.keys.up) this.length = Math.max(ROPE_MIN, this.length - REEL);
+      if (this.keys.down) this.length = Math.min(this.spec.maxLength, this.length + REEL);
+    }
     let dx = worm.cx - p.x;
     let dy = worm.cy - p.y;
     let d = Math.sqrt(dx * dx + dy * dy) || 1;
@@ -287,7 +295,16 @@ export class Rope extends Entity implements RemoteControlled {
     dx = worm.cx - p.x;
     dy = worm.cy - p.y;
     d = Math.sqrt(dx * dx + dy * dy) || 1;
-    if (d > this.length) {
+    if (this.spec.elastic) {
+      // A bungee cord pulls back like a spring instead.
+      if (d > this.length) {
+        const pull = (d - this.length) * 0.012;
+        worm.vx -= (dx / d) * pull;
+        worm.vy -= (dy / d) * pull;
+      }
+      worm.vx *= 0.995;
+      worm.vy *= 0.995;
+    } else if (d > this.length) {
       nx = dx / d;
       ny = dy / d;
       const cx = p.x + nx * this.length;

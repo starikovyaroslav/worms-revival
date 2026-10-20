@@ -85,6 +85,8 @@ export class Worm extends Entity {
   /** Damage taken in the current turn, applied to team totals at the end of the turn. */
   pendingDamage = 0;
   poisoned = false;
+  /** Frozen (Freeze): takes no damage until its team's next turn. */
+  invulnerable = false;
   drowned = false;
   /** Parachute open: slow, wind-blown descent. */
   chute = false;
@@ -165,7 +167,7 @@ export class Worm extends Entity {
   }
 
   takeDamage(world: World, amount: number): void {
-    if (!this.alive || amount <= 0) return;
+    if (!this.alive || amount <= 0 || this.invulnerable) return;
     const dealt = Math.min(Math.max(0, this.health), Math.round(amount));
     this.health -= dealt;
     this.pendingDamage += dealt;
@@ -404,6 +406,7 @@ export class Worm extends Entity {
       .u32(this.stuckTicks)
       .f64(this.pendingDamage)
       .bool(this.poisoned)
+      .bool(this.invulnerable)
       .bool(this.chute);
   }
 }

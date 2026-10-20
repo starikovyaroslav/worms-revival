@@ -23,6 +23,8 @@ export interface FireContext {
   focus(entityId: number): void;
   /** Hand the controls over to an entity (sheep): fire and arrows go to it until it is gone. */
   control(entityId: number): void;
+  /** Hands the rest of the turn to another worm of the same team (Select Worm). */
+  switchWorm(entityId: number): void;
 }
 
 /** Entities the player keeps controlling after the shot (sheep, super sheep). */

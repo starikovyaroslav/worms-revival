@@ -279,7 +279,9 @@ export class Game {
   private pressFire(worm: Worm): void {
     if (this.phase !== 'turn' || this.shotsLeft <= 0) return;
     const def = this.weapon;
-    if (!def || !this.canUse(def.id)) return;
+    // A multi-shot weapon (shotgun, girder pack) costs its ammo once, on the first shot.
+    const started = !!def && this.shotsLeft < (def.shots ?? 1);
+    if (!def || (!started && !this.canUse(def.id))) return;
     if (def.action === 'skip') {
       this.endTurn();
       return;
@@ -327,6 +329,7 @@ export class Game {
       setting: weaponSetting(this.scheme, def.id),
       upgrades: this.scheme.upgrades,
       focus: (id) => (this.focusId = id),
+      switchWorm: (id) => this.switchWorm(id),
       control: (id) => {
         this.controlledId = id;
         this.controlledEndsTurn = def.endsTurn !== false;
@@ -336,7 +339,7 @@ export class Game {
     });
     this.world.emit({ type: 'fired', wormId: worm.id, weapon: def.id });
     const ammo = team.ammo[def.id] ?? 0;
-    if (ammo > 0) team.ammo[def.id] = ammo - 1;
+    if (ammo > 0 && this.shotsLeft === (def.shots ?? 1)) team.ammo[def.id] = ammo - 1;
     // Movement tools (rope, parachute) don't use up the turn's attack.
     if (def.endsTurn === false) return;
     this.firedThisTurn = true;
@@ -347,6 +350,17 @@ export class Game {
       this.phase = 'retreat';
       this.timer = Math.round((def.retreat ?? this.scheme.retreatTime) * TPS);
     }
+  }
+
+  /** Select Worm: another worm of the active team takes over the rest of the turn. */
+  private switchWorm(id: number): void {
+    const next = this.world.byId(id);
+    const cur = this.activeWorm;
+    if (!(next instanceof Worm) || !next.alive || !cur || next.team !== cur.team) return;
+    cur.control = { left: false, right: false, up: false, down: false };
+    this.activeWormId = id;
+    this.turnStartDamage = next.pendingDamage;
+    this.focusId = id;
   }
 
   private tickControls(): void {
@@ -611,6 +625,8 @@ export class Game {
         break;
       }
     }
+    // Freeze wears off when its team's turn comes round again.
+    for (const w of worms) w.invulnerable = false;
     this.activeWormId = worm?.id ?? 0;
     this.turnStartDamage = worm?.pendingDamage ?? 0;
     if (this.scheme.wind > 0) {
