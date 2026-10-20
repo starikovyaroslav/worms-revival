@@ -1,5 +1,5 @@
 import { Container, type Application } from 'pixi.js';
-import { Worm, type Game, type Mine, type Projectile } from '@wr/sim';
+import { TPS, Worm, type Game, type Mine, type Projectile } from '@wr/sim';
 import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
 import {
@@ -338,7 +338,7 @@ export class GameScene {
       game.world.terrain,
       this.camera.zoom,
     );
-    const secLeft = game.timer / 50;
+    const secLeft = game.timer / TPS;
     this.post.setDanger(game.phase === 'turn' && secLeft <= 5 ? 1 - secLeft / 5 : 0);
     this.post.update(dtMs);
     this.updateLights(dtMs);

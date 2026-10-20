@@ -1036,3 +1036,18 @@ body {
   font-size: 10px;
   color: #ffd23a;
 }
+
+/* ---------- Replay load error ---------- */
+
+.menu-error {
+  max-width: 700px;
+  margin: 0;
+  padding: 8px 12px;
+  background: #3a1620;
+  border: 2px solid #ff5a5a;
+  color: #ffd7d7;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.8;
+  text-align: center;
+}

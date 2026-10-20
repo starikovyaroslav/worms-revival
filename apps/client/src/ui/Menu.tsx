@@ -1,5 +1,14 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { SCHEMES, SCHEME_INFO, TEAM_PRESETS, type MatchConfig, type Replay } from '@wr/content';
+import {
+  REPLAY_VERSION,
+  replayProblem,
+  SCHEMES,
+  SCHEME_INFO,
+  TEAM_PRESETS,
+  type MatchConfig,
+  type Replay,
+  type ReplayProblem,
+} from '@wr/content';
 import { THEMES, TEAM_COLORS } from '@wr/render';
 import { drawMapPreview } from './mapPreview';
 import { Wormpot } from './Wormpot';
@@ -23,15 +32,33 @@ interface Props {
   onReplay: (replay: Replay) => void;
 }
 
+function replayErrorText(problem: ReplayProblem): string {
+  switch (problem.kind) {
+    case 'version':
+      return `Повтор записан другой версией игры (формат ${String(problem.found ?? '1')}, нужен ${REPLAY_VERSION}). Старые повторы не воспроизводятся.`;
+    case 'ruleset':
+      return 'Правила оружия или схем изменились после записи этого повтора: он разошёлся бы с записью.';
+    case 'malformed':
+      return 'Не удалось прочитать файл повтора.';
+  }
+}
+
 export function Menu({ initial, onStart, onReplay }: Props) {
+  const [replayError, setReplayError] = useState('');
   const openReplay = async (e: Event) => {
-    const file = (e.target as HTMLInputElement).files?.[0];
+    const input = e.target as HTMLInputElement;
+    const file = input.files?.[0];
     if (!file) return;
+    let raw: unknown = null;
     try {
-      onReplay(JSON.parse(await file.text()) as Replay);
+      raw = JSON.parse(await file.text());
     } catch {
-      alert('Не удалось прочитать файл повтора');
+      // Falls through to the "malformed" message.
     }
+    input.value = ''; // picking the same file again must fire a change event
+    const problem = replayProblem(raw);
+    setReplayError(problem ? replayErrorText(problem) : '');
+    if (!problem) onReplay(raw as Replay);
   };
   const [cfg, setCfg] = useState<MatchConfig>(initial);
   const preview = useRef<HTMLCanvasElement>(null);
@@ -191,6 +218,11 @@ export function Menu({ initial, onStart, onReplay }: Props) {
         Открыть повтор…
         <input type="file" accept=".wrr,application/json" onChange={openReplay} hidden />
       </label>
+      {replayError && (
+        <p class="menu-error" role="alert">
+          {replayError}
+        </p>
+      )}
       <p class="controls-help">
         ←→ ходьба · ↑↓ прицел · Enter прыжок (×2 сальто) · Пробел огонь · 1–5 фитиль · ПКМ оружие ·
         F1–F12 ряды оружия

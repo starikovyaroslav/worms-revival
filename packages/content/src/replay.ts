@@ -1,11 +1,47 @@
-import { Game, type Command } from '@wr/sim';
+import { allWeapons, Game, Hasher, type Command } from '@wr/sim';
 import { buildGameSetup, type MatchConfig } from './match';
+import { SCHEMES } from './schemes';
 
-export const REPLAY_VERSION = 1;
+/**
+ * Bump whenever a change alters simulation results (rules, weapon numbers, hashed state). The golden
+ * replay test in packages/content fails if the logic changed and this was not bumped.
+ * 2: complete state hash (ammo, turn counters, physics, entity specs...).
+ */
+export const REPLAY_VERSION = 2;
+
+let cachedRulesetHash: number | null = null;
+
+/**
+ * Fingerprint of the rule tables (all schemes and the static fields of every weapon definition).
+ * Numbers hidden inside weapon `fire` closures are not visible here; the golden replay covers those.
+ */
+export function rulesetHash(): number {
+  if (cachedRulesetHash === null) {
+    const h = new Hasher().value(SCHEMES);
+    for (const def of allWeapons()) h.value(def);
+    cachedRulesetHash = h.digest();
+  }
+  return cachedRulesetHash;
+}
+
+/** Why a replay cannot be played by this build, or null when it can. */
+export type ReplayProblem =
+  { kind: 'malformed' } | { kind: 'version'; found: unknown } | { kind: 'ruleset' };
+
+export function replayProblem(raw: unknown): ReplayProblem | null {
+  const r = raw as Partial<Replay> | null;
+  if (!r || typeof r !== 'object' || !r.config || !Array.isArray(r.log))
+    return { kind: 'malformed' };
+  if (r.version !== REPLAY_VERSION) return { kind: 'version', found: r.version };
+  if (r.rulesetHash !== rulesetHash()) return { kind: 'ruleset' };
+  return null;
+}
 
 /** A whole match: the starting config plus every command, keyed by the tick it was applied on. */
 export interface Replay {
   version: number;
+  /** `rulesetHash()` of the build that recorded it. */
+  rulesetHash: number;
   config: MatchConfig;
   /** [tick, commands] for ticks that had input. */
   log: [number, Command[]][];
@@ -27,6 +63,7 @@ export class ReplayRecorder {
   finish(game: Game): Replay {
     return {
       version: REPLAY_VERSION,
+      rulesetHash: rulesetHash(),
       config: this.config,
       log: this.log,
       finalTick: game.world.tick,
@@ -41,8 +78,8 @@ export class ReplayPlayer {
   private next = 0;
 
   constructor(readonly replay: Replay) {
-    if (replay.version !== REPLAY_VERSION)
-      throw new Error(`Unsupported replay version ${replay.version}`);
+    const problem = replayProblem(replay);
+    if (problem) throw new Error(`Unsupported replay: ${problem.kind}`);
     this.game = new Game(buildGameSetup(replay.config));
   }
 

@@ -4,7 +4,7 @@ import { TICK_MS } from '@wr/sim';
 const MAX_TICKS_PER_FRAME = 10;
 
 /**
- * Runs the simulation at a fixed 50 Hz and rendering at display rate. `render` receives the
+ * Runs the simulation at a fixed tick rate (`TPS`) and rendering at display rate. `render` receives the
  * fraction of a tick elapsed since the last step, for interpolating positions.
  */
 export class FixedLoop {

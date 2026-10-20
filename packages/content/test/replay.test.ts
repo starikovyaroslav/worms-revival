@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { Game, type Command } from '@wr/sim';
 import { buildGameSetup, type MatchConfig } from '../src/match';
-import { ReplayPlayer, ReplayRecorder } from '../src/replay';
+import {
+  REPLAY_VERSION,
+  ReplayPlayer,
+  ReplayRecorder,
+  replayProblem,
+  rulesetHash,
+} from '../src/replay';
 import { TEAM_PRESETS } from '../src/teams';
 
 const config: MatchConfig = {
@@ -47,5 +53,20 @@ describe('replays', () => {
     const replay = rec.finish(game);
     replay.log[0]![1] = [{ t: 'move', left: true, right: false, up: false, down: false }];
     expect(new ReplayPlayer(replay).verify()).toBe(false);
+  });
+
+  it('rejects replays of another version, another ruleset or garbage', () => {
+    const game = new Game(buildGameSetup(config));
+    const replay = new ReplayRecorder(config).finish(game);
+    expect(replay.version).toBe(REPLAY_VERSION);
+    expect(replayProblem(JSON.parse(JSON.stringify(replay)))).toBeNull();
+    expect(replayProblem({ ...replay, version: 1 })).toEqual({ kind: 'version', found: 1 });
+    expect(replayProblem({ ...replay, rulesetHash: replay.rulesetHash + 1 })).toEqual({
+      kind: 'ruleset',
+    });
+    expect(replayProblem(null)).toEqual({ kind: 'malformed' });
+    expect(replayProblem({ version: REPLAY_VERSION })).toEqual({ kind: 'malformed' });
+    expect(() => new ReplayPlayer({ ...replay, version: 1 })).toThrow(/version/);
+    expect(rulesetHash()).toBe(replay.rulesetHash);
   });
 });

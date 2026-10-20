@@ -1,5 +1,5 @@
 import type { Application } from 'pixi.js';
-import { Game, type Command } from '@wr/sim';
+import { Game, TPS, type Command } from '@wr/sim';
 import { Bot, type Plan } from '@wr/ai';
 import {
   ReplayPlayer,
@@ -40,7 +40,7 @@ export class Match {
   constructor(
     app: Application,
     readonly config: MatchConfig,
-    hooks: MatchHooks,
+    private readonly hooks: MatchHooks,
     replay?: Replay,
   ) {
     this.player = replay ? new ReplayPlayer(replay) : null;
@@ -105,7 +105,7 @@ export class Match {
         lastTurn = game.turn;
         scene.sfx.ui('turn-start');
       }
-      const sec = Math.ceil(game.timer / 50);
+      const sec = Math.ceil(game.timer / TPS);
       if (game.phase === 'turn' && sec <= 5 && sec > 0 && sec !== lastSecond) scene.sfx.ui('tick');
       lastSecond = sec;
       if (game.charging && !wasCharging && w) scene.sound('charge', w.x, w.y);
@@ -172,7 +172,7 @@ export class Match {
         // Reached the end of the recording: the state must match exactly.
         this.replayVerified = game.hash() === this.player.replay.finalHash;
         if (!this.replayVerified)
-          console.warn('Replay desync: final state differs from the recording');
+          this.hooks.onMessage('Повтор разошёлся с записью: конечное состояние не совпало');
       }
       return this.player.commands();
     }
