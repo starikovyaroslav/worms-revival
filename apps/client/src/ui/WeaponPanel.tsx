@@ -47,17 +47,7 @@ export function WeaponPanel({ game, onPick, onClose }: Props) {
                   onClick={() => usable && onPick(def.id)}
                 >
                   {iconUrl(def.id) && (
-                    <img
-                      class="slot-img"
-                      src={iconUrl(def.id)}
-                      alt={info.name}
-                      draggable={false}
-                      onLoad={(e) => {
-                        // Small (GBA-size) icons are doubled so they stay readable.
-                        const img = e.target as HTMLImageElement;
-                        if (img.naturalWidth <= 20) img.style.width = `${img.naturalWidth * 2}px`;
-                      }}
-                    />
+                    <img class="slot-img" src={iconUrl(def.id)} alt={info.name} draggable={false} />
                   )}
                   {!iconUrl(def.id) && <span class="slot-icon">{info.icon}</span>}
                   {ammo > 0 && <span class="slot-ammo">{ammo}</span>}

@@ -11,15 +11,21 @@ export interface Announcement {
 const TEAM_BAR_W = 130;
 
 function Wind({ wind }: { wind: number }) {
-  const pct = Math.abs(wind) * 50;
+  const strength = Math.abs(wind);
+  const bar = <div class="wind-bar" style={{ width: `${strength * 100}%` }} />;
   return (
     <div class="wind" title="Ветер">
-      <div class="wind-half left">
-        {wind < 0 && <div class="wind-bar" style={{ width: `${pct * 2}%` }} />}
+      <span class="wind-label">ВЕТЕР</span>
+      <div class="wind-track">
+        <div class="wind-half left">{wind < 0 && bar}</div>
+        <div class="wind-tick" />
+        <div class="wind-half right">{wind > 0 && bar}</div>
       </div>
-      <div class="wind-half right">
-        {wind > 0 && <div class="wind-bar" style={{ width: `${pct * 2}%` }} />}
-      </div>
+      <span class="wind-num">
+        {wind < 0 ? '<' : ''}
+        {Math.round(strength * 10)}
+        {wind > 0 ? '>' : ''}
+      </span>
     </div>
   );
 }
