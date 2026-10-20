@@ -6,8 +6,10 @@ import { SCHEMES } from './schemes';
  * Bump whenever a change alters simulation results (rules, weapon numbers, hashed state). The golden
  * replay test in packages/ai/test/golden.test.ts fails if the logic changed and this was not bumped.
  * 2: complete state hash (ammo, turn counters, physics, entity specs...).
+ * 3: review fixes: controlled tool released on replacement, donkey blasts once per layer,
+ *    once-per-turn utilities.
  */
-export const REPLAY_VERSION = 2;
+export const REPLAY_VERSION = 3;
 
 let cachedRulesetHash: number | null = null;
 

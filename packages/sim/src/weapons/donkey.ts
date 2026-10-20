@@ -36,19 +36,18 @@ export class Donkey extends Entity {
         this.removed = true;
         return;
       }
+      let hit = false;
       if (world.terrain.circleCollides(this.x, this.y, BORE_RADIUS * 0.6)) {
         world.terrain.carveCircle(this.x, this.y, BORE_RADIUS, true);
-        if (this.y - this.lastBlast > 30) {
-          this.lastBlast = this.y;
-          explode(world, this.x, this.y, this.blast);
-        }
+        hit = true;
       }
       for (const w of world.ofKind<Worm>('worm')) {
-        if (!w.alive) continue;
-        if (Math.abs(w.cx - this.x) < 10 && Math.abs(w.cy - this.y) < 12) {
-          this.lastBlast = this.y;
-          explode(world, this.x, this.y, this.blast);
-        }
+        if (w.alive && Math.abs(w.cx - this.x) < 10 && Math.abs(w.cy - this.y) < 12) hit = true;
+      }
+      // One blast per layer, whether it was land or a worm in the way (not one per pixel step).
+      if (hit && this.y - this.lastBlast > 30) {
+        this.lastBlast = this.y;
+        explode(world, this.x, this.y, this.blast);
       }
     }
   }
