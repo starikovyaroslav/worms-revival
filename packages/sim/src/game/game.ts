@@ -6,6 +6,7 @@ import { Crate } from '../weapons/crate';
 import { explode } from '../weapons/explosion';
 import { Mine } from '../weapons/mine';
 import { getWeapon, isRemoteControlled, type WeaponDef } from '../weapons/weapon';
+import { Entity } from '../world/entity';
 import { Gravestone } from '../world/gravestone';
 import { World } from '../world/world';
 import { Worm } from '../worm/worm';
@@ -334,6 +335,11 @@ export class Game {
       focus: (id) => (this.focusId = id),
       switchWorm: (id) => this.switchWorm(id),
       control: (id) => {
+        // A movement tool (rope, bungee, jet pack) replacing another one lets the old one go,
+        // otherwise it would stay alive with stale keys. Sheep and the like are left to run.
+        if (def.endsTurn === false && this.controlledId && this.controlledId !== id) {
+          this.releaseTool(this.world.byId(this.controlledId));
+        }
         this.controlledId = id;
         this.controlledEndsTurn = def.endsTurn !== false;
         this.focusId = id;
@@ -501,9 +507,18 @@ export class Game {
     const e = this.controlledId ? this.world.byId(this.controlledId) : undefined;
     if (isRemoteControlled(e)) e.timeout?.(this.world);
     this.controlledId = 0;
+    // Tools used alongside an attack (a rope under a gun burst) are not controlled any more either.
+    for (const t of this.world.all()) this.releaseTool(t);
     this.phase = 'settling';
     this.settleTicks = 0;
     this.settleTotal = 0;
+  }
+
+  /** Lets go of a movement tool (rope, bungee, jet pack): it has a `weaponId`, sheep do not. */
+  private releaseTool(e: unknown): void {
+    if (e instanceof Entity && !e.removed && isRemoteControlled(e) && e.weaponId) {
+      e.timeout?.(this.world);
+    }
   }
 
   private afterSettle(): void {
