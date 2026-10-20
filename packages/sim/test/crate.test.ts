@@ -17,7 +17,7 @@ describe('crates', () => {
     const g = ready();
     const c = g.world.spawn(new Crate(500, -40, 'health', '', 25));
     for (let i = 0; i < 10; i++) g.step();
-    expect(c.vy).toBeCloseTo(6, 9);
+    expect(c.vy).toBeCloseTo(7, 9);
     stepUntil(g, () => c.resting);
     expect(c.chute).toBe(false);
     expect(c.y).toBeLessThan(200);

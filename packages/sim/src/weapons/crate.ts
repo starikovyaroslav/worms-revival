@@ -9,10 +9,10 @@ export type CrateKind = 'weapon' | 'health';
 const PICKUP_RADIUS = 13;
 /**
  * Sink speed under the parachute, px/tick. Was 1.3 (65 px/s), which made the turn wait 4-13 s on an
- * 800 px map (QA audit, finding #2). 6 px/tick (300 px/s) lands within about 3 s from the top edge.
+ * 800 px map (QA audit, finding #2). 7 px/tick (350 px/s) lands within 3 s from the top edge.
  * GUESSED: picked to meet the "crate phase <= ~3 s" goal, not taken from W:A.
  */
-const CHUTE_FALL = 6;
+const CHUTE_FALL = 7;
 
 /** Supply crate. Drops by parachute, picked up by touching it, explodes when blasted. */
 export class Crate extends PhysBody {
