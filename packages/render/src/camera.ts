@@ -1,7 +1,25 @@
 import type { Container } from 'pixi.js';
 
-/** Allowed zoom levels (whole numbers keep pixel art crisp; 0.5 is a map overview). */
-export const ZOOM_STEPS = [0.5, 1, 2, 3, 4, 5];
+/**
+ * Allowed zoom levels in LOGICAL zoom (1 = the default 640x360 view; 0.5 is a map overview). The
+ * device pixel scale of a level is `max(1, floor(kd * level))`, so pixel art always lands on whole
+ * device pixels. Levels that give the same device scale collapse (at kd 1, 0.5 and 1 are both 1x).
+ */
+export const ZOOM_LEVELS = [0.5, 1, 2, 3];
+
+/** Device pixels per world pixel for a logical zoom level. */
+export function deviceScale(kd: number, level: number): number {
+  return Math.max(1, Math.floor(kd * level + 1e-9));
+}
+
+/** The levels that are actually distinct at this `kd` (later levels win a tie). */
+export function distinctLevels(kd: number): number[] {
+  return ZOOM_LEVELS.filter(
+    (l, i) =>
+      i === ZOOM_LEVELS.length - 1 ||
+      deviceScale(kd, l) !== deviceScale(kd, ZOOM_LEVELS[i + 1] as number),
+  );
+}
 
 export interface CameraBounds {
   width: number;
@@ -15,14 +33,16 @@ export interface CameraBounds {
 export class Camera {
   x = 0;
   y = 0;
-  zoom = 1;
-  minZoom = 0.35;
-  maxZoom = 2.5;
+  /** Logical zoom level (see `ZOOM_LEVELS`); 1 is the default view. */
+  level = 1;
   viewW = 1;
   viewH = 1;
   /** Extra space allowed beyond the map edges, in world pixels. */
   margin = 400;
 
+  /** Integer device pixels per logical pixel and device pixel ratio, from the viewport. */
+  private kd = 1;
+  private dpr = 1;
   private targetX = 0;
   private targetY = 0;
   private following = false;
@@ -35,6 +55,17 @@ export class Camera {
   constructor(private readonly bounds: CameraBounds) {
     this.x = bounds.width / 2;
     this.y = bounds.height / 2;
+  }
+
+  /** Takes the integer scale from the viewport (css scale = `kd / dpr`). */
+  setBase(kd: number, dpr: number): void {
+    this.kd = Math.max(1, Math.round(kd));
+    this.dpr = dpr > 0 ? dpr : 1;
+  }
+
+  /** CSS pixels per world pixel at the current level: a whole number of device pixels. */
+  get zoom(): number {
+    return deviceScale(this.kd, this.level) / this.dpr;
   }
 
   resize(w: number, h: number): void {
@@ -69,14 +100,19 @@ export class Camera {
   /** Zoom around a screen point so the world point under the cursor stays put. */
   zoomAt(factor: number, sx: number, sy: number): void {
     const before = this.toWorld(sx, sy);
-    // Pixel art stays crisp only at whole-number zoom: step through fixed levels.
-    const i = ZOOM_STEPS.reduce(
-      (best, z, k) =>
-        Math.abs(z - this.zoom) < Math.abs((ZOOM_STEPS[best] as number) - this.zoom) ? k : best,
+    // Pixel art stays crisp only at whole device scales: step through the distinct levels.
+    const steps = distinctLevels(this.kd);
+    const cur = deviceScale(this.kd, this.level);
+    const i = steps.reduce(
+      (best, l, k) =>
+        Math.abs(deviceScale(this.kd, l) - cur) <
+        Math.abs(deviceScale(this.kd, steps[best] as number) - cur)
+          ? k
+          : best,
       0,
     );
-    const next = Math.min(ZOOM_STEPS.length - 1, Math.max(0, i + (factor > 1 ? 1 : -1)));
-    this.zoom = ZOOM_STEPS[next] as number;
+    const next = Math.min(steps.length - 1, Math.max(0, i + (factor > 1 ? 1 : -1)));
+    this.level = steps[next] as number;
     const after = this.toWorld(sx, sy);
     this.x += before.x - after.x;
     this.y += before.y - after.y;
@@ -136,9 +172,11 @@ export class Camera {
   apply(world: Container): void {
     const z = this.scale;
     world.scale.set(z);
+    // Snap the origin to whole DEVICE pixels (not css px): no shimmer at any dpr.
+    const d = this.dpr;
     world.position.set(
-      Math.round(this.viewW / 2 - (this.x + this.shakeX) * z),
-      Math.round(this.viewH / 2 - (this.y + this.shakeY) * z),
+      Math.round((this.viewW / 2 - (this.x + this.shakeX) * z) * d) / d,
+      Math.round((this.viewH / 2 - (this.y + this.shakeY) * z) * d) / d,
     );
   }
 

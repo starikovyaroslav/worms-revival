@@ -2,6 +2,7 @@ import { Container, type Application } from 'pixi.js';
 import { TPS, Worm, type Game, type Mine, type Projectile } from '@wr/sim';
 import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
+import type { Viewport, ViewportController } from './viewport';
 import {
   AimView,
   LightLayer,
@@ -62,15 +63,19 @@ export class GameScene {
   /** Slow motion / hit-stop request: game clock at `scale` for `seconds` of real time. */
   onTimeScale: (scale: number, seconds: number) => void = () => {};
   readonly sfx = new Sfx();
+  private unsubscribe: () => void = () => {};
 
   constructor(
     private readonly app: Application,
+    viewport: ViewportController,
     private readonly game: Game,
     theme: Theme,
     seed: number,
   ) {
     const terrain = game.world.terrain;
     this.camera = new Camera(terrain);
+    this.applyViewport(viewport.current);
+    this.unsubscribe = viewport.onChange((vp) => this.applyViewport(vp));
     this.background = new Background(theme, terrain.width, terrain.height, seed);
     this.terrainView = new TerrainView(terrain, theme);
     this.water = new WaterView(theme, terrain.width);
@@ -112,7 +117,13 @@ export class GameScene {
     if (w) this.camera.lookAt(w.x, w.y - 40);
   }
 
+  /** Reacts to a new window size / scale / DPR (called before the frame that draws it). */
+  private applyViewport(vp: Viewport): void {
+    this.camera.setBase(vp.kd, vp.dpr);
+  }
+
   destroy(): void {
+    this.unsubscribe();
     this.lights.destroy();
     this.post.destroy();
     this.app.stage.removeChildren();

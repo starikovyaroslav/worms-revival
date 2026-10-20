@@ -49,9 +49,9 @@ export class Match {
     const game = this.player?.game ?? new Game(buildGameSetup(config));
     this.game = game;
     this.recorder = new ReplayRecorder(config);
-    const scene = new GameScene(app, game, themeById(config.themeId), config.seed);
+    const scene = new GameScene(app, viewport, game, themeById(config.themeId), config.seed);
     this.scene = scene;
-    scene.camera.zoom = 2;
+    scene.camera.level = 1;
     scene.onMessage = hooks.onMessage;
     // Effects and big hits may briefly slow the game clock. Only pacing changes, never results.
     scene.onTimeScale = (scale, seconds) => {
@@ -142,11 +142,11 @@ export class Match {
       match: this,
       fx: (id: string, size?: number, dx?: number, dy?: number) =>
         scene.debugEffect(id, size, dx, dy),
-      /** Debug: centre the camera on the first entity of a kind (`e:__game.look('barrel', 4)`). */
-      look: (kind: string, zoom = 4) => {
+      /** Debug: centre the camera on the first entity of a kind (`e:__game.look('barrel', 2)`, level 2 = 2x the default view). */
+      look: (kind: string, level = 2) => {
         const e = game.world.ofKind(kind)[0];
         if (!e) return false;
-        scene.camera.zoom = zoom;
+        scene.camera.level = level;
         scene.camera.lookAt(e.x, e.y);
         scene.userScrolled = true;
         return true;

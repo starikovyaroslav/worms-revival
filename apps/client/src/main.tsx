@@ -9,7 +9,7 @@ import { render } from 'preact';
 import type { MatchConfig, Replay } from '@wr/content';
 import { App, type UiApi } from './ui/App';
 import { Menu, defaultConfig } from './ui/Menu';
-import { assets } from '@wr/render';
+import { ZOOM_LEVELS, assets } from '@wr/render';
 import { Match } from './match';
 import { ViewportController, menuScale, parseKOverride, type Viewport } from './viewport';
 
@@ -142,7 +142,13 @@ async function boot() {
       teams: lastConfig.teams.map((t) => ({ ...t, cpu: Number(params.get('cpu') ?? 0) })),
     });
     const zoom = params.get('zoom');
-    if (zoom && match) (match as Match).scene.camera.zoom = Number(zoom);
+    // ?zoom= keeps the old scale (2 = default view); map it to the nearest zoom level.
+    if (zoom && match) {
+      const want = Number(zoom) / 2;
+      (match as Match).scene.camera.level = ZOOM_LEVELS.reduce((a, b) =>
+        Math.abs(b - want) < Math.abs(a - want) ? b : a,
+      );
+    }
   } else {
     showMenu();
   }
