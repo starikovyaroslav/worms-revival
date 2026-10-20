@@ -27,6 +27,8 @@ mkdirSync('/tmp/m1matrix', { recursive: true });
 const server = spawn('npx', ['vite', '--port', String(port), '--strictPort'], {
   cwd: 'apps/client',
   stdio: 'ignore',
+  // Own process group: `npx` leaves the real vite as a grandchild, killing only npx would leak it.
+  detached: true,
 });
 const failures = [];
 const check = (ok, msg) => {
@@ -115,7 +117,7 @@ try {
   }
   await browser.close();
 } finally {
-  server.kill();
+  process.kill(-server.pid);
 }
 if (failures.length) {
   console.error(`\n${failures.length} check(s) failed`);
