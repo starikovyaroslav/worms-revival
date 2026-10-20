@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Game } from '@wr/sim';
 import { Hud, type Announcement } from './Hud';
 import { GameOver } from './GameOver';
@@ -59,18 +59,22 @@ export function App({
   useEffect(() => settings.subscribe(setPrefs), [settings]);
   useEffect(() => onPause(dialog !== null), [dialog, onPause]);
 
-  // Esc: weapon panel first, then the menu (and one step back inside it).
+  // Esc: weapon panel first, then the menu (and one step back inside it). The handler reads refs that
+  // it updates itself, so two quick presses within one frame still step twice.
+  const live = useRef({ dialog, panel });
+  live.current = { dialog, panel };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.code !== 'Escape' || e.repeat) return;
       e.preventDefault();
-      const r = onEscape(dialog, panel);
+      const r = onEscape(live.current.dialog, live.current.panel);
+      live.current = { dialog: r.dialog, panel: live.current.panel && !r.closePanel };
       if (r.closePanel) setPanel(false);
       setDialog(r.dialog);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [dialog, panel]);
+  }, []);
 
   useEffect(() => {
     let next = 1;

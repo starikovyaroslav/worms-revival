@@ -92,7 +92,8 @@ export function Hud({
 
       {s.turn && s.waiting && (
         <div class="turn-prompt" style={{ color: s.turn.color }}>
-          Команда {s.turn.team}: нажмите любую клавишу
+          Команда {s.turn.team}
+          <div class="turn-prompt-key">нажмите любую клавишу</div>
         </div>
       )}
       {crate && <div class="turn-banner">Падает ящик · Пробел — не ждать</div>}
