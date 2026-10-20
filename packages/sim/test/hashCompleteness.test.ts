@@ -306,6 +306,7 @@ describe('hash completeness', () => {
     game.winner = 0;
     for (const t of game.teams) t.ammo.bazooka = 3;
     (game as unknown as { dyingQueue: number[] }).dyingQueue.push(3);
+    (game as unknown as { utilitiesUsed: string[] }).utilitiesUsed.push('laser');
     checkSubject(
       'Game',
       {

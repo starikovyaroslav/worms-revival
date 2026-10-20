@@ -19,6 +19,8 @@ export interface FireContext {
   target: { x: number; y: number } | null;
   setting: WeaponSetting;
   upgrades: Upgrades;
+  /** The match's damage multiplier before any per-turn utility (Double Damage builds on it). */
+  baseDamageScale: number;
   /** Ask the camera to follow an entity. */
   focus(entityId: number): void;
   /** Hand the controls over to an entity (sheep): fire and arrows go to it until it is gone. */
@@ -72,6 +74,8 @@ export interface WeaponDef {
   airborneOnly?: boolean;
   /** Aimed by angle and power, but also needs a target marked first (homing weapons). */
   needsTarget?: boolean;
+  /** Utility that switches a flag on for the turn: usable (and charged) once per turn. */
+  oncePerTurn?: boolean;
   /** Turn-control items handled by the game itself. */
   action?: 'skip' | 'surrender';
   /** Rejects bad targets (teleporting into rock) before anything is spent. */

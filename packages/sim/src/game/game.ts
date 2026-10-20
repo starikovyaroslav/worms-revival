@@ -87,6 +87,8 @@ export class Game {
   target: { x: number; y: number } | null = null;
   shotsLeft = 0;
   firedThisTurn = false;
+  /** Once-per-turn utilities already used this turn. */
+  private utilitiesUsed: string[] = [];
   /** Entity currently steered by the player (sheep), 0 if none. */
   controlledId = 0;
   /** Whether losing the controlled entity starts the retreat (sheep) or not (rope). */
@@ -190,6 +192,7 @@ export class Game {
     if (!def || !team) return false;
     const ammo = team.ammo[id] ?? 0;
     if (ammo === 0) return false;
+    if (def.oncePerTurn && this.utilitiesUsed.includes(id)) return false;
     if (def.needsSky && this.cavern) return false;
     return team.turnsTaken >= weaponSetting(this.scheme, id).delay;
   }
@@ -332,6 +335,7 @@ export class Game {
       target: this.target,
       setting: weaponSetting(this.scheme, def.id),
       upgrades: this.scheme.upgrades,
+      baseDamageScale: this.baseDamageScale,
       focus: (id) => (this.focusId = id),
       switchWorm: (id) => this.switchWorm(id),
       control: (id) => {
@@ -346,6 +350,7 @@ export class Game {
         worm.control = { left: false, right: false, up: false, down: false };
       },
     });
+    if (def.oncePerTurn) this.utilitiesUsed.push(def.id);
     this.world.emit({ type: 'fired', wormId: worm.id, weapon: def.id });
     const ammo = team.ammo[def.id] ?? 0;
     if (ammo > 0 && this.shotsLeft === (def.shots ?? 1)) team.ammo[def.id] = ammo - 1;
@@ -666,6 +671,7 @@ export class Game {
     this.power = 0;
     this.target = null;
     this.firedThisTurn = false;
+    this.utilitiesUsed = [];
     this.focusId = this.activeWormId;
     if (this.activeWormId)
       this.world.emit({ type: 'speech', wormId: this.activeWormId, line: 'turn' });
@@ -704,6 +710,7 @@ export class Game {
     h.bool(this.suddenDeath).u32((this.winner ?? -2) + 2);
     h.f64(this.fuseSeconds).bool(this.bounceHigh).value(this.target).u32(this.shotsLeft);
     h.bool(this.firedThisTurn).value(this.held).f64(this.baseDamageScale);
+    h.value(this.utilitiesUsed);
     h.u32(this.settleTicks).u32(this.settleTotal).f64(this.turnStartDamage);
     h.u32(this.dyingQueue.length);
     for (const id of this.dyingQueue) h.u32(id);
