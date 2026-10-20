@@ -37,8 +37,11 @@ export class Camera {
   level = 1;
   viewW = 1;
   viewH = 1;
-  /** Extra space allowed beyond the map edges, in world pixels. */
-  margin = 400;
+  /**
+   * How much empty space the view may show beyond the map, in world pixels: a little at the sides and
+   * below the water, more above (rockets and crates fly there). The view never leaves the map by more.
+   */
+  readonly margins = { x: 48, top: 120, bottom: 40 };
 
   /** Integer device pixels per logical pixel and device pixel ratio, from the viewport. */
   private kd = 1;
@@ -96,6 +99,7 @@ export class Camera {
     this.following = false;
     this.x += dxScreen / this.zoom;
     this.y += dyScreen / this.zoom;
+    this.clampToMap();
   }
 
   get isFollowing(): boolean {
@@ -123,6 +127,7 @@ export class Camera {
     this.y += before.y - after.y;
     this.targetX += before.x - after.x;
     this.targetY += before.y - after.y;
+    this.clampToMap();
   }
 
   /** Quick zoom-in that eases back (explosions, big hits). */
@@ -150,7 +155,7 @@ export class Camera {
       this.x += (this.targetX - this.x) * k;
       this.y += (this.targetY - this.y) * k;
     }
-    this.clamp();
+    this.clampToMap();
     if (this.shakeTime > 0) {
       this.shakeTime -= dt;
       const p = this.shakePower * Math.max(0, this.shakeTime) * 2.5;
@@ -162,13 +167,15 @@ export class Camera {
     }
   }
 
-  private clamp(): void {
+  /** Keeps the view inside the map plus its margins (a view larger than that is centred). */
+  clampToMap(): void {
     const halfW = this.viewW / 2 / this.zoom;
     const halfH = this.viewH / 2 / this.zoom;
-    const minX = -this.margin + halfW;
-    const maxX = this.bounds.width + this.margin - halfW;
-    const minY = -this.margin * 2 + halfH;
-    const maxY = this.bounds.height + 120 - halfH;
+    const { x: mx, top, bottom } = this.margins;
+    const minX = -mx + halfW;
+    const maxX = this.bounds.width + mx - halfW;
+    const minY = -top + halfH;
+    const maxY = this.bounds.height + bottom - halfH;
     this.x = minX > maxX ? this.bounds.width / 2 : Math.min(maxX, Math.max(minX, this.x));
     this.y = minY > maxY ? this.bounds.height / 2 : Math.min(maxY, Math.max(minY, this.y));
   }
@@ -198,4 +205,28 @@ export class Camera {
       y: (sy - this.viewH / 2) / this.scale + this.y,
     };
   }
+}
+
+/**
+ * Where to draw an arrow for something that is off screen: the point on the screen edge (inset by
+ * `inset`) in the direction of the target, and the angle to point at it. Null while it is on screen.
+ */
+export function edgeMarker(
+  sx: number,
+  sy: number,
+  width: number,
+  height: number,
+  inset: number,
+): { x: number; y: number; angle: number } | null {
+  if (sx >= 0 && sx <= width && sy >= 0 && sy <= height) return null;
+  const cx = width / 2;
+  const cy = height / 2;
+  const dx = sx - cx;
+  const dy = sy - cy;
+  // Scale the direction so it just touches the inset rectangle.
+  const k = Math.min(
+    dx === 0 ? Infinity : (cx - inset) / Math.abs(dx),
+    dy === 0 ? Infinity : (cy - inset) / Math.abs(dy),
+  );
+  return { x: cx + dx * k, y: cy + dy * k, angle: Math.atan2(dy, dx) };
 }

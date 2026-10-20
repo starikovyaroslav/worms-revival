@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Container } from 'pixi.js';
-import { Camera, deviceScale, distinctLevels } from '../src/camera';
+import { Camera, deviceScale, distinctLevels, edgeMarker } from '../src/camera';
 
 function cam(kd: number, dpr: number, w = 1280, h = 720): Camera {
   const c = new Camera({ width: 2000, height: 1000 });
@@ -98,5 +98,100 @@ describe('camera device scale', () => {
         expect(Math.abs(dev - Math.round(dev))).toBeLessThan(1e-9);
       }
     }
+  });
+});
+
+describe('camera bounds', () => {
+  /** The view rectangle must stay within the map plus the margins, whatever the user does. */
+  function inside(c: Camera): boolean {
+    const tl = c.toWorld(0, 0);
+    const br = c.toWorld(c.viewW, c.viewH);
+    const m = c.margins;
+    const eps = 1e-6;
+    return (
+      tl.x >= -m.x - eps &&
+      br.x <= 2000 + m.x + eps &&
+      tl.y >= -m.top - eps &&
+      br.y <= 1000 + m.bottom + eps
+    );
+  }
+
+  it('panning far in every direction stops at the margin', () => {
+    for (const [kd, level] of [
+      [2, 1],
+      [2, 3],
+      [3, 2],
+      [1, 1],
+    ] as const) {
+      const c = cam(kd, 1);
+      c.level = level;
+      c.lookAt(1000, 500);
+      for (const [dx, dy] of [
+        [-1e6, 0],
+        [1e6, 0],
+        [0, -1e6],
+        [0, 1e6],
+        [-1e6, -1e6],
+        [1e6, 1e6],
+      ] as const) {
+        c.pan(dx, dy);
+        expect(inside(c), `kd ${kd} level ${level} pan ${dx},${dy}`).toBe(true);
+      }
+    }
+  });
+
+  it('the view is never empty: the map always fills part of the screen', () => {
+    const c = cam(4, 1);
+    c.level = 3;
+    c.pan(-1e7, -1e7);
+    const tl = c.toWorld(0, 0);
+    // Top-left corner of the view sits at most one margin beyond the map corner.
+    expect(tl.x).toBeCloseTo(-c.margins.x, 6);
+    expect(tl.y).toBeCloseTo(-c.margins.top, 6);
+  });
+
+  it('zooming out near an edge pulls the view back inside', () => {
+    const c = cam(2, 1);
+    c.level = 3;
+    c.pan(1e6, 0);
+    c.zoomAt(0.5, 640, 360);
+    c.zoomAt(0.5, 640, 360);
+    expect(inside(c)).toBe(true);
+  });
+
+  it('a view larger than the map is centred', () => {
+    const c = cam(2, 1, 6000, 4000);
+    c.level = 0.5;
+    c.pan(500, 500);
+    expect(c.x).toBe(1000);
+    expect(c.y).toBe(500);
+  });
+
+  it('follow() keeps following after bounds-limited updates and stays inside', () => {
+    const c = cam(2, 1);
+    c.follow(-5000, 9000);
+    for (let i = 0; i < 100; i++) c.update(16);
+    expect(inside(c)).toBe(true);
+    expect(c.isFollowing).toBe(true);
+  });
+});
+
+describe('edgeMarker', () => {
+  it('is null for anything on screen', () => {
+    expect(edgeMarker(10, 10, 1280, 720, 8)).toBeNull();
+    expect(edgeMarker(1280, 720, 1280, 720, 8)).toBeNull();
+  });
+
+  it('puts the arrow on the inset edge in the direction of the target', () => {
+    const right = edgeMarker(5000, 360, 1280, 720, 8)!;
+    expect(right.x).toBeCloseTo(1272, 9);
+    expect(right.y).toBeCloseTo(360, 9);
+    expect(right.angle).toBeCloseTo(0, 9);
+    const up = edgeMarker(640, -900, 1280, 720, 8)!;
+    expect(up.y).toBeCloseTo(8, 9);
+    expect(up.angle).toBeCloseTo(-Math.PI / 2, 9);
+    const corner = edgeMarker(-4000, 4000, 1280, 720, 8)!;
+    expect(corner.x).toBeGreaterThanOrEqual(8 - 1e-9);
+    expect(corner.y).toBeLessThanOrEqual(712 + 1e-9);
   });
 });

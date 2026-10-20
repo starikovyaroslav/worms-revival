@@ -88,6 +88,15 @@ export class Match {
       { signal },
     );
     canvas.addEventListener('contextmenu', (e) => e.preventDefault(), { signal });
+    // Double click and C / Home bring the camera back to the action.
+    canvas.addEventListener('dblclick', () => scene.recentre(), { signal });
+    window.addEventListener(
+      'keydown',
+      (e) => {
+        if (!this.paused && !e.repeat && (e.code === 'KeyC' || e.code === 'Home')) scene.recentre();
+      },
+      { signal },
+    );
     window.addEventListener('pointerup', () => (dragging = false), { signal });
     window.addEventListener(
       'pointermove',
@@ -196,6 +205,10 @@ export class Match {
     const human = this.cpuLevel === 0;
     this.input.enabled = human && !this.paused;
     const fromInput = this.input.drain();
+    // Acting with the worm (walk, aim, jump, fire) takes the camera back from manual scrolling.
+    const acts = (c: Command) =>
+      (c.t === 'move' && (c.left || c.right || c.up || c.down)) || c.t === 'jump' || c.t === 'fire';
+    if (human && fromInput.some(acts)) this.scene.recentre();
     if (human) return fromInput;
     const controllable = game.phase === 'ready' || game.phase === 'turn';
     if (!controllable) return [];

@@ -1,4 +1,4 @@
-import { Container, type Application } from 'pixi.js';
+import { Container, Graphics, type Application } from 'pixi.js';
 import { TPS, Worm, type Game, type Mine, type Projectile } from '@wr/sim';
 import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
@@ -13,7 +13,9 @@ import {
   Background,
   Camera,
   Fx,
+  edgeMarker,
   labelScaleFor,
+  labelUnit,
   type LabelScale,
   TEAM_COLORS,
   TerrainView,
@@ -47,6 +49,8 @@ export class GameScene {
   private speech = new SpeechView();
   /** Text drawn at a fixed pixel size above the zoomed world (labels, speech, damage numbers). */
   private labelLayer = new Container();
+  /** Arrows at the screen edge for the active worm and crates that are out of view. */
+  private markers = new Graphics();
   private post: PostFx;
   private dirt: number;
   /** Last time each worm spoke, so they don't chatter non-stop. */
@@ -107,7 +111,7 @@ export class GameScene {
       this.water.front,
     );
     app.stage.addChild(this.background.container, this.world);
-    this.labelLayer.addChild(this.fx.container, this.speech.container);
+    this.labelLayer.addChild(this.fx.container, this.speech.container, this.markers);
     this.lights = new LightLayer(app, viewport.current);
     this.baseAmbient = theme.ambient ?? 0xffffff;
     this.lights.setAmbient(this.baseAmbient, true);
@@ -318,6 +322,42 @@ export class GameScene {
       });
   }
 
+  /** Camera follows the focus again (after the player looked around by hand). */
+  recentre(): void {
+    this.userScrolled = false;
+  }
+
+  /** Edge arrows for the active worm and for crates when they are off screen. */
+  private drawMarkers(project: (x: number, y: number) => { x: number; y: number }): void {
+    const g = this.markers;
+    g.clear();
+    const w = this.app.screen.width;
+    const h = this.app.screen.height;
+    const u = labelUnit(this.labelScale);
+    const arrow = (wx: number, wy: number, color: number) => {
+      const p = project(wx, wy);
+      const m = edgeMarker(p.x, p.y, w, h, 10 * u);
+      if (!m) return;
+      const c = Math.cos(m.angle);
+      const s = Math.sin(m.angle);
+      const pt = (fwd: number, side: number) => [
+        m.x + c * fwd - s * side,
+        m.y + s * fwd + c * side,
+      ];
+      const tip = pt(8 * u, 0);
+      const l = pt(-6 * u, -6 * u);
+      const r = pt(-6 * u, 6 * u);
+      g.poly([...tip, ...l, ...r])
+        .fill(color)
+        .stroke({ width: u, color: 0x1b1b2a });
+    };
+    const worm = this.game.activeWorm;
+    if (worm && this.game.phase !== 'gameover') {
+      arrow(worm.x, worm.y - 8, TEAM_COLORS[worm.team % TEAM_COLORS.length] as number);
+    }
+    for (const c of this.game.world.ofKind('crate')) arrow(c.x, c.y, 0xfbf236);
+  }
+
   /** Plays a sound positioned relative to what the camera shows. */
   sound(id: string, x: number, y: number, size = 0.5): void {
     const c = this.camera;
@@ -366,6 +406,7 @@ export class GameScene {
     this.post.update(dtMs);
     this.updateLights(dtMs);
     this.targetView.update(game, this.mouseWorld, dtMs);
+    this.drawMarkers(project);
     this.speech.update(dtMs, project);
     this.fx.update(dtMs, project);
     this.effects.update(dtMs);
