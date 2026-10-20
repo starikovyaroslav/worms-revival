@@ -20,20 +20,26 @@ import { Bot, type Plan } from '../src/bot';
  * final state hash. Playing it back must reproduce the hash exactly. If this test fails after a change
  * to simulation logic, the change altered outcomes: bump REPLAY_VERSION (old replays are invalid now)
  * and regenerate the fixture with `UPDATE_GOLDEN=1 npx vitest run packages/ai/test/golden.test.ts`.
- * Regeneration is refused while REPLAY_VERSION still equals the version stored in the fixture.
+ * Regeneration is refused while REPLAY_VERSION still equals the version stored in the fixture;
+ * `GOLDEN_FORCE=1` overrides that for a deliberate re-record that does not change rules (for example
+ * when the scripted matches themselves are extended). Say so in the commit message.
  */
 
 const FIXTURE = join(import.meta.dirname, 'fixtures/golden.wrr.json');
 const TICKS = 12000;
+/** The arsenal match needs about two turns per weapon, so it runs longer. */
+const ARSENAL_TICKS = 60000;
 
 type Driver = 'bot' | 'script';
 
-// Bots stick to a handful of weapons, so two further matches are driven by a script that cycles
-// through the whole arsenal. Seeds, maps and schemes differ.
+// Bots stick to a handful of weapons, so the other matches are driven by a script that cycles through
+// the whole arsenal. The normal schemes ration ammo (select is refused at 0), so the last match uses
+// the `arsenal` scheme: every weapon, infinite ammo, no delay. Seeds, maps and schemes differ.
 const MATCHES: { driver: Driver; config: MatchConfig }[] = [
   ['bot', 'island', 'meadow', 'intermediate', 20261020],
   ['script', 'island', 'meadow', 'intermediate', 5],
   ['script', 'cavern', 'desert', 'armageddon', 11],
+  ['script', 'island', 'meadow', 'arsenal', 3],
 ].map(([driver, style, themeId, schemeId, seed]) => ({
   driver: driver as Driver,
   config: {
@@ -109,7 +115,8 @@ function record({ driver, config }: { driver: Driver; config: MatchConfig }): Re
   const game = new Game(buildGameSetup(config));
   const rec = new ReplayRecorder(config);
   const next = driver === 'bot' ? botPlayer(config) : scriptedPlayer();
-  for (let i = 0; i < TICKS && game.phase !== 'gameover'; i++) {
+  const ticks = config.schemeId === 'arsenal' ? ARSENAL_TICKS : TICKS;
+  for (let i = 0; i < ticks && game.phase !== 'gameover'; i++) {
     const cmds = next(game);
     rec.record(game.world.tick, cmds);
     game.step(cmds);
@@ -117,14 +124,25 @@ function record({ driver, config }: { driver: Driver; config: MatchConfig }): Re
   return JSON.parse(JSON.stringify(rec.finish(game))) as Replay;
 }
 
+/** Plays a replay back and returns the ids of the weapons that were actually fired. */
+function firedWeapons(replay: Replay): Set<string> {
+  const player = new ReplayPlayer(replay);
+  const fired = new Set<string>();
+  while (!player.done) {
+    player.step();
+    for (const ev of player.game.world.drainEvents()) if (ev.type === 'fired') fired.add(ev.weapon);
+  }
+  return fired;
+}
+
 describe('golden replay', () => {
   if (process.env.UPDATE_GOLDEN) {
     it('regenerates the fixture', () => {
       if (existsSync(FIXTURE)) {
         const [old] = JSON.parse(readFileSync(FIXTURE, 'utf8')) as Replay[];
-        if (old?.version === REPLAY_VERSION) {
+        if (old?.version === REPLAY_VERSION && !process.env.GOLDEN_FORCE) {
           throw new Error(
-            `Bump REPLAY_VERSION (still ${REPLAY_VERSION}) before regenerating the golden replay.`,
+            `Bump REPLAY_VERSION (still ${REPLAY_VERSION}) before regenerating the golden replay (or set GOLDEN_FORCE=1).`,
           );
         }
       }
@@ -154,4 +172,12 @@ describe('golden replay', () => {
       expect(replay.log.length).toBeGreaterThan(30);
     });
   }
+
+  it('fires most of the registered arsenal, including the late weapons', () => {
+    const fired = new Set<string>();
+    for (const replay of golden) for (const id of firedWeapons(replay)) fired.add(id);
+    const total = allWeapons().length;
+    console.log(`golden replay fires ${fired.size} of ${total} weapons`);
+    expect(fired.size).toBeGreaterThanOrEqual(55);
+  }, 60_000);
 });

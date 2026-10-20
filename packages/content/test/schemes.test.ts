@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { getWeapon } from '@wr/sim';
-import { SCHEMES } from '../src/schemes';
+import { allWeapons, getWeapon } from '@wr/sim';
+import { arsenalScheme, schemeById, SCHEMES } from '../src/schemes';
 import { TEAM_PRESETS } from '../src/teams';
 
 describe('content', () => {
@@ -9,6 +9,14 @@ describe('content', () => {
       for (const id of Object.keys(s.weapons))
         expect(getWeapon(id), `${s.id}: ${id}`).toBeDefined();
     }
+  });
+
+  it('the arsenal test bed has every weapon with infinite ammo and no delay', () => {
+    const s = arsenalScheme();
+    expect(schemeById('arsenal')).toBe(s);
+    expect(SCHEMES).not.toContain(s);
+    for (const d of allWeapons())
+      expect(s.weapons[d.id], d.id).toMatchObject({ ammo: -1, delay: 0 });
   });
 
   it('team presets have 8 unique worm names', () => {

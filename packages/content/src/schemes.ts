@@ -1,4 +1,4 @@
-import { NO_UPGRADES, type Scheme, type WeaponSetting } from '@wr/sim';
+import { allWeapons, NO_UPGRADES, type Scheme, type WeaponSetting } from '@wr/sim';
 
 const w = (ammo: number, power = 3, delay = 0, crate = 2): WeaponSetting => ({
   ammo,
@@ -346,6 +346,29 @@ export const SCHEME_INFO: Record<string, { description: string; style?: 'island'
   armageddon: { description: 'Внезапная смерть сразу: 150 HP, яд и поднимающаяся вода.' },
 };
 
+let arsenal: Scheme | null = null;
+
+/**
+ * Test bed, not in the menu: every registered weapon with infinite ammo and no delay, so scripted
+ * matches (the golden replay) can exercise the whole arsenal. Built on first use because the weapon
+ * registry has to be complete by then. Reachable through `schemeById('arsenal')`.
+ */
+export function arsenalScheme(): Scheme {
+  arsenal ??= {
+    ...INTERMEDIATE,
+    id: 'arsenal',
+    name: 'Arsenal (test bed)',
+    // Survive many heavy weapons, so the script gets to try all of them.
+    wormHealth: 1000,
+    wormsPerTeam: 8,
+    mines: 0,
+    barrels: 0,
+    weapons: Object.fromEntries(allWeapons().map((d) => [d.id, w(INF, 3, 0, d.action ? 0 : 1)])),
+  };
+  return arsenal;
+}
+
 export function schemeById(id: string): Scheme {
+  if (id === 'arsenal') return arsenalScheme();
   return SCHEMES.find((s) => s.id === id) ?? INTERMEDIATE;
 }
