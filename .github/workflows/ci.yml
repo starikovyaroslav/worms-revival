@@ -1,9 +1,13 @@
 name: CI
 
+# Pull requests only: with a `push` trigger on other branches every PR push would run twice, and main
+# is gated by pages.yml, which runs the same checks before deploying.
 on:
   pull_request:
-  push:
-    branches-ignore: [main] # main is gated by pages.yml, which runs the same checks before deploying
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: ci-${{ github.ref }}

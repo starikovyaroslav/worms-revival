@@ -5,11 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Required for the `deploy-pages` action.
+# Least privilege by default; only the deploy job gets the Pages write and OIDC token scopes.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # Allow one concurrent deploy; don't cancel an in-flight production deploy.
 concurrency:
@@ -19,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read # configure-pages looks up the Pages settings
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,6 +37,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write # required by deploy-pages
+      id-token: write # required by deploy-pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
