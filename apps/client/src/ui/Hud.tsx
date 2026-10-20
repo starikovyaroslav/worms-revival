@@ -7,6 +7,9 @@ export interface Announcement {
   text: string;
 }
 
+/** Width in logical px of a team bar at full health. */
+const TEAM_BAR_W = 130;
+
 function Wind({ wind }: { wind: number }) {
   const pct = Math.abs(wind) * 50;
   return (
@@ -78,11 +81,14 @@ export function Hud({
       )}
       <div class="hud-bottom">
         <div class="timer-box">
+          {/* D6: the big number is the turn countdown (seconds), the small one the round clock. */}
+          <div class="cap">ХОД</div>
           <div
             class={`timer ${s.timer !== null && s.timer <= 5 && !s.waiting ? 'urgent' : ''} ${s.waiting ? 'waiting' : ''}`}
           >
-            {s.timer ?? '—'}
+            {s.timer ?? '--'}
           </div>
+          <div class="cap">РАУНД</div>
           <div class={`round ${s.suddenDeath ? 'sd' : ''}`}>
             {s.suddenDeath ? 'SD' : formatClock(s.round)}
           </div>
@@ -96,7 +102,7 @@ export function Hud({
               </span>
               <div
                 class="team-bar"
-                style={{ width: `${(t.hp / s.maxHp) * 260}px`, background: t.color }}
+                style={{ width: `${(t.hp / s.maxHp) * TEAM_BAR_W}px`, background: t.color }}
               />
             </div>
           ))}
