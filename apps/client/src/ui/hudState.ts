@@ -14,6 +14,8 @@ export interface HudState {
   timer: number | null;
   /** Hot-seat: the timer has not started yet. */
   waiting: boolean;
+  /** A supply crate is coming down and the turn is held back (Space skips the wait). */
+  crate: boolean;
   /** Whose turn it is (the banner at the start of each turn and the hot-seat prompt). */
   turn: { number: number; team: string; worm: string; color: string } | null;
   /** First turn of the match: remind how to choose a weapon. */
@@ -51,6 +53,7 @@ export function hudState(game: Game, wormpot: readonly string[] = []): HudState 
   return {
     timer: timed ? Math.ceil(game.timer / TPS) : null,
     waiting: game.phase === 'ready',
+    crate: game.phase === 'crate',
     turn: turnInfo(game),
     firstTurn: game.turn <= 1,
     round: Math.ceil(game.roundTimer / TPS),

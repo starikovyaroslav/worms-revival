@@ -216,17 +216,27 @@ export class Game {
     const worm = this.activeWorm;
     if (!worm) return;
     const controllable =
-      this.phase === 'ready' || this.phase === 'turn' || this.phase === 'retreat';
+      this.phase === 'crate' ||
+      this.phase === 'ready' ||
+      this.phase === 'turn' ||
+      this.phase === 'retreat';
     if (!controllable) return;
+    if (this.phase === 'crate') {
+      // While the crate falls the player may pick a weapon and aim, but nothing acts yet. Fire or
+      // jump cancels the wait: the turn starts while the crate is still coming down (the shot itself
+      // is dropped, it would otherwise go off before the player sees the turn begin).
+      if ((c.t === 'fire' && c.down) || c.t === 'jump') this.beginReady();
+      else if (c.t === 'skip' || c.t === 'surrender' || c.t === 'fire') return;
+      if (c.t === 'fire' || c.t === 'jump') return;
+    }
     // Any input during the hot-seat delay starts the turn.
     if (this.phase === 'ready' && c.t !== 'move') this.beginTurnTimer();
     const team = this.teams[this.activeTeam] as Team;
 
     switch (c.t) {
       case 'move': {
-        const walk = !this.scheme.artillery && !this.controlledId;
         this.held = { left: c.left, right: c.right, up: c.up, down: c.down };
-        worm.control = { left: walk && c.left, right: walk && c.right, up: c.up, down: c.down };
+        this.applyHeld(worm);
         if (this.phase === 'ready' && (c.left || c.right || c.up || c.down)) this.beginTurnTimer();
         break;
       }
@@ -235,7 +245,7 @@ export class Game {
         break;
       case 'select':
         if (
-          this.phase === 'turn' &&
+          (this.phase === 'turn' || this.phase === 'crate') &&
           !this.charging &&
           !this.firedThisTurn &&
           this.canUse(c.weapon)
@@ -279,6 +289,13 @@ export class Game {
         this.endTurn();
         break;
     }
+  }
+
+  /** Hands the held arrow keys to the worm: no walking in artillery, under a controlled entity, or while a crate falls. */
+  private applyHeld(worm: Worm): void {
+    const h = this.held;
+    const walk = !this.scheme.artillery && !this.controlledId && this.phase !== 'crate';
+    worm.control = { left: walk && h.left, right: walk && h.right, up: h.up, down: h.down };
   }
 
   private beginTurnTimer(): void {
@@ -403,7 +420,7 @@ export class Game {
     }
     const worm = this.activeWorm;
     if (!worm) return;
-    if (this.phase === 'turn' || this.phase === 'ready') {
+    if (this.phase === 'turn' || this.phase === 'ready' || this.phase === 'crate') {
       if (worm.control.up) worm.aim = Math.min(HALF_PI, worm.aim + AIM_SPEED);
       if (worm.control.down) worm.aim = Math.max(-HALF_PI, worm.aim - AIM_SPEED);
     }
@@ -682,6 +699,8 @@ export class Game {
     this.target = null;
     this.firedThisTurn = false;
     this.utilitiesUsed = [];
+    // Keys pressed before the turn are the previous player's; only keys sent from now on count.
+    this.held = { left: false, right: false, up: false, down: false };
     this.focusId = this.activeWormId;
     if (this.activeWormId)
       this.world.emit({ type: 'speech', wormId: this.activeWormId, line: 'turn' });
@@ -717,7 +736,11 @@ export class Game {
 
   private beginReady(): void {
     this.phase = 'ready';
-    this.focusId = this.activeWormId;
+    // A crate that is still coming down (the player did not wait) keeps the camera until it lands.
+    const watched = this.world.byId(this.focusId);
+    if (!watched || watched instanceof Worm || !watched.isBusy()) this.focusId = this.activeWormId;
+    const worm = this.activeWorm;
+    if (worm) this.applyHeld(worm);
     this.timer = this.waitsForHandOver ? Math.round(this.scheme.hotSeatTime * TPS) : 0;
     if (this.timer <= 0) this.beginTurnTimer();
   }

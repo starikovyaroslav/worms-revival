@@ -53,14 +53,15 @@ export function Hud({
   const [s, setS] = useState<HudState>(() => hudState(game, wormpot));
   const [banner, setBanner] = useState<number | null>(null);
   const turnNumber = s.turn?.number ?? null;
+  const crate = s.crate;
 
   // A turn banner on every new turn; it is not shown while the hot-seat prompt already says whose turn it is.
   useEffect(() => {
-    if (turnNumber === null) return;
+    if (turnNumber === null || crate) return;
     setBanner(turnNumber);
     const id = setTimeout(() => setBanner(null), BANNER_MS);
     return () => clearTimeout(id);
-  }, [turnNumber]);
+  }, [turnNumber, crate]);
 
   useEffect(() => {
     let raf = 0;
@@ -94,7 +95,8 @@ export function Hud({
           Команда {s.turn.team}: нажмите любую клавишу
         </div>
       )}
-      {s.turn && !s.waiting && banner === s.turn.number && (
+      {crate && <div class="turn-banner">Падает ящик · Пробел — не ждать</div>}
+      {s.turn && !s.waiting && !crate && banner === s.turn.number && (
         <div class="turn-banner" key={s.turn.number} style={{ color: s.turn.color }}>
           {s.turn.team} — {s.turn.worm}
         </div>
