@@ -12,6 +12,8 @@ export type Command =
   /** Target for homing / strike weapons, in world pixels. */
   | { t: 'target'; x: number; y: number }
   | { t: 'skip' }
+  /** Any key at the hot-seat hand-over: starts the turn timer, changes nothing else. */
+  | { t: 'ready' }
   | { t: 'surrender' };
 
 export interface TimedCommand {

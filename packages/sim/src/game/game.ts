@@ -6,7 +6,7 @@ import { Barrel } from '../weapons/barrel';
 import { Crate } from '../weapons/crate';
 import { explode } from '../weapons/explosion';
 import { Mine } from '../weapons/mine';
-import { getWeapon, isRemoteControlled, type WeaponDef } from '../weapons/weapon';
+import { allWeapons, getWeapon, isRemoteControlled, type WeaponDef } from '../weapons/weapon';
 import { Entity } from '../world/entity';
 import { Gravestone } from '../world/gravestone';
 import { World } from '../world/world';
@@ -32,6 +32,8 @@ export type Phase = 'crate' | 'ready' | 'turn' | 'retreat' | 'settling' | 'dying
 export interface TeamSetup {
   name: string;
   worms: string[];
+  /** Computer-controlled: never makes anyone wait for a hot-seat hand-over. */
+  cpu?: boolean;
 }
 
 export interface GameSetup {
@@ -59,6 +61,7 @@ export class Team {
   constructor(
     readonly index: number,
     readonly name: string,
+    readonly cpu = false,
   ) {}
 }
 
@@ -67,6 +70,8 @@ export class Game {
   readonly scheme: Scheme;
   readonly teams: Team[];
   readonly cavern: boolean;
+  /** Two or more human teams share the keyboard: the hand-over wait applies to them. */
+  readonly hotSeat: boolean;
   phase: Phase = 'ready';
   /** Ticks left in the current phase (ready / turn / retreat / dying). */
   timer = 0;
@@ -108,6 +113,7 @@ export class Game {
   constructor(setup: GameSetup) {
     this.scheme = setup.scheme;
     this.cavern = setup.cavern ?? false;
+    this.hotSeat = setup.teams.filter((t) => !t.cpu).length >= 2;
     this.world = new World({
       seed: setup.seed,
       terrain: setup.terrain,
@@ -121,7 +127,7 @@ export class Game {
     }
     this.roundTimer = Math.round(this.scheme.roundTime * TPS);
     this.teams = setup.teams.map((t, i) => {
-      const team = new Team(i, t.name);
+      const team = new Team(i, t.name, t.cpu ?? false);
       for (const [id, s] of Object.entries(this.scheme.weapons)) team.ammo[id] = s.ammo;
       return team;
     });
@@ -258,6 +264,9 @@ export class Game {
         else if (this.charging) this.fire(worm, this.power);
         break;
       }
+      case 'ready':
+        // Only hands the turn over (above): "Team X, press any key".
+        break;
       case 'skip':
         if (this.phase !== 'retreat') this.endTurn();
         break;
@@ -666,7 +675,7 @@ export class Game {
       this.world.wind = next;
     }
 
-    this.weaponId = team.lastWeapon && this.canUse(team.lastWeapon) ? team.lastWeapon : '';
+    this.weaponId = this.defaultWeapon(team);
     this.shotsLeft = this.weapon?.shots ?? 1;
     this.charging = false;
     this.power = 0;
@@ -687,10 +696,29 @@ export class Game {
     this.beginReady();
   }
 
+  /**
+   * What is in hand when the turn starts, so the first Space always does something: the team's last
+   * choice, else the bazooka, else the first usable attack in panel order.
+   */
+  private defaultWeapon(team: Team): string {
+    if (team.lastWeapon && this.canUse(team.lastWeapon)) return team.lastWeapon;
+    if (this.canUse('bazooka')) return 'bazooka';
+    const first = allWeapons().find(
+      (w) => !w.action && !w.id.startsWith('test-') && this.canUse(w.id),
+    );
+    return first?.id ?? '';
+  }
+
+  /** The hot-seat wait is only for a human team handing over the keyboard to another human. */
+  get waitsForHandOver(): boolean {
+    const team = this.teams[this.activeTeam];
+    return this.hotSeat && !!team && !team.cpu;
+  }
+
   private beginReady(): void {
     this.phase = 'ready';
     this.focusId = this.activeWormId;
-    this.timer = Math.round(this.scheme.hotSeatTime * TPS);
+    this.timer = this.waitsForHandOver ? Math.round(this.scheme.hotSeatTime * TPS) : 0;
     if (this.timer <= 0) this.beginTurnTimer();
   }
 
@@ -712,11 +740,17 @@ export class Game {
     h.f64(this.fuseSeconds).bool(this.bounceHigh).value(this.target).u32(this.shotsLeft);
     h.bool(this.firedThisTurn).value(this.held).f64(this.baseDamageScale);
     h.value(this.utilitiesUsed);
+    h.bool(this.hotSeat);
     h.u32(this.settleTicks).u32(this.settleTotal).f64(this.turnStartDamage);
     h.u32(this.dyingQueue.length);
     for (const id of this.dyingQueue) h.u32(id);
     for (const t of this.teams) {
-      h.u32(t.nextWorm).u32(t.turnsTaken).bool(t.surrendered).str(t.lastWeapon).value(t.ammo);
+      h.bool(t.cpu)
+        .u32(t.nextWorm)
+        .u32(t.turnsTaken)
+        .bool(t.surrendered)
+        .str(t.lastWeapon)
+        .value(t.ammo);
       for (const id of t.wormIds) h.u32(id);
     }
   }

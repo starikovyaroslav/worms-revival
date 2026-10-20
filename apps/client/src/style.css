@@ -209,6 +209,41 @@ body {
   }
 }
 
+/* Turn start: a banner for 1.2 s, or the hot-seat prompt that stays until a key is pressed. */
+.turn-banner,
+.turn-prompt {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.4;
+  text-shadow:
+    1px 1px 0 var(--ink),
+    -1px 1px 0 var(--ink),
+    1px -1px 0 var(--ink),
+    -1px -1px 0 var(--ink);
+  animation: pop 0.3s steps(4);
+}
+
+.turn-prompt {
+  font-size: 16px;
+  top: 40px;
+}
+
+.first-hint {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  text-align: right;
+  text-shadow:
+    1px 1px 0 var(--ink),
+    -1px 1px 0 var(--ink),
+    1px -1px 0 var(--ink),
+    -1px -1px 0 var(--ink);
+}
+
 .hud-mods {
   position: absolute;
   top: 4px;

@@ -7,6 +7,9 @@ export interface Announcement {
   text: string;
 }
 
+/** How long the "whose turn" banner stays, ms. */
+const BANNER_MS = 1200;
+
 /** Width in logical px of a team bar at full health. */
 const TEAM_BAR_W = 130;
 
@@ -48,6 +51,16 @@ export function Hud({
   onOver?: (over: HudState['over']) => void;
 }) {
   const [s, setS] = useState<HudState>(() => hudState(game, wormpot));
+  const [banner, setBanner] = useState<number | null>(null);
+  const turnNumber = s.turn?.number ?? null;
+
+  // A turn banner on every new turn; it is not shown while the hot-seat prompt already says whose turn it is.
+  useEffect(() => {
+    if (turnNumber === null) return;
+    setBanner(turnNumber);
+    const id = setTimeout(() => setBanner(null), BANNER_MS);
+    return () => clearTimeout(id);
+  }, [turnNumber]);
 
   useEffect(() => {
     let raf = 0;
@@ -76,6 +89,17 @@ export function Hud({
         ))}
       </div>
 
+      {s.turn && s.waiting && (
+        <div class="turn-prompt" style={{ color: s.turn.color }}>
+          Команда {s.turn.team}: нажмите любую клавишу
+        </div>
+      )}
+      {s.turn && !s.waiting && banner === s.turn.number && (
+        <div class="turn-banner" key={s.turn.number} style={{ color: s.turn.color }}>
+          {s.turn.team} — {s.turn.worm}
+        </div>
+      )}
+
       {s.mods.length > 0 && (
         <div class="hud-mods">
           {s.mods.map((m) => (
@@ -88,7 +112,7 @@ export function Hud({
       <div class="hud-bottom">
         <div class="timer-box">
           {/* D6: the big number is the turn countdown (seconds), the small one the round clock. */}
-          <div class="cap">ХОД</div>
+          <div class="cap">{s.waiting ? 'ГОТОВ' : 'ХОД'}</div>
           <div
             class={`timer ${s.timer !== null && s.timer <= 5 && !s.waiting ? 'urgent' : ''} ${s.waiting ? 'waiting' : ''}`}
           >
@@ -123,6 +147,7 @@ export function Hud({
               {s.weapon.hint && <div class="weapon-hint">{s.weapon.hint}</div>}
             </div>
           )}
+          {s.firstTurn && <div class="weapon-hint first-hint">ПКМ / F1–F12 — выбор оружия</div>}
           <Wind wind={s.wind} />
         </div>
       </div>

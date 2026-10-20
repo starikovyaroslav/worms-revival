@@ -45,7 +45,7 @@ export function buildGameSetup(cfg: MatchConfig): GameSetup {
   return {
     seed: cfg.seed,
     scheme,
-    teams: cfg.teams.map((t) => ({ name: t.name, worms: t.worms })),
+    teams: cfg.teams.map((t) => ({ name: t.name, worms: t.worms, cpu: t.cpu > 0 })),
     terrain: map.terrain,
     waterLevel: map.waterLevel,
     spawns,

@@ -42,6 +42,7 @@ export class Input {
       'pointerdown',
       (e) => {
         if (e.button !== 0 || e.shiftKey || !this.enabled) return;
+        if (this.game().phase === 'ready') this.queue.push({ t: 'ready' });
         const def = this.game().weapon;
         if (def?.needsTarget) {
           // Homing weapons: the click only marks the target.
@@ -77,6 +78,14 @@ export class Input {
   private onKey(e: KeyboardEvent, down: boolean): void {
     if (!this.enabled) return;
     const code = e.code;
+    // Hot-seat hand-over ("Team X, press any key"): any key starts the turn.
+    if (
+      down &&
+      this.game().phase === 'ready' &&
+      !e.repeat &&
+      !this.queue.some((c) => c.t === 'ready')
+    )
+      this.queue.push({ t: 'ready' });
     const arrows: Record<string, keyof Input['held']> = {
       ArrowLeft: 'left',
       ArrowRight: 'right',

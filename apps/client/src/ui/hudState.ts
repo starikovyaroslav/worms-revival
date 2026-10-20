@@ -14,6 +14,10 @@ export interface HudState {
   timer: number | null;
   /** Hot-seat: the timer has not started yet. */
   waiting: boolean;
+  /** Whose turn it is (the banner at the start of each turn and the hot-seat prompt). */
+  turn: { number: number; team: string; worm: string; color: string } | null;
+  /** First turn of the match: remind how to choose a weapon. */
+  firstTurn: boolean;
   round: number;
   wind: number;
   suddenDeath: boolean;
@@ -28,6 +32,18 @@ export interface HudState {
 
 const hex = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
 
+function turnInfo(game: Game): HudState['turn'] {
+  const team = game.teams[game.activeTeam];
+  const worm = game.activeWorm;
+  if (!team || !worm || game.phase === 'gameover') return null;
+  return {
+    number: game.turn,
+    team: team.name,
+    worm: worm.name,
+    color: hex(TEAM_COLORS[team.index % TEAM_COLORS.length] as number),
+  };
+}
+
 export function hudState(game: Game, wormpot: readonly string[] = []): HudState {
   const def = game.weapon;
   const winner = game.winner !== null && game.winner >= 0 ? game.teams[game.winner] : undefined;
@@ -35,6 +51,8 @@ export function hudState(game: Game, wormpot: readonly string[] = []): HudState 
   return {
     timer: timed ? Math.ceil(game.timer / TPS) : null,
     waiting: game.phase === 'ready',
+    turn: turnInfo(game),
+    firstTurn: game.turn <= 1,
     round: Math.ceil(game.roundTimer / TPS),
     wind: Math.round(game.world.wind * 10) / 10,
     suddenDeath: game.suddenDeath,
