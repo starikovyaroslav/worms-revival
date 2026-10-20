@@ -12,6 +12,7 @@ import { themeById } from '@wr/render';
 import { FixedLoop } from './loop';
 import { Input } from './input';
 import { GameScene } from './scene';
+import type { ViewportController } from './viewport';
 
 export interface MatchHooks {
   onMessage(text: string): void;
@@ -39,6 +40,7 @@ export class Match {
 
   constructor(
     app: Application,
+    viewport: ViewportController,
     readonly config: MatchConfig,
     private readonly hooks: MatchHooks,
     replay?: Replay,
@@ -125,6 +127,8 @@ export class Match {
       (alpha, dt) => {
         if (this.slow.left > 0) this.slow.left -= dt / 1000;
         this.loop.speed = this.userSpeed * (this.slow.left > 0 ? this.slow.scale : 1);
+        // A pending resize / DPR change is applied once per frame, before anything is drawn.
+        viewport.flush();
         this.thinkBot();
         scene.mouseWorld = input.mouseWorld;
         scene.render(alpha, dt);

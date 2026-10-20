@@ -26,7 +26,10 @@ function lightTexture(): Texture {
   grad.addColorStop(1, 'rgba(255,255,255,0)');
   g.fillStyle = grad;
   g.fillRect(0, 0, size, size);
-  return Texture.from(c);
+  const t = Texture.from(c);
+  // Glows must stay smooth although pixel art defaults to nearest.
+  t.source.scaleMode = 'linear';
+  return t;
 }
 
 const MAX_LIGHTS = 48;
@@ -61,7 +64,7 @@ export class LightLayer {
   constructor(private readonly app: Application) {
     const w = Math.max(2, Math.ceil(app.screen.width / 2));
     const h = Math.max(2, Math.ceil(app.screen.height / 2));
-    this.rt = RenderTexture.create({ width: w, height: h });
+    this.rt = RenderTexture.create({ width: w, height: h, scaleMode: 'linear' });
     this.mapSprite = new Sprite(this.rt);
     this.mapSprite.blendMode = 'multiply';
     this.container.addChild(this.direct, this.mapSprite);

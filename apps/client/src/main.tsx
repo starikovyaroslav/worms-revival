@@ -4,23 +4,52 @@ import '@fontsource/pixelify-sans/latin-700.css';
 import '@fontsource/pixelify-sans/cyrillic-700.css';
 import '@fontsource/press-start-2p/latin-400.css';
 import '@fontsource/press-start-2p/cyrillic-400.css';
-import { Application } from 'pixi.js';
+import { Application, TextureStyle } from 'pixi.js';
 import { render } from 'preact';
 import type { MatchConfig, Replay } from '@wr/content';
 import { App, type UiApi } from './ui/App';
 import { Menu, defaultConfig } from './ui/Menu';
 import { assets } from '@wr/render';
 import { Match } from './match';
+import { ViewportController, menuScale, parseKOverride, type Viewport } from './viewport';
+
+/** Publishes the viewport to CSS: `--k` (css px per logical px), `--km` (same for the menu), etc. */
+function applyCssVars(vp: Viewport): void {
+  const st = document.documentElement.style;
+  st.setProperty('--k', String(vp.cssScale));
+  st.setProperty('--kd', String(vp.kd));
+  st.setProperty('--dpr', String(vp.dpr));
+  st.setProperty('--lw', String(vp.logicalW));
+  st.setProperty('--lh', String(vp.logicalH));
+  st.setProperty('--km', String(menuScale(vp.cssW, vp.cssH, vp.dpr) / vp.dpr));
+}
 
 async function boot() {
+  // Pixel art: every texture is sampled with nearest unless it opts into linear (glows, lights).
+  TextureStyle.defaultOptions.scaleMode = 'nearest';
+  // One module decides the integer scale; this controller only reports changes (see viewport.ts).
+  const viewport: ViewportController = new ViewportController(
+    window,
+    parseKOverride(location.search),
+    () => requestAnimationFrame(() => viewport.flush()),
+  );
+  const vp0 = viewport.current;
   const app = new Application();
   await app.init({
-    resizeTo: window,
+    width: vp0.cssW,
+    height: vp0.cssH,
     background: '#0b1020',
-    antialias: true,
+    antialias: false,
+    roundPixels: true,
     preference: 'webgl',
     autoDensity: true,
-    resolution: window.devicePixelRatio || 1,
+    resolution: vp0.dpr,
+  });
+  applyCssVars(vp0);
+  viewport.onChange((vp) => {
+    app.renderer.resize(vp.cssW, vp.cssH, vp.dpr);
+    applyCssVars(vp);
+    app.render();
   });
   document.getElementById('game')!.appendChild(app.canvas);
   app.ticker.stop();
@@ -68,6 +97,7 @@ async function boot() {
     const ui: Partial<UiApi> = {};
     const m = new Match(
       app,
+      viewport,
       cfg,
       {
         onMessage: (text) => ui.announce?.(text),

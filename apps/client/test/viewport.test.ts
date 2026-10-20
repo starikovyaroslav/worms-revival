@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { computeViewport, forceScale, menuScale, parseKOverride } from '../src/viewport';
+import {
+  ViewportController,
+  computeViewport,
+  forceScale,
+  menuScale,
+  parseKOverride,
+  type ViewportEnv,
+} from '../src/viewport';
 
 describe('computeViewport', () => {
   // [css w, css h, dpr, kd, logical w, logical h]
@@ -88,5 +95,46 @@ describe('parseKOverride', () => {
     expect(parseKOverride('?k=1.5')).toBeUndefined();
     expect(parseKOverride('?k=abc')).toBeUndefined();
     expect(parseKOverride('')).toBeUndefined();
+  });
+});
+
+describe('ViewportController', () => {
+  const makeEnv = () => {
+    const handlers: (() => void)[] = [];
+    const env: ViewportEnv = {
+      innerWidth: 1280,
+      innerHeight: 720,
+      devicePixelRatio: 1,
+      addEventListener: (_t, cb) => handlers.push(cb),
+      removeEventListener: () => {},
+    };
+    return { env, fire: () => handlers.forEach((h) => h()) };
+  };
+
+  it('coalesces changes and notifies once per flush', () => {
+    const { env, fire } = makeEnv();
+    const c = new ViewportController(env);
+    const seen: number[] = [];
+    c.onChange((vp) => seen.push(vp.kd));
+    expect(c.current.kd).toBe(2);
+    env.innerWidth = 1920;
+    env.innerHeight = 1080;
+    fire();
+    fire();
+    expect(seen).toEqual([]);
+    expect(c.flush()).toBe(true);
+    expect(seen).toEqual([3]);
+    expect(c.flush()).toBe(false);
+  });
+
+  it('reacts to a dpr change and honours the k override', () => {
+    const { env, fire } = makeEnv();
+    const c = new ViewportController(env, 1);
+    expect(c.current.kd).toBe(1);
+    env.devicePixelRatio = 2;
+    fire();
+    expect(c.flush()).toBe(true);
+    expect(c.current.dpr).toBe(2);
+    expect(c.current.cssScale).toBe(0.5);
   });
 });

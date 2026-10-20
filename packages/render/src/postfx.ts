@@ -40,7 +40,9 @@ function vignetteTexture(): Texture {
   grad.addColorStop(1, 'rgba(255,255,255,1)');
   g.fillStyle = grad;
   g.fillRect(0, 0, size, size);
-  return Texture.from(c);
+  const t = Texture.from(c);
+  t.source.scaleMode = 'linear';
+  return t;
 }
 
 /**

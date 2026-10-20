@@ -65,3 +65,99 @@ export function parseKOverride(search: string): number | undefined {
   const k = Number(raw);
   return k >= 1 ? k : undefined;
 }
+
+/** What the controller needs from the browser; a fake in unit tests. */
+export interface ViewportEnv {
+  innerWidth: number;
+  innerHeight: number;
+  devicePixelRatio: number;
+  addEventListener(type: 'resize', cb: () => void): void;
+  removeEventListener(type: 'resize', cb: () => void): void;
+  visualViewport?: {
+    addEventListener(type: 'resize', cb: () => void): void;
+    removeEventListener(type: 'resize', cb: () => void): void;
+  } | null;
+  matchMedia?(query: string): {
+    addEventListener(type: 'change', cb: () => void, opts?: { once: boolean }): void;
+    removeEventListener(type: 'change', cb: () => void): void;
+  };
+}
+
+/**
+ * Owns the resize / zoom / DPR listeners. They only raise a dirty flag; `flush()` (called once per
+ * frame, before rendering) recomputes the viewport and notifies subscribers, so a drag-resize costs
+ * one relayout per frame. `schedule` is the fallback that flushes when nobody is rendering (menu).
+ */
+export class ViewportController {
+  private vp: Viewport;
+  private dirty = false;
+  private listeners = new Set<(vp: Viewport) => void>();
+  private mql: ReturnType<NonNullable<ViewportEnv['matchMedia']>> | null = null;
+  private readonly mark = () => {
+    this.dirty = true;
+    this.schedule?.();
+  };
+  private readonly onDpr = () => {
+    this.mark();
+    this.watchDpr();
+  };
+
+  constructor(
+    private readonly env: ViewportEnv,
+    private readonly forcedK?: number,
+    private readonly schedule?: () => void,
+  ) {
+    this.vp = this.compute();
+    env.addEventListener('resize', this.mark);
+    env.visualViewport?.addEventListener('resize', this.mark);
+    this.watchDpr();
+  }
+
+  get current(): Viewport {
+    return this.vp;
+  }
+
+  /** Subscribes to changes; returns the unsubscribe function. */
+  onChange(cb: (vp: Viewport) => void): () => void {
+    this.listeners.add(cb);
+    return () => this.listeners.delete(cb);
+  }
+
+  /** Applies a pending change. Returns true when the viewport actually changed. */
+  flush(): boolean {
+    if (!this.dirty) return false;
+    this.dirty = false;
+    const next = this.compute();
+    const prev = this.vp;
+    if (
+      next.cssW === prev.cssW &&
+      next.cssH === prev.cssH &&
+      next.dpr === prev.dpr &&
+      next.kd === prev.kd
+    )
+      return false;
+    this.vp = next;
+    for (const cb of this.listeners) cb(next);
+    return true;
+  }
+
+  dispose(): void {
+    this.env.removeEventListener('resize', this.mark);
+    this.env.visualViewport?.removeEventListener('resize', this.mark);
+    this.mql?.removeEventListener('change', this.onDpr);
+    this.listeners.clear();
+  }
+
+  private compute(): Viewport {
+    const { innerWidth: w, innerHeight: h, devicePixelRatio } = this.env;
+    const dpr = devicePixelRatio || 1;
+    return this.forcedK ? forceScale(w, h, dpr, this.forcedK) : computeViewport(w, h, dpr);
+  }
+
+  /** `(resolution: Xdppx)` stops matching when the ratio changes; re-arm it for the new ratio. */
+  private watchDpr(): void {
+    this.mql?.removeEventListener('change', this.onDpr);
+    this.mql = this.env.matchMedia?.(`(resolution: ${this.env.devicePixelRatio || 1}dppx)`) ?? null;
+    this.mql?.addEventListener('change', this.onDpr, { once: true });
+  }
+}
