@@ -5,6 +5,7 @@ import { Projectile, muzzle } from '../projectile';
 import { registerWeapon, type FireContext } from '../weapon';
 import { MAX_LAUNCH } from './artillery';
 import { airRaid } from './strikes';
+import { TPS } from '../../core/time';
 
 /** Horizontal speed of the plane's payload for the mole squad (slower than shells). */
 const MOLE_DROP_SPEED = 2;
@@ -38,7 +39,7 @@ registerWeapon({
   fire: (ctx) => {
     const { worm } = ctx;
     const p = muzzle(worm, ctx.dirX, ctx.dirY);
-    const sheep = animal(ctx, p.x, p.y, worm.facing, { damage: 75, fuse: 5 * 50 });
+    const sheep = animal(ctx, p.x, p.y, worm.facing, { damage: 75, fuse: 5 * TPS });
     // Shot out like a shell; once it lands it trots like any sheep.
     const v = MAX_LAUNCH * 0.8 * ctx.power;
     sheep.vx = ctx.dirX * v;
@@ -59,7 +60,7 @@ registerWeapon({
     const { worm } = ctx;
     const mole = animal(ctx, worm.x + worm.facing * 8, worm.cy, worm.facing, {
       damage: 45,
-      fuse: 9 * 50,
+      fuse: 9 * TPS,
       look: 'mole',
       speed: 1.1,
     });
@@ -83,7 +84,7 @@ registerWeapon({
       (x, y, vx, i) => {
         const mole = animal(ctx, x, y, ctx.worm.facing, {
           damage: 45,
-          fuse: 6 * 50,
+          fuse: 6 * TPS,
           look: 'mole',
           speed: 1.1,
         });
@@ -108,7 +109,7 @@ registerWeapon({
     // Walks slowly, mutters for five seconds, and cannot be stopped.
     const granny = animal(ctx, worm.x + worm.facing * 8, worm.cy, worm.facing, {
       damage: 75,
-      fuse: 5 * 50,
+      fuse: 5 * TPS,
       look: 'oldwoman',
       speed: 0.6,
       manual: false,
@@ -132,7 +133,7 @@ registerWeapon({
     for (let i = 0; i < n; i++) {
       const cow = animal(ctx, worm.x + worm.facing * (10 + i * 10), worm.cy - 2, worm.facing, {
         damage: 75,
-        fuse: 6 * 50,
+        fuse: 6 * TPS,
         look: 'cow',
         speed: 1.7,
         contact: true,
@@ -154,7 +155,7 @@ registerWeapon({
     const { worm } = ctx;
     const nun = animal(ctx, worm.x + worm.facing * 8, worm.cy, worm.facing, {
       damage: 75,
-      fuse: 10 * 50,
+      fuse: 10 * TPS,
       look: 'nun',
       speed: 0.9,
     });

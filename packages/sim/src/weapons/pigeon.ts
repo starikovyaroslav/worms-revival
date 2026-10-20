@@ -4,11 +4,12 @@ import { Entity } from '../world/entity';
 import type { World } from '../world/world';
 import { type Worm } from '../worm/worm';
 import { explode, type BlastSpec } from './explosion';
+import { TPS } from '../core/time';
 
 const SPEED = 3.6;
 const TURN = 0.11;
 const LOOKAHEAD = 16;
-const LIFE = 8 * 50;
+const LIFE = 8 * TPS;
 
 /** Homing pigeon: flies to the target on its own, swerving around the landscape. */
 export class Pigeon extends Entity {

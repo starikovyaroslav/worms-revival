@@ -2,6 +2,7 @@ import { Mine } from '../mine';
 import { Projectile, type ProjectileSpec } from '../projectile';
 import { scaledBlast } from '../blast';
 import { registerWeapon, type FireContext } from '../weapon';
+import { TPS } from '../../core/time';
 
 /** Altitude above the map top at which the plane releases its payload. */
 const DROP_ALTITUDE = 80;
@@ -148,7 +149,7 @@ registerWeapon({
     airRaid(ctx, 5, 24, (x, y, vx, i) => {
       const mine = new Mine(x, y, {
         armTicks: 0,
-        fuseTicks: 3 * 50,
+        fuseTicks: 3 * TPS,
         dudsAllowed: false,
         power: ctx.setting.power,
       });

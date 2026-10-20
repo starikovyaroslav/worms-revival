@@ -5,6 +5,7 @@ import { muzzle } from '../projectile';
 import { scaledBlast } from '../blast';
 import { registerWeapon } from '../weapon';
 import { MAX_LAUNCH } from './artillery';
+import { TPS } from '../../core/time';
 
 /** Launch speed at full power, px/tick: lock-on (25 ticks) happens ~546 px up when fired straight up. */
 const HOMING_LAUNCH = 24.3;
@@ -32,10 +33,10 @@ registerWeapon({
           radius: 2,
           wind: 0,
           impact: 'explode',
-          fuse: 10 * 50,
+          fuse: 10 * TPS,
           blast: scaledBlast(50, ctx.setting.power),
           armTicks: 25,
-          lockEndTick: 4 * 50,
+          lockEndTick: 4 * TPS,
           pull: 2.2,
           maxSpeed: 24,
         },

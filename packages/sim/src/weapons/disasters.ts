@@ -5,8 +5,9 @@ import { Worm } from '../worm/worm';
 import { Projectile } from './projectile';
 import type { BlastSpec } from './explosion';
 import { PhysBody } from '../world/body';
+import { TPS } from '../core/time';
 
-const QUAKE_TICKS = 5 * 50;
+const QUAKE_TICKS = 5 * TPS;
 
 /** Earthquake: shakes the whole map, tossing worms and objects about (no damage by itself). */
 export class Earthquake extends Entity {
@@ -57,7 +58,7 @@ export class MeteorShower extends Entity {
   constructor(
     private readonly blast: BlastSpec,
     private readonly ownerId: number,
-    duration = 9 * 50,
+    duration = 9 * TPS,
   ) {
     super(0, 0);
     this.left = duration;

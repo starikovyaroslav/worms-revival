@@ -3,9 +3,10 @@ import { Entity } from '../world/entity';
 import type { World } from '../world/world';
 import { Worm } from '../worm/worm';
 import type { RemoteControlled } from './weapon';
+import { TPS } from '../core/time';
 
 /** Thrust ticks available. */
-const FUEL = 5 * 50;
+const FUEL = 5 * TPS;
 // Thrust accelerations in px/tick² (gravity is 0.2, so Up nets a modest climb) and the speed limits
 // thrust can reach, with a light air drag while the engine runs. Hovering is possible by tapping Up.
 const LIFT = 0.32;

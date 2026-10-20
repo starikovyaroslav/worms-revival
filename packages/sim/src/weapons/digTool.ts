@@ -4,12 +4,13 @@ import { Entity } from '../world/entity';
 import type { World } from '../world/world';
 import { Worm } from '../worm/worm';
 import type { RemoteControlled } from './weapon';
+import { TPS } from '../core/time';
 
 export type DigMode = 'torch' | 'drill';
 
 const SPEC = {
-  torch: { ticks: 5 * 50, speed: 0.75, radius: 9, damage: 15 },
-  drill: { ticks: 4 * 50, speed: 0.55, radius: 8, damage: 15 },
+  torch: { ticks: 5 * TPS, speed: 0.75, radius: 9, damage: 15 },
+  drill: { ticks: 4 * TPS, speed: 0.55, radius: 8, damage: 15 },
 } as const;
 /** The torch can be pointed at most this far up or down, radians. */
 const TORCH_MAX_ANGLE = 0.7;

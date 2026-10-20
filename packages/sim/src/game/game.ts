@@ -1,5 +1,6 @@
 import { Hasher } from '../core/hash';
 import { HALF_PI, cos, sin } from '../core/math';
+import { TPS } from '../core/time';
 import { Material, type Terrain } from '../terrain/terrain';
 import { Barrel } from '../weapons/barrel';
 import { Crate } from '../weapons/crate';
@@ -14,7 +15,7 @@ import type { Command } from './commands';
 import { weaponSetting, type Scheme } from './scheme';
 
 /** Simulation ticks per second. */
-export const TPS = 50;
+export { TPS };
 /** Aim speed, radians per tick (W:A: about 1.5 s from straight down to straight up). */
 export const AIM_SPEED = HALF_PI / 38;
 /** Ticks to charge the power bar fully. */

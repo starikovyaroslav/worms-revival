@@ -5,6 +5,7 @@ import { scaledBlast } from '../blast';
 import { type Worm } from '../../worm/worm';
 import { registerWeapon } from '../weapon';
 import { BOUNCE_HIGH, BOUNCE_LOW, MAX_LAUNCH } from './artillery';
+import { TPS } from '../../core/time';
 
 registerWeapon({
   id: 'earthquake',
@@ -118,10 +119,10 @@ registerWeapon({
           wind: 0,
           gravity: 0,
           impact: 'explode',
-          fuse: 8 * 50,
+          fuse: 8 * TPS,
           blast: scaledBlast(50, ctx.setting.power),
           armTicks: 0,
-          lockEndTick: 8 * 50,
+          lockEndTick: 8 * TPS,
           pull: 0.7,
           maxSpeed: 7,
         },

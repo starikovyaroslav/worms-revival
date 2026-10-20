@@ -2,6 +2,7 @@ import { Projectile } from '../projectile';
 import { scaledBlast } from '../blast';
 import { Mine } from '../mine';
 import { registerWeapon } from '../weapon';
+import { TPS } from '../../core/time';
 
 registerWeapon({
   id: 'dynamite',
@@ -23,7 +24,7 @@ registerWeapon({
           radius: 3,
           wind: 0,
           impact: 'bounce',
-          fuse: 5 * 50,
+          fuse: 5 * TPS,
           restitution: 0.15,
           friction: 0.5,
           blast: scaledBlast(75, ctx.setting.power),
@@ -45,8 +46,8 @@ registerWeapon({
   fire: (ctx) => {
     const { worm, world } = ctx;
     const mine = new Mine(worm.x + worm.facing * 6, worm.cy, {
-      armTicks: 2 * 50,
-      fuseTicks: 3 * 50,
+      armTicks: 2 * TPS,
+      fuseTicks: 3 * TPS,
       dudsAllowed: false,
       power: ctx.setting.power,
     });

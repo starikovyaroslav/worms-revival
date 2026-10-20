@@ -4,6 +4,7 @@ import type { World } from '../world/world';
 import { type Worm } from '../worm/worm';
 import { explode } from './explosion';
 import { scaledBlast } from './blast';
+import { TPS } from '../core/time';
 
 /** Distance at which a worm sets off an armed mine, px. */
 const TRIGGER_RADIUS = 26;
@@ -77,7 +78,7 @@ export class Mine extends PhysBody {
 
   trigger(world: World): void {
     if (this.fuse >= 0 || this.spent) return;
-    this.fuse = this.fuseTicks >= 0 ? this.fuseTicks : world.rng.int(0, 3) * 50;
+    this.fuse = this.fuseTicks >= 0 ? this.fuseTicks : world.rng.int(0, 3) * TPS;
     this.dud = this.dudsAllowed && world.rng.chance(DUD_CHANCE);
     world.emit({ type: 'sound', id: 'mine-beep', x: this.x, y: this.y });
   }

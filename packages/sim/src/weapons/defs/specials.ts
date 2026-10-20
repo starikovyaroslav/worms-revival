@@ -3,6 +3,7 @@ import { scaledBlast } from '../blast';
 import { Sheep } from '../sheep';
 import { registerWeapon, type FireContext } from '../weapon';
 import { BOUNCE_HIGH, BOUNCE_LOW, MAX_LAUNCH } from './artillery';
+import { TPS } from '../../core/time';
 
 function throwIt(ctx: FireContext, p: Projectile): void {
   ctx.world.spawn(p);
@@ -81,7 +82,7 @@ registerWeapon({
           wind: 0,
           impact: 'bounce',
           // Fixed three second fuse, minimum bounce, waits until it stops.
-          fuse: 3 * 50,
+          fuse: 3 * TPS,
           restitution: BOUNCE_LOW,
           friction: 0.8,
           waitForRest: true,
@@ -103,7 +104,7 @@ function releaseSheep(ctx: FireContext, canFly: boolean): void {
       worm.facing,
       {
         blast: scaledBlast(75, ctx.setting.power),
-        fuse: 9 * 50,
+        fuse: 9 * TPS,
         canFly,
         aqua: canFly && ctx.upgrades.aquaSheep,
       },
