@@ -99,148 +99,152 @@ export function Menu({ initial, onStart, onReplay }: Props) {
 
   return (
     <div class="menu">
-      <h1 class="logo">
-        WORMS <span>REVIVAL</span>
-      </h1>
-      <div class="menu-body">
-        <section class="menu-card">
-          <h2>Команды</h2>
-          {cfg.teams.map((t, i) => (
-            <div class="team-row" key={i}>
-              <span
-                class="team-dot"
-                style={{ background: hex(TEAM_COLORS[i % TEAM_COLORS.length]!) }}
-              />
-              <select
-                value={TEAM_PRESETS.findIndex((p) => p.name === t.name)}
-                onChange={(e) => setTeam(i, Number((e.target as HTMLSelectElement).value))}
+      <div class="menu-stage">
+        <h1 class="logo">
+          WORMS <span>REVIVAL</span>
+        </h1>
+        <div class="menu-body">
+          <section class="menu-card">
+            <h2>Команды</h2>
+            {cfg.teams.map((t, i) => (
+              <div class="team-row" key={i}>
+                <span
+                  class="team-dot"
+                  style={{ background: hex(TEAM_COLORS[i % TEAM_COLORS.length]!) }}
+                />
+                <select
+                  value={TEAM_PRESETS.findIndex((p) => p.name === t.name)}
+                  onChange={(e) => setTeam(i, Number((e.target as HTMLSelectElement).value))}
+                >
+                  {TEAM_PRESETS.map((p, pi) => (
+                    <option value={pi} key={p.name}>
+                      {p.name}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  value={t.cpu}
+                  onChange={(e) => {
+                    const teams = cfg.teams.slice();
+                    teams[i] = { ...t, cpu: Number((e.target as HTMLSelectElement).value) };
+                    set({ teams });
+                  }}
+                >
+                  <option value={0}>Человек</option>
+                  {[1, 2, 3, 4, 5].map((d) => (
+                    <option value={d} key={d}>
+                      CPU {'★'.repeat(d)}
+                    </option>
+                  ))}
+                </select>
+                {cfg.teams.length > 2 && (
+                  <button
+                    class="icon-btn"
+                    onClick={() => set({ teams: cfg.teams.filter((_, j) => j !== i) })}
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+            ))}
+            {cfg.teams.length < 4 && (
+              <button class="btn small" onClick={addTeam}>
+                + команда
+              </button>
+            )}
+          </section>
+
+          <section class="menu-card">
+            <h2>Карта</h2>
+            <canvas ref={preview} class="map-preview" width={320} height={140} />
+            <div class="row">
+              <label>
+                Тип
+                <select
+                  value={cfg.style}
+                  onChange={(e) =>
+                    set({ style: (e.target as HTMLSelectElement).value as MatchConfig['style'] })
+                  }
+                >
+                  <option value="island">Острова</option>
+                  <option value="cavern">Пещера</option>
+                </select>
+              </label>
+              <label>
+                Тема
+                <select
+                  value={cfg.themeId}
+                  onChange={(e) => set({ themeId: (e.target as HTMLSelectElement).value })}
+                >
+                  {THEMES.map((t) => (
+                    <option value={t.id} key={t.id}>
+                      {t.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <div class="row">
+              <label>
+                Seed
+                <input
+                  type="number"
+                  value={cfg.seed}
+                  onChange={(e) => set({ seed: Number((e.target as HTMLInputElement).value) || 0 })}
+                />
+              </label>
+              <button
+                class="btn small"
+                title="Случайная карта"
+                onClick={() => set({ seed: randomSeed() })}
               >
-                {TEAM_PRESETS.map((p, pi) => (
-                  <option value={pi} key={p.name}>
-                    {p.name}
-                  </option>
-                ))}
-              </select>
+                🎲
+              </button>
+            </div>
+            <label>
+              Схема
               <select
-                value={t.cpu}
+                value={cfg.schemeId}
                 onChange={(e) => {
-                  const teams = cfg.teams.slice();
-                  teams[i] = { ...t, cpu: Number((e.target as HTMLSelectElement).value) };
-                  set({ teams });
+                  const schemeId = (e.target as HTMLSelectElement).value;
+                  const style = SCHEME_INFO[schemeId]?.style;
+                  set(style ? { schemeId, style } : { schemeId });
                 }}
               >
-                <option value={0}>Человек</option>
-                {[1, 2, 3, 4, 5].map((d) => (
-                  <option value={d} key={d}>
-                    CPU {'★'.repeat(d)}
+                {SCHEMES.map((s) => (
+                  <option value={s.id} key={s.id}>
+                    {s.name}
                   </option>
                 ))}
               </select>
-              {cfg.teams.length > 2 && (
-                <button
-                  class="icon-btn"
-                  onClick={() => set({ teams: cfg.teams.filter((_, j) => j !== i) })}
-                >
-                  ✕
-                </button>
-              )}
-            </div>
-          ))}
-          {cfg.teams.length < 4 && (
-            <button class="btn small" onClick={addTeam}>
-              + команда
-            </button>
-          )}
-        </section>
+            </label>
+            <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
+          </section>
 
-        <section class="menu-card">
-          <h2>Карта</h2>
-          <canvas ref={preview} class="map-preview" width={320} height={140} />
-          <div class="row">
-            <label>
-              Тип
-              <select
-                value={cfg.style}
-                onChange={(e) =>
-                  set({ style: (e.target as HTMLSelectElement).value as MatchConfig['style'] })
-                }
-              >
-                <option value="island">Острова</option>
-                <option value="cavern">Пещера</option>
-              </select>
-            </label>
-            <label>
-              Тема
-              <select
-                value={cfg.themeId}
-                onChange={(e) => set({ themeId: (e.target as HTMLSelectElement).value })}
-              >
-                {THEMES.map((t) => (
-                  <option value={t.id} key={t.id}>
-                    {t.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <div class="row">
-            <label>
-              Seed
-              <input
-                type="number"
-                value={cfg.seed}
-                onChange={(e) => set({ seed: Number((e.target as HTMLInputElement).value) || 0 })}
-              />
-            </label>
-            <button
-              class="btn small"
-              title="Случайная карта"
-              onClick={() => set({ seed: randomSeed() })}
-            >
-              🎲
-            </button>
-          </div>
-          <label>
-            Схема
-            <select
-              value={cfg.schemeId}
-              onChange={(e) => {
-                const schemeId = (e.target as HTMLSelectElement).value;
-                const style = SCHEME_INFO[schemeId]?.style;
-                set(style ? { schemeId, style } : { schemeId });
-              }}
-            >
-              {SCHEMES.map((s) => (
-                <option value={s.id} key={s.id}>
-                  {s.name}
-                </option>
-              ))}
-            </select>
+          <section class="menu-card">
+            <h2>Wormpot</h2>
+            <Wormpot value={cfg.wormpot ?? []} onChange={(wormpot) => set({ wormpot })} />
+          </section>
+        </div>
+        <div class="menu-actions">
+          <button class="btn big" onClick={() => onStart(cfg)}>
+            В бой!
+          </button>
+          <label class="btn small secondary file-btn">
+            Открыть повтор…
+            <input type="file" accept=".wrr,application/json" onChange={openReplay} hidden />
           </label>
-          <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
-        </section>
-
-        <section class="menu-card">
-          <h2>Wormpot</h2>
-          <Wormpot value={cfg.wormpot ?? []} onChange={(wormpot) => set({ wormpot })} />
-        </section>
-      </div>
-      <button class="btn big" onClick={() => onStart(cfg)}>
-        В бой!
-      </button>
-      <label class="btn small secondary file-btn">
-        Открыть повтор…
-        <input type="file" accept=".wrr,application/json" onChange={openReplay} hidden />
-      </label>
-      {replayError && (
-        <p class="menu-error" role="alert">
-          {replayError}
+        </div>
+        {replayError && (
+          <p class="menu-error" role="alert">
+            {replayError}
+          </p>
+        )}
+        <p class="controls-help">
+          Стрелки ходьба и прицел · Enter прыжок (×2 сальто) · Пробел огонь · 1–5 фитиль · ПКМ
+          оружие · F1–F12 ряды оружия
         </p>
-      )}
-      <p class="controls-help">
-        ←→ ходьба · ↑↓ прицел · Enter прыжок (×2 сальто) · Пробел огонь · 1–5 фитиль · ПКМ оружие ·
-        F1–F12 ряды оружия
-      </p>
+      </div>
     </div>
   );
 }
