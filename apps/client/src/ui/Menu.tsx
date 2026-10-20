@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import {
   REPLAY_VERSION,
   replayProblem,
+  ReplayPlayer,
   SCHEMES,
   SCHEME_INFO,
   TEAM_PRESETS,
@@ -40,6 +41,8 @@ function replayErrorText(problem: ReplayProblem): string {
       return 'Правила оружия или схем изменились после записи этого повтора: он разошёлся бы с записью.';
     case 'malformed':
       return 'Не удалось прочитать файл повтора.';
+    case 'unplayable':
+      return 'Повтор не удалось запустить: файл повреждён.';
   }
 }
 
@@ -57,8 +60,19 @@ export function Menu({ initial, onStart, onReplay }: Props) {
     }
     input.value = ''; // picking the same file again must fire a change event
     const problem = replayProblem(raw);
-    setReplayError(problem ? replayErrorText(problem) : '');
-    if (!problem) onReplay(raw as Replay);
+    if (problem) {
+      setReplayError(replayErrorText(problem));
+      return;
+    }
+    // Building the match can still fail on a hand-edited file: try it here, before the menu is torn down.
+    try {
+      new ReplayPlayer(raw as Replay);
+    } catch {
+      setReplayError(replayErrorText({ kind: 'unplayable' }));
+      return;
+    }
+    setReplayError('');
+    onReplay(raw as Replay);
   };
   const [cfg, setCfg] = useState<MatchConfig>(initial);
   const preview = useRef<HTMLCanvasElement>(null);

@@ -4,7 +4,7 @@ import { SCHEMES } from './schemes';
 
 /**
  * Bump whenever a change alters simulation results (rules, weapon numbers, hashed state). The golden
- * replay test in packages/content fails if the logic changed and this was not bumped.
+ * replay test in packages/ai/test/golden.test.ts fails if the logic changed and this was not bumped.
  * 2: complete state hash (ammo, turn counters, physics, entity specs...).
  */
 export const REPLAY_VERSION = 2;
@@ -26,15 +26,48 @@ export function rulesetHash(): number {
 
 /** Why a replay cannot be played by this build, or null when it can. */
 export type ReplayProblem =
-  { kind: 'malformed' } | { kind: 'version'; found: unknown } | { kind: 'ruleset' };
+  | { kind: 'malformed' }
+  | { kind: 'version'; found: unknown }
+  | { kind: 'ruleset' }
+  /** Passed the checks but the match could not be built (set by the caller that tried). */
+  | { kind: 'unplayable' };
 
 export function replayProblem(raw: unknown): ReplayProblem | null {
-  const r = raw as Partial<Replay> | null;
-  if (!r || typeof r !== 'object' || !r.config || !Array.isArray(r.log))
-    return { kind: 'malformed' };
-  if (r.version !== REPLAY_VERSION) return { kind: 'version', found: r.version };
-  if (r.rulesetHash !== rulesetHash()) return { kind: 'ruleset' };
+  if (!isReplayShape(raw)) return { kind: 'malformed' };
+  if (raw.version !== REPLAY_VERSION) return { kind: 'version', found: raw.version };
+  if (raw.rulesetHash !== rulesetHash()) return { kind: 'ruleset' };
   return null;
+}
+
+const isObject = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object';
+const isNum = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v);
+const isStr = (v: unknown): v is string => typeof v === 'string';
+
+/** Structure only (what `ReplayPlayer` needs to start); the ruleset and version are checked after. */
+function isReplayShape(raw: unknown): raw is Replay {
+  if (!isObject(raw) || !isObject(raw.config) || !Array.isArray(raw.log)) return false;
+  const c = raw.config;
+  const teamsOk =
+    Array.isArray(c.teams) &&
+    c.teams.length > 0 &&
+    c.teams.every(
+      (t: unknown) =>
+        isObject(t) && isStr(t.name) && Array.isArray(t.worms) && t.worms.every(isStr),
+    );
+  const logOk = raw.log.every(
+    (e: unknown) => Array.isArray(e) && e.length === 2 && isNum(e[0]) && Array.isArray(e[1]),
+  );
+  return (
+    teamsOk &&
+    logOk &&
+    isNum(c.seed) &&
+    isStr(c.style) &&
+    isStr(c.themeId) &&
+    isStr(c.schemeId) &&
+    isNum(raw.finalTick) &&
+    raw.finalTick >= 0 &&
+    isNum(raw.finalHash)
+  );
 }
 
 /** A whole match: the starting config plus every command, keyed by the tick it was applied on. */

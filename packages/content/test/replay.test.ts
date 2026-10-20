@@ -55,6 +55,24 @@ describe('replays', () => {
     expect(new ReplayPlayer(replay).verify()).toBe(false);
   });
 
+  it('rejects structurally broken replays instead of failing later', () => {
+    const replay = JSON.parse(
+      JSON.stringify(new ReplayRecorder(config).finish(new Game(buildGameSetup(config)))),
+    );
+    const broken = [
+      { ...replay, config: { ...replay.config, teams: 5 } },
+      { ...replay, config: { ...replay.config, teams: [] } },
+      { ...replay, config: { ...replay.config, teams: [{ name: 'A', worms: [1] }] } },
+      { ...replay, config: { ...replay.config, seed: 'x' } },
+      { ...replay, finalTick: '600' },
+      { ...replay, finalTick: -1 },
+      { ...replay, finalHash: null },
+      { ...replay, log: [[1, 'move']] },
+      { ...replay, log: [5] },
+    ];
+    for (const r of broken) expect(replayProblem(r)).toEqual({ kind: 'malformed' });
+  });
+
   it('rejects replays of another version, another ruleset or garbage', () => {
     const game = new Game(buildGameSetup(config));
     const replay = new ReplayRecorder(config).finish(game);
@@ -67,6 +85,9 @@ describe('replays', () => {
     expect(replayProblem(null)).toEqual({ kind: 'malformed' });
     expect(replayProblem({ version: REPLAY_VERSION })).toEqual({ kind: 'malformed' });
     expect(() => new ReplayPlayer({ ...replay, version: 1 })).toThrow(/version/);
+    // A file as the version 1 build wrote it: no rulesetHash at all. Reported as old, not as garbage.
+    const { rulesetHash: _drop, ...v1 } = { ...replay, version: 1 };
+    expect(replayProblem(JSON.parse(JSON.stringify(v1)))).toEqual({ kind: 'version', found: 1 });
     expect(rulesetHash()).toBe(replay.rulesetHash);
   });
 });
