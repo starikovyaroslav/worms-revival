@@ -71,6 +71,16 @@ export class PostFx {
     stage.filterArea = new Rectangle(0, 0, app.screen.width, app.screen.height);
     app.stage.addChild(this.vignette);
     this.setGrade(DEFAULT_GRADE);
+    this.resize(app.screen.width, app.screen.height);
+  }
+
+  /** Screen size changed (css px): the filter area and the vignette must cover the new screen. */
+  resize(w: number, h: number): void {
+    const area = this.stage.filterArea as Rectangle;
+    area.width = w;
+    area.height = h;
+    this.vignette.width = w;
+    this.vignette.height = h;
   }
 
   setGrade(g: Partial<GradeSpec>): void {
@@ -129,18 +139,8 @@ export class PostFx {
       }
     }
 
-    const w = this.app.screen.width;
-    const h = this.app.screen.height;
-    const area = this.stage.filterArea as Rectangle;
-    if (area.width !== w || area.height !== h) {
-      area.width = w;
-      area.height = h;
-    }
-
     // Vignette: black normally, pulsing red when time is short.
     const pulse = this.danger * (0.5 + 0.5 * Math.sin(this.time * 9));
-    this.vignette.width = w;
-    this.vignette.height = h;
     this.vignette.tint =
       pulse > 0.02 ? (Math.round(255 * Math.min(1, 0.4 + pulse)) << 16) | 0x000a00 : 0x000000;
     this.vignette.alpha = Math.min(1, this.grade.vignette + pulse * 0.5);

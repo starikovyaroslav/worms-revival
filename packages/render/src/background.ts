@@ -121,9 +121,17 @@ export class Background {
       // Each layer moves at a fraction of the camera speed and is scaled less than the world.
       const z = 1 + (camera.zoom - 1) * l.factor;
       l.g.scale.set(z);
+      // Whole device pixels, like the world: no shimmer while the camera drifts.
+      const d = camera.pixelRatio;
       l.g.position.set(
-        screenW / 2 - (camera.x * l.factor + this.mapWidth * (1 - l.factor) * 0.5) * z,
-        screenH / 2 + (l.baseY - (camera.y * l.factor + this.mapHeight * (1 - l.factor) * 0.5)) * z,
+        Math.round(
+          (screenW / 2 - (camera.x * l.factor + this.mapWidth * (1 - l.factor) * 0.5) * z) * d,
+        ) / d,
+        Math.round(
+          (screenH / 2 +
+            (l.baseY - (camera.y * l.factor + this.mapHeight * (1 - l.factor) * 0.5)) * z) *
+            d,
+        ) / d,
       );
     }
   }

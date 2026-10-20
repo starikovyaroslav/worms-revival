@@ -1,6 +1,13 @@
 import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import { assets } from './assets';
 import { cos, sin, type Worm } from '@wr/sim';
+import {
+  DEFAULT_LABEL_SCALE,
+  labelFont,
+  labelUnit,
+  snapDevice,
+  type LabelScale,
+} from './labelScale';
 
 /** Team colours in the classic order: red, blue, green, yellow, magenta, cyan. */
 export const TEAM_COLORS = [0xff4a4a, 0x4a8cff, 0x4ade4a, 0xffd23a, 0xe85cff, 0x3ae0e0];
@@ -32,6 +39,7 @@ export class WormView {
   private shown = 100;
   /** Backgrounds of the name and health tags. */
   private plates = new Graphics();
+  private ls: LabelScale = DEFAULT_LABEL_SCALE;
   private nameText: Text;
   private hpText: Text;
   private time = Math.random() * 10;
@@ -83,10 +91,25 @@ export class WormView {
     }
   }
 
+  /** New label size (viewport change): restyles the texts and redraws the tag at the new scale. */
+  setLabelScale(ls: LabelScale): void {
+    this.ls = ls;
+    const u = labelUnit(ls);
+    for (const t of [this.nameText, this.hpText]) {
+      t.style.fontSize = labelFont(8, ls);
+      t.style.stroke = { color: INK, width: 2 * u, join: 'miter' };
+    }
+    this.plates.scale.set(u);
+    this.arrow.scale.set(u);
+    this.drawPlates();
+  }
+
   /** Draws the tag behind the texts; the label origin is the bottom centre of the tag. */
   private drawPlates(): void {
     const g = this.plates.clear();
-    const w = Math.max(40, Math.round(this.nameText.width) + 12);
+    // Tag geometry is in label pixels (scaled by `plates.scale`); texts are positioned in css px.
+    const u = labelUnit(this.ls);
+    const w = Math.max(40, Math.round(this.nameText.width / u) + 12);
     const h = 30;
     const x = -w / 2;
     const y = -h;
@@ -109,8 +132,8 @@ export class WormView {
       g.rect(bx, by, fill, bh).fill(this.color);
       g.rect(bx, by, fill, 2).fill({ color: 0xffffff, alpha: 0.35 });
     }
-    this.nameText.position.set(0, y + 8);
-    this.hpText.position.set(0, by + bh / 2);
+    this.nameText.position.set(0, (y + 8) * u);
+    this.hpText.position.set(0, (by + bh / 2) * u);
   }
 
   /** A chunky pixel arrow pointing down: dark outline, team-coloured fill, light top edge. */
@@ -272,7 +295,8 @@ export class WormView {
     // Labels sit above the worm at a fixed pixel size, whatever the zoom.
     const p = project(x, y - 22);
     const bob = active ? Math.abs(Math.sin(this.time * 4)) * 3 : 0;
-    this.label.position.set(Math.round(p.x), Math.round(p.y - 6 - bob));
+    const lu = labelUnit(this.ls);
+    this.label.position.set(snapDevice(p.x, this.ls), snapDevice(p.y - (6 + bob) * lu, this.ls));
     this.label.visible = true;
     // Invisible worms are faint ghosts, tag included.
     this.container.alpha = w.invisible ? 0.25 : 1;
@@ -291,7 +315,10 @@ export class WormView {
     }
     this.arrow.visible = arrow;
     // Bounces on whole pixels, like the original.
-    this.arrow.position.set(0, -40 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));
+    this.arrow.position.set(
+      0,
+      (-40 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6)) * labelUnit(this.ls),
+    );
   }
 
   private draw(w: Worm, active: boolean): void {

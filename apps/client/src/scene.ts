@@ -13,6 +13,8 @@ import {
   Background,
   Camera,
   Fx,
+  labelScaleFor,
+  type LabelScale,
   TEAM_COLORS,
   TerrainView,
   WaterView,
@@ -63,6 +65,8 @@ export class GameScene {
   /** Slow motion / hit-stop request: game clock at `scale` for `seconds` of real time. */
   onTimeScale: (scale: number, seconds: number) => void = () => {};
   readonly sfx = new Sfx();
+  /** Size of the text labels, from the viewport. */
+  private labelScale!: LabelScale;
   private unsubscribe: () => void = () => {};
 
   constructor(
@@ -74,8 +78,7 @@ export class GameScene {
   ) {
     const terrain = game.world.terrain;
     this.camera = new Camera(terrain);
-    this.applyViewport(viewport.current);
-    this.unsubscribe = viewport.onChange((vp) => this.applyViewport(vp));
+
     this.background = new Background(theme, terrain.width, terrain.height, seed);
     this.terrainView = new TerrainView(terrain, theme);
     this.water = new WaterView(theme, terrain.width);
@@ -105,7 +108,7 @@ export class GameScene {
     );
     app.stage.addChild(this.background.container, this.world);
     this.labelLayer.addChild(this.fx.container, this.speech.container);
-    this.lights = new LightLayer(app);
+    this.lights = new LightLayer(app, viewport.current);
     this.baseAmbient = theme.ambient ?? 0xffffff;
     this.lights.setAmbient(this.baseAmbient, true);
     // The aim overlay sits above the lighting and name labels so neither dims or hides it.
@@ -115,11 +118,19 @@ export class GameScene {
     this.post.setGrade(theme.grade ?? {});
     const w = game.activeWorm;
     if (w) this.camera.lookAt(w.x, w.y - 40);
+    this.applyViewport(viewport.current);
+    this.unsubscribe = viewport.onChange((vp) => this.applyViewport(vp));
   }
 
   /** Reacts to a new window size / scale / DPR (called before the frame that draws it). */
   private applyViewport(vp: Viewport): void {
     this.camera.setBase(vp.kd, vp.dpr);
+    this.lights.resize(vp);
+    this.post.resize(vp.cssW, vp.cssH);
+    this.labelScale = labelScaleFor(vp.kd, vp.dpr);
+    this.fx.setLabelScale(this.labelScale);
+    this.speech.setLabelScale(this.labelScale);
+    for (const [, v] of this.worms) v.setLabelScale(this.labelScale);
   }
 
   destroy(): void {
@@ -139,6 +150,7 @@ export class GameScene {
       if (e instanceof Worm) {
         if (!this.worms.has(e.id)) {
           const v = new WormView(e);
+          v.setLabelScale(this.labelScale);
           this.worms.set(e.id, v);
           this.wormLayer.addChild(v.container);
           this.labelLayer.addChild(v.label);

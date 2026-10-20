@@ -1,6 +1,14 @@
 import { Container, RenderTexture, Sprite, Texture, type Application } from 'pixi.js';
 import type { Camera } from './camera';
 
+/** What the light map needs to know about the screen (the client's `Viewport` fits). */
+export interface ViewMetrics {
+  cssW: number;
+  cssH: number;
+  dpr: number;
+  kd: number;
+}
+
 interface Light {
   sprite: Sprite;
   x: number;
@@ -49,7 +57,7 @@ const mix = (a: number, b: number, t: number) =>
 export class LightLayer {
   /** Add to the stage above the world. */
   readonly container = new Container();
-  private readonly rt: RenderTexture;
+  private rt: RenderTexture;
   private readonly mapSprite: Sprite;
   private readonly lightsRoot = new Container();
   private readonly direct = new Container();
@@ -61,13 +69,39 @@ export class LightLayer {
   private ambientTarget = 0xffffff;
   private time = 0;
 
-  constructor(private readonly app: Application) {
-    const w = Math.max(2, Math.ceil(app.screen.width / 2));
-    const h = Math.max(2, Math.ceil(app.screen.height / 2));
-    this.rt = RenderTexture.create({ width: w, height: h, scaleMode: 'linear' });
+  /** Light map pixels per css pixel (x and y differ slightly because of rounding up). */
+  private rtScaleX = 0.5;
+  private rtScaleY = 0.5;
+
+  constructor(
+    private readonly app: Application,
+    view: ViewMetrics,
+  ) {
+    this.rt = RenderTexture.create({ width: 2, height: 2, resolution: 1, scaleMode: 'linear' });
     this.mapSprite = new Sprite(this.rt);
     this.mapSprite.blendMode = 'multiply';
     this.container.addChild(this.direct, this.mapSprite);
+    this.resize(view);
+  }
+
+  /**
+   * Re-fits the light map to the screen. One light map pixel covers `max(2, kd)` device pixels,
+   * i.e. at least the old half resolution, and the map is stretched over the whole screen.
+   */
+  resize(view: ViewMetrics): void {
+    const step = Math.max(2, view.kd);
+    const w = Math.max(2, Math.ceil((view.cssW * view.dpr) / step));
+    const h = Math.max(2, Math.ceil((view.cssH * view.dpr) / step));
+    // A resized source keeps its old texture frame (the light pass would only fill part of it),
+    // so the render texture is recreated instead.
+    const old = this.rt;
+    this.rt = RenderTexture.create({ width: w, height: h, resolution: 1, scaleMode: 'linear' });
+    this.mapSprite.texture = this.rt;
+    old.destroy(true);
+    this.rtScaleX = w / view.cssW;
+    this.rtScaleY = h / view.cssH;
+    this.mapSprite.width = view.cssW;
+    this.mapSprite.height = view.cssH;
   }
 
   setAmbient(color: number, instant = false): void {
@@ -135,15 +169,16 @@ export class LightLayer {
     const root = dark ? this.lightsRoot : this.direct;
     this.direct.visible = !dark;
     this.mapSprite.visible = dark;
-    const scale = dark ? 0.5 : 1;
+    const sx = dark ? this.rtScaleX : 1;
+    const sy = dark ? this.rtScaleY : 1;
 
     const all = [...this.lights, ...this.frameLights];
     for (const l of all) {
       const p = camera.toScreen(l.x, l.y);
       const fade = l.life > 0 ? 1 - l.age / l.life : 1;
       const flick = l.flicker ? 1 + Math.sin(this.time * 19 + l.x) * l.flicker : 1;
-      const r = (l.radius * camera.scale * flick * scale * 2) / this.tex.width;
-      l.sprite.position.set(p.x * scale, p.y * scale);
+      const r = (l.radius * camera.scale * flick * sx * 2) / this.tex.width;
+      l.sprite.position.set(p.x * sx, p.y * sy);
       l.sprite.scale.set(r);
       // Day: subtle warm pool. Night: strong, since it is what reveals the scene.
       l.sprite.alpha = Math.min(1, l.intensity * fade * (dark ? 1 : 0.1));
@@ -151,14 +186,6 @@ export class LightLayer {
     }
 
     if (dark) {
-      const w = this.rt.width;
-      const h = this.rt.height;
-      if (this.mapSprite.width !== this.app.screen.width) {
-        this.mapSprite.width = this.app.screen.width;
-        this.mapSprite.height = this.app.screen.height;
-      }
-      void w;
-      void h;
       const c = this.ambient;
       this.app.renderer.render({
         container: this.lightsRoot,

@@ -63,6 +63,11 @@ export class Camera {
     this.dpr = dpr > 0 ? dpr : 1;
   }
 
+  /** Device pixels per css pixel (for snapping things drawn in screen space). */
+  get pixelRatio(): number {
+    return this.dpr;
+  }
+
   /** CSS pixels per world pixel at the current level: a whole number of device pixels. */
   get zoom(): number {
     return deviceScale(this.kd, this.level) / this.dpr;
