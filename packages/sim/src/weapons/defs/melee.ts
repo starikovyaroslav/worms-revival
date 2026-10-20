@@ -1,5 +1,5 @@
 import type { World } from '../../world/world';
-import { Worm } from '../../worm/worm';
+import { type Worm } from '../../worm/worm';
 import { hitscan } from '../hitscan';
 import { KamikazeFlight } from '../kamikaze';
 import { explode } from '../explosion';

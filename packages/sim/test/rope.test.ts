@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import '../src/weapons/defs';
 import { Material } from '../src/terrain/terrain';
-import { Rope } from '../src/weapons/rope';
+import { type Rope } from '../src/weapons/rope';
 import { explode } from '../src/weapons/explosion';
 import { makeGame, stepUntil } from './helpers';
 import type { Game } from '../src/game/game';

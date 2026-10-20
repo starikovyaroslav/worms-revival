@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import '../src/weapons/defs';
-import { Projectile } from '../src/weapons/projectile';
+import { type Projectile } from '../src/weapons/projectile';
 import { makeGame, stepUntil } from './helpers';
 import type { Game } from '../src/game/game';
 

@@ -1,4 +1,4 @@
-import { Container, Rectangle, Sprite, Texture, type Application } from 'pixi.js';
+import { type Container, Rectangle, Sprite, Texture, type Application } from 'pixi.js';
 import { AdjustmentFilter, ShockwaveFilter } from 'pixi-filters';
 
 /** Per-theme look: colour grading and how readily things glow. */

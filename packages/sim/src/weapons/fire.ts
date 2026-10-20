@@ -1,7 +1,7 @@
 import type { Hasher } from '../core/hash';
 import { PhysBody, type Impact } from '../world/body';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 
 const BURN_RADIUS = 6;
 const BURN_DAMAGE = 2;

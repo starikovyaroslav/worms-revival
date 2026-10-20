@@ -2,7 +2,7 @@ import { segmentDist2 } from '../core/math';
 import { Material } from '../terrain/terrain';
 import { PhysBody, type Impact } from '../world/body';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 
 const HIT_RADIUS = 7;
 

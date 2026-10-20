@@ -1,7 +1,7 @@
 import type { Hasher } from '../core/hash';
 import { Entity } from '../world/entity';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 import { explode, type BlastSpec } from './explosion';
 
 const FALL_SPEED = 9;

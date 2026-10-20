@@ -1,6 +1,6 @@
 import { JetPack } from '../jetpack';
 import { BUNGEE_SPEC, Rope } from '../rope';
-import { Worm } from '../../worm/worm';
+import { type Worm } from '../../worm/worm';
 import { getWeapon, registerWeapon } from '../weapon';
 import './tools';
 

@@ -1,7 +1,7 @@
 import type { Hasher } from '../core/hash';
 import { PhysBody } from '../world/body';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 import { explode } from './explosion';
 import { scaledBlast } from './blast';
 

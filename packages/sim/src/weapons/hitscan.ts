@@ -1,5 +1,5 @@
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 import { explode } from './explosion';
 
 export interface HitscanSpec {

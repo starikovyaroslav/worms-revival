@@ -2,7 +2,7 @@ import { cos, sin } from '../core/math';
 import type { Hasher } from '../core/hash';
 import { Entity } from '../world/entity';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 
 /** Distance at which a gas puff poisons a worm. */
 const POISON_RADIUS = 10;

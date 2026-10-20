@@ -3,7 +3,7 @@ import {
   CHARGE_TICKS,
   HALF_PI,
   Rng,
-  Worm,
+  type Worm,
   getWeapon,
   type Command,
   type Game,

@@ -1,6 +1,6 @@
 import { Material } from '../../terrain/terrain';
 import type { World } from '../../world/world';
-import { Worm, WORM_H, WORM_HALF_W } from '../../worm/worm';
+import { type Worm, WORM_H, WORM_HALF_W } from '../../worm/worm';
 import { DigTool } from '../digTool';
 import { Rope, ropeSpec } from '../rope';
 import { registerWeapon } from '../weapon';

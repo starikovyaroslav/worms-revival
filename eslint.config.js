@@ -23,6 +23,23 @@ const NON_DETERMINISTIC_MATH = Object.getOwnPropertyNames(Math).filter(
   (name) => typeof Math[name] === 'function' && !DETERMINISTIC_MATH.has(name),
 );
 
+function boundary(dir, forbidden) {
+  return {
+    files: [`${dir}/**/*.{ts,tsx}`],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: forbidden.map((name) => ({
+            group: [name, `${name}/*`],
+            message: `${dir} must not import ${name} (package layering).`,
+          })),
+        },
+      ],
+    },
+  };
+}
+
 export default tseslint.config(
   { ignores: ['**/dist/**', '**/node_modules/**', 'coverage/**', '.determinism/**'] },
   js.configs.recommended,
@@ -35,6 +52,26 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    // Type-aware rules only where files belong to the root tsconfig.
+    files: ['packages/*/src/**/*.ts', 'packages/*/test/**/*.ts', 'apps/*/src/**/*.{ts,tsx}'],
+    languageOptions: {
+      parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname },
+    },
+    rules: {
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports', fixStyle: 'inline-type-imports', disallowTypeAnnotations: false },
+      ],
+      '@typescript-eslint/no-floating-promises': 'error',
+    },
+  },
+  // Package boundaries: imports point strictly downward (sim <- mapgen <- content/render <- ai <- client).
+  boundary('packages/sim', ['@wr/mapgen', '@wr/content', '@wr/render', '@wr/ai', '@wr/client']),
+  boundary('packages/mapgen', ['@wr/content', '@wr/render', '@wr/ai', '@wr/client']),
+  boundary('packages/content', ['@wr/render', '@wr/ai', '@wr/client']),
+  boundary('packages/render', ['@wr/content', '@wr/ai', '@wr/client']),
+  boundary('packages/ai', ['@wr/render', '@wr/client']),
   {
     files: ['tools/**'],
     languageOptions: {

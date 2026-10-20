@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import '../src/weapons/defs';
-import { Flame } from '../src/weapons/fire';
-import { Gas } from '../src/weapons/gas';
-import { Mine } from '../src/weapons/mine';
-import { Projectile } from '../src/weapons/projectile';
-import { Worm } from '../src/worm/worm';
+import { type Flame } from '../src/weapons/fire';
+import { type Gas } from '../src/weapons/gas';
+import { type Mine } from '../src/weapons/mine';
+import { type Projectile } from '../src/weapons/projectile';
+import { type Worm } from '../src/worm/worm';
 import { makeGame, stepUntil } from './helpers';
 
 const IDS = [

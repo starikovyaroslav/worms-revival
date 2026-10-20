@@ -2,7 +2,7 @@ import type { Hasher } from '../core/hash';
 import { atan2, cos, sin, wrapAngle } from '../core/math';
 import { Entity } from '../world/entity';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 import { explode, type BlastSpec } from './explosion';
 
 const SPEED = 3.6;

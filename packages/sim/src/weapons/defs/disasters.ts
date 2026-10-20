@@ -2,7 +2,7 @@ import { Earthquake, MeteorShower } from '../disasters';
 import { HomingMissile } from '../homing';
 import { Projectile, muzzle } from '../projectile';
 import { scaledBlast } from '../blast';
-import { Worm } from '../../worm/worm';
+import { type Worm } from '../../worm/worm';
 import { registerWeapon } from '../weapon';
 import { BOUNCE_HIGH, BOUNCE_LOW, MAX_LAUNCH } from './artillery';
 

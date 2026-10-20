@@ -1,7 +1,7 @@
 import type { Hasher } from '../core/hash';
 import { PhysBody, type Impact } from '../world/body';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 import { blastDamage, explode, type Blast } from './explosion';
 
 export type CrateKind = 'weapon' | 'health';

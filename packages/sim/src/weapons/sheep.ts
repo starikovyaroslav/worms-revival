@@ -2,7 +2,7 @@ import type { Hasher } from '../core/hash';
 import { cos, sin } from '../core/math';
 import { PhysBody, type Impact } from '../world/body';
 import type { World } from '../world/world';
-import { Worm } from '../worm/worm';
+import { type Worm } from '../worm/worm';
 import { explode, type BlastSpec } from './explosion';
 import type { RemoteControlled } from './weapon';
 
