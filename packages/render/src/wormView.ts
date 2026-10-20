@@ -269,6 +269,9 @@ export class WormView {
     const bob = active ? Math.abs(Math.sin(this.time * 4)) * 3 : 0;
     this.label.position.set(Math.round(p.x), Math.round(p.y - 6 - bob));
     this.label.visible = true;
+    // Invisible worms are faint ghosts, tag included.
+    this.container.alpha = w.invisible ? 0.25 : 1;
+    this.label.alpha = w.invisible ? 0.35 : 1;
     this.arrow.visible = arrow;
     // Bounces on whole pixels, like the original.
     this.arrow.position.set(0, -40 - Math.round(Math.abs(Math.sin(this.time * 5)) * 6));

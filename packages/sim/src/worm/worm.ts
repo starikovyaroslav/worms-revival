@@ -87,6 +87,12 @@ export class Worm extends Entity {
   poisoned = false;
   /** Frozen (Freeze): takes no damage until its team's next turn. */
   invulnerable = false;
+  /** Per-turn utilities (crates): all cleared when a new turn starts. */
+  fastWalk = false;
+  lowGravity = false;
+  laser = false;
+  invisible = false;
+  crateSpy = false;
   drowned = false;
   /** Parachute open: slow, wind-blown descent. */
   chute = false;
@@ -251,6 +257,7 @@ export class Worm extends Entity {
       }
     }
     if (step === 0) return;
+    if (this.fastWalk) step *= 1.6;
 
     const nx = this.x + step * dir;
     let ny = this.y;
@@ -290,7 +297,7 @@ export class Worm extends Entity {
 
   /** Integrates one tick of flight. Returns true if the worm hit terrain. */
   private flyStep(world: World): boolean {
-    const g = world.physics.gravity;
+    const g = world.physics.gravity * (this.lowGravity ? 0.4 : 1);
     this.vy += g;
     if (this.chute) {
       if (this.vy > CHUTE_FALL) this.vy = CHUTE_FALL;
@@ -407,6 +414,10 @@ export class Worm extends Entity {
       .f64(this.pendingDamage)
       .bool(this.poisoned)
       .bool(this.invulnerable)
+      .bool(this.fastWalk)
+      .bool(this.lowGravity)
+      .bool(this.laser)
+      .bool(this.invisible)
       .bool(this.chute);
   }
 }

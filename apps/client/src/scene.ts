@@ -323,7 +323,7 @@ export class GameScene {
 
     const def = game.weapon;
     const aiming = (game.phase === 'turn' || game.phase === 'ready') && def?.aim === 'angle';
-    this.aim.update(game.activeWorm, alpha, aiming, game.power, game.charging);
+    this.aim.update(game.activeWorm, alpha, aiming, game.power, game.charging, game.world.terrain);
     const secLeft = game.timer / 50;
     this.post.setDanger(game.phase === 'turn' && secLeft <= 5 ? 1 - secLeft / 5 : 0);
     this.post.update(dtMs);

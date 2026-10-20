@@ -1,5 +1,5 @@
 import { Container, Graphics } from 'pixi.js';
-import type { Worm } from '@wr/sim';
+import type { Terrain, Worm } from '@wr/sim';
 
 const CROSSHAIR_DIST = 45;
 
@@ -12,7 +12,14 @@ export class AimView {
     this.container.addChild(this.g);
   }
 
-  update(worm: Worm | null, alpha: number, show: boolean, power: number, charging: boolean): void {
+  update(
+    worm: Worm | null,
+    alpha: number,
+    show: boolean,
+    power: number,
+    charging: boolean,
+    terrain?: Terrain,
+  ): void {
     const g = this.g.clear();
     if (!worm || !show || !(worm.grounded || worm.state === 'roped')) return;
     const x = worm.prevX + (worm.x - worm.prevX) * alpha;
@@ -20,6 +27,15 @@ export class AimView {
     const dx = Math.cos(worm.aim) * worm.facing;
     const dy = -Math.sin(worm.aim);
 
+    if (worm.laser && terrain) {
+      // Laser sight: a thin red line out to the first solid pixel.
+      let d = 12;
+      while (d < 900 && !terrain.isSolid(x + dx * d, y + dy * d)) d += 2;
+      g.moveTo(x + dx * 12, y + dy * 12)
+        .lineTo(x + dx * d, y + dy * d)
+        .stroke({ color: 0xff2020, width: 1, alpha: 0.8 });
+      g.circle(x + dx * d, y + dy * d, 2).fill(0xff6060);
+    }
     if (charging) {
       const n = Math.max(1, Math.round(power * 16));
       for (let i = 0; i < n; i++) {

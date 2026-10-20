@@ -94,6 +94,7 @@ export class Game {
 
   /** Entity the camera should follow. Presentation only. */
   focusId = 0;
+  private baseDamageScale = 1;
   private settleTicks = 0;
   private settleTotal = 0;
   private dyingQueue: number[] = [];
@@ -149,6 +150,7 @@ export class Game {
     }
     // Teams start in a random order.
     this.activeTeam = this.world.rng.int(0, this.teams.length - 1) - 1;
+    this.baseDamageScale = this.world.physics.damageScale;
     this.startTurn();
   }
 
@@ -625,8 +627,12 @@ export class Game {
         break;
       }
     }
-    // Freeze wears off when its team's turn comes round again.
+    // Freeze wears off when its team's turn comes round again; utilities last one turn.
     for (const w of worms) w.invulnerable = false;
+    for (const w of this.worms) {
+      w.fastWalk = w.lowGravity = w.laser = w.invisible = w.crateSpy = false;
+    }
+    this.world.physics.damageScale = this.baseDamageScale;
     this.activeWormId = worm?.id ?? 0;
     this.turnStartDamage = worm?.pendingDamage ?? 0;
     if (this.scheme.wind > 0) {

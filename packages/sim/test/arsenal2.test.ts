@@ -377,3 +377,59 @@ describe('turn control and movement', () => {
     expect(me.state).toBe('roped');
   });
 });
+
+describe('utilities', () => {
+  const ids = ['lowgravity', 'fastwalk', 'laser', 'invisible', 'doubledamage', 'cratespy'];
+  const W = Object.fromEntries(ids.map((id) => [id, { ammo: -1, power: 3, delay: 0, crate: 0 }]));
+  const setup = () => {
+    const g = makeGame({ weapons: W, wind: 0, turnTime: 60 });
+    stepUntil(g, () => g.worms.every((w) => w.grounded));
+    return { g, me: g.activeWorm! };
+  };
+  const use = (g: ReturnType<typeof setup>['g'], id: string) => {
+    g.step([{ t: 'select', weapon: id }]);
+    g.step([{ t: 'fire', down: true }]);
+  };
+
+  it('do not end the turn and last only that turn', () => {
+    const { g, me } = setup();
+    for (const id of ids) use(g, id);
+    expect(g.phase).toBe('turn');
+    expect([me.fastWalk, me.lowGravity, me.laser, me.invisible, me.crateSpy]).toEqual([
+      true,
+      true,
+      true,
+      true,
+      true,
+    ]);
+    expect(g.world.physics.damageScale).toBe(2);
+    g.step([{ t: 'skip' }]);
+    stepUntil(g, () => g.activeWorm !== me, 600);
+    expect(me.fastWalk || me.lowGravity || me.laser || me.invisible).toBe(false);
+    expect(g.world.physics.damageScale).toBe(1);
+  });
+
+  it('fast walk covers more ground, low gravity jumps higher', () => {
+    const walk = (fast: boolean) => {
+      const { g, me } = setup();
+      if (fast) use(g, 'fastwalk');
+      const x0 = me.x;
+      g.step([{ t: 'move', left: false, right: true, up: false, down: false }]);
+      for (let i = 0; i < 100; i++) g.step();
+      return me.x - x0;
+    };
+    expect(walk(true)).toBeGreaterThan(walk(false) * 1.3);
+    const jump = (low: boolean) => {
+      const { g, me } = setup();
+      if (low) use(g, 'lowgravity');
+      me.jump();
+      let top = me.y;
+      for (let i = 0; i < 120; i++) {
+        g.step();
+        top = Math.min(top, me.y);
+      }
+      return me.y - top;
+    };
+    expect(jump(true)).toBeGreaterThan(jump(false) * 1.4);
+  });
+});
