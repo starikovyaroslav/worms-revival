@@ -17,6 +17,8 @@ export function WeaponPanel({ game, onPick, onClose }: Props) {
   const team = game.teams[game.activeTeam];
   const weapons = allWeapons().filter((w) => !w.id.startsWith('test-'));
   const hovered = hover ? weaponInfo(hover) : null;
+  // Five slots per row as in W:A; the Util row grows for the crate-only utilities.
+  const cols = Array.from({ length: Math.max(5, ...weapons.map((w) => w.col + 1)) }, (_, i) => i);
 
   return (
     <div class="panel-backdrop" onPointerDown={onClose} onContextMenu={(e) => e.preventDefault()}>
@@ -24,7 +26,7 @@ export function WeaponPanel({ game, onPick, onClose }: Props) {
         {PANEL_ROWS.map((label, row) => (
           <div class="panel-row" key={label}>
             <div class="panel-key">{label}</div>
-            {[0, 1, 2, 3, 4].map((col) => {
+            {cols.map((col) => {
               const def = weapons.find((w) => w.row === row && w.col === col);
               if (!def) return <div class="slot empty" key={col} />;
               const ammo = team?.ammo[def.id] ?? 0;
