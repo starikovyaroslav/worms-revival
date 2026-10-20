@@ -8,8 +8,12 @@ import { SCHEMES } from './schemes';
  * 2: complete state hash (ammo, turn counters, physics, entity specs...).
  * 3: review fixes: controlled tool released on replacement, donkey blasts once per layer,
  *    once-per-turn utilities.
+ * 4: M2 UX rules: default weapon at turn start (last choice, else bazooka), no hot-seat hand-over wait
+ *    for computer turns or with a single human team (TeamSetup.cpu, 'ready' command), crate
+ *    parachute 1.3 -> 7 px/tick, weapon choice and aiming allowed while a crate falls (Fire/Jump skip
+ *    the wait), held keys cleared at turn start.
  */
-export const REPLAY_VERSION = 3;
+export const REPLAY_VERSION = 4;
 
 let cachedRulesetHash: number | null = null;
 
