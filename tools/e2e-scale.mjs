@@ -38,7 +38,9 @@ try {
   for (let i = 0; i < 50; i++) {
     try {
       if ((await fetch(base)).ok) break;
-    } catch {}
+    } catch {
+      // server not up yet
+    }
     await new Promise((r) => setTimeout(r, 200));
   }
   const browser = await chromium.launch({ channel: 'chrome' });

@@ -84,6 +84,13 @@ export default tseslint.config(
         window: 'readonly',
         document: 'readonly',
         Image: 'readonly',
+        fetch: 'readonly',
+        setTimeout: 'readonly',
+        // Used inside page.evaluate callbacks of the Playwright scripts.
+        innerWidth: 'readonly',
+        innerHeight: 'readonly',
+        devicePixelRatio: 'readonly',
+        getComputedStyle: 'readonly',
       },
     },
   },
