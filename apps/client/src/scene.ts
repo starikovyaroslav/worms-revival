@@ -37,6 +37,8 @@ export class GameScene {
   private entityLayer = new Container();
   private wormLayer = new Container();
   private aim = new AimView();
+  /** Camera-transformed like `world`, but drawn above the lights. */
+  private aimLayer = new Container();
   private targetView = new TargetView();
   private speech = new SpeechView();
   /** Text drawn at a fixed pixel size above the zoomed world (labels, speech, damage numbers). */
@@ -90,7 +92,6 @@ export class GameScene {
       this.terrainView.container,
       this.entityLayer,
       this.wormLayer,
-      this.aim.container,
       this.targetView.container,
       this.effects.back,
       this.effects.front,
@@ -101,7 +102,9 @@ export class GameScene {
     this.lights = new LightLayer(app);
     this.baseAmbient = theme.ambient ?? 0xffffff;
     this.lights.setAmbient(this.baseAmbient, true);
-    app.stage.addChild(this.lights.container, this.labelLayer);
+    // The aim overlay sits above the lighting and name labels so neither dims or hides it.
+    app.stage.addChild(this.lights.container, this.labelLayer, this.aimLayer);
+    this.aimLayer.addChild(this.aim.container);
     this.post = new PostFx(app, app.stage);
     this.post.setGrade(theme.grade ?? {});
     const w = game.activeWorm;
@@ -305,6 +308,7 @@ export class GameScene {
     this.camera.resize(this.app.screen.width, this.app.screen.height);
     this.camera.update(dtMs);
     this.camera.apply(this.world);
+    this.camera.apply(this.aimLayer);
     const project = (x: number, y: number) => this.camera.toScreen(x, y);
     this.background.update(this.camera, this.app.screen.width, this.app.screen.height);
     this.water.update(dtMs, game.world.waterLevel);
@@ -323,7 +327,15 @@ export class GameScene {
 
     const def = game.weapon;
     const aiming = (game.phase === 'turn' || game.phase === 'ready') && def?.aim === 'angle';
-    this.aim.update(game.activeWorm, alpha, aiming, game.power, game.charging, game.world.terrain);
+    this.aim.update(
+      game.activeWorm,
+      alpha,
+      aiming,
+      game.power,
+      game.charging,
+      game.world.terrain,
+      this.camera.zoom,
+    );
     const secLeft = game.timer / 50;
     this.post.setDanger(game.phase === 'turn' && secLeft <= 5 ? 1 - secLeft / 5 : 0);
     this.post.update(dtMs);
