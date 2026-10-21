@@ -126,7 +126,13 @@ try {
         return {
           look: p.look,
           generated:
-            !!v.art && v.art.texture === render.assets.get(render.GENERATED_PROJECTILES[p.look]),
+            !!v.art &&
+            v.art.texture ===
+              render.assets.get(
+                !fallback && p.look === 'letter'
+                  ? 'vfx/letter_0'
+                  : render.GENERATED_PROJECTILES[p.look],
+              ),
         };
       });
       const jv = scene.entities.get(jet.id),

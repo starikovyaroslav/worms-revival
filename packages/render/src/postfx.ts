@@ -1,6 +1,7 @@
 import { type Container, Rectangle, Sprite, Texture, type Application } from 'pixi.js';
 import { AdjustmentFilter, ShockwaveFilter } from 'pixi-filters';
 import { CrtFilter, type CrtMode } from './crt';
+import { SensoryFilter, type SensoryEffect } from './sensory';
 
 /** Per-theme look: colour grading and how readily things glow. */
 export interface GradeSpec {
@@ -54,6 +55,11 @@ export class PostFx {
   private readonly adjust: AdjustmentFilter;
   private readonly vignette: Sprite;
   private crt: CrtFilter | null = null;
+  private crtEnabled = false;
+  private sensory: SensoryFilter | null = null;
+  private sensoryEffect: SensoryEffect | null = null;
+  private sensoryAge = 0;
+  private sensoryCooldown = 0;
   private grade: GradeSpec = DEFAULT_GRADE;
   private shock: ShockwaveFilter | null = null;
   private shockTime = 0;
@@ -93,13 +99,31 @@ export class PostFx {
 
   /** Only the picture is softened; names, crosshair and DOM HUD stay outside this pass. */
   setCrt(mode: CrtMode): void {
-    if (mode === 'off') {
-      this.picture.filters = null;
-      return;
+    this.crtEnabled = mode !== 'off';
+    if (mode !== 'off') {
+      this.crt ??= new CrtFilter();
+      this.crt.setMode(mode);
     }
-    this.crt ??= new CrtFilter();
-    this.crt.setMode(mode);
-    this.picture.filters = [this.crt];
+    this.pictureFilters();
+  }
+
+  private pictureFilters(): void {
+    const filters = [];
+    if (this.crtEnabled && this.crt) filters.push(this.crt);
+    if (this.sensoryEffect && this.sensory) filters.push(this.sensory);
+    this.picture.filters = filters.length ? filters : null;
+  }
+
+  /** Throttled transient cue, disabled for the OS reduced-motion preference. */
+  screenEffect(effect: SensoryEffect): void {
+    if (this.sensoryCooldown > 0 || window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+      return;
+    this.sensory ??= new SensoryFilter();
+    this.sensoryAge = 0;
+    this.sensoryEffect = effect;
+    this.sensoryCooldown = 3;
+    this.sensory.setPulse(effect, 0);
+    this.pictureFilters();
   }
 
   setGrade(g: Partial<GradeSpec>): void {
@@ -144,6 +168,15 @@ export class PostFx {
 
   update(dtMs: number): void {
     const dt = dtMs / 1000;
+    this.sensoryCooldown = Math.max(0, this.sensoryCooldown - dt);
+    if (this.sensoryEffect && this.sensory) {
+      this.sensoryAge += dt;
+      this.sensory.setPulse(this.sensoryEffect, this.sensoryAge);
+      if (this.sensoryAge >= 1.4) {
+        this.sensoryEffect = null;
+        this.pictureFilters();
+      }
+    }
     this.time += dt;
     this.danger += (this.dangerTarget - this.danger) * Math.min(1, dt * 6);
 
@@ -172,6 +205,7 @@ export class PostFx {
     this.picture.filters = null;
     this.picture.filterArea = undefined;
     this.crt?.destroy();
+    this.sensory?.destroy();
     this.adjust.destroy();
     this.shock?.destroy();
     this.vignette.destroy();

@@ -13,6 +13,7 @@ export * from './targetView';
 export * from './targetWarn';
 export * from './speechView';
 export * from './postfx';
+export * from './sensory';
 export type { CrtMode } from './crt';
 export * from './effects';
 export * from './fx';

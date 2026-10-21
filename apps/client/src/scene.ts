@@ -30,6 +30,7 @@ import {
   type EntityView,
   type Theme,
   type CrtMode,
+  type SensoryEffect,
 } from '@wr/render';
 
 /** Everything visible in a match, kept in sync with the simulation. */
@@ -59,6 +60,7 @@ export class GameScene {
   /** Last time each worm spoke, so they don't chatter non-stop. */
   private lastSpoke = new Map<number, number>();
   private trailClock = 0;
+  private poisonedFocus: number | null = null;
   private trailAt = new Map<number, number>();
   /** Mouse position in world coordinates, set by the input layer. */
   mouseWorld: { x: number; y: number } | null = null;
@@ -163,6 +165,11 @@ export class GameScene {
     this.post.setCrt(mode);
   }
 
+  /** Preview cosmetic screen presets without introducing a simulation status. */
+  previewScreenEffect(effect: SensoryEffect): void {
+    this.post.screenEffect(effect);
+  }
+
   private sync(): void {
     const live = new Set<number>();
     for (const e of this.game.world.all()) {
@@ -216,6 +223,7 @@ export class GameScene {
           break;
         case 'explosion': {
           const profile = weaponFx(ev.source);
+          if (ev.source === 'nuke') this.post.screenEffect('flash');
           if (profile.scorch) this.burnMarks.add(ev.x, ev.y, ev.radius);
           this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
           this.effects.play(profile.recipe, ev.x, ev.y, ev.radius * profile.scale, {
@@ -342,6 +350,21 @@ export class GameScene {
     const live = new Set<number>();
     const ctx = { dirt: this.dirt, wind: this.game.world.wind };
     const looks = this.game.rules.looks;
+    for (const e of this.game.world.ofKind('flame')) {
+      live.add(e.id);
+      if (!this.trailAt.has(e.id)) this.burnMarks.add(e.x, e.y + 3, 7);
+      if (this.trailClock < (this.trailAt.get(e.id) ?? 0)) continue;
+      this.trailAt.set(e.id, this.trailClock + 0.4);
+      if (e.id % 3 === 0)
+        this.effects.clips.play('smoke', e.x, e.y - 9, {
+          life: 1.1,
+          width: 12,
+          vy: -12,
+          vx: this.game.world.wind * 4,
+          fade: true,
+          alpha: 0.45,
+        });
+    }
     for (const e of this.game.world.ofKind<Projectile>('projectile')) {
       live.add(e.id);
       if (this.trailClock < (this.trailAt.get(e.id) ?? 0)) continue;
@@ -440,6 +463,10 @@ export class GameScene {
     this.sync();
     const game = this.game;
     const focus = game.world.byId(game.focusId) ?? game.activeWorm;
+    const poisoned = game.activeWorm?.poisoned ? game.activeWormId : null;
+    if (poisoned !== null && poisoned !== this.poisonedFocus)
+      this.post.screenEffect('hallucination');
+    this.poisonedFocus = poisoned;
     if (focus && !this.userScrolled) this.camera.follow(focus.x, focus.y - 40);
     this.camera.resize(this.app.screen.width, this.app.screen.height);
     this.camera.update(dtMs);
