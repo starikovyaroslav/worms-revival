@@ -75,6 +75,10 @@ async function boot() {
   // Artwork is optional: anything missing falls back to the built-in drawing. A broken manifest is fatal.
   try {
     await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'), __BUILD_ID__);
+    await assets.load(
+      `${import.meta.env.BASE_URL}assets/generated`.replace(/\/\//g, '/'),
+      __BUILD_ID__,
+    );
   } catch (err) {
     showFatal(err instanceof ManifestError ? 'manifest' : 'startup', err);
     return;

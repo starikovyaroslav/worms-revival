@@ -8,7 +8,10 @@ export class GravestoneView implements EntityView {
   readonly container = new Container();
 
   constructor(private readonly s: Gravestone) {
-    const art = artSprite('objects/tombstone', 0.8);
+    const styles = ['cross', 'round', 'slab', 'skull'];
+    const art =
+      artSprite(`objects/grave_${styles[s.id % styles.length]}`, 0.8) ??
+      artSprite('objects/tombstone', 0.8);
     if (!art) return;
     // A hint of the team's colour on the whole stone.
     art.tint = mixColor(0xffffff, TEAM_COLORS[s.team % TEAM_COLORS.length] as number, 0.4);

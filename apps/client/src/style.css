@@ -1256,3 +1256,33 @@ body {
     animation: none !important;
   }
 }
+
+/* Generated layers follow the selected theme, at the same integer pixel scale as the game. */
+.menu.has-art {
+  background-repeat: repeat-x;
+  background-position:
+    0 100%,
+    0 calc(100% - 24px),
+    0 calc(100% - 48px),
+    0 100%;
+  background-size:
+    calc(384px * var(--k, 1)) auto,
+    calc(384px * var(--k, 1)) auto,
+    calc(384px * var(--k, 1)) auto,
+    calc(256px * var(--k, 1)) auto;
+  image-rendering: pixelated;
+}
+
+.menu-stage .logo:has(img) {
+  line-height: 0;
+  text-shadow: none;
+}
+
+.menu-stage:has(.logo img) {
+  gap: 8px;
+}
+
+.logo img {
+  display: block;
+  image-rendering: pixelated;
+}

@@ -9,6 +9,13 @@ type LookArt =
   | { draw: (g: Graphics, p: Projectile) => void };
 
 const sprite = (art: string): LookArt => ({ art });
+const GENERATED_PROJECTILES: Partial<Record<Look, string>> = {
+  banana: 'creatures/banana_0',
+  bananalet: 'creatures/banana_0',
+  skunk: 'creatures/skunk',
+  dynamite: 'objects/dynamite',
+  petrol: 'objects/canister',
+};
 /** Pre-rotated frames: asset prefix and the rotation (radians) one cycle covers. */
 const spun = (art: string, prefix: string, period: number): LookArt => ({
   art,
@@ -108,8 +115,20 @@ export class ProjectileView implements EntityView {
   private art: Sprite | null = null;
   private frames: Texture[] = [];
   private period = Math.PI * 2;
+  private bananaFrames: Texture[] = [];
 
   constructor(private readonly p: Projectile) {
+    const generated = GENERATED_PROJECTILES[p.look];
+    this.art = generated ? artSprite(generated) : null;
+    if (this.art) {
+      if (p.look === 'banana' || p.look === 'bananalet') {
+        const a = assets.get('creatures/banana_0'),
+          b = assets.get('creatures/banana_1');
+        if (a && b) this.bananaFrames = [a, b];
+      }
+      this.container.addChild(this.art);
+      return;
+    }
     const look = PROJECTILE_LOOKS[p.look];
     if ('draw' in look) {
       const g = new Graphics();
@@ -137,6 +156,12 @@ export class ProjectileView implements EntityView {
       this.container.rotation = Math.atan2(p.vy, p.vx);
     } else if (!p.resting) {
       this.spin += (p.vx * dtMs) / 120;
+      if (this.bananaFrames.length && this.art) {
+        const step = Math.round(this.spin / (Math.PI / 4));
+        this.art.texture = this.bananaFrames[((step % 2) + 2) % 2]!;
+        this.container.rotation = Math.floor(step / 2) * (Math.PI / 2);
+        return;
+      }
       if (this.frames.length && this.art) {
         // Pre-rotated frames: step through them instead of rotating (keeps the pixels crisp).
         const t = (((this.spin / this.period) % 1) + 1) % 1;

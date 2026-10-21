@@ -1,5 +1,12 @@
 import { Assets, type Texture } from 'pixi.js';
 
+/** Decoded art for the CPU-painted destructible terrain and map preview. */
+export interface AssetPixels {
+  w: number;
+  h: number;
+  data: Uint8ClampedArray;
+}
+
 /** Which images exist and how big they are (logical size). */
 export interface AssetManifest {
   version: number;
@@ -23,6 +30,7 @@ export class ManifestError extends Error {
 export class AssetStore {
   private textures = new Map<string, Texture>();
   private urls = new Map<string, string>();
+  private decoded = new Map<string, AssetPixels>();
   manifest: AssetManifest | null = null;
 
   /** Loads a manifest and its images; later loads override earlier ones with the same id. */
@@ -52,6 +60,7 @@ export class AssetStore {
         if (!id.startsWith(prefix)) continue;
         this.textures.delete(id);
         this.urls.delete(id);
+        this.decoded.delete(id);
       }
     }
     await Promise.all(
@@ -62,6 +71,7 @@ export class AssetStore {
           tex.source.scaleMode = 'nearest';
           this.textures.set(id, tex);
           this.urls.set(id, `${baseUrl}/${a.file}${q}`);
+          this.decoded.delete(id);
         } catch {
           // A broken file just means "use the fallback".
         }
@@ -72,6 +82,31 @@ export class AssetStore {
   /** URL of an asset's image (for DOM UI), or undefined when it does not exist. */
   url(id: string): string | undefined {
     return this.urls.get(id);
+  }
+
+  /** Lazily read a loaded image once; unavailable art keeps its procedural fallback. */
+  pixels(id: string): AssetPixels | undefined {
+    const cached = this.decoded.get(id);
+    if (cached) return cached;
+    const tex = this.textures.get(id);
+    if (!tex || typeof document === 'undefined') return undefined;
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = tex.width;
+      canvas.height = tex.height;
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      if (!ctx) return undefined;
+      ctx.drawImage(tex.source.resource as CanvasImageSource, 0, 0);
+      const result = {
+        w: canvas.width,
+        h: canvas.height,
+        data: ctx.getImageData(0, 0, canvas.width, canvas.height).data,
+      };
+      this.decoded.set(id, result);
+      return result;
+    } catch {
+      return undefined;
+    }
   }
 
   has(id: string): boolean {

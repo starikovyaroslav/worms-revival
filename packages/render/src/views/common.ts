@@ -1,5 +1,5 @@
 import { Sprite, type Container } from 'pixi.js';
-import type { Entity, World } from '@wr/sim';
+import type { Entity, World, Ruleset } from '@wr/sim';
 import { assets } from '../assets';
 
 export const OUTLINE = 0x1a1a1a;
@@ -12,6 +12,7 @@ export interface EntityView {
 /** What the scene lends to every view: the world, and per-frame facts that change what a view shows. */
 export interface ViewContext {
   readonly world: World;
+  readonly rules?: Ruleset;
   /** The active worm has the Crate Spy utility: crates show their contents. Set by the scene each frame. */
   crateSpy: boolean;
 }

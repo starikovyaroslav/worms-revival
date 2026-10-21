@@ -1,4 +1,5 @@
-import { Container, Graphics } from 'pixi.js';
+import { Container, Graphics, type Sprite } from 'pixi.js';
+import { assets } from '../assets';
 import type { Mine } from '@wr/sim';
 import { artSprite, place, type EntityView } from './common';
 
@@ -6,10 +7,11 @@ export class MineView implements EntityView {
   readonly container = new Container();
   private light = new Graphics();
   private t = 0;
+  private art: Sprite | null;
 
   constructor(private readonly m: Mine) {
-    const art = artSprite('objects/mine', 0.7);
-    if (art) this.container.addChild(art);
+    this.art = artSprite('objects/mine_off', 0.7) ?? artSprite('objects/mine', 0.7);
+    if (this.art) this.container.addChild(this.art);
     this.container.addChild(this.light);
   }
 
@@ -21,6 +23,11 @@ export class MineView implements EntityView {
     const rate = m.triggered ? 10 : 1.5;
     const on = m.armed && Math.sin(this.t * rate * Math.PI) > 0;
     this.light.clear();
+    const texture = assets.get(`objects/mine_${on ? 'armed' : 'off'}`);
+    if (texture && this.art) {
+      this.art.texture = texture;
+      return;
+    }
     if (on) this.light.circle(0, -0.5, 1.4).fill(0xff2020);
     else if (m.spent) this.light.circle(0, -0.5, 1.2).fill(0x444444);
   }

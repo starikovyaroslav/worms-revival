@@ -10,7 +10,7 @@ import {
   type Replay,
   type ReplayProblem,
 } from '@wr/content';
-import { THEMES, TEAM_COLORS } from '@wr/render';
+import { THEMES, TEAM_COLORS, assets } from '@wr/render';
 import { drawMapPreview } from './mapPreview';
 import { Wormpot } from './Wormpot';
 
@@ -97,11 +97,34 @@ export function Menu({ initial, onStart, onReplay }: Props) {
     set({ teams: [...cfg.teams, { ...preset, cpu: 0 }] });
   };
 
+  const compactLogo = assets.url('ui/logo-menu');
+  const logo = compactLogo ?? assets.url('ui/logo');
+  const layers = ['near', 'mid', 'far', 'sky'].map((name) =>
+    assets.url(`bg/${cfg.themeId}/${name}`),
+  );
+  const hasArt = layers.every(Boolean);
+
   return (
-    <div class="menu">
+    <div
+      class={`menu${hasArt ? ' has-art' : ''}`}
+      style={
+        hasArt ? { backgroundImage: layers.map((url) => `url("${url}")`).join(',') } : undefined
+      }
+    >
       <div class="menu-stage">
         <h1 class="logo">
-          WORMS <span>REVIVAL</span>
+          {logo ? (
+            <img
+              src={logo}
+              alt="Worms revival"
+              width={compactLogo ? 159 : 317}
+              height={compactLogo ? 74 : 147}
+            />
+          ) : (
+            <>
+              Worms <span>revival</span>
+            </>
+          )}
         </h1>
         <div class="menu-body">
           <section class="menu-card px-panel">

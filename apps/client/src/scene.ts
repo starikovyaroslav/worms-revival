@@ -77,7 +77,7 @@ export class GameScene {
     theme: Theme,
     seed: number,
   ) {
-    this.viewCtx = createViewContext(game.world);
+    this.viewCtx = createViewContext(game.world, game.rules);
     const terrain = game.world.terrain;
     this.camera = new Camera(terrain);
 

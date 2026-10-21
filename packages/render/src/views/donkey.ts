@@ -1,11 +1,16 @@
 import { Container, Graphics } from 'pixi.js';
 import type { Donkey } from '@wr/sim';
-import { OUTLINE, place, type EntityView } from './common';
+import { OUTLINE, artSprite, place, type EntityView } from './common';
 
 export class DonkeyView implements EntityView {
   readonly container = new Container();
 
   constructor(private readonly d: Donkey) {
+    const art = artSprite('creatures/donkey_fall') ?? artSprite('creatures/donkey');
+    if (art) {
+      this.container.addChild(art);
+      return;
+    }
     const g = new Graphics();
     g.roundRect(-11, -9, 22, 13, 3).fill(0x9a9aa4).stroke({ color: OUTLINE, width: 1.2 });
     g.rect(8, -15, 8, 9).fill(0x9a9aa4).stroke({ color: OUTLINE, width: 1 });

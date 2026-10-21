@@ -1,4 +1,5 @@
-import { CanvasSource, Container, Graphics, Sprite, Texture } from 'pixi.js';
+import { CanvasSource, Container, Graphics, Sprite, Texture, TilingSprite } from 'pixi.js';
+import { assets } from './assets';
 import { hex, mix, type RGB } from './color';
 import { snap } from './palette';
 import type { Theme } from './theme';
@@ -19,6 +20,8 @@ export class Background {
   private layers: Layer[] = [];
   private skyW = 0;
   private skyH = 0;
+  private artSky: TilingSprite | null = null;
+  private artLayers: { tile: TilingSprite; base: Graphics; color: number; factor: number }[] = [];
 
   constructor(
     private theme: Theme,
@@ -27,6 +30,29 @@ export class Background {
     seed = 1,
   ) {
     this.container.addChild(this.sky);
+    const names = ['sky', 'far', 'mid', 'near'];
+    const textures = names.map((name) => assets.get(`bg/${theme.id}/${name}`));
+    if (textures.every((tex) => tex !== undefined)) {
+      this.artSky = new TilingSprite({
+        texture: textures[0]!,
+        width: 1,
+        height: textures[0]!.height,
+      });
+      this.container.addChild(this.artSky);
+      for (let i = 0; i < 3; i++) {
+        const texture = textures[i + 1]!;
+        const tile = new TilingSprite({ texture, width: 1, height: texture.height });
+        const base = new Graphics();
+        const raster = assets.pixels(`bg/${theme.id}/${names[i + 1]}`);
+        const p = raster ? (raster.h - 1) * raster.w * 4 : 0;
+        const color = raster
+          ? (raster.data[p]! << 16) | (raster.data[p + 1]! << 8) | raster.data[p + 2]!
+          : theme.hills[i]!;
+        this.container.addChild(base, tile);
+        this.artLayers.push({ tile, base, color, factor: 0.15 + i * 0.2 });
+      }
+      return;
+    }
     const sky = hex(theme.skyBottom);
     const count = 3;
     for (let i = 0; i < count; i++) {
@@ -117,6 +143,30 @@ export class Background {
 
   update(camera: Camera, screenW: number, screenH: number): void {
     if (screenW !== this.skyW || screenH !== this.skyH) this.drawSky(screenW, screenH);
+    if (this.artSky) {
+      const scale = camera.baseScale;
+      const width = Math.ceil(screenW / scale);
+      this.artSky.scale.set(scale);
+      this.artSky.width = width;
+      this.artSky.height = this.artSky.texture.height;
+      this.artSky.y =
+        Math.round((screenH - this.artSky.height * scale) * camera.pixelRatio) / camera.pixelRatio;
+      this.artSky.tilePosition.x = -Math.round(camera.x * 0.04);
+      for (const [i, layer] of this.artLayers.entries()) {
+        const shift = Math.max(-64, Math.min(64, (this.mapHeight * 0.5 - camera.y) * layer.factor));
+        const bottom = Math.round(screenH / scale - (2 - i) * 24 + shift);
+        layer.tile.scale.set(scale);
+        layer.tile.width = width;
+        layer.tile.height = layer.tile.texture.height;
+        layer.tile.y = (bottom - layer.tile.height) * scale;
+        layer.tile.tilePosition.x = -Math.round(camera.x * layer.factor);
+        layer.base
+          .clear()
+          .rect(0, bottom * scale, screenW, Math.max(0, screenH - bottom * scale))
+          .fill(layer.color);
+      }
+      return;
+    }
     for (const l of this.layers) {
       // Each layer moves at a fraction of the camera speed and is scaled less than the world.
       const z = 1 + (camera.zoom - 1) * l.factor;
@@ -140,6 +190,13 @@ export class Background {
   private drawSky(w: number, h: number): void {
     this.skyW = w;
     this.skyH = h;
+    if (this.artSky) {
+      this.sky
+        .clear()
+        .rect(0, 0, w, h)
+        .fill(this.theme.sky?.[0] ?? this.theme.skyTop);
+      return;
+    }
     const top = hex(this.theme.skyTop);
     const bottom = hex(this.theme.skyBottom);
     const BANDS = this.theme.sky?.length ?? 9;

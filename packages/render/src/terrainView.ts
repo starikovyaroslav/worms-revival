@@ -2,6 +2,7 @@ import { BufferImageSource, Container, Sprite, Texture } from 'pixi.js';
 import { Material, type Terrain } from '@wr/sim';
 import { snap } from './palette';
 import type { Theme } from './theme';
+import { terrainArtForTheme, terrainArtPixel, type TerrainArt } from './terrainArt';
 
 const CHUNK = 256;
 /** Depth of the surface (grass) layer in pixels. */
@@ -72,6 +73,7 @@ export class TerrainView {
   readonly container = new Container();
   private chunks: Chunk[] = [];
   private cols: number;
+  private art: TerrainArt | undefined;
   /** Distance-to-air field for the region currently being repainted. */
   private field = { x0: 0, y0: 0, w: 0, h: 0, data: new Uint8Array(0) };
 
@@ -79,6 +81,7 @@ export class TerrainView {
     private readonly terrain: Terrain,
     private theme: Theme,
   ) {
+    this.art = terrainArtForTheme(theme.id);
     this.cols = Math.ceil(terrain.width / CHUNK);
     const rows = Math.ceil(terrain.height / CHUNK);
     for (let cy = 0; cy < rows; cy++) {
@@ -104,6 +107,7 @@ export class TerrainView {
 
   setTheme(theme: Theme): void {
     this.theme = theme;
+    this.art = terrainArtForTheme(theme.id);
     this.redrawAll();
   }
 
@@ -269,7 +273,19 @@ export class TerrainView {
       for (let lx = lx0; lx <= lx1; lx++) {
         const x = ox + lx;
         const o = (ly * chunk.w + lx) * 4;
-        const m = t.data[y * t.width + x] as number;
+        const m = t.data[y * t.width + x] as Material;
+        if (this.art) {
+          const color = terrainArtPixel(t, this.art, x, y, m);
+          if (color !== undefined) {
+            px[o + 3] = color < 0 ? 0 : 255;
+            if (color >= 0) {
+              px[o] = (color >> 16) & 255;
+              px[o + 1] = (color >> 8) & 255;
+              px[o + 2] = color & 255;
+            }
+            continue;
+          }
+        }
         if (m === Material.Air) {
           const tuft = th.rim === 'none' ? -1 : this.tuft(x, y);
           if (tuft >= 0) {

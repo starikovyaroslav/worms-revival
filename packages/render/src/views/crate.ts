@@ -13,7 +13,11 @@ export class CrateView implements EntityView {
     private readonly c: Crate,
     private readonly ctx: ViewContext,
   ) {
-    const art = artSprite(c.content === 'health' ? 'objects/crate-health' : 'objects/crate-weapon');
+    const legacyKind = c.content === 'health' ? 'health' : 'weapon';
+    const utility =
+      c.content === 'weapon' && ctx.rules?.get(c.weaponId)?.spec.sim.archetype === 'utility';
+    const kind = utility ? 'utility' : legacyKind;
+    const art = artSprite(`objects/crate_${kind}`) ?? artSprite(`objects/crate-${legacyKind}`);
     this.canopy = artSprite('objects/parachute', 1);
     if (this.canopy) {
       this.canopy.y = -5;

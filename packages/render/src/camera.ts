@@ -71,6 +71,11 @@ export class Camera {
     return this.dpr;
   }
 
+  /** CSS pixels per base art pixel, independent of the player's world zoom. */
+  get baseScale(): number {
+    return this.kd / this.dpr;
+  }
+
   /** CSS pixels per world pixel at the current level: a whole number of device pixels. */
   get zoom(): number {
     return deviceScale(this.kd, this.level) / this.dpr;

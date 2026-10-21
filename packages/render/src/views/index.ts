@@ -17,6 +17,7 @@ import {
   type Entity,
   type Look,
   type World,
+  type Ruleset,
 } from '@wr/sim';
 import { ArrowView } from './arrow';
 import { BarrelView } from './barrel';
@@ -60,7 +61,7 @@ register(Arrow, (e) => new ArrowView(e));
 register(Projectile, (e) => new ProjectileView(e));
 register(Gravestone, (e) => new GravestoneView(e));
 register(Mine, (e) => new MineView(e));
-register(Barrel, (e) => new BarrelView(e));
+register(Barrel, (e, ctx) => new BarrelView(e, ctx));
 register(Flame, (e) => new FlameView(e));
 register(Gas, (e) => new GasView(e));
 register(Sheep, (e) => new SheepView(e));
@@ -71,8 +72,8 @@ register(Crate, (e, ctx) => new CrateView(e, ctx));
 register(DigTool, (e) => new DigToolView(e));
 
 /** A fresh view context for a world (the scene keeps it and updates `crateSpy` each frame). */
-export function createViewContext(world: World): ViewContext {
-  return { world, crateSpy: false };
+export function createViewContext(world: World, rules?: Ruleset): ViewContext {
+  return { world, rules, crateSpy: false };
 }
 
 /** Creates a view for a non-worm entity, or null if it has no visual. */

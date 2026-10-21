@@ -1,6 +1,6 @@
 import { Container, Graphics } from 'pixi.js';
 import type { Flame, Gas } from '@wr/sim';
-import { place, type EntityView } from './common';
+import { artSprite, place, type EntityView } from './common';
 
 export class FlameView implements EntityView {
   readonly container = new Container();
@@ -32,8 +32,10 @@ export class GasView implements EntityView {
   readonly container = new Container();
   private g = new Graphics();
   private t = Math.random() * 10;
+  private art = artSprite('creatures/stink');
 
   constructor(private readonly gas: Gas) {
+    if (this.art) this.container.addChild(this.art);
     this.container.addChild(this.g);
   }
 
@@ -41,6 +43,10 @@ export class GasView implements EntityView {
     place(this.container, this.gas, alpha);
     this.t += dtMs / 1000;
     const fade = Math.min(1, this.gas.life / 90);
+    if (this.art) {
+      this.art.alpha = 0.5 * fade;
+      return;
+    }
     const r = 7 + Math.sin(this.t * 2) * 1.5;
     this.g
       .clear()

@@ -61,10 +61,13 @@ export class SheepView implements EntityView {
   private body = new Graphics();
   private t = 0;
   private art: Sprite | null;
+  private generated = false;
 
   constructor(private readonly s: Sheep) {
     const look = s.opts.look ?? 'sheep';
-    this.art = look === 'sheep' ? artSprite('proj/sheep', 0.56) : null;
+    this.art = artSprite(`creatures/${look}_0`, 0.7) ?? artSprite(`creatures/${look}`, 0.7);
+    this.generated = this.art !== null;
+    this.art ??= look === 'sheep' ? artSprite('proj/sheep', 0.56) : null;
     if (this.art) this.container.addChild(this.art);
     this.container.addChild(this.body);
   }
@@ -76,6 +79,20 @@ export class SheepView implements EntityView {
     const flying = s.mode === 'fly';
     const bob = flying ? 0 : Math.abs(Math.sin(this.t * 14)) * 1.2;
     if (this.art) {
+      if (this.generated) {
+        const look = flying ? 'supersheep' : (s.opts.look ?? 'sheep');
+        const prefix = `creatures/${look}_`;
+        const count = assets.count(prefix);
+        const texture = assets.get(
+          count ? `${prefix}${Math.floor(this.t * 8) % count}` : `creatures/${look}`,
+        );
+        if (texture) this.art.texture = texture;
+        this.art.anchor.y = flying ? 0.5 : 0.7;
+        this.art.y = -Math.round(bob);
+        this.container.rotation = flying ? s.heading : 0;
+        this.container.scale.set(flying ? 1 : s.dir, 1);
+        return;
+      }
       // Artwork: it bounces as it trots, and the Super Sheep gets a cape.
       this.art.y = -bob;
       const superTex = assets.get('proj/supersheep');
