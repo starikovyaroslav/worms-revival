@@ -788,6 +788,7 @@ body {
 }
 
 .esc-menu {
+  color: var(--paper);
   display: flex;
   flex-direction: column;
   align-items: stretch;

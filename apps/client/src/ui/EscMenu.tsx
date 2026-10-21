@@ -97,6 +97,9 @@ export function EscMenu({
             <button class="btn secondary" onClick={() => onDialog('sound')}>
               Звук
             </button>
+            <button class="btn secondary" onClick={() => onDialog('graphics')}>
+              Графика
+            </button>
             <button class="btn secondary" onClick={() => onDialog('quit')}>
               Выйти в меню
             </button>
@@ -145,6 +148,35 @@ export function EscMenu({
             </button>
             <p class="esc-note">Музыки в игре пока нет: переключатель сохраняется на будущее.</p>
             <button class="btn" onClick={() => onDialog('menu')}>
+              Назад
+            </button>
+          </>
+        )}
+        {dialog === 'graphics' && (
+          <>
+            <h2 id="esc-title">Графика</h2>
+            <p class="esc-note">CRT: люминофорная сетка и свечение старого монитора.</p>
+            {(
+              [
+                ['off', 'Выключен'],
+                ['soft', 'Мягкий'],
+                ['medium', 'Средний'],
+                ['strong', 'Выраженный'],
+              ] as const
+            ).map(([mode, label]) => (
+              <button
+                key={mode}
+                class={`btn ${state.crtMode === mode ? '' : 'secondary'}`}
+                aria-pressed={state.crtMode === mode}
+                onClick={() => settings.update({ crtMode: mode })}
+              >
+                {label}
+              </button>
+            ))}
+            <p class="esc-note">
+              Без мерцания. Прицел и текст остаются чёткими. Выбор сохраняется.
+            </p>
+            <button class="btn secondary" onClick={() => onDialog('menu')}>
               Назад
             </button>
           </>

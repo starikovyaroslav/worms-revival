@@ -1,5 +1,6 @@
 import { type Container, Rectangle, Sprite, Texture, type Application } from 'pixi.js';
 import { AdjustmentFilter, ShockwaveFilter } from 'pixi-filters';
+import { CrtFilter, type CrtMode } from './crt';
 
 /** Per-theme look: colour grading and how readily things glow. */
 export interface GradeSpec {
@@ -52,6 +53,7 @@ function vignetteTexture(): Texture {
 export class PostFx {
   private readonly adjust: AdjustmentFilter;
   private readonly vignette: Sprite;
+  private crt: CrtFilter | null = null;
   private grade: GradeSpec = DEFAULT_GRADE;
   private shock: ShockwaveFilter | null = null;
   private shockTime = 0;
@@ -63,12 +65,15 @@ export class PostFx {
   constructor(
     private readonly app: Application,
     private readonly stage: Container,
+    private readonly picture: Container,
   ) {
     this.adjust = new AdjustmentFilter();
+    this.adjust.resolution = 'inherit';
     this.vignette = new Sprite(vignetteTexture());
     this.vignette.eventMode = 'none';
     stage.filters = [this.adjust];
     stage.filterArea = new Rectangle(0, 0, app.screen.width, app.screen.height);
+    picture.filterArea = new Rectangle(0, 0, app.screen.width, app.screen.height);
     app.stage.addChild(this.vignette);
     this.setGrade(DEFAULT_GRADE);
     this.resize(app.screen.width, app.screen.height);
@@ -79,8 +84,22 @@ export class PostFx {
     const area = this.stage.filterArea as Rectangle;
     area.width = w;
     area.height = h;
+    const pictureArea = this.picture.filterArea as Rectangle;
+    pictureArea.width = w;
+    pictureArea.height = h;
     this.vignette.width = w;
     this.vignette.height = h;
+  }
+
+  /** Only the picture is softened; names, crosshair and DOM HUD stay outside this pass. */
+  setCrt(mode: CrtMode): void {
+    if (mode === 'off') {
+      this.picture.filters = null;
+      return;
+    }
+    this.crt ??= new CrtFilter();
+    this.crt.setMode(mode);
+    this.picture.filters = [this.crt];
   }
 
   setGrade(g: Partial<GradeSpec>): void {
@@ -107,6 +126,7 @@ export class PostFx {
       brightness: 1.04,
     });
     const f = this.shock;
+    f.resolution = 'inherit';
     f.center = { x: screenX, y: screenY };
     f.amplitude = 6 + 12 * Math.min(1.5, strength);
     f.time = 0;
@@ -149,6 +169,11 @@ export class PostFx {
   destroy(): void {
     this.stage.filters = null;
     this.stage.filterArea = undefined;
+    this.picture.filters = null;
+    this.picture.filterArea = undefined;
+    this.crt?.destroy();
+    this.adjust.destroy();
+    this.shock?.destroy();
     this.vignette.destroy();
   }
 }

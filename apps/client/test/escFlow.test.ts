@@ -13,6 +13,7 @@ describe('Esc flow', () => {
   it('inside the menu: sub-screens step back, the menu resumes, surrender is cancelled', () => {
     expect(onEscape('controls', false).dialog).toBe('menu');
     expect(onEscape('sound', false).dialog).toBe('menu');
+    expect(onEscape('graphics', false).dialog).toBe('menu');
     expect(onEscape('quit', false).dialog).toBe('menu');
     expect(onEscape('menu', false).dialog).toBeNull();
     expect(onEscape('surrender', false).dialog).toBeNull();

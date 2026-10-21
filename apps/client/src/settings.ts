@@ -1,4 +1,5 @@
 /** Player settings, kept in localStorage under a versioned schema. UI state only: never part of the sim or its hash. */
+import type { CrtMode } from '@wr/render';
 
 export const SETTINGS_KEY = 'wr.settings';
 export const SETTINGS_VERSION = 1;
@@ -10,9 +11,15 @@ export interface Settings {
   musicOn: boolean;
   /** Everything silent. */
   muted: boolean;
+  crtMode: CrtMode;
 }
 
-export const DEFAULT_SETTINGS: Readonly<Settings> = { sfxVolume: 0.8, musicOn: true, muted: false };
+export const DEFAULT_SETTINGS: Readonly<Settings> = {
+  sfxVolume: 0.8,
+  musicOn: true,
+  muted: false,
+  crtMode: 'soft',
+};
 
 /** The part of `Storage` this module needs (a plain object in tests). */
 export interface KeyValueStore {
@@ -40,6 +47,13 @@ export function parseSettings(raw: string | null): Settings {
     sfxVolume: clamp01(o.sfxVolume, DEFAULT_SETTINGS.sfxVolume),
     musicOn: bool(o.musicOn, DEFAULT_SETTINGS.musicOn),
     muted: bool(o.muted, DEFAULT_SETTINGS.muted),
+    crtMode:
+      o.crtMode === 'off' ||
+      o.crtMode === 'soft' ||
+      o.crtMode === 'medium' ||
+      o.crtMode === 'strong'
+        ? o.crtMode
+        : DEFAULT_SETTINGS.crtMode,
   };
 }
 

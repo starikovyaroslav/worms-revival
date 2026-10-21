@@ -1,5 +1,5 @@
 /** Dialogs of the in-match Esc menu. While one is open the game is paused. */
-export type Dialog = 'menu' | 'controls' | 'sound' | 'quit' | 'surrender';
+export type Dialog = 'menu' | 'controls' | 'sound' | 'graphics' | 'quit' | 'surrender';
 
 export interface EscResult {
   dialog: Dialog | null;

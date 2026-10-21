@@ -71,7 +71,10 @@ export class Match {
     this.input = input;
     input.toWorld = (x, y) => scene.camera.toWorld(x, y);
     input.onSurrender = () => hooks.onSurrender();
-    this.unsubscribeSettings = settingsStore.subscribe((s) => scene.sfx.configure(s));
+    this.unsubscribeSettings = settingsStore.subscribe((s) => {
+      scene.sfx.configure(s);
+      scene.setCrt(s.crtMode);
+    });
 
     // Camera: drag with the mouse to look around, wheel to zoom; right click opens the panel.
     let dragging = false;

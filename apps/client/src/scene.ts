@@ -27,6 +27,7 @@ import {
   type ViewContext,
   type EntityView,
   type Theme,
+  type CrtMode,
 } from '@wr/render';
 
 /** Everything visible in a match, kept in sync with the simulation. */
@@ -34,6 +35,8 @@ export class GameScene {
   readonly camera: Camera;
   private background: Background;
   private world = new Container();
+  /** The CRT picture excludes text and the aim overlay. */
+  private picture = new Container();
   private terrainView: TerrainView;
   private water: WaterView;
   private entityLayer = new Container();
@@ -107,15 +110,16 @@ export class GameScene {
       this.effects.front,
       this.water.front,
     );
-    app.stage.addChild(this.background.container, this.world);
+    this.picture.addChild(this.background.container, this.world);
     this.labelLayer.addChild(this.fx.container, this.speech.container, this.markers);
     this.lights = new LightLayer(app, viewport.current);
     this.baseAmbient = theme.ambient ?? 0xffffff;
     this.lights.setAmbient(this.baseAmbient, true);
     // The aim overlay sits above the lighting and name labels so neither dims or hides it.
-    app.stage.addChild(this.lights.container, this.labelLayer, this.aimLayer);
+    this.picture.addChild(this.lights.container);
+    app.stage.addChild(this.picture, this.labelLayer, this.aimLayer);
     this.aimLayer.addChild(this.aim.container);
-    this.post = new PostFx(app, app.stage);
+    this.post = new PostFx(app, app.stage, this.picture);
     this.post.setGrade(theme.grade ?? {});
     const w = game.activeWorm;
     if (w) this.camera.lookAt(w.x, w.y - 40);
@@ -141,6 +145,11 @@ export class GameScene {
     this.app.stage.removeChildren();
     this.background.container.destroy({ children: true });
     this.world.destroy({ children: true });
+    this.picture.destroy();
+  }
+
+  setCrt(mode: CrtMode): void {
+    this.post.setCrt(mode);
   }
 
   private sync(): void {
