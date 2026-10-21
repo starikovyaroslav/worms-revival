@@ -39,7 +39,7 @@ export class Pigeon extends Entity {
 
   private boom(world: World): void {
     this.removed = true;
-    explode(world, this.x, this.y, this.blast);
+    explode(world, this.x, this.y, this.blast, world.sourceOf(this));
   }
 
   /** Whether flying along heading `h` would hit land soon. */

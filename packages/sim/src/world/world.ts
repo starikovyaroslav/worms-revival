@@ -52,6 +52,23 @@ export class World {
 
   /** Presentation events produced since the last drain. */
   events: SimEvent[] = [];
+  /** Cosmetic lineage only: not hashed, not read by physics or rules. */
+  private readonly presentationSources = new Map<number, string>();
+  private presentationSource: string | undefined;
+
+  withPresentationSource<T>(source: string | undefined, run: () => T): T {
+    const before = this.presentationSource;
+    this.presentationSource = source;
+    try {
+      return run();
+    } finally {
+      this.presentationSource = before;
+    }
+  }
+
+  sourceOf(entity: Entity): string {
+    return this.presentationSources.get(entity.id) ?? entity.kind;
+  }
 
   constructor(opts: WorldOptions) {
     this.rng = new Rng(opts.seed);
@@ -63,12 +80,17 @@ export class World {
   /** Adds an entity; it starts updating on the next tick. */
   spawn<T extends Entity>(e: T): T {
     e.id = this.nextId++;
+    if (this.presentationSource) this.presentationSources.set(e.id, this.presentationSource);
     this.pending.push(e);
     return e;
   }
 
   emit(event: SimEvent): void {
-    this.events.push(event);
+    this.events.push(
+      event.type === 'explosion' || event.type === 'airRaid'
+        ? { ...event, source: event.source ?? this.presentationSource ?? 'generic' }
+        : event,
+    );
   }
 
   drainEvents(): SimEvent[] {
@@ -116,7 +138,7 @@ export class World {
     const current = this.entities;
     for (let i = 0; i < current.length; i++) {
       const e = current[i] as Entity;
-      if (!e.removed) e.update(this);
+      if (!e.removed) this.withPresentationSource(this.sourceOf(e), () => e.update(this));
     }
     this.compact();
     this.flushPending();
@@ -131,6 +153,7 @@ export class World {
       const e = list[i] as Entity;
       if (e.removed) {
         this.index.delete(e.id);
+        this.presentationSources.delete(e.id);
         const bucket = this.buckets.get(e.kind) as Entity[];
         bucket.splice(bucket.indexOf(e), 1);
       } else {

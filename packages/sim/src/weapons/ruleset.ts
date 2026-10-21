@@ -93,7 +93,13 @@ export class Ruleset {
     const defs: WeaponDef[] = [];
     for (const spec of specs) {
       if (this.byId.has(spec.id)) throw new Error(`duplicate weapon id ${spec.id}`);
-      const def: WeaponDef = { ...compile(spec), id: spec.id, spec };
+      const compiled = compile(spec);
+      const def: WeaponDef = {
+        ...compiled,
+        id: spec.id,
+        spec,
+        fire: (ctx) => ctx.world.withPresentationSource(spec.id, () => compiled.fire(ctx)),
+      };
       this.byId.set(spec.id, def);
       defs.push(def);
     }

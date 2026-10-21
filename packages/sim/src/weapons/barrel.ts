@@ -46,7 +46,7 @@ export class Barrel extends PhysBody implements Flammable {
   override update(world: World): void {
     if (this.exploding) {
       this.removed = true;
-      explode(world, this.x, this.y, { crater: 30, radius: 60, damage: 45 });
+      explode(world, this.x, this.y, { crater: 30, radius: 60, damage: 45 }, world.sourceOf(this));
       sprayFlames(world, this.x, this.y - 4, 14, 3);
       return;
     }

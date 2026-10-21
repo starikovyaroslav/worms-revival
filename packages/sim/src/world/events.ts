@@ -7,7 +7,20 @@ export type SpeechLine = 'turn' | 'hurt' | 'fall' | 'drown' | 'death' | 'win' | 
  * They never feed back into the simulation and are not part of the state hash.
  */
 export type SimEvent =
-  | { type: 'explosion'; x: number; y: number; radius: number }
+  | { type: 'explosion'; x: number; y: number; radius: number; source?: string }
+  /** Cosmetic transport cue. Payloads already exist; this must never delay their simulation. */
+  | {
+      type: 'airRaid';
+      x: number;
+      y: number;
+      dir: 1 | -1;
+      speed: number;
+      spacing: number;
+      payloadIds: number[];
+      source?: string;
+    }
+  | { type: 'death'; wormId: number; x: number; y: number; team: number }
+  | { type: 'steam'; x: number; y: number }
   | { type: 'splash'; x: number; y: number; size: number }
   | { type: 'sound'; id: SoundId; x: number; y: number }
   /** A worm says something; `line` is a phrase category the presentation picks a line from. */

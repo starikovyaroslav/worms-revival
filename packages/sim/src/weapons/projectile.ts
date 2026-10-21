@@ -144,7 +144,7 @@ export class Projectile extends PhysBody {
   detonate(world: World): void {
     if (this.removed) return;
     this.removed = true;
-    explode(world, this.x, this.y, this.spec.blast);
+    explode(world, this.x, this.y, this.spec.blast, world.sourceOf(this));
     const fl = this.spec.flames;
     if (fl) sprayFlames(world, this.x, this.y - 2, fl.count, fl.speed);
     if (this.spec.gas) sprayGas(world, this.x, this.y - 2, this.spec.gas.count);

@@ -584,7 +584,8 @@ export class Game {
       worm.state = 'dead';
       this.focusId = worm.id;
       this.world.emit({ type: 'speech', wormId: worm.id, line: 'death' });
-      explode(this.world, worm.cx, worm.cy, { crater: 16, radius: 34, damage: 20 });
+      this.world.emit({ type: 'death', wormId: worm.id, x: worm.cx, y: worm.cy, team: worm.team });
+      explode(this.world, worm.cx, worm.cy, { crater: 16, radius: 34, damage: 20 }, 'worm-death');
       this.world.spawn(new Gravestone(worm.x, worm.y - 8, worm.team));
     }
     if (this.dyingQueue.length) {

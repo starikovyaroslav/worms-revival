@@ -99,7 +99,7 @@ export class Sheep extends PhysBody implements RemoteControlled {
   blowUp(world: World): void {
     if (this.removed) return;
     this.removed = true;
-    explode(world, this.x, this.y, this.opts.blast);
+    explode(world, this.x, this.y, this.opts.blast, world.sourceOf(this));
     world.emit({ type: 'sound', id: 'baa', x: this.x, y: this.y });
   }
 

@@ -73,7 +73,7 @@ export class Mine extends PhysBody {
       return;
     }
     this.removed = true;
-    explode(world, this.x, this.y, scaledBlast(50, this.power));
+    explode(world, this.x, this.y, scaledBlast(50, this.power), world.sourceOf(this));
   }
 
   trigger(world: World): void {

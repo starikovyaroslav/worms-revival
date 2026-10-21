@@ -53,7 +53,7 @@ export class KamikazeFlight extends Entity {
     }
     if (hit || --this.left <= 0 || worm.y > world.waterLevel) {
       this.removed = true;
-      explode(world, worm.cx, worm.cy, this.blast);
+      explode(world, worm.cx, worm.cy, this.blast, world.sourceOf(this));
       if (worm.alive) worm.launch(this.dirX * 2, Math.min(this.dirY * 2, -1), true);
     }
   }

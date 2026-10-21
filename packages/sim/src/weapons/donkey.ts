@@ -47,7 +47,7 @@ export class Donkey extends Entity {
       // One blast per layer, whether it was land or a worm in the way (not one per pixel step).
       if (hit && this.y - this.lastBlast > 30) {
         this.lastBlast = this.y;
-        explode(world, this.x, this.y, this.blast);
+        explode(world, this.x, this.y, this.blast, world.sourceOf(this));
       }
     }
   }

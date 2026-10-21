@@ -45,6 +45,11 @@ export class Flame extends PhysBody {
     if (hit.ny < -0.3) this.rest(world);
   }
 
+  protected override onWater(world: World): void {
+    super.onWater(world);
+    world.emit({ type: 'steam', x: this.x, y: world.waterLevel });
+  }
+
   override update(world: World): void {
     if (--this.life <= 0) {
       this.removed = true;

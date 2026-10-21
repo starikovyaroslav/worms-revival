@@ -59,7 +59,7 @@ export class Crate extends PhysBody {
   override update(world: World): void {
     if (this.exploding) {
       this.removed = true;
-      explode(world, this.x, this.y, { crater: 25, radius: 45, damage: 30 });
+      explode(world, this.x, this.y, { crater: 25, radius: 45, damage: 30 }, world.sourceOf(this));
       return;
     }
     // Under the parachute gravity is cancelled out by drag: sink at a steady speed.

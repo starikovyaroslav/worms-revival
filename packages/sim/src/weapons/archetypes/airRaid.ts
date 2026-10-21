@@ -46,6 +46,7 @@ export function fireAirRaid(ctx: FireContext, sim: AirRaidSim, view: ViewSpec): 
   if (view.sound) world.emit({ type: 'sound', id: view.sound, x: target.x, y: 0 });
   const mid = (sim.count - 1) / 2;
   const focusAt = Math.floor(sim.count / 2);
+  const payloadIds: number[] = [];
   for (let i = 0; i < sim.count; i++) {
     const id = spawnPayload(
       ctx,
@@ -55,6 +56,16 @@ export function fireAirRaid(ctx: FireContext, sim: AirRaidSim, view: ViewSpec): 
       vx,
       0,
     );
+    payloadIds.push(id);
     if (i === focusAt) ctx.focus(id);
   }
+  world.emit({
+    type: 'airRaid',
+    x: x0,
+    y: y0,
+    dir,
+    speed: sim.speed,
+    spacing: sim.spacing,
+    payloadIds,
+  });
 }

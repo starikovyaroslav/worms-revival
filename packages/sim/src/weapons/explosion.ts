@@ -59,13 +59,25 @@ export function blastImpulse(
 }
 
 /** Carves the crater, notifies every entity and emits presentation events. */
-export function explode(world: World, x: number, y: number, spec: BlastSpec): Blast {
+export function explode(
+  world: World,
+  x: number,
+  y: number,
+  spec: BlastSpec,
+  source?: string,
+): Blast {
   const blast: Blast = { push: 1, noCrater: false, ...spec, x, y };
   blast.damage *= world.physics.damageScale;
   if (!blast.noCrater && blast.crater > 0) world.terrain.carveCircle(x, y, blast.crater);
   for (const e of world.all()) {
-    if (!e.removed) e.onBlast(world, blast);
+    if (!e.removed) world.withPresentationSource(world.sourceOf(e), () => e.onBlast(world, blast));
   }
-  world.emit({ type: 'explosion', x, y, radius: Math.max(blast.crater, blast.radius * 0.6) });
+  world.emit({
+    type: 'explosion',
+    x,
+    y,
+    radius: Math.max(blast.crater, blast.radius * 0.6),
+    ...(source ? { source } : {}),
+  });
   return blast;
 }
