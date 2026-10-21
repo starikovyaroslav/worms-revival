@@ -1,4 +1,5 @@
 import type { WeaponSpec } from '@wr/sim';
+import { MAX_LAUNCH } from './shared';
 
 export const ANIMALS: WeaponSpec[] = [
   {
@@ -55,7 +56,24 @@ export const ANIMALS: WeaponSpec[] = [
   },
   {
     id: 'mbbomb',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'launcher',
+      aim: 'angle',
+      charge: true,
+      fuse: true,
+      speed: MAX_LAUNCH * 0.9,
+      projectile: {
+        // A huge bomb that bounces like a rubber ball before it goes off.
+        look: 'mbbomb',
+        radius: 4,
+        wind: 0,
+        impact: 'bounce',
+        fuse: 'player',
+        restitution: 0.85,
+        friction: 0.9,
+        blast: { damage: 100 },
+      },
+    },
     ui: {
       name: 'MB-бомба',
       hint: 'Огромная бомба с упругим отскоком.',
@@ -64,7 +82,7 @@ export const ANIMALS: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: true, rank: 20 },
-    view: { look: 'mbbomb' },
+    view: { look: 'mbbomb', sound: 'throw' },
   },
   {
     id: 'madcows',

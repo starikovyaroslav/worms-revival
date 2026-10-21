@@ -1,10 +1,9 @@
 import { Earthquake, MeteorShower } from '../disasters';
 import { HomingMissile } from '../homing';
-import { Projectile, muzzle } from '../projectile';
+import { muzzle } from '../projectile';
 import { scaledBlast } from '../blast';
 import { type Worm } from '../../worm/worm';
 import { registerLegacy } from '../legacy';
-import { BOUNCE_HIGH, BOUNCE_LOW, MAX_LAUNCH } from './artillery';
 import { TPS } from '../../core/time';
 
 registerLegacy({
@@ -38,48 +37,6 @@ registerLegacy({
     world.waterLevel -= 30;
     world.emit({ type: 'explosion', x: ctx.worm.x, y: ctx.worm.y - 60, radius: 300 });
     world.emit({ type: 'shake', amount: 8 });
-  },
-});
-
-registerLegacy({
-  id: 'vase',
-  aim: 'angle',
-  charge: true,
-  fire: (ctx) => {
-    const p = muzzle(ctx.worm, ctx.dirX, ctx.dirY);
-    const v = MAX_LAUNCH * ctx.power;
-    const vase = ctx.world.spawn(
-      new Projectile(
-        p.x,
-        p.y,
-        ctx.dirX * v,
-        ctx.dirY * v,
-        {
-          look: 'vase',
-          radius: 3.5,
-          wind: 0,
-          impact: 'explode',
-          blast: scaledBlast(40, ctx.setting.power),
-          // It shatters into sharp pieces.
-          cluster: {
-            count: 12,
-            minSpeed: 2,
-            maxSpeed: 6,
-            spread: 1.2,
-            projectile: {
-              look: 'shard',
-              radius: 1.5,
-              wind: 0,
-              impact: 'explode',
-              blast: scaledBlast(12, ctx.setting.power, { push: 0.6 }),
-            },
-          },
-        },
-        ctx.worm.id,
-      ),
-    );
-    ctx.world.emit({ type: 'sound', id: 'throw', x: p.x, y: p.y });
-    ctx.focus(vase.id);
   },
 });
 
@@ -118,59 +75,5 @@ registerLegacy({
     );
     ctx.world.emit({ type: 'sound', id: 'shot', x: p.x, y: p.y });
     ctx.focus(bullet.id);
-  },
-});
-
-registerLegacy({
-  id: 'superbanana',
-  aim: 'angle',
-  charge: true,
-  fuse: true,
-  bounce: true,
-  fire: (ctx) => {
-    const m = muzzle(ctx.worm, ctx.dirX, ctx.dirY);
-    const v = MAX_LAUNCH * ctx.power;
-    const big = scaledBlast(75, ctx.setting.power);
-    const piece = {
-      look: 'bananalet' as const,
-      radius: 2.5,
-      wind: 0,
-      impact: 'explode' as const,
-      blast: big,
-    };
-    // Each piece is a small banana bomb itself: the whole thing splits twice.
-    const bomb = ctx.world.spawn(
-      new Projectile(
-        m.x,
-        m.y,
-        ctx.dirX * v,
-        ctx.dirY * v,
-        {
-          look: 'banana',
-          radius: 3,
-          wind: 0,
-          impact: 'bounce',
-          fuse: ctx.fuse,
-          restitution: ctx.bounceHigh ? BOUNCE_HIGH : BOUNCE_LOW,
-          blast: big,
-          cluster: {
-            count: 5,
-            minSpeed: 3.5,
-            maxSpeed: 7,
-            spread: 0.8,
-            projectile: {
-              ...piece,
-              impact: 'bounce',
-              fuse: 40,
-              restitution: BOUNCE_LOW,
-              cluster: { count: 4, minSpeed: 2, maxSpeed: 5, spread: 0.9, projectile: piece },
-            },
-          },
-        },
-        ctx.worm.id,
-      ),
-    );
-    ctx.world.emit({ type: 'sound', id: 'throw', x: m.x, y: m.y });
-    ctx.focus(bomb.id);
   },
 });

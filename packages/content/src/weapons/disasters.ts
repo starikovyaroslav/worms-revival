@@ -1,4 +1,5 @@
 import type { WeaponSpec } from '@wr/sim';
+import { MAX_LAUNCH, BOUNCE } from './shared';
 
 export const DISASTERS: WeaponSpec[] = [
   {
@@ -16,14 +17,85 @@ export const DISASTERS: WeaponSpec[] = [
   },
   {
     id: 'superbanana',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'launcher',
+      aim: 'angle',
+      charge: true,
+      fuse: true,
+      bounce: true,
+      speed: MAX_LAUNCH,
+      projectile: {
+        look: 'banana',
+        radius: 3,
+        wind: 0,
+        impact: 'bounce',
+        fuse: 'player',
+        restitution: BOUNCE,
+        blast: { damage: 75 },
+        // Each piece is a small banana bomb itself: the whole thing splits twice.
+        cluster: {
+          count: 5,
+          minSpeed: 3.5,
+          maxSpeed: 7,
+          spread: 0.8,
+          projectile: {
+            look: 'bananalet',
+            radius: 2.5,
+            wind: 0,
+            impact: 'bounce',
+            fuse: 40,
+            restitution: BOUNCE.low,
+            blast: { damage: 75 },
+            cluster: {
+              count: 4,
+              minSpeed: 2,
+              maxSpeed: 5,
+              spread: 0.9,
+              projectile: {
+                look: 'bananalet',
+                radius: 2.5,
+                wind: 0,
+                impact: 'explode',
+                blast: { damage: 75 },
+              },
+            },
+          },
+        },
+      },
+    },
     ui: { name: 'Супер-банан', hint: 'Бананы раскалываются ещё раз.', icon: '🍌', row: 9, col: 0 },
     ai: { usable: true, rank: 19 },
-    view: { look: 'banana' },
+    view: { look: 'banana', sound: 'throw' },
   },
   {
     id: 'vase',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'launcher',
+      aim: 'angle',
+      charge: true,
+      speed: MAX_LAUNCH,
+      projectile: {
+        look: 'vase',
+        radius: 3.5,
+        wind: 0,
+        impact: 'explode',
+        blast: { damage: 40 },
+        // It shatters into sharp pieces.
+        cluster: {
+          count: 12,
+          minSpeed: 2,
+          maxSpeed: 6,
+          spread: 1.2,
+          projectile: {
+            look: 'shard',
+            radius: 1.5,
+            wind: 0,
+            impact: 'explode',
+            blast: { damage: 12, push: 0.6 },
+          },
+        },
+      },
+    },
     ui: {
       name: 'Бесценная ваза Мин',
       hint: 'Разбивается на острые осколки.',
@@ -32,7 +104,7 @@ export const DISASTERS: WeaponSpec[] = [
       col: 2,
     },
     ai: { usable: true, rank: 21 },
-    view: { look: 'vase' },
+    view: { look: 'vase', sound: 'throw' },
   },
   {
     id: 'nuke',

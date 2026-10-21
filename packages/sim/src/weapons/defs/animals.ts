@@ -1,7 +1,7 @@
 import { Donkey } from '../donkey';
 import { Sheep, type SheepOptions } from '../sheep';
 import { scaledBlast } from '../blast';
-import { Projectile, muzzle } from '../projectile';
+import { muzzle } from '../projectile';
 import { registerLegacy } from '../legacy';
 import { type FireContext } from '../weapon';
 import { MAX_LAUNCH } from './artillery';
@@ -157,38 +157,5 @@ registerLegacy({
     const d = world.spawn(new Donkey(target.x, -60, scaledBlast(100, ctx.setting.power)));
     world.emit({ type: 'sound', id: 'baa', x: target.x, y: 0 });
     ctx.focus(d.id);
-  },
-});
-
-registerLegacy({
-  id: 'mbbomb',
-  aim: 'angle',
-  charge: true,
-  fuse: true,
-  fire: (ctx) => {
-    const p = muzzle(ctx.worm, ctx.dirX, ctx.dirY);
-    const v = MAX_LAUNCH * 0.9 * ctx.power;
-    // A huge bomb that bounces like a rubber ball before it goes off.
-    const bomb = ctx.world.spawn(
-      new Projectile(
-        p.x,
-        p.y,
-        ctx.dirX * v,
-        ctx.dirY * v,
-        {
-          look: 'mbbomb',
-          radius: 4,
-          wind: 0,
-          impact: 'bounce',
-          fuse: ctx.fuse,
-          restitution: 0.85,
-          friction: 0.9,
-          blast: scaledBlast(100, ctx.setting.power),
-        },
-        ctx.worm.id,
-      ),
-    );
-    ctx.world.emit({ type: 'sound', id: 'throw', x: p.x, y: p.y });
-    ctx.focus(bomb.id);
   },
 });
