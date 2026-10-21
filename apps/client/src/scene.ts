@@ -8,6 +8,7 @@ import {
   LightLayer,
   EffectsSystem,
   PostFx,
+  Transports,
   SpeechView,
   TargetView,
   Background,
@@ -51,6 +52,7 @@ export class GameScene {
   /** Arrows at the screen edge for the active worm and crates that are out of view. */
   private markers = new Graphics();
   private post: PostFx;
+  private transports = new Transports();
   private dirt: number;
   /** Last time each worm spoke, so they don't chatter non-stop. */
   private lastSpoke = new Map<number, number>();
@@ -116,7 +118,7 @@ export class GameScene {
     this.baseAmbient = theme.ambient ?? 0xffffff;
     this.lights.setAmbient(this.baseAmbient, true);
     // The aim overlay sits above the lighting and name labels so neither dims or hides it.
-    this.picture.addChild(this.lights.container);
+    this.picture.addChild(this.transports.container, this.lights.container);
     app.stage.addChild(this.picture, this.labelLayer, this.aimLayer);
     this.aimLayer.addChild(this.aim.container);
     this.post = new PostFx(app, app.stage, this.picture);
@@ -142,6 +144,7 @@ export class GameScene {
     this.unsubscribe();
     this.lights.destroy();
     this.post.destroy();
+    this.transports.destroy();
     this.app.stage.removeChildren();
     this.background.container.destroy({ children: true });
     this.world.destroy({ children: true });
@@ -185,6 +188,9 @@ export class GameScene {
   handleEvents(): void {
     for (const ev of this.game.world.drainEvents()) {
       switch (ev.type) {
+        case 'airRaid':
+          this.transports.play(ev);
+          break;
         case 'sound':
           this.sound(ev.id, ev.x, ev.y);
           // Muzzle flash for launchers and shotguns; automatic guns fire a lot, so a small one.
@@ -426,5 +432,6 @@ export class GameScene {
     );
     this.fx.update(dtMs, project);
     this.effects.update(dtMs);
+    this.transports.update(dtMs, this.camera, game.world);
   }
 }

@@ -4,8 +4,9 @@ import { ART_PACKS, GENERATED_PROJECTILES } from '@wr/render';
 import legacy from '../public/assets/manifest.json';
 import generated from '../public/assets/generated/manifest.json';
 import arsenal from '../public/assets/arsenal/manifest.json';
+import vfx from '../public/assets/vfx/manifest.json';
 
-const packs = [legacy, generated, arsenal];
+const packs = [legacy, generated, arsenal, vfx];
 const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
   string,
   { file: string; w: number; h: number }
@@ -13,7 +14,7 @@ const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
 
 describe('shipped artwork coverage', () => {
   it('checks the same ordered packs that startup actually loads', () => {
-    expect(ART_PACKS).toEqual(['assets', 'assets/generated', 'assets/arsenal']);
+    expect(ART_PACKS).toEqual(['assets', 'assets/generated', 'assets/arsenal', 'assets/vfx']);
     expect(packs.every((p) => p.version === 2 && p.style === 'pixel')).toBe(true);
   });
 

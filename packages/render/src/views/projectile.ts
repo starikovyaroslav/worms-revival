@@ -3,6 +3,7 @@ import type { Look, Projectile } from '@wr/sim';
 import { assets } from '../assets';
 import { OUTLINE, artSprite, place, type EntityView } from './common';
 import { GENERATED_PROJECTILES } from '../arsenalArt';
+import { clipTextures } from '../clipEffects';
 
 /** How a look is drawn: pixel art (optionally a cycle of pre-rotated frames) or code. */
 type LookArt =
@@ -110,8 +111,20 @@ export class ProjectileView implements EntityView {
   private frames: Texture[] = [];
   private period = Math.PI * 2;
   private bananaFrames: Texture[] = [];
+  private flightFrames: Texture[] = [];
+  private flightTime = 0;
 
   constructor(private readonly p: Projectile) {
+    if (p.look === 'missile' || p.look === 'homing' || p.look === 'letter') {
+      this.flightFrames = clipTextures(p.look);
+      if (this.flightFrames.length) {
+        this.art = artSprite(`vfx/${p.look}_0`);
+        if (this.art) {
+          this.container.addChild(this.art);
+          return;
+        }
+      }
+    }
     const generated = GENERATED_PROJECTILES[p.look];
     this.art = generated ? artSprite(generated) : null;
     if (this.art) {
@@ -144,6 +157,11 @@ export class ProjectileView implements EntityView {
 
   update(alpha: number, dtMs: number): void {
     const p = this.p;
+    if (this.art && this.flightFrames.length) {
+      this.flightTime += dtMs / 1000;
+      this.art.texture =
+        this.flightFrames[Math.floor(this.flightTime * 12) % this.flightFrames.length]!;
+    }
     place(this.container, p, alpha);
     if (p.spec.impact === 'explode') {
       // Missiles point along their flight path.
