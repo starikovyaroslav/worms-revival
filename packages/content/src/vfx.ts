@@ -1,4 +1,5 @@
 import { WEAPONS } from './weapons';
+import type { PresentationVariant } from '@wr/sim';
 
 export interface WeaponFx {
   recipe: string;
@@ -66,6 +67,9 @@ const specials: Record<string, WeaponFx> = {
   'worm-death': { ...standard, recipe: 'explosion-animal', scorch: false },
 };
 
-export function weaponFx(source = 'generic'): WeaponFx {
-  return WEAPON_VFX[source] ?? specials[source] ?? standard;
+export function weaponFx(source = 'generic', variant: PresentationVariant = 'standard'): WeaponFx {
+  const base = WEAPON_VFX[source] ?? specials[source] ?? standard;
+  return variant === 'mk2' && (source === 'bazooka' || source === 'homing')
+    ? { ...base, recipe: 'explosion-heavy', accent: 0xfff4cc, scale: 1.08 }
+    : base;
 }

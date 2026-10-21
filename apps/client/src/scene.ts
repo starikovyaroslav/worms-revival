@@ -211,7 +211,8 @@ export class GameScene {
           this.sfx.cinematic(`flyby-${aircraftFor(ev.source)}`, ev.dir * -0.5);
           break;
         case 'sound':
-          this.sound(ev.id, ev.x, ev.y);
+          if (ev.id === 'launch' && ev.variant === 'mk2') this.sfx.cinematic('launch-heavy');
+          else this.sound(ev.id, ev.x, ev.y);
           // Muzzle flash for launchers and shotguns; automatic guns fire a lot, so a small one.
           if (ev.id === 'launch' || ev.id === 'shotgun') {
             this.effects.play('muzzle', ev.x, ev.y, 30, {
@@ -226,10 +227,16 @@ export class GameScene {
           this.effects.tracer(ev.x0, ev.y0, ev.x1, ev.y1);
           break;
         case 'explosion': {
-          const profile = weaponFx(ev.source);
+          const profile = weaponFx(ev.source, ev.variant);
           if (ev.source === 'nuke') this.post.screenEffect('flash');
           if (profile.scorch) this.burnMarks.add(ev.x, ev.y, ev.radius);
           this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
+          if (
+            profile.recipe === 'explosion-heavy' &&
+            Math.hypot(ev.x - this.camera.x, ev.y - this.camera.y) <
+              this.camera.viewW / this.camera.zoom / 3
+          )
+            this.sfx.cinematic('impact-heavy');
           this.effects.play(profile.recipe, ev.x, ev.y, ev.radius * profile.scale, {
             dirt: this.dirt,
             wind: this.game.world.wind,
@@ -393,13 +400,23 @@ export class GameScene {
       const by = e.y - e.vy * 0.4;
       const trail = looks[e.look]?.trail;
       if (trail === 'rocket') {
+        const upgraded =
+          (e.look === 'missile' || e.look === 'homing') && this.game.world.variantOf(e) === 'mk2';
         this.effects.play('trail-rocket', bx, by, 40, ctx);
         this.effects.clips.play('engine', bx, by, {
           life: 0.12,
-          width: 18,
+          width: upgraded ? 26 : 18,
           rotation: Math.atan2(e.vy, e.vx),
           loop: true,
         });
+        if (upgraded)
+          this.effects.clips.play('smoke', bx, by, {
+            life: 1,
+            width: 22,
+            vy: -7,
+            fade: true,
+            alpha: 0.55,
+          });
       } else if (trail === 'fuse' && e.fuseLeft > 0) {
         this.effects.play('trail-fuse', e.x, e.y - 5, 20, ctx);
       } else if (trail === 'meteor' || trail === 'fire') {

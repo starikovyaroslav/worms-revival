@@ -3,6 +3,15 @@ import { RULESET, WEAPON_VFX, weaponFx } from '@wr/content';
 import { RECIPES } from '@wr/render';
 
 describe('weapon VFX coverage', () => {
+  it('gives upgraded rockets their own layered impact, without renaming the actual weapon', () => {
+    expect(weaponFx('bazooka', 'standard').recipe).toBe('explosion');
+    expect(weaponFx('bazooka', 'mk2').recipe).toBe('explosion-heavy');
+    expect(weaponFx('homing', 'mk2').recipe).toBe('explosion-heavy');
+    expect(weaponFx('grenade', 'mk2')).toEqual(weaponFx('grenade'));
+    expect(
+      RECIPES['explosion-heavy']!.layers.some((l) => l.type === 'burst' && (l.at ?? 0) > 0),
+    ).toBe(true);
+  });
   it('explicitly maps the full current arsenal to a valid recipe or a non-explosive action', () => {
     expect(Object.keys(WEAPON_VFX).sort()).toEqual(RULESET.weapons.map((w) => w.id).sort());
     for (const w of RULESET.weapons) {

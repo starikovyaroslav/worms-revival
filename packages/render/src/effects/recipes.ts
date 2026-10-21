@@ -424,3 +424,53 @@ explosionFamily('explosion-toxic', 'gas', 0x99e550, 'toxic', 1.3, 1.2);
 explosionFamily('explosion-paper', 'fragment', 0xcbdbfc, 'paper', 0.7);
 explosionFamily('explosion-meteor', 'incendiary', 0xdf7126, 'chunk', 1, 1.3);
 explosionFamily('explosion-nuke', 'nuke', 0x99e550, undefined, 3.2, 1.8);
+explosionFamily('explosion-heavy', 'fragment', 0xfff4cc, 'metal', 0.8, 1.1);
+RECIPES['explosion-heavy']!.layers.push(
+  {
+    type: 'flash',
+    tex: 'soft',
+    blend: 'add',
+    color: 0xffffff,
+    scale: [0.2, 1],
+    life: 0.09,
+    alpha: 0.8,
+  },
+  {
+    type: 'burst',
+    at: 0.18,
+    tex: 'chunk',
+    blend: 'normal',
+    count: [8, 8],
+    spread: 0.15,
+    speed: [25, 90],
+    dir: 'up',
+    cone: 1.2,
+    gravity: 240,
+    drag: 0.6,
+    life: [0.5, 1.2],
+    scaleStart: [0.1, 0.2],
+    scaleEnd: [0.05, 0.1],
+    colors: [0x663931],
+    fade: 'out',
+    terrain: true,
+    fixed: [1, 2],
+  },
+  {
+    type: 'burst',
+    at: 0.4,
+    tex: 'smoke',
+    blend: 'normal',
+    count: [3, 3],
+    spread: 0.3,
+    speed: [5, 22],
+    dir: 'up',
+    gravity: -8,
+    drag: 0.3,
+    life: [0.8, 1.5],
+    scaleStart: [0.2, 0.4],
+    scaleEnd: [0.6, 1],
+    colors: [0x9badb7, 0x595652],
+    fade: 'inout',
+    alpha: 0.5,
+  },
+);
