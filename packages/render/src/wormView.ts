@@ -40,6 +40,8 @@ export class WormView {
   /** Backgrounds of the name and health tags. */
   private plates = new Graphics();
   private ls: LabelScale = DEFAULT_LABEL_SCALE;
+  /** Compact tag (HP only): a worm that is not on turn and still at full health. */
+  private compact = false;
   private nameText: Text;
   private hpText: Text;
   private time = Math.random() * 10;
@@ -109,8 +111,9 @@ export class WormView {
     const g = this.plates.clear();
     // Tag geometry is in label pixels (scaled by `plates.scale`); texts are positioned in css px.
     const u = labelUnit(this.ls);
-    const w = Math.max(40, Math.round(this.nameText.width / u) + 12);
-    const h = 30;
+    const compact = this.compact;
+    const w = compact ? 36 : Math.max(40, Math.round(this.nameText.width / u) + 12);
+    const h = compact ? 16 : 30;
     const x = -w / 2;
     const y = -h;
     // Ink outline, panel fill, light edge top-left and dark edge bottom-right (like the HUD panels).
@@ -121,9 +124,9 @@ export class WormView {
     g.rect(x, y + h - 2, w, 2).fill(PANEL_LO);
     g.rect(x + w - 2, y, 2, h).fill(PANEL_LO);
     // Health bar: dark trough, team-coloured fill (whole pixels), ink outline.
-    const bx = x + 5;
-    const bw = w - 10;
-    const by = y + 15;
+    const bx = x + (compact ? 4 : 5);
+    const bw = w - (compact ? 8 : 10);
+    const by = y + (compact ? 3 : 15);
     const bh = 10;
     g.rect(bx - 1, by - 1, bw + 2, bh + 2).fill(INK);
     g.rect(bx, by, bw, bh).fill(PANEL_LO);
@@ -132,6 +135,7 @@ export class WormView {
       g.rect(bx, by, fill, bh).fill(this.color);
       g.rect(bx, by, fill, 2).fill({ color: 0xffffff, alpha: 0.35 });
     }
+    this.nameText.visible = !compact;
     this.nameText.position.set(0, (y + 8) * u);
     this.hpText.position.set(0, (by + bh / 2) * u);
   }
@@ -291,6 +295,12 @@ export class WormView {
       for (const s of [this.pixel.body, this.pixel.band]) s.scale.x = w.facing;
     } else {
       this.draw(w, active);
+    }
+    // Not on turn and unhurt: a compact tag (HP bar and number, no name) keeps the field readable.
+    const compact = !active && this.shown >= this.maxHp;
+    if (compact !== this.compact) {
+      this.compact = compact;
+      this.drawPlates();
     }
     // Labels sit above the worm at a fixed pixel size, whatever the zoom.
     const p = project(x, y - 22);

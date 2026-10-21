@@ -10,9 +10,6 @@ export interface Announcement {
 /** How long the "whose turn" banner stays, ms. */
 const BANNER_MS = 1200;
 
-/** Width in logical px of a team bar at full health. */
-const TEAM_BAR_W = 130;
-
 function Wind({ wind }: { wind: number }) {
   const strength = Math.abs(wind);
   const bar = <div class="wind-bar" style={{ width: `${strength * 100}%` }} />;
@@ -141,10 +138,16 @@ export function Hud({
               <span class="team-name" style={{ color: t.color }}>
                 {t.name}
               </span>
-              <div
-                class="team-bar"
-                style={{ width: `${(t.hp / s.maxHp) * TEAM_BAR_W}px`, background: t.color }}
-              />
+              <div class="team-trough">
+                <div
+                  class="team-bar"
+                  style={{
+                    width: `${Math.min(100, (t.hp / s.maxHp) * 100)}%`,
+                    background: t.color,
+                  }}
+                />
+              </div>
+              <span class="team-hp">{t.hp}</span>
             </div>
           ))}
         </div>

@@ -140,16 +140,29 @@ body {
     -1px -1px 0 #000;
 }
 
+/* The trough has the width of a team at full health, so the bars of all teams share one scale and
+   the HP numbers line up. */
+.team-trough {
+  width: 130px;
+  height: 7px;
+  background: var(--panel-lo);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+
 .team-bar {
-  height: 5px;
+  height: 100%;
   transition: width 0.4s steps(8);
   box-shadow:
-    0 -1px 0 0 var(--ink),
-    0 1px 0 0 var(--ink),
-    -1px 0 0 0 var(--ink),
-    1px 0 0 0 var(--ink),
     inset 0 -2px 0 0 rgba(0, 0, 0, 0.3),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
+}
+
+.team-hp {
+  min-width: 24px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1;
+  text-align: right;
 }
 
 .right-box {

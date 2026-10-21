@@ -12,9 +12,14 @@ interface Bubble {
   worm: Worm;
   box: Container;
   t: number;
+  /** Bubble height in label px. */
+  h: number;
 }
 
 const LIFETIME = 2.2;
+/** Label px above the worm anchor: top of the name tag, and top of the bouncing turn arrow. */
+const TAG_TOP = 38;
+const ARROW_TOP = 76;
 /** HUD palette (see style.css) and the bubble's paper. */
 const INK = 0x222034;
 const PAPER = 0xe9e6dc;
@@ -69,17 +74,29 @@ export class SpeechView {
     const box = new Container();
     box.addChild(g, label);
     this.container.addChild(box);
-    this.bubbles.push({ worm, box, t: 0 });
+    this.bubbles.push({ worm, box, t: 0, h });
   }
 
-  update(dtMs: number, project: (x: number, y: number) => { x: number; y: number }): void {
+  /**
+   * `arrowWormId`: the worm that carries the turn arrow. Its bubble goes above the arrow, the others
+   * above the name tag, so a bubble never covers either.
+   */
+  update(
+    dtMs: number,
+    project: (x: number, y: number) => { x: number; y: number },
+    arrowWormId: number | null = null,
+  ): void {
     const dt = dtMs / 1000;
+    const u = labelUnit(this.ls);
     for (const b of this.bubbles) {
       b.t += dt;
-      const p = project(b.worm.x, b.worm.y - 30);
+      // Same anchor as the worm's tag (see WormView): the tag top is ~38 label px above it, the
+      // arrow (with its bounce) reaches ~76. The bubble's tail tip sits 4 px over that.
+      const p = project(b.worm.x, b.worm.y - 22);
+      const clear = b.worm.id === arrowWormId ? ARROW_TOP : TAG_TOP;
       b.box.position.set(
         snapDevice(p.x, this.ls),
-        snapDevice(p.y - 46 * labelUnit(this.ls), this.ls),
+        snapDevice(p.y - (clear + 4 + 8 + b.h / 2) * u, this.ls),
       );
       b.box.alpha = b.t < LIFETIME - 0.3 ? 1 : Math.max(0, (LIFETIME - b.t) / 0.3);
       b.box.scale.set(Math.min(1, b.t * 8));

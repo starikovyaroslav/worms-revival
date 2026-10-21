@@ -405,7 +405,11 @@ export class GameScene {
     this.updateLights(dtMs);
     this.targetView.update(game, this.mouseWorld, dtMs);
     this.drawMarkers(project);
-    this.speech.update(dtMs, project);
+    this.speech.update(
+      dtMs,
+      project,
+      game.phase === 'ready' || game.phase === 'turn' ? game.activeWormId : null,
+    );
     this.fx.update(dtMs, project);
     this.effects.update(dtMs);
   }
