@@ -1090,6 +1090,16 @@ body {
   font-size: 32px;
 }
 
+@supports not (zoom: 1) {
+  .menu-stage {
+    zoom: normal;
+    transform: scale(var(--km, 1));
+    transform-origin: top center;
+    /* the layout box stays 960 px wide; it is centred, so the scaled picture grows evenly both ways */
+    max-width: none;
+  }
+}
+
 .menu-stage .menu-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1126,4 +1136,12 @@ body {
 
 .menu-stage .logo {
   font-size: 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
 }

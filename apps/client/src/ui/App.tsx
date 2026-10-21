@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 import type { Game } from '@wr/sim';
 import { Hud, type Announcement } from './Hud';
 import { GameOver } from './GameOver';
@@ -46,9 +46,13 @@ export function App({
   replay,
   wormpot,
   settings,
-  onPause,
+  onPause: onPauseProp,
   onSurrender,
 }: Props) {
+  // Stable wrapper, so the effects below do not re-run when the parent passes a fresh closure.
+  const pauseRef = useRef(onPauseProp);
+  pauseRef.current = onPauseProp;
+  const onPause = useCallback((p: boolean) => pauseRef.current(p), []);
   const [speed, setSpeed] = useState(1);
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [panel, setPanel] = useState(false);
@@ -71,10 +75,12 @@ export function App({
       live.current = { dialog: r.dialog, panel: live.current.panel && !r.closePanel };
       if (r.closePanel) setPanel(false);
       setDialog(r.dialog);
+      // Pause right here, not from the effect: a tick must not run between the key and the render.
+      onPause(r.dialog !== null);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [onPause]);
 
   useEffect(() => {
     let next = 1;
@@ -85,8 +91,12 @@ export function App({
     };
     api.togglePanel = () => setPanel((open) => !open);
     api.closePanel = () => setPanel(false);
-    api.askSurrender = () => setDialog('surrender');
-  }, [api]);
+    api.askSurrender = () => {
+      live.current.dialog = 'surrender';
+      onPause(true);
+      setDialog('surrender');
+    };
+  }, [api, onPause]);
   api.isPanelOpen = () => panel;
 
   return (

@@ -32,10 +32,18 @@ const CONTROLS: [string, string][] = [
 /** Focus walks the buttons with the up/down arrows; Enter and Space press the focused one (native). */
 function useArrowFocus(root: { current: HTMLDivElement | null }) {
   return (e: KeyboardEvent) => {
-    if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp') return;
+    const isTab = e.code === 'Tab';
+    if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && !isTab) return;
     const items = [...(root.current?.querySelectorAll<HTMLElement>('button, input') ?? [])];
     if (!items.length) return;
     const i = items.indexOf(document.activeElement as HTMLElement);
+    if (isTab) {
+      // Trap: Tab cycles inside the menu.
+      const t = (i + (e.shiftKey ? -1 : 1) + items.length) % items.length;
+      items[t]?.focus();
+      e.preventDefault();
+      return;
+    }
     const next = (i + (e.code === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
     items[next]?.focus();
     e.preventDefault();
@@ -53,6 +61,14 @@ export function EscMenu({
 }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const onKeyDown = useArrowFocus(root);
+  // Give focus back to whatever had it (the game) when the menu closes.
+  useEffect(() => {
+    const before = document.activeElement as HTMLElement | null;
+    return () => {
+      if (before && before !== document.body && before.isConnected) before.focus();
+      else (document.activeElement as HTMLElement | null)?.blur();
+    };
+  }, []);
   // Focus the first control of every screen so the keyboard works at once.
   useEffect(() => {
     root.current?.querySelector<HTMLElement>('button, input')?.focus();
@@ -61,10 +77,17 @@ export function EscMenu({
   const volumePct = Math.round(state.sfxVolume * 100);
   return (
     <div class="panel-backdrop esc-backdrop" onContextMenu={(e) => e.preventDefault()}>
-      <div class="esc-menu" ref={root} onKeyDown={onKeyDown} role="dialog">
+      <div
+        class="esc-menu"
+        ref={root}
+        onKeyDown={onKeyDown}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="esc-title"
+      >
         {dialog === 'menu' && (
           <>
-            <h2>Пауза</h2>
+            <h2 id="esc-title">Пауза</h2>
             <button class="btn" onClick={() => onDialog(null)}>
               Продолжить
             </button>
@@ -81,7 +104,7 @@ export function EscMenu({
         )}
         {dialog === 'controls' && (
           <>
-            <h2>Управление</h2>
+            <h2 id="esc-title">Управление</h2>
             <dl class="esc-controls">
               {CONTROLS.map(([key, what]) => (
                 <div key={key}>
@@ -97,7 +120,7 @@ export function EscMenu({
         )}
         {dialog === 'sound' && (
           <>
-            <h2>Звук</h2>
+            <h2 id="esc-title">Звук</h2>
             <label class="esc-row">
               <span>Громкость {volumePct}%</span>
               <input
@@ -128,7 +151,7 @@ export function EscMenu({
         )}
         {dialog === 'quit' && (
           <>
-            <h2>Выйти в меню?</h2>
+            <h2 id="esc-title">Выйти в меню?</h2>
             <p class="esc-note">
               {isReplay ? 'Просмотр повтора будет прерван.' : 'Текущий матч будет потерян.'}
             </p>
@@ -142,7 +165,7 @@ export function EscMenu({
         )}
         {dialog === 'surrender' && (
           <>
-            <h2>Сдаться?</h2>
+            <h2 id="esc-title">Сдаться?</h2>
             <p class="esc-note">Вся ваша команда выбывает из матча.</p>
             <button class="btn secondary" onClick={() => onDialog(null)}>
               Нет, играть

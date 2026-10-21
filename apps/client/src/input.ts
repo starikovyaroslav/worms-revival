@@ -5,13 +5,29 @@ import { allWeapons, type Command, type Game } from '@wr/sim';
  * arrows walk/aim, Enter jumps (twice: backflip), Space fires (hold to charge),
  * 1-5 set the fuse, +/- the bounce, F1-F12 cycle through a weapon row, click sets a target.
  */
+const ARROWS: Record<string, 'left' | 'right' | 'up' | 'down'> = {
+  ArrowLeft: 'left',
+  ArrowRight: 'right',
+  ArrowUp: 'up',
+  ArrowDown: 'down',
+};
+
 export class Input {
   private queue: Command[] = [];
   private held = { left: false, right: false, up: false, down: false };
   private sentHeld = '';
+  private lastTurn = -1;
+  private on = true;
   /** Screen → world conversion supplied by the scene. */
   toWorld: (sx: number, sy: number) => { x: number; y: number } = (x, y) => ({ x, y });
-  enabled = true;
+  get enabled(): boolean {
+    return this.on;
+  }
+  /** Going off forgets the held keys and what was sent, so the next drain resends the state. */
+  set enabled(v: boolean) {
+    if (this.on && !v) this.release();
+    this.on = v;
+  }
   /** Space on the surrender "weapon": asks the player instead of giving up on the spot. */
   onSurrender: (() => void) | null = null;
   /** Mouse position in world coordinates, for target previews. */
@@ -64,6 +80,7 @@ export class Input {
   /** Forgets keys and queued commands (pause: key-ups would be missed while the game is frozen). */
   release(): void {
     this.held = { left: false, right: false, up: false, down: false };
+    this.sentHeld = '';
     this.queue = [];
   }
 
@@ -73,6 +90,12 @@ export class Input {
 
   /** Commands for the next tick. */
   drain(): Command[] {
+    // A new turn starts from a clean slate: the sim forgot the held keys, so resend them.
+    const turn = this.game().turn;
+    if (turn !== this.lastTurn) {
+      this.lastTurn = turn;
+      this.sentHeld = '';
+    }
     const key = `${+this.held.left}${+this.held.right}${+this.held.up}${+this.held.down}`;
     if (key !== this.sentHeld) {
       this.sentHeld = key;
@@ -84,23 +107,23 @@ export class Input {
   }
 
   private onKey(e: KeyboardEvent, down: boolean): void {
-    if (!this.enabled) return;
     const code = e.code;
+    // Key-ups are tracked even while disabled, or a key released then would stay "held".
+    if (!this.on) {
+      const up = ARROWS[code];
+      if (up && !down) this.held[up] = false;
+      return;
+    }
     // Hot-seat hand-over ("Team X, press any key"): any key starts the turn.
     if (
       down &&
+      code !== 'Escape' &&
       this.game().phase === 'ready' &&
       !e.repeat &&
       !this.queue.some((c) => c.t === 'ready')
     )
       this.queue.push({ t: 'ready' });
-    const arrows: Record<string, keyof Input['held']> = {
-      ArrowLeft: 'left',
-      ArrowRight: 'right',
-      ArrowUp: 'up',
-      ArrowDown: 'down',
-    };
-    const dir = arrows[code];
+    const dir = ARROWS[code];
     if (dir) {
       this.held[dir] = down;
       e.preventDefault();
