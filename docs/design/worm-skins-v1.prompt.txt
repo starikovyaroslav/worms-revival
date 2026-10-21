@@ -1,0 +1,18 @@
+Use case: stylized-concept.
+Asset type: original desktop game character skin comparison sheet for Worms revival, approval concept only.
+Primary request: EIGHT clearly different ADULT anthropomorphic earthworm characters evoking the cheeky, grotesque, darkly comic personality of late-1990s/early-2000s 2D artillery games. NOT adorable chibi mascots. Original designs, not a copy of any existing character.
+Composition: landscape 1536x1024, EXACT four equal columns and two equal rows, eight cells in row-major order. One complete character per cell, centered, common ground baseline and comparable overall height, ample fully transparent gutters. Three-quarter side view facing RIGHT, expressive neutral idle poses. Each character has a long fleshy segmented worm body and a curled trailing tail, an elongated upright neck, expressive protruding eyes and a mouth; no human legs. Silhouette, physique and face must differ, not merely accessories on an identical body.
+Row 1:
+1. BRUTAL: broad leathery neck, heavy squared brow and jaw, stubble, old healed scar, olive military headband, menacing crooked grin, stocky muscular-looking worm anatomy.
+2. SOFT-BODIED: pale peach flabby segmented body with drooping folds and a sagging belly, narrow neck, worried eyes and resigned mouth; adult comic slob, not a baby.
+3. ADULT GLAMOUR FEMME: unmistakably mature adult burlesque/pin-up personality, confident half-lidded eyes, dramatic lashes, red lipstick, platinum coiffure, black satin corset-style wrap and red feather accent, elegant curving worm silhouette. Fashion glamour, fully covered, non-explicit.
+4. ADULT GLAMOUR MASC: unmistakably mature adult male pin-up personality, slick dark hair, handsome angular face, groomed moustache, confident smirk, black leather vest and small gold chain, tapered strong neck and curled worm body. Fully covered, non-explicit.
+Row 2:
+5. ELDER: very wrinkled long neck, sparse grey hair, bushy grey moustache, sharp cranky gaze, stooped posture, warm old cardigan-style wrap, long thin curled tail.
+6. SICKLY: thin pallid grey-green worm, tired sunken eyes and dark circles, forehead cooling patch, simple loose bandage, small tissue in a floating cartoon hand, weary expression; no gore.
+7. INJURED VETERAN: tough adult worm with asymmetrical stoop, one eye patch, healed scar, practical riveted metal tail brace and elbow crutch held in a floating hand; capable defiant expression, not pathetic, distinct weight-bearing pose, no human legs.
+8. CLASSIC SCRAPPY: lean salmon-pink elongated worm, pronounced brow, wide expressive eyes, mischievous toothy smirk, plain dark red headband, long tapering curled tail. Establish the new non-chibi base anatomy.
+Style/medium: polished hand-crafted high-resolution raster game sprites with fine pixel-art edge control and shaded flesh volume, small crisp pixel clusters, soft material shading inside sharp silhouettes, restrained specular highlights and dark fine outlines. Readable at a displayed body size of 32-48 pixels, no dependence on tiny costume details. Late-1990s/early-2000s irreverent PC-game character acting, not modern mobile sticker aesthetics. Preserve rich source color and graded alpha; do NOT enforce a 32-color palette or large pixel blocks.
+Lighting: one consistent soft upper-left light, grounded volume but no cast shadows.
+Background: genuine transparent alpha.
+Constraints: all characters ADULT, no nudity, sexual acts, explicit anatomy, gore, logos, text, captions, labels, grid lines, checkerboard pattern or watermark. All bodies and accessories fully within their own cell. No weapons, no scenery, no extra characters.
