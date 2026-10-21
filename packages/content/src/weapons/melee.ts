@@ -3,7 +3,13 @@ import type { WeaponSpec } from '@wr/sim';
 export const MELEE: WeaponSpec[] = [
   {
     id: 'axe',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'axe',
+      aim: 'none',
+      charge: false,
+      params: { offsetX: 10, radius: 20 },
+    },
     ui: {
       name: 'Боевой топор',
       hint: 'Отнимает половину здоровья у всех перед тобой.',
@@ -12,11 +18,21 @@ export const MELEE: WeaponSpec[] = [
       col: 3,
     },
     ai: { usable: true, rank: 29 },
-    view: {},
+    view: { sound: 'bat', missSound: 'swish' },
   },
   {
     id: 'firepunch',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'melee',
+      aim: 'none',
+      charge: false,
+      retreat: 3,
+      reach: 14,
+      damage: 30,
+      push: { mode: 'facing', x: 1.6, y: -6.2 },
+      carve: { count: 5, offsetY: 8, step: 9, radius: 7 },
+      selfLaunch: { vx: 0, vy: -4.4 },
+    },
     ui: {
       name: 'Огненный удар',
       hint: 'Апперкот, пробивающий землю вверх.',
@@ -25,11 +41,31 @@ export const MELEE: WeaponSpec[] = [
       col: 0,
     },
     ai: { usable: true, rank: 11 },
-    view: {},
+    view: { sound: 'punch', missSound: 'swish' },
   },
   {
     id: 'dragonball',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'dragonball',
+      aim: 'none',
+      charge: false,
+      retreat: 3,
+      params: {
+        offsetX: 10,
+        speed: 4.5,
+        // A fireball that flies straight for a short way and goes off on contact.
+        projectile: {
+          look: 'dragonball',
+          radius: 3,
+          wind: 0,
+          gravity: 0,
+          impact: 'explode',
+          fuse: 20,
+          blast: { damage: 30, push: 1.4 },
+        },
+      },
+    },
     ui: {
       name: 'Огненный шар',
       hint: 'Огненный шар на короткую дистанцию.',
@@ -38,11 +74,18 @@ export const MELEE: WeaponSpec[] = [
       col: 1,
     },
     ai: { usable: true, rank: 30, reach: { dx: 100, dy: 30 } },
-    view: { look: 'dragonball' },
+    view: { look: 'dragonball', sound: 'launch' },
   },
   {
     id: 'kamikaze',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'kamikaze',
+      aim: 'angle',
+      charge: false,
+      retreat: 3,
+      params: { blast: { damage: 30 } },
+    },
     ui: {
       name: 'Камикадзе',
       hint: 'Выбери направление: червяк пробивает землю и взрывается.',
@@ -51,11 +94,18 @@ export const MELEE: WeaponSpec[] = [
       col: 2,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'launch' },
   },
   {
     id: 'suicide',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'suicide',
+      aim: 'none',
+      charge: false,
+      retreat: 3,
+      params: { blast: { damage: 75 } },
+    },
     ui: {
       name: 'Самоподрыв',
       hint: 'Червяк взрывается, унося всех рядом.',
@@ -68,7 +118,14 @@ export const MELEE: WeaponSpec[] = [
   },
   {
     id: 'prod',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'melee',
+      aim: 'none',
+      charge: false,
+      reach: 12,
+      damage: 0,
+      push: { mode: 'facing', x: 1.8, y: -1.2 },
+    },
     ui: {
       name: 'Тычок',
       hint: 'Без урона. Идеально, чтобы столкнуть в воду.',
@@ -77,13 +134,20 @@ export const MELEE: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'prod', missSound: 'swish' },
   },
   {
     id: 'bat',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'melee',
+      aim: 'angle',
+      charge: false,
+      reach: 16,
+      damage: 30,
+      push: { mode: 'aim', speed: 10.5, maxDy: -0.15 },
+    },
     ui: { name: 'Бейсбольная бита', hint: 'Хоумран в воду.', icon: '🏏', row: 7, col: 3 },
     ai: { usable: true, rank: 12 },
-    view: {},
+    view: { sound: 'bat', missSound: 'swish' },
   },
 ];

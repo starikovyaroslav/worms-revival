@@ -51,7 +51,7 @@ export interface ProjectileParams {
 
 type Choices = Pick<FireContext, 'setting' | 'upgrades' | 'fuse' | 'bounceHigh'>;
 
-function buildBlast(b: BlastParams, ctx: Choices) {
+export function buildBlast(b: BlastParams, ctx: Choices) {
   const damage = b.upgrade && ctx.upgrades[b.upgrade.name] ? b.upgrade.damage : b.damage;
   const extra: { push?: number; noCrater?: boolean } = {};
   if (b.push !== undefined) extra.push = b.push;

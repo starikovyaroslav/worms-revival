@@ -1,5 +1,6 @@
 import type { BurstSim, HitscanSim } from './archetypes/guns';
 import type { LauncherSim } from './archetypes/launcher';
+import type { MeleeSim } from './archetypes/melee';
 import type { CustomSim } from './behaviours';
 import type { WeaponRules } from './weapon';
 
@@ -109,8 +110,10 @@ export interface AiSpec {
 export interface ViewSpec {
   /** What the renderer draws for the thing this weapon spawns (omitted: nothing of its own). */
   look?: Look | AnimalLook;
-  /** Sound played when the weapon goes off. */
+  /** Sound played when the weapon goes off (melee: when it hits). */
   sound?: SoundId;
+  /** Melee: the sound of a swing that hits nobody. */
+  missSound?: SoundId;
 }
 
 /** How a look glows and what it leaves behind while flying. */
@@ -154,4 +157,5 @@ export interface InlineSim extends SimFlags {
   validTarget?: WeaponRules['validTarget'];
 }
 
-export type SimSpec = LegacySim | InlineSim | LauncherSim | BurstSim | HitscanSim | CustomSim;
+export type SimSpec =
+  LegacySim | InlineSim | LauncherSim | MeleeSim | BurstSim | HitscanSim | CustomSim;

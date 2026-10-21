@@ -3,6 +3,7 @@ import { fireBurst, fireHitscan } from './archetypes/guns';
 import { BEHAVIOURS } from './behaviours';
 import type { Behaviour } from './behaviours/types';
 import { fireLauncher } from './archetypes/launcher';
+import { fireMelee } from './archetypes/melee';
 import { legacyRules } from './legacy';
 import type { Look, LookSpec, SimFlags, WeaponSpec } from './spec';
 import type { WeaponDef, WeaponRules } from './weapon';
@@ -57,6 +58,8 @@ function compile(spec: WeaponSpec): WeaponRules {
           check(world, worm, target, dirX, dirY, sim.params);
       return rules;
     }
+    case 'melee':
+      return { ...flagsOf(sim), fire: (ctx) => fireMelee(ctx, sim, spec.view) };
     case 'launcher':
       return { ...flagsOf(sim), fire: (ctx) => fireLauncher(ctx, sim, spec.view) };
   }
