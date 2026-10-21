@@ -9,7 +9,7 @@ import { render } from 'preact';
 import type { MatchConfig, Replay } from '@wr/content';
 import { App, type UiApi } from './ui/App';
 import { Menu, defaultConfig } from './ui/Menu';
-import { ManifestError, ZOOM_LEVELS, assets } from '@wr/render';
+import { ART_PACKS, ManifestError, ZOOM_LEVELS, assets } from '@wr/render';
 import { installGlobalHandlers, showFatal, showWarning } from './fatal';
 import { Match } from './match';
 import { settingsStore } from './settings';
@@ -74,11 +74,8 @@ async function boot() {
     showWarning('Не удалось загрузить шрифты: текст может выглядеть иначе.');
   // Artwork is optional: anything missing falls back to the built-in drawing. A broken manifest is fatal.
   try {
-    await assets.load(`${import.meta.env.BASE_URL}assets`.replace(/\/\//g, '/'), __BUILD_ID__);
-    await assets.load(
-      `${import.meta.env.BASE_URL}assets/generated`.replace(/\/\//g, '/'),
-      __BUILD_ID__,
-    );
+    for (const pack of ART_PACKS)
+      await assets.load(`${import.meta.env.BASE_URL}${pack}`.replace(/\/\//g, '/'), __BUILD_ID__);
   } catch (err) {
     showFatal(err instanceof ManifestError ? 'manifest' : 'startup', err);
     return;

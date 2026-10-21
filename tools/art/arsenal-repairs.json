@@ -1,0 +1,20 @@
+[
+  {
+    "id": "invisible",
+    "source": "sheets/arsenal-invisible-v2.png",
+    "prompt": "Use case: stylized-concept. Asset type: FINAL tiny pixel-art game inventory icon, not concept art.\nInput image 1 is ONLY the approved style reference. Generate ONE 1024x1024 PNG, genuinely transparent alpha background.\nAn inventory icon for INVISIBILITY: a simple hollow cyan outline silhouette of a grub head and curved body, two black eyes on cyan, mostly empty transparent interior. Use a chunky continuous TWO-ART-PIXEL-THICK outline, NOT scattered dashed dots. Cyan must be fully opaque. The silhouette itself is the icon, no pedestal or background.\nCRITICAL: design natively on an imaginary 16x16 ART PIXEL grid. Every art pixel is one SOLID SQUARE 64x64 block in the 1024x1024 output. Center the entire symbol with one or two empty art pixels margin. Only about 12x12 filled art pixels total; do not add finer details. This image is reduced to 14x14 pixels, so bold simplicity is mandatory. Flat opaque colors, two tones per material, dark #222034 outline. Top-left light. Use ONLY #222034 #323c39 #696a6a #9badb7 #cbdbfc #ffffff #5fcde4 #639bff #ac3232 #d95763. No text, numbers, gradients, translucent wisps, scattered particles, blur, glow, watermark, checkerboard or background scene.",
+    "status": "selected"
+  },
+  {
+    "id": "laser",
+    "source": "sheets/arsenal-laser-v2.png",
+    "prompt": "Use case: stylized-concept. Asset type: FINAL tiny pixel-art game inventory icon, not concept art.\nInput image 1 is ONLY the approved style reference. Generate ONE 1024x1024 PNG, genuinely transparent alpha background.\nAn inventory icon for LASER SIGHT: one small grey aiming device at LEFT, a fully opaque TWO-ART-PIXEL-THICK horizontal RED beam, and a RED crosshair ring at RIGHT. The complete icon occupies 12x10 art pixels; beam and ring must survive reduction to 14px. No white letters or hash symbol.\nCRITICAL: design natively on an imaginary 16x16 ART PIXEL grid. Every art pixel is one SOLID SQUARE 64x64 block in the 1024x1024 output. Center the entire symbol with one or two empty art pixels margin. Only about 12x12 filled art pixels total; do not add finer details. This image is reduced to 14x14 pixels, so bold simplicity is mandatory. Flat opaque colors, two tones per material, dark #222034 outline. Top-left light. Use ONLY #222034 #323c39 #696a6a #9badb7 #cbdbfc #ffffff #5fcde4 #639bff #ac3232 #d95763. No text, numbers, gradients, translucent wisps, scattered particles, blur, glow, watermark, checkerboard or background scene.",
+    "status": "selected"
+  },
+  {
+    "id": "minestrike",
+    "source": "sheets/arsenal-minestrike-v2.png",
+    "prompt": "Use case: stylized-concept. Asset type: FINAL tiny pixel-art game inventory icon, not concept art.\nInput image 1 is ONLY the approved style reference. Generate ONE 1024x1024 PNG, genuinely transparent alpha background.\nAn inventory icon for MINE AIR STRIKE: exactly three chunky grey landmines with bright red indicator dots, arranged on a descending diagonal. Each mine is a simple 5-art-pixel-wide flat dome with a dark base. Total composition only 12x12 art pixels. Fully opaque grey and red shapes, large clear silhouettes, no thin strings or background.\nCRITICAL: design natively on an imaginary 16x16 ART PIXEL grid. Every art pixel is one SOLID SQUARE 64x64 block in the 1024x1024 output. Center the entire symbol with one or two empty art pixels margin. Only about 12x12 filled art pixels total; do not add finer details. This image is reduced to 14x14 pixels, so bold simplicity is mandatory. Flat opaque colors, two tones per material, dark #222034 outline. Top-left light. Use ONLY #222034 #323c39 #696a6a #9badb7 #cbdbfc #ffffff #5fcde4 #639bff #ac3232 #d95763. No text, numbers, gradients, translucent wisps, scattered particles, blur, glow, watermark, checkerboard or background scene.",
+    "status": "rejected"
+  }
+]

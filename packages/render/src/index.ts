@@ -19,4 +19,5 @@ export * from './fx';
 export * from './labelScale';
 export * from './lighting';
 export * from './assets';
+export * from './arsenalArt';
 export * from './palette';

@@ -1,14 +1,17 @@
 import { Container, Graphics } from 'pixi.js';
 import type { Flame, Gas } from '@wr/sim';
 import { artSprite, place, type EntityView } from './common';
+import { assets } from '../assets';
 
 export class FlameView implements EntityView {
   readonly container = new Container();
   private g = new Graphics();
   private t = Math.random() * 10;
+  private art = artSprite('fx/flame_0', 1);
 
   constructor(private readonly f: Flame) {
     this.container.addChild(this.g);
+    if (this.art) this.container.addChild(this.art);
   }
 
   update(alpha: number, dtMs: number): void {
@@ -17,6 +20,13 @@ export class FlameView implements EntityView {
     const flicker = 0.75 + Math.sin(this.t * 25) * 0.25;
     const fade = Math.min(1, this.f.life / 40);
     const r = 3.5 * flicker * (0.5 + fade * 0.5);
+    if (this.art) {
+      this.art.texture = assets.get(`fx/flame_${Math.floor(this.t * 10) % 2}`) ?? this.art.texture;
+      this.art.scale.set(0.5 + fade * 0.5);
+      // Step the life fade like the other pixel effects, rather than blurring the source alpha.
+      this.art.alpha = Math.ceil(fade * 4) / 4;
+      return;
+    }
     this.g
       .clear()
       .circle(0, -r * 0.6, r * 1.3)

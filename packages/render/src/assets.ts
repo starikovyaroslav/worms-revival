@@ -1,5 +1,8 @@
 import { Assets, type Texture } from 'pixi.js';
 
+/** Ordered overlays: supplemental packs never replace files in the previous packs. */
+export const ART_PACKS = ['assets', 'assets/generated', 'assets/arsenal'] as const;
+
 /** Decoded art for the CPU-painted destructible terrain and map preview. */
 export interface AssetPixels {
   w: number;

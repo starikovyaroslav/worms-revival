@@ -491,6 +491,11 @@ body {
   mix-blend-mode: lighten;
 }
 
+/* Generated icons have genuine alpha: preserve their dark outline instead of legacy black-key blending. */
+.slot-img[src*='/assets/arsenal/'] {
+  mix-blend-mode: normal;
+}
+
 /* Badges: outlined numbers in a corner of the tile (ammo bottom right, lock + wait top left). */
 .slot-ammo,
 .slot-delay {

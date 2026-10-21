@@ -2,6 +2,7 @@ import { Container, Graphics, type Sprite, type Texture } from 'pixi.js';
 import type { Look, Projectile } from '@wr/sim';
 import { assets } from '../assets';
 import { OUTLINE, artSprite, place, type EntityView } from './common';
+import { GENERATED_PROJECTILES } from '../arsenalArt';
 
 /** How a look is drawn: pixel art (optionally a cycle of pre-rotated frames) or code. */
 type LookArt =
@@ -9,13 +10,6 @@ type LookArt =
   | { draw: (g: Graphics, p: Projectile) => void };
 
 const sprite = (art: string): LookArt => ({ art });
-const GENERATED_PROJECTILES: Partial<Record<Look, string>> = {
-  banana: 'creatures/banana_0',
-  bananalet: 'creatures/banana_0',
-  skunk: 'creatures/skunk',
-  dynamite: 'objects/dynamite',
-  petrol: 'objects/canister',
-};
 /** Pre-rotated frames: asset prefix and the rotation (radians) one cycle covers. */
 const spun = (art: string, prefix: string, period: number): LookArt => ({
   art,

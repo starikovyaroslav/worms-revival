@@ -1,29 +1,48 @@
 import { Container, Graphics } from 'pixi.js';
 import type { JetPack, Worm } from '@wr/sim';
-import { OUTLINE, type EntityView, type ViewContext } from './common';
+import { OUTLINE, artSprite, type EntityView, type ViewContext } from './common';
 
 export class JetPackView implements EntityView {
   readonly container = new Container();
   private g = new Graphics();
   private t = 0;
+  private art = artSprite('objects/jetpack');
+  private exhaust = artSprite('fx/flame_0', 1);
 
   constructor(
     private readonly jet: JetPack,
     private readonly ctx: ViewContext,
   ) {
     this.container.addChild(this.g);
+    if (this.art) this.container.addChild(this.art);
+    if (this.exhaust) {
+      this.exhaust.rotation = Math.PI;
+      this.exhaust.scale.set(0.5);
+      this.exhaust.visible = false;
+      this.container.addChild(this.exhaust);
+    }
   }
 
   update(alpha: number, dtMs: number): void {
     this.t += dtMs / 1000;
     const w = this.ctx.world.byId(this.jet.wormId) as Worm | undefined;
     const g = this.g.clear();
+    this.container.visible = !!w?.alive;
     if (!w || !w.alive) return;
     this.container.position.set(
       w.prevX + (w.x - w.prevX) * alpha,
       w.prevY + (w.y - w.prevY) * alpha,
     );
     const f = -w.facing;
+    if (this.art) {
+      this.art.position.set(f * 5, -9);
+      this.art.scale.x = w.facing;
+      if (this.exhaust) {
+        this.exhaust.position.set(f * 5, -3);
+        this.exhaust.visible = this.jet.thrusting;
+      }
+      return;
+    }
     // The pack on the worm's back.
     g.roundRect(f * 5 - 2.5, -13, 5, 9, 1)
       .fill(0x8a8a96)

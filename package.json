@@ -18,7 +18,8 @@
     "test:determinism": "node tools/determinism/run.mjs",
     "art:ingest": "node tools/art/ingest.mjs",
     "art:review": "node tools/art/review.mjs",
-    "art:test": "node --test tools/art/ingest.test.mjs"
+    "art:test": "node --test tools/art/ingest.test.mjs tools/art/arsenal.test.mjs",
+    "art:arsenal": "node tools/art/arsenal.mjs"
   },
   "engines": {
     "node": ">=22"

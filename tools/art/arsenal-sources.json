@@ -1,0 +1,338 @@
+[
+  {
+    "name": "arsenal-icons-a",
+    "source": "sheets/arsenal-icons-a.png",
+    "cells": [
+      {
+        "id": "weapons/icon/jetpack",
+        "w": 14,
+        "h": 14,
+        "description": "a compact grey twin-tank rocket backpack with orange exhaust"
+      },
+      {
+        "id": "weapons/icon/lowgravity",
+        "w": 14,
+        "h": 14,
+        "description": "a peach ball floating above a blue upward arrow"
+      },
+      {
+        "id": "weapons/icon/fastwalk",
+        "w": 14,
+        "h": 14,
+        "description": "a brown boot with two horizontal speed streaks"
+      },
+      {
+        "id": "weapons/icon/laser",
+        "w": 14,
+        "h": 14,
+        "description": "a small grey laser sight projecting a red beam toward a crosshair"
+      },
+      {
+        "id": "weapons/icon/invisible",
+        "w": 14,
+        "h": 14,
+        "description": "a pale cyan dashed silhouette of a little grub"
+      },
+      {
+        "id": "weapons/icon/doubledamage",
+        "w": 14,
+        "h": 14,
+        "description": "a red fist backed by two yellow impact wedges, no numbers"
+      },
+      {
+        "id": "weapons/icon/cratespy",
+        "w": 14,
+        "h": 14,
+        "description": "a wooden crate beside a large open eye"
+      },
+      {
+        "id": "weapons/icon/sheeplauncher",
+        "w": 14,
+        "h": 14,
+        "description": "a small white sheep emerging from a chunky green launcher"
+      },
+      {
+        "id": "weapons/icon/axe",
+        "w": 14,
+        "h": 14,
+        "description": "a broad steel battle axe on a brown handle"
+      },
+      {
+        "id": "weapons/icon/earthquake",
+        "w": 14,
+        "h": 14,
+        "description": "a cracked brown ground slab with two vibration marks"
+      },
+      {
+        "id": "weapons/icon/dragonball",
+        "w": 14,
+        "h": 14,
+        "description": "a round orange fireball with a yellow core and a short flame tail"
+      },
+      {
+        "id": "weapons/icon/kamikaze",
+        "w": 14,
+        "h": 14,
+        "description": "a peach grub head with a red headband and a forward orange streak"
+      },
+      {
+        "id": "weapons/icon/suicide",
+        "w": 14,
+        "h": 14,
+        "description": "a round black bomb with a lit red fuse and a white skull"
+      },
+      {
+        "id": "weapons/icon/molebomb",
+        "w": 14,
+        "h": 14,
+        "description": "a brown mole head poking out of a round bomb casing"
+      },
+      {
+        "id": "weapons/icon/napalm",
+        "w": 14,
+        "h": 14,
+        "description": "a green aerial canister with three orange flame drops"
+      },
+      {
+        "id": "weapons/icon/mail",
+        "w": 14,
+        "h": 14,
+        "description": "a white envelope with red seal and two speed streaks"
+      }
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: production pixel-art game sprite sheet.\nInput image 1 is ONLY the approved STYLE reference. Match its chunky square pixels, flat two-to-three-tone materials, dark #222034 one-art-pixel outline and top-left light. Do NOT copy its composition, terrain, sky or characters unless requested.\nGenerate exactly ONE 1024x1024 PNG sprite sheet. Background genuinely TRANSPARENT alpha, not a checkerboard image, not magenta. EXACTLY 4 columns x 4 rows of invisible equal 256x256 cells, EXACTLY 16 separate sprites. Each art pixel is a flat square 8x8 image-pixel block; each cell is 32x32 art pixels. Center each requested sprite within its own cell, occupy about 24x24 art pixels with at least 4 art pixels empty margin on every side. The resulting images are reduced to 14px inventory icons or 4-14px world props, so use very simple bold silhouettes and minimal details. No boxes, no cell lines, no labels, no letters, no numbers, no text, no watermarks, no shadows on the background. No anti-aliasing, gradients, blur, glow or photorealism. Every object separate; nothing crosses a cell boundary.\nReading order left to right, top to bottom:\nRow 1, column 1: a compact grey twin-tank rocket backpack with orange exhaust.\nRow 1, column 2: a peach ball floating above a blue upward arrow.\nRow 1, column 3: a brown boot with two horizontal speed streaks.\nRow 1, column 4: a small grey laser sight projecting a red beam toward a crosshair.\nRow 2, column 1: a pale cyan dashed silhouette of a little grub.\nRow 2, column 2: a red fist backed by two yellow impact wedges, no numbers.\nRow 2, column 3: a wooden crate beside a large open eye.\nRow 2, column 4: a small white sheep emerging from a chunky green launcher.\nRow 3, column 1: a broad steel battle axe on a brown handle.\nRow 3, column 2: a cracked brown ground slab with two vibration marks.\nRow 3, column 3: a round orange fireball with a yellow core and a short flame tail.\nRow 3, column 4: a peach grub head with a red headband and a forward orange streak.\nRow 4, column 1: a round black bomb with a lit red fuse and a white skull.\nRow 4, column 2: a brown mole head poking out of a round bomb casing.\nRow 4, column 3: a green aerial canister with three orange flame drops.\nRow 4, column 4: a white envelope with red seal and two speed streaks.\nUse ONLY these colors: #000000 #222034 #45283c #663931 #8f563b #df7126 #d9a066 #eec39a #fbf236 #99e550 #6abe30 #37946e #4b692f #323c39 #306082 #5b6ee1 #639bff #5fcde4 #cbdbfc #ffffff #9badb7 #847e87 #696a6a #ac3232 #d95763 #d77bba. Original designs only. Side view where specified; inventory symbols can be front-facing for readability. Return the sprite sheet alone.",
+    "grid": {
+      "rows": [0, 39, 67, 96, 128],
+      "columns": [
+        [0, 32, 64, 94, 128],
+        [0, 32, 64, 96, 128],
+        [0, 32, 64, 96, 128],
+        [0, 32, 64, 96, 128]
+      ]
+    }
+  },
+  {
+    "name": "arsenal-icons-b",
+    "source": "sheets/arsenal-icons-b.png",
+    "cells": [
+      {
+        "id": "weapons/icon/minestrike",
+        "w": 14,
+        "h": 14,
+        "description": "three dark round mines descending under a small red downward arrow"
+      },
+      {
+        "id": "weapons/icon/molesquad",
+        "w": 14,
+        "h": 14,
+        "description": "three small brown mole heads in a descending triangle"
+      },
+      {
+        "id": "weapons/icon/girderpack",
+        "w": 14,
+        "h": 14,
+        "description": "three stacked grey steel girders"
+      },
+      {
+        "id": "weapons/icon/bungee",
+        "w": 14,
+        "h": 14,
+        "description": "a coiled tan elastic cord ending in a metal hook"
+      },
+      {
+        "id": "weapons/icon/scales",
+        "w": 14,
+        "h": 14,
+        "description": "golden balance scales with two hanging bowls"
+      },
+      {
+        "id": "weapons/icon/superbanana",
+        "w": 14,
+        "h": 14,
+        "description": "a yellow banana bunch wrapped in a red superhero cape"
+      },
+      {
+        "id": "weapons/icon/flamethrower",
+        "w": 14,
+        "h": 14,
+        "description": "a stubby grey flamethrower with an orange flame jet"
+      },
+      {
+        "id": "weapons/icon/salvation",
+        "w": 14,
+        "h": 14,
+        "description": "a small wooden tambourine with silver jingles and a white musical note"
+      },
+      {
+        "id": "weapons/icon/mbbomb",
+        "w": 14,
+        "h": 14,
+        "description": "a large grey round bomb with a gold square plate, NO letters"
+      },
+      {
+        "id": "weapons/icon/vase",
+        "w": 14,
+        "h": 14,
+        "description": "a blue-and-white porcelain vase with a narrow neck"
+      },
+      {
+        "id": "weapons/icon/frenchsheep",
+        "w": 14,
+        "h": 14,
+        "description": "a fluffy white sheep with a tiny dark beret and orange exhaust beneath"
+      },
+      {
+        "id": "weapons/icon/carpet",
+        "w": 14,
+        "h": 14,
+        "description": "a green aerial bomb with a small rolled brown carpet beneath it"
+      },
+      {
+        "id": "weapons/icon/madcows",
+        "w": 14,
+        "h": 14,
+        "description": "two black-and-white cow heads, one in front of the other"
+      },
+      {
+        "id": "weapons/icon/oldwoman",
+        "w": 14,
+        "h": 14,
+        "description": "an elderly woman with grey hair and a brown handbag"
+      },
+      {
+        "id": "weapons/icon/nuke",
+        "w": 14,
+        "h": 14,
+        "description": "a black radiation trefoil on a yellow round plate"
+      },
+      {
+        "id": "weapons/icon/armageddon",
+        "w": 14,
+        "h": 14,
+        "description": "three red-orange flaming meteors descending diagonally"
+      }
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: production pixel-art game sprite sheet.\nInput image 1 is ONLY the approved STYLE reference. Match its chunky square pixels, flat two-to-three-tone materials, dark #222034 one-art-pixel outline and top-left light. Do NOT copy its composition, terrain, sky or characters unless requested.\nGenerate exactly ONE 1024x1024 PNG sprite sheet. Background genuinely TRANSPARENT alpha, not a checkerboard image, not magenta. EXACTLY 4 columns x 4 rows of invisible equal 256x256 cells, EXACTLY 16 separate sprites. Each art pixel is a flat square 8x8 image-pixel block; each cell is 32x32 art pixels. Center each requested sprite within its own cell, occupy about 24x24 art pixels with at least 4 art pixels empty margin on every side. The resulting images are reduced to 14px inventory icons or 4-14px world props, so use very simple bold silhouettes and minimal details. No boxes, no cell lines, no labels, no letters, no numbers, no text, no watermarks, no shadows on the background. No anti-aliasing, gradients, blur, glow or photorealism. Every object separate; nothing crosses a cell boundary.\nReading order left to right, top to bottom:\nRow 1, column 1: three dark round mines descending under a small red downward arrow.\nRow 1, column 2: three small brown mole heads in a descending triangle.\nRow 1, column 3: three stacked grey steel girders.\nRow 1, column 4: a coiled tan elastic cord ending in a metal hook.\nRow 2, column 1: golden balance scales with two hanging bowls.\nRow 2, column 2: a yellow banana bunch wrapped in a red superhero cape.\nRow 2, column 3: a stubby grey flamethrower with an orange flame jet.\nRow 2, column 4: a small wooden tambourine with silver jingles and a white musical note.\nRow 3, column 1: a large grey round bomb with a gold square plate, NO letters.\nRow 3, column 2: a blue-and-white porcelain vase with a narrow neck.\nRow 3, column 3: a fluffy white sheep with a tiny dark beret and orange exhaust beneath.\nRow 3, column 4: a green aerial bomb with a small rolled brown carpet beneath it.\nRow 4, column 1: two black-and-white cow heads, one in front of the other.\nRow 4, column 2: an elderly woman with grey hair and a brown handbag.\nRow 4, column 3: a black radiation trefoil on a yellow round plate.\nRow 4, column 4: three red-orange flaming meteors descending diagonally.\nUse ONLY these colors: #000000 #222034 #45283c #663931 #8f563b #df7126 #d9a066 #eec39a #fbf236 #99e550 #6abe30 #37946e #4b692f #323c39 #306082 #5b6ee1 #639bff #5fcde4 #cbdbfc #ffffff #9badb7 #847e87 #696a6a #ac3232 #d95763 #d77bba. Original designs only. Side view where specified; inventory symbols can be front-facing for readability. Return the sprite sheet alone.",
+    "grid": {
+      "rows": [0, 41, 70, 98, 128],
+      "columns": [
+        [0, 32, 64, 96, 128],
+        [0, 32, 64, 100, 128],
+        [0, 32, 64, 96, 128],
+        [0, 35, 64, 96, 128]
+      ]
+    }
+  },
+  {
+    "name": "arsenal-world",
+    "source": "sheets/arsenal-world.png",
+    "cells": [
+      {
+        "id": "weapons/icon/selectworm",
+        "w": 14,
+        "h": 14,
+        "description": "two peach grub heads with a cyan curved switching arrow"
+      },
+      {
+        "id": "weapons/icon/freeze",
+        "w": 14,
+        "h": 14,
+        "description": "a cyan ice cube containing a peach grub silhouette"
+      },
+      {
+        "id": "weapons/icon/magicbullet",
+        "w": 14,
+        "h": 14,
+        "description": "a golden bullet with two cyan magical sparkles"
+      },
+      {
+        "id": "proj/meteor",
+        "w": 8,
+        "h": 10,
+        "description": "side-view dark brown irregular meteor with a short orange flame tail pointing left"
+      },
+      {
+        "id": "proj/vase",
+        "w": 8,
+        "h": 12,
+        "description": "side-view small intact blue-and-white porcelain vase, upright narrow neck"
+      },
+      {
+        "id": "proj/shard",
+        "w": 4,
+        "h": 4,
+        "description": "one sharp triangular blue-and-white broken porcelain shard"
+      },
+      {
+        "id": "proj/bullet",
+        "w": 4,
+        "h": 2,
+        "description": "side-view gold bullet pointing RIGHT, long horizontal silhouette, no streaks"
+      },
+      {
+        "id": "proj/mbbomb",
+        "w": 12,
+        "h": 14,
+        "description": "side-view heavy dark grey spherical bomb with a square gold plate and short silver fuse, no text"
+      },
+      {
+        "id": "proj/dragonball",
+        "w": 10,
+        "h": 10,
+        "description": "round orange fireball with a pale yellow core and short flame tail pointing left"
+      },
+      {
+        "id": "proj/napalm",
+        "w": 14,
+        "h": 6,
+        "description": "side-view orange aerial napalm canister with grey fins on LEFT and nose pointing RIGHT"
+      },
+      {
+        "id": "proj/carpet",
+        "w": 14,
+        "h": 6,
+        "description": "side-view dark green cylindrical aerial bomb, grey fins on LEFT and nose pointing RIGHT"
+      },
+      {
+        "id": "proj/letter",
+        "w": 10,
+        "h": 7,
+        "description": "one horizontal white sealed envelope with thin red trim, side view"
+      },
+      {
+        "id": "proj/frenchsheep",
+        "w": 12,
+        "h": 12,
+        "description": "side-view small fluffy white sheep flying RIGHT, grey face, tiny dark beret, short orange exhaust below"
+      },
+      {
+        "id": "objects/jetpack",
+        "w": 7,
+        "h": 11,
+        "description": "side-view grey twin-tank rocket backpack ONLY, vertical, small cyan valve, two orange nozzles at bottom, no fire"
+      },
+      {
+        "id": "fx/flame_0",
+        "w": 8,
+        "h": 12,
+        "description": "one small upright orange flame tuft with three stepped tips and a pale yellow core, dark orange outside, no outline, short pose"
+      },
+      {
+        "id": "fx/flame_1",
+        "w": 8,
+        "h": 12,
+        "description": "the SAME upright orange flame tuft with yellow core, alternate animation pose with taller center tip leaning right, no outline"
+      }
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: production pixel-art game sprite sheet.\nInput image 1 is ONLY the approved STYLE reference. Match its chunky square pixels, flat two-to-three-tone materials, dark #222034 one-art-pixel outline and top-left light. Do NOT copy its composition, terrain, sky or characters unless requested.\nGenerate exactly ONE 1024x1024 PNG sprite sheet. Background genuinely TRANSPARENT alpha, not a checkerboard image, not magenta. EXACTLY 4 columns x 4 rows of invisible equal 256x256 cells, EXACTLY 16 separate sprites. Each art pixel is a flat square 8x8 image-pixel block; each cell is 32x32 art pixels. Center each requested sprite within its own cell, occupy about 24x24 art pixels with at least 4 art pixels empty margin on every side. The resulting images are reduced to 14px inventory icons or 4-14px world props, so use very simple bold silhouettes and minimal details. No boxes, no cell lines, no labels, no letters, no numbers, no text, no watermarks, no shadows on the background. No anti-aliasing, gradients, blur, glow or photorealism. Every object separate; nothing crosses a cell boundary.\nReading order left to right, top to bottom:\nRow 1, column 1: two peach grub heads with a cyan curved switching arrow.\nRow 1, column 2: a cyan ice cube containing a peach grub silhouette.\nRow 1, column 3: a golden bullet with two cyan magical sparkles.\nRow 1, column 4: side-view dark brown irregular meteor with a short orange flame tail pointing left.\nRow 2, column 1: side-view small intact blue-and-white porcelain vase, upright narrow neck.\nRow 2, column 2: one sharp triangular blue-and-white broken porcelain shard.\nRow 2, column 3: side-view gold bullet pointing RIGHT, long horizontal silhouette, no streaks.\nRow 2, column 4: side-view heavy dark grey spherical bomb with a square gold plate and short silver fuse, no text.\nRow 3, column 1: round orange fireball with a pale yellow core and short flame tail pointing left.\nRow 3, column 2: side-view orange aerial napalm canister with grey fins on LEFT and nose pointing RIGHT.\nRow 3, column 3: side-view dark green cylindrical aerial bomb, grey fins on LEFT and nose pointing RIGHT.\nRow 3, column 4: one horizontal white sealed envelope with thin red trim, side view.\nRow 4, column 1: side-view small fluffy white sheep flying RIGHT, grey face, tiny dark beret, short orange exhaust below.\nRow 4, column 2: side-view grey twin-tank rocket backpack ONLY, vertical, small cyan valve, two orange nozzles at bottom, no fire.\nRow 4, column 3: one small upright orange flame tuft with three stepped tips and a pale yellow core, dark orange outside, no outline, short pose.\nRow 4, column 4: the SAME upright orange flame tuft with yellow core, alternate animation pose with taller center tip leaning right, no outline.\nUse ONLY these colors: #000000 #222034 #45283c #663931 #8f563b #df7126 #d9a066 #eec39a #fbf236 #99e550 #6abe30 #37946e #4b692f #323c39 #306082 #5b6ee1 #639bff #5fcde4 #cbdbfc #ffffff #9badb7 #847e87 #696a6a #ac3232 #d95763 #d77bba. Original designs only. Side view where specified; inventory symbols can be front-facing for readability. Return the sprite sheet alone.",
+    "grid": {
+      "rows": [0, 36, 66, 95, 128],
+      "columns": [
+        [0, 34, 64, 96, 128],
+        [0, 32, 64, 96, 128],
+        [0, 32, 64, 96, 128],
+        [0, 32, 64, 96, 128]
+      ]
+    }
+  }
+]
