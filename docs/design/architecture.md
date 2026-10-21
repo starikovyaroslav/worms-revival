@@ -26,6 +26,12 @@ apps/client       Vite + Preact: цикл, ввод → команды, UI, ау
 Бот (`ai`), панель и ввод (`client`), свет/след снаряда (`scene`) и проверка видов в `render` читают
 спеки из `game.rules`, а не свои таблицы. Как добавить оружие - `docs/design/adding-a-weapon.md`.
 
+Виды сущностей в `render`: `Map<EntityClass, ViewFactory>` в `render/src/views/index.ts`, один файл на вид
+(`views/*.ts`), поиск идёт вверх по цепочке классов (наследник `Projectile` берёт вид базы). Фабрика получает
+`ViewContext` (мир, `crateSpy`), который держит `GameScene`; глобального состояния нет. Снаряд рисуется по
+таблице `PROJECTILE_LOOKS` (спрайт или код); процедурные тела остались только там, где арта нет. Функции цвета
+(`mixColor`, `lerpColor`, `darken`) - в `render/src/color.ts`.
+
 ## Детерминизм
 
 Одинаковые seed + схема + лог команд ⇒ побитово одинаковое состояние в любом браузере.

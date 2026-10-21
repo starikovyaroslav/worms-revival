@@ -47,8 +47,8 @@
 1. Запись в подходящий файл `content/src/weapons/` (или новый, подключить в `weapons/index.ts`).
 2. Строка в нужных схемах `packages/content/src/schemes.ts` (иначе `listing: 'unlisted'`).
 3. Иконка (опционально, иначе эмодзи из `ui.icon`): `apps/client/public/assets/weapons/icon/<id>.png` (и запись в манифесте ассетов).
-4. Если нужен новый внешний вид: добавить значение в `Look` (`sim/.../spec.ts`), запись в `RENDERED_LOOKS`
-   и `case` в `ProjectileView.draw` (`render/src/entityViews.ts`); компилятор не даст забыть.
+4. Если нужен новый внешний вид: добавить значение в `Look` (`sim/.../spec.ts`), строку в `PROJECTILE_LOOKS` (`RENDERED_LOOKS` строится из неё)
+   в `render/src/views/projectile.ts` (имя ассета или функция рисования); компилятор не даст забыть.
 5. Если нужны новые звук - `SoundId` и синтезатор в `apps/client/src/audio/sounds.ts` (тип `Record<SoundId, ...>`).
 6. Если ни один архетип не подходит: поведение со своим кодом в `sim/src/weapons/behaviours/`
    (`Behaviour<Params>`), имя и тип параметров в `behaviours/index.ts`, в данных `archetype: 'custom'`.
