@@ -56,6 +56,8 @@ export class GameScene {
   private dirt: number;
   /** Last time each worm spoke, so they don't chatter non-stop. */
   private lastSpoke = new Map<number, number>();
+  private trailClock = 0;
+  private trailAt = new Map<number, number>();
   /** Mouse position in world coordinates, set by the input layer. */
   mouseWorld: { x: number; y: number } | null = null;
   private fx: Fx;
@@ -329,20 +331,51 @@ export class GameScene {
 
   /** Smoke trails behind rockets and burning fuses on grenades and dynamite. */
   private trails(dtMs: number): void {
-    const gate = Math.min(1, dtMs / 16.7);
+    if (dtMs <= 0) return;
+    this.trailClock += Math.min(dtMs / 1000, 0.1);
+    const live = new Set<number>();
     const ctx = { dirt: this.dirt, wind: this.game.world.wind };
     const looks = this.game.rules.looks;
     for (const e of this.game.world.ofKind<Projectile>('projectile')) {
-      if (Math.random() > gate) continue;
+      live.add(e.id);
+      if (this.trailClock < (this.trailAt.get(e.id) ?? 0)) continue;
+      this.trailAt.set(e.id, this.trailClock + 0.055);
       const bx = e.x - e.vx * 0.4;
       const by = e.y - e.vy * 0.4;
       const trail = looks[e.look]?.trail;
       if (trail === 'rocket') {
         this.effects.play('trail-rocket', bx, by, 40, ctx);
+        this.effects.clips.play('engine', bx, by, {
+          life: 0.12,
+          width: 18,
+          rotation: Math.atan2(e.vy, e.vx),
+          loop: true,
+        });
       } else if (trail === 'fuse' && e.fuseLeft > 0) {
         this.effects.play('trail-fuse', e.x, e.y - 5, 20, ctx);
+      } else if (trail === 'meteor' || trail === 'fire') {
+        this.effects.clips.play('engine', bx, by, {
+          life: 0.25,
+          width: trail === 'meteor' ? 28 : 14,
+          rotation: Math.atan2(e.vy, e.vx),
+          fade: true,
+        });
+        this.effects.clips.play('smoke', bx, by, { life: 0.8, width: 18, vy: -8, fade: true });
+      } else if (trail === 'energy') {
+        this.effects.clips.play('energy', bx, by, { life: 0.2, width: 12, fade: true });
+      } else if (trail === 'toxic') {
+        this.effects.clips.play('gas', bx, by, { life: 0.7, width: 14, vy: -8, fade: true });
+      } else if (trail === 'paper') {
+        this.effects.clips.play('letter', bx, by, {
+          life: 0.25,
+          width: 6,
+          vy: 8,
+          fade: true,
+          alpha: 0.35,
+        });
       }
     }
+    for (const id of this.trailAt.keys()) if (!live.has(id)) this.trailAt.delete(id);
   }
 
   /** Debug: plays an effect near the active worm (used by tools/shot.mjs: `e:__game.fx('explosion')`). */

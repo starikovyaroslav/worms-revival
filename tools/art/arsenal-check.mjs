@@ -162,6 +162,9 @@ try {
   await fallback.route('**/assets/arsenal/manifest.json*', (route) =>
     route.fulfill({ status: 404, body: '' }),
   );
+  await fallback.route('**/assets/vfx/manifest.json*', (route) =>
+    route.fulfill({ status: 404, body: '' }),
+  );
   await fallback.goto(`${url}?seed=42&scheme=arsenal`);
   await fallback.waitForFunction(() => window.__game?.scene.terrainView.art);
   const old = await inspectWorld(fallback, true);

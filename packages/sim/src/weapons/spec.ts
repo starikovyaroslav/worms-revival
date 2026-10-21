@@ -125,7 +125,7 @@ export interface ViewSpec {
 export interface LookSpec {
   light?: { color: number; radius: number; intensity: number; flicker?: number };
   /** 'rocket': smoke all the time; 'fuse': sparks while the fuse burns. */
-  trail?: 'rocket' | 'fuse';
+  trail?: 'rocket' | 'fuse' | 'meteor' | 'energy' | 'fire' | 'toxic' | 'paper';
 }
 
 /** Where a weapon lives besides the scheme tables. */

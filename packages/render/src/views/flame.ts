@@ -2,14 +2,23 @@ import { Container, Graphics } from 'pixi.js';
 import type { Flame, Gas } from '@wr/sim';
 import { artSprite, place, type EntityView } from './common';
 import { assets } from '../assets';
+import { clipTextures } from '../clipEffects';
+import { fireStyle } from '../fireStyles';
+import type { ViewContext } from './common';
 
 export class FlameView implements EntityView {
   readonly container = new Container();
   private g = new Graphics();
   private t = Math.random() * 10;
-  private art = artSprite('fx/flame_0', 1);
+  private frames = clipTextures('fire');
+  private art = this.frames.length ? artSprite('vfx/fire_0', 1) : artSprite('fx/flame_0', 1);
+  private style: ReturnType<typeof fireStyle>;
 
-  constructor(private readonly f: Flame) {
+  constructor(
+    private readonly f: Flame,
+    ctx: ViewContext,
+  ) {
+    this.style = fireStyle(ctx.world.sourceOf(f));
     this.container.addChild(this.g);
     if (this.art) this.container.addChild(this.art);
   }
@@ -21,8 +30,11 @@ export class FlameView implements EntityView {
     const fade = Math.min(1, this.f.life / 40);
     const r = 3.5 * flicker * (0.5 + fade * 0.5);
     if (this.art) {
-      this.art.texture = assets.get(`fx/flame_${Math.floor(this.t * 10) % 2}`) ?? this.art.texture;
-      this.art.scale.set(0.5 + fade * 0.5);
+      this.art.texture = this.frames.length
+        ? this.frames[Math.floor(this.t * this.style.fps) % this.frames.length]!
+        : (assets.get(`fx/flame_${Math.floor(this.t * 10) % 2}`) ?? this.art.texture);
+      this.art.tint = this.style.tint;
+      this.art.scale.set((this.style.width / this.art.texture.width) * (0.5 + fade * 0.5));
       // Step the life fade like the other pixel effects, rather than blurring the source alpha.
       this.art.alpha = Math.ceil(fade * 4) / 4;
       return;
@@ -42,9 +54,12 @@ export class GasView implements EntityView {
   readonly container = new Container();
   private g = new Graphics();
   private t = Math.random() * 10;
-  private art = artSprite('creatures/stink');
+  private frames = clipTextures('gas');
+  private art = this.frames.length ? artSprite('vfx/gas_0') : artSprite('creatures/stink');
+  private initialLife: number;
 
   constructor(private readonly gas: Gas) {
+    this.initialLife = gas.life;
     if (this.art) this.container.addChild(this.art);
     this.container.addChild(this.g);
   }
@@ -54,7 +69,13 @@ export class GasView implements EntityView {
     this.t += dtMs / 1000;
     const fade = Math.min(1, this.gas.life / 90);
     if (this.art) {
-      this.art.alpha = 0.5 * fade;
+      if (this.frames.length) {
+        const life = 1 - this.gas.life / Math.max(1, this.initialLife);
+        this.art.texture =
+          this.frames[Math.min(this.frames.length - 1, Math.floor(life * this.frames.length))]!;
+        this.art.scale.set(0.65 + 0.15 * Math.sin(this.t * 1.7));
+      }
+      this.art.alpha = 0.65 * fade;
       return;
     }
     const r = 7 + Math.sin(this.t * 2) * 1.5;

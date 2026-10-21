@@ -1,13 +1,15 @@
 import { Container, Graphics } from 'pixi.js';
 import type { JetPack, Worm } from '@wr/sim';
 import { OUTLINE, artSprite, type EntityView, type ViewContext } from './common';
+import { clipTextures } from '../clipEffects';
 
 export class JetPackView implements EntityView {
   readonly container = new Container();
   private g = new Graphics();
   private t = 0;
   private art = artSprite('objects/jetpack');
-  private exhaust = artSprite('fx/flame_0', 1);
+  private frames = clipTextures('engine');
+  private exhaust = this.frames.length ? artSprite('vfx/engine_0') : artSprite('fx/flame_0', 1);
 
   constructor(
     private readonly jet: JetPack,
@@ -16,8 +18,9 @@ export class JetPackView implements EntityView {
     this.container.addChild(this.g);
     if (this.art) this.container.addChild(this.art);
     if (this.exhaust) {
-      this.exhaust.rotation = Math.PI;
-      this.exhaust.scale.set(0.5);
+      this.exhaust.rotation = this.frames.length ? -Math.PI / 2 : Math.PI;
+      if (this.frames.length) this.exhaust.anchor.set(1, 0.5);
+      this.exhaust.scale.set(this.frames.length ? 0.7 : 0.5);
       this.exhaust.visible = false;
       this.container.addChild(this.exhaust);
     }
@@ -38,6 +41,8 @@ export class JetPackView implements EntityView {
       this.art.position.set(f * 5, -9);
       this.art.scale.x = w.facing;
       if (this.exhaust) {
+        if (this.frames.length)
+          this.exhaust.texture = this.frames[Math.floor(this.t * 16) % this.frames.length]!;
         this.exhaust.position.set(f * 5, -3);
         this.exhaust.visible = this.jet.thrusting;
       }
