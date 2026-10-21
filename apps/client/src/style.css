@@ -125,19 +125,38 @@ body {
   --edge: var(--gold);
 }
 
+/* Team colour is the bar and the flag; the name is always white with an ink outline (contrast on any colour). */
 .team-name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  width: 144px;
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
-  width: 128px;
-  text-align: right;
+  color: #fff;
   white-space: nowrap;
+  text-shadow:
+    1px 0 0 var(--ink),
+    -1px 0 0 var(--ink),
+    0 1px 0 var(--ink),
+    0 -1px 0 var(--ink),
+    1px 1px 0 var(--ink),
+    -1px -1px 0 var(--ink),
+    1px -1px 0 var(--ink),
+    -1px 1px 0 var(--ink);
+}
+
+.team-name span {
   overflow: hidden;
   text-overflow: ellipsis;
-  text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000;
+}
+
+.team-flag {
+  flex: none;
+  width: 6px;
+  height: 8px;
+  box-shadow: 0 0 0 1px var(--ink);
 }
 
 /* The trough has the width of a team at full health, so the bars of all teams share one scale and

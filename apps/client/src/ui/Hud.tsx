@@ -91,14 +91,14 @@ export function Hud({
       </div>
 
       {s.turn && s.waiting && (
-        <div class="turn-prompt" style={{ color: s.turn.color }}>
+        <div class="turn-prompt">
           Команда {s.turn.team}
           <div class="turn-prompt-key">нажмите любую клавишу</div>
         </div>
       )}
       {crate && <div class="turn-banner">Падает ящик · Пробел — не ждать</div>}
       {s.turn && !s.waiting && !crate && banner === s.turn.number && (
-        <div class="turn-banner" key={s.turn.number} style={{ color: s.turn.color }}>
+        <div class="turn-banner" key={s.turn.number}>
           {s.turn.team} — {s.turn.worm}
         </div>
       )}
@@ -135,8 +135,9 @@ export function Hud({
         <div class="teams">
           {s.teams.map((t) => (
             <div class={`team px-panel ${t.active ? 'active' : ''}`} key={t.name}>
-              <span class="team-name" style={{ color: t.color }}>
-                {t.name}
+              <span class="team-name">
+                <i class="team-flag" style={{ background: t.color }} />
+                <span>{t.name}</span>
               </span>
               <div class="team-trough">
                 <div
