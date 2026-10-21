@@ -91,7 +91,8 @@ export class EffectsSystem {
   /** Procedural pixel blasts (fireball, splash ring). */
   readonly blasts = new PixelBlasts();
   readonly clips = new ClipEffects();
-  private textures = createFxTextures();
+  private ownedTextures = new Set<Texture>();
+  private textures = createFxTextures(this.ownedTextures);
   private particles: Particle[] = [];
   private pending: Pending[] = [];
   private pool: Sprite[] = [];
@@ -408,5 +409,7 @@ export class EffectsSystem {
     this.pool.length = 0;
     this.back.destroy({ children: true });
     this.front.destroy({ children: true });
+    for (const texture of this.ownedTextures) texture.destroy(true);
+    this.ownedTextures.clear();
   }
 }

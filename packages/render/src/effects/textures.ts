@@ -125,6 +125,8 @@ function pixelate(tex: Texture, w: number, h: number, cut = 0.45): Texture {
   const [c, g] = canvas(w, h);
   g.imageSmoothingQuality = 'high';
   g.drawImage(src, 0, 0, w, h);
+  // Only the small result survives; the temporary high-resolution canvas has no consumers.
+  tex.destroy(true);
   const d = g.getImageData(0, 0, w, h);
   for (let i = 0; i < w * h; i++) {
     const on = (d.data[i * 4 + 3] as number) / 255 >= cut;
@@ -200,11 +202,13 @@ function puffTexture(n: number, seed: number): Texture {
 }
 
 /** All procedural effect textures. Replace with hand-made atlases later (same ids). */
-export function createFxTextures(): Record<FxTextureId, Texture[]> {
+export function createFxTextures(owned = new Set<Texture>()): Record<FxTextureId, Texture[]> {
   const smoke = clipTextures('smoke'),
     gas = clipTextures('gas');
   const paper = clipTextures('letter');
-  return {
+  const banana = assets.get('creatures/banana_1');
+  const shared = new Set([...smoke, ...gas, ...paper, ...(banana ? [banana] : [])]);
+  const result: Record<FxTextureId, Texture[]> = {
     soft: [pixelate(softTexture(), 16, 16, 0.4)],
     smoke: smoke.length ? smoke : [1, 2, 3, 4].map((n) => pixelate(smokeTexture(n), 16, 16, 0.3)),
     spark: [pixelate(sparkTexture(), 8, 2, 0.35)],
@@ -217,7 +221,11 @@ export function createFxTextures(): Record<FxTextureId, Texture[]> {
     paper: paper.length ? paper : [pxTexture()],
     wool: [puffTexture(5, 3)],
     metal: [fromPixels(3, 2, (x, y) => (x === 0 ? 0x696a6a : y === 0 ? 0xcbdbfc : 0x9badb7))],
-    banana: assets.get('creatures/banana_1') ? [assets.get('creatures/banana_1')!] : [pxTexture()],
+    banana: banana ? [banana] : [pxTexture()],
     toxic: gas.length ? gas : [puffTexture(8, 4)],
   };
+  for (const texture of Object.values(result).flat()) {
+    if (!shared.has(texture)) owned.add(texture);
+  }
+  return result;
 }

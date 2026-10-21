@@ -110,6 +110,7 @@ export class PostFx {
   private pictureFilters(): void {
     const filters = [];
     if (this.crtEnabled && this.crt) filters.push(this.crt);
+    if (this.shockLife > 0 && this.shock) filters.push(this.shock);
     if (this.sensoryEffect && this.sensory) filters.push(this.sensory);
     this.picture.filters = filters.length ? filters : null;
   }
@@ -156,9 +157,7 @@ export class PostFx {
     f.time = 0;
     this.shockTime = 0;
     this.shockLife = 0.55 + 0.25 * Math.min(1.5, strength);
-    if (!this.stage.filters || !(this.stage.filters as unknown[]).includes(f)) {
-      this.stage.filters = [this.adjust, f];
-    }
+    this.pictureFilters();
   }
 
   /** 0..1: how urgent the moment is (timer running out). */
@@ -188,7 +187,7 @@ export class PostFx {
       this.shock.amplitude *= left < 0.5 ? 0.9 : 1;
       if (this.shockTime >= this.shockLife) {
         this.shockLife = 0;
-        this.stage.filters = [this.adjust];
+        this.pictureFilters();
       }
     }
 
@@ -208,6 +207,6 @@ export class PostFx {
     this.sensory?.destroy();
     this.adjust.destroy();
     this.shock?.destroy();
-    this.vignette.destroy();
+    this.vignette.destroy({ texture: true, textureSource: true });
   }
 }
