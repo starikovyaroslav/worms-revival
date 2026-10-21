@@ -285,6 +285,8 @@ describe('hash completeness', () => {
           events: 'presentation events, drained by the renderer',
           presentationSources: 'cosmetic weapon lineage only; never read by rules or physics',
           presentationSource: 'temporary cosmetic event scope, restored after each callback',
+          presentationVariants: 'cosmetic upgrade appearance; never read by rules or physics',
+          presentationVariant: 'temporary cosmetic upgrade scope, restored after each callback',
           terrain: 'hashed by Terrain.hashInto (covered by terrain tests)',
           entities: 'every entity is hashed through its own class (tests above)',
           pending: 'flushed into entities before hashing',

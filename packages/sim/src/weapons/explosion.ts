@@ -70,7 +70,12 @@ export function explode(
   blast.damage *= world.physics.damageScale;
   if (!blast.noCrater && blast.crater > 0) world.terrain.carveCircle(x, y, blast.crater);
   for (const e of world.all()) {
-    if (!e.removed) world.withPresentationSource(world.sourceOf(e), () => e.onBlast(world, blast));
+    if (!e.removed)
+      world.withPresentationSource(
+        world.sourceOf(e),
+        () => e.onBlast(world, blast),
+        world.variantOf(e),
+      );
   }
   world.emit({
     type: 'explosion',

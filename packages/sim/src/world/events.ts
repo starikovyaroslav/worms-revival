@@ -1,13 +1,21 @@
 import type { SoundId } from '../weapons/spec';
 
 export type SpeechLine = 'turn' | 'hurt' | 'fall' | 'drown' | 'death' | 'win' | 'fire' | 'kill';
+export type PresentationVariant = 'standard' | 'mk2';
 
 /**
  * Fire-and-forget notifications for presentation (render, audio, camera).
  * They never feed back into the simulation and are not part of the state hash.
  */
 export type SimEvent =
-  | { type: 'explosion'; x: number; y: number; radius: number; source?: string }
+  | {
+      type: 'explosion';
+      x: number;
+      y: number;
+      radius: number;
+      source?: string;
+      variant?: PresentationVariant;
+    }
   /** Cosmetic transport cue. Payloads already exist; this must never delay their simulation. */
   | {
       type: 'airRaid';
@@ -18,11 +26,12 @@ export type SimEvent =
       spacing: number;
       payloadIds: number[];
       source?: string;
+      variant?: PresentationVariant;
     }
   | { type: 'death'; wormId: number; x: number; y: number; team: number }
   | { type: 'steam'; x: number; y: number }
   | { type: 'splash'; x: number; y: number; size: number }
-  | { type: 'sound'; id: SoundId; x: number; y: number }
+  | { type: 'sound'; id: SoundId; x: number; y: number; variant?: PresentationVariant }
   /** A worm says something; `line` is a phrase category the presentation picks a line from. */
   | { type: 'speech'; wormId: number; line: SpeechLine }
   | { type: 'damage'; wormId: number; amount: number }

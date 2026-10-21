@@ -12,6 +12,27 @@ const spec = {
 };
 
 describe('cosmetic event lineage', () => {
+  it('inherits upgrade visuals through delayed entities without changing physics or hashes', () => {
+    const a = make(),
+      b = make();
+    const p = a.withPresentationSource(
+      'bazooka',
+      () => a.spawn(new Projectile(100, 40, 0, 0, spec)),
+      'mk2',
+    );
+    b.withPresentationSource('bazooka', () => b.spawn(new Projectile(100, 40, 0, 0, spec)));
+    expect(a.variantOf(p)).toBe('mk2');
+    for (let i = 0; i < 4; i++) {
+      a.step();
+      b.step();
+      expect(a.hash()).toBe(b.hash());
+    }
+    expect(a.drainEvents().find((e) => e.type === 'explosion')).toMatchObject({
+      source: 'bazooka',
+      variant: 'mk2',
+    });
+    expect(a.variantOf(a.spawn(new Projectile(10, 10, 0, 0, spec)))).toBe('standard');
+  });
   it('preserves the source of delayed explosions without adding it to the state hash', () => {
     const a = make(),
       b = make();

@@ -2,7 +2,7 @@ import { Hasher } from '../core/hash';
 import { Rng } from '../core/rng';
 import type { Terrain } from '../terrain/terrain';
 import type { Entity } from './entity';
-import type { SimEvent } from './events';
+import type { SimEvent, PresentationVariant } from './events';
 
 export interface PhysicsConfig {
   /** px / tick². */
@@ -55,19 +55,32 @@ export class World {
   /** Cosmetic lineage only: not hashed, not read by physics or rules. */
   private readonly presentationSources = new Map<number, string>();
   private presentationSource: string | undefined;
+  private readonly presentationVariants = new Map<number, PresentationVariant>();
+  private presentationVariant: PresentationVariant = 'standard';
 
-  withPresentationSource<T>(source: string | undefined, run: () => T): T {
+  withPresentationSource<T>(
+    source: string | undefined,
+    run: () => T,
+    variant: PresentationVariant = 'standard',
+  ): T {
     const before = this.presentationSource;
+    const beforeVariant = this.presentationVariant;
     this.presentationSource = source;
+    this.presentationVariant = variant;
     try {
       return run();
     } finally {
       this.presentationSource = before;
+      this.presentationVariant = beforeVariant;
     }
   }
 
   sourceOf(entity: Entity): string {
     return this.presentationSources.get(entity.id) ?? entity.kind;
+  }
+
+  variantOf(entity: Entity): PresentationVariant {
+    return this.presentationVariants.get(entity.id) ?? 'standard';
   }
 
   constructor(opts: WorldOptions) {
@@ -81,6 +94,8 @@ export class World {
   spawn<T extends Entity>(e: T): T {
     e.id = this.nextId++;
     if (this.presentationSource) this.presentationSources.set(e.id, this.presentationSource);
+    if (this.presentationVariant !== 'standard')
+      this.presentationVariants.set(e.id, this.presentationVariant);
     this.pending.push(e);
     return e;
   }
@@ -88,8 +103,14 @@ export class World {
   emit(event: SimEvent): void {
     this.events.push(
       event.type === 'explosion' || event.type === 'airRaid'
-        ? { ...event, source: event.source ?? this.presentationSource ?? 'generic' }
-        : event,
+        ? {
+            ...event,
+            source: event.source ?? this.presentationSource ?? 'generic',
+            variant: event.variant ?? this.presentationVariant,
+          }
+        : event.type === 'sound'
+          ? { ...event, variant: event.variant ?? this.presentationVariant }
+          : event,
     );
   }
 
@@ -138,7 +159,8 @@ export class World {
     const current = this.entities;
     for (let i = 0; i < current.length; i++) {
       const e = current[i] as Entity;
-      if (!e.removed) this.withPresentationSource(this.sourceOf(e), () => e.update(this));
+      if (!e.removed)
+        this.withPresentationSource(this.sourceOf(e), () => e.update(this), this.variantOf(e));
     }
     this.compact();
     this.flushPending();
@@ -154,6 +176,7 @@ export class World {
       if (e.removed) {
         this.index.delete(e.id);
         this.presentationSources.delete(e.id);
+        this.presentationVariants.delete(e.id);
         const bucket = this.buckets.get(e.kind) as Entity[];
         bucket.splice(bucket.indexOf(e), 1);
       } else {

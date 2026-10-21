@@ -98,7 +98,14 @@ export class Ruleset {
         ...compiled,
         id: spec.id,
         spec,
-        fire: (ctx) => ctx.world.withPresentationSource(spec.id, () => compiled.fire(ctx)),
+        fire: (ctx) =>
+          ctx.world.withPresentationSource(
+            spec.id,
+            () => compiled.fire(ctx),
+            ctx.setting.power >= 4 || ctx.world.physics.damageScale > ctx.baseDamageScale * 1.01
+              ? 'mk2'
+              : 'standard',
+          ),
       };
       this.byId.set(spec.id, def);
       defs.push(def);
