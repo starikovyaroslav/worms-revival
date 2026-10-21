@@ -11,3 +11,4 @@ assets-in/
 __pycache__/
 *.pyc
 *.tsbuildinfo
+.bench/
