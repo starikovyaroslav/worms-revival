@@ -1,0 +1,414 @@
+[
+  {
+    "name": "vfx-flight",
+    "source": "vfx/vfx-flight.png",
+    "cells": [
+      {
+        "id": "vfx/cargo_0",
+        "prefix": "cargo",
+        "frame": 0,
+        "description": "the SAME small original grey cargo propeller airplane facing RIGHT, cyan cockpit, orange trim, side view, no insignia. Four animation poses: 0 closed lower cargo bay and vertical propeller, 1 closed bay and diagonal propeller, 2 lower bay beginning to open and horizontal propeller, 3 fully open lower bay and vertical propeller. Keep fuselage IDENTICAL size and position in all four cells, width about 48 art pixels, height 20"
+      },
+      {
+        "id": "vfx/cargo_1",
+        "prefix": "cargo",
+        "frame": 1,
+        "description": "the SAME small original grey cargo propeller airplane facing RIGHT, cyan cockpit, orange trim, side view, no insignia. Four animation poses: 0 closed lower cargo bay and vertical propeller, 1 closed bay and diagonal propeller, 2 lower bay beginning to open and horizontal propeller, 3 fully open lower bay and vertical propeller. Keep fuselage IDENTICAL size and position in all four cells, width about 48 art pixels, height 20"
+      },
+      {
+        "id": "vfx/cargo_2",
+        "prefix": "cargo",
+        "frame": 2,
+        "description": "the SAME small original grey cargo propeller airplane facing RIGHT, cyan cockpit, orange trim, side view, no insignia. Four animation poses: 0 closed lower cargo bay and vertical propeller, 1 closed bay and diagonal propeller, 2 lower bay beginning to open and horizontal propeller, 3 fully open lower bay and vertical propeller. Keep fuselage IDENTICAL size and position in all four cells, width about 48 art pixels, height 20"
+      },
+      {
+        "id": "vfx/cargo_3",
+        "prefix": "cargo",
+        "frame": 3,
+        "description": "the SAME small original grey cargo propeller airplane facing RIGHT, cyan cockpit, orange trim, side view, no insignia. Four animation poses: 0 closed lower cargo bay and vertical propeller, 1 closed bay and diagonal propeller, 2 lower bay beginning to open and horizontal propeller, 3 fully open lower bay and vertical propeller. Keep fuselage IDENTICAL size and position in all four cells, width about 48 art pixels, height 20"
+      },
+      {
+        "id": "vfx/mailplane_0",
+        "prefix": "mailplane",
+        "frame": 0,
+        "description": "the SAME small original orange-and-cream postal propeller airplane facing RIGHT, blue cockpit, small envelope emblem without text. Four poses matching previous row: 0 bay closed / vertical propeller, 1 bay closed / diagonal propeller, 2 bay opening / horizontal propeller, 3 bay open / vertical propeller. Identical size/position, width48 height20"
+      },
+      {
+        "id": "vfx/mailplane_1",
+        "prefix": "mailplane",
+        "frame": 1,
+        "description": "the SAME small original orange-and-cream postal propeller airplane facing RIGHT, blue cockpit, small envelope emblem without text. Four poses matching previous row: 0 bay closed / vertical propeller, 1 bay closed / diagonal propeller, 2 bay opening / horizontal propeller, 3 bay open / vertical propeller. Identical size/position, width48 height20"
+      },
+      {
+        "id": "vfx/mailplane_2",
+        "prefix": "mailplane",
+        "frame": 2,
+        "description": "the SAME small original orange-and-cream postal propeller airplane facing RIGHT, blue cockpit, small envelope emblem without text. Four poses matching previous row: 0 bay closed / vertical propeller, 1 bay closed / diagonal propeller, 2 bay opening / horizontal propeller, 3 bay open / vertical propeller. Identical size/position, width48 height20"
+      },
+      {
+        "id": "vfx/mailplane_3",
+        "prefix": "mailplane",
+        "frame": 3,
+        "description": "the SAME small original orange-and-cream postal propeller airplane facing RIGHT, blue cockpit, small envelope emblem without text. Four poses matching previous row: 0 bay closed / vertical propeller, 1 bay closed / diagonal propeller, 2 bay opening / horizontal propeller, 3 bay open / vertical propeller. Identical size/position, width48 height20"
+      },
+      {
+        "id": "vfx/missile_0",
+        "prefix": "missile",
+        "frame": 0,
+        "description": "the SAME stubby grey flying rocket facing RIGHT, red nose, four small fins, two animation poses with a short yellow-orange engine exhaust changing shape at the LEFT. Identical rocket body, width24 art pixels height10"
+      },
+      {
+        "id": "vfx/missile_1",
+        "prefix": "missile",
+        "frame": 1,
+        "description": "the SAME stubby grey flying rocket facing RIGHT, red nose, four small fins, two animation poses with a short yellow-orange engine exhaust changing shape at the LEFT. Identical rocket body, width24 art pixels height10"
+      },
+      {
+        "id": "vfx/homing_0",
+        "prefix": "homing",
+        "frame": 0,
+        "description": "the SAME stubby grey guided rocket facing RIGHT, cyan nose and small dark antenna, two poses with short blue-yellow engine exhaust at LEFT changing shape. Width24 height10"
+      },
+      {
+        "id": "vfx/homing_1",
+        "prefix": "homing",
+        "frame": 1,
+        "description": "the SAME stubby grey guided rocket facing RIGHT, cyan nose and small dark antenna, two poses with short blue-yellow engine exhaust at LEFT changing shape. Width24 height10"
+      },
+      {
+        "id": "vfx/letter_0",
+        "prefix": "letter",
+        "frame": 0,
+        "description": "the SAME small white envelope with red trim tumbling in flight in four poses: 0 front flap, 1 tilted flap, 2 thin edge diagonal, 3 back with red seal. Width20 height14, one envelope per cell"
+      },
+      {
+        "id": "vfx/letter_1",
+        "prefix": "letter",
+        "frame": 1,
+        "description": "the SAME small white envelope with red trim tumbling in flight in four poses: 0 front flap, 1 tilted flap, 2 thin edge diagonal, 3 back with red seal. Width20 height14, one envelope per cell"
+      },
+      {
+        "id": "vfx/letter_2",
+        "prefix": "letter",
+        "frame": 2,
+        "description": "the SAME small white envelope with red trim tumbling in flight in four poses: 0 front flap, 1 tilted flap, 2 thin edge diagonal, 3 back with red seal. Width20 height14, one envelope per cell"
+      },
+      {
+        "id": "vfx/letter_3",
+        "prefix": "letter",
+        "frame": 3,
+        "description": "the SAME small white envelope with red trim tumbling in flight in four poses: 0 front flap, 1 tilted flap, 2 thin edge diagonal, 3 back with red seal. Width20 height14, one envelope per cell"
+      }
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: production animated pixel-art sprite sheet for an original cartoon 2D game.\nThe attached image is the approved STYLE reference ONLY. Match its chunky square pixels, limited flat colors, dark #222034 outlines and top-left light. Do not copy its scenery.\nGenerate ONE square 1024x1024 PNG with genuinely TRANSPARENT alpha background. EXACTLY 4 columns x4 rows, EXACTLY 16 separate frames in equal invisible 256x256 image-pixel cells. Each cell is 64x64 ART PIXELS (each art pixel a solid 4x4 square block). Leave at least 6 ART PIXELS transparent padding on EVERY edge. Nothing may cross or touch a cell border. No labels, grid lines, numbers, letters, text, watermarks or background scenes.\nAnimations must use consistent framing and proportions, not sixteen unrelated pictures. In a sequence, the same subject has the SAME anchor position in each cell. Side view except decals. Hard pixel edges, no anti-aliasing, no gradients, no soft glow, no semi-transparent haze. Two or three flat tones. Use only #000000 #222034 #45283c #663931 #8f563b #df7126 #d9a066 #eec39a #fbf236 #99e550 #6abe30 #37946e #4b692f #323c39 #306082 #5b6ee1 #639bff #5fcde4 #cbdbfc #ffffff #9badb7 #847e87 #696a6a #ac3232 #d95763 #d77bba.\nEach description below is a SEQUENCE; draw its frames in exactly this reading order:\ncargo: 4 consecutive cells. the SAME small original grey cargo propeller airplane facing RIGHT, cyan cockpit, orange trim, side view, no insignia. Four animation poses: 0 closed lower cargo bay and vertical propeller, 1 closed bay and diagonal propeller, 2 lower bay beginning to open and horizontal propeller, 3 fully open lower bay and vertical propeller. Keep fuselage IDENTICAL size and position in all four cells, width about 48 art pixels, height 20.\nmailplane: 4 consecutive cells. the SAME small original orange-and-cream postal propeller airplane facing RIGHT, blue cockpit, small envelope emblem without text. Four poses matching previous row: 0 bay closed / vertical propeller, 1 bay closed / diagonal propeller, 2 bay opening / horizontal propeller, 3 bay open / vertical propeller. Identical size/position, width48 height20.\nmissile: 2 consecutive cells. the SAME stubby grey flying rocket facing RIGHT, red nose, four small fins, two animation poses with a short yellow-orange engine exhaust changing shape at the LEFT. Identical rocket body, width24 art pixels height10.\nhoming: 2 consecutive cells. the SAME stubby grey guided rocket facing RIGHT, cyan nose and small dark antenna, two poses with short blue-yellow engine exhaust at LEFT changing shape. Width24 height10.\nletter: 4 consecutive cells. the SAME small white envelope with red trim tumbling in flight in four poses: 0 front flap, 1 tilted flap, 2 thin edge diagonal, 3 back with red seal. Width20 height14, one envelope per cell.\nReturn only the sprite sheet."
+  },
+  {
+    "name": "vfx-elements",
+    "source": "vfx/vfx-elements.png",
+    "cells": [
+      {
+        "id": "vfx/engine_0",
+        "prefix": "engine",
+        "frame": 0,
+        "description": "orange-yellow rocket exhaust plume extending LEFT from a nozzle point at the RIGHT edge of the plume; four consecutive flutter poses; white-yellow hot root on RIGHT, orange/red stepped flame tip on LEFT; width32 height16, no nozzle object"
+      },
+      {
+        "id": "vfx/engine_1",
+        "prefix": "engine",
+        "frame": 1,
+        "description": "orange-yellow rocket exhaust plume extending LEFT from a nozzle point at the RIGHT edge of the plume; four consecutive flutter poses; white-yellow hot root on RIGHT, orange/red stepped flame tip on LEFT; width32 height16, no nozzle object"
+      },
+      {
+        "id": "vfx/engine_2",
+        "prefix": "engine",
+        "frame": 2,
+        "description": "orange-yellow rocket exhaust plume extending LEFT from a nozzle point at the RIGHT edge of the plume; four consecutive flutter poses; white-yellow hot root on RIGHT, orange/red stepped flame tip on LEFT; width32 height16, no nozzle object"
+      },
+      {
+        "id": "vfx/engine_3",
+        "prefix": "engine",
+        "frame": 3,
+        "description": "orange-yellow rocket exhaust plume extending LEFT from a nozzle point at the RIGHT edge of the plume; four consecutive flutter poses; white-yellow hot root on RIGHT, orange/red stepped flame tip on LEFT; width32 height16, no nozzle object"
+      },
+      {
+        "id": "vfx/fire_0",
+        "prefix": "fire",
+        "frame": 0,
+        "description": "upright ground fire, yellow core and orange/red outer tongues, four consecutive flicker poses sharing the SAME BOTTOM-CENTER base; width26 height36"
+      },
+      {
+        "id": "vfx/fire_1",
+        "prefix": "fire",
+        "frame": 1,
+        "description": "upright ground fire, yellow core and orange/red outer tongues, four consecutive flicker poses sharing the SAME BOTTOM-CENTER base; width26 height36"
+      },
+      {
+        "id": "vfx/fire_2",
+        "prefix": "fire",
+        "frame": 2,
+        "description": "upright ground fire, yellow core and orange/red outer tongues, four consecutive flicker poses sharing the SAME BOTTOM-CENTER base; width26 height36"
+      },
+      {
+        "id": "vfx/fire_3",
+        "prefix": "fire",
+        "frame": 3,
+        "description": "upright ground fire, yellow core and orange/red outer tongues, four consecutive flicker poses sharing the SAME BOTTOM-CENTER base; width26 height36"
+      },
+      {
+        "id": "vfx/smoke_0",
+        "prefix": "smoke",
+        "frame": 0,
+        "description": "one grey smoke puff, four consecutive growth/dissipation stages from small dark curl to large lobed grey cloud with breaks, top-left light. Keep same center and same cell framing. Stages must remain separate sprites, width from16 to42, height from16 to42"
+      },
+      {
+        "id": "vfx/smoke_1",
+        "prefix": "smoke",
+        "frame": 1,
+        "description": "one grey smoke puff, four consecutive growth/dissipation stages from small dark curl to large lobed grey cloud with breaks, top-left light. Keep same center and same cell framing. Stages must remain separate sprites, width from16 to42, height from16 to42"
+      },
+      {
+        "id": "vfx/smoke_2",
+        "prefix": "smoke",
+        "frame": 2,
+        "description": "one grey smoke puff, four consecutive growth/dissipation stages from small dark curl to large lobed grey cloud with breaks, top-left light. Keep same center and same cell framing. Stages must remain separate sprites, width from16 to42, height from16 to42"
+      },
+      {
+        "id": "vfx/smoke_3",
+        "prefix": "smoke",
+        "frame": 3,
+        "description": "one grey smoke puff, four consecutive growth/dissipation stages from small dark curl to large lobed grey cloud with breaks, top-left light. Keep same center and same cell framing. Stages must remain separate sprites, width from16 to42, height from16 to42"
+      },
+      {
+        "id": "vfx/steam_0",
+        "prefix": "steam",
+        "frame": 0,
+        "description": "one white/cyan steam puff, four consecutive growth/dissipation stages from a tiny white curl to loose billowing pale cloud. Same center/cell framing, width16 to42 height16 to42, transparent breaks not background"
+      },
+      {
+        "id": "vfx/steam_1",
+        "prefix": "steam",
+        "frame": 1,
+        "description": "one white/cyan steam puff, four consecutive growth/dissipation stages from a tiny white curl to loose billowing pale cloud. Same center/cell framing, width16 to42 height16 to42, transparent breaks not background"
+      },
+      {
+        "id": "vfx/steam_2",
+        "prefix": "steam",
+        "frame": 2,
+        "description": "one white/cyan steam puff, four consecutive growth/dissipation stages from a tiny white curl to loose billowing pale cloud. Same center/cell framing, width16 to42 height16 to42, transparent breaks not background"
+      },
+      {
+        "id": "vfx/steam_3",
+        "prefix": "steam",
+        "frame": 3,
+        "description": "one white/cyan steam puff, four consecutive growth/dissipation stages from a tiny white curl to loose billowing pale cloud. Same center/cell framing, width16 to42 height16 to42, transparent breaks not background"
+      }
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: production animated pixel-art sprite sheet for an original cartoon 2D game.\nThe attached image is the approved STYLE reference ONLY. Match its chunky square pixels, limited flat colors, dark #222034 outlines and top-left light. Do not copy its scenery.\nGenerate ONE square 1024x1024 PNG with genuinely TRANSPARENT alpha background. EXACTLY 4 columns x4 rows, EXACTLY 16 separate frames in equal invisible 256x256 image-pixel cells. Each cell is 64x64 ART PIXELS (each art pixel a solid 4x4 square block). Leave at least 6 ART PIXELS transparent padding on EVERY edge. Nothing may cross or touch a cell border. No labels, grid lines, numbers, letters, text, watermarks or background scenes.\nAnimations must use consistent framing and proportions, not sixteen unrelated pictures. In a sequence, the same subject has the SAME anchor position in each cell. Side view except decals. Hard pixel edges, no anti-aliasing, no gradients, no soft glow, no semi-transparent haze. Two or three flat tones. Use only #000000 #222034 #45283c #663931 #8f563b #df7126 #d9a066 #eec39a #fbf236 #99e550 #6abe30 #37946e #4b692f #323c39 #306082 #5b6ee1 #639bff #5fcde4 #cbdbfc #ffffff #9badb7 #847e87 #696a6a #ac3232 #d95763 #d77bba.\nEach description below is a SEQUENCE; draw its frames in exactly this reading order:\nengine: 4 consecutive cells. orange-yellow rocket exhaust plume extending LEFT from a nozzle point at the RIGHT edge of the plume; four consecutive flutter poses; white-yellow hot root on RIGHT, orange/red stepped flame tip on LEFT; width32 height16, no nozzle object.\nfire: 4 consecutive cells. upright ground fire, yellow core and orange/red outer tongues, four consecutive flicker poses sharing the SAME BOTTOM-CENTER base; width26 height36.\nsmoke: 4 consecutive cells. one grey smoke puff, four consecutive growth/dissipation stages from small dark curl to large lobed grey cloud with breaks, top-left light. Keep same center and same cell framing. Stages must remain separate sprites, width from16 to42, height from16 to42.\nsteam: 4 consecutive cells. one white/cyan steam puff, four consecutive growth/dissipation stages from a tiny white curl to loose billowing pale cloud. Same center/cell framing, width16 to42 height16 to42, transparent breaks not background.\nReturn only the sprite sheet."
+  },
+  {
+    "name": "vfx-blasts",
+    "source": "vfx/vfx-blasts.png",
+    "cells": [
+      {
+        "id": "vfx/blast_0",
+        "prefix": "blast",
+        "frame": 0,
+        "description": "cartoon orange explosion fireball, four consecutive animation stages: tiny white-yellow initial star, expanding yellow-orange lobed ball, larger red-orange irregular fiery ring, dark red cooling broken ring with a few embers. SAME CENTER, outer size increasing from16 to48 art pixels"
+      },
+      {
+        "id": "vfx/blast_1",
+        "prefix": "blast",
+        "frame": 1,
+        "description": "cartoon orange explosion fireball, four consecutive animation stages: tiny white-yellow initial star, expanding yellow-orange lobed ball, larger red-orange irregular fiery ring, dark red cooling broken ring with a few embers. SAME CENTER, outer size increasing from16 to48 art pixels"
+      },
+      {
+        "id": "vfx/blast_2",
+        "prefix": "blast",
+        "frame": 2,
+        "description": "cartoon orange explosion fireball, four consecutive animation stages: tiny white-yellow initial star, expanding yellow-orange lobed ball, larger red-orange irregular fiery ring, dark red cooling broken ring with a few embers. SAME CENTER, outer size increasing from16 to48 art pixels"
+      },
+      {
+        "id": "vfx/blast_3",
+        "prefix": "blast",
+        "frame": 3,
+        "description": "cartoon orange explosion fireball, four consecutive animation stages: tiny white-yellow initial star, expanding yellow-orange lobed ball, larger red-orange irregular fiery ring, dark red cooling broken ring with a few embers. SAME CENTER, outer size increasing from16 to48 art pixels"
+      },
+      {
+        "id": "vfx/fragment_0",
+        "prefix": "fragment",
+        "frame": 0,
+        "description": "cartoon fragmentation explosion, four consecutive stages: compact yellow flash, sharp orange radial burst with chunky dark fragments, wide thin fiery ring and separated fragments, sparse brown fragments and small grey puffs. SAME CENTER, size16 to48"
+      },
+      {
+        "id": "vfx/fragment_1",
+        "prefix": "fragment",
+        "frame": 1,
+        "description": "cartoon fragmentation explosion, four consecutive stages: compact yellow flash, sharp orange radial burst with chunky dark fragments, wide thin fiery ring and separated fragments, sparse brown fragments and small grey puffs. SAME CENTER, size16 to48"
+      },
+      {
+        "id": "vfx/fragment_2",
+        "prefix": "fragment",
+        "frame": 2,
+        "description": "cartoon fragmentation explosion, four consecutive stages: compact yellow flash, sharp orange radial burst with chunky dark fragments, wide thin fiery ring and separated fragments, sparse brown fragments and small grey puffs. SAME CENTER, size16 to48"
+      },
+      {
+        "id": "vfx/fragment_3",
+        "prefix": "fragment",
+        "frame": 3,
+        "description": "cartoon fragmentation explosion, four consecutive stages: compact yellow flash, sharp orange radial burst with chunky dark fragments, wide thin fiery ring and separated fragments, sparse brown fragments and small grey puffs. SAME CENTER, size16 to48"
+      },
+      {
+        "id": "vfx/incendiary_0",
+        "prefix": "incendiary",
+        "frame": 0,
+        "description": "cartoon low wide incendiary fireburst, four consecutive stages: tiny orange spark, low wide yellow-orange flare, orange curling ground fire and red tongues, dark red embers. SAME BOTTOM-CENTER, width16 to48 height12 to32"
+      },
+      {
+        "id": "vfx/incendiary_1",
+        "prefix": "incendiary",
+        "frame": 1,
+        "description": "cartoon low wide incendiary fireburst, four consecutive stages: tiny orange spark, low wide yellow-orange flare, orange curling ground fire and red tongues, dark red embers. SAME BOTTOM-CENTER, width16 to48 height12 to32"
+      },
+      {
+        "id": "vfx/incendiary_2",
+        "prefix": "incendiary",
+        "frame": 2,
+        "description": "cartoon low wide incendiary fireburst, four consecutive stages: tiny orange spark, low wide yellow-orange flare, orange curling ground fire and red tongues, dark red embers. SAME BOTTOM-CENTER, width16 to48 height12 to32"
+      },
+      {
+        "id": "vfx/incendiary_3",
+        "prefix": "incendiary",
+        "frame": 3,
+        "description": "cartoon low wide incendiary fireburst, four consecutive stages: tiny orange spark, low wide yellow-orange flare, orange curling ground fire and red tongues, dark red embers. SAME BOTTOM-CENTER, width16 to48 height12 to32"
+      },
+      {
+        "id": "vfx/energy_0",
+        "prefix": "energy",
+        "frame": 0,
+        "description": "cartoon luminous energy blast with pale cream/cyan/gold colors, four consecutive stages: tiny white star, bright multi-point expanding star, large thin golden/cyan ring with rays, broken small twinkling sparks. SAME CENTER, size16 to48; no symbols or text"
+      },
+      {
+        "id": "vfx/energy_1",
+        "prefix": "energy",
+        "frame": 1,
+        "description": "cartoon luminous energy blast with pale cream/cyan/gold colors, four consecutive stages: tiny white star, bright multi-point expanding star, large thin golden/cyan ring with rays, broken small twinkling sparks. SAME CENTER, size16 to48; no symbols or text"
+      },
+      {
+        "id": "vfx/energy_2",
+        "prefix": "energy",
+        "frame": 2,
+        "description": "cartoon luminous energy blast with pale cream/cyan/gold colors, four consecutive stages: tiny white star, bright multi-point expanding star, large thin golden/cyan ring with rays, broken small twinkling sparks. SAME CENTER, size16 to48; no symbols or text"
+      },
+      {
+        "id": "vfx/energy_3",
+        "prefix": "energy",
+        "frame": 3,
+        "description": "cartoon luminous energy blast with pale cream/cyan/gold colors, four consecutive stages: tiny white star, bright multi-point expanding star, large thin golden/cyan ring with rays, broken small twinkling sparks. SAME CENTER, size16 to48; no symbols or text"
+      }
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: production animated pixel-art sprite sheet for an original cartoon 2D game.\nThe attached image is the approved STYLE reference ONLY. Match its chunky square pixels, limited flat colors, dark #222034 outlines and top-left light. Do not copy its scenery.\nGenerate ONE square 1024x1024 PNG with genuinely TRANSPARENT alpha background. EXACTLY 4 columns x4 rows, EXACTLY 16 separate frames in equal invisible 256x256 image-pixel cells. Each cell is 64x64 ART PIXELS (each art pixel a solid 4x4 square block). Leave at least 6 ART PIXELS transparent padding on EVERY edge. Nothing may cross or touch a cell border. No labels, grid lines, numbers, letters, text, watermarks or background scenes.\nAnimations must use consistent framing and proportions, not sixteen unrelated pictures. In a sequence, the same subject has the SAME anchor position in each cell. Side view except decals. Hard pixel edges, no anti-aliasing, no gradients, no soft glow, no semi-transparent haze. Two or three flat tones. Use only #000000 #222034 #45283c #663931 #8f563b #df7126 #d9a066 #eec39a #fbf236 #99e550 #6abe30 #37946e #4b692f #323c39 #306082 #5b6ee1 #639bff #5fcde4 #cbdbfc #ffffff #9badb7 #847e87 #696a6a #ac3232 #d95763 #d77bba.\nEach description below is a SEQUENCE; draw its frames in exactly this reading order:\nblast: 4 consecutive cells. cartoon orange explosion fireball, four consecutive animation stages: tiny white-yellow initial star, expanding yellow-orange lobed ball, larger red-orange irregular fiery ring, dark red cooling broken ring with a few embers. SAME CENTER, outer size increasing from16 to48 art pixels.\nfragment: 4 consecutive cells. cartoon fragmentation explosion, four consecutive stages: compact yellow flash, sharp orange radial burst with chunky dark fragments, wide thin fiery ring and separated fragments, sparse brown fragments and small grey puffs. SAME CENTER, size16 to48.\nincendiary: 4 consecutive cells. cartoon low wide incendiary fireburst, four consecutive stages: tiny orange spark, low wide yellow-orange flare, orange curling ground fire and red tongues, dark red embers. SAME BOTTOM-CENTER, width16 to48 height12 to32.\nenergy: 4 consecutive cells. cartoon luminous energy blast with pale cream/cyan/gold colors, four consecutive stages: tiny white star, bright multi-point expanding star, large thin golden/cyan ring with rays, broken small twinkling sparks. SAME CENTER, size16 to48; no symbols or text.\nReturn only the sprite sheet."
+  },
+  {
+    "name": "vfx-status",
+    "source": "vfx/vfx-status.png",
+    "cells": [
+      {
+        "id": "vfx/nuke_0",
+        "prefix": "nuke",
+        "frame": 0,
+        "description": "cartoon stylized mushroom-shaped smoke-and-light cloud, four consecutive animation stages: compact white-yellow rising flash, small orange stem and rounded cap, large grey-orange mushroom cloud, tall dark grey mushroom cloud dissipating in separated lobes. NOT realistic, no landscape or people. SAME BOTTOM-CENTER, size16 to48 wide and tall"
+      },
+      {
+        "id": "vfx/nuke_1",
+        "prefix": "nuke",
+        "frame": 1,
+        "description": "cartoon stylized mushroom-shaped smoke-and-light cloud, four consecutive animation stages: compact white-yellow rising flash, small orange stem and rounded cap, large grey-orange mushroom cloud, tall dark grey mushroom cloud dissipating in separated lobes. NOT realistic, no landscape or people. SAME BOTTOM-CENTER, size16 to48 wide and tall"
+      },
+      {
+        "id": "vfx/nuke_2",
+        "prefix": "nuke",
+        "frame": 2,
+        "description": "cartoon stylized mushroom-shaped smoke-and-light cloud, four consecutive animation stages: compact white-yellow rising flash, small orange stem and rounded cap, large grey-orange mushroom cloud, tall dark grey mushroom cloud dissipating in separated lobes. NOT realistic, no landscape or people. SAME BOTTOM-CENTER, size16 to48 wide and tall"
+      },
+      {
+        "id": "vfx/nuke_3",
+        "prefix": "nuke",
+        "frame": 3,
+        "description": "cartoon stylized mushroom-shaped smoke-and-light cloud, four consecutive animation stages: compact white-yellow rising flash, small orange stem and rounded cap, large grey-orange mushroom cloud, tall dark grey mushroom cloud dissipating in separated lobes. NOT realistic, no landscape or people. SAME BOTTOM-CENTER, size16 to48 wide and tall"
+      },
+      {
+        "id": "vfx/gas_0",
+        "prefix": "gas",
+        "frame": 0,
+        "description": "cartoon green poison gas puff with two or three chunky bubbles and curled wisps, four consecutive growth and dissipation stages. No skull text/symbols. SAME CENTER, sizes18 to42"
+      },
+      {
+        "id": "vfx/gas_1",
+        "prefix": "gas",
+        "frame": 1,
+        "description": "cartoon green poison gas puff with two or three chunky bubbles and curled wisps, four consecutive growth and dissipation stages. No skull text/symbols. SAME CENTER, sizes18 to42"
+      },
+      {
+        "id": "vfx/gas_2",
+        "prefix": "gas",
+        "frame": 2,
+        "description": "cartoon green poison gas puff with two or three chunky bubbles and curled wisps, four consecutive growth and dissipation stages. No skull text/symbols. SAME CENTER, sizes18 to42"
+      },
+      {
+        "id": "vfx/gas_3",
+        "prefix": "gas",
+        "frame": 3,
+        "description": "cartoon green poison gas puff with two or three chunky bubbles and curled wisps, four consecutive growth and dissipation stages. No skull text/symbols. SAME CENTER, sizes18 to42"
+      },
+      {
+        "id": "vfx/ghost_0",
+        "prefix": "ghost",
+        "frame": 0,
+        "description": "cute original peach/cyan grub-shaped ghost with two black eyes, four consecutive upward-floating and dissolving poses. Pale cyan/cream, no scary imagery. SAME CENTER, width20 height28; last pose broken into a few cyan wisps"
+      },
+      {
+        "id": "vfx/ghost_1",
+        "prefix": "ghost",
+        "frame": 1,
+        "description": "cute original peach/cyan grub-shaped ghost with two black eyes, four consecutive upward-floating and dissolving poses. Pale cyan/cream, no scary imagery. SAME CENTER, width20 height28; last pose broken into a few cyan wisps"
+      },
+      {
+        "id": "vfx/ghost_2",
+        "prefix": "ghost",
+        "frame": 2,
+        "description": "cute original peach/cyan grub-shaped ghost with two black eyes, four consecutive upward-floating and dissolving poses. Pale cyan/cream, no scary imagery. SAME CENTER, width20 height28; last pose broken into a few cyan wisps"
+      },
+      {
+        "id": "vfx/ghost_3",
+        "prefix": "ghost",
+        "frame": 3,
+        "description": "cute original peach/cyan grub-shaped ghost with two black eyes, four consecutive upward-floating and dissolving poses. Pale cyan/cream, no scary imagery. SAME CENTER, width20 height28; last pose broken into a few cyan wisps"
+      },
+      {
+        "id": "vfx/scorch_0",
+        "prefix": "scorch",
+        "frame": 0,
+        "description": "four distinct small flat burnt-ground decal shapes, irregular charcoal patch with dark red-orange ember flecks and cracked center. Top down decal, not a scene; no ground strip or sky. Oval patches width36 height14, dark #222034 / #45283c / #663931 with tiny orange ember specks"
+      },
+      {
+        "id": "vfx/scorch_1",
+        "prefix": "scorch",
+        "frame": 1,
+        "description": "four distinct small flat burnt-ground decal shapes, irregular charcoal patch with dark red-orange ember flecks and cracked center. Top down decal, not a scene; no ground strip or sky. Oval patches width36 height14, dark #222034 / #45283c / #663931 with tiny orange ember specks"
+      },
+      {
+        "id": "vfx/scorch_2",
+        "prefix": "scorch",
+        "frame": 2,
+        "description": "four distinct small flat burnt-ground decal shapes, irregular charcoal patch with dark red-orange ember flecks and cracked center. Top down decal, not a scene; no ground strip or sky. Oval patches width36 height14, dark #222034 / #45283c / #663931 with tiny orange ember specks"
+      },
+      {
+        "id": "vfx/scorch_3",
+        "prefix": "scorch",
+        "frame": 3,
+        "description": "four distinct small flat burnt-ground decal shapes, irregular charcoal patch with dark red-orange ember flecks and cracked center. Top down decal, not a scene; no ground strip or sky. Oval patches width36 height14, dark #222034 / #45283c / #663931 with tiny orange ember specks"
+      }
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: production animated pixel-art sprite sheet for an original cartoon 2D game.\nThe attached image is the approved STYLE reference ONLY. Match its chunky square pixels, limited flat colors, dark #222034 outlines and top-left light. Do not copy its scenery.\nGenerate ONE square 1024x1024 PNG with genuinely TRANSPARENT alpha background. EXACTLY 4 columns x4 rows, EXACTLY 16 separate frames in equal invisible 256x256 image-pixel cells. Each cell is 64x64 ART PIXELS (each art pixel a solid 4x4 square block). Leave at least 6 ART PIXELS transparent padding on EVERY edge. Nothing may cross or touch a cell border. No labels, grid lines, numbers, letters, text, watermarks or background scenes.\nAnimations must use consistent framing and proportions, not sixteen unrelated pictures. In a sequence, the same subject has the SAME anchor position in each cell. Side view except decals. Hard pixel edges, no anti-aliasing, no gradients, no soft glow, no semi-transparent haze. Two or three flat tones. Use only #000000 #222034 #45283c #663931 #8f563b #df7126 #d9a066 #eec39a #fbf236 #99e550 #6abe30 #37946e #4b692f #323c39 #306082 #5b6ee1 #639bff #5fcde4 #cbdbfc #ffffff #9badb7 #847e87 #696a6a #ac3232 #d95763 #d77bba.\nEach description below is a SEQUENCE; draw its frames in exactly this reading order:\nnuke: 4 consecutive cells. cartoon stylized mushroom-shaped smoke-and-light cloud, four consecutive animation stages: compact white-yellow rising flash, small orange stem and rounded cap, large grey-orange mushroom cloud, tall dark grey mushroom cloud dissipating in separated lobes. NOT realistic, no landscape or people. SAME BOTTOM-CENTER, size16 to48 wide and tall.\ngas: 4 consecutive cells. cartoon green poison gas puff with two or three chunky bubbles and curled wisps, four consecutive growth and dissipation stages. No skull text/symbols. SAME CENTER, sizes18 to42.\nghost: 4 consecutive cells. cute original peach/cyan grub-shaped ghost with two black eyes, four consecutive upward-floating and dissolving poses. Pale cyan/cream, no scary imagery. SAME CENTER, width20 height28; last pose broken into a few cyan wisps.\nscorch: 4 consecutive cells. four distinct small flat burnt-ground decal shapes, irregular charcoal patch with dark red-orange ember flecks and cracked center. Top down decal, not a scene; no ground strip or sky. Oval patches width36 height14, dark #222034 / #45283c / #663931 with tiny orange ember specks.\nReturn only the sprite sheet."
+  }
+]

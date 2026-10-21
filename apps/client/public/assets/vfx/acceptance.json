@@ -1,0 +1,1730 @@
+{
+  "vfx/cargo_0": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      0,
+      64,
+      78
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 31,
+      "w": 51,
+      "h": 29
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 20,
+    "transparent": 1296,
+    "islands": 1
+  },
+  "vfx/cargo_1": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      0,
+      64,
+      78
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 31,
+      "w": 52,
+      "h": 29
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 20,
+    "transparent": 1340,
+    "islands": 1
+  },
+  "vfx/cargo_2": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      0,
+      64,
+      78
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 31,
+      "w": 55,
+      "h": 29
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 20,
+    "transparent": 1334,
+    "islands": 1
+  },
+  "vfx/cargo_3": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      0,
+      64,
+      78
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 31,
+      "w": 51,
+      "h": 31
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 21,
+    "transparent": 1222,
+    "islands": 1
+  },
+  "vfx/mailplane_0": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      78,
+      64,
+      61
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 13,
+      "w": 51,
+      "h": 29
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 23,
+    "transparent": 1279,
+    "islands": 1
+  },
+  "vfx/mailplane_1": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      78,
+      64,
+      61
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 15,
+      "w": 53,
+      "h": 27
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 24,
+    "transparent": 1332,
+    "islands": 1
+  },
+  "vfx/mailplane_2": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      78,
+      64,
+      61
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 15,
+      "w": 55,
+      "h": 27
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 24,
+    "transparent": 1329,
+    "islands": 1
+  },
+  "vfx/mailplane_3": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      78,
+      64,
+      61
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 13,
+      "w": 51,
+      "h": 31
+    },
+    "scale": 0.9032258064516129,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 24,
+    "transparent": 1229,
+    "islands": 1
+  },
+  "vfx/missile_0": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      139,
+      64,
+      55
+    ],
+    "bbox": {
+      "x": 12,
+      "y": 17,
+      "w": 40,
+      "h": 18
+    },
+    "scale": 0.4,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 13,
+    "transparent": 197,
+    "islands": 1
+  },
+  "vfx/missile_1": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      139,
+      64,
+      55
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 17,
+      "w": 45,
+      "h": 18
+    },
+    "scale": 0.4,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 11,
+    "transparent": 199,
+    "islands": 2
+  },
+  "vfx/homing_0": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      139,
+      64,
+      55
+    ],
+    "bbox": {
+      "x": 11,
+      "y": 15,
+      "w": 42,
+      "h": 20
+    },
+    "scale": 0.3829787234042553,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 15,
+    "transparent": 197,
+    "islands": 2
+  },
+  "vfx/homing_1": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      139,
+      64,
+      55
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 15,
+      "w": 47,
+      "h": 20
+    },
+    "scale": 0.3829787234042553,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 15,
+    "transparent": 191,
+    "islands": 5
+  },
+  "vfx/letter_0": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      194,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 20,
+      "y": 22,
+      "w": 26,
+      "h": 18
+    },
+    "scale": 0.38461538461538464,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 7,
+    "transparent": 157,
+    "islands": 1
+  },
+  "vfx/letter_1": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      194,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 21,
+      "y": 18,
+      "w": 25,
+      "h": 26
+    },
+    "scale": 0.38461538461538464,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 7,
+    "transparent": 169,
+    "islands": 1
+  },
+  "vfx/letter_2": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      194,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 23,
+      "y": 20,
+      "w": 19,
+      "h": 22
+    },
+    "scale": 0.38461538461538464,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 5,
+    "transparent": 199,
+    "islands": 1
+  },
+  "vfx/letter_3": {
+    "source": "assets-in/vfx/vfx-flight.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      194,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 19,
+      "y": 22,
+      "w": 25,
+      "h": 18
+    },
+    "scale": 0.38461538461538464,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 5,
+    "transparent": 157,
+    "islands": 1
+  },
+  "vfx/engine_0": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      0,
+      64,
+      65
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 28,
+      "w": 47,
+      "h": 22
+    },
+    "scale": 0.32,
+    "anchor": [
+      1,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 237,
+    "islands": 2
+  },
+  "vfx/engine_1": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      0,
+      64,
+      65
+    ],
+    "bbox": {
+      "x": 6,
+      "y": 27,
+      "w": 52,
+      "h": 25
+    },
+    "scale": 0.32,
+    "anchor": [
+      1,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 223,
+    "islands": 3
+  },
+  "vfx/engine_2": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      0,
+      64,
+      65
+    ],
+    "bbox": {
+      "x": 8,
+      "y": 27,
+      "w": 50,
+      "h": 25
+    },
+    "scale": 0.32,
+    "anchor": [
+      1,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 219,
+    "islands": 4
+  },
+  "vfx/engine_3": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      0,
+      64,
+      65
+    ],
+    "bbox": {
+      "x": 5,
+      "y": 27,
+      "w": 51,
+      "h": 25
+    },
+    "scale": 0.32,
+    "anchor": [
+      1,
+      0.5
+    ],
+    "colors": 11,
+    "transparent": 231,
+    "islands": 2
+  },
+  "vfx/fire_0": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      65,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 15,
+      "y": 12,
+      "w": 35,
+      "h": 45
+    },
+    "scale": 0.3,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 7,
+    "transparent": 246,
+    "islands": 1
+  },
+  "vfx/fire_1": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      65,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 17,
+      "y": 7,
+      "w": 35,
+      "h": 50
+    },
+    "scale": 0.3,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 8,
+    "transparent": 227,
+    "islands": 2
+  },
+  "vfx/fire_2": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      65,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 12,
+      "y": 10,
+      "w": 40,
+      "h": 47
+    },
+    "scale": 0.3,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 10,
+    "transparent": 234,
+    "islands": 3
+  },
+  "vfx/fire_3": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      65,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 15,
+      "y": 11,
+      "w": 35,
+      "h": 46
+    },
+    "scale": 0.3,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 10,
+    "transparent": 253,
+    "islands": 5
+  },
+  "vfx/smoke_0": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      128,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 21,
+      "y": 29,
+      "w": 27,
+      "h": 23
+    },
+    "scale": 0.7058823529411765,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 9,
+    "transparent": 1481,
+    "islands": 3
+  },
+  "vfx/smoke_1": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      128,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 17,
+      "y": 18,
+      "w": 35,
+      "h": 36
+    },
+    "scale": 0.7058823529411765,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 1312,
+    "islands": 5
+  },
+  "vfx/smoke_2": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      128,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 11,
+      "y": 7,
+      "w": 49,
+      "h": 49
+    },
+    "scale": 0.7058823529411765,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 12,
+    "transparent": 911,
+    "islands": 4
+  },
+  "vfx/smoke_3": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      128,
+      64,
+      62
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 5,
+      "w": 51,
+      "h": 49
+    },
+    "scale": 0.7058823529411765,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 11,
+    "transparent": 1121,
+    "islands": 8
+  },
+  "vfx/steam_0": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      190,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 23,
+      "y": 29,
+      "w": 25,
+      "h": 23
+    },
+    "scale": 0.6666666666666666,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 13,
+    "transparent": 1495,
+    "islands": 3
+  },
+  "vfx/steam_1": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      190,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 17,
+      "y": 19,
+      "w": 37,
+      "h": 37
+    },
+    "scale": 0.6666666666666666,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 13,
+    "transparent": 1341,
+    "islands": 5
+  },
+  "vfx/steam_2": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      190,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 10,
+      "y": 6,
+      "w": 50,
+      "h": 54
+    },
+    "scale": 0.6666666666666666,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 15,
+    "transparent": 936,
+    "islands": 5
+  },
+  "vfx/steam_3": {
+    "source": "assets-in/vfx/vfx-elements.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      190,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 6,
+      "w": 49,
+      "h": 52
+    },
+    "scale": 0.6666666666666666,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 16,
+    "transparent": 1106,
+    "islands": 6
+  },
+  "vfx/blast_0": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      0,
+      64,
+      71
+    ],
+    "bbox": {
+      "x": 22,
+      "y": 33,
+      "w": 22,
+      "h": 21
+    },
+    "scale": 1.0526315789473684,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 3932,
+    "islands": 5
+  },
+  "vfx/blast_1": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      0,
+      64,
+      71
+    ],
+    "bbox": {
+      "x": 15,
+      "y": 25,
+      "w": 35,
+      "h": 35
+    },
+    "scale": 1.0526315789473684,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 11,
+    "transparent": 3298,
+    "islands": 5
+  },
+  "vfx/blast_2": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      0,
+      64,
+      71
+    ],
+    "bbox": {
+      "x": 3,
+      "y": 18,
+      "w": 56,
+      "h": 48
+    },
+    "scale": 1.0526315789473684,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 2357,
+    "islands": 13
+  },
+  "vfx/blast_3": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      0,
+      64,
+      71
+    ],
+    "bbox": {
+      "x": 3,
+      "y": 16,
+      "w": 57,
+      "h": 50
+    },
+    "scale": 1.0526315789473684,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 11,
+    "transparent": 2963,
+    "islands": 19
+  },
+  "vfx/fragment_0": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      71,
+      64,
+      64
+    ],
+    "bbox": {
+      "x": 22,
+      "y": 21,
+      "w": 23,
+      "h": 22
+    },
+    "scale": 1.0344827586206897,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 3908,
+    "islands": 6
+  },
+  "vfx/fragment_1": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      71,
+      64,
+      64
+    ],
+    "bbox": {
+      "x": 9,
+      "y": 8,
+      "w": 47,
+      "h": 47
+    },
+    "scale": 1.0344827586206897,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 18,
+    "transparent": 3134,
+    "islands": 13
+  },
+  "vfx/fragment_2": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      71,
+      64,
+      64
+    ],
+    "bbox": {
+      "x": 3,
+      "y": 4,
+      "w": 58,
+      "h": 55
+    },
+    "scale": 1.0344827586206897,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 16,
+    "transparent": 2801,
+    "islands": 19
+  },
+  "vfx/fragment_3": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      71,
+      64,
+      64
+    ],
+    "bbox": {
+      "x": 5,
+      "y": 8,
+      "w": 55,
+      "h": 47
+    },
+    "scale": 1.0344827586206897,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 14,
+    "transparent": 3456,
+    "islands": 21
+  },
+  "vfx/incendiary_0": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      135,
+      64,
+      49
+    ],
+    "bbox": {
+      "x": 20,
+      "y": 26,
+      "w": 27,
+      "h": 17
+    },
+    "scale": 0.9836065573770492,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 9,
+    "transparent": 2962,
+    "islands": 6
+  },
+  "vfx/incendiary_1": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      135,
+      64,
+      49
+    ],
+    "bbox": {
+      "x": 6,
+      "y": 22,
+      "w": 51,
+      "h": 21
+    },
+    "scale": 0.9836065573770492,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 12,
+    "transparent": 2560,
+    "islands": 7
+  },
+  "vfx/incendiary_2": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      135,
+      64,
+      49
+    ],
+    "bbox": {
+      "x": 1,
+      "y": 11,
+      "w": 61,
+      "h": 34
+    },
+    "scale": 0.9836065573770492,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 14,
+    "transparent": 2191,
+    "islands": 9
+  },
+  "vfx/incendiary_3": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      135,
+      64,
+      49
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 14,
+      "w": 51,
+      "h": 31
+    },
+    "scale": 0.9836065573770492,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 10,
+    "transparent": 2675,
+    "islands": 10
+  },
+  "vfx/energy_0": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      184,
+      64,
+      72
+    ],
+    "bbox": {
+      "x": 23,
+      "y": 25,
+      "w": 21,
+      "h": 21
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 7,
+    "transparent": 3951,
+    "islands": 5
+  },
+  "vfx/energy_1": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      184,
+      64,
+      72
+    ],
+    "bbox": {
+      "x": 13,
+      "y": 16,
+      "w": 36,
+      "h": 38
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 20,
+    "transparent": 3558,
+    "islands": 6
+  },
+  "vfx/energy_2": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      184,
+      64,
+      72
+    ],
+    "bbox": {
+      "x": 1,
+      "y": 5,
+      "w": 60,
+      "h": 59
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 20,
+    "transparent": 3081,
+    "islands": 23
+  },
+  "vfx/energy_3": {
+    "source": "assets-in/vfx/vfx-blasts.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      184,
+      64,
+      72
+    ],
+    "bbox": {
+      "x": 10,
+      "y": 12,
+      "w": 45,
+      "h": 44
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 18,
+    "transparent": 3807,
+    "islands": 13
+  },
+  "vfx/nuke_0": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      0,
+      64,
+      90
+    ],
+    "bbox": {
+      "x": 15,
+      "y": 49,
+      "w": 37,
+      "h": 36
+    },
+    "scale": 1.2266666666666666,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 10,
+    "transparent": 8547,
+    "islands": 9
+  },
+  "vfx/nuke_1": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      0,
+      64,
+      90
+    ],
+    "bbox": {
+      "x": 11,
+      "y": 41,
+      "w": 44,
+      "h": 44
+    },
+    "scale": 1.2266666666666666,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 15,
+    "transparent": 7750,
+    "islands": 7
+  },
+  "vfx/nuke_2": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      0,
+      64,
+      90
+    ],
+    "bbox": {
+      "x": 4,
+      "y": 25,
+      "w": 55,
+      "h": 61
+    },
+    "scale": 1.2266666666666666,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 20,
+    "transparent": 6127,
+    "islands": 5
+  },
+  "vfx/nuke_3": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      0,
+      64,
+      90
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 11,
+      "w": 50,
+      "h": 75
+    },
+    "scale": 1.2266666666666666,
+    "anchor": [
+      0.5,
+      1
+    ],
+    "colors": 16,
+    "transparent": 6081,
+    "islands": 11
+  },
+  "vfx/gas_0": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      90,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 17,
+      "y": 29,
+      "w": 33,
+      "h": 30
+    },
+    "scale": 0.509090909090909,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 7,
+    "transparent": 917,
+    "islands": 5
+  },
+  "vfx/gas_1": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      90,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 11,
+      "y": 21,
+      "w": 42,
+      "h": 38
+    },
+    "scale": 0.509090909090909,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 9,
+    "transparent": 810,
+    "islands": 7
+  },
+  "vfx/gas_2": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      90,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 4,
+      "y": 9,
+      "w": 55,
+      "h": 50
+    },
+    "scale": 0.509090909090909,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 10,
+    "transparent": 653,
+    "islands": 8
+  },
+  "vfx/gas_3": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      90,
+      64,
+      63
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 13,
+      "w": 50,
+      "h": 46
+    },
+    "scale": 0.509090909090909,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 7,
+    "transparent": 910,
+    "islands": 16
+  },
+  "vfx/ghost_0": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      153,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 17,
+      "y": 25,
+      "w": 34,
+      "h": 30
+    },
+    "scale": 0.5384615384615384,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 9,
+    "transparent": 591,
+    "islands": 1
+  },
+  "vfx/ghost_1": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      153,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 17,
+      "y": 15,
+      "w": 34,
+      "h": 39
+    },
+    "scale": 0.5384615384615384,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 12,
+    "transparent": 575,
+    "islands": 2
+  },
+  "vfx/ghost_2": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      153,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 17,
+      "y": 5,
+      "w": 34,
+      "h": 49
+    },
+    "scale": 0.5384615384615384,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 9,
+    "transparent": 559,
+    "islands": 2
+  },
+  "vfx/ghost_3": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      153,
+      64,
+      66
+    ],
+    "bbox": {
+      "x": 15,
+      "y": 3,
+      "w": 33,
+      "h": 52
+    },
+    "scale": 0.5384615384615384,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 6,
+    "transparent": 661,
+    "islands": 9
+  },
+  "vfx/scorch_0": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      219,
+      64,
+      37
+    ],
+    "bbox": {
+      "x": 13,
+      "y": 5,
+      "w": 42,
+      "h": 21
+    },
+    "scale": 0.8,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 7,
+    "transparent": 1274,
+    "islands": 6
+  },
+  "vfx/scorch_1": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      219,
+      64,
+      37
+    ],
+    "bbox": {
+      "x": 9,
+      "y": 5,
+      "w": 48,
+      "h": 21
+    },
+    "scale": 0.8,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 9,
+    "transparent": 1192,
+    "islands": 7
+  },
+  "vfx/scorch_2": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      128,
+      219,
+      64,
+      37
+    ],
+    "bbox": {
+      "x": 6,
+      "y": 3,
+      "w": 53,
+      "h": 25
+    },
+    "scale": 0.8,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 8,
+    "transparent": 1120,
+    "islands": 11
+  },
+  "vfx/scorch_3": {
+    "source": "assets-in/vfx/vfx-status.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "crop": [
+      192,
+      219,
+      64,
+      37
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 5,
+      "w": 48,
+      "h": 21
+    },
+    "scale": 0.8,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 6,
+    "transparent": 1257,
+    "islands": 8
+  }
+}
