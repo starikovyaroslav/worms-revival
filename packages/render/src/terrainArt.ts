@@ -18,8 +18,10 @@ export function terrainArtForTheme(id: string): TerrainArt | undefined {
 
 /** -1 means transparent. Repeat horizontally; the fill may also repeat vertically. */
 export function artPixel(image: AssetPixels, x: number, y: number): number {
-  const col = ((x % image.w) + image.w) % image.w;
-  const row = ((y % image.h) + image.h) % image.h;
+  const w = image.logicalW ?? image.w,
+    h = image.logicalH ?? image.h;
+  const col = Math.floor(((((x % w) + w) % w) * image.w) / w);
+  const row = Math.floor(((((y % h) + h) % h) * image.h) / h);
   const i = (row * image.w + col) * 4;
   return image.data[i + 3]! < 128
     ? -1
@@ -33,7 +35,10 @@ export function terrainArtPixel(
   x: number,
   y: number,
   material: Material,
+  subX = 0,
+  subY = 0,
 ): number | undefined {
+  const sample = (im: AssetPixels, yy: number) => artPixel(im, x + subX, yy + subY);
   const at = (yy: number): Material =>
     yy < 0 || yy >= t.height ? Material.Air : (t.data[yy * t.width + x] as Material);
   const soil = (m: Material) => m === Material.Soil || m === Material.Scorched;
@@ -42,14 +47,13 @@ export function terrainArtPixel(
     for (let d = 1; d <= 4; d++) {
       const below = at(y + d);
       if (below !== Material.Air) {
-        if (soil(below))
-          return artPixel(below === Material.Scorched ? art.scorch : art.rim, x, 4 - d);
+        if (soil(below)) return sample(below === Material.Scorched ? art.scorch : art.rim, 4 - d);
         break;
       }
     }
     for (let d = 1; d <= 3; d++) {
       const above = at(y - d);
-      if (above !== Material.Air) return soil(above) ? artPixel(art.under, x, 11 + d) : -1;
+      if (above !== Material.Air) return soil(above) ? sample(art.under, 11 + d) : -1;
     }
     return -1;
   }
@@ -72,17 +76,17 @@ export function terrainArtPixel(
     }
     if (!soil(m)) break;
   }
-  const fill = artPixel(art.fill, x, y);
+  const fill = sample(art.fill, y);
   if (material === Material.Scorched) {
-    const edge = artPixel(art.scorch, x, Math.min(15, Math.min(top, bottom) - 1));
+    const edge = sample(art.scorch, Math.min(15, Math.min(top, bottom) - 1));
     return edge < 0 ? fill : edge;
   }
   if (top <= 12 && top <= bottom) {
-    const edge = artPixel(art.rim, x, 3 + top);
+    const edge = sample(art.rim, 3 + top);
     return edge < 0 ? fill : edge;
   }
   if (bottom <= 12) {
-    const edge = artPixel(art.under, x, 12 - bottom);
+    const edge = sample(art.under, 12 - bottom);
     return edge < 0 ? fill : edge;
   }
   return fill;

@@ -1,6 +1,7 @@
 import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import { assets } from './assets';
 import { clipTextures } from './clipEffects';
+import { scaleArt } from './views/common';
 import { cos, sin, type Worm } from '@wr/sim';
 import {
   DEFAULT_LABEL_SCALE,
@@ -301,13 +302,14 @@ export class WormView {
       if (body) {
         this.pixel.body.texture = body;
         // Frames come on 24 or 32 pixel canvases with the feet at a fixed spot.
-        const ay = body.height >= 32 ? 29 / 32 : 22 / 24;
+        const ay = assets.sizeOf(body).h >= 32 ? 29 / 32 : 22 / 24;
         this.pixel.body.anchor.set(0.5, ay);
         this.pixel.band.anchor.set(0.5, ay);
+        band = assets.companion(body, '_band') ?? band;
         this.pixel.band.visible = !!band;
         if (band) this.pixel.band.texture = band;
       }
-      for (const s of [this.pixel.body, this.pixel.band]) s.scale.x = w.facing;
+      for (const s of [this.pixel.body, this.pixel.band]) scaleArt(s, w.facing);
     } else {
       this.draw(w, active);
     }

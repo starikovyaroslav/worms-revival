@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Assets, BufferImageSource, Texture } from 'pixi.js';
 import { assets, type AssetEntry } from '../src/assets';
-import { artSprite } from '../src/views/common';
+import { artSprite, scaleArt } from '../src/views/common';
 import { ClipEffects } from '../src/clipEffects';
 
 afterEach(() => {
@@ -34,6 +34,24 @@ async function load(entries: Record<string, AssetEntry>) {
 }
 
 describe('texture density is not game-world size', () => {
+  it('preserves facing, frame footprint and matching tint layers after texture swaps', async () => {
+    await load({
+      'density/pose': { file: 'pose.png', w: 32, h: 32, pixelW: 128, pixelH: 128 },
+      'density/pose_band': { file: 'band.png', w: 32, h: 32, pixelW: 128, pixelH: 128 },
+      'density/other': { file: 'other.png', w: 24, h: 24, pixelW: 144, pixelH: 144 },
+    });
+    const sprite = artSprite('density/pose')!;
+    expect(assets.companion(sprite.texture, '_band')).toBe(assets.get('density/pose_band'));
+    scaleArt(sprite, -1);
+    expect(sprite.scale.x).toBe(-0.25);
+    expect(sprite.width).toBe(32);
+    sprite.texture = assets.get('density/other')!;
+    scaleArt(sprite, -1);
+    expect([sprite.width, sprite.height]).toEqual([24, 24]);
+    expect(sprite.scale.x).toBe(-1 / 6);
+    expect(assets.companion(sprite.texture, '_band')).toBeUndefined();
+    sprite.destroy();
+  });
   it('keeps legacy and 3x/4x sprites at the same world footprint', async () => {
     const entries = Object.fromEntries(
       [1, 3, 4].map((d) => [

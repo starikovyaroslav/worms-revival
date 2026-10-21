@@ -5,6 +5,10 @@ import type { Theme } from './theme';
 import { terrainArtForTheme, terrainArtPixel, type TerrainArt } from './terrainArt';
 
 const CHUNK = 256;
+/** At most ~64 MB each of CPU/GPU terrain pixels, independently of collision resolution. */
+export function terrainDensity(w: number, h: number): number {
+  return Math.max(1, Math.min(3, Math.floor(Math.sqrt(16_000_000 / (w * h)))));
+}
 /** Depth of the surface (grass) layer in pixels. */
 const SURFACE_DEPTH = 7;
 /** Grass body thickness below the 1px cap. */
@@ -74,6 +78,7 @@ export class TerrainView {
   private chunks: Chunk[] = [];
   private cols: number;
   private art: TerrainArt | undefined;
+  private density: number;
   /** Distance-to-air field for the region currently being repainted. */
   private field = { x0: 0, y0: 0, w: 0, h: 0, data: new Uint8Array(0) };
 
@@ -82,21 +87,23 @@ export class TerrainView {
     private theme: Theme,
   ) {
     this.art = terrainArtForTheme(theme.id);
+    this.density = this.art ? terrainDensity(terrain.width, terrain.height) : 1;
     this.cols = Math.ceil(terrain.width / CHUNK);
     const rows = Math.ceil(terrain.height / CHUNK);
     for (let cy = 0; cy < rows; cy++) {
       for (let cx = 0; cx < this.cols; cx++) {
         const w = Math.min(CHUNK, terrain.width - cx * CHUNK);
         const h = Math.min(CHUNK, terrain.height - cy * CHUNK);
-        const pixels = new Uint8Array(w * h * 4);
+        const pixels = new Uint8Array(w * h * this.density ** 2 * 4);
         const source = new BufferImageSource({
           resource: pixels,
-          width: w,
-          height: h,
+          width: w * this.density,
+          height: h * this.density,
           scaleMode: 'nearest',
         });
         const sprite = new Sprite(new Texture({ source }));
         sprite.position.set(cx * CHUNK, cy * CHUNK);
+        sprite.scale.set(1 / this.density);
         this.container.addChild(sprite);
         this.chunks.push({ cx, cy, w, h, pixels, source });
       }
@@ -140,7 +147,7 @@ export class TerrainView {
         const lx1 = Math.min(chunk.w - 1, x1 - cx * CHUNK);
         const ly1 = Math.min(chunk.h - 1, y1 - cy * CHUNK);
         this.paint(chunk, lx0, ly0, lx1, ly1);
-        chunk.source.update(ly0 * chunk.w, (ly1 + 1) * chunk.w);
+        chunk.source.update();
       }
     }
   }
@@ -268,32 +275,52 @@ export class TerrainView {
     const px = chunk.pixels;
     const ox = chunk.cx * CHUNK;
     const oy = chunk.cy * CHUNK;
+    const density = this.density,
+      stride = chunk.w * density;
     for (let ly = ly0; ly <= ly1; ly++) {
       const y = oy + ly;
       for (let lx = lx0; lx <= lx1; lx++) {
         const x = ox + lx;
-        const o = (ly * chunk.w + lx) * 4;
+        const write = (color: number, sx: number, sy: number) => {
+          const o = ((ly * density + sy) * stride + lx * density + sx) * 4;
+          px[o + 3] = color < 0 ? 0 : 255;
+          if (color >= 0) {
+            px[o] = color >>> 16;
+            px[o + 1] = (color >>> 8) & 255;
+            px[o + 2] = color & 255;
+          }
+        };
+        const fill = (color: number) => {
+          for (let sy = 0; sy < density; sy++)
+            for (let sx = 0; sx < density; sx++) write(color, sx, sy);
+        };
         const m = t.data[y * t.width + x] as Material;
         if (this.art) {
           const color = terrainArtPixel(t, this.art, x, y, m);
           if (color !== undefined) {
-            px[o + 3] = color < 0 ? 0 : 255;
-            if (color >= 0) {
-              px[o] = (color >> 16) & 255;
-              px[o + 1] = (color >> 8) & 255;
-              px[o + 2] = color & 255;
-            }
+            if (density === 1) fill(color);
+            else
+              for (let sy = 0; sy < density; sy++)
+                for (let sx = 0; sx < density; sx++)
+                  write(
+                    terrainArtPixel(
+                      t,
+                      this.art,
+                      x,
+                      y,
+                      m,
+                      (sx + 0.5) / density,
+                      (sy + 0.5) / density,
+                    ) ?? color,
+                    sx,
+                    sy,
+                  );
             continue;
           }
         }
         if (m === Material.Air) {
           const tuft = th.rim === 'none' ? -1 : this.tuft(x, y);
-          if (tuft >= 0) {
-            px[o] = (tuft >> 16) & 255;
-            px[o + 1] = (tuft >> 8) & 255;
-            px[o + 2] = tuft & 255;
-            px[o + 3] = 255;
-          } else px[o + 3] = 0;
+          fill(tuft);
           continue;
         }
         let r: number;
@@ -396,10 +423,7 @@ export class TerrainView {
         }
         // Retro look: snap to the palette, dithering the gradients into checkerboard blends.
         const c = snap(r, g, b, x, y, DITHER);
-        px[o] = (c >> 16) & 255;
-        px[o + 1] = (c >> 8) & 255;
-        px[o + 2] = c & 255;
-        px[o + 3] = 255;
+        fill(c);
       }
     }
   }

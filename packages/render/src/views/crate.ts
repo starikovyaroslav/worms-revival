@@ -33,7 +33,7 @@ export class CrateView implements EntityView {
     const c = this.c;
     const icon = c.content === 'weapon' ? artSprite(`weapons/icon/${c.weaponId}`, 1) : null;
     if (icon) {
-      icon.scale.set(icon.width < 24 ? 1 : 0.6);
+      icon.scale.set(icon.scale.x * (icon.width < 24 ? 1 : 0.6));
       box.addChild(icon);
     } else {
       const text = new Text({

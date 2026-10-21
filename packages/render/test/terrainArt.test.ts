@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { Material, Terrain } from '@wr/sim';
 import { artPixel, terrainArtPixel, type TerrainArt } from '../src/terrainArt';
 import type { AssetPixels } from '../src/assets';
+import { terrainDensity } from '../src/terrainView';
 
 function image(color: number, opaque = true): AssetPixels {
   const data = new Uint8ClampedArray(16 * 16 * 4);
@@ -28,6 +29,30 @@ function island(): Terrain {
 }
 
 describe('generated art on destructible terrain', () => {
+  it('samples native subpixels while keeping the logical tile period', () => {
+    const texture = image(0x37946e);
+    texture.logicalW = 4;
+    texture.logicalH = 4;
+    texture.data[4] = 0xa7;
+    expect(artPixel(texture, 0, 0)).toBe(0x37946e);
+    expect(artPixel(texture, 0.25, 0)).toBe(0xa7946e);
+    expect(artPixel(texture, 4.25, 4)).toBe(0xa7946e);
+    expect(artPixel(texture, -3.75, -4)).toBe(0xa7946e);
+  });
+
+  it('caps dense terrain memory independently of collision resolution', () => {
+    expect(terrainDensity(1920, 1080)).toBe(2);
+    expect(terrainDensity(1024, 512)).toBe(3);
+    expect(terrainDensity(4096, 4096)).toBe(1);
+    for (const [w, h] of [
+      [1024, 512],
+      [1920, 1080],
+      [3840, 2160],
+    ] as const) {
+      const density = terrainDensity(w, h);
+      expect(w * h * density ** 2 * 4).toBeLessThanOrEqual(64_000_000);
+    }
+  });
   it('tiles at world coordinates and exposes transparent texels', () => {
     const texture = image(0x37946e);
     texture.data[0] = 0xff;

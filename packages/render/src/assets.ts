@@ -13,6 +13,8 @@ export const ART_PACKS = [
 export interface AssetPixels {
   w: number;
   h: number;
+  logicalW?: number;
+  logicalH?: number;
   data: Uint8ClampedArray;
 }
 
@@ -52,6 +54,7 @@ export class AssetStore {
   private urls = new Map<string, string>();
   private decoded = new Map<string, AssetPixels>();
   private sizes = new WeakMap<Texture, AssetSize>();
+  private ids = new WeakMap<Texture, string>();
   manifest: AssetManifest | null = null;
 
   /** Loads a manifest and its images; later loads override earlier ones with the same id. */
@@ -91,6 +94,7 @@ export class AssetStore {
           // Pixel art: never blur it when scaled.
           tex.source.scaleMode = 'nearest';
           this.sizes.set(tex, { w: a.w, h: a.h });
+          this.ids.set(tex, id);
           this.textures.set(id, tex);
           this.urls.set(id, `${baseUrl}/${a.file}${q}`);
           this.decoded.delete(id);
@@ -122,6 +126,8 @@ export class AssetStore {
       const result = {
         w: canvas.width,
         h: canvas.height,
+        logicalW: this.sizeOf(tex).w,
+        logicalH: this.sizeOf(tex).h,
         data: ctx.getImageData(0, 0, canvas.width, canvas.height).data,
       };
       this.decoded.set(id, result);
@@ -142,6 +148,11 @@ export class AssetStore {
 
   scaleOf(texture: Texture): number {
     return this.sizeOf(texture).w / texture.width;
+  }
+
+  companion(texture: Texture, suffix: string): Texture | undefined {
+    const id = this.ids.get(texture);
+    return id ? this.get(id + suffix) : undefined;
   }
 
   /** How many numbered frames `prefix0`, `prefix1`... exist (so sheets may have fewer frames). */

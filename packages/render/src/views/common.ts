@@ -28,9 +28,15 @@ export function artSprite(id: string, anchorY = 0.5): Sprite | null {
   if (!tex) return null;
   const s = new Sprite(tex);
   s.anchor.set(0.5, anchorY);
-  const size = assets.sizeOf(tex);
-  s.scale.set(size.w / tex.width, size.h / tex.height);
+  scaleArt(s);
   return s;
+}
+
+/** Re-apply after swapping density or frame dimensions; facing never overwrites the density. */
+export function scaleArt(sprite: Sprite, facing = 1, scaleY = 1): void {
+  const tex = sprite.texture,
+    size = assets.sizeOf(tex);
+  sprite.scale.set((facing * size.w) / tex.width, (scaleY * size.h) / tex.height);
 }
 
 /** Moves a container to the entity's interpolated position. */

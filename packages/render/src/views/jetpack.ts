@@ -42,7 +42,7 @@ export class JetPackView implements EntityView {
     const f = -w.facing;
     if (this.art) {
       this.art.position.set(f * 5, -9);
-      this.art.scale.x = w.facing;
+      this.art.scale.x = w.facing * assets.scaleOf(this.art.texture);
       if (this.exhaust) {
         if (this.frames.length)
           this.exhaust.texture = this.frames[Math.floor(this.t * 16) % this.frames.length]!;

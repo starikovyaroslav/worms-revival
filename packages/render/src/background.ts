@@ -148,7 +148,8 @@ export class Background {
       const width = Math.ceil(screenW / scale);
       this.artSky.scale.set(scale);
       this.artSky.width = width;
-      this.artSky.height = this.artSky.texture.height;
+      this.artSky.height = assets.sizeOf(this.artSky.texture).h;
+      this.artSky.tileScale.set(assets.scaleOf(this.artSky.texture));
       this.artSky.y =
         Math.round((screenH - this.artSky.height * scale) * camera.pixelRatio) / camera.pixelRatio;
       this.artSky.tilePosition.x = -Math.round(camera.x * 0.04);
@@ -157,7 +158,8 @@ export class Background {
         const bottom = Math.round(screenH / scale - (2 - i) * 24 + shift);
         layer.tile.scale.set(scale);
         layer.tile.width = width;
-        layer.tile.height = layer.tile.texture.height;
+        layer.tile.height = assets.sizeOf(layer.tile.texture).h;
+        layer.tile.tileScale.set(assets.scaleOf(layer.tile.texture));
         layer.tile.y = (bottom - layer.tile.height) * scale;
         layer.tile.tilePosition.x = -Math.round(camera.x * layer.factor);
         layer.base

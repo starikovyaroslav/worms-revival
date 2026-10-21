@@ -1,7 +1,7 @@
 import { Container, Graphics, type Sprite, type Texture } from 'pixi.js';
 import type { Look, Projectile } from '@wr/sim';
 import { assets } from '../assets';
-import { OUTLINE, artSprite, place, type EntityView, type ViewContext } from './common';
+import { OUTLINE, artSprite, place, scaleArt, type EntityView, type ViewContext } from './common';
 import { GENERATED_PROJECTILES } from '../arsenalArt';
 import { clipTextures } from '../clipEffects';
 
@@ -182,6 +182,7 @@ export class ProjectileView implements EntityView {
         this.flightFrames[Math.floor(this.flightTime * 12) % this.flightFrames.length]!;
     }
     place(this.container, p, alpha);
+    if (this.art) scaleArt(this.art);
     if (p.spec.impact === 'explode') {
       // Missiles point along their flight path.
       this.container.rotation = Math.atan2(p.vy, p.vx);
@@ -190,6 +191,7 @@ export class ProjectileView implements EntityView {
       if (this.bananaFrames.length && this.art) {
         const step = Math.round(this.spin / (Math.PI / 4));
         this.art.texture = this.bananaFrames[((step % 2) + 2) % 2]!;
+        scaleArt(this.art);
         this.container.rotation = Math.floor(step / 2) * (Math.PI / 2);
         return;
       }
@@ -197,6 +199,7 @@ export class ProjectileView implements EntityView {
         // Pre-rotated frames: step through them instead of rotating (keeps the pixels crisp).
         const t = (((this.spin / this.period) % 1) + 1) % 1;
         this.art.texture = this.frames[Math.floor(t * this.frames.length)] as Texture;
+        scaleArt(this.art);
       } else this.container.rotation = this.spin;
     }
   }
