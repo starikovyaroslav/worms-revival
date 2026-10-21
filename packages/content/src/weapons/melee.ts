@@ -15,13 +15,6 @@ export const MELEE: WeaponSpec[] = [
     view: {},
   },
   {
-    id: 'shotgun',
-    sim: { archetype: 'legacy' },
-    ui: { name: 'Дробовик', hint: 'Два выстрела за ход.', icon: '🔫', row: 3, col: 0 },
-    ai: { usable: true, rank: 7 },
-    view: {},
-  },
-  {
     id: 'firepunch',
     sim: { archetype: 'legacy' },
     ui: {

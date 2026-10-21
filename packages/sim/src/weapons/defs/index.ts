@@ -9,6 +9,5 @@ import './disasters';
 import './control';
 import './utilities';
 import './homing';
-import './guns';
 import './specials';
 export * from './tools';

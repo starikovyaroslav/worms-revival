@@ -1,6 +1,5 @@
 import type { World } from '../../world/world';
 import { type Worm } from '../../worm/worm';
-import { hitscan } from '../hitscan';
 import { KamikazeFlight } from '../kamikaze';
 import { explode } from '../explosion';
 import { scaledBlast } from '../blast';
@@ -39,28 +38,6 @@ function strike(
   world.emit({ type: 'sound', id: victims.length ? sound : 'swish', x: hx, y: hy });
   return victims.length > 0;
 }
-
-/** One shotgun blast. */
-function pellet(ctx: FireContext): void {
-  hitscan(ctx.world, ctx.worm, ctx.dirX, ctx.dirY, {
-    damage: 25 * powerScale(ctx.setting.power),
-    push: 2.6,
-    crater: 8,
-    range: 700,
-  });
-}
-
-registerLegacy({
-  id: 'shotgun',
-  aim: 'angle',
-  charge: false,
-  shots: 2,
-  fire: (ctx) => {
-    ctx.world.emit({ type: 'sound', id: 'shotgun', x: ctx.worm.x, y: ctx.worm.y });
-    pellet(ctx);
-    if (ctx.upgrades.shotgun) pellet(ctx);
-  },
-});
 
 registerLegacy({
   id: 'firepunch',

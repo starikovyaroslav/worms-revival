@@ -1,4 +1,7 @@
 import './defs';
+import { fireBurst, fireHitscan } from './archetypes/guns';
+import { BEHAVIOURS } from './behaviours';
+import type { Behaviour } from './behaviours/types';
 import { fireLauncher } from './archetypes/launcher';
 import { legacyRules } from './legacy';
 import type { Look, LookSpec, SimFlags, WeaponSpec } from './spec';
@@ -38,6 +41,22 @@ function compile(spec: WeaponSpec): WeaponRules {
     }
     case 'inline':
       return sim;
+    case 'burst':
+      return { ...flagsOf(sim), fire: (ctx) => fireBurst(ctx, sim, spec.view) };
+    case 'hitscan':
+      return { ...flagsOf(sim), fire: (ctx) => fireHitscan(ctx, sim, spec.view) };
+    case 'custom': {
+      const b = BEHAVIOURS[sim.behaviour] as Behaviour<unknown>;
+      const rules: WeaponRules = {
+        ...flagsOf(sim),
+        fire: (ctx) => b.fire(ctx, sim.params, spec.view),
+      };
+      const check = b.validTarget;
+      if (check)
+        rules.validTarget = (world, worm, target, dirX, dirY) =>
+          check(world, worm, target, dirX, dirY, sim.params);
+      return rules;
+    }
     case 'launcher':
       return { ...flagsOf(sim), fire: (ctx) => fireLauncher(ctx, sim, spec.view) };
   }

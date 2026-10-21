@@ -1,4 +1,6 @@
+import type { BurstSim, HitscanSim } from './archetypes/guns';
 import type { LauncherSim } from './archetypes/launcher';
+import type { CustomSim } from './behaviours';
 import type { WeaponRules } from './weapon';
 
 /*
@@ -152,4 +154,4 @@ export interface InlineSim extends SimFlags {
   validTarget?: WeaponRules['validTarget'];
 }
 
-export type SimSpec = LegacySim | InlineSim | LauncherSim;
+export type SimSpec = LegacySim | InlineSim | LauncherSim | BurstSim | HitscanSim | CustomSim;
