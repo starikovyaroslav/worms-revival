@@ -33,6 +33,31 @@ function strataWobble(x: number): number {
   return (h % 21) - 10;
 }
 
+/** Stable hash of two ints to 0..1 (cosmetic: terrain looks the same on every run). */
+function hash2(a: number, b: number): number {
+  let h = Math.imul(a, 0x27d4eb2d) ^ Math.imul(b, 0x165667b1);
+  h = Math.imul(h ^ (h >>> 15), 0x85ebca6b);
+  h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
+}
+
+/** Smooth value noise with ~`cell` pixel features, 0..1: breaks up any repetition of the pattern tile. */
+function lowNoise(x: number, y: number, cell: number, seed: number): number {
+  const fx = x / cell;
+  const fy = y / cell;
+  const ix = Math.floor(fx);
+  const iy = Math.floor(fy);
+  const u = fx - ix;
+  const v = fy - iy;
+  const su = u * u * (3 - 2 * u);
+  const sv = v * v * (3 - 2 * v);
+  const a = hash2(ix + seed, iy);
+  const b = hash2(ix + 1 + seed, iy);
+  const c = hash2(ix + seed, iy + 1);
+  const d = hash2(ix + 1 + seed, iy + 1);
+  return a + (b - a) * su + (c - a) * sv + (a - b - c + d) * su * sv;
+}
+
 interface Chunk {
   cx: number;
   cy: number;
@@ -186,6 +211,52 @@ export class TerrainView {
     return f.data[j * f.w + i] as number;
   }
 
+  /**
+   * Cosmetic tuft above a soil surface: grass blades, snow caps or ash (and the odd ember), 1-3 px
+   * tall in 2px-wide groups. Returns a colour, or -1 when this air pixel stays empty.
+   */
+  private tuft(x: number, y: number): number {
+    const t = this.terrain;
+    const th = this.theme;
+    let d = 1;
+    for (; d <= 3; d++) {
+      if (y + d >= t.height) return -1;
+      const m = t.data[(y + d) * t.width + x] as number;
+      if (m === Material.Air) continue;
+      if (m !== Material.Soil) return -1;
+      break;
+    }
+    if (d > 3) return -1;
+    const h = hash2(x >> 1, 13);
+    const snow = th.rim === 'snow';
+    const height = snow
+      ? h < 0.5
+        ? 2
+        : h < 0.8
+          ? 1
+          : 0
+      : h < 0.14
+        ? 3
+        : h < 0.34
+          ? 2
+          : h < 0.56
+            ? 1
+            : 0;
+    if (th.rim === 'ash' && d === 1 && hash2(x, 29) < 0.035) return 0xdf7126;
+    if (d > height) return -1;
+    const top = d === height;
+    switch (th.rim) {
+      case 'snow':
+        return top ? 0xffffff : 0xcbdbfc;
+      case 'ash':
+        return top ? 0x696a6a : 0x45283c;
+      case 'sand':
+        return top ? 0xeec39a : 0xd9a066;
+      default:
+        return top ? 0x99e550 : 0x6abe30;
+    }
+  }
+
   private paint(chunk: Chunk, lx0: number, ly0: number, lx1: number, ly1: number): void {
     const t = this.terrain;
     const th = this.theme;
@@ -200,7 +271,13 @@ export class TerrainView {
         const o = (ly * chunk.w + lx) * 4;
         const m = t.data[y * t.width + x] as number;
         if (m === Material.Air) {
-          px[o + 3] = 0;
+          const tuft = th.rim === 'none' ? -1 : this.tuft(x, y);
+          if (tuft >= 0) {
+            px[o] = (tuft >> 16) & 255;
+            px[o + 1] = (tuft >> 8) & 255;
+            px[o + 2] = tuft & 255;
+            px[o + 3] = 255;
+          } else px[o + 3] = 0;
           continue;
         }
         let r: number;
@@ -254,12 +331,15 @@ export class TerrainView {
               g = bot[1] * 0.66;
               b = bot[2] * 0.66;
             } else {
-              // Subsoil: clean pattern modulated by flat, gently wavy geological strata.
-              const s = y + strataWobble(x);
+              // Subsoil: the pattern tile, broken up by uneven strata (each band has its own tone
+              // and only some have a seam) and a slow large-scale blotch, so nothing repeats.
+              const s = y + strataWobble(x) + strataWobble(x >> 1) * 0.5;
               const band = Math.floor(s / STRATA_H);
               const m = s - band * STRATA_H;
-              let f = (band & 1) === 0 ? 1 : 0.9;
-              if (m < 1) f *= 0.82;
+              const hb = hash2(band, 7);
+              let f = 0.95 + hb * 0.08;
+              if (m < 1 && hb < 0.35) f *= 0.84;
+              f *= 0.97 + lowNoise(x, y, 44, 5) * 0.06;
               r *= f;
               g *= f;
               b *= f;
@@ -277,7 +357,10 @@ export class TerrainView {
           if (len > 0) {
             // The gradient points into the land; the surface normal points out of it.
             const lit = (-gx / len) * LIGHT_X + (-gy / len) * LIGHT_Y;
-            shade += lit * 0.17 * (1 - dpx / 7);
+            // Three hard tones along the rim (highlight, mid, shadow), then a soft falloff inwards.
+            if (dpx <= 3.4)
+              shade = (lit > 0.3 ? 1.12 : lit < -0.3 ? 0.76 : 1.0) * (shade > 1 ? 1 : shade);
+            else shade += lit * 0.17 * (1 - dpx / 7);
           }
         }
         r *= shade;
