@@ -16,6 +16,8 @@ export * from './weapons/explosion';
 export * from './world/body';
 export * from './world/gravestone';
 export * from './weapons/weapon';
+export * from './weapons/spec';
+export * from './weapons/ruleset';
 export * from './game/commands';
 export * from './game/scheme';
 export * from './game/game';

@@ -4,60 +4,20 @@ import {
   HALF_PI,
   Rng,
   type Worm,
-  getWeapon,
   type Command,
   type Game,
   type WeaponDef,
 } from '@wr/sim';
 import { ProbeLand, probeShot, type ShotParams } from './probe';
 
-/** Weapons the bot knows how to use, roughly in order of preference. */
-const ARSENAL = [
-  'bazooka',
-  'grenade',
-  'mortar',
-  'cluster',
-  'banana',
-  'hhg',
-  'pigeon',
-  'shotgun',
-  'uzi',
-  'handgun',
-  'longbow',
-  'firepunch',
-  'bat',
-  'dynamite',
-  'airstrike',
-  // Added in Phase W: lobbed angle/power weapons, target strikes and short-range specials.
-  'petrol',
-  'skunk',
-  'sheeplauncher',
-  'flamethrower',
-  'superbanana',
-  'mbbomb',
-  'vase',
-  'napalm',
-  'mail',
-  'minestrike',
-  'carpet',
-  'frenchsheep',
-  'molesquad',
-  'donkey',
-  'axe',
-  'dragonball',
-  'madcows',
-  'oldwoman',
-];
+/** Weapons the bot may use, roughly in order of preference (`ai.rank` of the weapon specs). */
+function arsenalOf(game: Game): WeaponDef[] {
+  return game.rules.weapons
+    .filter((d) => d.spec.ai.usable)
+    .sort((a, b) => (a.spec.ai.rank ?? 0) - (b.spec.ai.rank ?? 0));
+}
 
-/**
- * Weapons with no aiming and a limited reach: the bot only tries them when an enemy is within
- * `dx` px horizontally and `dy` vertically. The default (other no-aim weapons) is a melee swing.
- */
-const REACH: Record<string, { dx: number; dy: number }> = {
-  dragonball: { dx: 100, dy: 30 },
-  madcows: { dx: 150, dy: 60 },
-  oldwoman: { dx: 150, dy: 60 },
-};
+/** Reach of no-aim weapons that have no `ai.reach` of their own: a melee swing. */
 const MELEE_REACH = { dx: 40, dy: 30 };
 
 /**
@@ -69,7 +29,7 @@ const LEVELS = [
   { weapons: 3, refine: 1, aimError: 3, powerError: 5 },
   { weapons: 4, refine: 2, aimError: 2, powerError: 3 },
   { weapons: 6, refine: 3, aimError: 1, powerError: 1 },
-  { weapons: ARSENAL.length, refine: 4, aimError: 0, powerError: 0 },
+  { weapons: Infinity, refine: 4, aimError: 0, powerError: 0 },
 ] as const;
 
 /** Coarse search grid. */
@@ -140,10 +100,9 @@ export class Bot {
     const facings = new Set<1 | -1>(enemies.map((e) => (e.x < worm.x ? -1 : 1)));
     if (!facings.size) facings.add(worm.facing);
 
-    const usable = ARSENAL.filter((id) => game.canUse(id))
-      .slice(0, level.weapons)
-      .map((id) => getWeapon(id))
-      .filter((d): d is WeaponDef => !!d);
+    const usable = arsenalOf(game)
+      .filter((d) => game.canUse(d.id))
+      .slice(0, level.weapons);
 
     const land = new ProbeLand(game.world.terrain);
     const tried = new Set<string>();
@@ -204,7 +163,7 @@ export class Bot {
         }
         // Melee only makes sense with someone close by.
         if (def.aim === 'none') {
-          const reach = REACH[def.id] ?? MELEE_REACH;
+          const reach = def.spec.ai.reach ?? MELEE_REACH;
           if (
             !enemies.some(
               (e) => Math.abs(e.x - worm.x) < reach.dx && Math.abs(e.y - worm.y) < reach.dy,

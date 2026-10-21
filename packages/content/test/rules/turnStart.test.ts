@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { Game, type TeamSetup } from '../src/game/game';
-import { TPS } from '../src/core/time';
+import { Game, type TeamSetup } from '@wr/sim';
+import { TPS } from '@wr/sim';
 import { flatTerrain, testScheme } from './helpers';
-import type { Scheme } from '../src/game/scheme';
+import type { Scheme } from '@wr/sim';
+import { RULESET } from '../../src/weapons';
 
 const W = (ammo = -1, delay = 0) => ({ ammo, power: 3, delay, crate: 0 });
 
@@ -11,6 +11,7 @@ function game(teams: TeamSetup[], over: Partial<Scheme> = {}): Game {
   return new Game({
     seed: 1,
     scheme: testScheme({ weapons: { bazooka: W(), grenade: W() }, ...over }),
+    rules: RULESET,
     teams,
     terrain: flatTerrain(),
     waterLevel: 390,

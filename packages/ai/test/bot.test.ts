@@ -1,3 +1,4 @@
+import { RULESET } from '@wr/content';
 import { describe, expect, it } from 'vitest';
 import { Game, Material, Terrain, NO_UPGRADES, type Scheme, type Worm } from '@wr/sim';
 import { Bot, type Plan } from '../src/bot';
@@ -41,6 +42,7 @@ function game(): Game {
   const g = new Game({
     seed: 4,
     scheme: scheme(),
+    rules: RULESET,
     teams: [
       { name: 'Bot', worms: ['B'] },
       { name: 'Human', worms: ['H'] },

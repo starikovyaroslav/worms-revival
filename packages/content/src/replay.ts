@@ -1,6 +1,7 @@
-import { allWeapons, Game, Hasher, type Command } from '@wr/sim';
+import { Game, Hasher, type Command } from '@wr/sim';
 import { buildGameSetup, type MatchConfig } from './match';
 import { SCHEMES } from './schemes';
+import { RULESET } from './weapons';
 
 /**
  * Bump whenever a change alters simulation results (rules, weapon numbers, hashed state). The golden
@@ -18,13 +19,17 @@ export const REPLAY_VERSION = 4;
 let cachedRulesetHash: number | null = null;
 
 /**
- * Fingerprint of the rule tables (all schemes and the static fields of every weapon definition).
- * Numbers hidden inside weapon `fire` closures are not visible here; the golden replay covers those.
+ * Fingerprint of the rule tables (all schemes and the flags of every weapon, in panel order).
+ * Weapon numbers and `fire` code are not visible here; the golden replay covers those.
  */
 export function rulesetHash(): number {
   if (cachedRulesetHash === null) {
     const h = new Hasher().value(SCHEMES);
-    for (const def of allWeapons()) h.value(def);
+    for (const def of RULESET.weapons) {
+      // The flags the game branches on (not ui/view, not the code itself).
+      const { spec: _spec, fire: _fire, validTarget, ...flags } = def;
+      h.value({ ...flags, id: def.id, hasValidTarget: !!validTarget });
+    }
     cachedRulesetHash = h.digest();
   }
   return cachedRulesetHash;

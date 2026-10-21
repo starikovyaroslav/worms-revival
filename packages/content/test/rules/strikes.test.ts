@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { type Projectile } from '../src/weapons/projectile';
+import { type Projectile } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
 
 const TARGET_X = 450;

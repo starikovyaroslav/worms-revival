@@ -84,7 +84,7 @@ const BLAST = { crater: 20, radius: 40, damage: 30, push: 1 };
 
 function spec(): ProjectileSpec {
   return {
-    look: 'rocket',
+    look: 'missile',
     radius: 3,
     wind: 1,
     gravity: 1,
@@ -100,7 +100,7 @@ function spec(): ProjectileSpec {
       spread: 0.5,
       reverse: false,
       projectile: {
-        look: 'bomblet',
+        look: 'clusterlet',
         radius: 2,
         wind: 0,
         impact: 'explode',
@@ -110,7 +110,7 @@ function spec(): ProjectileSpec {
     flames: { count: 4, speed: 1 },
     gas: { count: 5 },
     waitForRest: true,
-    preSound: { id: 'x', ticks: 10 },
+    preSound: { id: 'launch', ticks: 10 },
   };
 }
 
@@ -232,7 +232,7 @@ const SUBJECTS: Record<string, Subject> = {
         bullets: 10,
         interval: 3,
         spread: 0.1,
-        sound: 'uzi',
+        sound: 'shot',
       }),
     excluded: {
       ...ENTITY_COMMON,
@@ -316,6 +316,7 @@ describe('hash completeness', () => {
         excluded: {
           world: 'hashed by World.hash (covered above)',
           scheme: 'immutable setup config, identical by construction (guarded by rulesetHash)',
+          rules: 'immutable weapon table, identical by construction (guarded by rulesetHash)',
           cavern: 'immutable setup config',
           focusId: 'camera target, presentation only',
           'teams.0.index': 'position in the teams array',

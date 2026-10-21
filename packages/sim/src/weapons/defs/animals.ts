@@ -2,7 +2,8 @@ import { Donkey } from '../donkey';
 import { Sheep, type SheepOptions } from '../sheep';
 import { scaledBlast } from '../blast';
 import { Projectile, muzzle } from '../projectile';
-import { registerWeapon, type FireContext } from '../weapon';
+import { registerLegacy } from '../legacy';
+import { type FireContext } from '../weapon';
 import { MAX_LAUNCH } from './artillery';
 import { airRaid } from './strikes';
 import { TPS } from '../../core/time';
@@ -29,11 +30,8 @@ function animal(
   );
 }
 
-registerWeapon({
+registerLegacy({
   id: 'sheeplauncher',
-  name: 'Sheep Launcher',
-  row: 1,
-  col: 4,
   aim: 'angle',
   charge: true,
   fire: (ctx) => {
@@ -49,11 +47,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'molebomb',
-  name: 'Mole Bomb',
-  row: 5,
-  col: 4,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -68,11 +63,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'molesquad',
-  name: 'Mole Squadron',
-  row: 6,
-  col: 4,
   aim: 'target',
   charge: false,
   needsSky: true,
@@ -97,11 +89,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'oldwoman',
-  name: 'Old Woman',
-  row: 11,
-  col: 1,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -119,11 +108,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'madcows',
-  name: 'Mad Cows',
-  row: 11,
-  col: 0,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -144,11 +130,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'salvation',
-  name: 'Salvation Army',
-  row: 9,
-  col: 3,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -163,11 +146,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'donkey',
-  name: 'Concrete Donkey',
-  row: 11,
-  col: 2,
   aim: 'target',
   charge: false,
   needsSky: true,
@@ -180,11 +160,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'mbbomb',
-  name: 'MB Bomb',
-  row: 9,
-  col: 4,
   aim: 'angle',
   charge: true,
   fuse: true,

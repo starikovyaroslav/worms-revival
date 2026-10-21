@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
 import { makeGame, stepUntil } from './helpers';
-import type { Game } from '../src/game/game';
-import type { Worm } from '../src/worm/worm';
+import type { Game } from '@wr/sim';
+import type { Worm } from '@wr/sim';
 
 const WEAPONS = Object.fromEntries(
   ['shotgun', 'firepunch', 'bat', 'prod'].map((id) => [

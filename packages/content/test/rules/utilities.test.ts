@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import type { Game } from '../src/game/game';
+import type { Game } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
 
 const IDS = ['doubledamage', 'lowgravity', 'fastwalk', 'laser', 'invisible', 'cratespy'];

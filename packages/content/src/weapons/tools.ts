@@ -1,0 +1,90 @@
+import type { WeaponSpec } from '@wr/sim';
+
+export const TOOLS: WeaponSpec[] = [
+  {
+    id: 'blowtorch',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Паяльная лампа',
+      hint: 'Прожигает тоннель. Пробел — стоп.',
+      icon: '🔦',
+      row: 7,
+      col: 0,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'drill',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Отбойный молоток',
+      hint: 'Копает вниз. Пробел — стоп.',
+      icon: '⛏️',
+      row: 7,
+      col: 1,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'girder',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Балка',
+      hint: 'Клик — поставить, вверх/вниз — наклон.',
+      icon: '🏗️',
+      row: 7,
+      col: 2,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'rope',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Ниндзя-верёвка',
+      hint: 'Стрелки — качаться и лезть, пробел — отпустить.',
+      icon: '🪢',
+      row: 8,
+      col: 0,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'parachute',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Парашют',
+      hint: 'Открывается в воздухе. Сносится ветром.',
+      icon: '🪂',
+      row: 8,
+      col: 2,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'teleport',
+    sim: { archetype: 'legacy' },
+    ui: { name: 'Телепорт', hint: 'Клик по свободному месту.', icon: '✨', row: 8, col: 3 },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'skipgo',
+    sim: { archetype: 'legacy' },
+    ui: { name: 'Пропуск хода', hint: 'Ничего не делать.', icon: '⏭️', row: 12, col: 0 },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'surrender',
+    sim: { archetype: 'legacy' },
+    ui: { name: 'Сдаться', hint: 'Команда покидает поле боя.', icon: '🏳️', row: 12, col: 1 },
+    ai: { usable: false },
+    view: {},
+  },
+];

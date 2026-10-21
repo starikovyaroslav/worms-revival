@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { Crate } from '../src/weapons/crate';
-import { explode } from '../src/weapons/explosion';
+import { Crate } from '@wr/sim';
+import { explode } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
 
 const WEAPONS = { bazooka: { ammo: 2, power: 3, delay: 0, crate: 3 } };

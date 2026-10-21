@@ -6,7 +6,8 @@ import { Barrel } from '../weapons/barrel';
 import { Crate } from '../weapons/crate';
 import { explode } from '../weapons/explosion';
 import { Mine } from '../weapons/mine';
-import { allWeapons, getWeapon, isRemoteControlled, type WeaponDef } from '../weapons/weapon';
+import type { Ruleset } from '../weapons/ruleset';
+import { isRemoteControlled, type WeaponDef } from '../weapons/weapon';
 import { Entity } from '../world/entity';
 import { Gravestone } from '../world/gravestone';
 import { World } from '../world/world';
@@ -39,6 +40,8 @@ export interface TeamSetup {
 export interface GameSetup {
   seed: number;
   scheme: Scheme;
+  /** The weapons of this match (data from content; sim never reaches for a global table). */
+  rules: Ruleset;
   teams: TeamSetup[];
   terrain: Terrain;
   waterLevel: number;
@@ -68,6 +71,7 @@ export class Team {
 export class Game {
   readonly world: World;
   readonly scheme: Scheme;
+  readonly rules: Ruleset;
   readonly teams: Team[];
   readonly cavern: boolean;
   /** Two or more human teams share the keyboard: the hand-over wait applies to them. */
@@ -112,6 +116,7 @@ export class Game {
 
   constructor(setup: GameSetup) {
     this.scheme = setup.scheme;
+    this.rules = setup.rules;
     this.cavern = setup.cavern ?? false;
     this.hotSeat = setup.teams.filter((t) => !t.cpu).length >= 2;
     this.world = new World({
@@ -175,7 +180,7 @@ export class Game {
   }
 
   get weapon(): WeaponDef | undefined {
-    return getWeapon(this.weaponId);
+    return this.rules.get(this.weaponId);
   }
 
   teamWorms(team: Team): Worm[] {
@@ -194,7 +199,7 @@ export class Game {
 
   /** Whether the active team may use a weapon right now. */
   canUse(id: string): boolean {
-    const def = getWeapon(id);
+    const def = this.rules.get(id);
     const team = this.teams[this.activeTeam];
     if (!def || !team) return false;
     const ammo = team.ammo[id] ?? 0;
@@ -260,7 +265,7 @@ export class Game {
         ) {
           this.weaponId = c.weapon;
           team.lastWeapon = c.weapon;
-          this.shotsLeft = getWeapon(c.weapon)?.shots ?? 1;
+          this.shotsLeft = this.rules.get(c.weapon)?.shots ?? 1;
           this.target = null;
         }
         break;
@@ -730,7 +735,7 @@ export class Game {
   private defaultWeapon(team: Team): string {
     if (team.lastWeapon && this.canUse(team.lastWeapon)) return team.lastWeapon;
     if (this.canUse('bazooka')) return 'bazooka';
-    const first = allWeapons().find(
+    const first = this.rules.weapons.find(
       (w) => !w.action && !w.id.startsWith('test-') && this.canUse(w.id),
     );
     return first?.id ?? '';

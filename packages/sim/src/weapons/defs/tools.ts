@@ -3,7 +3,7 @@ import type { World } from '../../world/world';
 import { type Worm, WORM_H, WORM_HALF_W } from '../../worm/worm';
 import { DigTool } from '../digTool';
 import { Rope, ropeSpec } from '../rope';
-import { registerWeapon } from '../weapon';
+import { registerLegacy } from '../legacy';
 
 export const GIRDER_HALF_LENGTH = 30;
 export const GIRDER_HALF_THICKNESS = 4;
@@ -24,11 +24,8 @@ export function girderAxis(dirX: number, dirY: number): { x: number; y: number }
   return { x: Math.abs(dirX), y: dirX >= 0 ? dirY : -dirY };
 }
 
-registerWeapon({
+registerLegacy({
   id: 'girder',
-  name: 'Girder',
-  row: 7,
-  col: 2,
   aim: 'target',
   charge: false,
   validTarget: (world, worm, t) => {
@@ -53,11 +50,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'teleport',
-  name: 'Teleport',
-  row: 8,
-  col: 3,
   aim: 'target',
   charge: false,
   validTarget: (world, worm, t) =>
@@ -77,33 +71,24 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'skipgo',
-  name: 'Skip Go',
-  row: 12,
-  col: 0,
   aim: 'none',
   charge: false,
   action: 'skip',
   fire: () => {},
 });
 
-registerWeapon({
+registerLegacy({
   id: 'surrender',
-  name: 'Surrender',
-  row: 12,
-  col: 1,
   aim: 'none',
   charge: false,
   action: 'surrender',
   fire: () => {},
 });
 
-registerWeapon({
+registerLegacy({
   id: 'blowtorch',
-  name: 'Blow Torch',
-  row: 7,
-  col: 0,
   aim: 'angle',
   charge: false,
   fire: (ctx) => {
@@ -112,11 +97,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'drill',
-  name: 'Pneumatic Drill',
-  row: 7,
-  col: 1,
   aim: 'none',
   charge: false,
   retreat: 0,
@@ -126,11 +108,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'parachute',
-  name: 'Parachute',
-  row: 8,
-  col: 2,
   aim: 'none',
   charge: false,
   airborneOnly: true,
@@ -141,11 +120,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'rope',
-  name: 'Ninja Rope',
-  row: 8,
-  col: 0,
   aim: 'angle',
   charge: false,
   airborne: true,

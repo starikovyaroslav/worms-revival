@@ -3,15 +3,12 @@ import { HomingMissile } from '../homing';
 import { Projectile, muzzle } from '../projectile';
 import { scaledBlast } from '../blast';
 import { type Worm } from '../../worm/worm';
-import { registerWeapon } from '../weapon';
+import { registerLegacy } from '../legacy';
 import { BOUNCE_HIGH, BOUNCE_LOW, MAX_LAUNCH } from './artillery';
 import { TPS } from '../../core/time';
 
-registerWeapon({
+registerLegacy({
   id: 'earthquake',
-  name: 'Earthquake',
-  row: 2,
-  col: 4,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -20,11 +17,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'armageddon',
-  name: 'Armageddon',
-  row: 11,
-  col: 4,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -33,11 +27,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'nuke',
-  name: 'Indian Nuclear Test',
-  row: 11,
-  col: 3,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -50,11 +41,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'vase',
-  name: 'Priceless Ming Vase',
-  row: 10,
-  col: 2,
   aim: 'angle',
   charge: true,
   fire: (ctx) => {
@@ -95,11 +83,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'magicbullet',
-  name: "Patsy's Magic Bullet",
-  row: 12,
-  col: 4,
   aim: 'angle',
   charge: false,
   needsTarget: true,
@@ -136,11 +121,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'superbanana',
-  name: 'Super Banana Bomb',
-  row: 9,
-  col: 0,
   aim: 'angle',
   charge: true,
   fuse: true,
@@ -150,7 +132,7 @@ registerWeapon({
     const v = MAX_LAUNCH * ctx.power;
     const big = scaledBlast(75, ctx.setting.power);
     const piece = {
-      look: 'bananalet',
+      look: 'bananalet' as const,
       radius: 2.5,
       wind: 0,
       impact: 'explode' as const,

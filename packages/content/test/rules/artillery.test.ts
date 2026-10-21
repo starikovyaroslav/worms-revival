@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { type Projectile } from '../src/weapons/projectile';
+import { type Projectile } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
-import type { Game } from '../src/game/game';
+import type { Game } from '@wr/sim';
 
 const ALL = {
   bazooka: { ammo: -1, power: 3, delay: 0, crate: 0 },

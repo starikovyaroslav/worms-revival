@@ -1,10 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { Material } from '../src/terrain/terrain';
-import { type Rope } from '../src/weapons/rope';
-import { explode } from '../src/weapons/explosion';
+import { Material } from '@wr/sim';
+import { type Rope } from '@wr/sim';
+import { explode } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
-import type { Game } from '../src/game/game';
+import type { Game } from '@wr/sim';
 
 const WEAPONS = Object.fromEntries(
   ['rope', 'bazooka'].map((id) => [id, { ammo: -1, power: 3, delay: 0, crate: 0 }]),

@@ -16,7 +16,9 @@ import {
   Rope,
   Sheep,
   Worm,
+  type AnimalLook,
   type Entity,
+  type Look,
   type World,
 } from '@wr/sim';
 import { TEAM_COLORS } from './wormView';
@@ -41,8 +43,42 @@ function mixColor(a: number, b: number, t: number): number {
   return (m(16) << 16) | (m(8) << 8) | m(0);
 }
 
+/**
+ * Every look the renderer can draw (projectiles and animals). Typed as a full record so a look added
+ * in sim does not compile until it is handled here; the registry test checks the specs against it.
+ */
+export const RENDERED_LOOKS: Record<Look | AnimalLook, true> = {
+  banana: true,
+  bananalet: true,
+  bullet: true,
+  carpet: true,
+  cluster: true,
+  clusterlet: true,
+  dragonball: true,
+  dynamite: true,
+  frenchsheep: true,
+  grenade: true,
+  hhg: true,
+  homing: true,
+  letter: true,
+  mbbomb: true,
+  meteor: true,
+  missile: true,
+  mortar: true,
+  napalm: true,
+  petrol: true,
+  shard: true,
+  skunk: true,
+  vase: true,
+  sheep: true,
+  mole: true,
+  cow: true,
+  oldwoman: true,
+  nun: true,
+};
+
 /** Projectile looks that have pixel art. */
-const PROJECTILE_ART: Record<string, string> = {
+const PROJECTILE_ART: Partial<Record<Look, string>> = {
   grenade: 'proj/grenade',
   cluster: 'proj/cluster',
   clusterlet: 'proj/bomblet',
@@ -56,7 +92,7 @@ const PROJECTILE_ART: Record<string, string> = {
 };
 
 /** Looks drawn as a cycle of pre-rotated frames: asset prefix and the rotation (radians) one cycle covers. */
-const SPIN_ART: Record<string, { prefix: string; period: number }> = {
+const SPIN_ART: Partial<Record<Look, { prefix: string; period: number }>> = {
   grenade: { prefix: 'spin/grenade_', period: Math.PI },
   cluster: { prefix: 'spin/cluster_', period: Math.PI * 2 },
   banana: { prefix: 'spin/banana_', period: Math.PI * 2 },
@@ -213,10 +249,14 @@ class ProjectileView implements EntityView {
       case 'clusterlet':
         g.circle(0, 0, 2.2).fill(0x5a2020).stroke({ color: OUTLINE, width: 0.8 });
         break;
-      default:
+      default: {
+        // A new Look in sim must get a case above (and an entry in RENDERED_LOOKS): this fails to compile.
+        const unknown: never = this.p.look;
         g.circle(0, 0, this.p.radius + 1)
           .fill(0xffffff)
           .stroke({ color: OUTLINE, width: 1 });
+        void unknown;
+      }
     }
   }
 
@@ -379,7 +419,7 @@ class GasView implements EntityView {
 }
 
 /** Simple code-drawn bodies for the non-sheep walkers; they face right. */
-function drawAnimal(g: Graphics, look: string, bob: number, t: number): void {
+function drawAnimal(g: Graphics, look: AnimalLook, bob: number, t: number): void {
   const step = Math.sin(t * 14) * 1.2;
   const legs = (color: number) => {
     g.rect(-3 + step, 2.5 - bob, 1.2, 3).fill(color);

@@ -3,18 +3,15 @@ import { Pigeon } from '../pigeon';
 import { Projectile } from '../projectile';
 import { muzzle } from '../projectile';
 import { scaledBlast } from '../blast';
-import { registerWeapon } from '../weapon';
+import { registerLegacy } from '../legacy';
 import { MAX_LAUNCH } from './artillery';
 import { TPS } from '../../core/time';
 
 /** Launch speed at full power, px/tick: lock-on (25 ticks) happens ~546 px up when fired straight up. */
 const HOMING_LAUNCH = 24.3;
 
-registerWeapon({
+registerLegacy({
   id: 'homing',
-  name: 'Homing Missile',
-  row: 1,
-  col: 1,
   aim: 'angle',
   charge: true,
   needsTarget: true,
@@ -65,11 +62,8 @@ function mortarBlast(damage: number, diameter: number) {
   return { damage, crater, radius: crater * 1.15 };
 }
 
-registerWeapon({
+registerLegacy({
   id: 'mortar',
-  name: 'Mortar',
-  row: 1,
-  col: 2,
   aim: 'angle',
   charge: false,
   fire: (ctx) => {
@@ -115,11 +109,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'pigeon',
-  name: 'Homing Pigeon',
-  row: 1,
-  col: 3,
   aim: 'target',
   charge: false,
   fire: (ctx) => {

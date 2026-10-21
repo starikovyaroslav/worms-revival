@@ -1,4 +1,5 @@
 import type { Upgrades, WeaponSetting } from '../game/scheme';
+import type { WeaponSpec } from './spec';
 import type { World } from '../world/world';
 import type { Worm } from '../worm/worm';
 
@@ -48,12 +49,8 @@ export function isRemoteControlled(e: unknown): e is RemoteControlled {
   return typeof (e as RemoteControlled | undefined)?.remoteFire === 'function';
 }
 
-export interface WeaponDef {
-  id: string;
-  name: string;
-  /** Panel position: row 0 = utilities, 1..12 = F1..F12; column 0..4. */
-  row: number;
-  col: number;
+/** Flags and behaviour of a weapon as the game sees it (the compiled `sim` section of a spec). */
+export interface WeaponRules {
   aim: AimMode;
   /** Hold fire to charge the power bar. */
   charge: boolean;
@@ -89,20 +86,10 @@ export interface WeaponDef {
   fire(ctx: FireContext): void;
 }
 
-const registry = new Map<string, WeaponDef>();
-
-export function registerWeapon(def: WeaponDef): WeaponDef {
-  registry.set(def.id, def);
-  return def;
-}
-
-export function getWeapon(id: string): WeaponDef | undefined {
-  return registry.get(id);
-}
-
-/** All registered weapons in panel order. */
-export function allWeapons(): WeaponDef[] {
-  return [...registry.values()].sort((a, b) => a.row - b.row || a.col - b.col);
+/** A weapon of a ruleset: its rules plus the full spec it was built from (ui, ai, view). */
+export interface WeaponDef extends WeaponRules {
+  id: string;
+  spec: WeaponSpec;
 }
 
 /** Damage and size multiplier for the scheme's 1..5 power stars (3 = standard). */

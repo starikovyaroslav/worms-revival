@@ -1,10 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { type Flame } from '../src/weapons/fire';
-import { type Gas } from '../src/weapons/gas';
-import { type Mine } from '../src/weapons/mine';
-import { type Projectile } from '../src/weapons/projectile';
-import { type Worm } from '../src/worm/worm';
+import { type Flame } from '@wr/sim';
+import { type Gas } from '@wr/sim';
+import { type Mine } from '@wr/sim';
+import { type Projectile } from '@wr/sim';
+import { type Worm } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
 
 const IDS = [
@@ -376,7 +375,7 @@ describe('turn control and movement', () => {
     const y0 = me.y;
     for (let i = 0; i < 40; i++) g.step();
     expect(me.y).toBeLessThan(y0 - 40);
-    const jet = g.world.ofKind<import('../src/weapons/jetpack').JetPack>('jetpack')[0]!;
+    const jet = g.world.ofKind<import('@wr/sim').JetPack>('jetpack')[0]!;
     expect(jet.fuel).toBeLessThan(250);
   });
 

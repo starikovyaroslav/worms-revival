@@ -5,6 +5,7 @@ import type { World } from '../world/world';
 import { Worm } from '../worm/worm';
 import { hitscan, type HitscanSpec } from './hitscan';
 import type { RemoteControlled } from './weapon';
+import type { SoundId } from './spec';
 
 export interface BurstSpec extends HitscanSpec {
   bullets: number;
@@ -12,7 +13,7 @@ export interface BurstSpec extends HitscanSpec {
   interval: number;
   /** Random spread per bullet, radians. */
   spread: number;
-  sound: string;
+  sound: SoundId;
 }
 
 /** Aim adjustment per tick while firing, radians. */

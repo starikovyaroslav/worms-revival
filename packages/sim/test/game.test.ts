@@ -1,24 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { registerWeapon } from '../src/weapons/weapon';
 import { explode } from '../src/weapons/explosion';
 import { makeGame, stepUntil } from './helpers';
 import type { Game } from '../src/game/game';
 
 const landed = (g: Game) => stepUntil(g, () => g.worms.every((w) => w.grounded));
 
-// A weapon that blows up the target point instantly — enough to drive the rules.
-registerWeapon({
-  id: 'test-boom',
-  name: 'Test boom',
-  row: 12,
-  col: 4,
-  aim: 'target',
-  charge: false,
-  fire: (ctx) => {
-    if (ctx.target)
-      explode(ctx.world, ctx.target.x, ctx.target.y, { crater: 10, radius: 30, damage: 60 });
-  },
-});
 const WEAPONS = { 'test-boom': { ammo: -1, power: 3, delay: 0, crate: 0 } };
 
 describe('Game turns', () => {

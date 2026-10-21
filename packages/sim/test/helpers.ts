@@ -2,6 +2,8 @@ import { Material, Terrain } from '../src/terrain/terrain';
 import type { Scheme } from '../src/game/scheme';
 import { NO_UPGRADES } from '../src/game/scheme';
 import { Game } from '../src/game/game';
+import { Ruleset } from '../src/weapons/ruleset';
+import { explode } from '../src/weapons/explosion';
 
 export function flatTerrain(width = 1000, height = 400, ground = 200): Terrain {
   const t = new Terrain(width, height);
@@ -39,10 +41,34 @@ export function testScheme(over: Partial<Scheme> = {}): Scheme {
   };
 }
 
+/**
+ * The rules of sim's own tests: one weapon that blows up the target point instantly, enough to drive
+ * turns and damage. Tests of the shipped weapons live with their data in packages/content/test/rules.
+ */
+export const TEST_RULES = new Ruleset([
+  {
+    id: 'test-boom',
+    sim: {
+      archetype: 'inline',
+      aim: 'target',
+      charge: false,
+      fire: (ctx) => {
+        if (ctx.target)
+          explode(ctx.world, ctx.target.x, ctx.target.y, { crater: 10, radius: 30, damage: 60 });
+      },
+    },
+    ui: { name: 'Test boom', hint: '', icon: '', row: 12, col: 4 },
+    ai: { usable: false },
+    view: {},
+    listing: 'unlisted',
+  },
+]);
+
 export function makeGame(over: Partial<Scheme> = {}, seed = 1): Game {
   return new Game({
     seed,
     scheme: testScheme(over),
+    rules: TEST_RULES,
     teams: [
       { name: 'Red', worms: ['R1', 'R2'] },
       { name: 'Blue', worms: ['B1', 'B2'] },

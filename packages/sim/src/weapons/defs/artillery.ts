@@ -1,6 +1,7 @@
 import { Projectile, muzzle, type ProjectileSpec } from '../projectile';
 import { scaledBlast } from '../blast';
-import { registerWeapon, type FireContext } from '../weapon';
+import { registerLegacy } from '../legacy';
+import { type FireContext } from '../weapon';
 
 /** Launch speed at full power, px/tick. */
 export const MAX_LAUNCH = 14;
@@ -19,11 +20,8 @@ function launch(ctx: FireContext, spec: ProjectileSpec, speed = MAX_LAUNCH): Pro
   return proj;
 }
 
-registerWeapon({
+registerLegacy({
   id: 'bazooka',
-  name: 'Bazooka',
-  row: 1,
-  col: 0,
   aim: 'angle',
   charge: true,
   fire: (ctx) =>
@@ -36,11 +34,8 @@ registerWeapon({
     }),
 });
 
-registerWeapon({
+registerLegacy({
   id: 'grenade',
-  name: 'Grenade',
-  row: 2,
-  col: 0,
   aim: 'angle',
   charge: true,
   fuse: true,
@@ -58,11 +53,8 @@ registerWeapon({
     }),
 });
 
-registerWeapon({
+registerLegacy({
   id: 'cluster',
-  name: 'Cluster Bomb',
-  row: 2,
-  col: 1,
   aim: 'angle',
   charge: true,
   fuse: true,

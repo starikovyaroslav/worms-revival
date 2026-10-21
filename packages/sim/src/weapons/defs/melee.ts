@@ -5,7 +5,9 @@ import { KamikazeFlight } from '../kamikaze';
 import { explode } from '../explosion';
 import { scaledBlast } from '../blast';
 import { Projectile } from '../projectile';
-import { powerScale, registerWeapon, type FireContext } from '../weapon';
+import { registerLegacy } from '../legacy';
+import { powerScale, type FireContext } from '../weapon';
+import type { SoundId } from '../spec';
 
 /** Living worms (other than `except`) whose body centre is within `r` of a point. */
 export function wormsNear(world: World, x: number, y: number, r: number, except?: Worm): Worm[] {
@@ -24,7 +26,7 @@ function strike(
   damage: number,
   vx: number,
   vy: number,
-  sound: string,
+  sound: SoundId,
 ): boolean {
   const { world, worm } = ctx;
   const hx = worm.cx + ctx.dirX * reach * 0.6;
@@ -48,11 +50,8 @@ function pellet(ctx: FireContext): void {
   });
 }
 
-registerWeapon({
+registerLegacy({
   id: 'shotgun',
-  name: 'Shotgun',
-  row: 3,
-  col: 0,
   aim: 'angle',
   charge: false,
   shots: 2,
@@ -63,11 +62,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'firepunch',
-  name: 'Fire Punch',
-  row: 4,
-  col: 0,
   aim: 'none',
   charge: false,
   retreat: 3,
@@ -80,11 +76,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'bat',
-  name: 'Baseball Bat',
-  row: 7,
-  col: 3,
   aim: 'angle',
   charge: false,
   fire: (ctx) => {
@@ -94,11 +87,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'prod',
-  name: 'Prod',
-  row: 4,
-  col: 4,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -113,11 +103,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'axe',
-  name: 'Battle Axe',
-  row: 2,
-  col: 3,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -130,11 +117,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'dragonball',
-  name: 'Dragon Ball',
-  row: 4,
-  col: 1,
   aim: 'none',
   charge: false,
   retreat: 3,
@@ -164,11 +148,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'kamikaze',
-  name: 'Kamikaze',
-  row: 4,
-  col: 2,
   aim: 'angle',
   charge: false,
   retreat: 3,
@@ -182,11 +163,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'suicide',
-  name: 'Suicide Bomber',
-  row: 4,
-  col: 3,
   aim: 'none',
   charge: false,
   retreat: 3,

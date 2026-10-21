@@ -1,0 +1,96 @@
+import type { WeaponSpec } from '@wr/sim';
+
+export const MELEE: WeaponSpec[] = [
+  {
+    id: 'axe',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Боевой топор',
+      hint: 'Отнимает половину здоровья у всех перед тобой.',
+      icon: '🪓',
+      row: 2,
+      col: 3,
+    },
+    ai: { usable: true, rank: 29 },
+    view: {},
+  },
+  {
+    id: 'shotgun',
+    sim: { archetype: 'legacy' },
+    ui: { name: 'Дробовик', hint: 'Два выстрела за ход.', icon: '🔫', row: 3, col: 0 },
+    ai: { usable: true, rank: 7 },
+    view: {},
+  },
+  {
+    id: 'firepunch',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Огненный удар',
+      hint: 'Апперкот, пробивающий землю вверх.',
+      icon: '🔥',
+      row: 4,
+      col: 0,
+    },
+    ai: { usable: true, rank: 11 },
+    view: {},
+  },
+  {
+    id: 'dragonball',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Огненный шар',
+      hint: 'Огненный шар на короткую дистанцию.',
+      icon: '🐉',
+      row: 4,
+      col: 1,
+    },
+    ai: { usable: true, rank: 30, reach: { dx: 100, dy: 30 } },
+    view: { look: 'dragonball' },
+  },
+  {
+    id: 'kamikaze',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Камикадзе',
+      hint: 'Выбери направление: червяк пробивает землю и взрывается.',
+      icon: '🪂',
+      row: 4,
+      col: 2,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'suicide',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Самоподрыв',
+      hint: 'Червяк взрывается, унося всех рядом.',
+      icon: '☠️',
+      row: 4,
+      col: 3,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'prod',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Тычок',
+      hint: 'Без урона. Идеально, чтобы столкнуть в воду.',
+      icon: '👉',
+      row: 4,
+      col: 4,
+    },
+    ai: { usable: false },
+    view: {},
+  },
+  {
+    id: 'bat',
+    sim: { archetype: 'legacy' },
+    ui: { name: 'Бейсбольная бита', hint: 'Хоумран в воду.', icon: '🏏', row: 7, col: 3 },
+    ai: { usable: true, rank: 12 },
+    view: {},
+  },
+];

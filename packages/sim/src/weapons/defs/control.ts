@@ -1,28 +1,22 @@
 import { JetPack } from '../jetpack';
 import { BUNGEE_SPEC, Rope } from '../rope';
 import { type Worm } from '../../worm/worm';
-import { getWeapon, registerWeapon } from '../weapon';
+import { legacyRules, registerLegacy } from '../legacy';
 import './tools';
 
 const dist = (dx: number, dy: number) => Math.sqrt(dx * dx + dy * dy);
 
-const girder = getWeapon('girder');
+const girder = legacyRules('girder');
 if (girder) {
-  registerWeapon({
+  registerLegacy({
     ...girder,
     id: 'girderpack',
-    name: 'Girder Starter Pack',
-    row: 7,
-    col: 4,
     shots: 5,
   });
 }
 
-registerWeapon({
+registerLegacy({
   id: 'bungee',
-  name: 'Bungee',
-  row: 8,
-  col: 1,
   aim: 'angle',
   charge: false,
   airborne: true,
@@ -34,11 +28,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'jetpack',
-  name: 'Jet Pack',
-  row: 0,
-  col: 0,
   aim: 'none',
   charge: false,
   airborne: true,
@@ -49,11 +40,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'scales',
-  name: 'Scales of Justice',
-  row: 8,
-  col: 4,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -72,11 +60,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'freeze',
-  name: 'Freeze',
-  row: 12,
-  col: 3,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -88,11 +73,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'selectworm',
-  name: 'Select Worm',
-  row: 12,
-  col: 2,
   aim: 'target',
   charge: false,
   endsTurn: false,

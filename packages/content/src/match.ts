@@ -1,6 +1,7 @@
 import { Rng, WORM_H, WORM_HALF_W, type GameSetup } from '@wr/sim';
 import { findSurfaces, generateMap, pickSpread, type MapStyle } from '@wr/mapgen';
 import { schemeById } from './schemes';
+import { RULESET } from './weapons';
 import { applyWormpot } from './wormpot';
 
 export interface TeamConfig {
@@ -45,6 +46,7 @@ export function buildGameSetup(cfg: MatchConfig): GameSetup {
   return {
     seed: cfg.seed,
     scheme,
+    rules: RULESET,
     teams: cfg.teams.map((t) => ({ name: t.name, worms: t.worms, cpu: t.cpu > 0 })),
     terrain: map.terrain,
     waterLevel: map.waterLevel,

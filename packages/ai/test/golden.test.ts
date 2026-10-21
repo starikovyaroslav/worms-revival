@@ -9,10 +9,11 @@ import {
   ReplayPlayer,
   ReplayRecorder,
   TEAM_PRESETS,
+  RULESET,
   type MatchConfig,
   type Replay,
 } from '@wr/content';
-import { allWeapons, Game, type Command, type WeaponDef } from '@wr/sim';
+import { Game, type Command, type WeaponDef } from '@wr/sim';
 import { Bot, type Plan } from '../src/bot';
 
 /*
@@ -53,7 +54,7 @@ const MATCHES: { driver: Driver; config: MatchConfig }[] = [
 
 /** Per-tick commands of the scripted player: one different weapon per turn. */
 function scriptedPlayer(): (game: Game) => Command[] {
-  const arsenal = allWeapons().filter((w) => !w.action);
+  const arsenal = RULESET.weapons.filter((w) => !w.action);
   let turn = -1;
   let start = 0;
   let weapon = 0;
@@ -176,7 +177,7 @@ describe('golden replay', () => {
   it('fires most of the registered arsenal, including the late weapons', () => {
     const fired = new Set<string>();
     for (const replay of golden) for (const id of firedWeapons(replay)) fired.add(id);
-    const total = allWeapons().length;
+    const total = RULESET.weapons.length;
     console.log(`golden replay fires ${fired.size} of ${total} weapons`);
     expect(fired.size).toBeGreaterThanOrEqual(55);
   }, 60_000);

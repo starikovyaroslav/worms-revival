@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import { allWeapons, weaponSetting, type Game } from '@wr/sim';
+import { weaponSetting, type Game } from '@wr/sim';
 import { PANEL_ROWS, weaponInfo } from '@wr/content';
 import { assets } from '@wr/render';
 
@@ -15,10 +15,13 @@ interface Props {
 export function WeaponPanel({ game, onPick, onClose }: Props) {
   const [hover, setHover] = useState<string | null>(null);
   const team = game.teams[game.activeTeam];
-  const weapons = allWeapons().filter((w) => !w.id.startsWith('test-'));
+  const weapons = game.rules.weapons;
   const hovered = hover ? weaponInfo(hover) : null;
   // Five slots per row as in W:A; the Util row grows for the crate-only utilities.
-  const cols = Array.from({ length: Math.max(5, ...weapons.map((w) => w.col + 1)) }, (_, i) => i);
+  const cols = Array.from(
+    { length: Math.max(5, ...weapons.map((w) => w.spec.ui.col + 1)) },
+    (_, i) => i,
+  );
 
   return (
     <div class="panel-backdrop" onPointerDown={onClose} onContextMenu={(e) => e.preventDefault()}>
@@ -27,7 +30,7 @@ export function WeaponPanel({ game, onPick, onClose }: Props) {
           <div class="panel-row" key={label}>
             <div class="panel-key">{label}</div>
             {cols.map((col) => {
-              const def = weapons.find((w) => w.row === row && w.col === col);
+              const def = weapons.find((w) => w.spec.ui.row === row && w.spec.ui.col === col);
               if (!def) return <div class="slot empty" key={col} />;
               const ammo = team?.ammo[def.id] ?? 0;
               const inScheme = def.id in game.scheme.weapons;

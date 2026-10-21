@@ -1,0 +1,108 @@
+import type { WeaponSpec } from '@wr/sim';
+
+export const ANIMALS: WeaponSpec[] = [
+  {
+    id: 'sheeplauncher',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Овцемёт',
+      hint: 'Выстреливает овцу: приземлится и побежит.',
+      icon: '🐑',
+      row: 1,
+      col: 4,
+    },
+    ai: { usable: true, rank: 17 },
+    view: { look: 'sheep' },
+  },
+  {
+    id: 'molebomb',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Крот-бомба',
+      hint: 'Бежит и прыгает. Пробел — взрыв.',
+      icon: '🐀',
+      row: 5,
+      col: 4,
+    },
+    ai: { usable: false },
+    view: { look: 'mole' },
+  },
+  {
+    id: 'molesquad',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Эскадрилья кротов',
+      hint: 'Клик по цели: пять кротов с неба.',
+      icon: '🐀',
+      row: 6,
+      col: 4,
+    },
+    ai: { usable: true, rank: 27 },
+    view: { look: 'mole' },
+  },
+  {
+    id: 'salvation',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Армия спасения',
+      hint: 'Идёт до 10 секунд. Пробел — взрыв.',
+      icon: '⛪',
+      row: 9,
+      col: 3,
+    },
+    ai: { usable: false },
+    view: { look: 'nun' },
+  },
+  {
+    id: 'mbbomb',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'MB-бомба',
+      hint: 'Огромная бомба с упругим отскоком.',
+      icon: '🧨',
+      row: 9,
+      col: 4,
+    },
+    ai: { usable: true, rank: 20 },
+    view: { look: 'mbbomb' },
+  },
+  {
+    id: 'madcows',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Бешеные коровы',
+      hint: 'Несутся вперёд и взрываются при касании.',
+      icon: '🐄',
+      row: 11,
+      col: 0,
+    },
+    ai: { usable: true, rank: 31, reach: { dx: 150, dy: 60 } },
+    view: { look: 'cow' },
+  },
+  {
+    id: 'oldwoman',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Старушка',
+      hint: 'Бредёт пять секунд и взрывается. Не остановить.',
+      icon: '👵',
+      row: 11,
+      col: 1,
+    },
+    ai: { usable: true, rank: 32, reach: { dx: 150, dy: 60 } },
+    view: { look: 'oldwoman' },
+  },
+  {
+    id: 'donkey',
+    sim: { archetype: 'legacy' },
+    ui: {
+      name: 'Бетонный осёл',
+      hint: 'Клик по цели: пробивает землю до воды.',
+      icon: '🫏',
+      row: 11,
+      col: 2,
+    },
+    ai: { usable: true, rank: 28 },
+    view: {},
+  },
+];

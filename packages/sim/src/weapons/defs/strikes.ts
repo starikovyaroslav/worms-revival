@@ -1,7 +1,8 @@
 import { Mine } from '../mine';
 import { Projectile, type ProjectileSpec } from '../projectile';
 import { scaledBlast } from '../blast';
-import { registerWeapon, type FireContext } from '../weapon';
+import { registerLegacy } from '../legacy';
+import { type FireContext } from '../weapon';
 import { TPS } from '../../core/time';
 
 /** Altitude above the map top at which the plane releases its payload. */
@@ -62,11 +63,8 @@ function strikeShell(spec: ProjectileSpec, ctx: FireContext) {
   };
 }
 
-registerWeapon({
+registerLegacy({
   id: 'airstrike',
-  name: 'Air Strike',
-  row: 6,
-  col: 0,
   aim: 'target',
   charge: false,
   needsSky: true,
@@ -85,11 +83,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'napalm',
-  name: 'Napalm Strike',
-  row: 6,
-  col: 1,
   aim: 'target',
   charge: false,
   needsSky: true,
@@ -109,11 +104,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'mail',
-  name: 'Mail Strike',
-  row: 6,
-  col: 2,
   aim: 'target',
   charge: false,
   needsSky: true,
@@ -137,11 +129,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'minestrike',
-  name: 'Mine Strike',
-  row: 6,
-  col: 3,
   aim: 'target',
   charge: false,
   needsSky: true,
@@ -160,11 +149,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'carpet',
-  name: "Mike's Carpet Bomb",
-  row: 10,
-  col: 4,
   aim: 'target',
   charge: false,
   needsSky: true,
@@ -184,11 +170,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'frenchsheep',
-  name: 'French Sheep Strike',
-  row: 10,
-  col: 3,
   aim: 'target',
   charge: false,
   needsSky: true,

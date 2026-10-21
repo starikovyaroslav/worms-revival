@@ -1,6 +1,7 @@
 import { Arrow } from '../arrow';
 import { Gunfire, type BurstSpec } from '../gunfire';
-import { powerScale, registerWeapon, type FireContext } from '../weapon';
+import { registerLegacy } from '../legacy';
+import { powerScale, type FireContext } from '../weapon';
 
 function burst(ctx: FireContext, spec: BurstSpec): void {
   const g = ctx.world.spawn(
@@ -12,11 +13,8 @@ function burst(ctx: FireContext, spec: BurstSpec): void {
   ctx.control(g.id);
 }
 
-registerWeapon({
+registerLegacy({
   id: 'handgun',
-  name: 'Handgun',
-  row: 3,
-  col: 1,
   aim: 'angle',
   charge: false,
   fire: (ctx) =>
@@ -32,11 +30,8 @@ registerWeapon({
     }),
 });
 
-registerWeapon({
+registerLegacy({
   id: 'uzi',
-  name: 'Uzi',
-  row: 3,
-  col: 2,
   aim: 'angle',
   charge: false,
   fire: (ctx) =>
@@ -52,11 +47,8 @@ registerWeapon({
     }),
 });
 
-registerWeapon({
+registerLegacy({
   id: 'minigun',
-  name: 'Minigun',
-  row: 3,
-  col: 3,
   aim: 'angle',
   charge: false,
   fire: (ctx) =>
@@ -72,11 +64,8 @@ registerWeapon({
     }),
 });
 
-registerWeapon({
+registerLegacy({
   id: 'longbow',
-  name: 'Longbow',
-  row: 3,
-  col: 4,
   aim: 'angle',
   charge: false,
   shots: 2,

@@ -1,4 +1,4 @@
-import { allWeapons, type Command, type Game } from '@wr/sim';
+import { type Command, type Game } from '@wr/sim';
 
 /**
  * Turns keyboard and mouse input into simulation commands, W:A style:
@@ -156,7 +156,7 @@ export class Input {
   /** Repeated presses of an F-key walk through the usable weapons of that row. */
   private cycleRow(row: number): void {
     const game = this.game();
-    const usable = allWeapons().filter((w) => w.row === row && game.canUse(w.id));
+    const usable = game.rules.weapons.filter((w) => w.spec.ui.row === row && game.canUse(w.id));
     if (!usable.length) return;
     // Count selections still waiting in the queue, so fast repeated presses keep cycling.
     const pending = this.queue.filter((c) => c.t === 'select').pop();

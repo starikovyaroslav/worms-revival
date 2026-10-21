@@ -1,5 +1,5 @@
 import { Container, Graphics, type Application } from 'pixi.js';
-import { TPS, Worm, type Game, type Mine, type Projectile } from '@wr/sim';
+import { TPS, Worm, type Game, type Mine, type Projectile, type SoundId } from '@wr/sim';
 import { PHRASES, weaponInfo } from '@wr/content';
 import { Sfx } from './audio/sfx';
 import type { Viewport, ViewportController } from './viewport';
@@ -272,10 +272,9 @@ export class GameScene {
           this.lights.frame(e.x, e.y - 4, 0xff8a30, 38, 0.7, 0.25);
           break;
         case 'projectile': {
-          const look = (e as Projectile).look;
-          if (look === 'missile' || look === 'homing')
-            this.lights.frame(e.x, e.y, 0xffb050, 55, 0.8, 0.15);
-          else if (look === 'hhg') this.lights.frame(e.x, e.y, 0xffe9a0, 70, 0.9, 0.1);
+          const light = game.rules.looks[(e as Projectile).look]?.light;
+          if (light)
+            this.lights.frame(e.x, e.y, light.color, light.radius, light.intensity, light.flicker);
           break;
         }
         case 'mine': {
@@ -300,13 +299,15 @@ export class GameScene {
   private trails(dtMs: number): void {
     const gate = Math.min(1, dtMs / 16.7);
     const ctx = { dirt: this.dirt, wind: this.game.world.wind };
+    const looks = this.game.rules.looks;
     for (const e of this.game.world.ofKind<Projectile>('projectile')) {
       if (Math.random() > gate) continue;
       const bx = e.x - e.vx * 0.4;
       const by = e.y - e.vy * 0.4;
-      if (e.look === 'missile' || e.look === 'homing' || e.look === 'mortar') {
+      const trail = looks[e.look]?.trail;
+      if (trail === 'rocket') {
         this.effects.play('trail-rocket', bx, by, 40, ctx);
-      } else if (e.fuseLeft > 0 && e.look !== 'clusterlet') {
+      } else if (trail === 'fuse' && e.fuseLeft > 0) {
         this.effects.play('trail-fuse', e.x, e.y - 5, 20, ctx);
       }
     }
@@ -359,7 +360,7 @@ export class GameScene {
   }
 
   /** Plays a sound positioned relative to what the camera shows. */
-  sound(id: string, x: number, y: number, size = 0.5): void {
+  sound(id: SoundId, x: number, y: number, size = 0.5): void {
     const c = this.camera;
     this.sfx.play(id, x, y, { x: c.x, y: c.y, halfW: c.viewW / 2 / c.zoom }, size);
   }

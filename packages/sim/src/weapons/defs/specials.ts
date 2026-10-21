@@ -1,7 +1,8 @@
 import { Projectile, muzzle } from '../projectile';
 import { scaledBlast } from '../blast';
 import { Sheep } from '../sheep';
-import { registerWeapon, type FireContext } from '../weapon';
+import { registerLegacy } from '../legacy';
+import { type FireContext } from '../weapon';
 import { BOUNCE_HIGH, BOUNCE_LOW, MAX_LAUNCH } from './artillery';
 import { TPS } from '../../core/time';
 
@@ -11,11 +12,8 @@ function throwIt(ctx: FireContext, p: Projectile): void {
   ctx.focus(p.id);
 }
 
-registerWeapon({
+registerLegacy({
   id: 'banana',
-  name: 'Banana Bomb',
-  row: 2,
-  col: 2,
   aim: 'angle',
   charge: true,
   fuse: true,
@@ -59,11 +57,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'hhg',
-  name: 'Holy Hand Grenade',
-  row: 9,
-  col: 1,
   aim: 'angle',
   charge: true,
   fire: (ctx) => {
@@ -115,21 +110,15 @@ function releaseSheep(ctx: FireContext, canFly: boolean): void {
   ctx.control(sheep.id);
 }
 
-registerWeapon({
+registerLegacy({
   id: 'sheep',
-  name: 'Sheep',
-  row: 5,
-  col: 2,
   aim: 'none',
   charge: false,
   fire: (ctx) => releaseSheep(ctx, false),
 });
 
-registerWeapon({
+registerLegacy({
   id: 'supersheep',
-  name: 'Super Sheep',
-  row: 5,
-  col: 3,
   aim: 'none',
   charge: false,
   fire: (ctx) => releaseSheep(ctx, true),

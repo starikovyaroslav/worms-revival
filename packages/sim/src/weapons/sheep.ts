@@ -5,6 +5,7 @@ import type { World } from '../world/world';
 import { type Worm } from '../worm/worm';
 import { explode, type BlastSpec } from './explosion';
 import type { RemoteControlled } from './weapon';
+import type { AnimalLook } from './spec';
 import { TPS } from '../core/time';
 
 const WALK_SPEED = 1.3;
@@ -26,7 +27,7 @@ export interface SheepOptions {
   /** Aqua Sheep: keeps flying under water. */
   aqua: boolean;
   /** Which animal it looks like (render only): sheep by default. */
-  look?: 'sheep' | 'mole' | 'cow' | 'oldwoman' | 'nun';
+  look?: AnimalLook;
   /** Walking speed, px/tick. */
   speed?: number;
   /** False: fire does not set it off (Old Woman). */

@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
 import { makeGame, stepUntil } from './helpers';
 
 const W = Object.fromEntries(

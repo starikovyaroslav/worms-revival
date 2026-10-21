@@ -1,14 +1,11 @@
 import { Projectile } from '../projectile';
 import { scaledBlast } from '../blast';
 import { Mine } from '../mine';
-import { registerWeapon } from '../weapon';
+import { registerLegacy } from '../legacy';
 import { TPS } from '../../core/time';
 
-registerWeapon({
+registerLegacy({
   id: 'dynamite',
-  name: 'Dynamite',
-  row: 5,
-  col: 0,
   aim: 'none',
   charge: false,
   fire: (ctx) => {
@@ -36,11 +33,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'mine',
-  name: 'Mine',
-  row: 5,
-  col: 1,
   aim: 'none',
   charge: false,
   fire: (ctx) => {

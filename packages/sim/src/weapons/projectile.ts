@@ -6,6 +6,7 @@ import { type Worm } from '../worm/worm';
 import { explode, type BlastSpec } from './explosion';
 import { sprayFlames } from './fire';
 import { sprayGas } from './gas';
+import type { Look, SoundId } from './spec';
 
 export interface ClusterSpec {
   count: number;
@@ -21,7 +22,7 @@ export interface ClusterSpec {
 
 export interface ProjectileSpec {
   /** Visual identifier for the renderer. */
-  look: string;
+  look: Look;
   radius: number;
   /** 0..1 wind influence (bazooka 1, grenade 0). */
   wind: number;
@@ -41,7 +42,7 @@ export interface ProjectileSpec {
   /** Only explode once the fuse is out AND it stopped moving (Holy Hand Grenade). */
   waitForRest?: boolean;
   /** Sound played, followed by a pause of `ticks`, before the explosion ("Hallelujah!"). */
-  preSound?: { id: string; ticks: number };
+  preSound?: { id: SoundId; ticks: number };
 }
 
 /** Ticks during which a projectile ignores the worm that fired it. */
@@ -79,7 +80,7 @@ export class Projectile extends PhysBody {
     this.ownerId = ownerId;
   }
 
-  get look(): string {
+  get look(): Look {
     return this.spec.look;
   }
 

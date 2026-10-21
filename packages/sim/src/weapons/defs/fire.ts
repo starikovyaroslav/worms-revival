@@ -2,14 +2,11 @@ import { Flame } from '../fire';
 import { Projectile } from '../projectile';
 import { muzzle } from '../projectile';
 import { scaledBlast } from '../blast';
-import { registerWeapon } from '../weapon';
+import { registerLegacy } from '../legacy';
 import { MAX_LAUNCH } from './artillery';
 
-registerWeapon({
+registerLegacy({
   id: 'petrol',
-  name: 'Petrol Bomb',
-  row: 10,
-  col: 0,
   aim: 'angle',
   charge: true,
   fire: (ctx) => {
@@ -38,11 +35,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'skunk',
-  name: 'Skunk',
-  row: 10,
-  col: 1,
   aim: 'angle',
   charge: true,
   fire: (ctx) => {
@@ -70,11 +64,8 @@ registerWeapon({
   },
 });
 
-registerWeapon({
+registerLegacy({
   id: 'flamethrower',
-  name: 'Flamethrower',
-  row: 9,
-  col: 2,
   aim: 'angle',
   charge: false,
   fire: (ctx) => {

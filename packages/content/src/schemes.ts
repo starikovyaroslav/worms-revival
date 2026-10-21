@@ -1,4 +1,5 @@
-import { allWeapons, NO_UPGRADES, type Scheme, type WeaponSetting } from '@wr/sim';
+import { NO_UPGRADES, type Scheme, type WeaponSetting } from '@wr/sim';
+import { RULESET } from './weapons';
 
 const w = (ammo: number, power = 3, delay = 0, crate = 2): WeaponSetting => ({
   ammo,
@@ -363,7 +364,7 @@ export function arsenalScheme(): Scheme {
     wormsPerTeam: 8,
     mines: 0,
     barrels: 0,
-    weapons: Object.fromEntries(allWeapons().map((d) => [d.id, w(INF, 3, 0, d.action ? 0 : 1)])),
+    weapons: Object.fromEntries(RULESET.weapons.map((d) => [d.id, w(INF, 3, 0, d.action ? 0 : 1)])),
   };
   return arsenal;
 }

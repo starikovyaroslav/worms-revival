@@ -1,22 +1,15 @@
-import { registerWeapon, type FireContext } from '../weapon';
+import { registerLegacy } from '../legacy';
+import { type FireContext } from '../weapon';
+import type { SoundId } from '../spec';
 
 /**
  * Utilities: switched on for the rest of the turn, they do not use the turn up. In W:A they come
  * from crates (and campaign missions); the effect flags live on the worm and clear at the next turn.
  * Each can be used once per turn (the game refuses a second use, so it is not charged twice).
  */
-function utility(
-  id: string,
-  name: string,
-  col: number,
-  apply: (ctx: FireContext) => void,
-  sound = 'collect',
-): void {
-  registerWeapon({
+function utility(id: string, apply: (ctx: FireContext) => void, sound: SoundId = 'collect'): void {
+  registerLegacy({
     id,
-    name,
-    row: 0,
-    col,
     aim: 'none',
     charge: false,
     endsTurn: false,
@@ -28,22 +21,22 @@ function utility(
   });
 }
 
-utility('lowgravity', 'Low Gravity', 1, (ctx) => {
+utility('lowgravity', (ctx) => {
   ctx.worm.lowGravity = true;
 });
-utility('fastwalk', 'Fast Walk', 2, (ctx) => {
+utility('fastwalk', (ctx) => {
   ctx.worm.fastWalk = true;
 });
-utility('laser', 'Laser Sight', 3, (ctx) => {
+utility('laser', (ctx) => {
   ctx.worm.laser = true;
 });
-utility('invisible', 'Invisibility', 4, (ctx) => {
+utility('invisible', (ctx) => {
   ctx.worm.invisible = true;
 });
-utility('doubledamage', 'Double Damage', 5, (ctx) => {
+utility('doubledamage', (ctx) => {
   // Everything that goes off before the next turn hurts twice as much (set, never multiplied).
   ctx.world.physics.damageScale = ctx.baseDamageScale * 2;
 });
-utility('cratespy', 'Crate Spy', 6, (ctx) => {
+utility('cratespy', (ctx) => {
   ctx.worm.crateSpy = true;
 });

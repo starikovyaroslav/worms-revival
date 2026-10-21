@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { type Projectile } from '../src/weapons/projectile';
-import { type Sheep } from '../src/weapons/sheep';
+import { type Projectile } from '@wr/sim';
+import { type Sheep } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
 
 const WEAPONS = Object.fromEntries(

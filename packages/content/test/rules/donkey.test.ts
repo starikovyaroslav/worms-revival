@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
-import { Donkey } from '../src/weapons/donkey';
+import { Donkey } from '@wr/sim';
 import { makeGame, stepUntil } from './helpers';
 
 describe('concrete donkey', () => {

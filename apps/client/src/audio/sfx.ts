@@ -1,3 +1,4 @@
+import type { SoundId } from '@wr/sim';
 import { AudioEngine } from './engine';
 import { SOUNDS } from './sounds';
 
@@ -41,7 +42,7 @@ export class Sfx {
    * @param view camera centre and half-width of the visible area, for panning and fading
    */
   play(
-    id: string,
+    id: SoundId,
     x: number,
     y: number,
     view: { x: number; y: number; halfW: number },
@@ -93,7 +94,7 @@ export class Sfx {
   }
 
   /** Non-positional UI sound. */
-  ui(id: string): void {
+  ui(id: SoundId): void {
     this.play(id, 0, 0, { x: 0, y: 0, halfW: 1 });
   }
 }

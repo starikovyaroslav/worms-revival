@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import '../src/weapons/defs';
 import { makeGame, stepUntil } from './helpers';
 
 const WEAPONS = { homing: { ammo: -1, power: 3, delay: 0, crate: 0 } };
@@ -46,7 +45,7 @@ describe('homing missile (W:A numbers)', () => {
 
   it('locks on 0.5 s after launch, 546 px up when fired straight up at full power', () => {
     const { g, me } = fireUp(true);
-    const m = g.world.ofKind<import('../src/weapons/homing').HomingMissile>('projectile')[0]!;
+    const m = g.world.ofKind<import('@wr/sim').HomingMissile>('projectile')[0]!;
     while (!m.isHoming) g.step();
     expect(m.age).toBe(26);
     expect(me.y - m.y).toBeGreaterThan(500);
@@ -72,7 +71,7 @@ describe('mortar and pigeon', () => {
     g.activeWorm!.aim = 1.35;
     g.step([{ t: 'select', weapon: 'mortar' }]);
     g.step([{ t: 'fire', down: true }]);
-    const shell = g.world.ofKind<import('../src/weapons/projectile').Projectile>('projectile')[0]!;
+    const shell = g.world.ofKind<import('@wr/sim').Projectile>('projectile')[0]!;
     expect(Math.hypot(shell.vx, shell.vy)).toBeGreaterThan(13);
     stepUntil(g, () => shell.removed);
     g.step();

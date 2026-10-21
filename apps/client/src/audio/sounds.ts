@@ -1,3 +1,4 @@
+import type { SoundId } from '@wr/sim';
 import type { AudioEngine } from './engine';
 
 type Synth = (a: AudioEngine, out: GainNode, size: number) => void;
@@ -55,7 +56,7 @@ function voice(
 }
 
 /** Procedural sound effects, keyed by the ids the simulation emits. */
-export const SOUNDS: Record<string, Synth> = {
+export const SOUNDS: Record<SoundId, Synth> = {
   explosion: (a, out, size) => {
     const t = a.now;
     const dur = 0.5 + size * 0.9;
