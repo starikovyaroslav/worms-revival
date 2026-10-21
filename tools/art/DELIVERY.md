@@ -1,5 +1,8 @@
 # Worms revival — delivered art set
 
+> Historical first-batch report. Current delivery: [698 PNGs, full desktop density and native RGBA](../../docs/design/asset-delivery.md).
+> The DB32/binary-alpha claims below describe the superseded original export only.
+
 This document covers the original 66-PNG batch, not all artwork needed by the game.
 The supplemental 48-PNG arsenal pack and remaining gaps are tracked in
 [`asset-inventory.md`](../../docs/design/asset-inventory.md).

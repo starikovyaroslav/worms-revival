@@ -70,7 +70,7 @@ try {
     });
     assert.equal(new Set(result.offsets).size, 3, 'Layers move at different parallax speeds');
     assert.ok(Number.isInteger(result.base));
-    assert.deepEqual(result.fillSize, [64, 64]);
+    assert.deepEqual(result.fillSize, [256, 256]);
     await page.screenshot({ path: `${output}/${theme}-1280x720.png` });
     scenes.push({ theme, ...result });
   }
@@ -91,7 +91,9 @@ try {
     const chunk = chunks.find(
       (c) => x >= c.cx * 256 && x < c.cx * 256 + c.w && y >= c.cy * 256 && y < c.cy * 256 + c.h,
     );
-    const offset = ((y - chunk.cy * 256) * chunk.w + x - chunk.cx * 256) * 4;
+    const density = scene.terrainView.density;
+    const offset =
+      ((y - chunk.cy * 256) * density * chunk.w * density + (x - chunk.cx * 256) * density) * 4;
     return {
       wasSolid,
       nowAir: !t.isSolid(x, y),
@@ -102,6 +104,64 @@ try {
   assert.ok(crater.wasSolid && crater.nowAir);
   assert.equal(crater.alpha, 0);
   assert.equal(crater.dirty, 0);
+
+  const inventory = await page.evaluate(async () => {
+    const urls = window.performance.getEntriesByType('resource').map((e) => e.name);
+    const renderUrl = urls.find((s) => /\/packages\/render\/src\/index\.ts(?:\?|$)/.test(s));
+    const { assets, ART_PACKS } = await import(renderUrl);
+    const { artSprite, scaleArt } = await import(
+      renderUrl.replace(/index\.ts.*$/, 'views/common.ts')
+    );
+    const entries = {};
+    for (const pack of ART_PACKS) {
+      const manifest = await (await fetch(`/${pack}/manifest.json`)).json();
+      Object.assign(entries, manifest.assets);
+    }
+    const problems = [];
+    for (const [id, a] of Object.entries(entries)) {
+      const texture = assets.get(id),
+        sprite = artSprite(id);
+      if (!texture || !sprite) {
+        problems.push(`${id}: missing loaded texture`);
+        continue;
+      }
+      if (texture.width !== a.pixelW || texture.height !== a.pixelH)
+        problems.push(`${id}: native dimensions`);
+      for (const facing of [-1, 1]) {
+        scaleArt(sprite, facing);
+        if (Math.abs(sprite.width - a.w) > 1e-6 || Math.abs(sprite.height - a.h) > 1e-6)
+          problems.push(`${id}: display size`);
+      }
+      if (entries[`${id}_band`] && !assets.companion(texture, '_band'))
+        problems.push(`${id}: missing team layer`);
+      sprite.destroy();
+    }
+    const { scene, game } = window.__game;
+    const worm = game.activeWorm,
+      view = scene.worms.get(worm.id);
+    worm.grounded = true;
+    for (const hold of [
+      'bazooka',
+      'grenade',
+      'cluster',
+      'banana',
+      'shotgun',
+      'handgun',
+      'uzi',
+      'minigun',
+      'mortar',
+    ]) {
+      for (const facing of [-1, 1]) {
+        worm.facing = facing;
+        view.update(1, 0, true, (x, y) => ({ x, y }), hold);
+        if (Math.abs(view.pixel.body.width - 32) > 1e-6 || !view.pixel.band.visible)
+          problems.push(`${hold}: live body density/team layer`);
+      }
+    }
+    return { textures: Object.keys(entries).length, problems };
+  });
+  assert.ok(inventory.textures >= 696);
+  assert.deepEqual(inventory.problems, []);
 
   // Spawn real entities through the same sim module the running client loaded.
   const sprites = await page.evaluate(async () => {
@@ -208,7 +268,11 @@ try {
   );
   assert.deepEqual(fallbackErrors, []);
   console.log(
-    JSON.stringify({ scenes, crater, sprites, fallback: 'passed', screenshots: output }, null, 2),
+    JSON.stringify(
+      { scenes, crater, inventory, sprites, fallback: 'passed', screenshots: output },
+      null,
+      2,
+    ),
   );
 } finally {
   await browser.close();

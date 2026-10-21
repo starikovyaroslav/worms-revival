@@ -1,5 +1,16 @@
 # Worms revival: generated art
 
+## Current production pipeline
+
+Use `npm run art:desktop` to rebuild **all 698 PNGs** from native masters, preserving RGB and
+continuous alpha. `npm run art:audit` inventories every on-disk PNG; `npm run art:test` checks
+dimensions, visibility, crop/animation contracts and RGBA preservation.
+See [current delivery](../../docs/design/asset-delivery.md) for sources, scope and browser QA.
+The historical `ingest.mjs` / `arsenal.mjs` quantized CLI entrypoints below are disabled.
+Their helpers remain only for old algorithm regression tests and source IO/geometry.
+
+## Historical first-batch pipeline (superseded)
+
 This is the original environment/creatures/props batch. It is not a complete game-art inventory:
 see [`asset-inventory.md`](../../docs/design/asset-inventory.md) for the supplemental arsenal pack,
 legacy provenance caveat and remaining work.

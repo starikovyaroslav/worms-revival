@@ -1,0 +1,38 @@
+{
+  "policy": "all on-disk PNGs: declared native pixels, >=3x display density (icons 6x; other sprites 4x), longest edge >=64; no unregistered leftovers",
+  "totalPng": 698,
+  "registeredPng": 698,
+  "packs": [
+    {
+      "pack": "legacy paths (rebuilt)",
+      "images": 504,
+      "minimumDensity": 4,
+      "pngBytes": 2439687
+    },
+    {
+      "pack": "generated",
+      "images": 66,
+      "minimumDensity": 3,
+      "pngBytes": 6651076
+    },
+    {
+      "pack": "arsenal",
+      "images": 48,
+      "minimumDensity": 5,
+      "pngBytes": 260799
+    },
+    {
+      "pack": "vfx",
+      "images": 64,
+      "minimumDensity": 4,
+      "pngBytes": 1047079
+    },
+    {
+      "pack": "military",
+      "images": 16,
+      "minimumDensity": 3,
+      "pngBytes": 244410
+    }
+  ],
+  "problems": []
+}
