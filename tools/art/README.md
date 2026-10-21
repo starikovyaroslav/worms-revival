@@ -1,5 +1,14 @@
 # Worms revival: generated art
 
+This is the original environment/creatures/props batch. It is not a complete game-art inventory:
+see [`asset-inventory.md`](../../docs/design/asset-inventory.md) for the supplemental arsenal pack,
+legacy provenance caveat and remaining work.
+
+The additional pack is built with `npm run art:arsenal` from three sheets and two selected
+replacement icons. Its exact prompts and reviewed crop grid live in `arsenal-sources.json` and
+`arsenal-repairs.json`. Outputs: `apps/client/public/assets/arsenal/` (48 PNGs + manifest/report).
+Run `node tools/art/arsenal-check.mjs http://127.0.0.1:5174/` against a running dev client.
+
 Requires Node 22.18+ (native TypeScript stripping) and ImageMagick 7 (`magick`).
 The processor imports the renderer's `snap` and DB32 directly, without a duplicate palette.
 

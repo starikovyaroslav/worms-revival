@@ -1,5 +1,9 @@
 # Worms revival — delivered art set
 
+This document covers the original 66-PNG batch, not all artwork needed by the game.
+The supplemental 48-PNG arsenal pack and remaining gaps are tracked in
+[`asset-inventory.md`](../../docs/design/asset-inventory.md).
+
 Generated on 2026-10-21 with the built-in imagegen tool, using the owner-approved
 style reference for every request. The logo reads exactly **Worms revival**.
 The selected source set contains 28 images including the style reference.
