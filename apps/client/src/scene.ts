@@ -83,7 +83,7 @@ export class GameScene {
 
     this.background = new Background(theme, terrain.width, terrain.height, seed);
     this.terrainView = new TerrainView(terrain, theme);
-    this.water = new WaterView(theme, terrain.width);
+    this.water = new WaterView(theme, terrain);
     this.fx = new Fx(theme.soil.base);
     this.effects = new EffectsSystem({
       shake: (p) => this.camera.shake(p),
@@ -373,7 +373,12 @@ export class GameScene {
     this.camera.apply(this.aimLayer);
     const project = (x: number, y: number) => this.camera.toScreen(x, y);
     this.background.update(this.camera, this.app.screen.width, this.app.screen.height);
-    this.water.update(dtMs, game.world.waterLevel);
+    this.water.update(
+      dtMs,
+      game.world.waterLevel,
+      this.camera.x,
+      this.app.screen.width / 2 / this.camera.scale,
+    );
     this.terrainView.update();
 
     for (const [, v] of this.worms) {
