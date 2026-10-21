@@ -18,9 +18,10 @@
     "test:determinism": "node tools/determinism/run.mjs",
     "art:ingest": "node tools/art/ingest.mjs",
     "art:review": "node tools/art/review.mjs",
-    "art:test": "node --test tools/art/ingest.test.mjs tools/art/arsenal.test.mjs tools/art/vfx.test.mjs",
+    "art:test": "node --test tools/art/ingest.test.mjs tools/art/arsenal.test.mjs tools/art/vfx.test.mjs tools/art/military.test.mjs",
     "art:arsenal": "node tools/art/arsenal.mjs",
-    "art:vfx": "node tools/art/vfx.mjs"
+    "art:vfx": "node tools/art/vfx.mjs",
+    "art:military": "node tools/art/military.mjs"
   },
   "engines": {
     "node": ">=22"

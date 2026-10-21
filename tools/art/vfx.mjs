@@ -13,7 +13,7 @@ import {
   validate,
   countIslands,
 } from './ingest.mjs';
-import { VFX_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
+import { BASE_VFX_CLIPS as VFX_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
 
 export const sources = JSON.parse(readFileSync(new URL('./vfx-sources.json', import.meta.url)));
 export const grids = [

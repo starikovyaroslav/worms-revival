@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { normalizeSequence, output } from './vfx.mjs';
-import { VFX_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
+import { BASE_VFX_CLIPS as VFX_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
 import { readImage, validate } from './ingest.mjs';
 
 test('fixed canvases preserve growth stages and bottom anchors', () => {

@@ -1,5 +1,5 @@
 /** Shared export/runtime contract. Anchors are fractions of the fixed animation canvas. */
-export const VFX_CLIPS = {
+export const BASE_VFX_CLIPS = {
   cargo: { frames: 4, w: 64, h: 32, anchor: [0.5, 0.5] },
   mailplane: { frames: 4, w: 64, h: 32, anchor: [0.5, 0.5] },
   missile: { frames: 2, w: 22, h: 12, anchor: [0.5, 0.5] },
@@ -18,5 +18,15 @@ export const VFX_CLIPS = {
   ghost: { frames: 4, w: 24, h: 32, anchor: [0.5, 0.5] },
   scorch: { frames: 4, w: 64, h: 24, anchor: [0.5, 0.5] },
 } as const;
+
+/** Military replacements remain a separate optional pack; the old clips are fallback art. */
+export const MILITARY_CLIPS = {
+  attack: { frames: 4, w: 128, h: 56, anchor: [0.5, 0.5] },
+  gunship: { frames: 4, w: 128, h: 64, anchor: [0.5, 0.5] },
+  stealth: { frames: 4, w: 128, h: 80, anchor: [0.5, 0.5] },
+  rocket: { frames: 2, w: 26, h: 10, anchor: [0.5, 0.5] },
+  rocket_mk2: { frames: 2, w: 30, h: 14, anchor: [0.5, 0.5] },
+} as const;
+export const VFX_CLIPS = { ...BASE_VFX_CLIPS, ...MILITARY_CLIPS } as const;
 
 export type VfxClip = keyof typeof VFX_CLIPS;

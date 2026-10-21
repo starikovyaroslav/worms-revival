@@ -1,0 +1,9 @@
+[
+  {
+    "source": "assets-in/military/gunship.png",
+    "result": "assets-in/military/gunship-v2.png",
+    "tool": "built-in imagegen",
+    "reason": "The first sheet touched the left cell boundary and clipped the tail tip.",
+    "prompt": "Use case: precise-object-edit. Edit target is the attached 2x2 military gunship animation sprite sheet. Change ONLY framing: shrink each entire airplane to 80% of its current size inside its original cell, centering it, so every propeller, tail tip and nose has ample TRANSPARENT padding and no part touches any outer image edge or cell boundary. Keep EXACTLY the same menacing graphite C/AC-130-inspired aircraft design, side view facing RIGHT, tiny red envelope emblem, pixel technique and four animation states (closed hatch / vertical propeller, closed / diagonal, half-open / horizontal, open / vertical). Do not redesign, recolor or add any objects, labels, scenery or shadows. 2x2 equal square grid, no grid lines. Preserve true transparency."
+  }
+]

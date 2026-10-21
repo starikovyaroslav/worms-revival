@@ -5,8 +5,9 @@ import legacy from '../public/assets/manifest.json';
 import generated from '../public/assets/generated/manifest.json';
 import arsenal from '../public/assets/arsenal/manifest.json';
 import vfx from '../public/assets/vfx/manifest.json';
+import military from '../public/assets/military/manifest.json';
 
-const packs = [legacy, generated, arsenal, vfx];
+const packs = [legacy, generated, arsenal, vfx, military];
 const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
   string,
   { file: string; w: number; h: number }
@@ -14,7 +15,13 @@ const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
 
 describe('shipped artwork coverage', () => {
   it('checks the same ordered packs that startup actually loads', () => {
-    expect(ART_PACKS).toEqual(['assets', 'assets/generated', 'assets/arsenal', 'assets/vfx']);
+    expect(ART_PACKS).toEqual([
+      'assets',
+      'assets/generated',
+      'assets/arsenal',
+      'assets/vfx',
+      'assets/military',
+    ]);
     expect(packs.every((p) => p.version === 2 && p.style === 'pixel')).toBe(true);
   });
 

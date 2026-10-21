@@ -1,0 +1,322 @@
+{
+  "vfx/attack_0": {
+    "source": "assets-in/military/attack.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 4,
+      "y": 45,
+      "w": 119,
+      "h": 48
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 20,
+    "transparent": 4125
+  },
+  "vfx/attack_1": {
+    "source": "assets-in/military/attack.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 5,
+      "y": 45,
+      "w": 119,
+      "h": 48
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 21,
+    "transparent": 4121
+  },
+  "vfx/attack_2": {
+    "source": "assets-in/military/attack.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 4,
+      "y": 45,
+      "w": 119,
+      "h": 52
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 18,
+    "transparent": 4041
+  },
+  "vfx/attack_3": {
+    "source": "assets-in/military/attack.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 5,
+      "y": 45,
+      "w": 119,
+      "h": 46
+    },
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 17,
+    "transparent": 4247
+  },
+  "vfx/gunship_0": {
+    "source": "assets-in/military/gunship-v2.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 13,
+      "y": 47,
+      "w": 105,
+      "h": 49
+    },
+    "scale": 1.1320754716981132,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 15,
+    "transparent": 5166
+  },
+  "vfx/gunship_1": {
+    "source": "assets-in/military/gunship-v2.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 14,
+      "y": 47,
+      "w": 105,
+      "h": 49
+    },
+    "scale": 1.1320754716981132,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 17,
+    "transparent": 5148
+  },
+  "vfx/gunship_2": {
+    "source": "assets-in/military/gunship-v2.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 13,
+      "y": 37,
+      "w": 105,
+      "h": 50
+    },
+    "scale": 1.1320754716981132,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 18,
+    "transparent": 5076
+  },
+  "vfx/gunship_3": {
+    "source": "assets-in/military/gunship-v2.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 14,
+      "y": 37,
+      "w": 104,
+      "h": 53
+    },
+    "scale": 1.1320754716981132,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 19,
+    "transparent": 4982
+  },
+  "vfx/stealth_0": {
+    "source": "assets-in/military/stealth.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 35,
+      "w": 117,
+      "h": 70
+    },
+    "scale": 1.0598290598290598,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 14,
+    "transparent": 6224
+  },
+  "vfx/stealth_1": {
+    "source": "assets-in/military/stealth.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 35,
+      "w": 117,
+      "h": 70
+    },
+    "scale": 1.0598290598290598,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 11,
+    "transparent": 6232
+  },
+  "vfx/stealth_2": {
+    "source": "assets-in/military/stealth.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 35,
+      "w": 117,
+      "h": 70
+    },
+    "scale": 1.0598290598290598,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 15,
+    "transparent": 6231
+  },
+  "vfx/stealth_3": {
+    "source": "assets-in/military/stealth.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 7,
+      "y": 35,
+      "w": 117,
+      "h": 70
+    },
+    "scale": 1.0598290598290598,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 14,
+    "transparent": 6237
+  },
+  "vfx/rocket_0": {
+    "source": "assets-in/military/rockets.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 8,
+      "y": 56,
+      "w": 106,
+      "h": 24
+    },
+    "scale": 0.18803418803418803,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 13,
+    "transparent": 219
+  },
+  "vfx/rocket_1": {
+    "source": "assets-in/military/rockets.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 6,
+      "y": 56,
+      "w": 117,
+      "h": 24
+    },
+    "scale": 0.18803418803418803,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 13,
+    "transparent": 217
+  },
+  "vfx/rocket_mk2_0": {
+    "source": "assets-in/military/rockets.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 9,
+      "y": 41,
+      "w": 108,
+      "h": 41
+    },
+    "scale": 0.21666666666666667,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 12,
+    "transparent": 314
+  },
+  "vfx/rocket_mk2_1": {
+    "source": "assets-in/military/rockets.png",
+    "raw": [
+      1254,
+      1254
+    ],
+    "bbox": {
+      "x": 3,
+      "y": 41,
+      "w": 120,
+      "h": 41
+    },
+    "scale": 0.21666666666666667,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "colors": 12,
+    "transparent": 306
+  }
+}
