@@ -41,7 +41,7 @@ function boundary(dir, forbidden) {
 }
 
 export default tseslint.config(
-  { ignores: ['**/dist/**', '**/node_modules/**', 'coverage/**', '.determinism/**'] },
+  { ignores: ['**/dist/**', '**/node_modules/**', 'coverage/**', '.determinism/**', '.bench/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

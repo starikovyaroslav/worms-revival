@@ -46,6 +46,9 @@ export class World {
   private entities: Entity[] = [];
   private nextId = 1;
   private pending: Entity[] = [];
+  /** Entities by id and by kind, kept in id order; updated when pending ones join and on compaction. */
+  private readonly index = new Map<number, Entity>();
+  private readonly buckets = new Map<string, Entity[]>();
 
   /** Presentation events produced since the last drain. */
   events: SimEvent[] = [];
@@ -81,11 +84,17 @@ export class World {
   }
 
   byId(id: number): Entity | undefined {
-    return this.all().find((e) => e.id === id);
+    if (this.pending.length) this.flushPending();
+    return this.index.get(id);
   }
 
+  /** Live entities of one kind in id order. A fresh array, so callers may keep or reorder it. */
   ofKind<T extends Entity>(kind: string): T[] {
-    return this.all().filter((e) => e.kind === kind && !e.removed) as T[];
+    if (this.pending.length) this.flushPending();
+    const out: T[] = [];
+    const bucket = this.buckets.get(kind);
+    if (bucket) for (const e of bucket) if (!e.removed) out.push(e as T);
+    return out;
   }
 
   isBusy(): boolean {
@@ -109,17 +118,39 @@ export class World {
       const e = current[i] as Entity;
       if (!e.removed) e.update(this);
     }
-    this.entities = this.entities.filter((e) => !e.removed);
+    this.compact();
     this.flushPending();
     this.tick++;
   }
 
+  /** Drops removed entities in place, keeping order. */
+  private compact(): void {
+    const list = this.entities;
+    let n = 0;
+    for (let i = 0; i < list.length; i++) {
+      const e = list[i] as Entity;
+      if (e.removed) {
+        this.index.delete(e.id);
+        const bucket = this.buckets.get(e.kind) as Entity[];
+        bucket.splice(bucket.indexOf(e), 1);
+      } else {
+        list[n++] = e;
+      }
+    }
+    list.length = n;
+  }
+
   private flushPending(): void {
     if (!this.pending.length) return;
-    this.entities.push(...this.pending);
+    // Ids are monotonic and pending is in spawn order, so appending keeps everything sorted.
+    for (const e of this.pending) {
+      this.entities.push(e);
+      this.index.set(e.id, e);
+      let bucket = this.buckets.get(e.kind);
+      if (!bucket) this.buckets.set(e.kind, (bucket = []));
+      bucket.push(e);
+    }
     this.pending = [];
-    // Ids are monotonic, so this is a no-op unless something re-inserts entities.
-    this.entities.sort((a, b) => a.id - b.id);
   }
 
   hash(): number {

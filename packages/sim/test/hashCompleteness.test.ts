@@ -286,6 +286,8 @@ describe('hash completeness', () => {
           terrain: 'hashed by Terrain.hashInto (covered by terrain tests)',
           entities: 'every entity is hashed through its own class (tests above)',
           pending: 'flushed into entities before hashing',
+          index: 'derived lookup of entities (hashed through them)',
+          buckets: 'derived per-kind lookup of entities (hashed through them)',
         },
       },
       (w) => (w as World).hash(),
