@@ -323,26 +323,34 @@ body {
 
 /* ---------- Weapon panel (logical px) ---------- */
 
-.weapon-panel {
+/* The panel and the hover card sit in one row anchored to the right; the card grows to the left. */
+.panel-stack {
   position: absolute;
-  right: 4px;
-  bottom: 58px;
-  max-height: calc(var(--lh, 360) * 1px - 66px);
-  overflow: auto;
+  right: 6px;
+  bottom: 78px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-height: min(70%, calc(var(--lh, 360) * 1px - 86px));
+}
+
+.weapon-panel {
+  /* 13 rows x 17 + legend: about 66% of the 360 px logical height. */
   padding: 4px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
+  overflow: hidden;
 }
 
 .panel-row {
   display: flex;
-  gap: 2px;
+  gap: 1px;
   align-items: center;
 }
 
 .panel-key {
-  width: 32px;
+  width: 30px;
   padding-right: 2px;
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
@@ -350,6 +358,8 @@ body {
   text-align: right;
 }
 
+/* One slot style for every icon: the same dark tile, the icon blended onto it (`lighten` turns the
+   black background of some icons into the tile colour), a 1 px ink edge. */
 .slot {
   position: relative;
   width: 18px;
@@ -362,8 +372,7 @@ body {
     0 -1px 0 0 var(--ink),
     0 1px 0 0 var(--ink),
     -1px 0 0 0 var(--ink),
-    1px 0 0 0 var(--ink),
-    inset 1px 1px 0 0 #000;
+    1px 0 0 0 var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -374,12 +383,21 @@ body {
   cursor: pointer;
 }
 
-.slot:hover {
-  background: #45283c;
+.slot-tile {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  background: var(--panel-lo);
+}
+
+.slot:hover .slot-tile {
+  background: #2d2d46;
 }
 
 .slot.selected {
-  background: #663931;
   box-shadow:
     0 -1px 0 0 var(--gold),
     0 1px 0 0 var(--gold),
@@ -393,64 +411,113 @@ body {
   cursor: default;
 }
 
+/* Unavailable: desaturated and dimmed (not see-through), the badges stay readable. */
 .slot.disabled {
-  opacity: 0.35;
   cursor: not-allowed;
+}
+
+.slot.disabled .slot-tile {
+  filter: saturate(0.25) brightness(0.7);
+}
+
+.slot.shake {
+  animation: shake 0.3s steps(6);
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
 }
 
 /* Icons are 14x14 native: one logical px per icon px. */
 .slot-img {
   image-rendering: pixelated;
+  mix-blend-mode: lighten;
 }
 
-/* The emoji fallback only shows when the icon image is missing. */
-.slot-img + .slot-icon {
-  display: none;
-}
-
-.slot-img[style*='display: none'] + .slot-icon {
-  display: inline;
-}
-
+/* Badges: outlined numbers in a corner of the tile (ammo bottom right, lock + wait top left). */
 .slot-ammo,
 .slot-delay {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 1px;
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
-  line-height: 1;
+  line-height: 8px;
   text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000;
+    1px 0 0 var(--ink),
+    -1px 0 0 var(--ink),
+    0 1px 0 var(--ink),
+    0 -1px 0 var(--ink),
+    1px 1px 0 var(--ink),
+    -1px -1px 0 var(--ink),
+    1px -1px 0 var(--ink),
+    -1px 1px 0 var(--ink);
+}
+
+.slot-ammo {
+  right: 1px;
+  bottom: 0;
+  color: #fff;
 }
 
 .slot-delay {
-  left: 0;
+  left: 2px;
   top: 0;
-  right: auto;
-  bottom: auto;
-  color: #ff8080;
+  color: var(--gold);
 }
 
-/* width 0 + min-width 100%: the footer never widens the panel, it wraps inside it. */
-.panel-footer {
-  width: 0;
-  min-width: 100%;
-  min-height: 36px;
-  margin-top: 2px;
+.slot-ammo.sample,
+.slot-delay.sample {
+  position: static;
+  margin: 0 3px;
+}
+
+.lock {
+  display: block;
+  image-rendering: pixelated;
+  filter: drop-shadow(1px 0 0 var(--ink)) drop-shadow(-1px 0 0 var(--ink))
+    drop-shadow(0 1px 0 var(--ink)) drop-shadow(0 -1px 0 var(--ink));
+}
+
+.panel-legend {
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
-  line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  line-height: 10px;
+  color: var(--paper);
+  white-space: nowrap;
 }
 
-.panel-footer b {
+.weapon-card {
+  width: 150px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+.weapon-card b {
   font-weight: 400;
+  color: var(--gold);
+}
+
+.card-stat {
+  color: var(--paper);
+}
+
+.card-reason {
+  color: #ff8080;
 }
 
 .panel-backdrop {

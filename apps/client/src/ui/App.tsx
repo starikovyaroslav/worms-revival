@@ -22,6 +22,8 @@ interface Props {
   game: Game;
   api: Partial<UiApi>;
   onPick: (weaponId: string) => void;
+  /** The player clicked a weapon that cannot be used right now. */
+  onDenied?: () => void;
   onRematch: () => void;
   onMenu: () => void;
   onWatch: () => void;
@@ -39,6 +41,7 @@ export function App({
   game,
   api,
   onPick,
+  onDenied,
   onRematch,
   onMenu,
   onWatch,
@@ -151,6 +154,7 @@ export function App({
         <WeaponPanel
           game={game}
           onClose={() => setPanel(false)}
+          onDenied={onDenied}
           onPick={(id) => {
             onPick(id);
             setPanel(false);

@@ -134,6 +134,7 @@ async function boot() {
         game={m.game}
         api={ui}
         onPick={(weapon) => m.input.push({ t: 'select', weapon })}
+        onDenied={() => m.scene.sfx.ui('nope')}
         onRematch={() => start({ ...cfg, seed: Math.floor(Math.random() * 1e9) })}
         onMenu={showMenu}
         onWatch={() => {
