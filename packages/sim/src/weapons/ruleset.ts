@@ -1,4 +1,7 @@
 import './defs';
+import { fireAirRaid } from './archetypes/airRaid';
+import { fireAnimal } from './archetypes/animal';
+import { firePlaced } from './archetypes/placed';
 import { fireBurst, fireHitscan } from './archetypes/guns';
 import { BEHAVIOURS } from './behaviours';
 import type { Behaviour } from './behaviours/types';
@@ -60,6 +63,12 @@ function compile(spec: WeaponSpec): WeaponRules {
     }
     case 'melee':
       return { ...flagsOf(sim), fire: (ctx) => fireMelee(ctx, sim, spec.view) };
+    case 'placed':
+      return { ...flagsOf(sim), fire: (ctx) => firePlaced(ctx, sim) };
+    case 'animal':
+      return { ...flagsOf(sim), fire: (ctx) => fireAnimal(ctx, sim, spec.view) };
+    case 'airRaid':
+      return { ...flagsOf(sim), fire: (ctx) => fireAirRaid(ctx, sim, spec.view) };
     case 'launcher':
       return { ...flagsOf(sim), fire: (ctx) => fireLauncher(ctx, sim, spec.view) };
   }

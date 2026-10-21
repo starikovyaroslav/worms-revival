@@ -1,6 +1,9 @@
+import type { AirRaidSim } from './archetypes/airRaid';
+import type { AnimalSim } from './archetypes/animal';
 import type { BurstSim, HitscanSim } from './archetypes/guns';
 import type { LauncherSim } from './archetypes/launcher';
 import type { MeleeSim } from './archetypes/melee';
+import type { PlacedSim } from './archetypes/placed';
 import type { CustomSim } from './behaviours';
 import type { WeaponRules } from './weapon';
 
@@ -158,4 +161,13 @@ export interface InlineSim extends SimFlags {
 }
 
 export type SimSpec =
-  LegacySim | InlineSim | LauncherSim | MeleeSim | BurstSim | HitscanSim | CustomSim;
+  | LegacySim
+  | InlineSim
+  | LauncherSim
+  | PlacedSim
+  | AnimalSim
+  | AirRaidSim
+  | MeleeSim
+  | BurstSim
+  | HitscanSim
+  | CustomSim;

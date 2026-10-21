@@ -1,4 +1,5 @@
 import type { SimFlags } from '../spec';
+import { donkey, type DonkeyParams } from './donkey';
 import { longbow, type LongbowParams } from './longbow';
 import {
   axe,
@@ -19,6 +20,7 @@ export interface BehaviourParams {
   dragonball: DragonballParams;
   kamikaze: KamikazeParams;
   suicide: SuicideParams;
+  donkey: DonkeyParams;
 }
 
 export type BehaviourName = keyof BehaviourParams;
@@ -29,6 +31,7 @@ export const BEHAVIOURS: { [K in BehaviourName]: Behaviour<BehaviourParams[K]> }
   dragonball,
   kamikaze,
   suicide,
+  donkey,
 };
 
 /** `sim` section of a weapon with a named behaviour. */

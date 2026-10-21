@@ -1,10 +1,19 @@
 import type { WeaponSpec } from '@wr/sim';
-import { MAX_LAUNCH } from './shared';
+import { TPS } from '@wr/sim';
+import { DROP_ALTITUDE, MAX_LAUNCH } from './shared';
 
 export const ANIMALS: WeaponSpec[] = [
   {
     id: 'sheeplauncher',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'animal',
+      aim: 'angle',
+      charge: true,
+      animal: { damage: 75, fuse: 5 * TPS },
+      spawn: { dx: 0 },
+      handover: 'focus',
+      launch: { speed: MAX_LAUNCH * 0.8 },
+    },
     ui: {
       name: 'Овцемёт',
       hint: 'Выстреливает овцу: приземлится и побежит.',
@@ -13,11 +22,18 @@ export const ANIMALS: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: true, rank: 17 },
-    view: { look: 'sheep' },
+    view: { look: 'sheep', sound: 'baa' },
   },
   {
     id: 'molebomb',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'animal',
+      aim: 'none',
+      charge: false,
+      animal: { damage: 45, fuse: 9 * TPS, look: 'mole', speed: 1.1 },
+      spawn: { dx: 8 },
+      handover: 'control',
+    },
     ui: {
       name: 'Крот-бомба',
       hint: 'Бежит и прыгает. Пробел — взрыв.',
@@ -30,7 +46,17 @@ export const ANIMALS: WeaponSpec[] = [
   },
   {
     id: 'molesquad',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'airRaid',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      count: 5,
+      spacing: 26,
+      speed: 2,
+      altitude: DROP_ALTITUDE,
+      payload: { kind: 'animal', damage: 45, fuse: 6 * TPS, look: 'mole', speed: 1.1 },
+    },
     ui: {
       name: 'Эскадрилья кротов',
       hint: 'Клик по цели: пять кротов с неба.',
@@ -39,11 +65,18 @@ export const ANIMALS: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: true, rank: 27 },
-    view: { look: 'mole' },
+    view: { look: 'mole', sound: 'airstrike' },
   },
   {
     id: 'salvation',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'animal',
+      aim: 'none',
+      charge: false,
+      animal: { damage: 75, fuse: 10 * TPS, look: 'nun', speed: 0.9 },
+      spawn: { dx: 8 },
+      handover: 'control',
+    },
     ui: {
       name: 'Армия спасения',
       hint: 'Идёт до 10 секунд. Пробел — взрыв.',
@@ -86,7 +119,15 @@ export const ANIMALS: WeaponSpec[] = [
   },
   {
     id: 'madcows',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'animal',
+      aim: 'none',
+      charge: false,
+      animal: { damage: 75, fuse: 6 * TPS, look: 'cow', speed: 1.7, contact: true, manual: false },
+      spawn: { dx: 10, dy: -2, step: 10 },
+      handover: 'focus',
+      perPowerStar: true,
+    },
     ui: {
       name: 'Бешеные коровы',
       hint: 'Несутся вперёд и взрываются при касании.',
@@ -99,7 +140,14 @@ export const ANIMALS: WeaponSpec[] = [
   },
   {
     id: 'oldwoman',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'animal',
+      aim: 'none',
+      charge: false,
+      animal: { damage: 75, fuse: 5 * TPS, look: 'oldwoman', speed: 0.6, manual: false },
+      spawn: { dx: 8 },
+      handover: 'focus',
+    },
     ui: {
       name: 'Старушка',
       hint: 'Бредёт пять секунд и взрывается. Не остановить.',
@@ -108,11 +156,18 @@ export const ANIMALS: WeaponSpec[] = [
       col: 1,
     },
     ai: { usable: true, rank: 32, reach: { dx: 150, dy: 60 } },
-    view: { look: 'oldwoman' },
+    view: { look: 'oldwoman', sound: 'baa' },
   },
   {
     id: 'donkey',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'donkey',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      params: { startY: -60, blast: { damage: 100 } },
+    },
     ui: {
       name: 'Бетонный осёл',
       hint: 'Клик по цели: пробивает землю до воды.',
@@ -121,6 +176,6 @@ export const ANIMALS: WeaponSpec[] = [
       col: 2,
     },
     ai: { usable: true, rank: 28 },
-    view: {},
+    view: { sound: 'baa' },
   },
 ];

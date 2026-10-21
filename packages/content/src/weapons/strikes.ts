@@ -1,9 +1,30 @@
 import type { WeaponSpec } from '@wr/sim';
+import { TPS } from '@wr/sim';
+import { DROP_ALTITUDE } from './shared';
 
 export const STRIKES: WeaponSpec[] = [
   {
     id: 'airstrike',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'airRaid',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      count: 5,
+      spacing: 22,
+      speed: 4,
+      altitude: DROP_ALTITUDE,
+      payload: {
+        kind: 'projectile',
+        projectile: {
+          look: 'missile',
+          radius: 2,
+          wind: 0,
+          impact: 'explode',
+          blast: { damage: 30 },
+        },
+      },
+    },
     ui: {
       name: 'Авиаудар',
       hint: 'Клик по цели. Не работает в пещерах.',
@@ -12,18 +33,58 @@ export const STRIKES: WeaponSpec[] = [
       col: 0,
     },
     ai: { usable: true, rank: 14 },
-    view: { look: 'missile' },
+    view: { look: 'missile', sound: 'airstrike' },
   },
   {
     id: 'napalm',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'airRaid',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      count: 5,
+      spacing: 24,
+      speed: 3.2,
+      altitude: DROP_ALTITUDE,
+      payload: {
+        kind: 'projectile',
+        projectile: {
+          look: 'napalm',
+          radius: 2,
+          wind: 0,
+          impact: 'explode',
+          blast: { damage: 5, push: 0.3, noCrater: true },
+          flames: { count: 24, speed: 2.8 },
+        },
+      },
+    },
     ui: { name: 'Напалм', hint: 'Клик по цели. Огонь сносит ветром.', icon: '🌋', row: 6, col: 1 },
     ai: { usable: true, rank: 22 },
-    view: { look: 'napalm' },
+    view: { look: 'napalm', sound: 'airstrike' },
   },
   {
     id: 'mail',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'airRaid',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      count: 5,
+      spacing: 26,
+      speed: 4,
+      altitude: DROP_ALTITUDE,
+      payload: {
+        kind: 'projectile',
+        projectile: {
+          look: 'letter',
+          radius: 2,
+          wind: 0.6,
+          gravity: 0.5,
+          impact: 'explode',
+          blast: { damage: 50 },
+        },
+      },
+    },
     ui: {
       name: 'Почтовый налёт',
       hint: 'Письма планируют и сносятся ветром.',
@@ -32,18 +93,48 @@ export const STRIKES: WeaponSpec[] = [
       col: 2,
     },
     ai: { usable: true, rank: 23 },
-    view: { look: 'letter' },
+    view: { look: 'letter', sound: 'airstrike' },
   },
   {
     id: 'minestrike',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'airRaid',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      count: 5,
+      spacing: 24,
+      speed: 4,
+      altitude: DROP_ALTITUDE,
+      payload: { kind: 'mine', armTicks: 0, fuseTicks: 3 * TPS, dudsAllowed: false },
+    },
     ui: { name: 'Налёт мин', hint: 'Пять мин падают с неба.', icon: '💥', row: 6, col: 3 },
     ai: { usable: true, rank: 24 },
-    view: {},
+    view: { sound: 'airstrike' },
   },
   {
     id: 'frenchsheep',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'airRaid',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      count: 5,
+      spacing: 30,
+      speed: 4,
+      altitude: DROP_ALTITUDE,
+      payload: {
+        kind: 'projectile',
+        projectile: {
+          look: 'frenchsheep',
+          radius: 3,
+          wind: 0,
+          impact: 'explode',
+          blast: { damage: 75 },
+          flames: { count: 14, speed: 2.4 },
+        },
+      },
+    },
     ui: {
       name: 'Французский налёт овец',
       hint: 'Горящие овцы с неба.',
@@ -52,11 +143,30 @@ export const STRIKES: WeaponSpec[] = [
       col: 3,
     },
     ai: { usable: true, rank: 26 },
-    view: { look: 'frenchsheep' },
+    view: { look: 'frenchsheep', sound: 'airstrike' },
   },
   {
     id: 'carpet',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'airRaid',
+      aim: 'target',
+      charge: false,
+      needsSky: true,
+      count: 12,
+      spacing: 14,
+      speed: 3.4,
+      altitude: DROP_ALTITUDE,
+      payload: {
+        kind: 'projectile',
+        projectile: {
+          look: 'carpet',
+          radius: 2,
+          wind: 0,
+          impact: 'explode',
+          blast: { damage: 30 },
+        },
+      },
+    },
     ui: {
       name: 'Ковровая бомбардировка',
       hint: 'Длинная цепочка бомб вдоль линии полёта.',
@@ -65,6 +175,6 @@ export const STRIKES: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: true, rank: 25 },
-    view: { look: 'carpet' },
+    view: { look: 'carpet', sound: 'airstrike' },
   },
 ];

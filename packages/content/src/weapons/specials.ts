@@ -41,14 +41,28 @@ export const THROWN_AND_SHEEP: WeaponSpec[] = [
   },
   {
     id: 'sheep',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'animal',
+      aim: 'none',
+      charge: false,
+      animal: { damage: 75, fuse: 9 * TPS },
+      spawn: { dx: 8 },
+      handover: 'control',
+    },
     ui: { name: 'Овца', hint: 'Пробел ещё раз — бабах.', icon: '🐑', row: 5, col: 2 },
     ai: { usable: false },
-    view: { look: 'sheep' },
+    view: { look: 'sheep', sound: 'baa' },
   },
   {
     id: 'supersheep',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'animal',
+      aim: 'none',
+      charge: false,
+      animal: { damage: 75, fuse: 9 * TPS, canFly: true, aquaUpgrade: 'aquaSheep' },
+      spawn: { dx: 8 },
+      handover: 'control',
+    },
     ui: {
       name: 'Супер-овца',
       hint: 'Пробел — взлёт, стрелки — руль, пробел — бабах.',
@@ -57,7 +71,7 @@ export const THROWN_AND_SHEEP: WeaponSpec[] = [
       col: 3,
     },
     ai: { usable: false },
-    view: { look: 'sheep' },
+    view: { look: 'sheep', sound: 'baa' },
   },
   {
     id: 'hhg',
