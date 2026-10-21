@@ -25,6 +25,10 @@ async function open(fallback = false, reducedMotion = 'no-preference', deviceSca
     await page.route('**/assets/vfx/manifest.json*', (route) =>
       route.fulfill({ status: 404, body: '' }),
     );
+  if (fallback)
+    await page.route('**/assets/military/manifest.json*', (route) =>
+      route.fulfill({ status: 404, body: '' }),
+    );
   await page.goto(`${url}?seed=42&scheme=arsenal`);
   await page.waitForFunction(() => window.__game?.scene.terrainView.art);
   await page.evaluate(async () => {
@@ -102,7 +106,7 @@ try {
     return { loaded, clips: clips.length, flight, hashStable: before === game.hash() };
   });
   assert.ok(coverage.loaded && coverage.hashStable);
-  assert.equal(coverage.clips, 17);
+  assert.equal(coverage.clips, 22);
   assert.deepEqual(
     coverage.flight.map((p) => p.frames),
     [2, 2, 4],
@@ -131,9 +135,7 @@ try {
         source: cue.source,
         payloads: cue.payloadIds.length,
         lineage: cue.payloadIds.every((id) => game.world.sourceOf(game.world.byId(id)) === weapon),
-        open:
-          f.sprite.texture ===
-          render.assets.get(`vfx/${weapon === 'mail' ? 'mailplane' : 'cargo'}_3`),
+        open: f.sprite.texture === render.assets.get(`vfx/${render.aircraftFor(weapon)}_3`),
         drops: scene.transports.drops.length,
         hashStable: before === game.hash(),
       };
@@ -211,6 +213,7 @@ try {
     const stable = before === game.hash();
     scene.effects.clear();
     fire('nuke');
+    game.world.emit({ type: 'fired', weapon: 'nuke', wormId: game.activeWormId });
     scene.handleEvents();
     frame(100);
     return {
@@ -223,6 +226,7 @@ try {
         (c) => c.frames[0] === window.__vfx.render.assets.get('vfx/nuke_0'),
       ),
       sensory: !!scene.post.sensoryEffect,
+      stealth: scene.transports.flights.at(-1)?.aircraft === 'stealth',
     };
   });
   assert.ok(
@@ -232,7 +236,8 @@ try {
       lifecycle.bounded &&
       lifecycle.stable &&
       lifecycle.nuke &&
-      lifecycle.sensory,
+      lifecycle.sensory &&
+      lifecycle.stealth,
     JSON.stringify(lifecycle),
   );
   await page.screenshot({ path: `${output}/nuke-in-game.png` });
