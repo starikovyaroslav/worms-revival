@@ -9,6 +9,7 @@ import {
   EffectsSystem,
   PostFx,
   Transports,
+  BurnMarks,
   SpeechView,
   TargetView,
   Background,
@@ -39,6 +40,7 @@ export class GameScene {
   /** The CRT picture excludes text and the aim overlay. */
   private picture = new Container();
   private terrainView: TerrainView;
+  private burnMarks: BurnMarks;
   private water: WaterView;
   private entityLayer = new Container();
   private wormLayer = new Container();
@@ -90,6 +92,7 @@ export class GameScene {
 
     this.background = new Background(theme, terrain.width, terrain.height, seed);
     this.terrainView = new TerrainView(terrain, theme);
+    this.burnMarks = new BurnMarks(terrain);
     this.water = new WaterView(theme, terrain);
     this.fx = new Fx(theme.soil.base);
     this.effects = new EffectsSystem({
@@ -107,6 +110,7 @@ export class GameScene {
     this.world.addChild(
       this.water.back,
       this.terrainView.container,
+      this.burnMarks.container,
       this.entityLayer,
       this.wormLayer,
       this.targetView.container,
@@ -148,6 +152,7 @@ export class GameScene {
     this.post.destroy();
     this.effects.destroy();
     this.transports.destroy();
+    this.burnMarks.destroy();
     this.app.stage.removeChildren();
     this.background.container.destroy({ children: true });
     this.world.destroy({ children: true });
@@ -211,6 +216,7 @@ export class GameScene {
           break;
         case 'explosion': {
           const profile = weaponFx(ev.source);
+          if (profile.scorch) this.burnMarks.add(ev.x, ev.y, ev.radius);
           this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
           this.effects.play(profile.recipe, ev.x, ev.y, ev.radius * profile.scale, {
             dirt: this.dirt,
@@ -447,6 +453,7 @@ export class GameScene {
       this.camera.x,
       this.app.screen.width / 2 / this.camera.scale,
     );
+    this.burnMarks.update(dtMs, game.world.terrain.dirty.length > 0);
     this.terrainView.update();
 
     for (const [, v] of this.worms) {

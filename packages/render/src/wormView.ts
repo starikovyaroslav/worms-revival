@@ -1,5 +1,6 @@
 import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import { assets } from './assets';
+import { clipTextures } from './clipEffects';
 import { cos, sin, type Worm } from '@wr/sim';
 import {
   DEFAULT_LABEL_SCALE,
@@ -34,6 +35,8 @@ export class WormView {
   private arrow = new Graphics();
   /** Ice block overlay drawn over a frozen worm. */
   private ice = new Graphics();
+  private poison = new Sprite();
+  private poisonFrames = clipTextures('gas');
   private color = 0xffffff;
   private maxHp = 100;
   private shown = 100;
@@ -91,6 +94,12 @@ export class WormView {
     } else {
       this.container.addChild(this.body, this.ice);
     }
+    this.poison.anchor.set(0.5, 1);
+    this.poison.position.set(0, -19);
+    this.poison.scale.set(0.35);
+    this.poison.alpha = 0.75;
+    this.poison.visible = false;
+    this.container.addChild(this.poison);
   }
 
   /** New label size (viewport change): restyles the texts and redraws the tag at the new scale. */
@@ -244,6 +253,12 @@ export class WormView {
       this.container.visible = false;
       this.label.visible = false;
       return;
+    }
+    this.poison.visible = w.poisoned && this.poisonFrames.length > 0;
+    if (this.poison.visible) {
+      this.poison.texture =
+        this.poisonFrames[Math.floor(this.time * 6) % this.poisonFrames.length]!;
+      this.poison.x = Math.round(Math.sin(this.time * 2) * 3);
     }
 
     if (this.blink > 0) this.blink -= dt;

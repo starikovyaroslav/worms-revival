@@ -23,4 +23,5 @@ export * from './arsenalArt';
 export * from './clipEffects';
 export * from './vfxCatalog';
 export * from './transports';
+export * from './burnMarks';
 export * from './palette';
