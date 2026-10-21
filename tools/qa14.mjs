@@ -1,0 +1,20 @@
+import { open, st, ticking, until } from './qa_lib.mjs';
+const { browser, page, logs } = await open('http://localhost:5231/?seed=1');
+await ticking(page);
+const R = (...a)=>console.log(...a);
+const dlg = ()=>page.evaluate(()=>document.querySelector('.esc-menu')?.innerText.replace(/\n/g,' | ')||null);
+const sur = ()=>page.evaluate(()=>window.__game.game.teams.map(t=>t.surrendered));
+await page.keyboard.press('KeyQ'); await page.waitForTimeout(500);
+await page.evaluate(()=>window.__game.match.input.push({t:'select',weapon:'surrender'})); await page.waitForTimeout(500);
+R('weapon', (await st(page)).weapon, await sur());
+await page.keyboard.press('Space'); await page.waitForTimeout(500);
+R('after Space: dialog', await dlg(), 'surrendered', await sur(), 'paused', (await st(page)).paused);
+await page.screenshot({path:'/tmp/qa_m2/u4_surrender.png'});
+await page.keyboard.press('Escape'); await page.waitForTimeout(300);
+R('Esc cancels', await dlg(), await sur(), (await st(page)).paused);
+await page.keyboard.press('Space'); await page.waitForTimeout(400);
+R('Space again', await dlg(), await sur());
+await page.keyboard.press('Enter'); await page.waitForTimeout(400); // default focus
+R('Enter on focused', await dlg(), await sur(), await page.evaluate(()=>document.activeElement?.innerText));
+await browser.close();
+console.log(logs.filter(l=>!l.includes('Graphics')));

@@ -36,3 +36,14 @@ the relevant files/docs, acceptance criteria, and what to return.
 - Be specific and critical; reject generic or template solutions. Consistency with the existing HUD
   style and the project principles in docs/ROADMAP.md beats novelty.
 - Keep the owner's time cheap: one report, decisions at the top, no play-by-play.
+
+## Cost discipline (owner asked to save tokens)
+
+- Default to ONE developer per milestone chunk; spawn QA/reviewer only at milestone ends, not per commit.
+- Use `model: "sonnet"` for developer/qa/designer/producer and only use opus for a rare architecture decision.
+- Prefer scripted checks (`npm run check`, `node tools/e2e-scale.mjs`, determinism) over exploratory browser QA;
+  run exploratory QA only for new player-facing flows, with a narrow checklist.
+- Never run several agents on the same files; do not re-run audits that exist in /tmp or docs/plans.
+- Tell agents to keep reports short (under 40 lines) and to skip screenshots unless the change is visual.
+- Small fixes (one file, obvious) are done by the orchestrator directly, without an agent.
+

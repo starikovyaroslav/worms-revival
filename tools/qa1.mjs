@@ -1,0 +1,12 @@
+import { open, st } from './qa_lib.mjs';
+const { browser, page, logs } = await open('http://localhost:5231/?seed=1');
+console.log(await st(page));
+await page.screenshot({ path: '/tmp/qa_m2/u1_hotseat_prompt.png' });
+await page.waitForTimeout(6000);
+console.log('after 6s', await st(page));
+await page.keyboard.press('KeyX');
+await page.waitForTimeout(100);
+console.log('after key', await st(page));
+await page.screenshot({ path: '/tmp/qa_m2/u1_after_key.png' });
+console.log(logs);
+await browser.close();

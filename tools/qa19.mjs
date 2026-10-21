@@ -1,0 +1,31 @@
+import { open, st, ticking, until } from './qa_lib.mjs';
+const R=(...a)=>console.log(...a);
+const { browser, page, logs } = await open('http://localhost:5231/?seed=1');
+const dlg = ()=>page.evaluate(()=>document.querySelector('.esc-menu')?.innerText.replace(/\n/g,' | ')||null);
+await ticking(page); await page.keyboard.press('KeyQ'); await page.waitForTimeout(400);
+await page.evaluate(()=>window.__game.match.input.push({t:'surrender'}));
+await until(page, s=>s.phase==='gameover', 30000);
+await page.waitForTimeout(800); await page.screenshot({path:'/tmp/qa_m2/gameover.png'});
+R('gameover text', await page.evaluate(()=>document.querySelector('.gameover')?.innerText.replace(/\n/g,' | ')));
+const t1=(await st(page)).tick; await page.keyboard.press('Escape'); await page.waitForTimeout(500);
+R('Esc on gameover:', await dlg(), 'paused', (await st(page)).paused); await page.screenshot({path:'/tmp/qa_m2/u4_gameover_esc.png'});
+await page.keyboard.press('Escape'); await page.waitForTimeout(300);
+R('resumed', await dlg());
+// watch replay
+await page.getByText('Смотреть повтор').click(); await page.waitForTimeout(1500); await ticking(page);
+R('replay started: replay-bar', await page.evaluate(()=>!!document.querySelector('.replay-bar')));
+await page.waitForTimeout(1500);
+const a=await st(page); await page.keyboard.press('Escape'); await page.waitForTimeout(400);
+const b=await st(page); await page.waitForTimeout(800); const c=await st(page);
+R('replay Esc: dialog', await dlg(), 'tick frozen', b.tick===c.tick, 'tick advanced before', b.tick-a.tick); await page.screenshot({path:'/tmp/qa_m2/u4_replay_esc.png'});
+await page.keyboard.press('Space'); await page.keyboard.press('KeyZ');
+await page.keyboard.press('Escape'); await page.waitForTimeout(300);
+await page.waitForTimeout(1000); const d=await st(page); R('replay resumed, tick progress', d.tick-c.tick);
+// finish replay & verify
+await page.evaluate(()=>window.__game.match.setSpeed(4));
+await until(page, s=>s.phase==='gameover', 120000).catch(e=>R('replay no gameover', e.message));
+await page.waitForTimeout(500);
+R('replay verified', await page.evaluate(()=>window.__game.match.replayVerified));
+await page.screenshot({path:'/tmp/qa_m2/replay_end.png'});
+R('replay end text', await page.evaluate(()=>document.querySelector('.gameover')?.innerText.replace(/\n/g,' | ')));
+await browser.close(); console.log(logs.filter(l=>!l.includes('Graphics')&&!l.includes('BindGroup')));
