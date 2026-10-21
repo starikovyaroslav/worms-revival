@@ -11,6 +11,7 @@ import { darken, lerpColor } from '../color';
 import { snapColor } from '../palette';
 import { createFxTextures, type FxTextureId } from './textures';
 import { PixelBlasts } from './blasts';
+import { ClipEffects } from '../clipEffects';
 
 /** What an effect can ask the rest of the presentation to do. */
 export interface FxHooks {
@@ -37,6 +38,7 @@ export interface PlayContext {
   dirt: number;
   /** -1..1 wind. */
   wind: number;
+  accent?: number;
 }
 
 interface Particle {
@@ -88,6 +90,7 @@ export class EffectsSystem {
   readonly front = new Container();
   /** Procedural pixel blasts (fireball, splash ring). */
   readonly blasts = new PixelBlasts();
+  readonly clips = new ClipEffects();
   private textures = createFxTextures();
   private particles: Particle[] = [];
   private pending: Pending[] = [];
@@ -97,6 +100,7 @@ export class EffectsSystem {
   constructor(private readonly hooks: FxHooks) {
     // Under the sparks, over the smoke.
     this.front.addChild(this.blasts.container);
+    this.front.addChild(this.clips.container);
   }
 
   /**
@@ -110,7 +114,7 @@ export class EffectsSystem {
     for (const layer of recipe.layers) {
       const at = layer.at ?? 0;
       if (at <= 0) this.run(layer, x, y, k, ctx);
-      else this.pending.push({ at, layer, x, y, k, ctx });
+      else if (this.pending.length < 1024) this.pending.push({ at, layer, x, y, k, ctx });
     }
   }
 
@@ -127,14 +131,28 @@ export class EffectsSystem {
         if (k >= layer.minK) this.hooks.shockwave(x, y, layer.strength * Math.min(1.5, k * 0.7));
         break;
       case 'light':
-        this.hooks.light?.(x, y, layer.color, layer.radius * k * 50, layer.life, layer.intensity);
+        this.hooks.light?.(
+          x,
+          y,
+          ctx.accent ?? layer.color,
+          layer.radius * k * 50,
+          layer.life,
+          layer.intensity,
+        );
         break;
       case 'flash':
         this.flash(layer, x, y, k);
         break;
       case 'blast':
-        if (layer.kind === 'fireball') this.blasts.fireball(x, y, layer.size * k * 50);
-        else this.blasts.splash(x, y, layer.size * k * 50);
+        if (layer.kind === 'fireball') {
+          if (
+            !this.clips.play(layer.clip ?? 'blast', x, y, {
+              life: layer.life ?? 0.55,
+              width: layer.size * k * 100,
+            })
+          )
+            this.blasts.fireball(x, y, layer.size * k * 50);
+        } else this.blasts.splash(x, y, layer.size * k * 50);
         break;
       case 'burst':
         this.burst(layer, x, y, k, ctx);
@@ -157,6 +175,7 @@ export class EffectsSystem {
   }
 
   private flash(l: FlashLayer, x: number, y: number, k: number): void {
+    if (this.particles.length >= 768) return;
     const sprite = this.take(this.pickTex(l.tex));
     sprite.blendMode = l.blend;
     sprite.tint = l.color;
@@ -191,6 +210,7 @@ export class EffectsSystem {
 
   /** A bullet trail: a thin bright streak that fades quickly. */
   tracer(x0: number, y0: number, x1: number, y1: number): void {
+    if (this.particles.length >= 768) return;
     const sprite = this.take(this.textures.spark[0] as Texture);
     sprite.blendMode = 'add';
     sprite.tint = 0xffe8a8;
@@ -233,7 +253,7 @@ export class EffectsSystem {
   }
 
   private burst(l: BurstLayer, x: number, y: number, k: number, ctx: PlayContext): void {
-    const n = Math.round(l.count[0] + l.count[1] * k);
+    const n = Math.min(768 - this.particles.length, Math.round(l.count[0] + l.count[1] * k));
     const container = l.blend === 'add' ? this.front : this.back;
     for (let i = 0; i < n; i++) {
       const frames = l.stages ? this.textures[l.tex] : [];
@@ -297,11 +317,12 @@ export class EffectsSystem {
   }
 
   get activeCount(): number {
-    return this.particles.length + this.blasts.activeCount;
+    return this.particles.length + this.blasts.activeCount + this.clips.activeCount;
   }
 
   update(dtMs: number): void {
     this.blasts.update(dtMs);
+    this.clips.update(dtMs);
     const dt = Math.min(0.05, dtMs / 1000);
     if (this.pending.length) {
       for (const p of this.pending) p.at -= dt;
@@ -370,6 +391,7 @@ export class EffectsSystem {
 
   clear(): void {
     this.blasts.clear();
+    this.clips.clear();
     for (const p of this.particles) {
       p.sprite.parent?.removeChild(p.sprite);
       p.sprite.visible = false;
@@ -377,5 +399,14 @@ export class EffectsSystem {
     }
     this.particles.length = 0;
     this.pending.length = 0;
+  }
+
+  destroy(): void {
+    this.clear();
+    this.clips.destroy();
+    for (const sprite of this.pool) sprite.destroy();
+    this.pool.length = 0;
+    this.back.destroy({ children: true });
+    this.front.destroy({ children: true });
   }
 }

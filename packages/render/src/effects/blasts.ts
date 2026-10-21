@@ -57,6 +57,10 @@ export class PixelBlasts {
   }
 
   private add(kind: Blast['kind'], x: number, y: number, radius: number, life: number): void {
+    if (this.blasts.length >= 24) {
+      const old = this.blasts.shift()!;
+      old.sprite.destroy({ texture: true, textureSource: true });
+    }
     const half = Math.ceil(radius * (kind === 'fireball' ? 1.5 : 1.2)) + 2;
     const size = half * 2;
     const pixels = new Uint8Array(size * size * 4);

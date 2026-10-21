@@ -1,6 +1,6 @@
 import { Container, Graphics, type Application } from 'pixi.js';
 import { TPS, Worm, type Game, type Mine, type Projectile, type SoundId } from '@wr/sim';
-import { PHRASES, weaponInfo } from '@wr/content';
+import { PHRASES, weaponInfo, weaponFx } from '@wr/content';
 import { Sfx } from './audio/sfx';
 import type { Viewport, ViewportController } from './viewport';
 import {
@@ -144,6 +144,7 @@ export class GameScene {
     this.unsubscribe();
     this.lights.destroy();
     this.post.destroy();
+    this.effects.destroy();
     this.transports.destroy();
     this.app.stage.removeChildren();
     this.background.container.destroy({ children: true });
@@ -206,13 +207,32 @@ export class GameScene {
         case 'tracer':
           this.effects.tracer(ev.x0, ev.y0, ev.x1, ev.y1);
           break;
-        case 'explosion':
+        case 'explosion': {
+          const profile = weaponFx(ev.source);
           this.sound('explosion', ev.x, ev.y, Math.min(1.5, ev.radius / 50));
-          this.effects.play('explosion', ev.x, ev.y, ev.radius, {
+          this.effects.play(profile.recipe, ev.x, ev.y, ev.radius * profile.scale, {
             dirt: this.dirt,
             wind: this.game.world.wind,
+            accent: profile.accent,
           });
           this.camera.shake(Math.min(10, ev.radius / 6));
+          break;
+        }
+        case 'steam':
+          this.effects.clips.play('steam', ev.x, ev.y, {
+            life: 1.1,
+            width: 26,
+            vy: -15,
+            fade: true,
+          });
+          break;
+        case 'death':
+          this.effects.clips.play('ghost', ev.x, ev.y - 10, {
+            life: 1.8,
+            width: 24,
+            vy: -32,
+            fade: true,
+          });
           break;
         case 'splash':
           this.sound('splash', ev.x, ev.y, ev.size);

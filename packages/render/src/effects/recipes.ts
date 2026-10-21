@@ -1,4 +1,5 @@
 import type { FxTextureId } from './textures';
+import type { VfxClip } from '../vfxCatalog';
 
 /**
  * Effect recipes are plain data: a list of layers played at offsets from the start.
@@ -71,6 +72,8 @@ export interface BlastLayer {
   kind: 'fireball' | 'splash';
   /** Radius as a multiple of k × 50 px. */
   size: number;
+  clip?: VfxClip;
+  life?: number;
 }
 
 export interface CameraLayer {
@@ -111,7 +114,6 @@ export interface Recipe {
   id: string;
   layers: Layer[];
 }
-
 
 export const RECIPES: Record<string, Recipe> = {
   explosion: {
@@ -387,3 +389,38 @@ export const RECIPES: Record<string, Recipe> = {
     ],
   },
 };
+
+/** Related weapons share an art vocabulary but differ in debris, light, timing and plume shape. */
+function explosionFamily(
+  id: string,
+  clip: VfxClip,
+  color: number,
+  debris?: FxTextureId,
+  life = 0.65,
+  size = 1,
+): void {
+  RECIPES[id] = {
+    id,
+    layers: RECIPES.explosion!.layers.map((layer): Layer => {
+      if (layer.type === 'blast') return { ...layer, clip, life, size };
+      if (layer.type === 'light') return { ...layer, color };
+      if (layer.type === 'burst' && layer.tex === 'chunk' && debris)
+        return { ...layer, tex: debris, terrain: false, colors: [0xffffff], fixed: [1, 1] };
+      return layer;
+    }),
+  };
+  RECIPES[id]!.layers.push({
+    type: 'shockwave',
+    strength: clip === 'nuke' ? 1.4 : 0.65,
+    minK: clip === 'nuke' ? 0 : 0.9,
+  });
+}
+explosionFamily('explosion-fragment', 'fragment', 0xfbf236, 'metal', 0.6);
+explosionFamily('explosion-fire', 'incendiary', 0xdf7126, undefined, 0.85, 1.2);
+explosionFamily('explosion-banana', 'fragment', 0xfbf236, 'banana', 0.7, 1.1);
+explosionFamily('explosion-animal', 'blast', 0xcbdbfc, 'wool', 0.7);
+explosionFamily('explosion-energy', 'energy', 0x5fcde4, 'spark', 0.8, 1.2);
+explosionFamily('explosion-toxic', 'gas', 0x99e550, 'toxic', 1.3, 1.2);
+explosionFamily('explosion-paper', 'fragment', 0xcbdbfc, 'paper', 0.7);
+explosionFamily('explosion-meteor', 'incendiary', 0xdf7126, 'chunk', 1, 1.3);
+explosionFamily('explosion-nuke', 'nuke', 0x99e550, undefined, 3.2, 1.8);

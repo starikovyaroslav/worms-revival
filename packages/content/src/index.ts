@@ -5,3 +5,4 @@ export * from './match';
 export * from './replay';
 export * from './phrases';
 export * from './wormpot';
+export * from './vfx';

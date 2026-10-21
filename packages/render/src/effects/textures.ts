@@ -1,6 +1,21 @@
 import { Texture } from 'pixi.js';
+import { assets } from '../assets';
+import { clipTextures } from '../clipEffects';
 
-export type FxTextureId = 'soft' | 'smoke' | 'spark' | 'ring' | 'chunk' | 'ember' | 'px' | 'puff';
+export type FxTextureId =
+  | 'soft'
+  | 'smoke'
+  | 'spark'
+  | 'ring'
+  | 'chunk'
+  | 'ember'
+  | 'px'
+  | 'puff'
+  | 'paper'
+  | 'wool'
+  | 'metal'
+  | 'banana'
+  | 'toxic';
 
 // Deterministic cosmetic noise so the textures look the same on every run.
 function rng(seed: number): () => number {
@@ -186,15 +201,23 @@ function puffTexture(n: number, seed: number): Texture {
 
 /** All procedural effect textures. Replace with hand-made atlases later (same ids). */
 export function createFxTextures(): Record<FxTextureId, Texture[]> {
+  const smoke = clipTextures('smoke'),
+    gas = clipTextures('gas');
+  const paper = clipTextures('letter');
   return {
     soft: [pixelate(softTexture(), 16, 16, 0.4)],
-    smoke: [1, 2, 3, 4].map((n) => pixelate(smokeTexture(n), 16, 16, 0.3)),
+    smoke: smoke.length ? smoke : [1, 2, 3, 4].map((n) => pixelate(smokeTexture(n), 16, 16, 0.3)),
     spark: [pixelate(sparkTexture(), 8, 2, 0.35)],
     ring: [pixelate(ringTexture(), 48, 48, 0.35)],
     chunk: [1, 2, 3, 4].map((n) => clodTexture(n)),
     ember: [pixelate(emberTexture(), 2, 2, 0.4)],
     px: [pxTexture()],
     // Smoke life stages, small to large (see BurstLayer.stages).
-    puff: [12, 18, 24, 30].map((n, i) => puffTexture(n, 7 + i)),
+    puff: smoke.length ? smoke : [12, 18, 24, 30].map((n, i) => puffTexture(n, 7 + i)),
+    paper: paper.length ? paper : [pxTexture()],
+    wool: [puffTexture(5, 3)],
+    metal: [fromPixels(3, 2, (x, y) => (x === 0 ? 0x696a6a : y === 0 ? 0xcbdbfc : 0x9badb7))],
+    banana: assets.get('creatures/banana_1') ? [assets.get('creatures/banana_1')!] : [pxTexture()],
+    toxic: gas.length ? gas : [puffTexture(8, 4)],
   };
 }
