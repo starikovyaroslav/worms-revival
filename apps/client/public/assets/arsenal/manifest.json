@@ -5,242 +5,338 @@
     "weapons/icon/jetpack": {
       "file": "weapons/icon/jetpack.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/lowgravity": {
       "file": "weapons/icon/lowgravity.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/fastwalk": {
       "file": "weapons/icon/fastwalk.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/laser": {
       "file": "weapons/icon/laser.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/invisible": {
       "file": "weapons/icon/invisible.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/doubledamage": {
       "file": "weapons/icon/doubledamage.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/cratespy": {
       "file": "weapons/icon/cratespy.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/sheeplauncher": {
       "file": "weapons/icon/sheeplauncher.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/axe": {
       "file": "weapons/icon/axe.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/earthquake": {
       "file": "weapons/icon/earthquake.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/dragonball": {
       "file": "weapons/icon/dragonball.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/kamikaze": {
       "file": "weapons/icon/kamikaze.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/suicide": {
       "file": "weapons/icon/suicide.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/molebomb": {
       "file": "weapons/icon/molebomb.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/napalm": {
       "file": "weapons/icon/napalm.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/mail": {
       "file": "weapons/icon/mail.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/minestrike": {
       "file": "weapons/icon/minestrike.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/molesquad": {
       "file": "weapons/icon/molesquad.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/girderpack": {
       "file": "weapons/icon/girderpack.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/bungee": {
       "file": "weapons/icon/bungee.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/scales": {
       "file": "weapons/icon/scales.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/superbanana": {
       "file": "weapons/icon/superbanana.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/flamethrower": {
       "file": "weapons/icon/flamethrower.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/salvation": {
       "file": "weapons/icon/salvation.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/mbbomb": {
       "file": "weapons/icon/mbbomb.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/vase": {
       "file": "weapons/icon/vase.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/frenchsheep": {
       "file": "weapons/icon/frenchsheep.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/carpet": {
       "file": "weapons/icon/carpet.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/madcows": {
       "file": "weapons/icon/madcows.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/oldwoman": {
       "file": "weapons/icon/oldwoman.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/nuke": {
       "file": "weapons/icon/nuke.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/armageddon": {
       "file": "weapons/icon/armageddon.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/selectworm": {
       "file": "weapons/icon/selectworm.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/freeze": {
       "file": "weapons/icon/freeze.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "weapons/icon/magicbullet": {
       "file": "weapons/icon/magicbullet.png",
       "w": 14,
-      "h": 14
+      "h": 14,
+      "pixelW": 84,
+      "pixelH": 84
     },
     "proj/meteor": {
       "file": "proj/meteor.png",
       "w": 8,
-      "h": 5
+      "h": 5,
+      "pixelW": 64,
+      "pixelH": 40
     },
     "proj/vase": {
       "file": "proj/vase.png",
       "w": 8,
-      "h": 11
+      "h": 11,
+      "pixelW": 48,
+      "pixelH": 66
     },
     "proj/shard": {
       "file": "proj/shard.png",
       "w": 4,
-      "h": 4
+      "h": 4,
+      "pixelW": 64,
+      "pixelH": 64
     },
     "proj/bullet": {
       "file": "proj/bullet.png",
       "w": 4,
-      "h": 2
+      "h": 2,
+      "pixelW": 64,
+      "pixelH": 32
     },
     "proj/mbbomb": {
       "file": "proj/mbbomb.png",
       "w": 12,
-      "h": 14
+      "h": 14,
+      "pixelW": 60,
+      "pixelH": 70
     },
     "proj/dragonball": {
       "file": "proj/dragonball.png",
       "w": 10,
-      "h": 7
+      "h": 7,
+      "pixelW": 70,
+      "pixelH": 49
     },
     "proj/napalm": {
       "file": "proj/napalm.png",
       "w": 10,
-      "h": 6
+      "h": 6,
+      "pixelW": 70,
+      "pixelH": 42
     },
     "proj/carpet": {
       "file": "proj/carpet.png",
       "w": 12,
-      "h": 6
+      "h": 6,
+      "pixelW": 72,
+      "pixelH": 36
     },
     "proj/letter": {
       "file": "proj/letter.png",
       "w": 10,
-      "h": 6
+      "h": 6,
+      "pixelW": 70,
+      "pixelH": 42
     },
     "proj/frenchsheep": {
       "file": "proj/frenchsheep.png",
       "w": 12,
-      "h": 12
+      "h": 12,
+      "pixelW": 72,
+      "pixelH": 72
     },
     "objects/jetpack": {
       "file": "objects/jetpack.png",
       "w": 7,
-      "h": 9
+      "h": 9,
+      "pixelW": 56,
+      "pixelH": 72
     },
     "fx/flame_0": {
       "file": "fx/flame_0.png",
       "w": 8,
-      "h": 10
+      "h": 10,
+      "pixelW": 56,
+      "pixelH": 70
     },
     "fx/flame_1": {
       "file": "fx/flame_1.png",
       "w": 8,
-      "h": 12
+      "h": 12,
+      "pixelW": 48,
+      "pixelH": 72
     }
   }
 }

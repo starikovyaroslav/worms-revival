@@ -1,1433 +1,962 @@
 {
   "weapons/icon/jetpack": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      0,
-      32,
-      39
-    ],
-    "bbox": {
-      "x": 7,
-      "y": 11,
-      "w": 21,
-      "h": 21
-    },
-    "colors": 11,
-    "transparent": 62,
-    "islands": 1
+    "colors": 2513,
+    "transparent": 4153,
+    "partialAlpha": 2903,
+    "alphaLevels": 96
   },
   "weapons/icon/lowgravity": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      32,
-      0,
-      32,
-      39
-    ],
-    "bbox": {
-      "x": 11,
-      "y": 10,
-      "w": 11,
-      "h": 24
-    },
-    "colors": 7,
-    "transparent": 140,
-    "islands": 2
+    "colors": 1953,
+    "transparent": 4924,
+    "partialAlpha": 2132,
+    "alphaLevels": 88
   },
   "weapons/icon/fastwalk": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      0,
-      30,
-      39
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 15,
-      "w": 22,
-      "h": 15
-    },
-    "colors": 8,
-    "transparent": 122,
-    "islands": 3
+    "colors": 2124,
+    "transparent": 4769,
+    "partialAlpha": 2287,
+    "alphaLevels": 90
   },
   "weapons/icon/laser": {
-    "source": "assets-in/sheets/arsenal-laser-v2.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "bbox": {
-      "x": 19,
-      "y": 50,
-      "w": 93,
-      "h": 35
-    },
-    "colors": 6,
-    "transparent": 166,
-    "islands": 2,
-    "replaces": "assets-in/sheets/arsenal-icons-a.png"
+    "colors": 1698,
+    "transparent": 5230,
+    "partialAlpha": 1826,
+    "alphaLevels": 104
   },
   "weapons/icon/invisible": {
-    "source": "assets-in/sheets/arsenal-invisible-v2.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "bbox": {
-      "x": 24,
-      "y": 28,
-      "w": 84,
-      "h": 81
-    },
-    "colors": 2,
-    "transparent": 100,
-    "islands": 2,
-    "replaces": "assets-in/sheets/arsenal-icons-a.png"
+    "colors": 1595,
+    "transparent": 5185,
+    "partialAlpha": 1871,
+    "alphaLevels": 148
   },
   "weapons/icon/doubledamage": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      32,
-      39,
-      32,
-      28
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 6,
-      "w": 26,
-      "h": 18
-    },
-    "colors": 6,
-    "transparent": 109,
-    "islands": 1
+    "colors": 1677,
+    "transparent": 4998,
+    "partialAlpha": 2058,
+    "alphaLevels": 99
   },
   "weapons/icon/cratespy": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      39,
-      32,
-      28
-    ],
-    "bbox": {
-      "x": 1,
-      "y": 2,
-      "w": 27,
-      "h": 23
-    },
-    "colors": 11,
-    "transparent": 100,
-    "islands": 4
+    "colors": 1972,
+    "transparent": 4914,
+    "partialAlpha": 2142,
+    "alphaLevels": 91
   },
   "weapons/icon/sheeplauncher": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      96,
-      39,
-      32,
-      28
-    ],
-    "bbox": {
-      "x": 1,
-      "y": 2,
-      "w": 26,
-      "h": 24
-    },
-    "colors": 14,
-    "transparent": 111,
-    "islands": 3
+    "colors": 2013,
+    "transparent": 4789,
+    "partialAlpha": 2267,
+    "alphaLevels": 103
   },
   "weapons/icon/axe": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      67,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 3,
-      "w": 25,
-      "h": 23
-    },
-    "colors": 9,
-    "transparent": 123,
-    "islands": 1
+    "colors": 1981,
+    "transparent": 4776,
+    "partialAlpha": 2280,
+    "alphaLevels": 97
   },
   "weapons/icon/earthquake": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      32,
-      67,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 5,
-      "y": 7,
-      "w": 25,
-      "h": 20
-    },
-    "colors": 6,
-    "transparent": 124,
-    "islands": 7
+    "colors": 1957,
+    "transparent": 4909,
+    "partialAlpha": 2147,
+    "alphaLevels": 136
   },
   "weapons/icon/dragonball": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      67,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 7,
-      "w": 24,
-      "h": 16
-    },
-    "colors": 4,
-    "transparent": 123,
-    "islands": 3
+    "colors": 1646,
+    "transparent": 5315,
+    "partialAlpha": 1741,
+    "alphaLevels": 102
   },
   "weapons/icon/kamikaze": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      96,
-      67,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 2,
-      "y": 6,
-      "w": 26,
-      "h": 18
-    },
-    "colors": 8,
-    "transparent": 124,
-    "islands": 2
+    "colors": 1504,
+    "transparent": 5261,
+    "partialAlpha": 1795,
+    "alphaLevels": 108
   },
   "weapons/icon/suicide": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      96,
-      32,
-      32
-    ],
-    "bbox": {
-      "x": 8,
-      "y": 2,
-      "w": 19,
-      "h": 24
-    },
-    "colors": 10,
-    "transparent": 107,
-    "islands": 1
+    "colors": 1825,
+    "transparent": 4696,
+    "partialAlpha": 2360,
+    "alphaLevels": 114
   },
   "weapons/icon/molebomb": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      32,
-      96,
-      32,
-      32
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 5,
-      "w": 20,
-      "h": 21
-    },
-    "colors": 12,
-    "transparent": 66,
-    "islands": 1
+    "colors": 1755,
+    "transparent": 4940,
+    "partialAlpha": 2116,
+    "alphaLevels": 85
   },
   "weapons/icon/napalm": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      96,
-      32,
-      32
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 4,
-      "w": 19,
-      "h": 23
-    },
-    "colors": 14,
-    "transparent": 104,
-    "islands": 1
+    "colors": 1621,
+    "transparent": 5278,
+    "partialAlpha": 1778,
+    "alphaLevels": 100
   },
   "weapons/icon/mail": {
-    "source": "assets-in/sheets/arsenal-icons-a.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-a.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      96,
-      96,
-      32,
-      32
-    ],
-    "bbox": {
-      "x": 2,
-      "y": 10,
-      "w": 25,
-      "h": 12
-    },
-    "colors": 7,
-    "transparent": 127,
-    "islands": 3
+    "colors": 1511,
+    "transparent": 5072,
+    "partialAlpha": 1984,
+    "alphaLevels": 109
   },
   "weapons/icon/minestrike": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      0,
-      32,
-      41
-    ],
-    "bbox": {
-      "x": 9,
-      "y": 6,
-      "w": 16,
-      "h": 34
-    },
-    "colors": 10,
-    "transparent": 164,
-    "islands": 4,
-    "resampling": "area average, alpha threshold 0.5, neutral midtones x1.8, DB32"
+    "colors": 1283,
+    "transparent": 5018,
+    "partialAlpha": 2026,
+    "alphaLevels": 179
   },
   "weapons/icon/molesquad": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      32,
-      0,
-      32,
-      41
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 13,
-      "w": 28,
-      "h": 20
-    },
-    "colors": 7,
-    "transparent": 139,
-    "islands": 3
+    "colors": 1611,
+    "transparent": 4775,
+    "partialAlpha": 2274,
+    "alphaLevels": 188
   },
   "weapons/icon/girderpack": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      0,
-      32,
-      41
-    ],
-    "bbox": {
-      "x": 5,
-      "y": 12,
-      "w": 23,
-      "h": 22
-    },
-    "colors": 7,
-    "transparent": 55,
-    "islands": 1
+    "colors": 1698,
+    "transparent": 4483,
+    "partialAlpha": 2563,
+    "alphaLevels": 117
   },
   "weapons/icon/bungee": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      96,
-      0,
-      32,
-      41
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 14,
-      "w": 25,
-      "h": 20
-    },
-    "colors": 8,
-    "transparent": 112,
-    "islands": 1
+    "colors": 1605,
+    "transparent": 4874,
+    "partialAlpha": 2173,
+    "alphaLevels": 156
   },
   "weapons/icon/scales": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      41,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 3,
-      "w": 26,
-      "h": 23
-    },
-    "colors": 8,
-    "transparent": 135,
-    "islands": 3
+    "colors": 1467,
+    "transparent": 4476,
+    "partialAlpha": 2567,
+    "alphaLevels": 200
   },
   "weapons/icon/superbanana": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      32,
-      41,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 2,
-      "w": 24,
-      "h": 23
-    },
-    "colors": 11,
-    "transparent": 84,
-    "islands": 1
+    "colors": 1837,
+    "transparent": 4597,
+    "partialAlpha": 2455,
+    "alphaLevels": 111
   },
   "weapons/icon/flamethrower": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      41,
-      36,
-      29
-    ],
-    "bbox": {
-      "x": 1,
-      "y": 9,
-      "w": 31,
-      "h": 13
-    },
-    "colors": 13,
-    "transparent": 151,
-    "islands": 1
+    "colors": 1316,
+    "transparent": 5351,
+    "partialAlpha": 1700,
+    "alphaLevels": 122
   },
   "weapons/icon/salvation": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      100,
-      41,
-      28,
-      29
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 2,
-      "w": 22,
-      "h": 23
-    },
-    "colors": 10,
-    "transparent": 111,
-    "islands": 2
+    "colors": 1623,
+    "transparent": 4552,
+    "partialAlpha": 2495,
+    "alphaLevels": 154
   },
   "weapons/icon/mbbomb": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      70,
-      32,
-      28
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 1,
-      "w": 20,
-      "h": 26
-    },
-    "colors": 11,
-    "transparent": 96,
-    "islands": 1
+    "colors": 2181,
+    "transparent": 3678,
+    "partialAlpha": 3373,
+    "alphaLevels": 117
   },
   "weapons/icon/vase": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      32,
-      70,
-      32,
-      28
-    ],
-    "bbox": {
-      "x": 8,
-      "y": 3,
-      "w": 16,
-      "h": 23
-    },
-    "colors": 7,
-    "transparent": 100,
-    "islands": 1
+    "colors": 1536,
+    "transparent": 5109,
+    "partialAlpha": 1947,
+    "alphaLevels": 111
   },
   "weapons/icon/frenchsheep": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      70,
-      32,
-      28
-    ],
-    "bbox": {
-      "x": 2,
-      "y": 5,
-      "w": 26,
-      "h": 21
-    },
-    "colors": 11,
-    "transparent": 109,
-    "islands": 1
+    "colors": 1774,
+    "transparent": 4166,
+    "partialAlpha": 2888,
+    "alphaLevels": 160
   },
   "weapons/icon/carpet": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      96,
-      70,
-      32,
-      28
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 5,
-      "w": 25,
-      "h": 21
-    },
-    "colors": 15,
-    "transparent": 84,
-    "islands": 2
+    "colors": 2087,
+    "transparent": 4248,
+    "partialAlpha": 2794,
+    "alphaLevels": 149
   },
   "weapons/icon/madcows": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      98,
-      35,
-      30
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 5,
-      "w": 30,
-      "h": 20
-    },
-    "colors": 7,
-    "transparent": 115,
-    "islands": 1
+    "colors": 1647,
+    "transparent": 4382,
+    "partialAlpha": 2671,
+    "alphaLevels": 123
   },
   "weapons/icon/oldwoman": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      35,
-      98,
-      29,
-      30
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 2,
-      "w": 16,
-      "h": 25
-    },
-    "colors": 14,
-    "transparent": 105,
-    "islands": 1
+    "colors": 1577,
+    "transparent": 4990,
+    "partialAlpha": 2041,
+    "alphaLevels": 113
   },
   "weapons/icon/nuke": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      98,
-      32,
-      30
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 5,
-      "w": 20,
-      "h": 19
-    },
-    "colors": 4,
-    "transparent": 56,
-    "islands": 1
+    "colors": 1416,
+    "transparent": 4483,
+    "partialAlpha": 2573,
+    "alphaLevels": 94
   },
   "weapons/icon/armageddon": {
-    "source": "assets-in/sheets/arsenal-icons-b.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-icons-b.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      96,
-      98,
-      32,
-      30
-    ],
-    "bbox": {
-      "x": 5,
-      "y": 4,
-      "w": 25,
-      "h": 23
-    },
-    "colors": 9,
-    "transparent": 133,
-    "islands": 5
+    "colors": 1359,
+    "transparent": 4952,
+    "partialAlpha": 2103,
+    "alphaLevels": 172
   },
   "weapons/icon/selectworm": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      0,
-      0,
-      34,
-      36
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 11,
-      "w": 28,
-      "h": 21
-    },
-    "colors": 9,
-    "transparent": 135,
-    "islands": 3
+    "colors": 1311,
+    "transparent": 5027,
+    "partialAlpha": 2019,
+    "alphaLevels": 132
   },
   "weapons/icon/freeze": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      34,
-      0,
-      30,
-      36
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 10,
-      "w": 22,
-      "h": 22
-    },
-    "colors": 11,
-    "transparent": 33,
-    "islands": 1
+    "colors": 1974,
+    "transparent": 4474,
+    "partialAlpha": 2582,
+    "alphaLevels": 74
   },
   "weapons/icon/magicbullet": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      14,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      84,
+      84
     ],
-    "crop": [
-      64,
-      0,
-      32,
-      36
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 10,
-      "w": 24,
-      "h": 22
-    },
-    "colors": 8,
-    "transparent": 127,
-    "islands": 1
+    "colors": 751,
+    "transparent": 5856,
+    "partialAlpha": 1200,
+    "alphaLevels": 105
   },
   "proj/meteor": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 8"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      8,
+      5
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      64,
+      40
     ],
-    "crop": [
-      96,
-      0,
-      32,
-      36
-    ],
-    "bbox": {
-      "x": 2,
-      "y": 13,
-      "w": 25,
-      "h": 17
-    },
-    "colors": 8,
-    "transparent": 12,
-    "islands": 1
+    "colors": 208,
+    "transparent": 2326,
+    "partialAlpha": 233,
+    "alphaLevels": 42
   },
   "proj/vase": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      8,
+      11
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      48,
+      66
     ],
-    "crop": [
-      0,
-      36,
-      32,
-      30
-    ],
-    "bbox": {
-      "x": 11,
-      "y": 6,
-      "w": 15,
-      "h": 21
-    },
-    "colors": 5,
-    "transparent": 26,
-    "islands": 1
+    "colors": 423,
+    "transparent": 2664,
+    "partialAlpha": 504,
+    "alphaLevels": 48
   },
   "proj/shard": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 16"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      4,
+      4
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      64,
+      64
     ],
-    "crop": [
-      32,
-      36,
-      32,
-      30
-    ],
-    "bbox": {
-      "x": 11,
-      "y": 9,
-      "w": 15,
-      "h": 16
-    },
-    "colors": 3,
-    "transparent": 7,
-    "islands": 1
+    "colors": 208,
+    "transparent": 3842,
+    "partialAlpha": 254,
+    "alphaLevels": 46
   },
   "proj/bullet": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 16"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      4,
+      2
     ],
-    "reduced": [
-      128,
-      128
-    ],
-    "crop": [
+    "pixels": [
       64,
-      36,
-      32,
-      30
+      32
     ],
-    "bbox": {
-      "x": 3,
-      "y": 10,
-      "w": 27,
-      "h": 11
-    },
-    "colors": 1,
-    "transparent": 5,
-    "islands": 1
+    "colors": 121,
+    "transparent": 1903,
+    "partialAlpha": 145,
+    "alphaLevels": 19
   },
   "proj/mbbomb": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 5"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      12,
+      14
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      60,
+      70
     ],
-    "crop": [
-      96,
-      36,
-      32,
-      30
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 3,
-      "w": 20,
-      "h": 24
-    },
-    "colors": 11,
-    "transparent": 60,
-    "islands": 1
+    "colors": 761,
+    "transparent": 3160,
+    "partialAlpha": 1039,
+    "alphaLevels": 61
   },
   "proj/dragonball": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 7"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      10,
+      7
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      70,
+      49
     ],
-    "crop": [
-      0,
-      66,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 6,
-      "y": 6,
-      "w": 23,
-      "h": 17
-    },
-    "colors": 6,
-    "transparent": 30,
-    "islands": 1
+    "colors": 436,
+    "transparent": 2850,
+    "partialAlpha": 579,
+    "alphaLevels": 64
   },
   "proj/napalm": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 7"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      10,
+      6
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      70,
+      42
     ],
-    "crop": [
-      32,
-      66,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 7,
-      "w": 26,
-      "h": 15
-    },
-    "colors": 10,
-    "transparent": 15,
-    "islands": 1
+    "colors": 362,
+    "transparent": 2499,
+    "partialAlpha": 438,
+    "alphaLevels": 38
   },
   "proj/carpet": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      12,
+      6
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      72,
+      36
     ],
-    "crop": [
-      64,
-      66,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 3,
-      "y": 8,
-      "w": 26,
-      "h": 13
-    },
-    "colors": 9,
-    "transparent": 18,
-    "islands": 1
+    "colors": 256,
+    "transparent": 2282,
+    "partialAlpha": 309,
+    "alphaLevels": 32
   },
   "proj/letter": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 7"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      10,
+      6
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      70,
+      42
     ],
-    "crop": [
-      96,
-      66,
-      32,
-      29
-    ],
-    "bbox": {
-      "x": 4,
-      "y": 7,
-      "w": 22,
-      "h": 14
-    },
-    "colors": 5,
-    "transparent": 6,
-    "islands": 1
+    "colors": 277,
+    "transparent": 2483,
+    "partialAlpha": 457,
+    "alphaLevels": 27
   },
   "proj/frenchsheep": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      12,
+      12
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      72,
+      72
     ],
-    "crop": [
-      0,
-      95,
-      32,
-      33
-    ],
-    "bbox": {
-      "x": 7,
-      "y": 2,
-      "w": 24,
-      "h": 24
-    },
-    "colors": 13,
-    "transparent": 60,
-    "islands": 1
+    "colors": 931,
+    "transparent": 3654,
+    "partialAlpha": 1529,
+    "alphaLevels": 95
   },
   "objects/jetpack": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 8"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      7,
+      9
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      56,
+      72
     ],
-    "crop": [
-      32,
-      95,
-      32,
-      33
-    ],
-    "bbox": {
-      "x": 8,
-      "y": 3,
-      "w": 17,
-      "h": 22
-    },
-    "colors": 8,
-    "transparent": 16,
-    "islands": 1
+    "colors": 458,
+    "transparent": 3448,
+    "partialAlpha": 581,
+    "alphaLevels": 39
   },
   "fx/flame_0": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 7"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      8,
+      10
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      56,
+      70
     ],
-    "crop": [
-      64,
-      95,
-      32,
-      33
-    ],
-    "bbox": {
-      "x": 8,
-      "y": 7,
-      "w": 14,
-      "h": 18
-    },
-    "colors": 4,
-    "transparent": 25,
-    "islands": 1
+    "colors": 269,
+    "transparent": 3575,
+    "partialAlpha": 338,
+    "alphaLevels": 58
   },
   "fx/flame_1": {
-    "source": "assets-in/sheets/arsenal-world.png",
-    "raw": [
-      1254,
-      1254
+    "source": "assets-in/desktop/arsenal-world.png",
+    "operations": [
+      "new detailed master",
+      "native cell crop",
+      "density 6"
     ],
-    "normalized": [
-      1024,
-      1024
+    "display": [
+      8,
+      12
     ],
-    "reduced": [
-      128,
-      128
+    "pixels": [
+      48,
+      72
     ],
-    "crop": [
-      96,
-      95,
-      32,
-      33
-    ],
-    "bbox": {
-      "x": 8,
-      "y": 3,
-      "w": 14,
-      "h": 22
-    },
-    "colors": 5,
-    "transparent": 44,
-    "islands": 1
+    "colors": 268,
+    "transparent": 3043,
+    "partialAlpha": 412,
+    "alphaLevels": 39
   }
 }

@@ -1,0 +1,98 @@
+{
+  "creatures/sheep_0": {
+    "x": 7,
+    "y": 10,
+    "w": 19,
+    "h": 17
+  },
+  "creatures/sheep_1": {
+    "x": 6,
+    "y": 10,
+    "w": 20,
+    "h": 17
+  },
+  "creatures/supersheep_0": {
+    "x": 3,
+    "y": 9,
+    "w": 25,
+    "h": 18
+  },
+  "creatures/supersheep_1": {
+    "x": 6,
+    "y": 7,
+    "w": 21,
+    "h": 21
+  },
+  "creatures/pigeon_0": {
+    "x": 7,
+    "y": 6,
+    "w": 20,
+    "h": 20
+  },
+  "creatures/pigeon_1": {
+    "x": 6,
+    "y": 11,
+    "w": 20,
+    "h": 14
+  },
+  "creatures/mole_0": {
+    "x": 6,
+    "y": 13,
+    "w": 20,
+    "h": 13
+  },
+  "creatures/mole_1": {
+    "x": 5,
+    "y": 13,
+    "w": 22,
+    "h": 14
+  },
+  "creatures/cow": {
+    "x": 3,
+    "y": 5,
+    "w": 26,
+    "h": 21
+  },
+  "creatures/oldwoman": {
+    "x": 7,
+    "y": 4,
+    "w": 17,
+    "h": 23
+  },
+  "creatures/donkey": {
+    "x": 3,
+    "y": 4,
+    "w": 24,
+    "h": 23
+  },
+  "creatures/skunk": {
+    "x": 5,
+    "y": 7,
+    "w": 24,
+    "h": 20
+  },
+  "creatures/banana_0": {
+    "x": 5,
+    "y": 7,
+    "w": 22,
+    "h": 16
+  },
+  "creatures/banana_1": {
+    "x": 7,
+    "y": 5,
+    "w": 17,
+    "h": 20
+  },
+  "creatures/stink": {
+    "x": 5,
+    "y": 5,
+    "w": 22,
+    "h": 18
+  },
+  "creatures/donkey_fall": {
+    "x": 4,
+    "y": 8,
+    "w": 25,
+    "h": 18
+  }
+}

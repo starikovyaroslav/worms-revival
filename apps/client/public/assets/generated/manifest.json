@@ -5,332 +5,464 @@
     "bg/meadow/mid": {
       "file": "bg/meadow/mid.png",
       "w": 384,
-      "h": 108
+      "h": 108,
+      "pixelW": 1152,
+      "pixelH": 324
     },
     "bg/meadow/sky": {
       "file": "bg/meadow/sky.png",
       "w": 256,
-      "h": 384
+      "h": 384,
+      "pixelW": 768,
+      "pixelH": 1152
     },
     "bg/meadow/far": {
       "file": "bg/meadow/far.png",
       "w": 384,
-      "h": 100
+      "h": 100,
+      "pixelW": 1152,
+      "pixelH": 300
     },
     "terrain/meadow/rim": {
       "file": "terrain/meadow/rim.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/meadow/scorch": {
       "file": "terrain/meadow/scorch.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/meadow/under": {
       "file": "terrain/meadow/under.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "ui/logo": {
       "file": "ui/logo.png",
       "w": 317,
-      "h": 147
+      "h": 147,
+      "pixelW": 951,
+      "pixelH": 441
     },
     "bg/arctic/sky": {
       "file": "bg/arctic/sky.png",
       "w": 256,
-      "h": 384
+      "h": 384,
+      "pixelW": 768,
+      "pixelH": 1152
     },
     "bg/arctic/far": {
       "file": "bg/arctic/far.png",
       "w": 384,
-      "h": 116
+      "h": 116,
+      "pixelW": 1152,
+      "pixelH": 348
     },
     "bg/arctic/mid": {
       "file": "bg/arctic/mid.png",
       "w": 384,
-      "h": 116
+      "h": 116,
+      "pixelW": 1152,
+      "pixelH": 348
     },
     "bg/meadow/near": {
       "file": "bg/meadow/near.png",
       "w": 384,
-      "h": 96
+      "h": 96,
+      "pixelW": 1152,
+      "pixelH": 288
     },
     "terrain/meadow/fill": {
       "file": "terrain/meadow/fill.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "creatures/sheep_0": {
       "file": "creatures/sheep_0.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/sheep_1": {
       "file": "creatures/sheep_1.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/supersheep_0": {
       "file": "creatures/supersheep_0.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/supersheep_1": {
       "file": "creatures/supersheep_1.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/pigeon_0": {
       "file": "creatures/pigeon_0.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/pigeon_1": {
       "file": "creatures/pigeon_1.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/mole_0": {
       "file": "creatures/mole_0.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/mole_1": {
       "file": "creatures/mole_1.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/cow": {
       "file": "creatures/cow.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/oldwoman": {
       "file": "creatures/oldwoman.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/donkey": {
       "file": "creatures/donkey.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/skunk": {
       "file": "creatures/skunk.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/banana_0": {
       "file": "creatures/banana_0.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/banana_1": {
       "file": "creatures/banana_1.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/stink": {
       "file": "creatures/stink.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "creatures/donkey_fall": {
       "file": "creatures/donkey_fall.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "objects/grave_cross": {
       "file": "objects/grave_cross.png",
       "w": 11,
-      "h": 12
+      "h": 12,
+      "pixelW": 66,
+      "pixelH": 72
     },
     "objects/grave_round": {
       "file": "objects/grave_round.png",
       "w": 11,
-      "h": 9
+      "h": 9,
+      "pixelW": 66,
+      "pixelH": 54
     },
     "objects/grave_slab": {
       "file": "objects/grave_slab.png",
       "w": 11,
-      "h": 4
+      "h": 4,
+      "pixelW": 66,
+      "pixelH": 24
     },
     "objects/grave_skull": {
       "file": "objects/grave_skull.png",
       "w": 11,
-      "h": 9
+      "h": 9,
+      "pixelW": 66,
+      "pixelH": 54
     },
     "objects/crate_weapon": {
       "file": "objects/crate_weapon.png",
       "w": 16,
-      "h": 14
+      "h": 14,
+      "pixelW": 64,
+      "pixelH": 56
     },
     "objects/crate_health": {
       "file": "objects/crate_health.png",
       "w": 16,
-      "h": 14
+      "h": 14,
+      "pixelW": 64,
+      "pixelH": 56
     },
     "objects/crate_utility": {
       "file": "objects/crate_utility.png",
       "w": 16,
-      "h": 14
+      "h": 14,
+      "pixelW": 64,
+      "pixelH": 56
     },
     "objects/crate_open": {
       "file": "objects/crate_open.png",
       "w": 16,
-      "h": 10
+      "h": 10,
+      "pixelW": 64,
+      "pixelH": 40
     },
     "objects/barrel": {
       "file": "objects/barrel.png",
       "w": 11,
-      "h": 14
+      "h": 14,
+      "pixelW": 55,
+      "pixelH": 70
     },
     "objects/barrel_burning": {
       "file": "objects/barrel_burning.png",
       "w": 8,
-      "h": 14
+      "h": 14,
+      "pixelW": 40,
+      "pixelH": 70
     },
     "objects/mine_off": {
       "file": "objects/mine_off.png",
       "w": 8,
-      "h": 4
+      "h": 4,
+      "pixelW": 64,
+      "pixelH": 32
     },
     "objects/mine_armed": {
       "file": "objects/mine_armed.png",
       "w": 6,
-      "h": 5
+      "h": 5,
+      "pixelW": 66,
+      "pixelH": 55
     },
     "objects/parachute": {
       "file": "objects/parachute.png",
       "w": 20,
-      "h": 17
+      "h": 17,
+      "pixelW": 80,
+      "pixelH": 68
     },
     "objects/crate_broken": {
       "file": "objects/crate_broken.png",
       "w": 16,
-      "h": 9
+      "h": 9,
+      "pixelW": 64,
+      "pixelH": 36
     },
     "objects/dynamite": {
       "file": "objects/dynamite.png",
       "w": 17,
-      "h": 20
+      "h": 20,
+      "pixelW": 68,
+      "pixelH": 80
     },
     "objects/canister": {
       "file": "objects/canister.png",
       "w": 16,
-      "h": 20
+      "h": 20,
+      "pixelW": 64,
+      "pixelH": 80
     },
     "terrain/arctic/rim": {
       "file": "terrain/arctic/rim.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/arctic/scorch": {
       "file": "terrain/arctic/scorch.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/arctic/under": {
       "file": "terrain/arctic/under.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "bg/desert/sky": {
       "file": "bg/desert/sky.png",
       "w": 256,
-      "h": 384
+      "h": 384,
+      "pixelW": 768,
+      "pixelH": 1152
     },
     "bg/desert/far": {
       "file": "bg/desert/far.png",
       "w": 384,
-      "h": 95
+      "h": 95,
+      "pixelW": 1152,
+      "pixelH": 285
     },
     "bg/desert/mid": {
       "file": "bg/desert/mid.png",
       "w": 384,
-      "h": 111
+      "h": 111,
+      "pixelW": 1152,
+      "pixelH": 333
     },
     "bg/arctic/near": {
       "file": "bg/arctic/near.png",
       "w": 384,
-      "h": 96
+      "h": 96,
+      "pixelW": 1152,
+      "pixelH": 288
     },
     "terrain/arctic/fill": {
       "file": "terrain/arctic/fill.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "terrain/desert/rim": {
       "file": "terrain/desert/rim.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/desert/scorch": {
       "file": "terrain/desert/scorch.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/desert/under": {
       "file": "terrain/desert/under.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/desert/fill": {
       "file": "terrain/desert/fill.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "bg/hell/sky": {
       "file": "bg/hell/sky.png",
       "w": 256,
-      "h": 384
+      "h": 384,
+      "pixelW": 768,
+      "pixelH": 1152
     },
     "bg/hell/far": {
       "file": "bg/hell/far.png",
       "w": 384,
-      "h": 112
+      "h": 112,
+      "pixelW": 1152,
+      "pixelH": 336
     },
     "bg/hell/mid": {
       "file": "bg/hell/mid.png",
       "w": 384,
-      "h": 125
+      "h": 125,
+      "pixelW": 1152,
+      "pixelH": 375
     },
     "bg/desert/near": {
       "file": "bg/desert/near.png",
       "w": 384,
-      "h": 94
+      "h": 94,
+      "pixelW": 1152,
+      "pixelH": 282
     },
     "bg/hell/near": {
       "file": "bg/hell/near.png",
       "w": 384,
-      "h": 96
+      "h": 96,
+      "pixelW": 1152,
+      "pixelH": 288
     },
     "terrain/hell/fill": {
       "file": "terrain/hell/fill.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "terrain/hell/rim": {
       "file": "terrain/hell/rim.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/hell/scorch": {
       "file": "terrain/hell/scorch.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "terrain/hell/under": {
       "file": "terrain/hell/under.png",
       "w": 96,
-      "h": 16
+      "h": 16,
+      "pixelW": 384,
+      "pixelH": 64
     },
     "ui/logo-menu": {
       "file": "ui/logo-menu.png",
       "w": 159,
-      "h": 74
+      "h": 74,
+      "pixelW": 477,
+      "pixelH": 222
     }
   }
 }

@@ -1,0 +1,117 @@
+[
+  {
+    "name": "icons-a",
+    "source": "desktop/icons-a.png",
+    "cells": [
+      "grenade",
+      "dynamite",
+      "mine",
+      "bazooka",
+      "sheep",
+      "homing",
+      "mortar",
+      "pigeon",
+      "cluster",
+      "banana",
+      "shotgun",
+      "handgun",
+      "uzi",
+      "minigun",
+      "longbow",
+      "firepunch"
+    ],
+    "description": "One weapon inventory icon per cell, 4x4 row-major: ROW1 olive military fragmentation grenade with pin; red dynamite bundle with fuse and timer; round dark armed landmine with red indicator; long graphite bazooka shoulder launcher. ROW2 woolly sheep with dark face; guided missile launcher with seeker pod; short heavy mortar tube on bipod; grey carrier pigeon. ROW3 yellow cluster grenade with segmented casing; yellow banana; pump-action shotgun; black pistol. ROW4 compact Uzi; six-barrel minigun; wooden longbow with arrow; pink clenched worm fist surrounded by orange fire. Realistic readable mechanical forms rendered as detailed pixel art, small dark outlines and metal highlights, not emoji blobs."
+  },
+  {
+    "name": "icons-b",
+    "source": "desktop/icons-b.png",
+    "cells": [
+      "prod",
+      "supersheep",
+      "airstrike",
+      "blowtorch",
+      "drill",
+      "girder",
+      "bat",
+      "rope",
+      "parachute",
+      "teleport",
+      "hhg",
+      "skipgo",
+      "surrender",
+      "petrol",
+      "skunk",
+      "donkey"
+    ],
+    "description": "One weapon inventory icon per cell, 4x4 row-major: ROW1 pink worm index finger pointing right; sheep with red cape; menacing A-10-like military attack airplane; industrial blowtorch with small orange flame. ROW2 industrial handheld drill; steel construction girder; wooden baseball bat; grapple gun with coiled rope and metal hook. ROW3 olive parachute canopy with suspension lines; compact teleport device with turquoise energy ring; ornate golden holy hand grenade topped with a cross; simple hourglass with curved arrow to indicate skip turn. ROW4 folded white surrender flag on pole; green glass petrol bottle with burning cloth wick; black-and-white skunk with raised tail; gray angry donkey. Render as detailed game pixel-art inventory icons, not flat emoji, crisp readable silhouettes."
+  },
+  {
+    "name": "weapons",
+    "source": "desktop/weapons.png",
+    "cells": [
+      "bazooka",
+      "shotgun",
+      "handgun",
+      "uzi",
+      "minigun",
+      "mortar",
+      "blowtorch",
+      "prod",
+      "grenade",
+      "cluster",
+      "banana",
+      "hhg",
+      "dynamite",
+      "mine",
+      "arrow",
+      "madcow"
+    ],
+    "description": "Detailed standalone SIDE-VIEW weapon sprites, all horizontal barrels / tips pointing RIGHT, 4x4 row-major: ROW1 graphite bazooka tube with shoulder grip; long pump shotgun; compact black pistol; Uzi submachine gun. ROW2 heavy six-barrel minigun; short mortar barrel with mounting grip; industrial blowtorch with small pilot flame; pink worm pointing hand. ROW3 olive fragmentation grenade; yellow cluster grenade; curved yellow banana; ornate golden holy hand grenade with cross. ROW4 red dynamite bundle with lit fuse; dark round landmine; long wooden arrow with steel arrowhead pointing RIGHT; black-and-white angry cow. No character holding these objects, except the isolated pointing hand. Same pixel-art style with metal wear and 3-5 discrete shades, real material definition."
+  },
+  {
+    "name": "worm-states",
+    "source": "desktop/worm-states.png",
+    "cells": [
+      "idle_0",
+      "idle_1",
+      "idle_2",
+      "idle_3",
+      "idle_blink",
+      "jump",
+      "fall",
+      "land",
+      "hurt_0",
+      "hurt_1",
+      "tuck_0",
+      "tuck_1",
+      "tuck_2",
+      "tuck_3",
+      "throw",
+      "surrender"
+    ],
+    "description": "Character animation sheet: EXACT SAME original pink anthropomorphic military worm in every cell, facing RIGHT, full body no legs, tail curled left under upright segmented body, rounded pink head with two expressive eyes and small mouth, stubby hands. Thin CYAN fabric headband with short trailing ends; cyan appears ONLY on this headband, no other cyan objects. Keep identity, facial proportions and body mass identical; detailed pink skin shading, subtle belly segmentation, dark burgundy outline. Not a copy of any existing commercial sprite. 4x4 row-major states: ROW1 four subtly different breathing idle poses. ROW2 eyes closed blink, stretched upward jumping pose, downward falling pose, compressed landing pose. ROW3 two wincing hurt poses, tightly curled tumbling ball viewed right, tightly curled ball turned 45 degrees. ROW4 curled body turned90 degrees, curled body turned135 degrees, forward throwing pose with right hand extended, surrender pose with both hands raised but no flag. Same character scale and ground baseline in all upright cells, every full silhouette and headband ends remain inside its own cell. Do not include any weapon, separate particles, shadow, captions, panels or ground."
+  },
+  {
+    "name": "worm-walk",
+    "source": "desktop/worm-walk.png",
+    "cells": [
+      "walk_0",
+      "walk_1",
+      "walk_2",
+      "walk_3",
+      "walk_4",
+      "walk_5",
+      "walk_6",
+      "walk_7",
+      "walk_8",
+      "walk_9",
+      "walk_10",
+      "walk_11",
+      "walk_12",
+      "reach",
+      "punch",
+      "crouch"
+    ],
+    "description": "Animation sprite sheet of the EXACT SAME original pink anthropomorphic military worm as the reference character: facing RIGHT, no legs, curling tail trailing left, upright pink head with two expressive eyes, stubby hands, subtle skin segments, dark burgundy outlines, thin CYAN headband with short tails. Cyan ONLY on the headband. Keep identical face, proportions, scale and ground baseline throughout. FIRST THIRTEEN cells read row-major form one continuous inchworm WALK CYCLE: tail pushes forward, mid-body arches, head reaches forward, tail catches up, body extends, settles back to starting pose. Clear small alternating body/tail motion in each frame; no position drift across the cell. LAST THREE cells: reach forward with both hands, right-hand punch extended, crouch ready to place an object. All poses are the same character, no clothes besides headband, no weapons, no shadows, no ground, no loose objects, no labels."
+  }
+]

@@ -4,6 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { sources, split, output } from './arsenal.mjs';
 import { validate, readImage } from './ingest.mjs';
+import { validate as validateRgba } from './rgba.mjs';
 
 const empty = () => ({ w: 128, h: 128, data: Buffer.alloc(128 * 128 * 4) });
 const set = (im, x, y) => im.data.writeUInt32BE(0x5fcde4ff, (y * im.w + x) * 4);
@@ -41,7 +42,7 @@ test('rejects empty cells, clipped art and malformed grids instead of silently s
   );
 });
 
-test('all exported files exist, stay in DB32 and use binary transparent alpha', () => {
+test('all exported files exist and retain nonempty RGBA art', () => {
   const manifest = JSON.parse(readFileSync(resolve(output, 'manifest.json')));
   const expected = sources.flatMap((s) => s.cells.map((c) => c.id));
   assert.equal(new Set(expected).size, 48);
@@ -50,8 +51,8 @@ test('all exported files exist, stay in DB32 and use binary transparent alpha', 
     const file = resolve(output, record.file);
     assert.ok(existsSync(file), id);
     const im = readImage(file);
-    assert.deepEqual([im.w, im.h], [record.w, record.h], id);
-    const stats = validate(im);
+    assert.deepEqual([im.w, im.h], [record.pixelW ?? record.w, record.pixelH ?? record.h], id);
+    const stats = validateRgba(im);
     assert.ok(stats.transparent > 0 && stats.transparent < im.w * im.h, id);
   }
 });

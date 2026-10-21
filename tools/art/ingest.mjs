@@ -522,5 +522,6 @@ export function main(args) {
     writeFileSync(reportPath, JSON.stringify(reports, null, 2) + '\n');
   }
 }
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url))
-  main(process.argv.slice(2));
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  throw new Error('Historical quantized exporter disabled. Use npm run art:ingest (native RGBA).');
+}

@@ -209,4 +209,5 @@ export function review() {
   console.log(`Validated ${count} assets. Review images: ${previews}`);
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) review();
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url))
+  throw new Error('Historical DB32 review disabled. Use npm run art:review.');

@@ -1,1438 +1,1354 @@
 {
-  "bg/meadow/mid": {
-    "id": "bg/meadow/mid",
-    "file": "bg/meadow/mid.png",
-    "w": 384,
-    "h": 108,
-    "colors": 4,
-    "transparent": 8221,
-    "islands": 1,
-    "rawColors": 34779,
-    "seams": {
-      "x": {
-        "before": 0.015831517792302106,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/meadow/bg-mid.png",
-    "raw": [
-      1536,
-      1024
-    ],
-    "normalizations": []
-  },
   "bg/meadow/sky": {
-    "id": "bg/meadow/sky",
-    "file": "bg/meadow/sky.png",
-    "w": 256,
-    "h": 384,
-    "colors": 6,
-    "transparent": 0,
-    "islands": 1,
-    "rawColors": 20791,
-    "seams": {
-      "x": {
-        "before": 0.00324499591503268,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/meadow/bg-sky.png",
-    "raw": [
-      1024,
-      1536
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": []
+    "display": [
+      256,
+      384
+    ],
+    "pixels": [
+      768,
+      1152
+    ],
+    "colors": 16107,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
   },
   "bg/meadow/far": {
-    "id": "bg/meadow/far",
-    "file": "bg/meadow/far.png",
-    "w": 384,
-    "h": 100,
-    "colors": 4,
-    "transparent": 8318,
-    "islands": 1,
-    "rawColors": 16079,
-    "seams": {
-      "x": {
-        "before": 0.05384313725490196,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/meadow/bg-far.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": []
+    "display": [
+      384,
+      100
+    ],
+    "pixels": [
+      1152,
+      300
+    ],
+    "colors": 8748,
+    "transparent": 74885,
+    "partialAlpha": 1250,
+    "alphaLevels": 49
   },
-  "terrain/meadow/rim": {
-    "id": "terrain/meadow/rim",
-    "file": "terrain/meadow/rim.png",
-    "w": 96,
-    "h": 16,
-    "colors": 4,
-    "transparent": 394,
-    "islands": 1,
-    "rawColors": 55213,
-    "seams": {
-      "x": {
-        "before": 0.06433823529411764,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/meadow/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+  "bg/meadow/mid": {
+    "source": "assets-in/meadow/bg-mid.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
-  },
-  "terrain/meadow/scorch": {
-    "id": "terrain/meadow/scorch",
-    "file": "terrain/meadow/scorch.png",
-    "w": 96,
-    "h": 16,
-    "colors": 5,
-    "transparent": 296,
-    "islands": 1,
-    "rawColors": 55213,
-    "seams": {
-      "x": {
-        "before": 0.022855392156862744,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/meadow/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+    "display": [
+      384,
+      108
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
-  },
-  "terrain/meadow/under": {
-    "id": "terrain/meadow/under",
-    "file": "terrain/meadow/under.png",
-    "w": 96,
-    "h": 16,
-    "colors": 4,
-    "transparent": 572,
-    "islands": 6,
-    "rawColors": 55213,
-    "seams": {
-      "x": {
-        "before": 0.022855392156862744,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/meadow/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+    "pixels": [
+      1152,
+      324
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
-  },
-  "ui/logo": {
-    "id": "ui/logo",
-    "file": "ui/logo.png",
-    "w": 317,
-    "h": 147,
-    "colors": 10,
-    "transparent": 21738,
-    "islands": 2,
-    "rawColors": 70858,
-    "seams": {},
-    "source": "assets-in/logo/logo.png",
-    "raw": [
-      1536,
-      1024
-    ],
-    "normalizations": []
-  },
-  "bg/arctic/sky": {
-    "id": "bg/arctic/sky",
-    "file": "bg/arctic/sky.png",
-    "w": 256,
-    "h": 384,
-    "colors": 6,
-    "transparent": 0,
-    "islands": 1,
-    "rawColors": 35297,
-    "seams": {
-      "x": {
-        "before": 0.011961294934640522,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/arctic/bg-sky.png",
-    "raw": [
-      1024,
-      1536
-    ],
-    "normalizations": []
-  },
-  "bg/arctic/far": {
-    "id": "bg/arctic/far",
-    "file": "bg/arctic/far.png",
-    "w": 384,
-    "h": 116,
-    "colors": 4,
-    "transparent": 11611,
-    "islands": 1,
-    "rawColors": 14765,
-    "seams": {
-      "x": {
-        "before": 0.01845841784989858,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/arctic/bg-far.png",
-    "raw": [
-      1536,
-      1024
-    ],
-    "normalizations": []
-  },
-  "bg/arctic/mid": {
-    "id": "bg/arctic/mid",
-    "file": "bg/arctic/mid.png",
-    "w": 384,
-    "h": 116,
-    "colors": 5,
-    "transparent": 8516,
-    "islands": 1,
-    "rawColors": 48940,
-    "seams": {
-      "x": {
-        "before": 0.08253887762001352,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/arctic/bg-mid.png",
-    "raw": [
-      1536,
-      1024
-    ],
-    "normalizations": []
+    "colors": 18960,
+    "transparent": 73276,
+    "partialAlpha": 268,
+    "alphaLevels": 39
   },
   "bg/meadow/near": {
-    "id": "bg/meadow/near",
-    "file": "bg/meadow/near.png",
-    "w": 384,
-    "h": 96,
-    "colors": 4,
-    "transparent": 17084,
-    "islands": 1,
-    "rawColors": 53359,
-    "seams": {
-      "x": {
-        "before": 0.015155228758169935,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/meadow/bg-near.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Layer height 101 -> 96; width preserved"
-    ]
+    "display": [
+      384,
+      96
+    ],
+    "pixels": [
+      1152,
+      288
+    ],
+    "colors": 29929,
+    "transparent": 150375,
+    "partialAlpha": 380,
+    "alphaLevels": 49
   },
   "terrain/meadow/fill": {
-    "id": "terrain/meadow/fill",
-    "file": "terrain/meadow/fill.png",
-    "w": 64,
-    "h": 64,
-    "colors": 4,
-    "transparent": 0,
-    "islands": 1,
-    "rawColors": 12877,
-    "seams": {
-      "x": {
-        "before": 0.013955269607843138,
-        "after": 0,
-        "repaired": true
-      },
-      "y": {
-        "before": 0.02022058823529412,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/meadow/terrain-fill.png",
-    "raw": [
-      1254,
-      1254
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/sheep_0": {
-    "id": "creatures/sheep_0",
-    "file": "creatures/sheep_0.png",
-    "w": 32,
-    "h": 32,
-    "colors": 9,
-    "transparent": 806,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
+    "display": [
+      64,
+      64
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/sheep_1": {
-    "id": "creatures/sheep_1",
-    "file": "creatures/sheep_1.png",
-    "w": 32,
-    "h": 32,
-    "colors": 9,
-    "transparent": 804,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
+    "pixels": [
+      256,
+      256
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/supersheep_0": {
-    "id": "creatures/supersheep_0",
-    "file": "creatures/supersheep_0.png",
-    "w": 32,
-    "h": 32,
-    "colors": 11,
-    "transparent": 764,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/supersheep_1": {
-    "id": "creatures/supersheep_1",
-    "file": "creatures/supersheep_1.png",
-    "w": 32,
-    "h": 32,
-    "colors": 11,
-    "transparent": 772,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/pigeon_0": {
-    "id": "creatures/pigeon_0",
-    "file": "creatures/pigeon_0.png",
-    "w": 32,
-    "h": 32,
-    "colors": 9,
-    "transparent": 829,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/pigeon_1": {
-    "id": "creatures/pigeon_1",
-    "file": "creatures/pigeon_1.png",
-    "w": 32,
-    "h": 32,
-    "colors": 9,
-    "transparent": 882,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/mole_0": {
-    "id": "creatures/mole_0",
-    "file": "creatures/mole_0.png",
-    "w": 32,
-    "h": 32,
-    "colors": 10,
-    "transparent": 854,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/mole_1": {
-    "id": "creatures/mole_1",
-    "file": "creatures/mole_1.png",
-    "w": 32,
-    "h": 32,
-    "colors": 6,
-    "transparent": 878,
-    "islands": 5,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/cow": {
-    "id": "creatures/cow",
-    "file": "creatures/cow.png",
-    "w": 32,
-    "h": 32,
-    "colors": 12,
-    "transparent": 669,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/oldwoman": {
-    "id": "creatures/oldwoman",
-    "file": "creatures/oldwoman.png",
-    "w": 32,
-    "h": 32,
-    "colors": 14,
-    "transparent": 767,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/donkey": {
-    "id": "creatures/donkey",
-    "file": "creatures/donkey.png",
-    "w": 32,
-    "h": 32,
-    "colors": 10,
-    "transparent": 727,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/skunk": {
-    "id": "creatures/skunk",
-    "file": "creatures/skunk.png",
-    "w": 32,
-    "h": 32,
-    "colors": 7,
-    "transparent": 773,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/banana_0": {
-    "id": "creatures/banana_0",
-    "file": "creatures/banana_0.png",
-    "w": 32,
-    "h": 32,
-    "colors": 8,
-    "transparent": 860,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/banana_1": {
-    "id": "creatures/banana_1",
-    "file": "creatures/banana_1.png",
-    "w": 32,
-    "h": 32,
-    "colors": 6,
-    "transparent": 883,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/stink": {
-    "id": "creatures/stink",
-    "file": "creatures/stink.png",
-    "w": 32,
-    "h": 32,
-    "colors": 2,
-    "transparent": 811,
-    "islands": 2,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "creatures/donkey_fall": {
-    "id": "creatures/donkey_fall",
-    "file": "creatures/donkey_fall.png",
-    "w": 32,
-    "h": 32,
-    "colors": 11,
-    "transparent": 748,
-    "islands": 1,
-    "rawColors": 128949,
-    "seams": {},
-    "source": "assets-in/sheets/creatures.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/grave_cross": {
-    "id": "objects/grave_cross",
-    "file": "objects/grave_cross.png",
-    "w": 11,
-    "h": 12,
-    "colors": 7,
-    "transparent": 58,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/grave_round": {
-    "id": "objects/grave_round",
-    "file": "objects/grave_round.png",
-    "w": 11,
-    "h": 9,
-    "colors": 6,
-    "transparent": 38,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/grave_slab": {
-    "id": "objects/grave_slab",
-    "file": "objects/grave_slab.png",
-    "w": 11,
-    "h": 4,
-    "colors": 7,
-    "transparent": 11,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/grave_skull": {
-    "id": "objects/grave_skull",
-    "file": "objects/grave_skull.png",
-    "w": 11,
-    "h": 9,
-    "colors": 5,
-    "transparent": 33,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/crate_weapon": {
-    "id": "objects/crate_weapon",
-    "file": "objects/crate_weapon.png",
-    "w": 16,
-    "h": 14,
-    "colors": 8,
-    "transparent": 1,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/crate_health": {
-    "id": "objects/crate_health",
-    "file": "objects/crate_health.png",
-    "w": 16,
-    "h": 14,
-    "colors": 10,
-    "transparent": 12,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/crate_utility": {
-    "id": "objects/crate_utility",
-    "file": "objects/crate_utility.png",
-    "w": 16,
-    "h": 14,
-    "colors": 6,
+    "colors": 3500,
     "transparent": 0,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
+    "partialAlpha": 0,
+    "alphaLevels": 1
   },
-  "objects/crate_open": {
-    "id": "objects/crate_open",
-    "file": "objects/crate_open.png",
-    "w": 16,
-    "h": 10,
-    "colors": 6,
-    "transparent": 41,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+  "terrain/meadow/rim": {
+    "source": "assets-in/meadow/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/barrel": {
-    "id": "objects/barrel",
-    "file": "objects/barrel.png",
-    "w": 11,
-    "h": 14,
-    "colors": 7,
-    "transparent": 9,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+    "display": [
+      96,
+      16
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/barrel_burning": {
-    "id": "objects/barrel_burning",
-    "file": "objects/barrel_burning.png",
-    "w": 8,
-    "h": 14,
-    "colors": 7,
-    "transparent": 29,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+    "pixels": [
+      384,
+      64
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
+    "colors": 4190,
+    "transparent": 4198,
+    "partialAlpha": 308,
+    "alphaLevels": 45
   },
-  "objects/mine_off": {
-    "id": "objects/mine_off",
-    "file": "objects/mine_off.png",
-    "w": 8,
-    "h": 4,
-    "colors": 4,
-    "transparent": 8,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+  "terrain/meadow/scorch": {
+    "source": "assets-in/meadow/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/mine_armed": {
-    "id": "objects/mine_armed",
-    "file": "objects/mine_armed.png",
-    "w": 6,
-    "h": 5,
-    "colors": 3,
-    "transparent": 12,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+    "display": [
+      96,
+      16
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/parachute": {
-    "id": "objects/parachute",
-    "file": "objects/parachute.png",
-    "w": 20,
-    "h": 17,
-    "colors": 6,
-    "transparent": 177,
-    "islands": 8,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+    "pixels": [
+      384,
+      64
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
+    "colors": 1762,
+    "transparent": 3222,
+    "partialAlpha": 218,
+    "alphaLevels": 35
   },
-  "objects/crate_broken": {
-    "id": "objects/crate_broken",
-    "file": "objects/crate_broken.png",
-    "w": 16,
-    "h": 9,
-    "colors": 6,
-    "transparent": 37,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+  "terrain/meadow/under": {
+    "source": "assets-in/meadow/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/dynamite": {
-    "id": "objects/dynamite",
-    "file": "objects/dynamite.png",
-    "w": 17,
-    "h": 20,
-    "colors": 8,
-    "transparent": 199,
-    "islands": 3,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+    "display": [
+      96,
+      16
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "objects/canister": {
-    "id": "objects/canister",
-    "file": "objects/canister.png",
-    "w": 16,
-    "h": 20,
-    "colors": 8,
-    "transparent": 38,
-    "islands": 1,
-    "rawColors": 120602,
-    "seams": {},
-    "source": "assets-in/sheets/props.png",
-    "raw": [
-      1254,
-      1254
+    "pixels": [
+      384,
+      64
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
+    "colors": 2648,
+    "transparent": 8599,
+    "partialAlpha": 328,
+    "alphaLevels": 49
   },
-  "terrain/arctic/rim": {
-    "id": "terrain/arctic/rim",
-    "file": "terrain/arctic/rim.png",
-    "w": 96,
-    "h": 16,
-    "colors": 4,
-    "transparent": 311,
-    "islands": 1,
-    "rawColors": 29635,
-    "seams": {
-      "x": {
-        "before": 0.015563725490196079,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/arctic/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+  "bg/arctic/sky": {
+    "source": "assets-in/arctic/bg-sky.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
-  },
-  "terrain/arctic/scorch": {
-    "id": "terrain/arctic/scorch",
-    "file": "terrain/arctic/scorch.png",
-    "w": 96,
-    "h": 16,
-    "colors": 4,
+    "display": [
+      256,
+      384
+    ],
+    "pixels": [
+      768,
+      1152
+    ],
+    "colors": 27023,
     "transparent": 0,
-    "islands": 1,
-    "rawColors": 29635,
-    "seams": {
-      "x": {
-        "before": 0.015196078431372549,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/arctic/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
-    ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
+    "partialAlpha": 0,
+    "alphaLevels": 1
   },
-  "terrain/arctic/under": {
-    "id": "terrain/arctic/under",
-    "file": "terrain/arctic/under.png",
-    "w": 96,
-    "h": 16,
-    "colors": 7,
-    "transparent": 520,
-    "islands": 1,
-    "rawColors": 29635,
-    "seams": {
-      "x": {
-        "before": 0.057904411764705885,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/arctic/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+  "bg/arctic/far": {
+    "source": "assets-in/arctic/bg-far.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
+    "display": [
+      384,
+      116
+    ],
+    "pixels": [
+      1152,
+      348
+    ],
+    "colors": 7769,
+    "transparent": 104421,
+    "partialAlpha": 76,
+    "alphaLevels": 15
   },
-  "bg/desert/sky": {
-    "id": "bg/desert/sky",
-    "file": "bg/desert/sky.png",
-    "w": 256,
-    "h": 384,
-    "colors": 6,
-    "transparent": 0,
-    "islands": 1,
-    "rawColors": 29412,
-    "seams": {
-      "x": {
-        "before": 0.003957312091503268,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/desert/bg-sky.png",
-    "raw": [
-      1024,
-      1536
+  "bg/arctic/mid": {
+    "source": "assets-in/arctic/bg-mid.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": []
-  },
-  "bg/desert/far": {
-    "id": "bg/desert/far",
-    "file": "bg/desert/far.png",
-    "w": 384,
-    "h": 95,
-    "colors": 4,
-    "transparent": 4043,
-    "islands": 1,
-    "rawColors": 20107,
-    "seams": {
-      "x": {
-        "before": 0.026615067079463366,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/desert/bg-far.png",
-    "raw": [
-      1536,
-      1024
+    "display": [
+      384,
+      116
     ],
-    "normalizations": []
-  },
-  "bg/desert/mid": {
-    "id": "bg/desert/mid",
-    "file": "bg/desert/mid.png",
-    "w": 384,
-    "h": 111,
-    "colors": 4,
-    "transparent": 8579,
-    "islands": 1,
-    "rawColors": 32866,
-    "seams": {
-      "x": {
-        "before": 0.0021197668256491787,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/desert/bg-mid.png",
-    "raw": [
-      1536,
-      1024
+    "pixels": [
+      1152,
+      348
     ],
-    "normalizations": []
+    "colors": 33469,
+    "transparent": 75123,
+    "partialAlpha": 1192,
+    "alphaLevels": 49
   },
   "bg/arctic/near": {
-    "id": "bg/arctic/near",
-    "file": "bg/arctic/near.png",
-    "w": 384,
-    "h": 96,
-    "colors": 5,
-    "transparent": 14821,
-    "islands": 1,
-    "rawColors": 64813,
-    "seams": {
-      "x": {
-        "before": 0.016625816993464052,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/arctic/bg-near.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Layer height 110 -> 96; width preserved"
-    ]
+    "display": [
+      384,
+      96
+    ],
+    "pixels": [
+      1152,
+      288
+    ],
+    "colors": 33014,
+    "transparent": 131689,
+    "partialAlpha": 300,
+    "alphaLevels": 45
   },
   "terrain/arctic/fill": {
-    "id": "terrain/arctic/fill",
-    "file": "terrain/arctic/fill.png",
-    "w": 64,
-    "h": 64,
-    "colors": 6,
-    "transparent": 0,
-    "islands": 1,
-    "rawColors": 24331,
-    "seams": {
-      "x": {
-        "before": 0.04698223039215686,
-        "after": 0,
-        "repaired": true
-      },
-      "y": {
-        "before": 0.03809742647058824,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/arctic/terrain-fill.png",
-    "raw": [
-      1254,
-      1254
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
-  },
-  "terrain/desert/rim": {
-    "id": "terrain/desert/rim",
-    "file": "terrain/desert/rim.png",
-    "w": 96,
-    "h": 16,
-    "colors": 3,
-    "transparent": 444,
-    "islands": 1,
-    "rawColors": 40403,
-    "seams": {
-      "x": {
-        "before": 0.02892156862745098,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/desert/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+    "display": [
+      64,
+      64
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
-  },
-  "terrain/desert/scorch": {
-    "id": "terrain/desert/scorch",
-    "file": "terrain/desert/scorch.png",
-    "w": 96,
-    "h": 16,
-    "colors": 5,
-    "transparent": 385,
-    "islands": 1,
-    "rawColors": 40403,
-    "seams": {
-      "x": {
-        "before": 0.07794117647058824,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/desert/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+    "pixels": [
+      256,
+      256
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
-  },
-  "terrain/desert/under": {
-    "id": "terrain/desert/under",
-    "file": "terrain/desert/under.png",
-    "w": 96,
-    "h": 16,
-    "colors": 7,
-    "transparent": 654,
-    "islands": 1,
-    "rawColors": 40403,
-    "seams": {
-      "x": {
-        "before": 0.028308823529411765,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/desert/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
-    ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
-  },
-  "terrain/desert/fill": {
-    "id": "terrain/desert/fill",
-    "file": "terrain/desert/fill.png",
-    "w": 64,
-    "h": 64,
-    "colors": 4,
+    "colors": 7213,
     "transparent": 0,
-    "islands": 1,
-    "rawColors": 13476,
-    "seams": {
-      "x": {
-        "before": 0.0545343137254902,
-        "after": 0,
-        "repaired": true
-      },
-      "y": {
-        "before": 0.05065870098039216,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/desert/terrain-fill.png",
-    "raw": [
-      1254,
-      1254
-    ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
+    "partialAlpha": 0,
+    "alphaLevels": 1
   },
-  "bg/hell/sky": {
-    "id": "bg/hell/sky",
-    "file": "bg/hell/sky.png",
-    "w": 256,
-    "h": 384,
-    "colors": 6,
+  "terrain/arctic/rim": {
+    "source": "assets-in/arctic/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 1240,
+    "transparent": 3854,
+    "partialAlpha": 304,
+    "alphaLevels": 44
+  },
+  "terrain/arctic/scorch": {
+    "source": "assets-in/arctic/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 1765,
     "transparent": 0,
-    "islands": 1,
-    "rawColors": 24511,
-    "seams": {
-      "x": {
-        "before": 0.004360702614379085,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/hell/bg-sky.png",
-    "raw": [
-      1024,
-      1536
-    ],
-    "normalizations": []
+    "partialAlpha": 0,
+    "alphaLevels": 1
   },
-  "bg/hell/far": {
-    "id": "bg/hell/far",
-    "file": "bg/hell/far.png",
-    "w": 384,
-    "h": 112,
-    "colors": 5,
-    "transparent": 9728,
-    "islands": 1,
-    "rawColors": 21093,
-    "seams": {
-      "x": {
-        "before": 0.03335959383753501,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/hell/bg-far.png",
-    "raw": [
-      1536,
-      1024
+  "terrain/arctic/under": {
+    "source": "assets-in/arctic/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": []
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 2648,
+    "transparent": 7808,
+    "partialAlpha": 406,
+    "alphaLevels": 43
   },
-  "bg/hell/mid": {
-    "id": "bg/hell/mid",
-    "file": "bg/hell/mid.png",
-    "w": 384,
-    "h": 125,
-    "colors": 5,
-    "transparent": 14272,
-    "islands": 2,
-    "rawColors": 40144,
-    "seams": {
-      "x": {
-        "before": 0.0004784313725490196,
-        "after": 0,
-        "repaired": true
-      }
-    },
-    "source": "assets-in/hell/bg-mid.png",
-    "raw": [
-      1536,
-      1024
+  "bg/desert/sky": {
+    "source": "assets-in/desert/bg-sky.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": []
+    "display": [
+      256,
+      384
+    ],
+    "pixels": [
+      768,
+      1152
+    ],
+    "colors": 21552,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
+  },
+  "bg/desert/far": {
+    "source": "assets-in/desert/bg-far.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      384,
+      95
+    ],
+    "pixels": [
+      1152,
+      285
+    ],
+    "colors": 12866,
+    "transparent": 37575,
+    "partialAlpha": 100,
+    "alphaLevels": 18
+  },
+  "bg/desert/mid": {
+    "source": "assets-in/desert/bg-mid.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      384,
+      111
+    ],
+    "pixels": [
+      1152,
+      333
+    ],
+    "colors": 19942,
+    "transparent": 76469,
+    "partialAlpha": 102,
+    "alphaLevels": 13
   },
   "bg/desert/near": {
-    "id": "bg/desert/near",
-    "file": "bg/desert/near.png",
-    "w": 384,
-    "h": 94,
-    "colors": 4,
-    "transparent": 16205,
-    "islands": 1,
-    "rawColors": 31178,
-    "seams": {
-      "x": {
-        "before": 0.06659365874009178,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/desert/bg-near.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": []
+    "display": [
+      384,
+      94
+    ],
+    "pixels": [
+      1152,
+      282
+    ],
+    "colors": 17209,
+    "transparent": 144588,
+    "partialAlpha": 1098,
+    "alphaLevels": 49
+  },
+  "terrain/desert/fill": {
+    "source": "assets-in/desert/terrain-fill.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "pixels": [
+      256,
+      256
+    ],
+    "colors": 4973,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
+  },
+  "terrain/desert/rim": {
+    "source": "assets-in/desert/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 2172,
+    "transparent": 4990,
+    "partialAlpha": 208,
+    "alphaLevels": 49
+  },
+  "terrain/desert/scorch": {
+    "source": "assets-in/desert/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 2285,
+    "transparent": 5327,
+    "partialAlpha": 344,
+    "alphaLevels": 49
+  },
+  "terrain/desert/under": {
+    "source": "assets-in/desert/terrain-strips.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 3009,
+    "transparent": 7229,
+    "partialAlpha": 90,
+    "alphaLevels": 49
+  },
+  "bg/hell/sky": {
+    "source": "assets-in/hell/bg-sky.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      256,
+      384
+    ],
+    "pixels": [
+      768,
+      1152
+    ],
+    "colors": 17623,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
+  },
+  "bg/hell/far": {
+    "source": "assets-in/hell/bg-far.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      384,
+      112
+    ],
+    "pixels": [
+      1152,
+      336
+    ],
+    "colors": 11388,
+    "transparent": 87251,
+    "partialAlpha": 1472,
+    "alphaLevels": 49
+  },
+  "bg/hell/mid": {
+    "source": "assets-in/hell/bg-mid.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
+    ],
+    "display": [
+      384,
+      125
+    ],
+    "pixels": [
+      1152,
+      375
+    ],
+    "colors": 22978,
+    "transparent": 126419,
+    "partialAlpha": 110,
+    "alphaLevels": 19
   },
   "bg/hell/near": {
-    "id": "bg/hell/near",
-    "file": "bg/hell/near.png",
-    "w": 384,
-    "h": 96,
-    "colors": 5,
-    "transparent": 16477,
-    "islands": 1,
-    "rawColors": 76002,
-    "seams": {
-      "x": {
-        "before": 0.03090277777777778,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/hell/bg-near.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Layer height 102 -> 96; width preserved"
-    ]
+    "display": [
+      384,
+      96
+    ],
+    "pixels": [
+      1152,
+      288
+    ],
+    "colors": 41575,
+    "transparent": 147265,
+    "partialAlpha": 530,
+    "alphaLevels": 38
   },
   "terrain/hell/fill": {
-    "id": "terrain/hell/fill",
-    "file": "terrain/hell/fill.png",
-    "w": 64,
-    "h": 64,
-    "colors": 5,
-    "transparent": 0,
-    "islands": 1,
-    "rawColors": 16520,
-    "seams": {
-      "x": {
-        "before": 0.011060049019607844,
-        "after": 0,
-        "repaired": true
-      },
-      "y": {
-        "before": 0.02268688725490196,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/hell/terrain-fill.png",
-    "raw": [
-      1254,
-      1254
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Canvas 1254x1254 -> 1024x1024 (nearest neighbour); original retained"
-    ]
+    "display": [
+      64,
+      64
+    ],
+    "pixels": [
+      256,
+      256
+    ],
+    "colors": 4361,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
   },
   "terrain/hell/rim": {
-    "id": "terrain/hell/rim",
-    "file": "terrain/hell/rim.png",
-    "w": 96,
-    "h": 16,
-    "colors": 6,
-    "transparent": 305,
-    "islands": 1,
-    "rawColors": 58214,
-    "seams": {
-      "x": {
-        "before": 0.002573529411764706,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/hell/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 2941,
+    "transparent": 4013,
+    "partialAlpha": 174,
+    "alphaLevels": 45
   },
   "terrain/hell/scorch": {
-    "id": "terrain/hell/scorch",
-    "file": "terrain/hell/scorch.png",
-    "w": 96,
-    "h": 16,
-    "colors": 10,
-    "transparent": 569,
-    "islands": 1,
-    "rawColors": 58214,
-    "seams": {
-      "x": {
-        "before": 0.04093137254901961,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/hell/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 3791,
+    "transparent": 5929,
+    "partialAlpha": 424,
+    "alphaLevels": 49
   },
   "terrain/hell/under": {
-    "id": "terrain/hell/under",
-    "file": "terrain/hell/under.png",
-    "w": 96,
-    "h": 16,
-    "colors": 4,
-    "transparent": 703,
-    "islands": 1,
-    "rawColors": 58214,
-    "seams": {
-      "x": {
-        "before": 0.0058823529411764705,
-        "after": 0,
-        "repaired": true
-      }
-    },
     "source": "assets-in/hell/terrain-strips.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved",
+      "seam healing"
     ],
-    "normalizations": [
-      "Terrain bands detected by occupied rows and resized to 96x16"
-    ]
+    "display": [
+      96,
+      16
+    ],
+    "pixels": [
+      384,
+      64
+    ],
+    "colors": 2513,
+    "transparent": 10939,
+    "partialAlpha": 148,
+    "alphaLevels": 44
+  },
+  "ui/logo": {
+    "source": "assets-in/logo/logo.png",
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      317,
+      147
+    ],
+    "pixels": [
+      951,
+      441
+    ],
+    "colors": 40920,
+    "transparent": 196754,
+    "partialAlpha": 0,
+    "alphaLevels": 2
   },
   "ui/logo-menu": {
-    "id": "ui/logo-menu",
-    "file": "ui/logo-menu.png",
-    "w": 159,
-    "h": 74,
-    "colors": 10,
-    "transparent": 5570,
-    "islands": 3,
-    "rawColors": 70858,
-    "seams": {},
     "source": "assets-in/logo/logo.png",
-    "raw": [
-      1536,
-      1024
+    "operations": [
+      "native crop",
+      "density 3",
+      "source RGB and continuous alpha preserved"
     ],
-    "normalizations": []
+    "display": [
+      159,
+      74
+    ],
+    "pixels": [
+      477,
+      222
+    ],
+    "colors": 15783,
+    "transparent": 51161,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/sheep_0": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2069,
+    "transparent": 12933,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/sheep_1": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2147,
+    "transparent": 12794,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/supersheep_0": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 3002,
+    "transparent": 12249,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/supersheep_1": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 3019,
+    "transparent": 12152,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/pigeon_0": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2689,
+    "transparent": 12906,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/pigeon_1": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1773,
+    "transparent": 14297,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/mole_0": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1615,
+    "transparent": 13689,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/mole_1": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1700,
+    "transparent": 13630,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/cow": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 3337,
+    "transparent": 10509,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/oldwoman": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 3256,
+    "transparent": 12005,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/donkey": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2807,
+    "transparent": 11695,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/skunk": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1995,
+    "transparent": 12181,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/banana_0": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1923,
+    "transparent": 13712,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/banana_1": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1703,
+    "transparent": 14013,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/stink": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1918,
+    "transparent": 12566,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "creatures/donkey_fall": {
+    "source": "assets-in/sheets/creatures.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2832,
+    "transparent": 11960,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/grave_cross": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 6",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      11,
+      12
+    ],
+    "pixels": [
+      66,
+      72
+    ],
+    "colors": 1262,
+    "transparent": 2932,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/grave_round": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 6",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      11,
+      9
+    ],
+    "pixels": [
+      66,
+      54
+    ],
+    "colors": 858,
+    "transparent": 2195,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/grave_slab": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 6",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      11,
+      4
+    ],
+    "pixels": [
+      66,
+      24
+    ],
+    "colors": 379,
+    "transparent": 1122,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/grave_skull": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 6",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      11,
+      9
+    ],
+    "pixels": [
+      66,
+      54
+    ],
+    "colors": 934,
+    "transparent": 2153,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate_weapon": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "pixels": [
+      64,
+      56
+    ],
+    "colors": 1799,
+    "transparent": 1017,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate_health": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "pixels": [
+      64,
+      56
+    ],
+    "colors": 1540,
+    "transparent": 1104,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate_utility": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "pixels": [
+      64,
+      56
+    ],
+    "colors": 1829,
+    "transparent": 1065,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate_open": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 1056,
+    "transparent": 1336,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/barrel": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 5",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      11,
+      14
+    ],
+    "pixels": [
+      55,
+      70
+    ],
+    "colors": 1653,
+    "transparent": 1456,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/barrel_burning": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 5",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      8,
+      14
+    ],
+    "pixels": [
+      40,
+      70
+    ],
+    "colors": 1065,
+    "transparent": 1583,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/mine_off": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 8",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      8,
+      4
+    ],
+    "pixels": [
+      64,
+      32
+    ],
+    "colors": 401,
+    "transparent": 1565,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/mine_armed": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 11",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      6,
+      5
+    ],
+    "pixels": [
+      66,
+      55
+    ],
+    "colors": 730,
+    "transparent": 2651,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/parachute": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      20,
+      17
+    ],
+    "pixels": [
+      80,
+      68
+    ],
+    "colors": 1513,
+    "transparent": 3236,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate_broken": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      16,
+      9
+    ],
+    "pixels": [
+      64,
+      36
+    ],
+    "colors": 832,
+    "transparent": 1393,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/dynamite": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      17,
+      20
+    ],
+    "pixels": [
+      68,
+      80
+    ],
+    "colors": 1477,
+    "transparent": 3760,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/canister": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native crop",
+      "density 4",
+      "source RGB and continuous alpha preserved"
+    ],
+    "display": [
+      16,
+      20
+    ],
+    "pixels": [
+      64,
+      80
+    ],
+    "colors": 1922,
+    "transparent": 1645,
+    "partialAlpha": 0,
+    "alphaLevels": 2
   }
 }

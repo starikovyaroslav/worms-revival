@@ -16,12 +16,15 @@
     "test:watch": "vitest",
     "check": "npm run typecheck && npm run lint && npm test",
     "test:determinism": "node tools/determinism/run.mjs",
-    "art:ingest": "node tools/art/ingest.mjs",
-    "art:review": "node tools/art/review.mjs",
-    "art:test": "node --test tools/art/ingest.test.mjs tools/art/arsenal.test.mjs tools/art/vfx.test.mjs tools/art/military.test.mjs",
-    "art:arsenal": "node tools/art/arsenal.mjs",
+    "art:ingest": "node tools/art/desktop-world.mjs generated",
+    "art:review": "node tools/art/density-audit.mjs",
+    "art:test": "node --test tools/art/ingest.test.mjs tools/art/arsenal.test.mjs tools/art/vfx.test.mjs tools/art/military.test.mjs tools/art/desktop-world.test.mjs",
+    "art:arsenal": "node tools/art/desktop-world.mjs arsenal",
     "art:vfx": "node tools/art/vfx.mjs",
-    "art:military": "node tools/art/military.mjs"
+    "art:military": "node tools/art/military.mjs",
+    "art:legacy": "node tools/art/legacy-hd.mjs",
+    "art:audit": "node tools/art/density-audit.mjs",
+    "art:desktop": "npm run art:ingest && npm run art:arsenal && npm run art:vfx && npm run art:military && npm run art:legacy && npm run art:audit"
   },
   "engines": {
     "node": ">=22"

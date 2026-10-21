@@ -208,6 +208,5 @@ export function review() {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  if (process.argv.includes('--review')) review();
-  else build();
+  throw new Error('Historical quantized exporter disabled. Use npm run art:arsenal (native RGBA).');
 }

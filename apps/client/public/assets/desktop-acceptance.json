@@ -1,0 +1,9795 @@
+{
+  "weapons/icon/grenade": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1292,
+    "transparent": 5251,
+    "partialAlpha": 1792,
+    "alphaLevels": 93
+  },
+  "weapons/icon/dynamite": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1769,
+    "transparent": 4743,
+    "partialAlpha": 2309,
+    "alphaLevels": 109
+  },
+  "weapons/icon/mine": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1100,
+    "transparent": 5396,
+    "partialAlpha": 1655,
+    "alphaLevels": 83
+  },
+  "weapons/icon/bazooka": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1352,
+    "transparent": 4978,
+    "partialAlpha": 2073,
+    "alphaLevels": 124
+  },
+  "weapons/icon/sheep": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1370,
+    "transparent": 4555,
+    "partialAlpha": 2501,
+    "alphaLevels": 133
+  },
+  "weapons/icon/homing": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      32,
+      25
+    ],
+    "pixels": [
+      192,
+      150
+    ],
+    "colors": 4704,
+    "transparent": 19776,
+    "partialAlpha": 8999,
+    "alphaLevels": 239
+  },
+  "weapons/icon/mortar": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1326,
+    "transparent": 4994,
+    "partialAlpha": 2061,
+    "alphaLevels": 135
+  },
+  "weapons/icon/pigeon": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      32,
+      23
+    ],
+    "pixels": [
+      192,
+      138
+    ],
+    "colors": 3502,
+    "transparent": 20603,
+    "partialAlpha": 5886,
+    "alphaLevels": 194
+  },
+  "weapons/icon/cluster": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1675,
+    "transparent": 4698,
+    "partialAlpha": 2353,
+    "alphaLevels": 111
+  },
+  "weapons/icon/banana": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1232,
+    "transparent": 5053,
+    "partialAlpha": 1999,
+    "alphaLevels": 132
+  },
+  "weapons/icon/shotgun": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 981,
+    "transparent": 5625,
+    "partialAlpha": 1424,
+    "alphaLevels": 116
+  },
+  "weapons/icon/handgun": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1319,
+    "transparent": 4888,
+    "partialAlpha": 2149,
+    "alphaLevels": 101
+  },
+  "weapons/icon/uzi": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 882,
+    "transparent": 5587,
+    "partialAlpha": 1469,
+    "alphaLevels": 101
+  },
+  "weapons/icon/minigun": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      32,
+      24
+    ],
+    "pixels": [
+      192,
+      144
+    ],
+    "colors": 4219,
+    "transparent": 19419,
+    "partialAlpha": 8188,
+    "alphaLevels": 195
+  },
+  "weapons/icon/longbow": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 967,
+    "transparent": 5205,
+    "partialAlpha": 1851,
+    "alphaLevels": 151
+  },
+  "weapons/icon/firepunch": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1422,
+    "transparent": 4798,
+    "partialAlpha": 2254,
+    "alphaLevels": 142
+  },
+  "weapons/icon/prod": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1170,
+    "transparent": 5198,
+    "partialAlpha": 1858,
+    "alphaLevels": 116
+  },
+  "weapons/icon/supersheep": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1507,
+    "transparent": 4883,
+    "partialAlpha": 2172,
+    "alphaLevels": 120
+  },
+  "weapons/icon/airstrike": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1705,
+    "transparent": 4480,
+    "partialAlpha": 2573,
+    "alphaLevels": 138
+  },
+  "weapons/icon/blowtorch": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1164,
+    "transparent": 5359,
+    "partialAlpha": 1664,
+    "alphaLevels": 118
+  },
+  "weapons/icon/drill": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      30,
+      32
+    ],
+    "pixels": [
+      180,
+      192
+    ],
+    "colors": 6217,
+    "transparent": 23496,
+    "partialAlpha": 11053,
+    "alphaLevels": 239
+  },
+  "weapons/icon/girder": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1614,
+    "transparent": 4823,
+    "partialAlpha": 2233,
+    "alphaLevels": 113
+  },
+  "weapons/icon/bat": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 892,
+    "transparent": 5533,
+    "partialAlpha": 1521,
+    "alphaLevels": 113
+  },
+  "weapons/icon/rope": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1262,
+    "transparent": 5086,
+    "partialAlpha": 1969,
+    "alphaLevels": 147
+  },
+  "weapons/icon/parachute": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1706,
+    "transparent": 4475,
+    "partialAlpha": 2572,
+    "alphaLevels": 164
+  },
+  "weapons/icon/teleport": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      30,
+      32
+    ],
+    "pixels": [
+      180,
+      192
+    ],
+    "colors": 8211,
+    "transparent": 19071,
+    "partialAlpha": 15463,
+    "alphaLevels": 254
+  },
+  "weapons/icon/hhg": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      22,
+      32
+    ],
+    "pixels": [
+      132,
+      192
+    ],
+    "colors": 3672,
+    "transparent": 19805,
+    "partialAlpha": 5533,
+    "alphaLevels": 191
+  },
+  "weapons/icon/skipgo": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      23,
+      32
+    ],
+    "pixels": [
+      138,
+      192
+    ],
+    "colors": 4516,
+    "transparent": 19062,
+    "partialAlpha": 7419,
+    "alphaLevels": 221
+  },
+  "weapons/icon/surrender": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      22,
+      32
+    ],
+    "pixels": [
+      132,
+      192
+    ],
+    "colors": 2949,
+    "transparent": 17367,
+    "partialAlpha": 7951,
+    "alphaLevels": 214
+  },
+  "objects/crate-weapon": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      15
+    ],
+    "pixels": [
+      64,
+      60
+    ],
+    "colors": 1799,
+    "transparent": 1076,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      15
+    ],
+    "pixels": [
+      64,
+      60
+    ],
+    "colors": 1540,
+    "transparent": 1102,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/barrel": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      13,
+      14
+    ],
+    "pixels": [
+      65,
+      70
+    ],
+    "colors": 1653,
+    "transparent": 1944,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/mine": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 8"
+    ],
+    "display": [
+      8,
+      5
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 401,
+    "transparent": 1712,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/tombstone": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      11,
+      15
+    ],
+    "pixels": [
+      55,
+      75
+    ],
+    "colors": 379,
+    "transparent": 3590,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/parachute": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      20,
+      19
+    ],
+    "pixels": [
+      80,
+      76
+    ],
+    "colors": 1513,
+    "transparent": 3645,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/grenade": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      10,
+      13
+    ],
+    "pixels": [
+      50,
+      65
+    ],
+    "colors": 390,
+    "transparent": 2724,
+    "partialAlpha": 526,
+    "alphaLevels": 56
+  },
+  "proj/cluster": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      14,
+      12
+    ],
+    "pixels": [
+      70,
+      60
+    ],
+    "colors": 516,
+    "transparent": 3514,
+    "partialAlpha": 686,
+    "alphaLevels": 68
+  },
+  "proj/bomblet": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 11"
+    ],
+    "display": [
+      5,
+      6
+    ],
+    "pixels": [
+      55,
+      66
+    ],
+    "colors": 285,
+    "transparent": 3267,
+    "partialAlpha": 363,
+    "alphaLevels": 42
+  },
+  "proj/banana": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      70,
+      70
+    ],
+    "colors": 582,
+    "transparent": 3960,
+    "partialAlpha": 939,
+    "alphaLevels": 79
+  },
+  "proj/hhg": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      9,
+      14
+    ],
+    "pixels": [
+      45,
+      70
+    ],
+    "colors": 317,
+    "transparent": 2736,
+    "partialAlpha": 413,
+    "alphaLevels": 55
+  },
+  "proj/dynamite": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      13,
+      16
+    ],
+    "pixels": [
+      52,
+      64
+    ],
+    "colors": 566,
+    "transparent": 2629,
+    "partialAlpha": 699,
+    "alphaLevels": 66
+  },
+  "proj/rocket": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      20,
+      10
+    ],
+    "pixels": [
+      80,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2452,
+    "partialAlpha": 748,
+    "alphaLevels": 14
+  },
+  "proj/arrow": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      22,
+      5
+    ],
+    "pixels": [
+      88,
+      20
+    ],
+    "colors": 24,
+    "transparent": 1735,
+    "partialAlpha": 25,
+    "alphaLevels": 11
+  },
+  "proj/pigeon": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      20,
+      14
+    ],
+    "pixels": [
+      80,
+      56
+    ],
+    "colors": 1093,
+    "transparent": 3226,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/sheep": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      22,
+      20
+    ],
+    "pixels": [
+      88,
+      80
+    ],
+    "colors": 2069,
+    "transparent": 3220,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/supersheep": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      24,
+      18
+    ],
+    "pixels": [
+      96,
+      72
+    ],
+    "colors": 2425,
+    "transparent": 3642,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "worm/idle_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1774,
+    "transparent": 13435,
+    "partialAlpha": 2947,
+    "alphaLevels": 145
+  },
+  "worm/idle_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "worm/idle_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1759,
+    "transparent": 13610,
+    "partialAlpha": 2767,
+    "alphaLevels": 152
+  },
+  "worm/idle_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 108,
+    "transparent": 16115,
+    "partialAlpha": 269,
+    "alphaLevels": 13
+  },
+  "worm/idle_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1820,
+    "transparent": 13545,
+    "partialAlpha": 2824,
+    "alphaLevels": 154
+  },
+  "worm/idle_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 118,
+    "transparent": 16104,
+    "partialAlpha": 280,
+    "alphaLevels": 16
+  },
+  "worm/idle_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1755,
+    "transparent": 13702,
+    "partialAlpha": 2678,
+    "alphaLevels": 141
+  },
+  "worm/idle_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 98,
+    "transparent": 16134,
+    "partialAlpha": 250,
+    "alphaLevels": 11
+  },
+  "worm/walk_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1710,
+    "transparent": 13606,
+    "partialAlpha": 2774,
+    "alphaLevels": 146
+  },
+  "worm/walk_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 100,
+    "transparent": 16091,
+    "partialAlpha": 293,
+    "alphaLevels": 14
+  },
+  "worm/walk_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2134,
+    "transparent": 12817,
+    "partialAlpha": 3548,
+    "alphaLevels": 166
+  },
+  "worm/walk_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16045,
+    "partialAlpha": 339,
+    "alphaLevels": 13
+  },
+  "worm/walk_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1803,
+    "transparent": 13389,
+    "partialAlpha": 2979,
+    "alphaLevels": 149
+  },
+  "worm/walk_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 101,
+    "transparent": 16087,
+    "partialAlpha": 297,
+    "alphaLevels": 12
+  },
+  "worm/walk_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2214,
+    "transparent": 12688,
+    "partialAlpha": 3691,
+    "alphaLevels": 172
+  },
+  "worm/walk_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 107,
+    "transparent": 16040,
+    "partialAlpha": 344,
+    "alphaLevels": 13
+  },
+  "worm/walk_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2233,
+    "transparent": 12632,
+    "partialAlpha": 3742,
+    "alphaLevels": 167
+  },
+  "worm/walk_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16005,
+    "partialAlpha": 379,
+    "alphaLevels": 17
+  },
+  "worm/walk_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1874,
+    "transparent": 13151,
+    "partialAlpha": 3229,
+    "alphaLevels": 152
+  },
+  "worm/walk_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 101,
+    "transparent": 16065,
+    "partialAlpha": 319,
+    "alphaLevels": 15
+  },
+  "worm/walk_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1822,
+    "transparent": 13507,
+    "partialAlpha": 2873,
+    "alphaLevels": 145
+  },
+  "worm/walk_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 100,
+    "transparent": 16089,
+    "partialAlpha": 295,
+    "alphaLevels": 12
+  },
+  "worm/walk_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1979,
+    "transparent": 13276,
+    "partialAlpha": 3108,
+    "alphaLevels": 141
+  },
+  "worm/walk_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 15982,
+    "partialAlpha": 402,
+    "alphaLevels": 16
+  },
+  "worm/walk_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2496,
+    "transparent": 12080,
+    "partialAlpha": 4297,
+    "alphaLevels": 174
+  },
+  "worm/walk_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 118,
+    "transparent": 15932,
+    "partialAlpha": 452,
+    "alphaLevels": 13
+  },
+  "worm/walk_9": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1739,
+    "transparent": 13469,
+    "partialAlpha": 2911,
+    "alphaLevels": 140
+  },
+  "worm/walk_9_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 98,
+    "transparent": 16088,
+    "partialAlpha": 296,
+    "alphaLevels": 13
+  },
+  "worm/walk_10": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1846,
+    "transparent": 13251,
+    "partialAlpha": 3124,
+    "alphaLevels": 155
+  },
+  "worm/walk_10_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 101,
+    "transparent": 16077,
+    "partialAlpha": 307,
+    "alphaLevels": 11
+  },
+  "worm/walk_11": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1858,
+    "transparent": 13192,
+    "partialAlpha": 3187,
+    "alphaLevels": 155
+  },
+  "worm/walk_11_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 106,
+    "transparent": 16059,
+    "partialAlpha": 325,
+    "alphaLevels": 20
+  },
+  "worm/walk_12": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2561,
+    "transparent": 11953,
+    "partialAlpha": 4416,
+    "alphaLevels": 190
+  },
+  "worm/walk_12_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 128,
+    "transparent": 15973,
+    "partialAlpha": 411,
+    "alphaLevels": 17
+  },
+  "worm/jump": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2077,
+    "transparent": 13243,
+    "partialAlpha": 3141,
+    "alphaLevels": 164
+  },
+  "worm/jump_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16097,
+    "partialAlpha": 287,
+    "alphaLevels": 19
+  },
+  "worm/fall": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1776,
+    "transparent": 13695,
+    "partialAlpha": 2683,
+    "alphaLevels": 141
+  },
+  "worm/fall_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 106,
+    "transparent": 16103,
+    "partialAlpha": 281,
+    "alphaLevels": 12
+  },
+  "worm/land": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1681,
+    "transparent": 13938,
+    "partialAlpha": 2445,
+    "alphaLevels": 153
+  },
+  "worm/land_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 124,
+    "transparent": 16072,
+    "partialAlpha": 312,
+    "alphaLevels": 11
+  },
+  "worm/hurt_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1988,
+    "transparent": 13466,
+    "partialAlpha": 2915,
+    "alphaLevels": 170
+  },
+  "worm/hurt_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16087,
+    "partialAlpha": 297,
+    "alphaLevels": 20
+  },
+  "worm/hurt_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1814,
+    "transparent": 13458,
+    "partialAlpha": 2924,
+    "alphaLevels": 147
+  },
+  "worm/hurt_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 106,
+    "transparent": 16049,
+    "partialAlpha": 335,
+    "alphaLevels": 15
+  },
+  "worm/tumble_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1533,
+    "transparent": 13967,
+    "partialAlpha": 2412,
+    "alphaLevels": 125
+  },
+  "worm/tumble_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 123,
+    "transparent": 16043,
+    "partialAlpha": 341,
+    "alphaLevels": 17
+  },
+  "worm/tumble_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1864,
+    "transparent": 13632,
+    "partialAlpha": 2749,
+    "alphaLevels": 134
+  },
+  "worm/tumble_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 94,
+    "transparent": 16160,
+    "partialAlpha": 224,
+    "alphaLevels": 15
+  },
+  "worm/tumble_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1640,
+    "transparent": 13369,
+    "partialAlpha": 3007,
+    "alphaLevels": 115
+  },
+  "worm/tumble_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 125,
+    "transparent": 16018,
+    "partialAlpha": 366,
+    "alphaLevels": 14
+  },
+  "worm/tumble_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1522,
+    "transparent": 13812,
+    "partialAlpha": 2567,
+    "alphaLevels": 131
+  },
+  "worm/tumble_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 81,
+    "transparent": 16196,
+    "partialAlpha": 188,
+    "alphaLevels": 4
+  },
+  "worm/tumble_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1200,
+    "transparent": 14539,
+    "partialAlpha": 1844,
+    "alphaLevels": 116
+  },
+  "worm/tumble_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 104,
+    "transparent": 16129,
+    "partialAlpha": 255,
+    "alphaLevels": 17
+  },
+  "worm/tumble_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1592,
+    "transparent": 14079,
+    "partialAlpha": 2303,
+    "alphaLevels": 127
+  },
+  "worm/tumble_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 91,
+    "transparent": 16200,
+    "partialAlpha": 184,
+    "alphaLevels": 13
+  },
+  "worm/tumble_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1450,
+    "transparent": 13867,
+    "partialAlpha": 2513,
+    "alphaLevels": 119
+  },
+  "worm/tumble_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 108,
+    "transparent": 16075,
+    "partialAlpha": 309,
+    "alphaLevels": 12
+  },
+  "worm/tumble_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1062,
+    "transparent": 14674,
+    "partialAlpha": 1710,
+    "alphaLevels": 94
+  },
+  "worm/tumble_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 70,
+    "transparent": 16254,
+    "partialAlpha": 130,
+    "alphaLevels": 4
+  },
+  "weapons/icon/petrol": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1215,
+    "transparent": 5024,
+    "partialAlpha": 2027,
+    "alphaLevels": 136
+  },
+  "weapons/icon/madcow": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1587,
+    "transparent": 4520,
+    "partialAlpha": 2505,
+    "alphaLevels": 133
+  },
+  "weapons/icon/skunk": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1284,
+    "transparent": 4677,
+    "partialAlpha": 2376,
+    "alphaLevels": 138
+  },
+  "weapons/icon/donkey": {
+    "source": "assets-in/desktop/icons-{a,b}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6"
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "pixels": [
+      84,
+      84
+    ],
+    "colors": 1314,
+    "transparent": 4875,
+    "partialAlpha": 2173,
+    "alphaLevels": 121
+  },
+  "objects/crate-health-chute_0": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      20,
+      32
+    ],
+    "pixels": [
+      80,
+      128
+    ],
+    "colors": 2711,
+    "transparent": 5621,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_1": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      23,
+      32
+    ],
+    "pixels": [
+      92,
+      128
+    ],
+    "colors": 2873,
+    "transparent": 5853,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_2": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      25,
+      32
+    ],
+    "pixels": [
+      100,
+      128
+    ],
+    "colors": 2839,
+    "transparent": 6469,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_3": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      26,
+      30
+    ],
+    "pixels": [
+      104,
+      120
+    ],
+    "colors": 2786,
+    "transparent": 6381,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_4": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      25,
+      32
+    ],
+    "pixels": [
+      100,
+      128
+    ],
+    "colors": 2839,
+    "transparent": 6469,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_5": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      23,
+      32
+    ],
+    "pixels": [
+      92,
+      128
+    ],
+    "colors": 2873,
+    "transparent": 5853,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_6": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      23,
+      32
+    ],
+    "pixels": [
+      92,
+      128
+    ],
+    "colors": 2873,
+    "transparent": 5853,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_7": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      25,
+      32
+    ],
+    "pixels": [
+      100,
+      128
+    ],
+    "colors": 2839,
+    "transparent": 6469,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_8": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      26,
+      30
+    ],
+    "pixels": [
+      104,
+      120
+    ],
+    "colors": 2786,
+    "transparent": 6381,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_9": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      25,
+      32
+    ],
+    "pixels": [
+      100,
+      128
+    ],
+    "colors": 2839,
+    "transparent": 6469,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_10": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      23,
+      32
+    ],
+    "pixels": [
+      92,
+      128
+    ],
+    "colors": 2873,
+    "transparent": 5853,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "objects/crate-health-chute_11": {
+    "source": "assets-in/sheets/props.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "canopy + crate composition"
+    ],
+    "display": [
+      20,
+      32
+    ],
+    "pixels": [
+      80,
+      128
+    ],
+    "colors": 2711,
+    "transparent": 5621,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "hold/bazooka_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1921,
+    "transparent": 13434,
+    "partialAlpha": 2688,
+    "alphaLevels": 144
+  },
+  "hold/bazooka_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/bazooka_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1872,
+    "transparent": 13420,
+    "partialAlpha": 2697,
+    "alphaLevels": 146
+  },
+  "hold/bazooka_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16108,
+    "partialAlpha": 276,
+    "alphaLevels": 15
+  },
+  "hold/bazooka_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1847,
+    "transparent": 13429,
+    "partialAlpha": 2668,
+    "alphaLevels": 145
+  },
+  "hold/bazooka_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16112,
+    "partialAlpha": 272,
+    "alphaLevels": 15
+  },
+  "hold/bazooka_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1903,
+    "transparent": 13389,
+    "partialAlpha": 2718,
+    "alphaLevels": 143
+  },
+  "hold/bazooka_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 103,
+    "transparent": 16153,
+    "partialAlpha": 231,
+    "alphaLevels": 15
+  },
+  "hold/bazooka_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1921,
+    "transparent": 13434,
+    "partialAlpha": 2688,
+    "alphaLevels": 144
+  },
+  "hold/bazooka_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/bazooka_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1916,
+    "transparent": 13431,
+    "partialAlpha": 2699,
+    "alphaLevels": 145
+  },
+  "hold/bazooka_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/bazooka_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1905,
+    "transparent": 13435,
+    "partialAlpha": 2674,
+    "alphaLevels": 143
+  },
+  "hold/bazooka_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/bazooka_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1907,
+    "transparent": 13419,
+    "partialAlpha": 2679,
+    "alphaLevels": 145
+  },
+  "hold/bazooka_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 110,
+    "transparent": 16123,
+    "partialAlpha": 261,
+    "alphaLevels": 16
+  },
+  "hold/bazooka_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1954,
+    "transparent": 13400,
+    "partialAlpha": 2695,
+    "alphaLevels": 145
+  },
+  "hold/bazooka_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16142,
+    "partialAlpha": 242,
+    "alphaLevels": 16
+  },
+  "hold/grenade_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1931,
+    "transparent": 13434,
+    "partialAlpha": 2662,
+    "alphaLevels": 145
+  },
+  "hold/grenade_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1890,
+    "transparent": 13434,
+    "partialAlpha": 2661,
+    "alphaLevels": 145
+  },
+  "hold/grenade_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1904,
+    "transparent": 13434,
+    "partialAlpha": 2660,
+    "alphaLevels": 145
+  },
+  "hold/grenade_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1919,
+    "transparent": 13435,
+    "partialAlpha": 2660,
+    "alphaLevels": 145
+  },
+  "hold/grenade_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1931,
+    "transparent": 13434,
+    "partialAlpha": 2662,
+    "alphaLevels": 145
+  },
+  "hold/grenade_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1924,
+    "transparent": 13435,
+    "partialAlpha": 2659,
+    "alphaLevels": 145
+  },
+  "hold/grenade_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1898,
+    "transparent": 13435,
+    "partialAlpha": 2655,
+    "alphaLevels": 145
+  },
+  "hold/grenade_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1933,
+    "transparent": 13435,
+    "partialAlpha": 2659,
+    "alphaLevels": 145
+  },
+  "hold/grenade_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/grenade_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1943,
+    "transparent": 13435,
+    "partialAlpha": 2659,
+    "alphaLevels": 145
+  },
+  "hold/grenade_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/cluster_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1916,
+    "transparent": 13436,
+    "partialAlpha": 2664,
+    "alphaLevels": 145
+  },
+  "hold/cluster_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16106,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1879,
+    "transparent": 13436,
+    "partialAlpha": 2663,
+    "alphaLevels": 145
+  },
+  "hold/cluster_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16106,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1871,
+    "transparent": 13436,
+    "partialAlpha": 2664,
+    "alphaLevels": 145
+  },
+  "hold/cluster_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16106,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1900,
+    "transparent": 13437,
+    "partialAlpha": 2664,
+    "alphaLevels": 145
+  },
+  "hold/cluster_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16105,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1916,
+    "transparent": 13436,
+    "partialAlpha": 2664,
+    "alphaLevels": 145
+  },
+  "hold/cluster_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16106,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1902,
+    "transparent": 13436,
+    "partialAlpha": 2659,
+    "alphaLevels": 145
+  },
+  "hold/cluster_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16106,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1879,
+    "transparent": 13435,
+    "partialAlpha": 2670,
+    "alphaLevels": 145
+  },
+  "hold/cluster_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16105,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1915,
+    "transparent": 13435,
+    "partialAlpha": 2664,
+    "alphaLevels": 145
+  },
+  "hold/cluster_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16106,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/cluster_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1941,
+    "transparent": 13436,
+    "partialAlpha": 2664,
+    "alphaLevels": 144
+  },
+  "hold/cluster_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16106,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "hold/banana_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1883,
+    "transparent": 13434,
+    "partialAlpha": 2730,
+    "alphaLevels": 145
+  },
+  "hold/banana_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1849,
+    "transparent": 13434,
+    "partialAlpha": 2730,
+    "alphaLevels": 145
+  },
+  "hold/banana_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1833,
+    "transparent": 13433,
+    "partialAlpha": 2736,
+    "alphaLevels": 146
+  },
+  "hold/banana_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1847,
+    "transparent": 13435,
+    "partialAlpha": 2730,
+    "alphaLevels": 145
+  },
+  "hold/banana_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1883,
+    "transparent": 13434,
+    "partialAlpha": 2730,
+    "alphaLevels": 145
+  },
+  "hold/banana_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1886,
+    "transparent": 13435,
+    "partialAlpha": 2727,
+    "alphaLevels": 145
+  },
+  "hold/banana_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1887,
+    "transparent": 13435,
+    "partialAlpha": 2731,
+    "alphaLevels": 145
+  },
+  "hold/banana_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1918,
+    "transparent": 13435,
+    "partialAlpha": 2731,
+    "alphaLevels": 145
+  },
+  "hold/banana_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/banana_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1959,
+    "transparent": 13431,
+    "partialAlpha": 2732,
+    "alphaLevels": 145
+  },
+  "hold/banana_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16111,
+    "partialAlpha": 273,
+    "alphaLevels": 16
+  },
+  "hold/shotgun_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1894,
+    "transparent": 13419,
+    "partialAlpha": 2749,
+    "alphaLevels": 147
+  },
+  "hold/shotgun_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/shotgun_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1864,
+    "transparent": 13411,
+    "partialAlpha": 2754,
+    "alphaLevels": 145
+  },
+  "hold/shotgun_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16108,
+    "partialAlpha": 276,
+    "alphaLevels": 15
+  },
+  "hold/shotgun_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1823,
+    "transparent": 13430,
+    "partialAlpha": 2712,
+    "alphaLevels": 145
+  },
+  "hold/shotgun_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16112,
+    "partialAlpha": 272,
+    "alphaLevels": 15
+  },
+  "hold/shotgun_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1872,
+    "transparent": 13401,
+    "partialAlpha": 2760,
+    "alphaLevels": 145
+  },
+  "hold/shotgun_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 104,
+    "transparent": 16138,
+    "partialAlpha": 246,
+    "alphaLevels": 15
+  },
+  "hold/shotgun_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1894,
+    "transparent": 13419,
+    "partialAlpha": 2749,
+    "alphaLevels": 147
+  },
+  "hold/shotgun_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/shotgun_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1903,
+    "transparent": 13417,
+    "partialAlpha": 2767,
+    "alphaLevels": 146
+  },
+  "hold/shotgun_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/shotgun_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1897,
+    "transparent": 13428,
+    "partialAlpha": 2743,
+    "alphaLevels": 141
+  },
+  "hold/shotgun_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/shotgun_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1894,
+    "transparent": 13418,
+    "partialAlpha": 2718,
+    "alphaLevels": 145
+  },
+  "hold/shotgun_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16123,
+    "partialAlpha": 261,
+    "alphaLevels": 16
+  },
+  "hold/shotgun_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1939,
+    "transparent": 13400,
+    "partialAlpha": 2737,
+    "alphaLevels": 145
+  },
+  "hold/shotgun_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 110,
+    "transparent": 16141,
+    "partialAlpha": 243,
+    "alphaLevels": 16
+  },
+  "hold/handgun_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1865,
+    "transparent": 13435,
+    "partialAlpha": 2791,
+    "alphaLevels": 145
+  },
+  "hold/handgun_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1843,
+    "transparent": 13435,
+    "partialAlpha": 2788,
+    "alphaLevels": 145
+  },
+  "hold/handgun_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1831,
+    "transparent": 13435,
+    "partialAlpha": 2792,
+    "alphaLevels": 146
+  },
+  "hold/handgun_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1822,
+    "transparent": 13435,
+    "partialAlpha": 2792,
+    "alphaLevels": 146
+  },
+  "hold/handgun_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1865,
+    "transparent": 13435,
+    "partialAlpha": 2791,
+    "alphaLevels": 145
+  },
+  "hold/handgun_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1872,
+    "transparent": 13435,
+    "partialAlpha": 2793,
+    "alphaLevels": 145
+  },
+  "hold/handgun_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1876,
+    "transparent": 13435,
+    "partialAlpha": 2791,
+    "alphaLevels": 145
+  },
+  "hold/handgun_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1880,
+    "transparent": 13435,
+    "partialAlpha": 2792,
+    "alphaLevels": 145
+  },
+  "hold/handgun_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/handgun_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1902,
+    "transparent": 13435,
+    "partialAlpha": 2792,
+    "alphaLevels": 145
+  },
+  "hold/handgun_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1886,
+    "transparent": 13435,
+    "partialAlpha": 2721,
+    "alphaLevels": 145
+  },
+  "hold/uzi_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1855,
+    "transparent": 13435,
+    "partialAlpha": 2733,
+    "alphaLevels": 145
+  },
+  "hold/uzi_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1836,
+    "transparent": 13434,
+    "partialAlpha": 2731,
+    "alphaLevels": 144
+  },
+  "hold/uzi_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1854,
+    "transparent": 13429,
+    "partialAlpha": 2726,
+    "alphaLevels": 145
+  },
+  "hold/uzi_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16113,
+    "partialAlpha": 271,
+    "alphaLevels": 15
+  },
+  "hold/uzi_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1886,
+    "transparent": 13435,
+    "partialAlpha": 2721,
+    "alphaLevels": 145
+  },
+  "hold/uzi_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1879,
+    "transparent": 13434,
+    "partialAlpha": 2722,
+    "alphaLevels": 145
+  },
+  "hold/uzi_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1899,
+    "transparent": 13435,
+    "partialAlpha": 2724,
+    "alphaLevels": 145
+  },
+  "hold/uzi_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1882,
+    "transparent": 13435,
+    "partialAlpha": 2720,
+    "alphaLevels": 146
+  },
+  "hold/uzi_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/uzi_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1890,
+    "transparent": 13432,
+    "partialAlpha": 2724,
+    "alphaLevels": 145
+  },
+  "hold/uzi_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 110,
+    "transparent": 16110,
+    "partialAlpha": 274,
+    "alphaLevels": 15
+  },
+  "hold/minigun_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2024,
+    "transparent": 13381,
+    "partialAlpha": 2549,
+    "alphaLevels": 146
+  },
+  "hold/minigun_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/minigun_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1978,
+    "transparent": 13367,
+    "partialAlpha": 2536,
+    "alphaLevels": 147
+  },
+  "hold/minigun_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16108,
+    "partialAlpha": 276,
+    "alphaLevels": 15
+  },
+  "hold/minigun_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1894,
+    "transparent": 13410,
+    "partialAlpha": 2455,
+    "alphaLevels": 142
+  },
+  "hold/minigun_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 109,
+    "transparent": 16122,
+    "partialAlpha": 262,
+    "alphaLevels": 15
+  },
+  "hold/minigun_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1983,
+    "transparent": 13346,
+    "partialAlpha": 2556,
+    "alphaLevels": 144
+  },
+  "hold/minigun_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 102,
+    "transparent": 16153,
+    "partialAlpha": 231,
+    "alphaLevels": 16
+  },
+  "hold/minigun_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2024,
+    "transparent": 13381,
+    "partialAlpha": 2549,
+    "alphaLevels": 146
+  },
+  "hold/minigun_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/minigun_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2001,
+    "transparent": 13384,
+    "partialAlpha": 2588,
+    "alphaLevels": 150
+  },
+  "hold/minigun_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/minigun_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1965,
+    "transparent": 13373,
+    "partialAlpha": 2543,
+    "alphaLevels": 142
+  },
+  "hold/minigun_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 107,
+    "transparent": 16132,
+    "partialAlpha": 252,
+    "alphaLevels": 14
+  },
+  "hold/minigun_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1941,
+    "transparent": 13356,
+    "partialAlpha": 2487,
+    "alphaLevels": 145
+  },
+  "hold/minigun_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 99,
+    "transparent": 16184,
+    "partialAlpha": 200,
+    "alphaLevels": 15
+  },
+  "hold/minigun_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2017,
+    "transparent": 13341,
+    "partialAlpha": 2503,
+    "alphaLevels": 144
+  },
+  "hold/minigun_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 103,
+    "transparent": 16196,
+    "partialAlpha": 188,
+    "alphaLevels": 16
+  },
+  "hold/mortar_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1933,
+    "transparent": 13435,
+    "partialAlpha": 2615,
+    "alphaLevels": 145
+  },
+  "hold/mortar_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/mortar_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -0.5235987755982988"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1888,
+    "transparent": 13433,
+    "partialAlpha": 2632,
+    "alphaLevels": 144
+  },
+  "hold/mortar_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/mortar_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.0471975511965976"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1877,
+    "transparent": 13423,
+    "partialAlpha": 2637,
+    "alphaLevels": 147
+  },
+  "hold/mortar_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16109,
+    "partialAlpha": 275,
+    "alphaLevels": 15
+  },
+  "hold/mortar_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle -1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1903,
+    "transparent": 13427,
+    "partialAlpha": 2618,
+    "alphaLevels": 143
+  },
+  "hold/mortar_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16115,
+    "partialAlpha": 269,
+    "alphaLevels": 15
+  },
+  "hold/mortar_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1933,
+    "transparent": 13435,
+    "partialAlpha": 2615,
+    "alphaLevels": 145
+  },
+  "hold/mortar_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/mortar_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.39269908169872414"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1914,
+    "transparent": 13435,
+    "partialAlpha": 2603,
+    "alphaLevels": 145
+  },
+  "hold/mortar_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/mortar_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 0.7853981633974483"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1910,
+    "transparent": 13435,
+    "partialAlpha": 2610,
+    "alphaLevels": 145
+  },
+  "hold/mortar_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "hold/mortar_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.1780972450961724"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1958,
+    "transparent": 13434,
+    "partialAlpha": 2608,
+    "alphaLevels": 145
+  },
+  "hold/mortar_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16108,
+    "partialAlpha": 276,
+    "alphaLevels": 16
+  },
+  "hold/mortar_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new body + weapon",
+      "aim angle 1.5707963267948966"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1980,
+    "transparent": 13435,
+    "partialAlpha": 2611,
+    "alphaLevels": 146
+  },
+  "hold/mortar_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "chute/0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2241,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 96
+  },
+  "chute/0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2242,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 97
+  },
+  "chute/1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2242,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 97
+  },
+  "chute/2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2242,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 97
+  },
+  "chute/3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2242,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 97
+  },
+  "chute/4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2241,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 96
+  },
+  "chute/5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2241,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 96
+  },
+  "chute/6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2241,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 96
+  },
+  "chute/7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2241,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 96
+  },
+  "chute/8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "chute/9": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "new canopy + body composition"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2241,
+    "transparent": 12067,
+    "partialAlpha": 1246,
+    "alphaLevels": 96
+  },
+  "chute/9_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 92,
+    "transparent": 15973,
+    "partialAlpha": 115,
+    "alphaLevels": 12
+  },
+  "spin/grenade_0": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 0"
+    ],
+    "display": [
+      7,
+      12
+    ],
+    "pixels": [
+      42,
+      72
+    ],
+    "colors": 227,
+    "transparent": 2728,
+    "partialAlpha": 296,
+    "alphaLevels": 40
+  },
+  "spin/grenade_1": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 0.24166097335306103"
+    ],
+    "display": [
+      7,
+      12
+    ],
+    "pixels": [
+      42,
+      72
+    ],
+    "colors": 202,
+    "transparent": 2767,
+    "partialAlpha": 257,
+    "alphaLevels": 33
+  },
+  "spin/grenade_2": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 7",
+      "rotation 0.48332194670612205"
+    ],
+    "display": [
+      10,
+      9
+    ],
+    "pixels": [
+      70,
+      63
+    ],
+    "colors": 371,
+    "transparent": 3916,
+    "partialAlpha": 492,
+    "alphaLevels": 60
+  },
+  "spin/grenade_3": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 0.7249829200591831"
+    ],
+    "display": [
+      11,
+      7
+    ],
+    "pixels": [
+      66,
+      42
+    ],
+    "colors": 143,
+    "transparent": 2602,
+    "partialAlpha": 170,
+    "alphaLevels": 29
+  },
+  "spin/grenade_4": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 0.9666438934122441"
+    ],
+    "display": [
+      11,
+      7
+    ],
+    "pixels": [
+      66,
+      42
+    ],
+    "colors": 139,
+    "transparent": 2595,
+    "partialAlpha": 176,
+    "alphaLevels": 25
+  },
+  "spin/grenade_5": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 1.2083048667653051"
+    ],
+    "display": [
+      12,
+      7
+    ],
+    "pixels": [
+      72,
+      42
+    ],
+    "colors": 160,
+    "transparent": 2824,
+    "partialAlpha": 200,
+    "alphaLevels": 32
+  },
+  "spin/grenade_6": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 1.4499658401183662"
+    ],
+    "display": [
+      12,
+      7
+    ],
+    "pixels": [
+      72,
+      42
+    ],
+    "colors": 213,
+    "transparent": 2756,
+    "partialAlpha": 266,
+    "alphaLevels": 40
+  },
+  "spin/grenade_7": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 7",
+      "rotation 1.691626813471427"
+    ],
+    "display": [
+      9,
+      10
+    ],
+    "pixels": [
+      63,
+      70
+    ],
+    "colors": 467,
+    "transparent": 3786,
+    "partialAlpha": 621,
+    "alphaLevels": 65
+  },
+  "spin/grenade_8": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 1.9332877868244882"
+    ],
+    "display": [
+      7,
+      11
+    ],
+    "pixels": [
+      42,
+      66
+    ],
+    "colors": 158,
+    "transparent": 2577,
+    "partialAlpha": 194,
+    "alphaLevels": 35
+  },
+  "spin/grenade_9": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 2.174948760177549"
+    ],
+    "display": [
+      7,
+      11
+    ],
+    "pixels": [
+      42,
+      66
+    ],
+    "colors": 142,
+    "transparent": 2594,
+    "partialAlpha": 178,
+    "alphaLevels": 30
+  },
+  "spin/grenade_10": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 2.4166097335306103"
+    ],
+    "display": [
+      7,
+      12
+    ],
+    "pixels": [
+      42,
+      72
+    ],
+    "colors": 140,
+    "transparent": 2849,
+    "partialAlpha": 174,
+    "alphaLevels": 27
+  },
+  "spin/grenade_11": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 7",
+      "rotation 2.658270706883671"
+    ],
+    "display": [
+      10,
+      9
+    ],
+    "pixels": [
+      70,
+      63
+    ],
+    "colors": 444,
+    "transparent": 3829,
+    "partialAlpha": 579,
+    "alphaLevels": 58
+  },
+  "spin/grenade_12": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 2.8999316802367323"
+    ],
+    "display": [
+      11,
+      7
+    ],
+    "pixels": [
+      66,
+      42
+    ],
+    "colors": 199,
+    "transparent": 2528,
+    "partialAlpha": 244,
+    "alphaLevels": 43
+  },
+  "spin/cluster_0": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 7",
+      "rotation 0"
+    ],
+    "display": [
+      10,
+      9
+    ],
+    "pixels": [
+      70,
+      63
+    ],
+    "colors": 505,
+    "transparent": 3748,
+    "partialAlpha": 662,
+    "alphaLevels": 66
+  },
+  "spin/cluster_1": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 0.6981317007977318"
+    ],
+    "display": [
+      11,
+      9
+    ],
+    "pixels": [
+      66,
+      54
+    ],
+    "colors": 270,
+    "transparent": 3216,
+    "partialAlpha": 348,
+    "alphaLevels": 44
+  },
+  "spin/cluster_2": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 1.3962634015954636"
+    ],
+    "display": [
+      13,
+      11
+    ],
+    "pixels": [
+      65,
+      55
+    ],
+    "colors": 377,
+    "transparent": 3087,
+    "partialAlpha": 487,
+    "alphaLevels": 46
+  },
+  "spin/cluster_3": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 2.0943951023931953"
+    ],
+    "display": [
+      14,
+      10
+    ],
+    "pixels": [
+      70,
+      50
+    ],
+    "colors": 346,
+    "transparent": 3049,
+    "partialAlpha": 448,
+    "alphaLevels": 55
+  },
+  "spin/cluster_4": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 2.792526803190927"
+    ],
+    "display": [
+      13,
+      11
+    ],
+    "pixels": [
+      65,
+      55
+    ],
+    "colors": 355,
+    "transparent": 3115,
+    "partialAlpha": 459,
+    "alphaLevels": 57
+  },
+  "spin/cluster_5": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 3.490658503988659"
+    ],
+    "display": [
+      11,
+      13
+    ],
+    "pixels": [
+      55,
+      65
+    ],
+    "colors": 368,
+    "transparent": 3086,
+    "partialAlpha": 487,
+    "alphaLevels": 48
+  },
+  "spin/cluster_6": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 4.1887902047863905"
+    ],
+    "display": [
+      10,
+      14
+    ],
+    "pixels": [
+      50,
+      70
+    ],
+    "colors": 271,
+    "transparent": 3169,
+    "partialAlpha": 329,
+    "alphaLevels": 46
+  },
+  "spin/cluster_7": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 4.886921905584122"
+    ],
+    "display": [
+      11,
+      13
+    ],
+    "pixels": [
+      55,
+      65
+    ],
+    "colors": 378,
+    "transparent": 3094,
+    "partialAlpha": 480,
+    "alphaLevels": 51
+  },
+  "spin/cluster_8": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 5.585053606381854"
+    ],
+    "display": [
+      13,
+      11
+    ],
+    "pixels": [
+      65,
+      55
+    ],
+    "colors": 319,
+    "transparent": 3159,
+    "partialAlpha": 414,
+    "alphaLevels": 50
+  },
+  "spin/banana_0": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 8",
+      "rotation 0"
+    ],
+    "display": [
+      7,
+      9
+    ],
+    "pixels": [
+      56,
+      72
+    ],
+    "colors": 292,
+    "transparent": 3595,
+    "partialAlpha": 437,
+    "alphaLevels": 57
+  },
+  "spin/banana_1": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 8",
+      "rotation 0.39269908169872414"
+    ],
+    "display": [
+      6,
+      9
+    ],
+    "pixels": [
+      48,
+      72
+    ],
+    "colors": 147,
+    "transparent": 3242,
+    "partialAlpha": 214,
+    "alphaLevels": 40
+  },
+  "spin/banana_2": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 0.7853981633974483"
+    ],
+    "display": [
+      12,
+      9
+    ],
+    "pixels": [
+      72,
+      54
+    ],
+    "colors": 184,
+    "transparent": 3627,
+    "partialAlpha": 261,
+    "alphaLevels": 39
+  },
+  "spin/banana_3": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 1.1780972450961724"
+    ],
+    "display": [
+      14,
+      7
+    ],
+    "pixels": [
+      70,
+      35
+    ],
+    "colors": 79,
+    "transparent": 2344,
+    "partialAlpha": 106,
+    "alphaLevels": 27
+  },
+  "spin/banana_4": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 1.5707963267948966"
+    ],
+    "display": [
+      14,
+      7
+    ],
+    "pixels": [
+      70,
+      35
+    ],
+    "colors": 117,
+    "transparent": 2291,
+    "partialAlpha": 159,
+    "alphaLevels": 30
+  },
+  "spin/banana_5": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 1.9634954084936207"
+    ],
+    "display": [
+      12,
+      10
+    ],
+    "pixels": [
+      72,
+      60
+    ],
+    "colors": 318,
+    "transparent": 3839,
+    "partialAlpha": 480,
+    "alphaLevels": 58
+  },
+  "spin/banana_6": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 2.356194490192345"
+    ],
+    "display": [
+      10,
+      12
+    ],
+    "pixels": [
+      60,
+      72
+    ],
+    "colors": 227,
+    "transparent": 3973,
+    "partialAlpha": 347,
+    "alphaLevels": 45
+  },
+  "spin/banana_7": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 2.748893571891069"
+    ],
+    "display": [
+      7,
+      14
+    ],
+    "pixels": [
+      35,
+      70
+    ],
+    "colors": 79,
+    "transparent": 2344,
+    "partialAlpha": 106,
+    "alphaLevels": 27
+  },
+  "spin/banana_8": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 3.141592653589793"
+    ],
+    "display": [
+      7,
+      14
+    ],
+    "pixels": [
+      35,
+      70
+    ],
+    "colors": 117,
+    "transparent": 2291,
+    "partialAlpha": 159,
+    "alphaLevels": 30
+  },
+  "spin/banana_9": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 3.5342917352885173"
+    ],
+    "display": [
+      10,
+      12
+    ],
+    "pixels": [
+      60,
+      72
+    ],
+    "colors": 318,
+    "transparent": 3840,
+    "partialAlpha": 479,
+    "alphaLevels": 58
+  },
+  "spin/banana_10": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 3.9269908169872414"
+    ],
+    "display": [
+      12,
+      10
+    ],
+    "pixels": [
+      72,
+      60
+    ],
+    "colors": 227,
+    "transparent": 3972,
+    "partialAlpha": 348,
+    "alphaLevels": 45
+  },
+  "spin/banana_11": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 4.319689898685965"
+    ],
+    "display": [
+      14,
+      7
+    ],
+    "pixels": [
+      70,
+      35
+    ],
+    "colors": 79,
+    "transparent": 2341,
+    "partialAlpha": 109,
+    "alphaLevels": 26
+  },
+  "spin/banana_12": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 4.71238898038469"
+    ],
+    "display": [
+      14,
+      7
+    ],
+    "pixels": [
+      70,
+      35
+    ],
+    "colors": 117,
+    "transparent": 2291,
+    "partialAlpha": 159,
+    "alphaLevels": 30
+  },
+  "spin/banana_13": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 5.105088062083414"
+    ],
+    "display": [
+      12,
+      10
+    ],
+    "pixels": [
+      72,
+      60
+    ],
+    "colors": 318,
+    "transparent": 3841,
+    "partialAlpha": 478,
+    "alphaLevels": 58
+  },
+  "spin/banana_14": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 6",
+      "rotation 5.497787143782138"
+    ],
+    "display": [
+      10,
+      12
+    ],
+    "pixels": [
+      60,
+      72
+    ],
+    "colors": 228,
+    "transparent": 3974,
+    "partialAlpha": 346,
+    "alphaLevels": 44
+  },
+  "spin/banana_15": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 5",
+      "rotation 5.890486225480862"
+    ],
+    "display": [
+      7,
+      14
+    ],
+    "pixels": [
+      35,
+      70
+    ],
+    "colors": 79,
+    "transparent": 2341,
+    "partialAlpha": 109,
+    "alphaLevels": 26
+  },
+  "spin/mortar_0": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "rotation 0"
+    ],
+    "display": [
+      15,
+      16
+    ],
+    "pixels": [
+      60,
+      64
+    ],
+    "colors": 640,
+    "transparent": 2937,
+    "partialAlpha": 903,
+    "alphaLevels": 76
+  },
+  "spin/mortar_1": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "rotation 1.5707963267948966"
+    ],
+    "display": [
+      17,
+      13
+    ],
+    "pixels": [
+      68,
+      52
+    ],
+    "colors": 488,
+    "transparent": 2897,
+    "partialAlpha": 632,
+    "alphaLevels": 56
+  },
+  "spin/mortar_2": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "rotation 3.141592653589793"
+    ],
+    "display": [
+      16,
+      11
+    ],
+    "pixels": [
+      64,
+      44
+    ],
+    "colors": 284,
+    "transparent": 2457,
+    "partialAlpha": 359,
+    "alphaLevels": 42
+  },
+  "spin/mortar_3": {
+    "source": "assets-in/desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "rotation 4.71238898038469"
+    ],
+    "display": [
+      16,
+      11
+    ],
+    "pixels": [
+      64,
+      44
+    ],
+    "colors": 331,
+    "transparent": 2391,
+    "partialAlpha": 423,
+    "alphaLevels": 44
+  },
+  "head/rocket_0": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.6497367876533734"
+    ],
+    "display": [
+      16,
+      13
+    ],
+    "pixels": [
+      64,
+      52
+    ],
+    "colors": 27,
+    "transparent": 2624,
+    "partialAlpha": 704,
+    "alphaLevels": 14
+  },
+  "head/rocket_1": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.39497553647959777"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 32,
+    "transparent": 2030,
+    "partialAlpha": 530,
+    "alphaLevels": 13
+  },
+  "head/rocket_2": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.062418809995957225"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 33,
+    "transparent": 2020,
+    "partialAlpha": 540,
+    "alphaLevels": 14
+  },
+  "head/rocket_3": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.5777869635982483"
+    ],
+    "display": [
+      16,
+      13
+    ],
+    "pixels": [
+      64,
+      52
+    ],
+    "colors": 30,
+    "transparent": 2624,
+    "partialAlpha": 704,
+    "alphaLevels": 13
+  },
+  "head/rocket_4": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.21047240812402934"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2076,
+    "partialAlpha": 484,
+    "alphaLevels": 14
+  },
+  "head/rocket_5": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.10243998887737528"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2115,
+    "partialAlpha": 445,
+    "alphaLevels": 14
+  },
+  "head/rocket_6": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.009553849437596065"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2115,
+    "partialAlpha": 445,
+    "alphaLevels": 14
+  },
+  "head/rocket_7": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading -0.06920077184952933"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2090,
+    "partialAlpha": 470,
+    "alphaLevels": 14
+  },
+  "head/rocket_8": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2115,
+    "partialAlpha": 445,
+    "alphaLevels": 14
+  },
+  "head/rocket_9": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.1071124150650675"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2072,
+    "partialAlpha": 488,
+    "alphaLevels": 14
+  },
+  "head/rocket_10": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading -0.11857818003685024"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2090,
+    "partialAlpha": 470,
+    "alphaLevels": 14
+  },
+  "head/rocket_11": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading -0.12211398044248235"
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "pixels": [
+      64,
+      40
+    ],
+    "colors": 34,
+    "transparent": 2090,
+    "partialAlpha": 470,
+    "alphaLevels": 14
+  },
+  "head/supersheep_0": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.1556465288473563"
+    ],
+    "display": [
+      22,
+      13
+    ],
+    "pixels": [
+      88,
+      52
+    ],
+    "colors": 789,
+    "transparent": 3634,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_1": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 0.9808735916308484"
+    ],
+    "display": [
+      23,
+      13
+    ],
+    "pixels": [
+      92,
+      52
+    ],
+    "colors": 916,
+    "transparent": 3691,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_2": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.3677354079964008"
+    ],
+    "display": [
+      21,
+      19
+    ],
+    "pixels": [
+      84,
+      76
+    ],
+    "colors": 1552,
+    "transparent": 4365,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_3": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.4483231405058683"
+    ],
+    "display": [
+      21,
+      19
+    ],
+    "pixels": [
+      84,
+      76
+    ],
+    "colors": 1540,
+    "transparent": 4416,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_4": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.490059349246934"
+    ],
+    "display": [
+      17,
+      22
+    ],
+    "pixels": [
+      68,
+      88
+    ],
+    "colors": 1960,
+    "transparent": 3407,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_5": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.4141704170459248"
+    ],
+    "display": [
+      18,
+      21
+    ],
+    "pixels": [
+      72,
+      84
+    ],
+    "colors": 1881,
+    "transparent": 3586,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_6": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.2849413410099848"
+    ],
+    "display": [
+      17,
+      22
+    ],
+    "pixels": [
+      68,
+      88
+    ],
+    "colors": 1664,
+    "transparent": 3771,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_7": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.5173088745402115"
+    ],
+    "display": [
+      17,
+      22
+    ],
+    "pixels": [
+      68,
+      88
+    ],
+    "colors": 2057,
+    "transparent": 3320,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_8": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.7449691232313242"
+    ],
+    "display": [
+      14,
+      23
+    ],
+    "pixels": [
+      56,
+      92
+    ],
+    "colors": 1727,
+    "transparent": 2885,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_9": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.7019043138563725"
+    ],
+    "display": [
+      13,
+      21
+    ],
+    "pixels": [
+      52,
+      84
+    ],
+    "colors": 1393,
+    "transparent": 2623,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_10": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.7213566886729275"
+    ],
+    "display": [
+      17,
+      22
+    ],
+    "pixels": [
+      68,
+      88
+    ],
+    "colors": 2013,
+    "transparent": 3301,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_11": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.8559786612187694"
+    ],
+    "display": [
+      17,
+      22
+    ],
+    "pixels": [
+      68,
+      88
+    ],
+    "colors": 1944,
+    "transparent": 3339,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_12": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.5555753410891118"
+    ],
+    "display": [
+      17,
+      20
+    ],
+    "pixels": [
+      68,
+      80
+    ],
+    "colors": 1750,
+    "transparent": 3190,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_13": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.7033478590915707"
+    ],
+    "display": [
+      19,
+      20
+    ],
+    "pixels": [
+      76,
+      80
+    ],
+    "colors": 1666,
+    "transparent": 3945,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_14": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.9922986911490381"
+    ],
+    "display": [
+      20,
+      16
+    ],
+    "pixels": [
+      80,
+      64
+    ],
+    "colors": 1075,
+    "transparent": 3774,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "head/supersheep_15": {
+    "source": "detailed rocket / sheep master",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "heading 1.9419484398061309"
+    ],
+    "display": [
+      20,
+      16
+    ],
+    "pixels": [
+      80,
+      64
+    ],
+    "colors": 1072,
+    "transparent": 3796,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/sheep_0": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      12
+    ],
+    "pixels": [
+      64,
+      48
+    ],
+    "colors": 843,
+    "transparent": 1865,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/sheep_1": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      12
+    ],
+    "pixels": [
+      64,
+      48
+    ],
+    "colors": 846,
+    "transparent": 1848,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/sheep_2": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      12
+    ],
+    "pixels": [
+      64,
+      48
+    ],
+    "colors": 843,
+    "transparent": 1865,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/sheepwalk_0": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      12
+    ],
+    "pixels": [
+      64,
+      48
+    ],
+    "colors": 843,
+    "transparent": 1865,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/sheepwalk_1": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      12
+    ],
+    "pixels": [
+      64,
+      48
+    ],
+    "colors": 846,
+    "transparent": 1848,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/sheepwalk_2": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 4"
+    ],
+    "display": [
+      16,
+      12
+    ],
+    "pixels": [
+      64,
+      48
+    ],
+    "colors": 843,
+    "transparent": 1865,
+    "partialAlpha": 0,
+    "alphaLevels": 2
+  },
+  "proj/dynamite_0": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      5,
+      13
+    ],
+    "pixels": [
+      25,
+      65
+    ],
+    "colors": 69,
+    "transparent": 1546,
+    "partialAlpha": 79,
+    "alphaLevels": 16
+  },
+  "proj/dynamite_1": {
+    "source": "new detailed weapon / creature / rocket master",
+    "operations": [
+      "native detailed master",
+      "density 5"
+    ],
+    "display": [
+      6,
+      13
+    ],
+    "pixels": [
+      30,
+      65
+    ],
+    "colors": 129,
+    "transparent": 1795,
+    "partialAlpha": 152,
+    "alphaLevels": 29
+  },
+  "act/dynamite_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/1"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2276,
+    "transparent": 12854,
+    "partialAlpha": 3106,
+    "alphaLevels": 165
+  },
+  "act/dynamite_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 103,
+    "transparent": 16035,
+    "partialAlpha": 349,
+    "alphaLevels": 13
+  },
+  "act/mine_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/1"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2226,
+    "transparent": 12861,
+    "partialAlpha": 3250,
+    "alphaLevels": 170
+  },
+  "act/mine_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 105,
+    "transparent": 16028,
+    "partialAlpha": 356,
+    "alphaLevels": 13
+  },
+  "act/sheep_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/1"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2350,
+    "transparent": 12690,
+    "partialAlpha": 2689,
+    "alphaLevels": 166
+  },
+  "act/sheep_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 78,
+    "transparent": 16198,
+    "partialAlpha": 186,
+    "alphaLevels": 12
+  },
+  "act/supersheep_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/1"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2511,
+    "transparent": 12658,
+    "partialAlpha": 2667,
+    "alphaLevels": 164
+  },
+  "act/supersheep_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 72,
+    "transparent": 16231,
+    "partialAlpha": 153,
+    "alphaLevels": 12
+  },
+  "act/prod_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/3"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1985,
+    "transparent": 13309,
+    "partialAlpha": 2890,
+    "alphaLevels": 153
+  },
+  "act/prod_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 90,
+    "transparent": 16097,
+    "partialAlpha": 287,
+    "alphaLevels": 10
+  },
+  "act/prod_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 1/3"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1960,
+    "transparent": 13309,
+    "partialAlpha": 2891,
+    "alphaLevels": 152
+  },
+  "act/prod_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 90,
+    "transparent": 16097,
+    "partialAlpha": 287,
+    "alphaLevels": 10
+  },
+  "act/prod_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 2/3"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1985,
+    "transparent": 13309,
+    "partialAlpha": 2890,
+    "alphaLevels": 153
+  },
+  "act/prod_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 90,
+    "transparent": 16097,
+    "partialAlpha": 287,
+    "alphaLevels": 10
+  },
+  "act/firepunch_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2171,
+    "transparent": 13133,
+    "partialAlpha": 2844,
+    "alphaLevels": 157
+  },
+  "act/firepunch_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 86,
+    "transparent": 16182,
+    "partialAlpha": 202,
+    "alphaLevels": 14
+  },
+  "act/firepunch_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 1/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2184,
+    "transparent": 13130,
+    "partialAlpha": 2842,
+    "alphaLevels": 159
+  },
+  "act/firepunch_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 91,
+    "transparent": 16187,
+    "partialAlpha": 197,
+    "alphaLevels": 14
+  },
+  "act/firepunch_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 2/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2154,
+    "transparent": 13129,
+    "partialAlpha": 2845,
+    "alphaLevels": 159
+  },
+  "act/firepunch_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 93,
+    "transparent": 16185,
+    "partialAlpha": 199,
+    "alphaLevels": 13
+  },
+  "act/firepunch_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 3/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2150,
+    "transparent": 13124,
+    "partialAlpha": 2849,
+    "alphaLevels": 159
+  },
+  "act/firepunch_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 89,
+    "transparent": 16187,
+    "partialAlpha": 197,
+    "alphaLevels": 13
+  },
+  "act/firepunch_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 4/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2134,
+    "transparent": 13126,
+    "partialAlpha": 2846,
+    "alphaLevels": 159
+  },
+  "act/firepunch_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 93,
+    "transparent": 16186,
+    "partialAlpha": 198,
+    "alphaLevels": 13
+  },
+  "act/firepunch_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 5/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2134,
+    "transparent": 13126,
+    "partialAlpha": 2846,
+    "alphaLevels": 159
+  },
+  "act/firepunch_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 93,
+    "transparent": 16186,
+    "partialAlpha": 198,
+    "alphaLevels": 13
+  },
+  "act/firepunch_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 6/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2150,
+    "transparent": 13124,
+    "partialAlpha": 2849,
+    "alphaLevels": 159
+  },
+  "act/firepunch_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 89,
+    "transparent": 16187,
+    "partialAlpha": 197,
+    "alphaLevels": 13
+  },
+  "act/firepunch_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 7/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2154,
+    "transparent": 13129,
+    "partialAlpha": 2845,
+    "alphaLevels": 159
+  },
+  "act/firepunch_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 93,
+    "transparent": 16185,
+    "partialAlpha": 199,
+    "alphaLevels": 13
+  },
+  "act/firepunch_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 8/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2184,
+    "transparent": 13130,
+    "partialAlpha": 2842,
+    "alphaLevels": 159
+  },
+  "act/firepunch_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 91,
+    "transparent": 16187,
+    "partialAlpha": 197,
+    "alphaLevels": 14
+  },
+  "act/firepunch_9": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 9/10"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2172,
+    "transparent": 13133,
+    "partialAlpha": 2845,
+    "alphaLevels": 157
+  },
+  "act/firepunch_9_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 87,
+    "transparent": 16182,
+    "partialAlpha": 202,
+    "alphaLevels": 14
+  },
+  "act/blowtorch_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1976,
+    "transparent": 13426,
+    "partialAlpha": 2586,
+    "alphaLevels": 145
+  },
+  "act/blowtorch_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 114,
+    "transparent": 16105,
+    "partialAlpha": 275,
+    "alphaLevels": 16
+  },
+  "act/blowtorch_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 1/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1954,
+    "transparent": 13611,
+    "partialAlpha": 2397,
+    "alphaLevels": 149
+  },
+  "act/blowtorch_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 110,
+    "transparent": 16111,
+    "partialAlpha": 269,
+    "alphaLevels": 14
+  },
+  "act/blowtorch_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 2/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2011,
+    "transparent": 13527,
+    "partialAlpha": 2476,
+    "alphaLevels": 154
+  },
+  "act/blowtorch_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 121,
+    "transparent": 16100,
+    "partialAlpha": 280,
+    "alphaLevels": 17
+  },
+  "act/blowtorch_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 3/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1927,
+    "transparent": 13687,
+    "partialAlpha": 2327,
+    "alphaLevels": 142
+  },
+  "act/blowtorch_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 100,
+    "transparent": 16130,
+    "partialAlpha": 250,
+    "alphaLevels": 12
+  },
+  "act/blowtorch_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 4/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1973,
+    "transparent": 13422,
+    "partialAlpha": 2592,
+    "alphaLevels": 145
+  },
+  "act/blowtorch_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 115,
+    "transparent": 16103,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "act/blowtorch_5": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 5/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1972,
+    "transparent": 13603,
+    "partialAlpha": 2409,
+    "alphaLevels": 154
+  },
+  "act/blowtorch_5_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16111,
+    "partialAlpha": 269,
+    "alphaLevels": 14
+  },
+  "act/blowtorch_6": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 6/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2008,
+    "transparent": 13524,
+    "partialAlpha": 2480,
+    "alphaLevels": 154
+  },
+  "act/blowtorch_6_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 121,
+    "transparent": 16100,
+    "partialAlpha": 280,
+    "alphaLevels": 17
+  },
+  "act/blowtorch_7": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 7/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1929,
+    "transparent": 13681,
+    "partialAlpha": 2331,
+    "alphaLevels": 142
+  },
+  "act/blowtorch_7_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 101,
+    "transparent": 16130,
+    "partialAlpha": 250,
+    "alphaLevels": 12
+  },
+  "act/blowtorch_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 8/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1970,
+    "transparent": 13414,
+    "partialAlpha": 2601,
+    "alphaLevels": 145
+  },
+  "act/blowtorch_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 115,
+    "transparent": 16103,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "act/blowtorch_9": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 9/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1973,
+    "transparent": 13603,
+    "partialAlpha": 2409,
+    "alphaLevels": 153
+  },
+  "act/blowtorch_9_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16111,
+    "partialAlpha": 269,
+    "alphaLevels": 14
+  },
+  "act/blowtorch_10": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 10/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2007,
+    "transparent": 13520,
+    "partialAlpha": 2485,
+    "alphaLevels": 155
+  },
+  "act/blowtorch_10_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 119,
+    "transparent": 16100,
+    "partialAlpha": 280,
+    "alphaLevels": 17
+  },
+  "act/blowtorch_11": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 11/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1932,
+    "transparent": 13679,
+    "partialAlpha": 2337,
+    "alphaLevels": 142
+  },
+  "act/blowtorch_11_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 101,
+    "transparent": 16130,
+    "partialAlpha": 250,
+    "alphaLevels": 12
+  },
+  "act/blowtorch_12": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 12/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1962,
+    "transparent": 13413,
+    "partialAlpha": 2603,
+    "alphaLevels": 145
+  },
+  "act/blowtorch_12_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 115,
+    "transparent": 16103,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "act/blowtorch_13": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 13/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1977,
+    "transparent": 13604,
+    "partialAlpha": 2408,
+    "alphaLevels": 154
+  },
+  "act/blowtorch_13_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16111,
+    "partialAlpha": 269,
+    "alphaLevels": 14
+  },
+  "act/blowtorch_14": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 14/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2007,
+    "transparent": 13521,
+    "partialAlpha": 2485,
+    "alphaLevels": 155
+  },
+  "act/blowtorch_14_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 119,
+    "transparent": 16100,
+    "partialAlpha": 280,
+    "alphaLevels": 17
+  },
+  "act/blowtorch_15": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 15/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1935,
+    "transparent": 13678,
+    "partialAlpha": 2338,
+    "alphaLevels": 141
+  },
+  "act/blowtorch_15_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 100,
+    "transparent": 16130,
+    "partialAlpha": 250,
+    "alphaLevels": 12
+  },
+  "act/blowtorch_16": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 16/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1968,
+    "transparent": 13414,
+    "partialAlpha": 2603,
+    "alphaLevels": 145
+  },
+  "act/blowtorch_16_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 115,
+    "transparent": 16103,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "act/blowtorch_17": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 17/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1971,
+    "transparent": 13603,
+    "partialAlpha": 2408,
+    "alphaLevels": 153
+  },
+  "act/blowtorch_17_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 111,
+    "transparent": 16111,
+    "partialAlpha": 269,
+    "alphaLevels": 14
+  },
+  "act/blowtorch_18": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 18/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2010,
+    "transparent": 13524,
+    "partialAlpha": 2479,
+    "alphaLevels": 154
+  },
+  "act/blowtorch_18_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 121,
+    "transparent": 16100,
+    "partialAlpha": 280,
+    "alphaLevels": 17
+  },
+  "act/blowtorch_19": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 19/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1933,
+    "transparent": 13681,
+    "partialAlpha": 2333,
+    "alphaLevels": 142
+  },
+  "act/blowtorch_19_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 100,
+    "transparent": 16130,
+    "partialAlpha": 250,
+    "alphaLevels": 12
+  },
+  "act/blowtorch_20": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 20/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1971,
+    "transparent": 13416,
+    "partialAlpha": 2600,
+    "alphaLevels": 145
+  },
+  "act/blowtorch_20_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 115,
+    "transparent": 16103,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "act/blowtorch_21": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 21/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1964,
+    "transparent": 13606,
+    "partialAlpha": 2405,
+    "alphaLevels": 153
+  },
+  "act/blowtorch_21_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 110,
+    "transparent": 16111,
+    "partialAlpha": 269,
+    "alphaLevels": 14
+  },
+  "act/blowtorch_22": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 22/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2005,
+    "transparent": 13528,
+    "partialAlpha": 2477,
+    "alphaLevels": 154
+  },
+  "act/blowtorch_22_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 121,
+    "transparent": 16100,
+    "partialAlpha": 280,
+    "alphaLevels": 17
+  },
+  "act/blowtorch_23": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 23/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1938,
+    "transparent": 13689,
+    "partialAlpha": 2323,
+    "alphaLevels": 142
+  },
+  "act/blowtorch_23_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 100,
+    "transparent": 16130,
+    "partialAlpha": 250,
+    "alphaLevels": 12
+  },
+  "act/blowtorch_24": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 24/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1969,
+    "transparent": 13428,
+    "partialAlpha": 2582,
+    "alphaLevels": 146
+  },
+  "act/blowtorch_24_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 115,
+    "transparent": 16103,
+    "partialAlpha": 277,
+    "alphaLevels": 16
+  },
+  "act/blowtorch_25": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 25/26"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1957,
+    "transparent": 13607,
+    "partialAlpha": 2401,
+    "alphaLevels": 150
+  },
+  "act/blowtorch_25_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 112,
+    "transparent": 16111,
+    "partialAlpha": 269,
+    "alphaLevels": 14
+  },
+  "act/surrender_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2417,
+    "transparent": 12746,
+    "partialAlpha": 3338,
+    "alphaLevels": 161
+  },
+  "act/surrender_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 116,
+    "transparent": 16128,
+    "partialAlpha": 256,
+    "alphaLevels": 15
+  },
+  "act/surrender_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 1/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2427,
+    "transparent": 12743,
+    "partialAlpha": 3340,
+    "alphaLevels": 161
+  },
+  "act/surrender_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 116,
+    "transparent": 16128,
+    "partialAlpha": 256,
+    "alphaLevels": 15
+  },
+  "act/surrender_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 2/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2430,
+    "transparent": 12739,
+    "partialAlpha": 3357,
+    "alphaLevels": 161
+  },
+  "act/surrender_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 116,
+    "transparent": 16128,
+    "partialAlpha": 256,
+    "alphaLevels": 15
+  },
+  "act/surrender_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 3/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2427,
+    "transparent": 12743,
+    "partialAlpha": 3340,
+    "alphaLevels": 161
+  },
+  "act/surrender_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 116,
+    "transparent": 16128,
+    "partialAlpha": 256,
+    "alphaLevels": 15
+  },
+  "act/surrender_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 4/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2417,
+    "transparent": 12746,
+    "partialAlpha": 3338,
+    "alphaLevels": 161
+  },
+  "act/surrender_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 116,
+    "transparent": 16128,
+    "partialAlpha": 256,
+    "alphaLevels": 15
+  },
+  "worm/tumble_8": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1137,
+    "transparent": 14652,
+    "partialAlpha": 1732,
+    "alphaLevels": 107
+  },
+  "worm/tumble_8_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 99,
+    "transparent": 16141,
+    "partialAlpha": 243,
+    "alphaLevels": 12
+  },
+  "worm/tumble_9": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1697,
+    "transparent": 13928,
+    "partialAlpha": 2455,
+    "alphaLevels": 126
+  },
+  "worm/tumble_9_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 100,
+    "transparent": 16187,
+    "partialAlpha": 197,
+    "alphaLevels": 13
+  },
+  "worm/tumble_10": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1238,
+    "transparent": 14243,
+    "partialAlpha": 2141,
+    "alphaLevels": 103
+  },
+  "worm/tumble_10_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 97,
+    "transparent": 16137,
+    "partialAlpha": 247,
+    "alphaLevels": 8
+  },
+  "worm/tumble_11": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "stable feet anchor 29/32"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1022,
+    "transparent": 14746,
+    "partialAlpha": 1635,
+    "alphaLevels": 97
+  },
+  "worm/tumble_11_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 64,
+    "transparent": 16259,
+    "partialAlpha": 125,
+    "alphaLevels": 3
+  },
+  "act/grenade_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/1"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2211,
+    "transparent": 13023,
+    "partialAlpha": 3172,
+    "alphaLevels": 161
+  },
+  "act/grenade_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 119,
+    "transparent": 16064,
+    "partialAlpha": 320,
+    "alphaLevels": 20
+  },
+  "act/cluster_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/1"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2214,
+    "transparent": 13014,
+    "partialAlpha": 3204,
+    "alphaLevels": 164
+  },
+  "act/cluster_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 119,
+    "transparent": 16063,
+    "partialAlpha": 321,
+    "alphaLevels": 20
+  },
+  "act/banana_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/1"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 2242,
+    "transparent": 12966,
+    "partialAlpha": 3340,
+    "alphaLevels": 167
+  },
+  "act/banana_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 119,
+    "transparent": 16064,
+    "partialAlpha": 320,
+    "alphaLevels": 20
+  },
+  "act/teleport_0": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 0/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1774,
+    "transparent": 13435,
+    "partialAlpha": 2947,
+    "alphaLevels": 145
+  },
+  "act/teleport_0_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 113,
+    "transparent": 16107,
+    "partialAlpha": 277,
+    "alphaLevels": 15
+  },
+  "act/teleport_1": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 1/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1437,
+    "transparent": 14052,
+    "partialAlpha": 2330,
+    "alphaLevels": 128
+  },
+  "act/teleport_1_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 97,
+    "transparent": 16160,
+    "partialAlpha": 224,
+    "alphaLevels": 14
+  },
+  "act/teleport_2": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 2/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1092,
+    "transparent": 14634,
+    "partialAlpha": 1748,
+    "alphaLevels": 102
+  },
+  "act/teleport_2_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 90,
+    "transparent": 16193,
+    "partialAlpha": 191,
+    "alphaLevels": 13
+  },
+  "act/teleport_3": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 3/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 707,
+    "transparent": 15238,
+    "partialAlpha": 1144,
+    "alphaLevels": 73
+  },
+  "act/teleport_3_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 83,
+    "transparent": 16215,
+    "partialAlpha": 169,
+    "alphaLevels": 13
+  },
+  "act/teleport_4": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "native detailed master",
+      "density 4",
+      "detailed master composition",
+      "action phase 4/5"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 331,
+    "transparent": 15782,
+    "partialAlpha": 601,
+    "alphaLevels": 57
+  },
+  "act/teleport_4_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 49,
+    "transparent": 16272,
+    "partialAlpha": 112,
+    "alphaLevels": 13
+  },
+  "worm/idle_blink": {
+    "source": "assets-in/desktop/worm-{states,walk}.png; desktop/weapons.png",
+    "operations": [
+      "new blink pose"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 1903,
+    "transparent": 13198,
+    "partialAlpha": 3186,
+    "alphaLevels": 172
+  },
+  "worm/idle_blink_band": {
+    "source": "cyan headband mask extracted from new master",
+    "operations": [
+      "separate tintable team layer"
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      128,
+      128
+    ],
+    "colors": 122,
+    "transparent": 16055,
+    "partialAlpha": 329,
+    "alphaLevels": 23
+  }
+}
