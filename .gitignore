@@ -10,3 +10,4 @@ test-results/
 assets-in/
 __pycache__/
 *.pyc
+*.tsbuildinfo
