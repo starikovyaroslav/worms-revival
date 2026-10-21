@@ -109,6 +109,29 @@ try {
       `${tag} HUD timer font ${m.font}px * k ${m.k}`,
     );
     await page.screenshot({ path: `/tmp/m1matrix/match_${tag}.png` });
+
+    // Weapon panel (right click): at most ~70% of the window high, inside it, no text under 8 logical px.
+    await page.mouse.click(Math.round(w / 3), Math.round(h / 2), { button: 'right' });
+    await page.waitForTimeout(400);
+    const wp = await page.evaluate(() => {
+      const el = document.querySelector('.weapon-panel');
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      const small = [...document.querySelectorAll('.hud *, .weapon-panel *')]
+        .filter((n) => [...n.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim()))
+        .map((n) => parseFloat(getComputedStyle(n).fontSize))
+        .filter((f) => f < 8);
+      return { top: r.top, bottom: r.bottom, h: r.height, small: small.length };
+    });
+    check(wp !== null, `${tag} weapon panel opens`);
+    if (wp) {
+      check(
+        wp.h <= 0.7 * h,
+        `${tag} weapon panel ${Math.round(wp.h)}px = ${Math.round((100 * wp.h) / h)}% of ${h}`,
+      );
+      check(wp.top >= 0 && wp.bottom <= h, `${tag} weapon panel inside the window`);
+      check(wp.small === 0, `${tag} no HUD text under 8 logical px (${wp.small})`);
+    }
     check(
       errors.filter((e) => !/deprecat/i.test(e)).length === 0,
       `${tag} no console errors ${errors.slice(0, 1)}`,
