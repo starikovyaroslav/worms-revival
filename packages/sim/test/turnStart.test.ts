@@ -131,3 +131,31 @@ describe('hot-seat hand-over', () => {
     expect(a.weaponId).toBe(b.weaponId);
   });
 });
+
+describe('crate phase commands', () => {
+  const crateGame = () =>
+    game([human('A'), human('B')], {
+      hotSeatTime: 0,
+      crateChance: 100,
+      weapons: { bazooka: { ammo: -1, power: 3, delay: 0, crate: 1 } },
+    });
+
+  it('drops surrender and skip while the crate falls', () => {
+    const g = crateGame();
+    expect(g.phase).toBe('crate');
+    const turn = g.turn;
+    g.step([{ t: 'surrender' }, { t: 'skip' }]);
+    expect(g.phase).toBe('crate');
+    expect(g.turn).toBe(turn);
+  });
+
+  it('Space starts the turn with the crate still falling; that shot is intentionally lost', () => {
+    const g = crateGame();
+    expect(g.phase).toBe('crate');
+    g.step([{ t: 'fire', down: true }]);
+    expect(g.phase).toBe('turn');
+    expect(g.world.ofKind('crate').length).toBe(1);
+    expect(g.charging).toBe(false);
+    expect(g.firedThisTurn).toBe(false);
+  });
+});

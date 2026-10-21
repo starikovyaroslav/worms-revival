@@ -8,9 +8,9 @@ export type CrateKind = 'weapon' | 'health';
 
 const PICKUP_RADIUS = 13;
 /**
- * Sink speed under the parachute, px/tick. Was 1.3 (65 px/s), which made the turn wait 4-13 s on an
- * 800 px map (QA audit, finding #2). 7 px/tick (350 px/s) lands within 3 s from the top edge.
- * GUESSED: picked to meet the "crate phase <= ~3 s" goal, not taken from W:A.
+ * Sink speed under the parachute, px/tick. GUESSED: 7 px/tick (350 px/s) is a tuning guess that
+ * lands within ~3 s from the top edge; the old 1.3 px/tick (4-13 s on an 800 px map) was not a
+ * W:A number either.
  */
 const CHUTE_FALL = 7;
 

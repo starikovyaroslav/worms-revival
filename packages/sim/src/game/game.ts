@@ -225,9 +225,17 @@ export class Game {
       // While the crate falls the player may pick a weapon and aim, but nothing acts yet. Fire or
       // jump cancels the wait: the turn starts while the crate is still coming down (the shot itself
       // is dropped, it would otherwise go off before the player sees the turn begin).
-      if ((c.t === 'fire' && c.down) || c.t === 'jump') this.beginReady();
-      else if (c.t === 'skip' || c.t === 'surrender' || c.t === 'fire') return;
-      if (c.t === 'fire' || c.t === 'jump') return;
+      switch (c.t) {
+        case 'fire':
+          if (c.down) this.beginReady();
+          return;
+        case 'jump':
+          this.beginReady();
+          return;
+        case 'skip':
+        case 'surrender':
+          return;
+      }
     }
     // Any input during the hot-seat delay starts the turn.
     if (this.phase === 'ready' && c.t !== 'move') this.beginTurnTimer();
