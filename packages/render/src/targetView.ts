@@ -1,5 +1,6 @@
 import { Container, Graphics } from 'pixi.js';
 import { HomingMissile, girderAxis, type Game, type GirderParams } from '@wr/sim';
+import { SELF_DANGER_R, selfDangerWorm } from './targetWarn';
 
 /** Preview under the mouse for weapons aimed with a click (girder, teleport, strikes). */
 export class TargetView {
@@ -48,7 +49,9 @@ export class TargetView {
     const dirX = Math.cos(worm.aim) * worm.facing;
     const dirY = -Math.sin(worm.aim);
     const ok = !def.validTarget || def.validTarget(game.world, worm, mouse, dirX, dirY);
-    const color = ok ? 0x40ff60 : 0xff4040;
+    // A strike that would land on your own worms: red, with a warning sign and the danger zone.
+    const danger = selfDangerWorm(game, mouse);
+    const color = ok && !danger ? 0x40ff60 : 0xff4040;
     const { x, y } = mouse;
 
     if (def.id === 'girder' && def.spec.sim.archetype === 'custom') {
@@ -76,6 +79,7 @@ export class TargetView {
       return;
     }
     // Strikes: target ring plus the direction the planes come from.
+    if (danger) this.warning(g, x, y, danger.x, danger.y);
     const pulse = 8 + Math.sin(this.t * 6) * 2;
     g.circle(x, y, pulse).stroke({ color, width: 2 });
     g.moveTo(x - 14, y)
@@ -94,6 +98,18 @@ export class TargetView {
         .lineTo(x - d * 24, y - 25);
       g.stroke({ color, width: 2 });
     }
+  }
+
+  /** Own-goal warning: a ring of the danger radius round the worm and a pixel "!" triangle beside the cursor. */
+  private warning(g: Graphics, x: number, y: number, wx: number, wy: number): void {
+    const blink = Math.sin(this.t * 10) > -0.3 ? 1 : 0.35;
+    g.circle(wx, wy - 6, SELF_DANGER_R).stroke({ color: 0xff4040, width: 1, alpha: 0.6 * blink });
+    const ty = y + 2;
+    const tx = x + 24;
+    g.poly([tx, ty - 8, tx + 9, ty + 7, tx - 9, ty + 7]).fill(0x222034);
+    g.poly([tx, ty - 5, tx + 6, ty + 5, tx - 6, ty + 5]).fill(0xfbf236);
+    g.rect(tx - 1, ty - 2, 2, 4).fill(0x222034);
+    g.rect(tx - 1, ty + 3, 2, 1).fill(0x222034);
   }
 
   /** Yellow target marker: a pulsing ring with a cross, like the original. */

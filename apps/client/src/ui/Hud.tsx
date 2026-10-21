@@ -44,13 +44,16 @@ export function Hud({
   announcements,
   onOver,
   wormpot,
+  mouse,
 }: {
   game: Game;
   announcements: Announcement[];
   wormpot?: string[];
+  /** Map point under the cursor, in world px. */
+  mouse?: () => { x: number; y: number } | null;
   onOver?: (over: HudState['over']) => void;
 }) {
-  const [s, setS] = useState<HudState>(() => hudState(game, wormpot));
+  const [s, setS] = useState<HudState>(() => hudState(game, wormpot, mouse?.() ?? null));
   const [banner, setBanner] = useState<number | null>(null);
   const turnNumber = s.turn?.number ?? null;
   const crate = s.crate;
@@ -67,7 +70,7 @@ export function Hud({
     let raf = 0;
     let last = '';
     const tick = () => {
-      const next = hudState(game, wormpot);
+      const next = hudState(game, wormpot, mouse?.() ?? null);
       const key = JSON.stringify(next);
       if (key !== last) {
         last = key;
@@ -78,7 +81,7 @@ export function Hud({
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [game, onOver, wormpot]);
+  }, [game, onOver, wormpot, mouse]);
 
   return (
     <div class="hud">
@@ -110,6 +113,11 @@ export function Hud({
               {m.icon}
             </span>
           ))}
+        </div>
+      )}
+      {s.weapon?.hint && (
+        <div class={`hint-line px-panel ${s.weapon.hint.warn ? 'warn' : ''}`}>
+          {s.weapon.hint.text}
         </div>
       )}
       <div class="hud-bottom">
@@ -147,7 +155,6 @@ export function Hud({
               <b>{s.weapon.name}</b>
               {s.weapon.fuse !== null && <span> · {s.weapon.fuse} с</span>}
               {s.weapon.bounce && <span> · {s.weapon.bounce}</span>}
-              {s.weapon.hint && <div class="weapon-hint">{s.weapon.hint}</div>}
             </div>
           )}
           {s.firstTurn && <div class="weapon-hint first-hint">ПКМ / F1–F12 — выбор оружия</div>}

@@ -24,6 +24,8 @@ interface Props {
   onPick: (weaponId: string) => void;
   /** The player clicked a weapon that cannot be used right now. */
   onDenied?: () => void;
+  /** Map point under the cursor (world px). */
+  mouse?: () => { x: number; y: number } | null;
   onRematch: () => void;
   onMenu: () => void;
   onWatch: () => void;
@@ -42,6 +44,7 @@ export function App({
   api,
   onPick,
   onDenied,
+  mouse,
   onRematch,
   onMenu,
   onWatch,
@@ -104,7 +107,13 @@ export function App({
 
   return (
     <>
-      <Hud game={game} announcements={announcements} onOver={setOver} wormpot={wormpot} />
+      <Hud
+        game={game}
+        announcements={announcements}
+        onOver={setOver}
+        wormpot={wormpot}
+        mouse={mouse}
+      />
       {replay && (
         <div class="replay-bar px-panel">
           <span class="replay-badge">● ПОВТОР</span>

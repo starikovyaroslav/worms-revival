@@ -176,6 +176,26 @@ body {
   color: var(--gold);
 }
 
+/* The one hint line: what the keys do with the selected weapon right now. */
+.hint-line {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 300px;
+  padding: 4px 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--gold);
+}
+
+.hint-line.warn {
+  color: #ff8080;
+}
+
 .announcements {
   position: absolute;
   top: 56px;

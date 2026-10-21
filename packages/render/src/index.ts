@@ -9,6 +9,7 @@ export * from './views';
 export * from './aimView';
 export * from './effects';
 export * from './targetView';
+export * from './targetWarn';
 export * from './speechView';
 export * from './postfx';
 export * from './effects';

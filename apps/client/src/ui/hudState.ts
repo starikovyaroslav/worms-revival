@@ -1,6 +1,7 @@
 import { TPS, type Game } from '@wr/sim';
 import { TEAM_COLORS } from '@wr/render';
 import { WORMPOT, weaponInfo } from '@wr/content';
+import { weaponHint, type WeaponHint } from './weaponHint';
 
 export interface TeamBar {
   name: string;
@@ -25,7 +26,12 @@ export interface HudState {
   suddenDeath: boolean;
   teams: TeamBar[];
   maxHp: number;
-  weapon: { name: string; fuse: number | null; bounce: string | null; hint: string | null } | null;
+  weapon: {
+    name: string;
+    fuse: number | null;
+    bounce: string | null;
+    hint: WeaponHint | null;
+  } | null;
   /** Active Wormpot modifiers (icons). */
   mods: { icon: string; name: string }[];
   /** Set when the match is over. */
@@ -46,7 +52,12 @@ function turnInfo(game: Game): HudState['turn'] {
   };
 }
 
-export function hudState(game: Game, wormpot: readonly string[] = []): HudState {
+export function hudState(
+  game: Game,
+  wormpot: readonly string[] = [],
+  /** Map point under the cursor (own-goal warning of click-to-fire strikes). */
+  mouse: { x: number; y: number } | null = null,
+): HudState {
   const def = game.weapon;
   const winner = game.winner !== null && game.winner >= 0 ? game.teams[game.winner] : undefined;
   const timed = game.phase === 'turn' || game.phase === 'retreat' || game.phase === 'ready';
@@ -74,12 +85,7 @@ export function hudState(game: Game, wormpot: readonly string[] = []): HudState 
           name: weaponInfo(def.id).name,
           fuse: def.fuse ? game.fuseSeconds : null,
           bounce: def.bounce ? (game.bounceHigh ? 'Макс' : 'Мин') : null,
-          hint:
-            (def.needsTarget || def.aim === 'target') && !game.target
-              ? 'Кликните по карте, чтобы отметить цель'
-              : def.needsTarget
-                ? 'Цель отмечена: Пробел — пуск'
-                : null,
+          hint: weaponHint(game, mouse),
         }
       : null,
     mods: wormpot
