@@ -1,18 +1,45 @@
 import './defs';
+import { fireLauncher } from './archetypes/launcher';
 import { legacyRules } from './legacy';
-import type { Look, LookSpec, WeaponSpec } from './spec';
+import type { Look, LookSpec, SimFlags, WeaponSpec } from './spec';
 import type { WeaponDef, WeaponRules } from './weapon';
+
+const FLAG_KEYS = [
+  'aim',
+  'charge',
+  'fuse',
+  'bounce',
+  'shots',
+  'retreat',
+  'endsTurn',
+  'needsSky',
+  'airborne',
+  'airborneOnly',
+  'needsTarget',
+  'oncePerTurn',
+  'action',
+] as const satisfies readonly (keyof SimFlags)[];
+
+/** Only the flags that are set: the ruleset hash tells a missing flag from an undefined one. */
+function flagsOf(sim: SimFlags): SimFlags {
+  const out: Record<string, unknown> = {};
+  for (const k of FLAG_KEYS) if (sim[k] !== undefined) out[k] = sim[k];
+  return out as unknown as SimFlags;
+}
 
 /** Compiles the `sim` section of a spec into the flags and `fire` the game runs. */
 function compile(spec: WeaponSpec): WeaponRules {
-  switch (spec.sim.archetype) {
+  const sim = spec.sim;
+  switch (sim.archetype) {
     case 'legacy': {
       const rules = legacyRules(spec.id);
       if (!rules) throw new Error(`weapon ${spec.id}: no legacy code registered`);
       return rules;
     }
     case 'inline':
-      return spec.sim;
+      return sim;
+    case 'launcher':
+      return { ...flagsOf(sim), fire: (ctx) => fireLauncher(ctx, sim, spec.view) };
   }
 }
 

@@ -1,3 +1,4 @@
+import type { LauncherSim } from './archetypes/launcher';
 import type { WeaponRules } from './weapon';
 
 /*
@@ -151,4 +152,4 @@ export interface InlineSim extends SimFlags {
   validTarget?: WeaponRules['validTarget'];
 }
 
-export type SimSpec = LegacySim | InlineSim;
+export type SimSpec = LegacySim | InlineSim | LauncherSim;

@@ -1,9 +1,16 @@
 import type { WeaponSpec } from '@wr/sim';
+import { BOUNCE, MAX_LAUNCH } from './shared';
 
 export const ARTILLERY: WeaponSpec[] = [
   {
     id: 'bazooka',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'launcher',
+      aim: 'angle',
+      charge: true,
+      speed: MAX_LAUNCH,
+      projectile: { look: 'missile', radius: 2, wind: 1, impact: 'explode', blast: { damage: 50 } },
+    },
     ui: {
       name: 'Базука',
       hint: 'Сносится ветром. Зажми пробел для силы.',
@@ -16,7 +23,24 @@ export const ARTILLERY: WeaponSpec[] = [
   },
   {
     id: 'grenade',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'launcher',
+      aim: 'angle',
+      charge: true,
+      fuse: true,
+      bounce: true,
+      speed: MAX_LAUNCH,
+      projectile: {
+        look: 'grenade',
+        radius: 3,
+        wind: 0,
+        impact: 'bounce',
+        fuse: 'player',
+        restitution: BOUNCE,
+        friction: 0.96,
+        blast: { damage: 50, upgrade: { name: 'grenade', damage: 75 } },
+      },
+    },
     ui: {
       name: 'Граната',
       hint: 'Ветер не влияет. 1–5 — фитиль, +/− — отскок.',
@@ -29,7 +53,38 @@ export const ARTILLERY: WeaponSpec[] = [
   },
   {
     id: 'cluster',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'launcher',
+      aim: 'angle',
+      charge: true,
+      fuse: true,
+      bounce: true,
+      speed: MAX_LAUNCH,
+      projectile: {
+        look: 'cluster',
+        radius: 3,
+        wind: 0,
+        impact: 'bounce',
+        fuse: 'player',
+        restitution: BOUNCE,
+        friction: 0.96,
+        blast: { damage: 25 },
+        cluster: {
+          count: 5,
+          upgrade: { name: 'clusters', count: 8 },
+          minSpeed: 2,
+          maxSpeed: 4.5,
+          spread: 0.8,
+          projectile: {
+            look: 'clusterlet',
+            radius: 2,
+            wind: 0,
+            impact: 'explode',
+            blast: { damage: 20 },
+          },
+        },
+      },
+    },
     ui: { name: 'Кластерная бомба', hint: 'Разлетается на осколки.', icon: '🎆', row: 2, col: 1 },
     ai: { usable: true, rank: 3 },
     view: { look: 'cluster' },
