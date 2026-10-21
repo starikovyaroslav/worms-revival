@@ -3,7 +3,14 @@ import type { WeaponSpec } from '@wr/sim';
 export const CONTROL: WeaponSpec[] = [
   {
     id: 'jetpack',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'tool',
+      tool: 'jetpack',
+      aim: 'none',
+      charge: false,
+      airborne: true,
+      endsTurn: false,
+    },
     ui: {
       name: 'Реактивный ранец',
       hint: 'Стрелки — тяга, пока есть топливо. Пробел — убрать.',
@@ -16,21 +23,35 @@ export const CONTROL: WeaponSpec[] = [
   },
   {
     id: 'girderpack',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'girder',
+      aim: 'target',
+      charge: false,
+      shots: 5,
+      params: { halfLength: 30, halfThickness: 4, reach: 260 },
+    },
     ui: { name: 'Набор балок', hint: 'Пять балок за ход.', icon: '🏗️', row: 7, col: 4 },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'girder' },
   },
   {
     id: 'bungee',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'tool',
+      tool: 'bungee',
+      aim: 'angle',
+      charge: false,
+      airborne: true,
+      endsTurn: false,
+    },
     ui: { name: 'Банджи', hint: 'Упругий трос: прицепись и прыгай.', icon: '🪢', row: 8, col: 1 },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'rope-shoot' },
   },
   {
     id: 'scales',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'custom', behaviour: 'scales', aim: 'none', charge: false, params: {} },
     ui: {
       name: 'Весы правосудия',
       hint: 'Уравнивает здоровье команд.',
@@ -39,11 +60,18 @@ export const CONTROL: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'collect' },
   },
   {
     id: 'selectworm',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'selectworm',
+      aim: 'target',
+      charge: false,
+      endsTurn: false,
+      params: { pickRadius: 24 },
+    },
     ui: {
       name: 'Выбор червя',
       hint: 'Клик по своему червяку: ходит он.',
@@ -56,7 +84,7 @@ export const CONTROL: WeaponSpec[] = [
   },
   {
     id: 'freeze',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'custom', behaviour: 'freeze', aim: 'none', charge: false, params: {} },
     ui: {
       name: 'Заморозка',
       hint: 'Твоя команда неуязвима до следующего хода.',
@@ -65,6 +93,6 @@ export const CONTROL: WeaponSpec[] = [
       col: 3,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'teleport' },
   },
 ];

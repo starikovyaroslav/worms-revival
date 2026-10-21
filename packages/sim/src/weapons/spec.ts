@@ -4,6 +4,8 @@ import type { BurstSim, HitscanSim } from './archetypes/guns';
 import type { LauncherSim } from './archetypes/launcher';
 import type { MeleeSim } from './archetypes/melee';
 import type { PlacedSim } from './archetypes/placed';
+import type { ToolSim } from './archetypes/tool';
+import type { UtilitySim } from './archetypes/utility';
 import type { CustomSim } from './behaviours';
 import type { WeaponRules } from './weapon';
 
@@ -145,11 +147,6 @@ export interface WeaponSpec {
 /** The flags every weapon declares (see WeaponRules for what they mean). */
 export type SimFlags = Omit<WeaponRules, 'fire' | 'validTarget'>;
 
-/** Transitional: not migrated to an archetype yet, the definition is still code in sim. */
-export interface LegacySim {
-  archetype: 'legacy';
-}
-
 /**
  * Code in the spec itself: for tests and prototypes. Not hashable and not serializable, so real
  * weapons use an archetype (or a named `custom` behaviour) instead.
@@ -160,9 +157,14 @@ export interface InlineSim extends SimFlags {
   validTarget?: WeaponRules['validTarget'];
 }
 
+/** Turn-control items handled by the game itself (`action` flag): firing them does nothing. */
+export interface ActionSim extends SimFlags {
+  archetype: 'action';
+}
+
 export type SimSpec =
-  | LegacySim
   | InlineSim
+  | ActionSim
   | LauncherSim
   | PlacedSim
   | AnimalSim
@@ -170,4 +172,6 @@ export type SimSpec =
   | MeleeSim
   | BurstSim
   | HitscanSim
+  | ToolSim
+  | UtilitySim
   | CustomSim;

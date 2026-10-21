@@ -3,7 +3,7 @@ import type { WeaponSpec } from '@wr/sim';
 export const TOOLS: WeaponSpec[] = [
   {
     id: 'blowtorch',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'tool', tool: 'torch', aim: 'angle', charge: false },
     ui: {
       name: 'Паяльная лампа',
       hint: 'Прожигает тоннель. Пробел — стоп.',
@@ -16,7 +16,7 @@ export const TOOLS: WeaponSpec[] = [
   },
   {
     id: 'drill',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'tool', tool: 'drill', aim: 'none', charge: false, retreat: 0 },
     ui: {
       name: 'Отбойный молоток',
       hint: 'Копает вниз. Пробел — стоп.',
@@ -29,7 +29,13 @@ export const TOOLS: WeaponSpec[] = [
   },
   {
     id: 'girder',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'girder',
+      aim: 'target',
+      charge: false,
+      params: { halfLength: 30, halfThickness: 4, reach: 260 },
+    },
     ui: {
       name: 'Балка',
       hint: 'Клик — поставить, вверх/вниз — наклон.',
@@ -38,11 +44,18 @@ export const TOOLS: WeaponSpec[] = [
       col: 2,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'girder' },
   },
   {
     id: 'rope',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'tool',
+      tool: 'rope',
+      aim: 'angle',
+      charge: false,
+      airborne: true,
+      endsTurn: false,
+    },
     ui: {
       name: 'Ниндзя-верёвка',
       hint: 'Стрелки — качаться и лезть, пробел — отпустить.',
@@ -51,11 +64,18 @@ export const TOOLS: WeaponSpec[] = [
       col: 0,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'rope-shoot' },
   },
   {
     id: 'parachute',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'tool',
+      tool: 'parachute',
+      aim: 'none',
+      charge: false,
+      airborneOnly: true,
+      endsTurn: false,
+    },
     ui: {
       name: 'Парашют',
       hint: 'Открывается в воздухе. Сносится ветром.',
@@ -64,25 +84,25 @@ export const TOOLS: WeaponSpec[] = [
       col: 2,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'parachute' },
   },
   {
     id: 'teleport',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'custom', behaviour: 'teleport', aim: 'target', charge: false, params: {} },
     ui: { name: 'Телепорт', hint: 'Клик по свободному месту.', icon: '✨', row: 8, col: 3 },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'teleport' },
   },
   {
     id: 'skipgo',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'action', action: 'skip', aim: 'none', charge: false },
     ui: { name: 'Пропуск хода', hint: 'Ничего не делать.', icon: '⏭️', row: 12, col: 0 },
     ai: { usable: false },
     view: {},
   },
   {
     id: 'surrender',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'action', action: 'surrender', aim: 'none', charge: false },
     ui: { name: 'Сдаться', hint: 'Команда покидает поле боя.', icon: '🏳️', row: 12, col: 1 },
     ai: { usable: false },
     view: {},

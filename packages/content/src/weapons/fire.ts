@@ -4,10 +4,22 @@ import { MAX_LAUNCH } from './shared';
 export const FIRE: WeaponSpec[] = [
   {
     id: 'flamethrower',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'flamethrower',
+      aim: 'angle',
+      charge: false,
+      params: {
+        muzzle: 8,
+        count: 36,
+        speed: { min: 3, max: 7.5 },
+        spread: 0.18,
+        life: { min: 150, max: 300 },
+      },
+    },
     ui: { name: 'Огнемёт', hint: 'Длинная струя горящего напалма.', icon: '🔥', row: 9, col: 2 },
     ai: { usable: true, rank: 18 },
-    view: {},
+    view: { sound: 'flame' },
   },
   {
     id: 'petrol',

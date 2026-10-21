@@ -1,9 +1,19 @@
-import type { WeaponSpec } from '@wr/sim';
+import type { UtilitySim, WeaponSpec } from '@wr/sim';
+
+/** Utilities switch a flag on for the rest of the turn: usable once per turn, do not end it. */
+const utility = (effect: UtilitySim['effect']): UtilitySim => ({
+  archetype: 'utility',
+  effect,
+  aim: 'none',
+  charge: false,
+  endsTurn: false,
+  oncePerTurn: true,
+});
 
 export const UTILITIES: WeaponSpec[] = [
   {
     id: 'lowgravity',
-    sim: { archetype: 'legacy' },
+    sim: utility('lowGravity'),
     ui: {
       name: 'Низкая гравитация',
       hint: 'До конца хода прыжки выше и дольше.',
@@ -12,11 +22,11 @@ export const UTILITIES: WeaponSpec[] = [
       col: 1,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'collect' },
   },
   {
     id: 'fastwalk',
-    sim: { archetype: 'legacy' },
+    sim: utility('fastWalk'),
     ui: {
       name: 'Быстрая ходьба',
       hint: 'До конца хода червяк бегает быстрее.',
@@ -25,11 +35,11 @@ export const UTILITIES: WeaponSpec[] = [
       col: 2,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'collect' },
   },
   {
     id: 'laser',
-    sim: { archetype: 'legacy' },
+    sim: utility('laser'),
     ui: {
       name: 'Лазерный прицел',
       hint: 'Показывает линию выстрела до самой земли.',
@@ -38,11 +48,11 @@ export const UTILITIES: WeaponSpec[] = [
       col: 3,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'collect' },
   },
   {
     id: 'invisible',
-    sim: { archetype: 'legacy' },
+    sim: utility('invisible'),
     ui: {
       name: 'Невидимость',
       hint: 'До конца хода червяк почти не виден.',
@@ -51,11 +61,11 @@ export const UTILITIES: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'collect' },
   },
   {
     id: 'doubledamage',
-    sim: { archetype: 'legacy' },
+    sim: utility('doubleDamage'),
     ui: {
       name: 'Двойной урон',
       hint: 'Все взрывы до следующего хода вдвое сильнее.',
@@ -64,11 +74,11 @@ export const UTILITIES: WeaponSpec[] = [
       col: 5,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'collect' },
   },
   {
     id: 'cratespy',
-    sim: { archetype: 'legacy' },
+    sim: utility('crateSpy'),
     ui: {
       name: 'Шпион ящиков',
       hint: 'Показывает, что лежит в ящиках.',
@@ -77,6 +87,6 @@ export const UTILITIES: WeaponSpec[] = [
       col: 6,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'collect' },
   },
 ];

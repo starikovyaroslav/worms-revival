@@ -1,11 +1,5 @@
 import { Container, Graphics } from 'pixi.js';
-import {
-  GIRDER_HALF_LENGTH,
-  GIRDER_HALF_THICKNESS,
-  HomingMissile,
-  girderAxis,
-  type Game,
-} from '@wr/sim';
+import { HomingMissile, girderAxis, type Game, type GirderParams } from '@wr/sim';
 
 /** Preview under the mouse for weapons aimed with a click (girder, teleport, strikes). */
 export class TargetView {
@@ -57,10 +51,11 @@ export class TargetView {
     const color = ok ? 0x40ff60 : 0xff4040;
     const { x, y } = mouse;
 
-    if (def.id === 'girder') {
+    if (def.id === 'girder' && def.spec.sim.archetype === 'custom') {
+      const size = def.spec.sim.params as GirderParams;
       const a = girderAxis(dirX, dirY);
-      const hw = GIRDER_HALF_LENGTH;
-      const hh = GIRDER_HALF_THICKNESS;
+      const hw = size.halfLength;
+      const hh = size.halfThickness;
       const px = -a.y;
       const py = a.x;
       g.poly([

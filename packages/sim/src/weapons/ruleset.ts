@@ -1,13 +1,13 @@
-import './defs';
 import { fireAirRaid } from './archetypes/airRaid';
 import { fireAnimal } from './archetypes/animal';
+import { fireTool } from './archetypes/tool';
+import { fireUtility } from './archetypes/utility';
 import { firePlaced } from './archetypes/placed';
 import { fireBurst, fireHitscan } from './archetypes/guns';
 import { BEHAVIOURS } from './behaviours';
 import type { Behaviour } from './behaviours/types';
 import { fireLauncher } from './archetypes/launcher';
 import { fireMelee } from './archetypes/melee';
-import { legacyRules } from './legacy';
 import type { Look, LookSpec, SimFlags, WeaponSpec } from './spec';
 import type { WeaponDef, WeaponRules } from './weapon';
 
@@ -38,11 +38,6 @@ function flagsOf(sim: SimFlags): SimFlags {
 function compile(spec: WeaponSpec): WeaponRules {
   const sim = spec.sim;
   switch (sim.archetype) {
-    case 'legacy': {
-      const rules = legacyRules(spec.id);
-      if (!rules) throw new Error(`weapon ${spec.id}: no legacy code registered`);
-      return rules;
-    }
     case 'inline':
       return sim;
     case 'burst':
@@ -69,6 +64,12 @@ function compile(spec: WeaponSpec): WeaponRules {
       return { ...flagsOf(sim), fire: (ctx) => fireAnimal(ctx, sim, spec.view) };
     case 'airRaid':
       return { ...flagsOf(sim), fire: (ctx) => fireAirRaid(ctx, sim, spec.view) };
+    case 'tool':
+      return { ...flagsOf(sim), fire: (ctx) => fireTool(ctx, sim, spec.view) };
+    case 'utility':
+      return { ...flagsOf(sim), fire: (ctx) => fireUtility(ctx, sim, spec.view) };
+    case 'action':
+      return { ...flagsOf(sim), fire: () => {} };
     case 'launcher':
       return { ...flagsOf(sim), fire: (ctx) => fireLauncher(ctx, sim, spec.view) };
   }

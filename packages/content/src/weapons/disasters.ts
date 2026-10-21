@@ -1,10 +1,11 @@
 import type { WeaponSpec } from '@wr/sim';
+import { TPS } from '@wr/sim';
 import { MAX_LAUNCH, BOUNCE } from './shared';
 
 export const DISASTERS: WeaponSpec[] = [
   {
     id: 'earthquake',
-    sim: { archetype: 'legacy' },
+    sim: { archetype: 'custom', behaviour: 'earthquake', aim: 'none', charge: false, params: {} },
     ui: {
       name: 'Землетрясение',
       hint: 'Трясёт всю карту и подбрасывает всех.',
@@ -13,7 +14,7 @@ export const DISASTERS: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: false },
-    view: {},
+    view: { sound: 'quake' },
   },
   {
     id: 'superbanana',
@@ -108,7 +109,14 @@ export const DISASTERS: WeaponSpec[] = [
   },
   {
     id: 'nuke',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'nuke',
+      aim: 'none',
+      charge: false,
+      // A blinding flash (shown where the player looks, not at the water).
+      params: { waterRise: 30, flashDy: -60, flashRadius: 300, shake: 8 },
+    },
     ui: {
       name: 'Индийское ядерное испытание',
       hint: 'Отравляет всех, поднимает воду.',
@@ -121,7 +129,13 @@ export const DISASTERS: WeaponSpec[] = [
   },
   {
     id: 'armageddon',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'armageddon',
+      aim: 'none',
+      charge: false,
+      params: { blast: { damage: 30 } },
+    },
     ui: {
       name: 'Армагеддон',
       hint: 'Метеоритный дождь по всей карте.',
@@ -130,11 +144,34 @@ export const DISASTERS: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: false },
-    view: { look: 'meteor' },
+    view: { look: 'meteor', sound: 'quake' },
   },
   {
     id: 'magicbullet',
-    sim: { archetype: 'legacy' },
+    sim: {
+      archetype: 'custom',
+      behaviour: 'homing',
+      aim: 'angle',
+      charge: false,
+      needsTarget: true,
+      params: {
+        // A bullet that finds its own way: no gravity, a hard pull towards the marker.
+        speed: 5,
+        projectile: {
+          look: 'bullet',
+          radius: 1.5,
+          wind: 0,
+          gravity: 0,
+          impact: 'explode',
+          fuse: 8 * TPS,
+          blast: { damage: 50 },
+        },
+        armTicks: 0,
+        lockEndTick: 8 * TPS,
+        pull: 0.7,
+        maxSpeed: 7,
+      },
+    },
     ui: {
       name: 'Волшебная пуля Патси',
       hint: 'Клик — цель. Пуля найдёт дорогу сама.',
@@ -143,6 +180,6 @@ export const DISASTERS: WeaponSpec[] = [
       col: 4,
     },
     ai: { usable: false },
-    view: { look: 'bullet' },
+    view: { look: 'bullet', sound: 'shot' },
   },
 ];
