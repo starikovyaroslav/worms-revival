@@ -22,16 +22,12 @@ import {
   WaterView,
   WormView,
   createEntityView,
-  setCrateSpy,
+  createViewContext,
+  mixColor,
+  type ViewContext,
   type EntityView,
   type Theme,
 } from '@wr/render';
-
-function mixToward(a: number, b: number, t: number): number {
-  const ch = (c: number, sh: number) => (c >> sh) & 255;
-  const m = (sh: number) => Math.round(ch(a, sh) + (ch(b, sh) - ch(a, sh)) * t);
-  return (m(16) << 16) | (m(8) << 8) | m(0);
-}
 
 /** Everything visible in a match, kept in sync with the simulation. */
 export class GameScene {
@@ -63,6 +59,7 @@ export class GameScene {
   private baseAmbient: number;
   private worms = new Map<number, WormView>();
   private entities = new Map<number, EntityView>();
+  private readonly viewCtx: ViewContext;
   /** Pause camera following after the user scrolls manually. */
   userScrolled = false;
   onMessage: (text: string) => void = () => {};
@@ -80,6 +77,7 @@ export class GameScene {
     theme: Theme,
     seed: number,
   ) {
+    this.viewCtx = createViewContext(game.world);
     const terrain = game.world.terrain;
     this.camera = new Camera(terrain);
 
@@ -91,7 +89,6 @@ export class GameScene {
       shake: (p) => this.camera.shake(p),
       punch: (a) => this.camera.punch(a),
       timeScale: (s, d) => this.onTimeScale(s, d),
-      glow: () => {},
       light: (x, y, color, radius, life, intensity) =>
         this.lights.flash(x, y, color, radius, life, intensity),
       shockwave: (x, y, s) => {
@@ -160,7 +157,7 @@ export class GameScene {
           this.labelLayer.addChild(v.label);
         }
       } else if (!this.entities.has(e.id)) {
-        const v = createEntityView(e, this.game.world);
+        const v = createEntityView(e, this.viewCtx);
         if (v) {
           this.entities.set(e.id, v);
           this.entityLayer.addChild(v.container);
@@ -263,7 +260,7 @@ export class GameScene {
   private updateLights(dtMs: number): void {
     const game = this.game;
     // Sudden Death turns the light blood-red and dim.
-    const target = game.suddenDeath ? mixToward(this.baseAmbient, 0x9a6a6e, 0.6) : this.baseAmbient;
+    const target = game.suddenDeath ? mixColor(this.baseAmbient, 0x9a6a6e, 0.6) : this.baseAmbient;
     this.lights.setAmbient(target);
     for (const e of game.world.all()) {
       if (e.removed) continue;
@@ -388,7 +385,7 @@ export class GameScene {
       v.update(alpha, dtMs, isActive && game.phase !== 'settling', project, hold, showArrow);
       v.setShownHealth(v.worm.shownHealth);
     }
-    setCrateSpy(!!game.activeWorm?.crateSpy);
+    this.viewCtx.crateSpy = !!game.activeWorm?.crateSpy;
     for (const [, v] of this.entities) v.update(alpha, dtMs);
 
     const def = game.weapon;
