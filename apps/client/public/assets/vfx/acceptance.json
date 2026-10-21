@@ -12,12 +12,12 @@
       382
     ],
     "bbox": {
-      "x": 31,
-      "y": 147,
-      "w": 254,
-      "h": 146
+      "x": 0,
+      "y": 15,
+      "w": 314,
+      "h": 367
     },
-    "scale": 0.7133757961783439,
+    "scale": 0.2931937172774869,
     "anchor": [
       0.5,
       0.5
@@ -27,10 +27,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 22,
-    "transparent": 20709,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1632,
+    "transparent": 30165,
+    "partialAlpha": 2584,
+    "alphaLevels": 137,
+    "islands": 46
   },
   "vfx/cargo_1": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -45,12 +47,12 @@
       382
     ],
     "bbox": {
-      "x": 30,
-      "y": 147,
-      "w": 258,
-      "h": 146
+      "x": 0,
+      "y": 0,
+      "w": 313,
+      "h": 382
     },
-    "scale": 0.7133757961783439,
+    "scale": 0.2931937172774869,
     "anchor": [
       0.5,
       0.5
@@ -60,10 +62,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 24,
-    "transparent": 21307,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1633,
+    "transparent": 30190,
+    "partialAlpha": 2563,
+    "alphaLevels": 127,
+    "islands": 76
   },
   "vfx/cargo_2": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -78,12 +82,12 @@
       382
     ],
     "bbox": {
-      "x": 31,
-      "y": 147,
-      "w": 274,
-      "h": 147
+      "x": 1,
+      "y": 9,
+      "w": 313,
+      "h": 373
     },
-    "scale": 0.7133757961783439,
+    "scale": 0.2931937172774869,
     "anchor": [
       0.5,
       0.5
@@ -93,10 +97,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 24,
-    "transparent": 21372,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1646,
+    "transparent": 30229,
+    "partialAlpha": 2512,
+    "alphaLevels": 112,
+    "islands": 48
   },
   "vfx/cargo_3": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -111,12 +117,12 @@
       382
     ],
     "bbox": {
-      "x": 30,
-      "y": 147,
-      "w": 254,
-      "h": 157
+      "x": 0,
+      "y": 0,
+      "w": 297,
+      "h": 380
     },
-    "scale": 0.7133757961783439,
+    "scale": 0.2931937172774869,
     "anchor": [
       0.5,
       0.5
@@ -126,10 +132,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 25,
-    "transparent": 19839,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1756,
+    "transparent": 30129,
+    "partialAlpha": 2613,
+    "alphaLevels": 112,
+    "islands": 56
   },
   "vfx/mailplane_0": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -144,12 +152,12 @@
       299
     ],
     "bbox": {
-      "x": 31,
-      "y": 60,
-      "w": 254,
-      "h": 146
+      "x": 21,
+      "y": 0,
+      "w": 293,
+      "h": 294
     },
-    "scale": 0.717948717948718,
+    "scale": 0.37966101694915255,
     "anchor": [
       0.5,
       0.5
@@ -159,10 +167,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 26,
-    "transparent": 20423,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2658,
+    "transparent": 28298,
+    "partialAlpha": 4406,
+    "alphaLevels": 132,
+    "islands": 70
   },
   "vfx/mailplane_1": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -177,12 +187,12 @@
       299
     ],
     "bbox": {
-      "x": 30,
-      "y": 71,
-      "w": 263,
-      "h": 135
+      "x": 0,
+      "y": 0,
+      "w": 313,
+      "h": 295
     },
-    "scale": 0.717948717948718,
+    "scale": 0.37966101694915255,
     "anchor": [
       0.5,
       0.5
@@ -192,10 +202,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 26,
-    "transparent": 21148,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2679,
+    "transparent": 28386,
+    "partialAlpha": 4358,
+    "alphaLevels": 171,
+    "islands": 59
   },
   "vfx/mailplane_2": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -210,12 +222,12 @@
       299
     ],
     "bbox": {
-      "x": 31,
-      "y": 71,
-      "w": 273,
-      "h": 135
+      "x": 1,
+      "y": 0,
+      "w": 307,
+      "h": 289
     },
-    "scale": 0.717948717948718,
+    "scale": 0.37966101694915255,
     "anchor": [
       0.5,
       0.5
@@ -225,10 +237,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 26,
-    "transparent": 21344,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2710,
+    "transparent": 28533,
+    "partialAlpha": 4174,
+    "alphaLevels": 135,
+    "islands": 74
   },
   "vfx/mailplane_3": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -243,12 +257,12 @@
       299
     ],
     "bbox": {
-      "x": 30,
-      "y": 60,
-      "w": 255,
-      "h": 156
+      "x": 0,
+      "y": 5,
+      "w": 288,
+      "h": 290
     },
-    "scale": 0.717948717948718,
+    "scale": 0.37966101694915255,
     "anchor": [
       0.5,
       0.5
@@ -258,10 +272,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 26,
-    "transparent": 19873,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2878,
+    "transparent": 28294,
+    "partialAlpha": 4420,
+    "alphaLevels": 169,
+    "islands": 55
   },
   "vfx/missile_0": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -276,12 +292,12 @@
       269
     ],
     "bbox": {
-      "x": 54,
-      "y": 82,
-      "w": 201,
-      "h": 91
+      "x": 0,
+      "y": 5,
+      "w": 259,
+      "h": 264
     },
-    "scale": 0.32286995515695066,
+    "scale": 0.11940298507462686,
     "anchor": [
       0.5,
       0.5
@@ -291,10 +307,12 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 20,
-    "transparent": 3114,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 180,
+    "transparent": 4005,
+    "partialAlpha": 219,
+    "alphaLevels": 39,
+    "islands": 5
   },
   "vfx/missile_1": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -309,12 +327,12 @@
       269
     ],
     "bbox": {
-      "x": 30,
-      "y": 82,
-      "w": 223,
-      "h": 91
+      "x": 2,
+      "y": 1,
+      "w": 311,
+      "h": 268
     },
-    "scale": 0.32286995515695066,
+    "scale": 0.11940298507462686,
     "anchor": [
       0.5,
       0.5
@@ -324,9 +342,11 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 20,
-    "transparent": 3104,
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 172,
+    "transparent": 4002,
+    "partialAlpha": 217,
+    "alphaLevels": 40,
     "islands": 6
   },
   "vfx/homing_0": {
@@ -342,12 +362,12 @@
       269
     ],
     "bbox": {
-      "x": 50,
-      "y": 73,
-      "w": 213,
-      "h": 99
+      "x": 0,
+      "y": 7,
+      "w": 314,
+      "h": 253
     },
-    "scale": 0.3090128755364807,
+    "scale": 0.12030075187969924,
     "anchor": [
       0.5,
       0.5
@@ -357,10 +377,12 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 17,
-    "transparent": 3085,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 194,
+    "transparent": 3935,
+    "partialAlpha": 288,
+    "alphaLevels": 47,
+    "islands": 20
   },
   "vfx/homing_1": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -375,12 +397,12 @@
       269
     ],
     "bbox": {
-      "x": 31,
-      "y": 73,
-      "w": 233,
-      "h": 99
+      "x": 0,
+      "y": 3,
+      "w": 297,
+      "h": 266
     },
-    "scale": 0.3090128755364807,
+    "scale": 0.12030075187969924,
     "anchor": [
       0.5,
       0.5
@@ -390,10 +412,12 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 19,
-    "transparent": 3069,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 197,
+    "transparent": 3922,
+    "partialAlpha": 302,
+    "alphaLevels": 48,
+    "islands": 14
   },
   "vfx/letter_0": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -408,12 +432,12 @@
       304
     ],
     "bbox": {
-      "x": 97,
-      "y": 106,
-      "w": 128,
-      "h": 90
+      "x": 23,
+      "y": 0,
+      "w": 287,
+      "h": 264
     },
-    "scale": 0.31007751937984496,
+    "scale": 0.13157894736842105,
     "anchor": [
       0.5,
       0.5
@@ -423,10 +447,12 @@
       14
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 10,
-    "transparent": 2505,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 174,
+    "transparent": 3333,
+    "partialAlpha": 242,
+    "alphaLevels": 33,
+    "islands": 17
   },
   "vfx/letter_1": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -441,12 +467,12 @@
       304
     ],
     "bbox": {
-      "x": 98,
-      "y": 86,
-      "w": 130,
-      "h": 129
+      "x": 0,
+      "y": 0,
+      "w": 313,
+      "h": 304
     },
-    "scale": 0.31007751937984496,
+    "scale": 0.13157894736842105,
     "anchor": [
       0.5,
       0.5
@@ -456,10 +482,12 @@
       14
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 17,
-    "transparent": 2682,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 166,
+    "transparent": 3304,
+    "partialAlpha": 280,
+    "alphaLevels": 44,
+    "islands": 26
   },
   "vfx/letter_2": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -474,12 +502,12 @@
       304
     ],
     "bbox": {
-      "x": 110,
-      "y": 96,
-      "w": 95,
-      "h": 109
+      "x": 1,
+      "y": 1,
+      "w": 307,
+      "h": 303
     },
-    "scale": 0.31007751937984496,
+    "scale": 0.13157894736842105,
     "anchor": [
       0.5,
       0.5
@@ -489,10 +517,12 @@
       14
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 16,
-    "transparent": 3097,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 101,
+    "transparent": 3429,
+    "partialAlpha": 154,
+    "alphaLevels": 33,
+    "islands": 8
   },
   "vfx/letter_3": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -507,12 +537,12 @@
       304
     ],
     "bbox": {
-      "x": 89,
-      "y": 106,
-      "w": 127,
-      "h": 90
+      "x": 0,
+      "y": 0,
+      "w": 283,
+      "h": 274
     },
-    "scale": 0.31007751937984496,
+    "scale": 0.13157894736842105,
     "anchor": [
       0.5,
       0.5
@@ -522,10 +552,12 @@
       14
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 13,
-    "transparent": 2537,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 168,
+    "transparent": 3332,
+    "partialAlpha": 242,
+    "alphaLevels": 23,
+    "islands": 23
   },
   "vfx/engine_0": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -540,12 +572,12 @@
       318
     ],
     "bbox": {
-      "x": 32,
-      "y": 137,
-      "w": 234,
-      "h": 108
+      "x": 0,
+      "y": 23,
+      "w": 314,
+      "h": 295
     },
-    "scale": 0.25196850393700787,
+    "scale": 0.10355987055016182,
     "anchor": [
       1,
       0.5
@@ -555,10 +587,12 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 11,
-    "transparent": 3765,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 164,
+    "transparent": 4374,
+    "partialAlpha": 234,
+    "alphaLevels": 46,
+    "islands": 15
   },
   "vfx/engine_1": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -573,12 +607,12 @@
       318
     ],
     "bbox": {
-      "x": 26,
-      "y": 128,
-      "w": 258,
-      "h": 127
+      "x": 0,
+      "y": 9,
+      "w": 313,
+      "h": 309
     },
-    "scale": 0.25196850393700787,
+    "scale": 0.10355987055016182,
     "anchor": [
       1,
       0.5
@@ -588,10 +622,12 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 13,
-    "transparent": 3555,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 193,
+    "transparent": 4338,
+    "partialAlpha": 270,
+    "alphaLevels": 46,
+    "islands": 18
   },
   "vfx/engine_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -606,12 +642,12 @@
       318
     ],
     "bbox": {
-      "x": 38,
-      "y": 128,
-      "w": 247,
-      "h": 127
+      "x": 0,
+      "y": 19,
+      "w": 314,
+      "h": 298
     },
-    "scale": 0.25196850393700787,
+    "scale": 0.10355987055016182,
     "anchor": [
       1,
       0.5
@@ -621,10 +657,12 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 3510,
-    "islands": 5
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 201,
+    "transparent": 4300,
+    "partialAlpha": 308,
+    "alphaLevels": 36,
+    "islands": 21
   },
   "vfx/engine_3": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -639,12 +677,12 @@
       318
     ],
     "bbox": {
-      "x": 22,
-      "y": 128,
-      "w": 253,
-      "h": 127
+      "x": 0,
+      "y": 9,
+      "w": 313,
+      "h": 309
     },
-    "scale": 0.25196850393700787,
+    "scale": 0.10355987055016182,
     "anchor": [
       1,
       0.5
@@ -654,10 +692,12 @@
       12
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 3638,
-    "islands": 7
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 182,
+    "transparent": 4359,
+    "partialAlpha": 248,
+    "alphaLevels": 48,
+    "islands": 20
   },
   "vfx/fire_0": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -672,12 +712,12 @@
       309
     ],
     "bbox": {
-      "x": 69,
-      "y": 55,
-      "w": 177,
-      "h": 225
+      "x": 63,
+      "y": 0,
+      "w": 239,
+      "h": 306
     },
-    "scale": 0.2436548223350254,
+    "scale": 0.15335463258785942,
     "anchor": [
       0.5,
       1
@@ -687,9 +727,11 @@
       20
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 11,
-    "transparent": 3836,
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 527,
+    "transparent": 4390,
+    "partialAlpha": 729,
+    "alphaLevels": 88,
     "islands": 6
   },
   "vfx/fire_1": {
@@ -705,12 +747,12 @@
       309
     ],
     "bbox": {
-      "x": 78,
-      "y": 34,
-      "w": 177,
-      "h": 246
+      "x": 29,
+      "y": 0,
+      "w": 284,
+      "h": 301
     },
-    "scale": 0.2436548223350254,
+    "scale": 0.15335463258785942,
     "anchor": [
       0.5,
       1
@@ -720,10 +762,12 @@
       20
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 11,
-    "transparent": 3553,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 592,
+    "transparent": 4306,
+    "partialAlpha": 808,
+    "alphaLevels": 71,
+    "islands": 5
   },
   "vfx/fire_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -738,12 +782,12 @@
       309
     ],
     "bbox": {
-      "x": 59,
-      "y": 45,
-      "w": 197,
-      "h": 235
+      "x": 1,
+      "y": 0,
+      "w": 313,
+      "h": 309
     },
-    "scale": 0.2436548223350254,
+    "scale": 0.15335463258785942,
     "anchor": [
       0.5,
       1
@@ -753,10 +797,12 @@
       20
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 10,
-    "transparent": 3536,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 589,
+    "transparent": 4270,
+    "partialAlpha": 849,
+    "alphaLevels": 82,
+    "islands": 7
   },
   "vfx/fire_3": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -771,12 +817,12 @@
       309
     ],
     "bbox": {
-      "x": 69,
-      "y": 54,
-      "w": 176,
-      "h": 226
+      "x": 0,
+      "y": 0,
+      "w": 295,
+      "h": 309
     },
-    "scale": 0.2436548223350254,
+    "scale": 0.15335463258785942,
     "anchor": [
       0.5,
       1
@@ -786,10 +832,12 @@
       20
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 10,
-    "transparent": 3904,
-    "islands": 8
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 492,
+    "transparent": 4467,
+    "partialAlpha": 652,
+    "alphaLevels": 81,
+    "islands": 10
   },
   "vfx/smoke_0": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -804,12 +852,12 @@
       304
     ],
     "bbox": {
-      "x": 99,
-      "y": 138,
-      "w": 137,
-      "h": 116
+      "x": 27,
+      "y": 15,
+      "w": 287,
+      "h": 289
     },
-    "scale": 0.5647058823529412,
+    "scale": 0.46601941747572817,
     "anchor": [
       0.5,
       0.5
@@ -819,10 +867,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 23303,
-    "islands": 3
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1177,
+    "transparent": 22788,
+    "partialAlpha": 2796,
+    "alphaLevels": 164,
+    "islands": 77
   },
   "vfx/smoke_1": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -837,12 +887,12 @@
       304
     ],
     "bbox": {
-      "x": 78,
-      "y": 88,
-      "w": 177,
-      "h": 177
+      "x": 0,
+      "y": 1,
+      "w": 309,
+      "h": 302
     },
-    "scale": 0.5647058823529412,
+    "scale": 0.46601941747572817,
     "anchor": [
       0.5,
       0.5
@@ -852,10 +902,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 20521,
-    "islands": 4
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1885,
+    "transparent": 20467,
+    "partialAlpha": 5055,
+    "alphaLevels": 185,
+    "islands": 107
   },
   "vfx/smoke_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -870,12 +922,12 @@
       304
     ],
     "bbox": {
-      "x": 49,
-      "y": 32,
-      "w": 245,
-      "h": 242
+      "x": 9,
+      "y": 0,
+      "w": 305,
+      "h": 304
     },
-    "scale": 0.5647058823529412,
+    "scale": 0.46601941747572817,
     "anchor": [
       0.5,
       0.5
@@ -885,10 +937,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 14427,
-    "islands": 4
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2762,
+    "transparent": 16167,
+    "partialAlpha": 9362,
+    "alphaLevels": 229,
+    "islands": 71
   },
   "vfx/smoke_3": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -903,12 +957,12 @@
       304
     ],
     "bbox": {
-      "x": 29,
-      "y": 22,
-      "w": 255,
-      "h": 243
+      "x": 0,
+      "y": 0,
+      "w": 293,
+      "h": 304
     },
-    "scale": 0.5647058823529412,
+    "scale": 0.46601941747572817,
     "anchor": [
       0.5,
       0.5
@@ -918,10 +972,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 13,
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 3132,
     "transparent": 17047,
-    "islands": 8
+    "partialAlpha": 8468,
+    "alphaLevels": 241,
+    "islands": 80
   },
   "vfx/steam_0": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -936,12 +992,12 @@
       323
     ],
     "bbox": {
-      "x": 108,
-      "y": 137,
-      "w": 128,
-      "h": 118
+      "x": 0,
+      "y": 6,
+      "w": 314,
+      "h": 317
     },
-    "scale": 0.5454545454545454,
+    "scale": 0.4458204334365325,
     "anchor": [
       0.5,
       0.5
@@ -951,10 +1007,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 14,
-    "transparent": 23563,
-    "islands": 3
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1153,
+    "transparent": 22861,
+    "partialAlpha": 2703,
+    "alphaLevels": 150,
+    "islands": 115
   },
   "vfx/steam_1": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -969,12 +1027,12 @@
       323
     ],
     "bbox": {
-      "x": 78,
-      "y": 88,
-      "w": 186,
-      "h": 186
+      "x": 2,
+      "y": 0,
+      "w": 311,
+      "h": 323
     },
-    "scale": 0.5454545454545454,
+    "scale": 0.4458204334365325,
     "anchor": [
       0.5,
       0.5
@@ -984,10 +1042,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 16,
-    "transparent": 20989,
-    "islands": 4
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2117,
+    "transparent": 20295,
+    "partialAlpha": 5263,
+    "alphaLevels": 207,
+    "islands": 156
   },
   "vfx/steam_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -1002,12 +1062,12 @@
       323
     ],
     "bbox": {
-      "x": 49,
-      "y": 29,
-      "w": 246,
-      "h": 264
+      "x": 0,
+      "y": 0,
+      "w": 314,
+      "h": 323
     },
-    "scale": 0.5454545454545454,
+    "scale": 0.4458204334365325,
     "anchor": [
       0.5,
       0.5
@@ -1017,10 +1077,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 17,
-    "transparent": 14013,
-    "islands": 5
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 3905,
+    "transparent": 15604,
+    "partialAlpha": 9923,
+    "alphaLevels": 229,
+    "islands": 86
   },
   "vfx/steam_3": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -1035,12 +1097,12 @@
       323
     ],
     "bbox": {
-      "x": 29,
-      "y": 29,
-      "w": 246,
-      "h": 255
+      "x": 0,
+      "y": 0,
+      "w": 297,
+      "h": 323
     },
-    "scale": 0.5454545454545454,
+    "scale": 0.4458204334365325,
     "anchor": [
       0.5,
       0.5
@@ -1050,10 +1112,12 @@
       40
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 16,
-    "transparent": 16904,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 3576,
+    "transparent": 16670,
+    "partialAlpha": 8846,
+    "alphaLevels": 221,
+    "islands": 123
   },
   "vfx/blast_0": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1068,12 +1132,12 @@
       348
     ],
     "bbox": {
-      "x": 107,
-      "y": 158,
-      "w": 111,
-      "h": 110
+      "x": 0,
+      "y": 19,
+      "w": 302,
+      "h": 319
     },
-    "scale": 0.8450704225352113,
+    "scale": 0.7523510971786834,
     "anchor": [
       0.5,
       0.5
@@ -1083,10 +1147,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 16,
-    "transparent": 61947,
-    "islands": 5
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2736,
+    "transparent": 60342,
+    "partialAlpha": 5180,
+    "alphaLevels": 228,
+    "islands": 129
   },
   "vfx/blast_1": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1101,12 +1167,12 @@
       348
     ],
     "bbox": {
-      "x": 69,
-      "y": 119,
-      "w": 177,
-      "h": 176
+      "x": 16,
+      "y": 23,
+      "w": 279,
+      "h": 315
     },
-    "scale": 0.8450704225352113,
+    "scale": 0.7523510971786834,
     "anchor": [
       0.5,
       0.5
@@ -1116,10 +1182,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 11,
-    "transparent": 52088,
-    "islands": 5
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 7461,
+    "transparent": 50848,
+    "partialAlpha": 14668,
+    "alphaLevels": 255,
+    "islands": 55
   },
   "vfx/blast_2": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1134,12 +1202,12 @@
       348
     ],
     "bbox": {
-      "x": 12,
-      "y": 87,
-      "w": 276,
-      "h": 236
+      "x": 1,
+      "y": 55,
+      "w": 305,
+      "h": 281
     },
-    "scale": 0.8450704225352113,
+    "scale": 0.7523510971786834,
     "anchor": [
       0.5,
       0.5
@@ -1149,10 +1217,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 36622,
-    "islands": 13
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 15141,
+    "transparent": 36102,
+    "partialAlpha": 29355,
+    "alphaLevels": 256,
+    "islands": 29
   },
   "vfx/blast_3": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1167,12 +1237,12 @@
       348
     ],
     "bbox": {
-      "x": 10,
-      "y": 77,
-      "w": 284,
-      "h": 246
+      "x": 4,
+      "y": 65,
+      "w": 293,
+      "h": 281
     },
-    "scale": 0.8450704225352113,
+    "scale": 0.7523510971786834,
     "anchor": [
       0.5,
       0.5
@@ -1182,10 +1252,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 11,
-    "transparent": 44196,
-    "islands": 19
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 10502,
+    "transparent": 38034,
+    "partialAlpha": 27352,
+    "alphaLevels": 256,
+    "islands": 32
   },
   "vfx/fragment_0": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1200,12 +1272,12 @@
       313
     ],
     "bbox": {
-      "x": 106,
-      "y": 102,
-      "w": 115,
-      "h": 112
+      "x": 25,
+      "y": 1,
+      "w": 289,
+      "h": 304
     },
-    "scale": 0.8247422680412371,
+    "scale": 0.7667731629392971,
     "anchor": [
       0.5,
       0.5
@@ -1215,10 +1287,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 13,
-    "transparent": 61705,
-    "islands": 3
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 3479,
+    "transparent": 59389,
+    "partialAlpha": 6119,
+    "alphaLevels": 244,
+    "islands": 60
   },
   "vfx/fragment_1": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1233,12 +1307,12 @@
       313
     ],
     "bbox": {
-      "x": 40,
-      "y": 35,
-      "w": 234,
-      "h": 234
+      "x": 0,
+      "y": 32,
+      "w": 313,
+      "h": 275
     },
-    "scale": 0.8247422680412371,
+    "scale": 0.7667731629392971,
     "anchor": [
       0.5,
       0.5
@@ -1248,10 +1322,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 20,
-    "transparent": 48908,
-    "islands": 11
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 12739,
+    "transparent": 41170,
+    "partialAlpha": 24278,
+    "alphaLevels": 256,
+    "islands": 39
   },
   "vfx/fragment_2": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1266,12 +1342,12 @@
       313
     ],
     "bbox": {
-      "x": 10,
-      "y": 16,
-      "w": 291,
-      "h": 272
+      "x": 0,
+      "y": 5,
+      "w": 312,
+      "h": 293
     },
-    "scale": 0.8247422680412371,
+    "scale": 0.7667731629392971,
     "anchor": [
       0.5,
       0.5
@@ -1281,10 +1357,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 18,
-    "transparent": 41888,
-    "islands": 19
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 15221,
+    "transparent": 31456,
+    "partialAlpha": 33915,
+    "alphaLevels": 256,
+    "islands": 36
   },
   "vfx/fragment_3": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1299,12 +1377,12 @@
       313
     ],
     "bbox": {
-      "x": 20,
-      "y": 35,
-      "w": 274,
-      "h": 234
+      "x": 6,
+      "y": 23,
+      "w": 291,
+      "h": 288
     },
-    "scale": 0.8247422680412371,
+    "scale": 0.7667731629392971,
     "anchor": [
       0.5,
       0.5
@@ -1314,10 +1392,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 15,
-    "transparent": 53134,
-    "islands": 21
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 6223,
+    "transparent": 44485,
+    "partialAlpha": 20850,
+    "alphaLevels": 255,
+    "islands": 58
   },
   "vfx/incendiary_0": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1332,12 +1412,12 @@
       240
     ],
     "bbox": {
-      "x": 97,
-      "y": 125,
-      "w": 134,
-      "h": 85
+      "x": 0,
+      "y": 1,
+      "w": 306,
+      "h": 224
     },
-    "scale": 0.7894736842105263,
+    "scale": 0.7766990291262136,
     "anchor": [
       0.5,
       1
@@ -1347,10 +1427,12 @@
       48
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 13,
-    "transparent": 46885,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2426,
+    "transparent": 44567,
+    "partialAlpha": 4583,
+    "alphaLevels": 225,
+    "islands": 59
   },
   "vfx/incendiary_1": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1365,12 +1447,12 @@
       240
     ],
     "bbox": {
-      "x": 27,
-      "y": 104,
-      "w": 254,
-      "h": 106
+      "x": 22,
+      "y": 73,
+      "w": 291,
+      "h": 154
     },
-    "scale": 0.7894736842105263,
+    "scale": 0.7766990291262136,
     "anchor": [
       0.5,
       1
@@ -1380,10 +1462,12 @@
       48
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 40642,
-    "islands": 7
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 7672,
+    "transparent": 36495,
+    "partialAlpha": 12608,
+    "alphaLevels": 243,
+    "islands": 52
   },
   "vfx/incendiary_2": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1398,12 +1482,12 @@
       240
     ],
     "bbox": {
-      "x": 1,
-      "y": 54,
-      "w": 304,
-      "h": 167
+      "x": 0,
+      "y": 19,
+      "w": 309,
+      "h": 212
     },
-    "scale": 0.7894736842105263,
+    "scale": 0.7766990291262136,
     "anchor": [
       0.5,
       1
@@ -1413,10 +1497,12 @@
       48
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 16,
-    "transparent": 33502,
-    "islands": 9
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 12891,
+    "transparent": 28244,
+    "partialAlpha": 20752,
+    "alphaLevels": 256,
+    "islands": 30
   },
   "vfx/incendiary_3": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1431,12 +1517,12 @@
       240
     ],
     "bbox": {
-      "x": 30,
-      "y": 64,
-      "w": 254,
-      "h": 157
+      "x": 22,
+      "y": 17,
+      "w": 279,
+      "h": 210
     },
-    "scale": 0.7894736842105263,
+    "scale": 0.7766990291262136,
     "anchor": [
       0.5,
       1
@@ -1446,10 +1532,12 @@
       48
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 11,
-    "transparent": 41391,
-    "islands": 11
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 6129,
+    "transparent": 36732,
+    "partialAlpha": 12286,
+    "alphaLevels": 256,
+    "islands": 50
   },
   "vfx/energy_0": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1464,12 +1552,12 @@
       353
     ],
     "bbox": {
-      "x": 110,
-      "y": 120,
-      "w": 105,
-      "h": 105
+      "x": 0,
+      "y": 22,
+      "w": 314,
+      "h": 331
     },
-    "scale": 0.8,
+    "scale": 0.6837606837606838,
     "anchor": [
       0.5,
       0.5
@@ -1479,10 +1567,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 13,
-    "transparent": 62677,
-    "islands": 5
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2036,
+    "transparent": 61052,
+    "partialAlpha": 4476,
+    "alphaLevels": 206,
+    "islands": 76
   },
   "vfx/energy_1": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1497,12 +1587,12 @@
       353
     ],
     "bbox": {
-      "x": 59,
-      "y": 75,
-      "w": 183,
-      "h": 193
+      "x": 0,
+      "y": 40,
+      "w": 313,
+      "h": 313
     },
-    "scale": 0.8,
+    "scale": 0.6837606837606838,
     "anchor": [
       0.5,
       0.5
@@ -1512,10 +1602,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 26,
-    "transparent": 56217,
-    "islands": 7
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 6143,
+    "transparent": 54755,
+    "partialAlpha": 10747,
+    "alphaLevels": 251,
+    "islands": 62
   },
   "vfx/energy_2": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1530,12 +1622,12 @@
       353
     ],
     "bbox": {
-      "x": 2,
-      "y": 20,
-      "w": 300,
-      "h": 296
+      "x": 0,
+      "y": 2,
+      "w": 312,
+      "h": 351
     },
-    "scale": 0.8,
+    "scale": 0.6837606837606838,
     "anchor": [
       0.5,
       0.5
@@ -1545,10 +1637,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 26,
-    "transparent": 46781,
-    "islands": 16
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 13117,
+    "transparent": 39711,
+    "partialAlpha": 25760,
+    "alphaLevels": 256,
+    "islands": 35
   },
   "vfx/energy_3": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1563,12 +1657,12 @@
       353
     ],
     "bbox": {
-      "x": 47,
-      "y": 57,
-      "w": 224,
-      "h": 218
+      "x": 0,
+      "y": 20,
+      "w": 283,
+      "h": 310
     },
-    "scale": 0.8,
+    "scale": 0.6837606837606838,
     "anchor": [
       0.5,
       0.5
@@ -1578,10 +1672,12 @@
       64
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 21,
-    "transparent": 59237,
-    "islands": 14
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 4429,
+    "transparent": 54535,
+    "partialAlpha": 10938,
+    "alphaLevels": 255,
+    "islands": 63
   },
   "vfx/nuke_0": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1596,12 +1692,12 @@
       441
     ],
     "bbox": {
-      "x": 73,
-      "y": 237,
-      "w": 184,
-      "h": 181
+      "x": 0,
+      "y": 13,
+      "w": 314,
+      "h": 411
     },
-    "scale": 1.002724795640327,
+    "scale": 0.882494004796163,
     "anchor": [
       0.5,
       1
@@ -1611,10 +1707,12 @@
       96
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 17,
-    "transparent": 134965,
-    "islands": 9
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 6020,
+    "transparent": 131431,
+    "partialAlpha": 15970,
+    "alphaLevels": 250,
+    "islands": 525
   },
   "vfx/nuke_1": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1629,12 +1727,12 @@
       441
     ],
     "bbox": {
-      "x": 49,
-      "y": 200,
-      "w": 222,
-      "h": 218
+      "x": 0,
+      "y": 18,
+      "w": 313,
+      "h": 417
     },
-    "scale": 1.002724795640327,
+    "scale": 0.882494004796163,
     "anchor": [
       0.5,
       1
@@ -1644,10 +1742,12 @@
       96
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 22,
-    "transparent": 121143,
-    "islands": 7
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 10951,
+    "transparent": 117690,
+    "partialAlpha": 29642,
+    "alphaLevels": 252,
+    "islands": 441
   },
   "vfx/nuke_2": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1662,12 +1762,12 @@
       441
     ],
     "bbox": {
-      "x": 17,
-      "y": 121,
-      "w": 275,
-      "h": 298
+      "x": 1,
+      "y": 47,
+      "w": 313,
+      "h": 377
     },
-    "scale": 1.002724795640327,
+    "scale": 0.882494004796163,
     "anchor": [
       0.5,
       1
@@ -1677,10 +1777,12 @@
       96
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 21,
-    "transparent": 94865,
-    "islands": 5
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 18442,
+    "transparent": 97485,
+    "partialAlpha": 49823,
+    "alphaLevels": 256,
+    "islands": 268
   },
   "vfx/nuke_3": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1695,12 +1797,12 @@
       441
     ],
     "bbox": {
-      "x": 32,
-      "y": 52,
-      "w": 248,
-      "h": 367
+      "x": 0,
+      "y": 35,
+      "w": 284,
+      "h": 399
     },
-    "scale": 1.002724795640327,
+    "scale": 0.882494004796163,
     "anchor": [
       0.5,
       1
@@ -1710,10 +1812,12 @@
       96
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 19,
-    "transparent": 92269,
-    "islands": 11
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 12681,
+    "transparent": 91453,
+    "partialAlpha": 55839,
+    "alphaLevels": 256,
+    "islands": 80
   },
   "vfx/gas_0": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1728,12 +1832,12 @@
       308
     ],
     "bbox": {
-      "x": 81,
-      "y": 139,
-      "w": 167,
-      "h": 150
+      "x": 0,
+      "y": 10,
+      "w": 314,
+      "h": 298
     },
-    "scale": 0.4057971014492754,
+    "scale": 0.35668789808917195,
     "anchor": [
       0.5,
       0.5
@@ -1743,10 +1847,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 11,
-    "transparent": 14398,
-    "islands": 4
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1622,
+    "transparent": 13587,
+    "partialAlpha": 2797,
+    "alphaLevels": 173,
+    "islands": 70
   },
   "vfx/gas_1": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1761,12 +1867,12 @@
       308
     ],
     "bbox": {
-      "x": 49,
-      "y": 101,
-      "w": 209,
-      "h": 188
+      "x": 0,
+      "y": 10,
+      "w": 313,
+      "h": 298
     },
-    "scale": 0.4057971014492754,
+    "scale": 0.35668789808917195,
     "anchor": [
       0.5,
       0.5
@@ -1776,10 +1882,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 12,
-    "transparent": 12644,
-    "islands": 8
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2795,
+    "transparent": 12083,
+    "partialAlpha": 4298,
+    "alphaLevels": 193,
+    "islands": 49
   },
   "vfx/gas_2": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1794,12 +1902,12 @@
       308
     ],
     "bbox": {
-      "x": 15,
-      "y": 41,
-      "w": 276,
-      "h": 249
+      "x": 0,
+      "y": 10,
+      "w": 314,
+      "h": 298
     },
-    "scale": 0.4057971014492754,
+    "scale": 0.35668789808917195,
     "anchor": [
       0.5,
       0.5
@@ -1809,10 +1917,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 9,
-    "transparent": 10000,
-    "islands": 6
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 4340,
+    "transparent": 9392,
+    "partialAlpha": 6976,
+    "alphaLevels": 217,
+    "islands": 14
   },
   "vfx/gas_3": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1827,12 +1937,12 @@
       308
     ],
     "bbox": {
-      "x": 29,
-      "y": 63,
-      "w": 249,
-      "h": 225
+      "x": 0,
+      "y": 10,
+      "w": 301,
+      "h": 298
     },
-    "scale": 0.4057971014492754,
+    "scale": 0.35668789808917195,
     "anchor": [
       0.5,
       0.5
@@ -1842,10 +1952,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 7,
-    "transparent": 13986,
-    "islands": 17
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1947,
+    "transparent": 12412,
+    "partialAlpha": 3945,
+    "alphaLevels": 223,
+    "islands": 36
   },
   "vfx/ghost_0": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1860,12 +1972,12 @@
       324
     ],
     "bbox": {
-      "x": 80,
-      "y": 120,
-      "w": 170,
-      "h": 152
+      "x": 15,
+      "y": 0,
+      "w": 299,
+      "h": 324
     },
-    "scale": 0.4375,
+    "scale": 0.25559105431309903,
     "anchor": [
       0.5,
       0.5
@@ -1875,10 +1987,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 18,
-    "transparent": 9100,
-    "islands": 1
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 827,
+    "transparent": 10811,
+    "partialAlpha": 1466,
+    "alphaLevels": 88,
+    "islands": 38
   },
   "vfx/ghost_1": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1893,12 +2007,12 @@
       324
     ],
     "bbox": {
-      "x": 82,
-      "y": 70,
-      "w": 169,
-      "h": 194
+      "x": 0,
+      "y": 0,
+      "w": 313,
+      "h": 324
     },
-    "scale": 0.4375,
+    "scale": 0.25559105431309903,
     "anchor": [
       0.5,
       0.5
@@ -1908,10 +2022,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 16,
-    "transparent": 8852,
-    "islands": 2
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 979,
+    "transparent": 10637,
+    "partialAlpha": 1651,
+    "alphaLevels": 120,
+    "islands": 38
   },
   "vfx/ghost_2": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1926,12 +2042,12 @@
       324
     ],
     "bbox": {
-      "x": 80,
-      "y": 23,
-      "w": 169,
-      "h": 243
+      "x": 1,
+      "y": 0,
+      "w": 313,
+      "h": 320
     },
-    "scale": 0.4375,
+    "scale": 0.25559105431309903,
     "anchor": [
       0.5,
       0.5
@@ -1941,10 +2057,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 15,
-    "transparent": 8446,
-    "islands": 7
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1202,
+    "transparent": 10194,
+    "partialAlpha": 2094,
+    "alphaLevels": 143,
+    "islands": 26
   },
   "vfx/ghost_3": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1959,12 +2077,12 @@
       324
     ],
     "bbox": {
-      "x": 71,
-      "y": 15,
-      "w": 165,
-      "h": 256
+      "x": 0,
+      "y": 0,
+      "w": 307,
+      "h": 324
     },
-    "scale": 0.4375,
+    "scale": 0.25559105431309903,
     "anchor": [
       0.5,
       0.5
@@ -1974,10 +2092,12 @@
       32
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 7,
-    "transparent": 10036,
-    "islands": 12
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 944,
+    "transparent": 10377,
+    "partialAlpha": 1900,
+    "alphaLevels": 155,
+    "islands": 14
   },
   "vfx/scorch_0": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1992,12 +2112,12 @@
       181
     ],
     "bbox": {
-      "x": 61,
-      "y": 23,
-      "w": 211,
-      "h": 103
+      "x": 0,
+      "y": 0,
+      "w": 291,
+      "h": 181
     },
-    "scale": 0.6299212598425197,
+    "scale": 0.4419889502762431,
     "anchor": [
       0.5,
       0.5
@@ -2007,10 +2127,12 @@
       24
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 9,
-    "transparent": 20167,
-    "islands": 7
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1487,
+    "transparent": 21504,
+    "partialAlpha": 3062,
+    "alphaLevels": 183,
+    "islands": 14
   },
   "vfx/scorch_1": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -2025,12 +2147,12 @@
       181
     ],
     "bbox": {
-      "x": 39,
-      "y": 22,
-      "w": 238,
-      "h": 104
+      "x": 36,
+      "y": 0,
+      "w": 261,
+      "h": 181
     },
-    "scale": 0.6299212598425197,
+    "scale": 0.4419889502762431,
     "anchor": [
       0.5,
       0.5
@@ -2040,10 +2162,12 @@
       24
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 10,
-    "transparent": 18593,
-    "islands": 8
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2128,
+    "transparent": 20652,
+    "partialAlpha": 3889,
+    "alphaLevels": 202,
+    "islands": 14
   },
   "vfx/scorch_2": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -2058,12 +2182,12 @@
       181
     ],
     "bbox": {
-      "x": 27,
-      "y": 11,
-      "w": 261,
-      "h": 127
+      "x": 19,
+      "y": 5,
+      "w": 295,
+      "h": 176
     },
-    "scale": 0.6299212598425197,
+    "scale": 0.4419889502762431,
     "anchor": [
       0.5,
       0.5
@@ -2073,10 +2197,12 @@
       24
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 9,
-    "transparent": 17624,
-    "islands": 10
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2522,
+    "transparent": 19940,
+    "partialAlpha": 4592,
+    "alphaLevels": 206,
+    "islands": 18
   },
   "vfx/scorch_3": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -2091,12 +2217,12 @@
       181
     ],
     "bbox": {
-      "x": 33,
-      "y": 24,
-      "w": 237,
-      "h": 103
+      "x": 0,
+      "y": 3,
+      "w": 307,
+      "h": 178
     },
-    "scale": 0.6299212598425197,
+    "scale": 0.4419889502762431,
     "anchor": [
       0.5,
       0.5
@@ -2106,9 +2232,11 @@
       24
     ],
     "density": 4,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 6,
-    "transparent": 19734,
-    "islands": 8
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 1653,
+    "transparent": 20767,
+    "partialAlpha": 3789,
+    "alphaLevels": 228,
+    "islands": 19
   }
 }

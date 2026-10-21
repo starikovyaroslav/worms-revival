@@ -2,17 +2,8 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import {
-  root,
-  readImage,
-  resizeNearest,
-  reduce,
-  cut,
-  bbox,
-  writeImage,
-  validate,
-  countIslands,
-} from './ingest.mjs';
+import { root, readImage, resizeNearest, cut, bbox, writeImage, countIslands } from './ingest.mjs';
+import { validate } from './rgba.mjs';
 import { BASE_VFX_CLIPS as VFX_CLIPS, VFX_DENSITY } from '../../packages/render/src/vfxCatalog.ts';
 
 export const sources = JSON.parse(readFileSync(new URL('./vfx-sources.json', import.meta.url)));
@@ -43,7 +34,11 @@ export function normalizeSequence(frames, clip) {
   );
   return frames.map((frame, i) => {
     const b = boxes[i];
-    if (b.x === 0 || b.y === 0 || b.x + b.w === frame.w || b.y + b.h === frame.h)
+    const core = bbox({
+      ...frame,
+      data: Buffer.from(frame.data.map((v, i) => (i % 4 === 3 && v < 128 ? 0 : v))),
+    });
+    if (core.x === 0 || core.y === 0 || core.x + core.w === frame.w || core.y + core.h === frame.h)
       throw new Error('Frame touches source boundary; review crop');
     const cropped = cut(frame, b.x, b.y, b.w, b.h);
     const resized = resizeNearest(
@@ -72,8 +67,7 @@ export function build() {
   for (const [s, source] of sources.entries()) {
     const raw = readImage(resolve(root, 'assets-in', source.source));
     if (Math.abs(raw.w / raw.h - 1) > 0.01) throw new Error('Expected square source');
-    // Palette/alpha normalization only. A 1px source detail must not vanish in a 4x4 majority vote.
-    const native = reduce(raw, { w: raw.w, h: raw.h });
+    const native = raw;
     for (const [i, cell] of source.cells.entries()) {
       const row = Math.floor(i / 4),
         col = i % 4;
@@ -122,7 +116,7 @@ export function build() {
         anchor: clip.anchor,
         display: [clip.w, clip.h],
         density: VFX_DENSITY,
-        processing: 'native crop -> DB32/binary alpha -> one final fit; no low-res intermediate',
+        processing: 'native RGBA crop -> one final fit; source RGB and continuous alpha preserved',
         ...validate(frame.im),
         islands: countIslands(frame.im),
       };

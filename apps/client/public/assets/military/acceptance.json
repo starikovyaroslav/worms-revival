@@ -6,12 +6,12 @@
       1254
     ],
     "bbox": {
-      "x": 19,
-      "y": 217,
-      "w": 585,
-      "h": 239
+      "x": 0,
+      "y": 33,
+      "w": 627,
+      "h": 594
     },
-    "scale": 0.6070038910505836,
+    "scale": 0.24920127795527156,
     "anchor": [
       0.5,
       0.5
@@ -27,9 +27,11 @@
       56
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 21,
-    "transparent": 36417
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 3237,
+    "transparent": 58548,
+    "partialAlpha": 5961,
+    "alphaLevels": 161
   },
   "vfx/attack_1": {
     "source": "assets-in/military/attack.png",
@@ -38,12 +40,12 @@
       1254
     ],
     "bbox": {
-      "x": 23,
-      "y": 217,
-      "w": 585,
-      "h": 239
+      "x": 1,
+      "y": 41,
+      "w": 616,
+      "h": 576
     },
-    "scale": 0.6070038910505836,
+    "scale": 0.24920127795527156,
     "anchor": [
       0.5,
       0.5
@@ -59,9 +61,11 @@
       56
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 23,
-    "transparent": 36414
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 3280,
+    "transparent": 58597,
+    "partialAlpha": 5913,
+    "alphaLevels": 171
   },
   "vfx/attack_2": {
     "source": "assets-in/military/attack.png",
@@ -70,12 +74,12 @@
       1254
     ],
     "bbox": {
-      "x": 19,
-      "y": 218,
-      "w": 585,
-      "h": 257
+      "x": 0,
+      "y": 1,
+      "w": 627,
+      "h": 626
     },
-    "scale": 0.6070038910505836,
+    "scale": 0.24920127795527156,
     "anchor": [
       0.5,
       0.5
@@ -91,9 +95,11 @@
       56
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 21,
-    "transparent": 35582
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 3313,
+    "transparent": 58277,
+    "partialAlpha": 6234,
+    "alphaLevels": 182
   },
   "vfx/attack_3": {
     "source": "assets-in/military/attack.png",
@@ -102,12 +108,12 @@
       1254
     ],
     "bbox": {
-      "x": 23,
-      "y": 218,
-      "w": 585,
-      "h": 230
+      "x": 0,
+      "y": 1,
+      "w": 626,
+      "h": 604
     },
-    "scale": 0.6070038910505836,
+    "scale": 0.24920127795527156,
     "anchor": [
       0.5,
       0.5
@@ -123,9 +129,11 @@
       56
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 20,
-    "transparent": 37588
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2967,
+    "transparent": 58637,
+    "partialAlpha": 5870,
+    "alphaLevels": 174
   },
   "vfx/gunship_0": {
     "source": "assets-in/military/gunship-v2.png",
@@ -134,12 +142,12 @@
       1254
     ],
     "bbox": {
-      "x": 59,
-      "y": 227,
-      "w": 517,
-      "h": 243
+      "x": 0,
+      "y": 37,
+      "w": 627,
+      "h": 572
     },
-    "scale": 0.694980694980695,
+    "scale": 0.3005008347245409,
     "anchor": [
       0.5,
       0.5
@@ -155,9 +163,11 @@
       64
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 20,
-    "transparent": 44576
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2498,
+    "transparent": 67357,
+    "partialAlpha": 6359,
+    "alphaLevels": 190
   },
   "vfx/gunship_1": {
     "source": "assets-in/military/gunship-v2.png",
@@ -166,12 +176,12 @@
       1254
     ],
     "bbox": {
-      "x": 65,
-      "y": 227,
-      "w": 517,
-      "h": 243
+      "x": 3,
+      "y": 68,
+      "w": 590,
+      "h": 535
     },
-    "scale": 0.694980694980695,
+    "scale": 0.3005008347245409,
     "anchor": [
       0.5,
       0.5
@@ -187,9 +197,11 @@
       64
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 21,
-    "transparent": 44372
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2624,
+    "transparent": 67358,
+    "partialAlpha": 6334,
+    "alphaLevels": 169
   },
   "vfx/gunship_2": {
     "source": "assets-in/military/gunship-v2.png",
@@ -198,12 +210,12 @@
       1254
     ],
     "bbox": {
-      "x": 61,
-      "y": 181,
-      "w": 515,
-      "h": 248
+      "x": 25,
+      "y": 2,
+      "w": 592,
+      "h": 599
     },
-    "scale": 0.694980694980695,
+    "scale": 0.3005008347245409,
     "anchor": [
       0.5,
       0.5
@@ -219,9 +231,11 @@
       64
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 20,
-    "transparent": 44532
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2558,
+    "transparent": 67266,
+    "partialAlpha": 6438,
+    "alphaLevels": 175
   },
   "vfx/gunship_3": {
     "source": "assets-in/military/gunship-v2.png",
@@ -230,12 +244,12 @@
       1254
     ],
     "bbox": {
-      "x": 64,
-      "y": 181,
-      "w": 516,
-      "h": 259
+      "x": 11,
+      "y": 11,
+      "w": 576,
+      "h": 591
     },
-    "scale": 0.694980694980695,
+    "scale": 0.3005008347245409,
     "anchor": [
       0.5,
       0.5
@@ -251,9 +265,11 @@
       64
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 19,
-    "transparent": 43539
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2676,
+    "transparent": 67101,
+    "partialAlpha": 6612,
+    "alphaLevels": 182
   },
   "vfx/stealth_0": {
     "source": "assets-in/military/stealth.png",
@@ -262,12 +278,12 @@
       1254
     ],
     "bbox": {
-      "x": 34,
-      "y": 169,
-      "w": 576,
-      "h": 346
+      "x": 0,
+      "y": 0,
+      "w": 627,
+      "h": 627
     },
-    "scale": 0.6447140381282496,
+    "scale": 0.36363636363636365,
     "anchor": [
       0.5,
       0.5
@@ -283,9 +299,11 @@
       80
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 17,
-    "transparent": 54997
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2456,
+    "transparent": 77282,
+    "partialAlpha": 14822,
+    "alphaLevels": 213
   },
   "vfx/stealth_1": {
     "source": "assets-in/military/stealth.png",
@@ -294,12 +312,12 @@
       1254
     ],
     "bbox": {
-      "x": 34,
-      "y": 169,
-      "w": 577,
-      "h": 346
+      "x": 0,
+      "y": 0,
+      "w": 626,
+      "h": 627
     },
-    "scale": 0.6447140381282496,
+    "scale": 0.36363636363636365,
     "anchor": [
       0.5,
       0.5
@@ -315,9 +333,11 @@
       80
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 14,
-    "transparent": 54941
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2340,
+    "transparent": 77720,
+    "partialAlpha": 14390,
+    "alphaLevels": 218
   },
   "vfx/stealth_2": {
     "source": "assets-in/military/stealth.png",
@@ -326,12 +346,12 @@
       1254
     ],
     "bbox": {
-      "x": 34,
-      "y": 169,
-      "w": 576,
-      "h": 345
+      "x": 0,
+      "y": 0,
+      "w": 627,
+      "h": 627
     },
-    "scale": 0.6447140381282496,
+    "scale": 0.36363636363636365,
     "anchor": [
       0.5,
       0.5
@@ -347,9 +367,11 @@
       80
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 17,
-    "transparent": 55043
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2629,
+    "transparent": 77288,
+    "partialAlpha": 14829,
+    "alphaLevels": 227
   },
   "vfx/stealth_3": {
     "source": "assets-in/military/stealth.png",
@@ -358,12 +380,12 @@
       1254
     ],
     "bbox": {
-      "x": 34,
-      "y": 169,
-      "w": 576,
-      "h": 345
+      "x": 1,
+      "y": 0,
+      "w": 626,
+      "h": 627
     },
-    "scale": 0.6447140381282496,
+    "scale": 0.36363636363636365,
     "anchor": [
       0.5,
       0.5
@@ -379,9 +401,11 @@
       80
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 19,
-    "transparent": 55040
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 2764,
+    "transparent": 77190,
+    "partialAlpha": 14926,
+    "alphaLevels": 222
   },
   "vfx/rocket_0": {
     "source": "assets-in/military/rockets.png",
@@ -390,12 +414,12 @@
       1254
     ],
     "bbox": {
-      "x": 31,
-      "y": 270,
-      "w": 527,
-      "h": 124
+      "x": 29,
+      "y": 39,
+      "w": 598,
+      "h": 587
     },
-    "scale": 0.11320754716981132,
+    "scale": 0.030664395229982964,
     "anchor": [
       0.5,
       0.5
@@ -411,9 +435,11 @@
       10
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 19,
-    "transparent": 1923
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 34,
+    "transparent": 2296,
+    "partialAlpha": 44,
+    "alphaLevels": 14
   },
   "vfx/rocket_1": {
     "source": "assets-in/military/rockets.png",
@@ -422,12 +448,12 @@
       1254
     ],
     "bbox": {
-      "x": 19,
-      "y": 270,
-      "w": 583,
-      "h": 124
+      "x": 1,
+      "y": 45,
+      "w": 608,
+      "h": 582
     },
-    "scale": 0.11320754716981132,
+    "scale": 0.030664395229982964,
     "anchor": [
       0.5,
       0.5
@@ -443,9 +469,11 @@
       10
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 19,
-    "transparent": 1891
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 37,
+    "transparent": 2286,
+    "partialAlpha": 53,
+    "alphaLevels": 17
   },
   "vfx/rocket_mk2_0": {
     "source": "assets-in/military/rockets.png",
@@ -454,12 +482,12 @@
       1254
     ],
     "bbox": {
-      "x": 31,
-      "y": 198,
-      "w": 544,
-      "h": 202
+      "x": 0,
+      "y": 17,
+      "w": 627,
+      "h": 588
     },
-    "scale": 0.13109243697478992,
+    "scale": 0.050505050505050504,
     "anchor": [
       0.5,
       0.5
@@ -475,9 +503,11 @@
       14
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 17,
-    "transparent": 2868
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 145,
+    "transparent": 3604,
+    "partialAlpha": 176,
+    "alphaLevels": 27
   },
   "vfx/rocket_mk2_1": {
     "source": "assets-in/military/rockets.png",
@@ -486,12 +516,12 @@
       1254
     ],
     "bbox": {
-      "x": 8,
-      "y": 198,
-      "w": 595,
-      "h": 202
+      "x": 0,
+      "y": 1,
+      "w": 610,
+      "h": 594
     },
-    "scale": 0.13109243697478992,
+    "scale": 0.050505050505050504,
     "anchor": [
       0.5,
       0.5
@@ -507,8 +537,10 @@
       14
     ],
     "density": 3,
-    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
-    "colors": 18,
-    "transparent": 2787
+    "processing": "native RGBA crop -> one final fit; source RGB and continuous alpha preserved",
+    "colors": 153,
+    "transparent": 3588,
+    "partialAlpha": 192,
+    "alphaLevels": 35
   }
 }

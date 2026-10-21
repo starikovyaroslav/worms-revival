@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { normalizeSequence, nativeCell, output } from './vfx.mjs';
 import { BASE_VFX_CLIPS as VFX_CLIPS, VFX_DENSITY } from '../../packages/render/src/vfxCatalog.ts';
-import { readImage, validate } from './ingest.mjs';
+import { readImage } from './ingest.mjs';
+import { validate } from './rgba.mjs';
 
 test('fixed canvases preserve growth stages and bottom anchors', () => {
   const frame = (size) => {
@@ -28,7 +29,7 @@ test('fixed canvases preserve growth stages and bottom anchors', () => {
   );
 });
 
-test('all 64 frames have binary DB32 pixels and the promised fixed dimensions', () => {
+test('all 64 frames have valid RGBA and the promised fixed dimensions', () => {
   const m = JSON.parse(readFileSync(resolve(output, 'manifest.json')));
   assert.equal(Object.keys(m.assets).length, 64);
   for (const [prefix, clip] of Object.entries(VFX_CLIPS)) {

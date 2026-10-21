@@ -2,7 +2,8 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { root, readImage, reduce, validate, writeImage } from './ingest.mjs';
+import { root, readImage, writeImage } from './ingest.mjs';
+import { validate } from './rgba.mjs';
 import { normalizeSequence, nativeCell } from './vfx.mjs';
 import { MILITARY_CLIPS, MILITARY_DENSITY } from '../../packages/render/src/vfxCatalog.ts';
 
@@ -18,7 +19,7 @@ export function build() {
     const input = source.name === 'gunship' ? 'military/gunship-v2.png' : source.source;
     const raw = readImage(resolve(root, 'assets-in', input));
     if (Math.abs(raw.w / raw.h - 1) > 0.01) throw new Error('Expected a square 2x2 source');
-    const im = reduce(raw, { w: raw.w, h: raw.h });
+    const im = raw;
     const cells = [0, 1, 2, 3].map((i) =>
       nativeCell(
         im,
@@ -61,7 +62,8 @@ export function build() {
           crop: selected[i].crop,
           display: [clip.w, clip.h],
           density: MILITARY_DENSITY,
-          processing: 'native crop -> DB32/binary alpha -> one final fit; no low-res intermediate',
+          processing:
+            'native RGBA crop -> one final fit; source RGB and continuous alpha preserved',
           ...validate(frame.im),
         };
         writeImage(resolve(output, file), frame.im);
