@@ -78,7 +78,7 @@ export function EscMenu({
   return (
     <div class="panel-backdrop esc-backdrop" onContextMenu={(e) => e.preventDefault()}>
       <div
-        class="esc-menu"
+        class="esc-menu px-panel"
         ref={root}
         onKeyDown={onKeyDown}
         role="dialog"

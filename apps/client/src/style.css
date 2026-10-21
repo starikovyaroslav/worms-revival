@@ -58,7 +58,7 @@ body {
 }
 
 .timer-box {
-  padding: 3px 5px 4px;
+  padding: 4px 6px 5px;
   min-width: 40px;
   text-align: center;
   font-family: 'Press Start 2P', monospace;
@@ -117,12 +117,12 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 1px 3px;
+  padding: 3px 5px;
 }
 
+/* The team on turn: the same panel with a gold edge instead of the ink one. */
 .team.active {
-  outline: 1px solid var(--gold);
-  outline-offset: 1px;
+  --edge: var(--gold);
 }
 
 .team-name {
@@ -164,7 +164,7 @@ body {
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
   line-height: 1.4;
-  padding: 3px 4px;
+  padding: 4px 6px;
 }
 
 .weapon b {
@@ -257,7 +257,7 @@ body {
   display: flex;
   gap: 2px;
   font-size: 10px;
-  padding: 2px 4px;
+  padding: 3px 5px;
 }
 
 /* ---------- Wind (logical px) ---------- */
@@ -266,7 +266,7 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 4px;
+  padding: 4px 6px;
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
   line-height: 1;
@@ -505,9 +505,6 @@ body {
 }
 
 .menu-card {
-  background: rgba(15, 20, 45, 0.85);
-  border: 2px solid #c8d4ff;
-  border-radius: 12px;
   padding: 14px 18px;
   min-width: 320px;
   display: flex;
@@ -750,7 +747,7 @@ body {
   gap: 4px;
   align-items: center;
   pointer-events: auto;
-  padding: 3px 5px;
+  padding: 4px 6px;
 }
 
 .replay-badge {
@@ -851,27 +848,22 @@ body {
   text-shadow: none;
 }
 
-/* Pixel frame: an ink outline (1 --px) with notched corners and a light top/left bevel. */
+/* Pixel panel: the one frame of the whole UI. A 2 px ink outline (outside the box), the panel
+   fill, a 2 px bevel (light top/left, dark bottom/right), square corners. Everything that looks like
+   a box in the HUD, the menus and the dialogs carries `.px-panel`; nothing else draws its own frame. */
 
-.timer-box,
-.weapon,
-.wind,
-.weapon-panel,
-.menu-card,
-.gameover-card,
-.esc-menu,
-.replay-bar,
-.hud-mods {
+.px-panel {
+  --bw: calc(2 * var(--px));
   border: 0;
   border-radius: 0;
   background: var(--panel);
   box-shadow:
-    0 calc(-1 * var(--px)) 0 0 var(--ink),
-    0 var(--px) 0 0 var(--ink),
-    calc(-1 * var(--px)) 0 0 0 var(--ink),
-    var(--px) 0 0 0 var(--ink),
-    inset var(--px) var(--px) 0 0 var(--panel-hi),
-    inset calc(-1 * var(--px)) calc(-1 * var(--px)) 0 0 var(--panel-lo);
+    0 calc(-1 * var(--bw)) 0 0 var(--edge, var(--ink)),
+    0 var(--bw) 0 0 var(--edge, var(--ink)),
+    calc(-1 * var(--bw)) 0 0 0 var(--edge, var(--ink)),
+    var(--bw) 0 0 0 var(--edge, var(--ink)),
+    inset var(--bw) var(--bw) 0 0 var(--panel-hi),
+    inset calc(-1 * var(--bw)) calc(-1 * var(--bw)) 0 0 var(--panel-lo);
 }
 
 /* Buttons and menu */

@@ -15,6 +15,11 @@ interface Bubble {
 }
 
 const LIFETIME = 2.2;
+/** HUD palette (see style.css) and the bubble's paper. */
+const INK = 0x222034;
+const PAPER = 0xe9e6dc;
+const PAPER_HI = 0xffffff;
+const PAPER_LO = 0xb4b0a4;
 
 /** Comic speech bubbles that follow worms around. */
 export class SpeechView {
@@ -37,21 +42,29 @@ export class SpeechView {
         fontFamily: '"Press Start 2P", monospace',
         fontSize: labelFont(8, this.ls),
         fontWeight: '400',
-        fill: 0x222222,
+        fill: INK,
       },
     });
     label.anchor.set(0.5);
     // The bubble is drawn in label pixels and scaled; the text keeps its own crisp size.
     const w = Math.round(label.width / u / 2) * 2 + 16;
     const h = Math.round(label.height / u / 2) * 2 + 10;
-    const g = new Graphics()
-      .roundRect(-w / 2, -h / 2, w, h, 4)
-      .fill(0xe9e6dc)
-      .stroke({ color: 0x222222, width: 2 })
-      .moveTo(-4, h / 2 - 1)
-      .lineTo(0, h / 2 + 6)
-      .lineTo(4, h / 2 - 1)
-      .fill(0xe9e6dc);
+    // The same pixel panel as the HUD: 2 px ink outline, light top/left and dark bottom/right bevel,
+    // square corners; the tail is a three-step pixel wedge.
+    const g = new Graphics();
+    const x = -w / 2;
+    const y = -h / 2;
+    g.rect(x - 2, y - 2, w + 4, h + 4).fill(INK);
+    g.rect(x, y, w, h).fill(PAPER);
+    g.rect(x, y, w, 2).fill(PAPER_HI);
+    g.rect(x, y, 2, h).fill(PAPER_HI);
+    g.rect(x, y + h - 2, w, 2).fill(PAPER_LO);
+    g.rect(x + w - 2, y, 2, h).fill(PAPER_LO);
+    for (let i = 0; i < 3; i++) {
+      const inkW = (2 - i) * 4 + 4;
+      g.rect(-inkW / 2, h / 2 + i * 2, inkW, 2).fill(INK);
+      if (inkW > 4) g.rect(-(inkW - 4) / 2, h / 2 + i * 2, inkW - 4, 2).fill(PAPER);
+    }
     g.scale.set(u);
     const box = new Container();
     box.addChild(g, label);

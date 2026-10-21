@@ -17,7 +17,7 @@ function Wind({ wind }: { wind: number }) {
   const strength = Math.abs(wind);
   const bar = <div class="wind-bar" style={{ width: `${strength * 100}%` }} />;
   return (
-    <div class="wind" title="Ветер">
+    <div class="wind px-panel" title="Ветер">
       <span class="wind-label">ВЕТЕР</span>
       <div class="wind-track">
         <div class="wind-half left">{wind < 0 && bar}</div>
@@ -104,7 +104,7 @@ export function Hud({
       )}
 
       {s.mods.length > 0 && (
-        <div class="hud-mods">
+        <div class="hud-mods px-panel">
           {s.mods.map((m) => (
             <span key={m.name} title={m.name}>
               {m.icon}
@@ -113,7 +113,7 @@ export function Hud({
         </div>
       )}
       <div class="hud-bottom">
-        <div class="timer-box">
+        <div class="timer-box px-panel">
           {/* D6: the big number is the turn countdown (seconds), the small one the round clock. */}
           <div class="cap">{s.waiting ? 'ГОТОВ' : 'ХОД'}</div>
           <div
@@ -129,7 +129,7 @@ export function Hud({
 
         <div class="teams">
           {s.teams.map((t) => (
-            <div class={`team ${t.active ? 'active' : ''}`} key={t.name}>
+            <div class={`team px-panel ${t.active ? 'active' : ''}`} key={t.name}>
               <span class="team-name" style={{ color: t.color }}>
                 {t.name}
               </span>
@@ -143,7 +143,7 @@ export function Hud({
 
         <div class="right-box">
           {s.weapon && (
-            <div class="weapon">
+            <div class="weapon px-panel">
               <b>{s.weapon.name}</b>
               {s.weapon.fuse !== null && <span> · {s.weapon.fuse} с</span>}
               {s.weapon.bounce && <span> · {s.weapon.bounce}</span>}

@@ -103,7 +103,7 @@ export function App({
     <>
       <Hud game={game} announcements={announcements} onOver={setOver} wormpot={wormpot} />
       {replay && (
-        <div class="replay-bar">
+        <div class="replay-bar px-panel">
           <span class="replay-badge">● ПОВТОР</span>
           {[1, 2, 4].map((x) => (
             <button

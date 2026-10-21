@@ -19,7 +19,7 @@ export function GameOver({
 }: Props) {
   return (
     <div class="gameover">
-      <div class="gameover-card">
+      <div class="gameover-card px-panel">
         <h1 style={{ color }}>{winner ? `Победа: ${winner}!` : 'Ничья!'}</h1>
         <div class="row">
           {!isReplay && (

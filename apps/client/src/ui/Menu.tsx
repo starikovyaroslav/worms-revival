@@ -104,7 +104,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
           WORMS <span>REVIVAL</span>
         </h1>
         <div class="menu-body">
-          <section class="menu-card">
+          <section class="menu-card px-panel">
             <h2>Команды</h2>
             {cfg.teams.map((t, i) => (
               <div class="team-row" key={i}>
@@ -154,7 +154,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
             )}
           </section>
 
-          <section class="menu-card">
+          <section class="menu-card px-panel">
             <h2>Карта</h2>
             <canvas ref={preview} class="map-preview" width={320} height={140} />
             <div class="row">
@@ -221,7 +221,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
             <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
           </section>
 
-          <section class="menu-card">
+          <section class="menu-card px-panel">
             <h2>Wormpot</h2>
             <Wormpot value={cfg.wormpot ?? []} onChange={(wormpot) => set({ wormpot })} />
           </section>

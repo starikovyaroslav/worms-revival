@@ -25,7 +25,7 @@ export function WeaponPanel({ game, onPick, onClose }: Props) {
 
   return (
     <div class="panel-backdrop" onPointerDown={onClose} onContextMenu={(e) => e.preventDefault()}>
-      <div class="weapon-panel" onPointerDown={(e) => e.stopPropagation()}>
+      <div class="weapon-panel px-panel" onPointerDown={(e) => e.stopPropagation()}>
         {PANEL_ROWS.map((label, row) => (
           <div class="panel-row" key={label}>
             <div class="panel-key">{label}</div>
