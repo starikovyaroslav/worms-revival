@@ -2,6 +2,7 @@ import { Container, Graphics } from 'pixi.js';
 import type { JetPack, Worm } from '@wr/sim';
 import { OUTLINE, artSprite, type EntityView, type ViewContext } from './common';
 import { clipTextures } from '../clipEffects';
+import { assets } from '../assets';
 
 export class JetPackView implements EntityView {
   readonly container = new Container();
@@ -20,7 +21,9 @@ export class JetPackView implements EntityView {
     if (this.exhaust) {
       this.exhaust.rotation = this.frames.length ? -Math.PI / 2 : Math.PI;
       if (this.frames.length) this.exhaust.anchor.set(1, 0.5);
-      this.exhaust.scale.set(this.frames.length ? 0.7 : 0.5);
+      this.exhaust.scale.set(
+        (this.frames.length ? 0.7 : 0.5) * assets.scaleOf(this.exhaust.texture),
+      );
       this.exhaust.visible = false;
       this.container.addChild(this.exhaust);
     }

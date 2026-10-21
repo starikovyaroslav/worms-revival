@@ -20,7 +20,7 @@ export interface ViewContext {
 export type ViewFactory<E extends Entity = Entity> = (e: E, ctx: ViewContext) => EntityView;
 
 /**
- * A pixel-art sprite from the asset store at its native size (1 art pixel = 1 world pixel), or
+ * A pixel-art sprite at its manifest display size, independent of the PNG's pixel density, or
  * null when the asset is missing.
  */
 export function artSprite(id: string, anchorY = 0.5): Sprite | null {
@@ -28,6 +28,8 @@ export function artSprite(id: string, anchorY = 0.5): Sprite | null {
   if (!tex) return null;
   const s = new Sprite(tex);
   s.anchor.set(0.5, anchorY);
+  const size = assets.sizeOf(tex);
+  s.scale.set(size.w / tex.width, size.h / tex.height);
   return s;
 }
 

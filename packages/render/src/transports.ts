@@ -106,12 +106,14 @@ export class Transports {
       }
       const phase = raidPhase((f.age * 1.8) / f.duration, f.event.payloadIds.length);
       const u = f.event.dir === 1 ? phase.progress : 1 - phase.progress;
-      const margin = (f.frames[0]!.width / 2 + 20) * scale;
+      const displayWidth = assets.sizeOf(f.frames[0]!).w;
+      const margin = (displayWidth / 2 + 20) * scale;
       const x = -margin + u * (camera.viewW + margin * 2),
         y = (f.aircraft === 'stealth' ? 44 : 56) * scale;
       f.sprite.texture = f.frames[phase.frame]!;
       f.sprite.position.set(Math.round(x), Math.round(y));
-      f.sprite.scale.set(scale * f.event.dir, scale);
+      const densityScale = assets.scaleOf(f.sprite.texture);
+      f.sprite.scale.set(scale * densityScale * f.event.dir, scale * densityScale);
       // The shadow leads the aircraft slightly: a warning before the body crosses overhead.
       this.paintShadow(f, camera, world, x + f.event.dir * 55 * scale);
       f.lights.clear();
@@ -139,7 +141,7 @@ export class Transports {
         if (!tex || this.drops.length >= 48) continue;
         const sprite = new Sprite(tex);
         sprite.anchor.set(0.5);
-        sprite.scale.set(scale * 0.7);
+        sprite.scale.set(scale * 0.7 * assets.scaleOf(tex));
         sprite.position.set(x, y + 8 * scale);
         this.container.addChild(sprite);
         this.drops.push({ sprite, age: 0, x, y: y + 8 * scale, vx: f.event.dir * 30 * scale });
@@ -168,11 +170,17 @@ export class Transports {
     const center = camera.toWorld(screenX, 0).x;
     const top = camera.toWorld(0, 0).y;
     const bottom = camera.toWorld(0, camera.viewH).y;
-    for (let i = 0; i < art.w; i += 2) {
+    const logical = assets.sizeOf(f.frames[0]!);
+    const density = art.w / logical.w;
+    for (let column = 0; column < logical.w; column += 2) {
+      const i = Math.floor(column * density);
       let coverage = 0;
-      for (let j = 0; j < art.h; j++) if (art.data[(j * art.w + i) * 4 + 3]) coverage++;
+      for (let row = 0; row < logical.h; row++) {
+        const j = Math.min(art.h - 1, Math.floor(row * density));
+        if (art.data[(j * art.w + i) * 4 + 3]) coverage++;
+      }
       if (!coverage) continue;
-      const x = Math.round(center + (i - art.w / 2) * f.event.dir);
+      const x = Math.round(center + (column - logical.w / 2) * f.event.dir);
       const y = shadowSurface(world, x, top, bottom);
       if (y === null) continue;
       const depth = Math.min(12, 2 + Math.round(coverage / 3));

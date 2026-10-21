@@ -16,12 +16,23 @@ export interface AssetPixels {
   data: Uint8ClampedArray;
 }
 
-/** Which images exist and how big they are (logical size). */
+export interface AssetSize {
+  w: number;
+  h: number;
+}
+export interface AssetEntry extends AssetSize {
+  file: string;
+  /** Physical PNG dimensions; w/h above remain world/display units. Legacy packs omit these. */
+  pixelW?: number;
+  pixelH?: number;
+}
+
+/** Resolution-independent manifest: image pixels never define collision or display size. */
 export interface AssetManifest {
   version: number;
-  /** `pixel`: retro art, 1 art pixel = 1 world pixel. */
+  /** `pixel`: pixel-art sampling, not a restriction to one texel per world unit. */
   style?: string;
-  assets: Record<string, { file: string; w: number; h: number }>;
+  assets: Record<string, AssetEntry>;
   /** Id prefixes whose previously loaded assets are dropped first (an override replaces a whole set). */
   remove?: string[];
 }
@@ -40,6 +51,7 @@ export class AssetStore {
   private textures = new Map<string, Texture>();
   private urls = new Map<string, string>();
   private decoded = new Map<string, AssetPixels>();
+  private sizes = new WeakMap<Texture, AssetSize>();
   manifest: AssetManifest | null = null;
 
   /** Loads a manifest and its images; later loads override earlier ones with the same id. */
@@ -78,6 +90,7 @@ export class AssetStore {
           const tex = (await Assets.load(`${baseUrl}/${a.file}${q}`)) as Texture;
           // Pixel art: never blur it when scaled.
           tex.source.scaleMode = 'nearest';
+          this.sizes.set(tex, { w: a.w, h: a.h });
           this.textures.set(id, tex);
           this.urls.set(id, `${baseUrl}/${a.file}${q}`);
           this.decoded.delete(id);
@@ -120,6 +133,15 @@ export class AssetStore {
 
   has(id: string): boolean {
     return this.textures.has(id);
+  }
+
+  /** Display footprint, independent of source pixels. Unregistered procedural textures stay 1:1. */
+  sizeOf(texture: Texture): AssetSize {
+    return this.sizes.get(texture) ?? { w: texture.width, h: texture.height };
+  }
+
+  scaleOf(texture: Texture): number {
+    return this.sizeOf(texture).w / texture.width;
   }
 
   /** How many numbered frames `prefix0`, `prefix1`... exist (so sheets may have fewer frames). */

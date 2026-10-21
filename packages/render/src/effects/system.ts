@@ -12,6 +12,7 @@ import { snapColor } from '../palette';
 import { createFxTextures, type FxTextureId } from './textures';
 import { PixelBlasts } from './blasts';
 import { ClipEffects } from '../clipEffects';
+import { assets } from '../assets';
 
 /** What an effect can ask the rest of the presentation to do. */
 export interface FxHooks {
@@ -293,10 +294,14 @@ export class EffectsSystem {
         spin: 0,
         // Big blasts get bigger puffs, never fractional texels.
         scale0: fixed
-          ? fixed * (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
+          ? fixed *
+            assets.scaleOf(sprite.texture) *
+            (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
           : (rand(l.scaleStart) * k * 100) / base,
         scale1: fixed
-          ? fixed * (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
+          ? fixed *
+            assets.scaleOf(sprite.texture) *
+            (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
           : (rand(l.scaleEnd) * k * 100) / base,
         colors,
         fade: l.fade,

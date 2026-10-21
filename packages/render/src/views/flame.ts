@@ -73,7 +73,9 @@ export class GasView implements EntityView {
         const life = 1 - this.gas.life / Math.max(1, this.initialLife);
         this.art.texture =
           this.frames[Math.min(this.frames.length - 1, Math.floor(life * this.frames.length))]!;
-        this.art.scale.set(0.65 + 0.15 * Math.sin(this.t * 1.7));
+        this.art.scale.set(
+          (0.65 + 0.15 * Math.sin(this.t * 1.7)) * assets.scaleOf(this.art.texture),
+        );
       }
       this.art.alpha = 0.65 * fade;
       return;

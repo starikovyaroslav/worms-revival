@@ -96,7 +96,6 @@ export class WormView {
     }
     this.poison.anchor.set(0.5, 1);
     this.poison.position.set(0, -19);
-    this.poison.scale.set(0.35);
     this.poison.alpha = 0.75;
     this.poison.visible = false;
     this.container.addChild(this.poison);
@@ -258,6 +257,7 @@ export class WormView {
     if (this.poison.visible) {
       this.poison.texture =
         this.poisonFrames[Math.floor(this.time * 6) % this.poisonFrames.length]!;
+      this.poison.scale.set(0.35 * assets.scaleOf(this.poison.texture));
       this.poison.x = Math.round(Math.sin(this.time * 2) * 3);
     }
 

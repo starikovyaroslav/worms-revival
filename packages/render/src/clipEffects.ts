@@ -74,7 +74,7 @@ export class ClipEffects {
     sprite.anchor.set(...clip.anchor);
     sprite.position.set(Math.round(x), Math.round(y));
     sprite.rotation = opts.rotation ?? 0;
-    sprite.scale.set((opts.width ?? clip.w) / clip.w);
+    sprite.scale.set((opts.width ?? clip.w) / frames[0]!.width);
     sprite.tint = opts.tint ?? 0xffffff;
     sprite.alpha = opts.alpha ?? 1;
     sprite.visible = true;
