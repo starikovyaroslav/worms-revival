@@ -7,13 +7,13 @@ import {
   type Range,
   type Recipe,
 } from './recipes';
+import { darken, lerpColor } from '../color';
 import { snapColor } from '../palette';
 import { createFxTextures, type FxTextureId } from './textures';
 
 /** What an effect can ask the rest of the presentation to do. */
 export interface FxHooks {
   shake(power: number): void;
-  glow(strength: number): void;
   /** Quick zoom punch (fraction of zoom). */
   punch(amount: number): void;
   /** Slow motion or hit-stop: game clock at `scale` for `seconds` of real time. */
@@ -74,25 +74,6 @@ interface Pending {
 
 const rand = (r: Range) => r[0] + Math.random() * (r[1] - r[0]);
 
-function lerpColor(stops: number[], t: number): number {
-  if (stops.length === 1) return stops[0] as number;
-  const f = Math.min(0.9999, Math.max(0, t)) * (stops.length - 1);
-  const i = Math.floor(f);
-  const a = stops[i] as number;
-  const b = stops[i + 1] as number;
-  const u = f - i;
-  const mix = (sh: number) => Math.round(((a >> sh) & 255) * (1 - u) + ((b >> sh) & 255) * u);
-  return (mix(16) << 16) | (mix(8) << 8) | mix(0);
-}
-
-function darken(c: number, k: number): number {
-  return (
-    (Math.round(((c >> 16) & 255) * k) << 16) |
-    (Math.round(((c >> 8) & 255) * k) << 8) |
-    Math.round((c & 255) * k)
-  );
-}
-
 /**
  * Plays effect recipes: layered sprite particles drawn additively (fire, sparks) or normally
  * (smoke, debris). Purely cosmetic: it never touches the simulation.
@@ -106,14 +87,9 @@ export class EffectsSystem {
   private particles: Particle[] = [];
   private pending: Pending[] = [];
   private pool: Sprite[] = [];
-  private recipes: Record<string, Recipe> = RECIPES;
+  private readonly recipes: Record<string, Recipe> = RECIPES;
 
   constructor(private readonly hooks: FxHooks) {}
-
-  /** Replace or add recipes (loaded from config files). */
-  setRecipes(recipes: Record<string, Recipe>): void {
-    this.recipes = { ...this.recipes, ...recipes };
-  }
 
   /**
    * Plays a recipe at a world position. `size` is the effect radius in world pixels
@@ -134,7 +110,6 @@ export class EffectsSystem {
     switch (layer.type) {
       case 'camera':
         this.hooks.shake(layer.shake * Math.min(10, k * 6));
-        this.hooks.glow(layer.glow * Math.min(1.2, k * 0.8));
         if (layer.punch) this.hooks.punch(layer.punch * Math.min(2, k));
         break;
       case 'time':

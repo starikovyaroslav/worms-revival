@@ -61,7 +61,6 @@ export interface CameraLayer {
   type: 'camera';
   at?: number;
   shake: number;
-  glow: number;
   /** Quick zoom-in "punch" that settles back (fraction of zoom per k). */
   punch?: number;
 }
@@ -103,7 +102,7 @@ export const RECIPES: Record<string, Recipe> = {
   explosion: {
     id: 'explosion',
     layers: [
-      { type: 'camera', shake: 1, glow: 1, punch: 0.035 },
+      { type: 'camera', shake: 1, punch: 0.035 },
       { type: 'time', scale: 0.3, duration: 0.2, minK: 1.15 },
       { type: 'light', color: 0xffc070, radius: 3.6, life: 0.7, intensity: 1.3 },
       // Instant white-hot flash.
@@ -374,7 +373,7 @@ export const RECIPES: Record<string, Recipe> = {
   muzzle: {
     id: 'muzzle',
     layers: [
-      { type: 'camera', shake: 0.12, glow: 0.12 },
+      { type: 'camera', shake: 0.12 },
       { type: 'light', color: 0xffd090, radius: 1.8, life: 0.12, intensity: 0.9 },
       { type: 'flash', tex: 'soft', blend: 'add', color: 0xfff0c0, scale: [0.5, 1.5], life: 0.07 },
       {
