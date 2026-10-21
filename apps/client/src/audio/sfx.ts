@@ -1,6 +1,7 @@
 import type { SoundId } from '@wr/sim';
 import { AudioEngine } from './engine';
 import { SOUNDS } from './sounds';
+import { cinematicSound, type CinematicSound } from './cinematic';
 
 /** The engine's own master and music levels at volume 1 (see AudioEngine). */
 const MASTER_GAIN = 0.8;
@@ -13,6 +14,24 @@ export class Sfx {
   muted = false;
   private volume = 0.8;
   private music = 1;
+
+  cinematic(id: CinematicSound, pan = 0): void {
+    if (this.muted) return;
+    const a = this.audio;
+    if (a.ctx.state !== 'running') return;
+    if (a.now - (this.recent.get(id) ?? -Infinity) < 0.15) return;
+    this.recent.set(id, a.now);
+    const flight = id.startsWith('flyby-');
+    const duration = id === 'flyby-stealth' ? 2.8 : id === 'flyby-gunship' ? 2.2 : 1.8;
+    cinematicSound(a, a.out(flight ? 0.6 : 0.8, pan, flight ? -pan : pan, duration), id);
+    if (id === 'impact-heavy') a.muffle();
+  }
+
+  destroy(): void {
+    this.engine?.destroy();
+    this.engine = null;
+    this.recent.clear();
+  }
 
   private get audio(): AudioEngine {
     if (!this.engine) {

@@ -1,10 +1,26 @@
 import { Container, Graphics, Sprite, type Texture } from 'pixi.js';
 import type { SimEvent, World } from '@wr/sim';
-import { assets } from './assets';
+import { assets, type AssetPixels } from './assets';
 import { clipTextures } from './clipEffects';
 import type { Camera } from './camera';
 
 type Raid = Extract<SimEvent, { type: 'airRaid' }>;
+export type Aircraft = 'attack' | 'gunship' | 'stealth';
+export function aircraftFor(source?: string): Aircraft {
+  return source === 'nuke'
+    ? 'stealth'
+    : source === 'airstrike' || source === 'napalm'
+      ? 'attack'
+      : 'gunship';
+}
+/** Bounded visible-column ray cast, never shades empty air or water. */
+export function shadowSurface(world: World, x: number, top: number, bottom: number): number | null {
+  if (x < 0 || x >= world.terrain.width) return null;
+  const end = Math.min(world.terrain.height, world.waterLevel, Math.ceil(bottom));
+  for (let y = Math.max(0, Math.floor(top)); y < end; y++)
+    if (world.terrain.isSolid(x, y)) return y;
+  return null;
+}
 interface Flight {
   event: Raid;
   sprite: Sprite;
@@ -12,6 +28,9 @@ interface Flight {
   frames: Texture[];
   age: number;
   dropped: number;
+  aircraft: Aircraft;
+  duration: number;
+  shadow: AssetPixels | undefined;
 }
 interface Drop {
   sprite: Sprite;
@@ -37,6 +56,8 @@ export function raidPhase(
 /** Cosmetic flyover, not a replacement scheduler for the already simulated payloads. */
 export class Transports {
   readonly container = new Container();
+  /** Added after terrain in world space, below worms and aim overlays. */
+  readonly shadows = new Graphics();
   private flights: Flight[] = [];
   private drops: Drop[] = [];
   get activeCount(): number {
@@ -44,7 +65,10 @@ export class Transports {
   }
 
   play(event: Raid): void {
-    const frames = clipTextures(event.source === 'mail' ? 'mailplane' : 'cargo');
+    const aircraft = aircraftFor(event.source);
+    let frames = clipTextures(aircraft);
+    const military = frames.length > 0;
+    if (!military) frames = clipTextures(event.source === 'mail' ? 'mailplane' : 'cargo');
     if (!frames.length) return;
     if (this.flights.length >= 3) {
       const old = this.flights.shift()!;
@@ -55,30 +79,44 @@ export class Transports {
     sprite.anchor.set(0.5);
     const lights = new Graphics();
     this.container.addChild(sprite, lights);
-    this.flights.push({ event, sprite, lights, frames, age: 0, dropped: 0 });
+    this.flights.push({
+      event,
+      sprite,
+      lights,
+      frames,
+      age: 0,
+      dropped: 0,
+      aircraft,
+      duration: aircraft === 'attack' ? 1.8 : aircraft === 'gunship' ? 2.2 : 2.8,
+      shadow: military ? assets.pixels(`vfx/${aircraft}_0`) : undefined,
+    });
   }
 
   update(dtMs: number, camera: Camera, world: World): void {
     const dt = Math.max(0, Math.min(0.1, dtMs / 1000)),
       scale = camera.baseScale;
     let write = 0;
+    this.shadows.clear();
     for (const f of this.flights) {
       f.age += dt;
-      if (f.age >= 1.8) {
+      if (f.age >= f.duration) {
         f.sprite.destroy();
         f.lights.destroy();
         continue;
       }
-      const phase = raidPhase(f.age, f.event.payloadIds.length);
+      const phase = raidPhase((f.age * 1.8) / f.duration, f.event.payloadIds.length);
       const u = f.event.dir === 1 ? phase.progress : 1 - phase.progress;
-      const x = -80 * scale + u * (camera.viewW + 160 * scale),
-        y = 42 * scale;
+      const margin = (f.frames[0]!.width / 2 + 20) * scale;
+      const x = -margin + u * (camera.viewW + margin * 2),
+        y = (f.aircraft === 'stealth' ? 44 : 56) * scale;
       f.sprite.texture = f.frames[phase.frame]!;
       f.sprite.position.set(Math.round(x), Math.round(y));
       f.sprite.scale.set(scale * f.event.dir, scale);
+      // The shadow leads the aircraft slightly: a warning before the body crosses overhead.
+      this.paintShadow(f, camera, world, x + f.event.dir * 55 * scale);
       f.lights.clear();
-      if (Math.floor(f.age * 6) % 2 === 0)
-        f.lights.rect(x - 18 * scale * f.event.dir, y - 3 * scale, 2 * scale, scale).fill(0xd95763);
+      if (f.aircraft !== 'stealth' && Math.floor(f.age * 4) % 4 === 0)
+        f.lights.rect(x - 30 * scale * f.event.dir, y - 8 * scale, 2 * scale, scale).fill(0xd95763);
       // Decorative drops are shown only while the actual payload is still above the viewport.
       for (; f.dropped < phase.released; f.dropped++) {
         const actual = world.byId(f.event.payloadIds[f.dropped]!);
@@ -124,9 +162,30 @@ export class Transports {
     }
     this.drops.length = write;
   }
+  private paintShadow(f: Flight, camera: Camera, world: World, screenX: number): void {
+    const art = f.shadow;
+    if (!art) return;
+    const center = camera.toWorld(screenX, 0).x;
+    const top = camera.toWorld(0, 0).y;
+    const bottom = camera.toWorld(0, camera.viewH).y;
+    for (let i = 0; i < art.w; i += 2) {
+      let coverage = 0;
+      for (let j = 0; j < art.h; j++) if (art.data[(j * art.w + i) * 4 + 3]) coverage++;
+      if (!coverage) continue;
+      const x = Math.round(center + (i - art.w / 2) * f.event.dir);
+      const y = shadowSurface(world, x, top, bottom);
+      if (y === null) continue;
+      const depth = Math.min(12, 2 + Math.round(coverage / 3));
+      for (let dx = 0; dx < 2; dx++)
+        for (let dy = 0; dy < depth; dy++)
+          if (world.terrain.isSolid(x + dx, y + dy)) this.shadows.rect(x + dx, y + dy, 1, 1);
+    }
+    this.shadows.fill({ color: 0x10101a, alpha: 0.28 });
+  }
   destroy(): void {
     this.container.destroy({ children: true });
     this.flights.length = 0;
     this.drops.length = 0;
+    this.shadows.destroy();
   }
 }

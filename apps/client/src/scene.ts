@@ -9,6 +9,7 @@ import {
   EffectsSystem,
   PostFx,
   Transports,
+  aircraftFor,
   BurnMarks,
   SpeechView,
   TargetView,
@@ -113,6 +114,7 @@ export class GameScene {
       this.water.back,
       this.terrainView.container,
       this.burnMarks.container,
+      this.transports.shadows,
       this.entityLayer,
       this.wormLayer,
       this.targetView.container,
@@ -154,6 +156,7 @@ export class GameScene {
     this.post.destroy();
     this.effects.destroy();
     this.transports.destroy();
+    this.sfx.destroy();
     this.burnMarks.destroy();
     this.app.stage.removeChildren();
     this.background.container.destroy({ children: true });
@@ -205,6 +208,7 @@ export class GameScene {
       switch (ev.type) {
         case 'airRaid':
           this.transports.play(ev);
+          this.sfx.cinematic(`flyby-${aircraftFor(ev.source)}`, ev.dir * -0.5);
           break;
         case 'sound':
           this.sound(ev.id, ev.x, ev.y);
@@ -280,6 +284,22 @@ export class GameScene {
           break;
         case 'fired':
           this.worms.get(ev.wormId)?.playAct(ev.weapon);
+          if (ev.weapon === 'nuke') {
+            const w = this.game.world.byId(ev.wormId);
+            if (w instanceof Worm) {
+              this.transports.play({
+                type: 'airRaid',
+                x: w.x,
+                y: -200,
+                dir: w.facing,
+                speed: 0,
+                spacing: 0,
+                payloadIds: [],
+                source: 'nuke',
+              });
+              this.sfx.cinematic('flyby-stealth', w.facing * -0.5);
+            }
+          }
           break;
         case 'speech': {
           const worm = this.game.world.byId(ev.wormId);
