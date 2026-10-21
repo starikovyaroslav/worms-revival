@@ -8,6 +8,11 @@ export interface ThemeSpec {
   skyTop: number;
   skyBottom: number;
   water: number;
+  /** DB32 water gradient from the surface down (4-6 colours) and the foam [bright, soft]. */
+  waterRamp?: number[];
+  waterFoam?: [number, number];
+  /** Tufts on top of the land: grass blades, snow caps, sand, ash with embers (default 'grass'). */
+  rim?: 'grass' | 'snow' | 'sand' | 'ash' | 'none';
   soil: PatternSpec;
   /** Top surface layer (grass, sand, snow). */
   surface: number;
@@ -53,6 +58,7 @@ export const THEMES: ThemeSpec[] = [
     skyTop: 0x3b6fb6,
     skyBottom: 0xbfe3f2,
     water: 0x2a5d8f,
+    waterRamp: [0x639bff, 0x5b6ee1, 0x306082, 0x3f3f74, 0x222034],
     soil: { base: 0xa8683f, dark: 0x7a4a30, speck: 0xd9a066, speckDensity: 0.06, seed: 11 },
     surface: 0x5fc436,
     surfaceDark: 0x2f7d1e,
@@ -74,7 +80,9 @@ export const THEMES: ThemeSpec[] = [
     skyTop: 0xe08a3c,
     skyBottom: 0xf7d9a0,
     water: 0x3a7c8c,
+    waterRamp: [0x5fcde4, 0x37946e, 0x306082, 0x323c39, 0x222034],
     soil: { base: 0xd9a066, dark: 0xc08850, speck: 0xeec39a, speckDensity: 0.08, seed: 21 },
+    rim: 'sand',
     surface: 0xf5d27a,
     surfaceDark: 0xc79a3c,
     outline: 0x4a2c10,
@@ -95,7 +103,9 @@ export const THEMES: ThemeSpec[] = [
     skyTop: 0x1d3557,
     skyBottom: 0x9cc7e6,
     water: 0x16425f,
+    waterRamp: [0x639bff, 0x306082, 0x3f3f74, 0x222034],
     soil: { base: 0x9badb7, dark: 0x7f94b8, speck: 0xcbdbfc, speckDensity: 0.07, seed: 31 },
+    rim: 'snow',
     surface: 0xffffff,
     surfaceDark: 0xc6dcef,
     outline: 0x1c3248,
@@ -117,7 +127,10 @@ export const THEMES: ThemeSpec[] = [
     skyTop: 0x1a0505,
     skyBottom: 0x7a1d0d,
     water: 0x8a2a05,
+    waterRamp: [0xdf7126, 0xac3232, 0x663931, 0x45283c, 0x222034],
+    waterFoam: [0xfbf236, 0xdf7126],
     soil: { base: 0x8a4a40, dark: 0x4a2220, speck: 0xff7a30, speckDensity: 0.07, seed: 41 },
+    rim: 'ash',
     surface: 0x3a3a3a,
     surfaceDark: 0x1a1a1a,
     outline: 0x0a0000,

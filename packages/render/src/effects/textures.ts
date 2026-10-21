@@ -1,6 +1,6 @@
 import { Texture } from 'pixi.js';
 
-export type FxTextureId = 'soft' | 'smoke' | 'spark' | 'ring' | 'chunk' | 'ember';
+export type FxTextureId = 'soft' | 'smoke' | 'spark' | 'ring' | 'chunk' | 'ember' | 'px' | 'puff';
 
 // Deterministic cosmetic noise so the textures look the same on every run.
 function rng(seed: number): () => number {
@@ -90,33 +90,6 @@ function ringTexture(): Texture {
   return Texture.from(c);
 }
 
-/** Irregular little rock, white so it can be tinted to any terrain colour. */
-function chunkTexture(seed: number): Texture {
-  const [c, g] = canvas(24, 24);
-  const r = rng(seed);
-  g.fillStyle = '#fff';
-  g.beginPath();
-  const n = 7;
-  for (let i = 0; i < n; i++) {
-    const a = (i / n) * Math.PI * 2;
-    const rad = 7 + r() * 4;
-    const x = 12 + Math.cos(a) * rad;
-    const y = 12 + Math.sin(a) * rad;
-    if (i === 0) g.moveTo(x, y);
-    else g.lineTo(x, y);
-  }
-  g.closePath();
-  g.fill();
-  // Light from the top left: a darker lower right edge.
-  g.globalCompositeOperation = 'source-atop';
-  const shade = g.createLinearGradient(4, 4, 20, 20);
-  shade.addColorStop(0, 'rgba(255,255,255,0)');
-  shade.addColorStop(1, 'rgba(0,0,0,0.45)');
-  g.fillStyle = shade;
-  g.fillRect(0, 0, 24, 24);
-  return Texture.from(c);
-}
-
 function emberTexture(): Texture {
   const [c, g] = canvas(32, 32);
   const grad = g.createRadialGradient(16, 16, 0, 16, 16, 16);
@@ -149,6 +122,68 @@ function pixelate(tex: Texture, w: number, h: number, cut = 0.45): Texture {
   return t;
 }
 
+function fromPixels(w: number, h: number, paint: (x: number, y: number) => number | null): Texture {
+  const [c, g] = canvas(w, h);
+  const d = g.createImageData(w, h);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const col = paint(x, y);
+      const o = (y * w + x) * 4;
+      if (col === null) continue;
+      d.data[o] = (col >> 16) & 255;
+      d.data[o + 1] = (col >> 8) & 255;
+      d.data[o + 2] = col & 255;
+      d.data[o + 3] = 255;
+    }
+  }
+  g.putImageData(d, 0, 0);
+  const t = Texture.from(c);
+  t.source.scaleMode = 'nearest';
+  return t;
+}
+
+/** A solid 1x1 pixel: sparks, droplets, embers (scaled by whole numbers). */
+function pxTexture(): Texture {
+  return fromPixels(1, 1, () => 0xffffff);
+}
+
+/** A 3x3 earth clod, white with a darker lower-right edge so tinting keeps the light direction. */
+function clodTexture(seed: number): Texture {
+  const r = rng(seed);
+  const cut = Math.floor(r() * 4);
+  return fromPixels(3, 3, (x, y) => {
+    if ((x === 0 || x === 2) && (y === 0 || y === 2) && (x + y * 2) % 4 === cut) return null;
+    return x === 2 || y === 2 ? 0xb4b4b4 : 0xffffff;
+  });
+}
+
+/**
+ * A pixel smoke puff in baked DB32 greys: lit top left, shaded bottom right, darker outline on the
+ * shaded edge. Built from a few overlapping discs so the outline is lumpy.
+ */
+function puffTexture(n: number, seed: number): Texture {
+  const r = rng(seed);
+  const c = (n - 1) / 2;
+  const discs = [{ x: c, y: c, r: n * 0.34 }];
+  for (let i = 0; i < 6; i++) {
+    const a = r() * Math.PI * 2;
+    discs.push({
+      x: c + Math.cos(a) * n * 0.24,
+      y: c + Math.sin(a) * n * 0.24,
+      r: n * (0.14 + r() * 0.1),
+    });
+  }
+  const inside = (x: number, y: number) =>
+    discs.some((d) => (x - d.x) ** 2 + (y - d.y) ** 2 <= d.r * d.r);
+  return fromPixels(n, n, (x, y) => {
+    if (!inside(x, y)) return null;
+    const edgeBR = !inside(x + 1, y) || !inside(x, y + 1);
+    const lit = (x + y) / (2 * n);
+    if (edgeBR && lit > 0.35) return 0x595652;
+    return lit < 0.34 ? 0x9badb7 : lit < 0.58 ? 0x847e87 : 0x696a6a;
+  });
+}
+
 /** All procedural effect textures. Replace with hand-made atlases later (same ids). */
 export function createFxTextures(): Record<FxTextureId, Texture[]> {
   return {
@@ -156,7 +191,10 @@ export function createFxTextures(): Record<FxTextureId, Texture[]> {
     smoke: [1, 2, 3, 4].map((n) => pixelate(smokeTexture(n), 16, 16, 0.3)),
     spark: [pixelate(sparkTexture(), 8, 2, 0.35)],
     ring: [pixelate(ringTexture(), 48, 48, 0.35)],
-    chunk: [1, 2, 3, 4].map((n) => pixelate(chunkTexture(n), 4, 4, 0.5)),
+    chunk: [1, 2, 3, 4].map((n) => clodTexture(n)),
     ember: [pixelate(emberTexture(), 2, 2, 0.4)],
+    px: [pxTexture()],
+    // Smoke life stages, small to large (see BurstLayer.stages).
+    puff: [12, 18, 24, 30].map((n, i) => puffTexture(n, 7 + i)),
   };
 }

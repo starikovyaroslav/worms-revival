@@ -10,6 +10,7 @@ import {
 import { darken, lerpColor } from '../color';
 import { snapColor } from '../palette';
 import { createFxTextures, type FxTextureId } from './textures';
+import { PixelBlasts } from './blasts';
 
 /** What an effect can ask the rest of the presentation to do. */
 export interface FxHooks {
@@ -58,6 +59,8 @@ interface Particle {
   stretch: boolean;
   phase: number;
   pool: Sprite[];
+  /** Life-stage textures (smoke growing), empty when the sprite keeps one texture. */
+  frames: Texture[];
   /** Extra non-uniform scale multipliers (tracers). */
   sx: number;
   sy: number;
@@ -83,13 +86,18 @@ export class EffectsSystem {
   readonly back = new Container();
   /** Fire, sparks and flashes, drawn additively on top. */
   readonly front = new Container();
+  /** Procedural pixel blasts (fireball, splash ring). */
+  readonly blasts = new PixelBlasts();
   private textures = createFxTextures();
   private particles: Particle[] = [];
   private pending: Pending[] = [];
   private pool: Sprite[] = [];
   private readonly recipes: Record<string, Recipe> = RECIPES;
 
-  constructor(private readonly hooks: FxHooks) {}
+  constructor(private readonly hooks: FxHooks) {
+    // Under the sparks, over the smoke.
+    this.front.addChild(this.blasts.container);
+  }
 
   /**
    * Plays a recipe at a world position. `size` is the effect radius in world pixels
@@ -123,6 +131,10 @@ export class EffectsSystem {
         break;
       case 'flash':
         this.flash(layer, x, y, k);
+        break;
+      case 'blast':
+        if (layer.kind === 'fireball') this.blasts.fireball(x, y, layer.size * k * 50);
+        else this.blasts.splash(x, y, layer.size * k * 50);
         break;
       case 'burst':
         this.burst(layer, x, y, k, ctx);
@@ -171,6 +183,7 @@ export class EffectsSystem {
       stretch: false,
       phase: 0,
       pool: this.pool,
+      frames: [],
       sx: 1,
       sy: 1,
     });
@@ -209,6 +222,7 @@ export class EffectsSystem {
       stretch: false,
       phase: 0,
       pool: this.pool,
+      frames: [],
       sx: 1,
       sy: 2.2 / len,
     });
@@ -222,15 +236,19 @@ export class EffectsSystem {
     const n = Math.round(l.count[0] + l.count[1] * k);
     const container = l.blend === 'add' ? this.front : this.back;
     for (let i = 0; i < n; i++) {
-      const sprite = this.take(this.pickTex(l.tex));
+      const frames = l.stages ? this.textures[l.tex] : [];
+      const sprite = this.take(frames[0] ?? this.pickTex(l.tex));
       sprite.blendMode = l.blend;
       const base = this.textureSize(sprite);
+      // Hard pixels: whole world pixels per texel instead of k-relative scales.
+      const fixed = l.fixed ? Math.round(rand(l.fixed)) : 0;
       const a0 = Math.random() * Math.PI * 2;
       const r0 = Math.sqrt(Math.random()) * l.spread * k * 50;
       const px = x + Math.cos(a0) * r0;
       const py = y + Math.sin(a0) * r0;
       let angle: number;
-      if (l.dir === 'radial') angle = r0 > 1 ? a0 : Math.random() * Math.PI * 2;
+      if (l.ring) angle = ((i + Math.random() * 0.5) / n) * Math.PI * 2;
+      else if (l.dir === 'radial') angle = r0 > 1 ? a0 : Math.random() * Math.PI * 2;
       else angle = -Math.PI / 2 + (Math.random() * 2 - 1) * (l.cone ?? 1);
       const speed = rand(l.speed) * Math.min(1.8, 0.6 + k * 0.5);
       let colors = l.colors;
@@ -252,14 +270,20 @@ export class EffectsSystem {
         drag: l.drag,
         wind: (l.wind ?? 0) * ctx.wind,
         spin: 0,
-        scale0: (rand(l.scaleStart) * k * 100) / base,
-        scale1: (rand(l.scaleEnd) * k * 100) / base,
+        // Big blasts get bigger puffs, never fractional texels.
+        scale0: fixed
+          ? fixed * (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
+          : (rand(l.scaleStart) * k * 100) / base,
+        scale1: fixed
+          ? fixed * (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
+          : (rand(l.scaleEnd) * k * 100) / base,
         colors,
         fade: l.fade,
         alpha: l.alpha ?? 1,
         stretch: !!l.stretch,
         phase: Math.random() * 10,
         pool: this.pool,
+        frames,
         sx: 1,
         sy: 1,
       };
@@ -273,10 +297,11 @@ export class EffectsSystem {
   }
 
   get activeCount(): number {
-    return this.particles.length;
+    return this.particles.length + this.blasts.activeCount;
   }
 
   update(dtMs: number): void {
+    this.blasts.update(dtMs);
     const dt = Math.min(0.05, dtMs / 1000);
     if (this.pending.length) {
       for (const p of this.pending) p.at -= dt;
@@ -305,9 +330,16 @@ export class EffectsSystem {
       p.x += p.vx * dt;
       p.y += p.vy * dt;
       const s = p.sprite;
-      s.position.set(p.x, p.y);
+      // Whole world pixels only.
+      s.position.set(Math.round(p.x), Math.round(p.y));
+      if (p.frames.length)
+        s.texture = p.frames[
+          Math.min(p.frames.length - 1, Math.floor(t * p.frames.length))
+        ] as Texture;
       s.tint = snapColor(lerpColor(p.colors, t));
-      const scale = p.scale0 + (p.scale1 - p.scale0) * (1 - (1 - t) * (1 - t));
+      const scale = p.frames.length
+        ? p.scale0
+        : p.scale0 + (p.scale1 - p.scale0) * (1 - (1 - t) * (1 - t));
       if (p.stretch) {
         const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
         s.rotation = Math.atan2(p.vy, p.vx);
@@ -324,6 +356,10 @@ export class EffectsSystem {
         case 'flicker':
           a = (1 - t) * (0.55 + 0.45 * Math.sin(p.age * 24 + p.phase));
           break;
+        case 'blink':
+          // Solid until the last quarter, then flickers out: no half-transparent pixels.
+          a = t < 0.72 ? 1 : Math.floor(p.age * 30 + p.phase) % 2;
+          break;
         default:
           a = 1 - t * t;
       }
@@ -333,6 +369,7 @@ export class EffectsSystem {
   }
 
   clear(): void {
+    this.blasts.clear();
     for (const p of this.particles) {
       p.sprite.parent?.removeChild(p.sprite);
       p.sprite.visible = false;
