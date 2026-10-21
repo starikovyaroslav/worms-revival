@@ -1,7 +1,7 @@
 import { Container, Graphics, type Sprite, type Texture } from 'pixi.js';
 import type { Look, Projectile } from '@wr/sim';
 import { assets } from '../assets';
-import { OUTLINE, artSprite, place, type EntityView } from './common';
+import { OUTLINE, artSprite, place, type EntityView, type ViewContext } from './common';
 import { GENERATED_PROJECTILES } from '../arsenalArt';
 import { clipTextures } from '../clipEffects';
 
@@ -114,7 +114,26 @@ export class ProjectileView implements EntityView {
   private flightFrames: Texture[] = [];
   private flightTime = 0;
 
-  constructor(private readonly p: Projectile) {
+  constructor(
+    private readonly p: Projectile,
+    ctx?: ViewContext,
+  ) {
+    if (p.look === 'missile' || p.look === 'homing') {
+      const clip =
+        ctx?.world.variantOf(p) === 'mk2'
+          ? 'rocket_mk2'
+          : p.look === 'missile'
+            ? 'rocket'
+            : 'homing';
+      this.flightFrames = clipTextures(clip);
+      if (this.flightFrames.length) {
+        this.art = artSprite(`vfx/${clip}_0`);
+        if (this.art) {
+          this.container.addChild(this.art);
+          return;
+        }
+      }
+    }
     if (p.look === 'missile' || p.look === 'homing' || p.look === 'letter') {
       this.flightFrames = clipTextures(p.look);
       if (this.flightFrames.length) {

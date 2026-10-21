@@ -5,322 +5,450 @@
     "vfx/cargo_0": {
       "file": "vfx/cargo_0.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/cargo_1": {
       "file": "vfx/cargo_1.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/cargo_2": {
       "file": "vfx/cargo_2.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/cargo_3": {
       "file": "vfx/cargo_3.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/mailplane_0": {
       "file": "vfx/mailplane_0.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/mailplane_1": {
       "file": "vfx/mailplane_1.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/mailplane_2": {
       "file": "vfx/mailplane_2.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/mailplane_3": {
       "file": "vfx/mailplane_3.png",
       "w": 64,
-      "h": 32
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 128
     },
     "vfx/missile_0": {
       "file": "vfx/missile_0.png",
       "w": 22,
-      "h": 12
+      "h": 12,
+      "pixelW": 88,
+      "pixelH": 48
     },
     "vfx/missile_1": {
       "file": "vfx/missile_1.png",
       "w": 22,
-      "h": 12
+      "h": 12,
+      "pixelW": 88,
+      "pixelH": 48
     },
     "vfx/homing_0": {
       "file": "vfx/homing_0.png",
       "w": 22,
-      "h": 12
+      "h": 12,
+      "pixelW": 88,
+      "pixelH": 48
     },
     "vfx/homing_1": {
       "file": "vfx/homing_1.png",
       "w": 22,
-      "h": 12
+      "h": 12,
+      "pixelW": 88,
+      "pixelH": 48
     },
     "vfx/letter_0": {
       "file": "vfx/letter_0.png",
       "w": 16,
-      "h": 14
+      "h": 14,
+      "pixelW": 64,
+      "pixelH": 56
     },
     "vfx/letter_1": {
       "file": "vfx/letter_1.png",
       "w": 16,
-      "h": 14
+      "h": 14,
+      "pixelW": 64,
+      "pixelH": 56
     },
     "vfx/letter_2": {
       "file": "vfx/letter_2.png",
       "w": 16,
-      "h": 14
+      "h": 14,
+      "pixelW": 64,
+      "pixelH": 56
     },
     "vfx/letter_3": {
       "file": "vfx/letter_3.png",
       "w": 16,
-      "h": 14
+      "h": 14,
+      "pixelW": 64,
+      "pixelH": 56
     },
     "vfx/engine_0": {
       "file": "vfx/engine_0.png",
       "w": 24,
-      "h": 12
+      "h": 12,
+      "pixelW": 96,
+      "pixelH": 48
     },
     "vfx/engine_1": {
       "file": "vfx/engine_1.png",
       "w": 24,
-      "h": 12
+      "h": 12,
+      "pixelW": 96,
+      "pixelH": 48
     },
     "vfx/engine_2": {
       "file": "vfx/engine_2.png",
       "w": 24,
-      "h": 12
+      "h": 12,
+      "pixelW": 96,
+      "pixelH": 48
     },
     "vfx/engine_3": {
       "file": "vfx/engine_3.png",
       "w": 24,
-      "h": 12
+      "h": 12,
+      "pixelW": 96,
+      "pixelH": 48
     },
     "vfx/fire_0": {
       "file": "vfx/fire_0.png",
       "w": 16,
-      "h": 20
+      "h": 20,
+      "pixelW": 64,
+      "pixelH": 80
     },
     "vfx/fire_1": {
       "file": "vfx/fire_1.png",
       "w": 16,
-      "h": 20
+      "h": 20,
+      "pixelW": 64,
+      "pixelH": 80
     },
     "vfx/fire_2": {
       "file": "vfx/fire_2.png",
       "w": 16,
-      "h": 20
+      "h": 20,
+      "pixelW": 64,
+      "pixelH": 80
     },
     "vfx/fire_3": {
       "file": "vfx/fire_3.png",
       "w": 16,
-      "h": 20
+      "h": 20,
+      "pixelW": 64,
+      "pixelH": 80
     },
     "vfx/smoke_0": {
       "file": "vfx/smoke_0.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/smoke_1": {
       "file": "vfx/smoke_1.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/smoke_2": {
       "file": "vfx/smoke_2.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/smoke_3": {
       "file": "vfx/smoke_3.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/steam_0": {
       "file": "vfx/steam_0.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/steam_1": {
       "file": "vfx/steam_1.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/steam_2": {
       "file": "vfx/steam_2.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/steam_3": {
       "file": "vfx/steam_3.png",
       "w": 40,
-      "h": 40
+      "h": 40,
+      "pixelW": 160,
+      "pixelH": 160
     },
     "vfx/blast_0": {
       "file": "vfx/blast_0.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/blast_1": {
       "file": "vfx/blast_1.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/blast_2": {
       "file": "vfx/blast_2.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/blast_3": {
       "file": "vfx/blast_3.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/fragment_0": {
       "file": "vfx/fragment_0.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/fragment_1": {
       "file": "vfx/fragment_1.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/fragment_2": {
       "file": "vfx/fragment_2.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/fragment_3": {
       "file": "vfx/fragment_3.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/incendiary_0": {
       "file": "vfx/incendiary_0.png",
       "w": 64,
-      "h": 48
+      "h": 48,
+      "pixelW": 256,
+      "pixelH": 192
     },
     "vfx/incendiary_1": {
       "file": "vfx/incendiary_1.png",
       "w": 64,
-      "h": 48
+      "h": 48,
+      "pixelW": 256,
+      "pixelH": 192
     },
     "vfx/incendiary_2": {
       "file": "vfx/incendiary_2.png",
       "w": 64,
-      "h": 48
+      "h": 48,
+      "pixelW": 256,
+      "pixelH": 192
     },
     "vfx/incendiary_3": {
       "file": "vfx/incendiary_3.png",
       "w": 64,
-      "h": 48
+      "h": 48,
+      "pixelW": 256,
+      "pixelH": 192
     },
     "vfx/energy_0": {
       "file": "vfx/energy_0.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/energy_1": {
       "file": "vfx/energy_1.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/energy_2": {
       "file": "vfx/energy_2.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/energy_3": {
       "file": "vfx/energy_3.png",
       "w": 64,
-      "h": 64
+      "h": 64,
+      "pixelW": 256,
+      "pixelH": 256
     },
     "vfx/nuke_0": {
       "file": "vfx/nuke_0.png",
       "w": 96,
-      "h": 96
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384
     },
     "vfx/nuke_1": {
       "file": "vfx/nuke_1.png",
       "w": 96,
-      "h": 96
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384
     },
     "vfx/nuke_2": {
       "file": "vfx/nuke_2.png",
       "w": 96,
-      "h": 96
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384
     },
     "vfx/nuke_3": {
       "file": "vfx/nuke_3.png",
       "w": 96,
-      "h": 96
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384
     },
     "vfx/gas_0": {
       "file": "vfx/gas_0.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "vfx/gas_1": {
       "file": "vfx/gas_1.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "vfx/gas_2": {
       "file": "vfx/gas_2.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "vfx/gas_3": {
       "file": "vfx/gas_3.png",
       "w": 32,
-      "h": 32
+      "h": 32,
+      "pixelW": 128,
+      "pixelH": 128
     },
     "vfx/ghost_0": {
       "file": "vfx/ghost_0.png",
       "w": 24,
-      "h": 32
+      "h": 32,
+      "pixelW": 96,
+      "pixelH": 128
     },
     "vfx/ghost_1": {
       "file": "vfx/ghost_1.png",
       "w": 24,
-      "h": 32
+      "h": 32,
+      "pixelW": 96,
+      "pixelH": 128
     },
     "vfx/ghost_2": {
       "file": "vfx/ghost_2.png",
       "w": 24,
-      "h": 32
+      "h": 32,
+      "pixelW": 96,
+      "pixelH": 128
     },
     "vfx/ghost_3": {
       "file": "vfx/ghost_3.png",
       "w": 24,
-      "h": 32
+      "h": 32,
+      "pixelW": 96,
+      "pixelH": 128
     },
     "vfx/scorch_0": {
       "file": "vfx/scorch_0.png",
       "w": 64,
-      "h": 24
+      "h": 24,
+      "pixelW": 256,
+      "pixelH": 96
     },
     "vfx/scorch_1": {
       "file": "vfx/scorch_1.png",
       "w": 64,
-      "h": 24
+      "h": 24,
+      "pixelW": 256,
+      "pixelH": 96
     },
     "vfx/scorch_2": {
       "file": "vfx/scorch_2.png",
       "w": 64,
-      "h": 24
+      "h": 24,
+      "pixelW": 256,
+      "pixelH": 96
     },
     "vfx/scorch_3": {
       "file": "vfx/scorch_3.png",
       "w": 64,
-      "h": 24
+      "h": 24,
+      "pixelW": 256,
+      "pixelH": 96
     }
   }
 }

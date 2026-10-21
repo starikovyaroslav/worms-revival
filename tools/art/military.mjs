@@ -2,9 +2,9 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { root, readImage, resizeNearest, reduce, cut, validate, writeImage } from './ingest.mjs';
-import { normalizeSequence } from './vfx.mjs';
-import { MILITARY_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
+import { root, readImage, reduce, validate, writeImage } from './ingest.mjs';
+import { normalizeSequence, nativeCell } from './vfx.mjs';
+import { MILITARY_CLIPS, MILITARY_DENSITY } from '../../packages/render/src/vfxCatalog.ts';
 
 export const output = resolve(root, 'apps/client/public/assets/military');
 export function build() {
@@ -18,25 +18,50 @@ export function build() {
     const input = source.name === 'gunship' ? 'military/gunship-v2.png' : source.source;
     const raw = readImage(resolve(root, 'assets-in', input));
     if (Math.abs(raw.w / raw.h - 1) > 0.01) throw new Error('Expected a square 2x2 source');
-    const im = reduce(resizeNearest(raw, 1024, 1024), { w: 256, h: 256 });
+    const im = reduce(raw, { w: raw.w, h: raw.h });
     const cells = [0, 1, 2, 3].map((i) =>
-      cut(im, (i % 2) * 128, Math.floor(i / 2) * 128, 128, 128),
+      nativeCell(
+        im,
+        (i % 2) * 128,
+        Math.floor(i / 2) * 128,
+        ((i % 2) + 1) * 128,
+        (Math.floor(i / 2) + 1) * 128,
+      ),
     );
     let offset = 0;
     for (const name of source.clips) {
       const clip = MILITARY_CLIPS[name];
-      const frames = normalizeSequence(cells.slice(offset, offset + clip.frames), clip);
+      const selected = cells.slice(offset, offset + clip.frames);
+      const frames = normalizeSequence(
+        selected.map((cell) => cell.im),
+        {
+          ...clip,
+          w: clip.w * MILITARY_DENSITY,
+          h: clip.h * MILITARY_DENSITY,
+          padding: 2 * MILITARY_DENSITY,
+        },
+      );
       offset += clip.frames;
       for (const [i, frame] of frames.entries()) {
         const id = `vfx/${name}_${i}`,
           file = `${id}.png`;
-        manifest.assets[id] = { file, w: clip.w, h: clip.h };
+        manifest.assets[id] = {
+          file,
+          w: clip.w,
+          h: clip.h,
+          pixelW: frame.im.w,
+          pixelH: frame.im.h,
+        };
         report[id] = {
           source: `assets-in/${input}`,
           raw: [raw.w, raw.h],
           bbox: frame.bbox,
           scale: frame.scale,
           anchor: clip.anchor,
+          crop: selected[i].crop,
+          display: [clip.w, clip.h],
+          density: MILITARY_DENSITY,
+          processing: 'native crop -> DB32/binary alpha -> one final fit; no low-res intermediate',
           ...validate(frame.im),
         };
         writeImage(resolve(output, file), frame.im);

@@ -13,7 +13,7 @@ import {
   validate,
   countIslands,
 } from './ingest.mjs';
-import { BASE_VFX_CLIPS as VFX_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
+import { BASE_VFX_CLIPS as VFX_CLIPS, VFX_DENSITY } from '../../packages/render/src/vfxCatalog.ts';
 
 export const sources = JSON.parse(readFileSync(new URL('./vfx-sources.json', import.meta.url)));
 export const grids = [
@@ -24,12 +24,22 @@ export const grids = [
 ];
 export const output = resolve(root, 'apps/client/public/assets/vfx');
 
+/** Crop reviewed normalized sheet boundaries at native resolution, BEFORE any spatial reduction. */
+export function nativeCell(im, x0, y0, x1, y1, grid = 256) {
+  const x = Math.round((x0 * im.w) / grid),
+    y = Math.round((y0 * im.h) / grid);
+  const w = Math.round((x1 * im.w) / grid) - x,
+    h = Math.round((y1 * im.h) / grid) - y;
+  return { im: cut(im, x, y, w, h), crop: [x, y, w, h] };
+}
+
 /** A sequence shares ONE scale; shrinking its initial stage independently would erase the animation. */
 export function normalizeSequence(frames, clip) {
   const boxes = frames.map(bbox);
+  const pad = clip.padding ?? 2;
   const scale = Math.min(
-    (clip.w - 4) / Math.max(...boxes.map((b) => b.w)),
-    (clip.h - 4) / Math.max(...boxes.map((b) => b.h)),
+    (clip.w - pad * 2) / Math.max(...boxes.map((b) => b.w)),
+    (clip.h - pad * 2) / Math.max(...boxes.map((b) => b.h)),
   );
   return frames.map((frame, i) => {
     const b = boxes[i];
@@ -42,8 +52,10 @@ export function normalizeSequence(frames, clip) {
       Math.max(1, Math.round(b.h * scale)),
     );
     const result = { w: clip.w, h: clip.h, data: Buffer.alloc(clip.w * clip.h * 4) };
-    const x = clip.anchor[0] === 1 ? clip.w - 2 - resized.w : Math.floor((clip.w - resized.w) / 2);
-    const y = clip.anchor[1] === 1 ? clip.h - 2 - resized.h : Math.floor((clip.h - resized.h) / 2);
+    const x =
+      clip.anchor[0] === 1 ? clip.w - pad - resized.w : Math.floor((clip.w - resized.w) / 2);
+    const y =
+      clip.anchor[1] === 1 ? clip.h - pad - resized.h : Math.floor((clip.h - resized.h) / 2);
     for (let line = 0; line < resized.h; line++)
       resized.data.copy(
         result.data,
@@ -60,15 +72,21 @@ export function build() {
   for (const [s, source] of sources.entries()) {
     const raw = readImage(resolve(root, 'assets-in', source.source));
     if (Math.abs(raw.w / raw.h - 1) > 0.01) throw new Error('Expected square source');
-    const reduced = reduce(resizeNearest(raw, 1024, 1024), { w: 256, h: 256 });
+    // Palette/alpha normalization only. A 1px source detail must not vanish in a 4x4 majority vote.
+    const native = reduce(raw, { w: raw.w, h: raw.h });
     for (const [i, cell] of source.cells.entries()) {
       const row = Math.floor(i / 4),
         col = i % 4;
-      const crop = [col * 64, grids[s][row], 64, grids[s][row + 1] - grids[s][row]];
+      const cellImage = nativeCell(
+        native,
+        col * 64,
+        grids[s][row],
+        (col + 1) * 64,
+        grids[s][row + 1],
+      );
       const entry = {
         ...cell,
-        im: cut(reduced, ...crop),
-        crop,
+        ...cellImage,
         source: source.source,
         raw: [raw.w, raw.h],
       };
@@ -83,12 +101,18 @@ export function build() {
     if (cells?.length !== clip.frames) throw new Error(`Incomplete clip ${prefix}`);
     const frames = normalizeSequence(
       cells.map((c) => c.im),
-      clip,
+      { ...clip, w: clip.w * VFX_DENSITY, h: clip.h * VFX_DENSITY, padding: 2 * VFX_DENSITY },
     );
     for (const [i, frame] of frames.entries()) {
       const cell = cells[i],
         file = `${cell.id}.png`;
-      manifest.assets[cell.id] = { file, w: clip.w, h: clip.h };
+      manifest.assets[cell.id] = {
+        file,
+        w: clip.w,
+        h: clip.h,
+        pixelW: frame.im.w,
+        pixelH: frame.im.h,
+      };
       report[cell.id] = {
         source: `assets-in/${cell.source}`,
         raw: cell.raw,
@@ -96,6 +120,9 @@ export function build() {
         bbox: frame.bbox,
         scale: frame.scale,
         anchor: clip.anchor,
+        display: [clip.w, clip.h],
+        density: VFX_DENSITY,
+        processing: 'native crop -> DB32/binary alpha -> one final fit; no low-res intermediate',
         ...validate(frame.im),
         islands: countIslands(frame.im),
       };

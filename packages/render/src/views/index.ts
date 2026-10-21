@@ -58,7 +58,7 @@ function register<E extends Entity>(cls: EntityClass<E>, factory: ViewFactory<E>
 
 register(Pigeon, (e) => new PigeonView(e));
 register(Arrow, (e) => new ArrowView(e));
-register(Projectile, (e) => new ProjectileView(e));
+register(Projectile, (e, ctx) => new ProjectileView(e, ctx));
 register(Gravestone, (e) => new GravestoneView(e));
 register(Mine, (e) => new MineView(e));
 register(Barrel, (e, ctx) => new BarrelView(e, ctx));

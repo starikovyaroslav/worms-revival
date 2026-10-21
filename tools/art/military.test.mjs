@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { output } from './military.mjs';
 import { readImage, validate } from './ingest.mjs';
-import { MILITARY_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
+import { MILITARY_CLIPS, MILITARY_DENSITY } from '../../packages/render/src/vfxCatalog.ts';
 
 test('all military frames are complete, animated, transparent DB32 sprites on fixed canvases', () => {
   const manifest = JSON.parse(readFileSync(resolve(output, 'manifest.json')));
@@ -14,7 +14,9 @@ test('all military frames are complete, animated, transparent DB32 sprites on fi
     for (let i = 0; i < clip.frames; i++) {
       const asset = manifest.assets[`vfx/${name}_${i}`];
       const im = readImage(resolve(output, asset.file));
-      assert.deepEqual([im.w, im.h], [clip.w, clip.h]);
+      assert.deepEqual([asset.w, asset.h], [clip.w, clip.h]);
+      assert.deepEqual([im.w, im.h], [clip.w * MILITARY_DENSITY, clip.h * MILITARY_DENSITY]);
+      assert.deepEqual([asset.pixelW, asset.pixelH], [im.w, im.h]);
       validate(im);
       assert.ok(im.data.some((value, index) => index % 4 === 3 && value === 0));
       unique.add(im.data.toString('base64'));

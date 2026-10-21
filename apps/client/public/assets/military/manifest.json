@@ -5,82 +5,114 @@
     "vfx/attack_0": {
       "file": "vfx/attack_0.png",
       "w": 128,
-      "h": 56
+      "h": 56,
+      "pixelW": 384,
+      "pixelH": 168
     },
     "vfx/attack_1": {
       "file": "vfx/attack_1.png",
       "w": 128,
-      "h": 56
+      "h": 56,
+      "pixelW": 384,
+      "pixelH": 168
     },
     "vfx/attack_2": {
       "file": "vfx/attack_2.png",
       "w": 128,
-      "h": 56
+      "h": 56,
+      "pixelW": 384,
+      "pixelH": 168
     },
     "vfx/attack_3": {
       "file": "vfx/attack_3.png",
       "w": 128,
-      "h": 56
+      "h": 56,
+      "pixelW": 384,
+      "pixelH": 168
     },
     "vfx/gunship_0": {
       "file": "vfx/gunship_0.png",
       "w": 128,
-      "h": 64
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 192
     },
     "vfx/gunship_1": {
       "file": "vfx/gunship_1.png",
       "w": 128,
-      "h": 64
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 192
     },
     "vfx/gunship_2": {
       "file": "vfx/gunship_2.png",
       "w": 128,
-      "h": 64
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 192
     },
     "vfx/gunship_3": {
       "file": "vfx/gunship_3.png",
       "w": 128,
-      "h": 64
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 192
     },
     "vfx/stealth_0": {
       "file": "vfx/stealth_0.png",
       "w": 128,
-      "h": 80
+      "h": 80,
+      "pixelW": 384,
+      "pixelH": 240
     },
     "vfx/stealth_1": {
       "file": "vfx/stealth_1.png",
       "w": 128,
-      "h": 80
+      "h": 80,
+      "pixelW": 384,
+      "pixelH": 240
     },
     "vfx/stealth_2": {
       "file": "vfx/stealth_2.png",
       "w": 128,
-      "h": 80
+      "h": 80,
+      "pixelW": 384,
+      "pixelH": 240
     },
     "vfx/stealth_3": {
       "file": "vfx/stealth_3.png",
       "w": 128,
-      "h": 80
+      "h": 80,
+      "pixelW": 384,
+      "pixelH": 240
     },
     "vfx/rocket_0": {
       "file": "vfx/rocket_0.png",
       "w": 26,
-      "h": 10
+      "h": 10,
+      "pixelW": 78,
+      "pixelH": 30
     },
     "vfx/rocket_1": {
       "file": "vfx/rocket_1.png",
       "w": 26,
-      "h": 10
+      "h": 10,
+      "pixelW": 78,
+      "pixelH": 30
     },
     "vfx/rocket_mk2_0": {
       "file": "vfx/rocket_mk2_0.png",
       "w": 30,
-      "h": 14
+      "h": 14,
+      "pixelW": 90,
+      "pixelH": 42
     },
     "vfx/rocket_mk2_1": {
       "file": "vfx/rocket_mk2_1.png",
       "w": 30,
-      "h": 14
+      "h": 14,
+      "pixelW": 90,
+      "pixelH": 42
     }
   }
 }

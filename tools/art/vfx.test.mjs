@@ -2,8 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { normalizeSequence, output } from './vfx.mjs';
-import { BASE_VFX_CLIPS as VFX_CLIPS } from '../../packages/render/src/vfxCatalog.ts';
+import { normalizeSequence, nativeCell, output } from './vfx.mjs';
+import { BASE_VFX_CLIPS as VFX_CLIPS, VFX_DENSITY } from '../../packages/render/src/vfxCatalog.ts';
 import { readImage, validate } from './ingest.mjs';
 
 test('fixed canvases preserve growth stages and bottom anchors', () => {
@@ -38,10 +38,20 @@ test('all 64 frames have binary DB32 pixels and the promised fixed dimensions', 
         a = m.assets[id];
       assert.ok(a, id);
       const im = readImage(resolve(output, a.file));
-      assert.deepEqual([im.w, im.h], [clip.w, clip.h]);
+      assert.deepEqual([a.w, a.h], [clip.w, clip.h]);
+      assert.deepEqual([im.w, im.h], [clip.w * VFX_DENSITY, clip.h * VFX_DENSITY]);
+      assert.deepEqual([a.pixelW, a.pixelH], [im.w, im.h]);
       validate(im);
       signatures.add(im.data.toString('base64'));
     }
     assert.ok(signatures.size > 1, `${prefix}: animation must change`);
   }
+});
+
+test('native cropping preserves isolated source details instead of a low-resolution majority vote', () => {
+  const source = { w: 512, h: 512, data: Buffer.alloc(512 * 512 * 4) };
+  source.data.writeUInt32BE(0xfbf236ff, (101 * 512 + 111) * 4);
+  const cell = nativeCell(source, 0, 0, 128, 128);
+  assert.deepEqual(cell.crop, [0, 0, 256, 256]);
+  assert.equal(cell.im.data.readUInt32BE((101 * 256 + 111) * 4), 0xfbf236ff);
 });

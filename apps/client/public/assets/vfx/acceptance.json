@@ -8,22 +8,28 @@
     "crop": [
       0,
       0,
-      64,
-      78
+      314,
+      382
     ],
     "bbox": {
-      "x": 7,
-      "y": 31,
-      "w": 51,
-      "h": 29
+      "x": 31,
+      "y": 147,
+      "w": 254,
+      "h": 146
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.7133757961783439,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 20,
-    "transparent": 1296,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 22,
+    "transparent": 20709,
     "islands": 1
   },
   "vfx/cargo_1": {
@@ -33,24 +39,30 @@
       1254
     ],
     "crop": [
-      64,
+      314,
       0,
-      64,
-      78
+      313,
+      382
     ],
     "bbox": {
-      "x": 7,
-      "y": 31,
-      "w": 52,
-      "h": 29
+      "x": 30,
+      "y": 147,
+      "w": 258,
+      "h": 146
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.7133757961783439,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 20,
-    "transparent": 1340,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 24,
+    "transparent": 21307,
     "islands": 1
   },
   "vfx/cargo_2": {
@@ -60,24 +72,30 @@
       1254
     ],
     "crop": [
-      128,
+      627,
       0,
-      64,
-      78
+      314,
+      382
     ],
     "bbox": {
-      "x": 7,
-      "y": 31,
-      "w": 55,
-      "h": 29
+      "x": 31,
+      "y": 147,
+      "w": 274,
+      "h": 147
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.7133757961783439,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 20,
-    "transparent": 1334,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 24,
+    "transparent": 21372,
     "islands": 1
   },
   "vfx/cargo_3": {
@@ -87,24 +105,30 @@
       1254
     ],
     "crop": [
-      192,
+      941,
       0,
-      64,
-      78
+      313,
+      382
     ],
     "bbox": {
-      "x": 7,
-      "y": 31,
-      "w": 51,
-      "h": 31
+      "x": 30,
+      "y": 147,
+      "w": 254,
+      "h": 157
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.7133757961783439,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 21,
-    "transparent": 1222,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 25,
+    "transparent": 19839,
     "islands": 1
   },
   "vfx/mailplane_0": {
@@ -115,23 +139,29 @@
     ],
     "crop": [
       0,
-      78,
-      64,
-      61
+      382,
+      314,
+      299
     ],
     "bbox": {
-      "x": 7,
-      "y": 13,
-      "w": 51,
-      "h": 29
+      "x": 31,
+      "y": 60,
+      "w": 254,
+      "h": 146
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.717948717948718,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 23,
-    "transparent": 1279,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 26,
+    "transparent": 20423,
     "islands": 1
   },
   "vfx/mailplane_1": {
@@ -141,24 +171,30 @@
       1254
     ],
     "crop": [
-      64,
-      78,
-      64,
-      61
+      314,
+      382,
+      313,
+      299
     ],
     "bbox": {
-      "x": 7,
-      "y": 15,
-      "w": 53,
-      "h": 27
+      "x": 30,
+      "y": 71,
+      "w": 263,
+      "h": 135
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.717948717948718,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 24,
-    "transparent": 1332,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 26,
+    "transparent": 21148,
     "islands": 1
   },
   "vfx/mailplane_2": {
@@ -168,24 +204,30 @@
       1254
     ],
     "crop": [
-      128,
-      78,
-      64,
-      61
+      627,
+      382,
+      314,
+      299
     ],
     "bbox": {
-      "x": 7,
-      "y": 15,
-      "w": 55,
-      "h": 27
+      "x": 31,
+      "y": 71,
+      "w": 273,
+      "h": 135
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.717948717948718,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 24,
-    "transparent": 1329,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 26,
+    "transparent": 21344,
     "islands": 1
   },
   "vfx/mailplane_3": {
@@ -195,24 +237,30 @@
       1254
     ],
     "crop": [
-      192,
-      78,
-      64,
-      61
+      941,
+      382,
+      313,
+      299
     ],
     "bbox": {
-      "x": 7,
-      "y": 13,
-      "w": 51,
-      "h": 31
+      "x": 30,
+      "y": 60,
+      "w": 255,
+      "h": 156
     },
-    "scale": 0.9032258064516129,
+    "scale": 0.717948717948718,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 24,
-    "transparent": 1229,
+    "display": [
+      64,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 26,
+    "transparent": 19873,
     "islands": 1
   },
   "vfx/missile_0": {
@@ -223,23 +271,29 @@
     ],
     "crop": [
       0,
-      139,
-      64,
-      55
+      681,
+      314,
+      269
     ],
     "bbox": {
-      "x": 12,
-      "y": 17,
-      "w": 40,
-      "h": 18
+      "x": 54,
+      "y": 82,
+      "w": 201,
+      "h": 91
     },
-    "scale": 0.4,
+    "scale": 0.32286995515695066,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 13,
-    "transparent": 197,
+    "display": [
+      22,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 20,
+    "transparent": 3114,
     "islands": 1
   },
   "vfx/missile_1": {
@@ -249,25 +303,31 @@
       1254
     ],
     "crop": [
-      64,
-      139,
-      64,
-      55
+      314,
+      681,
+      313,
+      269
     ],
     "bbox": {
-      "x": 7,
-      "y": 17,
-      "w": 45,
-      "h": 18
+      "x": 30,
+      "y": 82,
+      "w": 223,
+      "h": 91
     },
-    "scale": 0.4,
+    "scale": 0.32286995515695066,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 11,
-    "transparent": 199,
-    "islands": 2
+    "display": [
+      22,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 20,
+    "transparent": 3104,
+    "islands": 6
   },
   "vfx/homing_0": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -276,25 +336,31 @@
       1254
     ],
     "crop": [
-      128,
-      139,
-      64,
-      55
+      627,
+      681,
+      314,
+      269
     ],
     "bbox": {
-      "x": 11,
-      "y": 15,
-      "w": 42,
-      "h": 20
+      "x": 50,
+      "y": 73,
+      "w": 213,
+      "h": 99
     },
-    "scale": 0.3829787234042553,
+    "scale": 0.3090128755364807,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 15,
-    "transparent": 197,
-    "islands": 2
+    "display": [
+      22,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 17,
+    "transparent": 3085,
+    "islands": 1
   },
   "vfx/homing_1": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -303,25 +369,31 @@
       1254
     ],
     "crop": [
-      192,
-      139,
-      64,
-      55
+      941,
+      681,
+      313,
+      269
     ],
     "bbox": {
-      "x": 7,
-      "y": 15,
-      "w": 47,
-      "h": 20
+      "x": 31,
+      "y": 73,
+      "w": 233,
+      "h": 99
     },
-    "scale": 0.3829787234042553,
+    "scale": 0.3090128755364807,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 15,
-    "transparent": 191,
-    "islands": 5
+    "display": [
+      22,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 19,
+    "transparent": 3069,
+    "islands": 6
   },
   "vfx/letter_0": {
     "source": "assets-in/vfx/vfx-flight.png",
@@ -331,23 +403,29 @@
     ],
     "crop": [
       0,
-      194,
-      64,
-      62
+      950,
+      314,
+      304
     ],
     "bbox": {
-      "x": 20,
-      "y": 22,
-      "w": 26,
-      "h": 18
+      "x": 97,
+      "y": 106,
+      "w": 128,
+      "h": 90
     },
-    "scale": 0.38461538461538464,
+    "scale": 0.31007751937984496,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 7,
-    "transparent": 157,
+    "display": [
+      16,
+      14
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 10,
+    "transparent": 2505,
     "islands": 1
   },
   "vfx/letter_1": {
@@ -357,24 +435,30 @@
       1254
     ],
     "crop": [
-      64,
-      194,
-      64,
-      62
+      314,
+      950,
+      313,
+      304
     ],
     "bbox": {
-      "x": 21,
-      "y": 18,
-      "w": 25,
-      "h": 26
+      "x": 98,
+      "y": 86,
+      "w": 130,
+      "h": 129
     },
-    "scale": 0.38461538461538464,
+    "scale": 0.31007751937984496,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 7,
-    "transparent": 169,
+    "display": [
+      16,
+      14
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 17,
+    "transparent": 2682,
     "islands": 1
   },
   "vfx/letter_2": {
@@ -384,24 +468,30 @@
       1254
     ],
     "crop": [
-      128,
-      194,
-      64,
-      62
+      627,
+      950,
+      314,
+      304
     ],
     "bbox": {
-      "x": 23,
-      "y": 20,
-      "w": 19,
-      "h": 22
+      "x": 110,
+      "y": 96,
+      "w": 95,
+      "h": 109
     },
-    "scale": 0.38461538461538464,
+    "scale": 0.31007751937984496,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 5,
-    "transparent": 199,
+    "display": [
+      16,
+      14
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 16,
+    "transparent": 3097,
     "islands": 1
   },
   "vfx/letter_3": {
@@ -411,24 +501,30 @@
       1254
     ],
     "crop": [
-      192,
-      194,
-      64,
-      62
+      941,
+      950,
+      313,
+      304
     ],
     "bbox": {
-      "x": 19,
-      "y": 22,
-      "w": 25,
-      "h": 18
+      "x": 89,
+      "y": 106,
+      "w": 127,
+      "h": 90
     },
-    "scale": 0.38461538461538464,
+    "scale": 0.31007751937984496,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 5,
-    "transparent": 157,
+    "display": [
+      16,
+      14
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 13,
+    "transparent": 2537,
     "islands": 1
   },
   "vfx/engine_0": {
@@ -440,23 +536,29 @@
     "crop": [
       0,
       0,
-      64,
-      65
+      314,
+      318
     ],
     "bbox": {
-      "x": 7,
-      "y": 28,
-      "w": 47,
-      "h": 22
+      "x": 32,
+      "y": 137,
+      "w": 234,
+      "h": 108
     },
-    "scale": 0.32,
+    "scale": 0.25196850393700787,
     "anchor": [
       1,
       0.5
     ],
-    "colors": 10,
-    "transparent": 237,
-    "islands": 2
+    "display": [
+      24,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 11,
+    "transparent": 3765,
+    "islands": 6
   },
   "vfx/engine_1": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -465,25 +567,31 @@
       1254
     ],
     "crop": [
-      64,
+      314,
       0,
-      64,
-      65
+      313,
+      318
     ],
     "bbox": {
-      "x": 6,
-      "y": 27,
-      "w": 52,
-      "h": 25
+      "x": 26,
+      "y": 128,
+      "w": 258,
+      "h": 127
     },
-    "scale": 0.32,
+    "scale": 0.25196850393700787,
     "anchor": [
       1,
       0.5
     ],
-    "colors": 10,
-    "transparent": 223,
-    "islands": 3
+    "display": [
+      24,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 13,
+    "transparent": 3555,
+    "islands": 6
   },
   "vfx/engine_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -492,25 +600,31 @@
       1254
     ],
     "crop": [
-      128,
+      627,
       0,
-      64,
-      65
+      314,
+      318
     ],
     "bbox": {
-      "x": 8,
-      "y": 27,
-      "w": 50,
-      "h": 25
+      "x": 38,
+      "y": 128,
+      "w": 247,
+      "h": 127
     },
-    "scale": 0.32,
+    "scale": 0.25196850393700787,
     "anchor": [
       1,
       0.5
     ],
-    "colors": 10,
-    "transparent": 219,
-    "islands": 4
+    "display": [
+      24,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 12,
+    "transparent": 3510,
+    "islands": 5
   },
   "vfx/engine_3": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -519,25 +633,31 @@
       1254
     ],
     "crop": [
-      192,
+      941,
       0,
-      64,
-      65
+      313,
+      318
     ],
     "bbox": {
-      "x": 5,
-      "y": 27,
-      "w": 51,
-      "h": 25
+      "x": 22,
+      "y": 128,
+      "w": 253,
+      "h": 127
     },
-    "scale": 0.32,
+    "scale": 0.25196850393700787,
     "anchor": [
       1,
       0.5
     ],
-    "colors": 11,
-    "transparent": 231,
-    "islands": 2
+    "display": [
+      24,
+      12
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 12,
+    "transparent": 3638,
+    "islands": 7
   },
   "vfx/fire_0": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -547,24 +667,30 @@
     ],
     "crop": [
       0,
-      65,
-      64,
-      63
+      318,
+      314,
+      309
     ],
     "bbox": {
-      "x": 15,
-      "y": 12,
-      "w": 35,
-      "h": 45
+      "x": 69,
+      "y": 55,
+      "w": 177,
+      "h": 225
     },
-    "scale": 0.3,
+    "scale": 0.2436548223350254,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 7,
-    "transparent": 246,
-    "islands": 1
+    "display": [
+      16,
+      20
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 11,
+    "transparent": 3836,
+    "islands": 6
   },
   "vfx/fire_1": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -573,25 +699,31 @@
       1254
     ],
     "crop": [
-      64,
-      65,
-      64,
-      63
+      314,
+      318,
+      313,
+      309
     ],
     "bbox": {
-      "x": 17,
-      "y": 7,
-      "w": 35,
-      "h": 50
+      "x": 78,
+      "y": 34,
+      "w": 177,
+      "h": 246
     },
-    "scale": 0.3,
+    "scale": 0.2436548223350254,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 8,
-    "transparent": 227,
-    "islands": 2
+    "display": [
+      16,
+      20
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 11,
+    "transparent": 3553,
+    "islands": 6
   },
   "vfx/fire_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -600,25 +732,31 @@
       1254
     ],
     "crop": [
-      128,
-      65,
-      64,
-      63
+      627,
+      318,
+      314,
+      309
     ],
     "bbox": {
-      "x": 12,
-      "y": 10,
-      "w": 40,
-      "h": 47
+      "x": 59,
+      "y": 45,
+      "w": 197,
+      "h": 235
     },
-    "scale": 0.3,
+    "scale": 0.2436548223350254,
     "anchor": [
       0.5,
       1
     ],
+    "display": [
+      16,
+      20
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 10,
-    "transparent": 234,
-    "islands": 3
+    "transparent": 3536,
+    "islands": 6
   },
   "vfx/fire_3": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -627,25 +765,31 @@
       1254
     ],
     "crop": [
-      192,
-      65,
-      64,
-      63
+      941,
+      318,
+      313,
+      309
     ],
     "bbox": {
-      "x": 15,
-      "y": 11,
-      "w": 35,
-      "h": 46
+      "x": 69,
+      "y": 54,
+      "w": 176,
+      "h": 226
     },
-    "scale": 0.3,
+    "scale": 0.2436548223350254,
     "anchor": [
       0.5,
       1
     ],
+    "display": [
+      16,
+      20
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 10,
-    "transparent": 253,
-    "islands": 5
+    "transparent": 3904,
+    "islands": 8
   },
   "vfx/smoke_0": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -655,23 +799,29 @@
     ],
     "crop": [
       0,
-      128,
-      64,
-      62
+      627,
+      314,
+      304
     ],
     "bbox": {
-      "x": 21,
-      "y": 29,
-      "w": 27,
-      "h": 23
+      "x": 99,
+      "y": 138,
+      "w": 137,
+      "h": 116
     },
-    "scale": 0.7058823529411765,
+    "scale": 0.5647058823529412,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 9,
-    "transparent": 1481,
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 12,
+    "transparent": 23303,
     "islands": 3
   },
   "vfx/smoke_1": {
@@ -681,25 +831,31 @@
       1254
     ],
     "crop": [
-      64,
-      128,
-      64,
-      62
+      314,
+      627,
+      313,
+      304
     ],
     "bbox": {
-      "x": 17,
-      "y": 18,
-      "w": 35,
-      "h": 36
+      "x": 78,
+      "y": 88,
+      "w": 177,
+      "h": 177
     },
-    "scale": 0.7058823529411765,
+    "scale": 0.5647058823529412,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 10,
-    "transparent": 1312,
-    "islands": 5
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 12,
+    "transparent": 20521,
+    "islands": 4
   },
   "vfx/smoke_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -708,24 +864,30 @@
       1254
     ],
     "crop": [
-      128,
-      128,
-      64,
-      62
+      627,
+      627,
+      314,
+      304
     ],
     "bbox": {
-      "x": 11,
-      "y": 7,
-      "w": 49,
-      "h": 49
+      "x": 49,
+      "y": 32,
+      "w": 245,
+      "h": 242
     },
-    "scale": 0.7058823529411765,
+    "scale": 0.5647058823529412,
     "anchor": [
       0.5,
       0.5
     ],
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 12,
-    "transparent": 911,
+    "transparent": 14427,
     "islands": 4
   },
   "vfx/smoke_3": {
@@ -735,24 +897,30 @@
       1254
     ],
     "crop": [
-      192,
-      128,
-      64,
-      62
+      941,
+      627,
+      313,
+      304
     ],
     "bbox": {
-      "x": 7,
-      "y": 5,
-      "w": 51,
-      "h": 49
+      "x": 29,
+      "y": 22,
+      "w": 255,
+      "h": 243
     },
-    "scale": 0.7058823529411765,
+    "scale": 0.5647058823529412,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 11,
-    "transparent": 1121,
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 13,
+    "transparent": 17047,
     "islands": 8
   },
   "vfx/steam_0": {
@@ -763,23 +931,29 @@
     ],
     "crop": [
       0,
-      190,
-      64,
-      66
+      931,
+      314,
+      323
     ],
     "bbox": {
-      "x": 23,
-      "y": 29,
-      "w": 25,
-      "h": 23
+      "x": 108,
+      "y": 137,
+      "w": 128,
+      "h": 118
     },
-    "scale": 0.6666666666666666,
+    "scale": 0.5454545454545454,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 13,
-    "transparent": 1495,
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 14,
+    "transparent": 23563,
     "islands": 3
   },
   "vfx/steam_1": {
@@ -789,25 +963,31 @@
       1254
     ],
     "crop": [
-      64,
-      190,
-      64,
-      66
+      314,
+      931,
+      313,
+      323
     ],
     "bbox": {
-      "x": 17,
-      "y": 19,
-      "w": 37,
-      "h": 37
+      "x": 78,
+      "y": 88,
+      "w": 186,
+      "h": 186
     },
-    "scale": 0.6666666666666666,
+    "scale": 0.5454545454545454,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 13,
-    "transparent": 1341,
-    "islands": 5
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 16,
+    "transparent": 20989,
+    "islands": 4
   },
   "vfx/steam_2": {
     "source": "assets-in/vfx/vfx-elements.png",
@@ -816,24 +996,30 @@
       1254
     ],
     "crop": [
-      128,
-      190,
-      64,
-      66
+      627,
+      931,
+      314,
+      323
     ],
     "bbox": {
-      "x": 10,
-      "y": 6,
-      "w": 50,
-      "h": 54
+      "x": 49,
+      "y": 29,
+      "w": 246,
+      "h": 264
     },
-    "scale": 0.6666666666666666,
+    "scale": 0.5454545454545454,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 15,
-    "transparent": 936,
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 17,
+    "transparent": 14013,
     "islands": 5
   },
   "vfx/steam_3": {
@@ -843,24 +1029,30 @@
       1254
     ],
     "crop": [
-      192,
-      190,
-      64,
-      66
+      941,
+      931,
+      313,
+      323
     ],
     "bbox": {
-      "x": 7,
-      "y": 6,
-      "w": 49,
-      "h": 52
+      "x": 29,
+      "y": 29,
+      "w": 246,
+      "h": 255
     },
-    "scale": 0.6666666666666666,
+    "scale": 0.5454545454545454,
     "anchor": [
       0.5,
       0.5
     ],
+    "display": [
+      40,
+      40
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 16,
-    "transparent": 1106,
+    "transparent": 16904,
     "islands": 6
   },
   "vfx/blast_0": {
@@ -872,22 +1064,28 @@
     "crop": [
       0,
       0,
-      64,
-      71
+      314,
+      348
     ],
     "bbox": {
-      "x": 22,
-      "y": 33,
-      "w": 22,
-      "h": 21
+      "x": 107,
+      "y": 158,
+      "w": 111,
+      "h": 110
     },
-    "scale": 1.0526315789473684,
+    "scale": 0.8450704225352113,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 10,
-    "transparent": 3932,
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 16,
+    "transparent": 61947,
     "islands": 5
   },
   "vfx/blast_1": {
@@ -897,24 +1095,30 @@
       1254
     ],
     "crop": [
-      64,
+      314,
       0,
-      64,
-      71
+      313,
+      348
     ],
     "bbox": {
-      "x": 15,
-      "y": 25,
-      "w": 35,
-      "h": 35
+      "x": 69,
+      "y": 119,
+      "w": 177,
+      "h": 176
     },
-    "scale": 1.0526315789473684,
+    "scale": 0.8450704225352113,
     "anchor": [
       0.5,
       0.5
     ],
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 11,
-    "transparent": 3298,
+    "transparent": 52088,
     "islands": 5
   },
   "vfx/blast_2": {
@@ -924,24 +1128,30 @@
       1254
     ],
     "crop": [
-      128,
+      627,
       0,
-      64,
-      71
+      314,
+      348
     ],
     "bbox": {
-      "x": 3,
-      "y": 18,
-      "w": 56,
-      "h": 48
+      "x": 12,
+      "y": 87,
+      "w": 276,
+      "h": 236
     },
-    "scale": 1.0526315789473684,
+    "scale": 0.8450704225352113,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 10,
-    "transparent": 2357,
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 12,
+    "transparent": 36622,
     "islands": 13
   },
   "vfx/blast_3": {
@@ -951,24 +1161,30 @@
       1254
     ],
     "crop": [
-      192,
+      941,
       0,
-      64,
-      71
+      313,
+      348
     ],
     "bbox": {
-      "x": 3,
-      "y": 16,
-      "w": 57,
-      "h": 50
+      "x": 10,
+      "y": 77,
+      "w": 284,
+      "h": 246
     },
-    "scale": 1.0526315789473684,
+    "scale": 0.8450704225352113,
     "anchor": [
       0.5,
       0.5
     ],
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 11,
-    "transparent": 2963,
+    "transparent": 44196,
     "islands": 19
   },
   "vfx/fragment_0": {
@@ -979,24 +1195,30 @@
     ],
     "crop": [
       0,
-      71,
-      64,
-      64
+      348,
+      314,
+      313
     ],
     "bbox": {
-      "x": 22,
-      "y": 21,
-      "w": 23,
-      "h": 22
+      "x": 106,
+      "y": 102,
+      "w": 115,
+      "h": 112
     },
-    "scale": 1.0344827586206897,
+    "scale": 0.8247422680412371,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 10,
-    "transparent": 3908,
-    "islands": 6
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 13,
+    "transparent": 61705,
+    "islands": 3
   },
   "vfx/fragment_1": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1005,25 +1227,31 @@
       1254
     ],
     "crop": [
-      64,
-      71,
-      64,
-      64
+      314,
+      348,
+      313,
+      313
     ],
     "bbox": {
-      "x": 9,
-      "y": 8,
-      "w": 47,
-      "h": 47
+      "x": 40,
+      "y": 35,
+      "w": 234,
+      "h": 234
     },
-    "scale": 1.0344827586206897,
+    "scale": 0.8247422680412371,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 18,
-    "transparent": 3134,
-    "islands": 13
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 20,
+    "transparent": 48908,
+    "islands": 11
   },
   "vfx/fragment_2": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1032,24 +1260,30 @@
       1254
     ],
     "crop": [
-      128,
-      71,
-      64,
-      64
+      627,
+      348,
+      314,
+      313
     ],
     "bbox": {
-      "x": 3,
-      "y": 4,
-      "w": 58,
-      "h": 55
+      "x": 10,
+      "y": 16,
+      "w": 291,
+      "h": 272
     },
-    "scale": 1.0344827586206897,
+    "scale": 0.8247422680412371,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 16,
-    "transparent": 2801,
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 18,
+    "transparent": 41888,
     "islands": 19
   },
   "vfx/fragment_3": {
@@ -1059,24 +1293,30 @@
       1254
     ],
     "crop": [
-      192,
-      71,
-      64,
-      64
+      941,
+      348,
+      313,
+      313
     ],
     "bbox": {
-      "x": 5,
-      "y": 8,
-      "w": 55,
-      "h": 47
+      "x": 20,
+      "y": 35,
+      "w": 274,
+      "h": 234
     },
-    "scale": 1.0344827586206897,
+    "scale": 0.8247422680412371,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 14,
-    "transparent": 3456,
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 15,
+    "transparent": 53134,
     "islands": 21
   },
   "vfx/incendiary_0": {
@@ -1087,23 +1327,29 @@
     ],
     "crop": [
       0,
-      135,
-      64,
-      49
+      661,
+      314,
+      240
     ],
     "bbox": {
-      "x": 20,
-      "y": 26,
-      "w": 27,
-      "h": 17
+      "x": 97,
+      "y": 125,
+      "w": 134,
+      "h": 85
     },
-    "scale": 0.9836065573770492,
+    "scale": 0.7894736842105263,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 9,
-    "transparent": 2962,
+    "display": [
+      64,
+      48
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 13,
+    "transparent": 46885,
     "islands": 6
   },
   "vfx/incendiary_1": {
@@ -1113,24 +1359,30 @@
       1254
     ],
     "crop": [
-      64,
-      135,
-      64,
-      49
+      314,
+      661,
+      313,
+      240
     ],
     "bbox": {
-      "x": 6,
-      "y": 22,
-      "w": 51,
-      "h": 21
+      "x": 27,
+      "y": 104,
+      "w": 254,
+      "h": 106
     },
-    "scale": 0.9836065573770492,
+    "scale": 0.7894736842105263,
     "anchor": [
       0.5,
       1
     ],
+    "display": [
+      64,
+      48
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 12,
-    "transparent": 2560,
+    "transparent": 40642,
     "islands": 7
   },
   "vfx/incendiary_2": {
@@ -1140,24 +1392,30 @@
       1254
     ],
     "crop": [
-      128,
-      135,
-      64,
-      49
+      627,
+      661,
+      314,
+      240
     ],
     "bbox": {
       "x": 1,
-      "y": 11,
-      "w": 61,
-      "h": 34
+      "y": 54,
+      "w": 304,
+      "h": 167
     },
-    "scale": 0.9836065573770492,
+    "scale": 0.7894736842105263,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 14,
-    "transparent": 2191,
+    "display": [
+      64,
+      48
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 16,
+    "transparent": 33502,
     "islands": 9
   },
   "vfx/incendiary_3": {
@@ -1167,25 +1425,31 @@
       1254
     ],
     "crop": [
-      192,
-      135,
-      64,
-      49
+      941,
+      661,
+      313,
+      240
     ],
     "bbox": {
-      "x": 7,
-      "y": 14,
-      "w": 51,
-      "h": 31
+      "x": 30,
+      "y": 64,
+      "w": 254,
+      "h": 157
     },
-    "scale": 0.9836065573770492,
+    "scale": 0.7894736842105263,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 10,
-    "transparent": 2675,
-    "islands": 10
+    "display": [
+      64,
+      48
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 11,
+    "transparent": 41391,
+    "islands": 11
   },
   "vfx/energy_0": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1195,23 +1459,29 @@
     ],
     "crop": [
       0,
-      184,
-      64,
-      72
+      901,
+      314,
+      353
     ],
     "bbox": {
-      "x": 23,
-      "y": 25,
-      "w": 21,
-      "h": 21
+      "x": 110,
+      "y": 120,
+      "w": 105,
+      "h": 105
     },
-    "scale": 1,
+    "scale": 0.8,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 7,
-    "transparent": 3951,
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 13,
+    "transparent": 62677,
     "islands": 5
   },
   "vfx/energy_1": {
@@ -1221,25 +1491,31 @@
       1254
     ],
     "crop": [
-      64,
-      184,
-      64,
-      72
+      314,
+      901,
+      313,
+      353
     ],
     "bbox": {
-      "x": 13,
-      "y": 16,
-      "w": 36,
-      "h": 38
+      "x": 59,
+      "y": 75,
+      "w": 183,
+      "h": 193
     },
-    "scale": 1,
+    "scale": 0.8,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 20,
-    "transparent": 3558,
-    "islands": 6
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 26,
+    "transparent": 56217,
+    "islands": 7
   },
   "vfx/energy_2": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1248,25 +1524,31 @@
       1254
     ],
     "crop": [
-      128,
-      184,
-      64,
-      72
+      627,
+      901,
+      314,
+      353
     ],
     "bbox": {
-      "x": 1,
-      "y": 5,
-      "w": 60,
-      "h": 59
+      "x": 2,
+      "y": 20,
+      "w": 300,
+      "h": 296
     },
-    "scale": 1,
+    "scale": 0.8,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 20,
-    "transparent": 3081,
-    "islands": 23
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 26,
+    "transparent": 46781,
+    "islands": 16
   },
   "vfx/energy_3": {
     "source": "assets-in/vfx/vfx-blasts.png",
@@ -1275,25 +1557,31 @@
       1254
     ],
     "crop": [
-      192,
-      184,
-      64,
-      72
+      941,
+      901,
+      313,
+      353
     ],
     "bbox": {
-      "x": 10,
-      "y": 12,
-      "w": 45,
-      "h": 44
+      "x": 47,
+      "y": 57,
+      "w": 224,
+      "h": 218
     },
-    "scale": 1,
+    "scale": 0.8,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 18,
-    "transparent": 3807,
-    "islands": 13
+    "display": [
+      64,
+      64
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 21,
+    "transparent": 59237,
+    "islands": 14
   },
   "vfx/nuke_0": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1304,22 +1592,28 @@
     "crop": [
       0,
       0,
-      64,
-      90
+      314,
+      441
     ],
     "bbox": {
-      "x": 15,
-      "y": 49,
-      "w": 37,
-      "h": 36
+      "x": 73,
+      "y": 237,
+      "w": 184,
+      "h": 181
     },
-    "scale": 1.2266666666666666,
+    "scale": 1.002724795640327,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 10,
-    "transparent": 8547,
+    "display": [
+      96,
+      96
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 17,
+    "transparent": 134965,
     "islands": 9
   },
   "vfx/nuke_1": {
@@ -1329,24 +1623,30 @@
       1254
     ],
     "crop": [
-      64,
+      314,
       0,
-      64,
-      90
+      313,
+      441
     ],
     "bbox": {
-      "x": 11,
-      "y": 41,
-      "w": 44,
-      "h": 44
+      "x": 49,
+      "y": 200,
+      "w": 222,
+      "h": 218
     },
-    "scale": 1.2266666666666666,
+    "scale": 1.002724795640327,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 15,
-    "transparent": 7750,
+    "display": [
+      96,
+      96
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 22,
+    "transparent": 121143,
     "islands": 7
   },
   "vfx/nuke_2": {
@@ -1356,24 +1656,30 @@
       1254
     ],
     "crop": [
-      128,
+      627,
       0,
-      64,
-      90
+      314,
+      441
     ],
     "bbox": {
-      "x": 4,
-      "y": 25,
-      "w": 55,
-      "h": 61
+      "x": 17,
+      "y": 121,
+      "w": 275,
+      "h": 298
     },
-    "scale": 1.2266666666666666,
+    "scale": 1.002724795640327,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 20,
-    "transparent": 6127,
+    "display": [
+      96,
+      96
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 21,
+    "transparent": 94865,
     "islands": 5
   },
   "vfx/nuke_3": {
@@ -1383,24 +1689,30 @@
       1254
     ],
     "crop": [
-      192,
+      941,
       0,
-      64,
-      90
+      313,
+      441
     ],
     "bbox": {
-      "x": 7,
-      "y": 11,
-      "w": 50,
-      "h": 75
+      "x": 32,
+      "y": 52,
+      "w": 248,
+      "h": 367
     },
-    "scale": 1.2266666666666666,
+    "scale": 1.002724795640327,
     "anchor": [
       0.5,
       1
     ],
-    "colors": 16,
-    "transparent": 6081,
+    "display": [
+      96,
+      96
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 19,
+    "transparent": 92269,
     "islands": 11
   },
   "vfx/gas_0": {
@@ -1411,24 +1723,30 @@
     ],
     "crop": [
       0,
-      90,
-      64,
-      63
+      441,
+      314,
+      308
     ],
     "bbox": {
-      "x": 17,
-      "y": 29,
-      "w": 33,
-      "h": 30
+      "x": 81,
+      "y": 139,
+      "w": 167,
+      "h": 150
     },
-    "scale": 0.509090909090909,
+    "scale": 0.4057971014492754,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 7,
-    "transparent": 917,
-    "islands": 5
+    "display": [
+      32,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 11,
+    "transparent": 14398,
+    "islands": 4
   },
   "vfx/gas_1": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1437,25 +1755,31 @@
       1254
     ],
     "crop": [
-      64,
-      90,
-      64,
-      63
+      314,
+      441,
+      313,
+      308
     ],
     "bbox": {
-      "x": 11,
-      "y": 21,
-      "w": 42,
-      "h": 38
+      "x": 49,
+      "y": 101,
+      "w": 209,
+      "h": 188
     },
-    "scale": 0.509090909090909,
+    "scale": 0.4057971014492754,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 9,
-    "transparent": 810,
-    "islands": 7
+    "display": [
+      32,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 12,
+    "transparent": 12644,
+    "islands": 8
   },
   "vfx/gas_2": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1464,25 +1788,31 @@
       1254
     ],
     "crop": [
-      128,
-      90,
-      64,
-      63
+      627,
+      441,
+      314,
+      308
     ],
     "bbox": {
-      "x": 4,
-      "y": 9,
-      "w": 55,
-      "h": 50
+      "x": 15,
+      "y": 41,
+      "w": 276,
+      "h": 249
     },
-    "scale": 0.509090909090909,
+    "scale": 0.4057971014492754,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 10,
-    "transparent": 653,
-    "islands": 8
+    "display": [
+      32,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 9,
+    "transparent": 10000,
+    "islands": 6
   },
   "vfx/gas_3": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1491,25 +1821,31 @@
       1254
     ],
     "crop": [
-      192,
-      90,
-      64,
-      63
+      941,
+      441,
+      313,
+      308
     ],
     "bbox": {
-      "x": 7,
-      "y": 13,
-      "w": 50,
-      "h": 46
+      "x": 29,
+      "y": 63,
+      "w": 249,
+      "h": 225
     },
-    "scale": 0.509090909090909,
+    "scale": 0.4057971014492754,
     "anchor": [
       0.5,
       0.5
     ],
+    "display": [
+      32,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 7,
-    "transparent": 910,
-    "islands": 16
+    "transparent": 13986,
+    "islands": 17
   },
   "vfx/ghost_0": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1519,23 +1855,29 @@
     ],
     "crop": [
       0,
-      153,
-      64,
-      66
+      749,
+      314,
+      324
     ],
     "bbox": {
-      "x": 17,
-      "y": 25,
-      "w": 34,
-      "h": 30
+      "x": 80,
+      "y": 120,
+      "w": 170,
+      "h": 152
     },
-    "scale": 0.5384615384615384,
+    "scale": 0.4375,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 9,
-    "transparent": 591,
+    "display": [
+      24,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 18,
+    "transparent": 9100,
     "islands": 1
   },
   "vfx/ghost_1": {
@@ -1545,24 +1887,30 @@
       1254
     ],
     "crop": [
-      64,
-      153,
-      64,
-      66
+      314,
+      749,
+      313,
+      324
     ],
     "bbox": {
-      "x": 17,
-      "y": 15,
-      "w": 34,
-      "h": 39
+      "x": 82,
+      "y": 70,
+      "w": 169,
+      "h": 194
     },
-    "scale": 0.5384615384615384,
+    "scale": 0.4375,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 12,
-    "transparent": 575,
+    "display": [
+      24,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 16,
+    "transparent": 8852,
     "islands": 2
   },
   "vfx/ghost_2": {
@@ -1572,25 +1920,31 @@
       1254
     ],
     "crop": [
-      128,
-      153,
-      64,
-      66
+      627,
+      749,
+      314,
+      324
     ],
     "bbox": {
-      "x": 17,
-      "y": 5,
-      "w": 34,
-      "h": 49
+      "x": 80,
+      "y": 23,
+      "w": 169,
+      "h": 243
     },
-    "scale": 0.5384615384615384,
+    "scale": 0.4375,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 9,
-    "transparent": 559,
-    "islands": 2
+    "display": [
+      24,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 15,
+    "transparent": 8446,
+    "islands": 7
   },
   "vfx/ghost_3": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1599,25 +1953,31 @@
       1254
     ],
     "crop": [
-      192,
-      153,
-      64,
-      66
+      941,
+      749,
+      313,
+      324
     ],
     "bbox": {
-      "x": 15,
-      "y": 3,
-      "w": 33,
-      "h": 52
+      "x": 71,
+      "y": 15,
+      "w": 165,
+      "h": 256
     },
-    "scale": 0.5384615384615384,
+    "scale": 0.4375,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 6,
-    "transparent": 661,
-    "islands": 9
+    "display": [
+      24,
+      32
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 7,
+    "transparent": 10036,
+    "islands": 12
   },
   "vfx/scorch_0": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1627,24 +1987,30 @@
     ],
     "crop": [
       0,
-      219,
-      64,
-      37
+      1073,
+      314,
+      181
     ],
     "bbox": {
-      "x": 13,
-      "y": 5,
-      "w": 42,
-      "h": 21
+      "x": 61,
+      "y": 23,
+      "w": 211,
+      "h": 103
     },
-    "scale": 0.8,
+    "scale": 0.6299212598425197,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 7,
-    "transparent": 1274,
-    "islands": 6
+    "display": [
+      64,
+      24
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 9,
+    "transparent": 20167,
+    "islands": 7
   },
   "vfx/scorch_1": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1653,25 +2019,31 @@
       1254
     ],
     "crop": [
-      64,
-      219,
-      64,
-      37
+      314,
+      1073,
+      313,
+      181
     ],
     "bbox": {
-      "x": 9,
-      "y": 5,
-      "w": 48,
-      "h": 21
+      "x": 39,
+      "y": 22,
+      "w": 238,
+      "h": 104
     },
-    "scale": 0.8,
+    "scale": 0.6299212598425197,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 9,
-    "transparent": 1192,
-    "islands": 7
+    "display": [
+      64,
+      24
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 10,
+    "transparent": 18593,
+    "islands": 8
   },
   "vfx/scorch_2": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1680,25 +2052,31 @@
       1254
     ],
     "crop": [
-      128,
-      219,
-      64,
-      37
+      627,
+      1073,
+      314,
+      181
     ],
     "bbox": {
-      "x": 6,
-      "y": 3,
-      "w": 53,
-      "h": 25
+      "x": 27,
+      "y": 11,
+      "w": 261,
+      "h": 127
     },
-    "scale": 0.8,
+    "scale": 0.6299212598425197,
     "anchor": [
       0.5,
       0.5
     ],
-    "colors": 8,
-    "transparent": 1120,
-    "islands": 11
+    "display": [
+      64,
+      24
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
+    "colors": 9,
+    "transparent": 17624,
+    "islands": 10
   },
   "vfx/scorch_3": {
     "source": "assets-in/vfx/vfx-status.png",
@@ -1707,24 +2085,30 @@
       1254
     ],
     "crop": [
-      192,
-      219,
-      64,
-      37
+      941,
+      1073,
+      313,
+      181
     ],
     "bbox": {
-      "x": 7,
-      "y": 5,
-      "w": 48,
-      "h": 21
+      "x": 33,
+      "y": 24,
+      "w": 237,
+      "h": 103
     },
-    "scale": 0.8,
+    "scale": 0.6299212598425197,
     "anchor": [
       0.5,
       0.5
     ],
+    "display": [
+      64,
+      24
+    ],
+    "density": 4,
+    "processing": "native crop -> DB32/binary alpha -> one final fit; no low-res intermediate",
     "colors": 6,
-    "transparent": 1257,
+    "transparent": 19734,
     "islands": 8
   }
 }

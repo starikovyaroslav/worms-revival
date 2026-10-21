@@ -1,4 +1,7 @@
 /** Shared export/runtime contract. Anchors are fractions of the fixed animation canvas. */
+/** Backing texels per display/world unit; clip w/h below are NOT PNG dimensions. */
+export const VFX_DENSITY = 4;
+export const MILITARY_DENSITY = 3;
 export const BASE_VFX_CLIPS = {
   cargo: { frames: 4, w: 64, h: 32, anchor: [0.5, 0.5] },
   mailplane: { frames: 4, w: 64, h: 32, anchor: [0.5, 0.5] },
