@@ -1,0 +1,44 @@
+{
+  "mode": "built-in imagegen",
+  "status": "large-character direction approved by owner; concept is not a playable level",
+  "original": {
+    "image": "meadow-pilot-v1.png",
+    "prompt": "tools/art/visual-pilot-v2.prompt.txt",
+    "references": [
+      "assets-in/previews/desktop/1920x1080-dpr1.png",
+      "docs/design/concepts/worm-skins-v1/brutal.png",
+      "docs/design/concepts/worm-skins-v1/glam-femme.png",
+      "docs/design/concepts/worm-skins-v2/elder-femme.png"
+    ],
+    "generated": "/home/yaroslav/.codex/generated_images/01a15cdb-bc50-7350-9ea2-a30111bf6e3f/exec-80e0921b-93c6-4b97-8e5e-bee683f12854.png"
+  },
+  "selected": {
+    "image": "meadow-pilot.png",
+    "prompt": "tools/art/visual-pilot-v2.prompt.txt",
+    "source": "meadow-pilot-v1.png",
+    "reason": "Owner explicitly preferred the initial large-character version",
+    "nativePixels": [1672, 941]
+  },
+  "smallerRevision": {
+    "image": "meadow-pilot-small.png",
+    "prompt": "tools/art/visual-pilot-v2-repair.prompt.txt",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "generated": "/home/yaroslav/.codex/generated_images/01a15cdb-bc50-7350-9ea2-a30111bf6e3f/exec-9e820845-ce3b-4039-acf6-bd64eb3dc794.png",
+    "nativePixels": [1672, 941]
+  },
+  "baseline": {
+    "image": "before.png",
+    "source": "assets-in/previews/desktop/1920x1080-dpr1.png",
+    "kind": "previous QA screenshot, not the same simulated state as the candidate"
+  },
+  "review": {
+    "page": "review.html",
+    "screenshot": "pilot-hud.png",
+    "source": "tools/art/visual-pilot-review.html",
+    "build": "node tools/art/visual-pilot-review.mjs",
+    "check": "node tools/art/visual-pilot-check.mjs",
+    "shader": "packages/render/src/crt.ts",
+    "presets": "packages/render/src/crtPresets.ts",
+    "hud": "HTML/CSS prototype with illustrative values; not connected to simulation"
+  }
+}

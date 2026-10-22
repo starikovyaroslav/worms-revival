@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="ru">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Worms revival — визуальный пилот v2</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #11191c;
+      color: #e8e7df;
+      font:
+        15px/1.5 system-ui,
+        sans-serif;
+    }
+    header,
+    .controls,
+    footer {
+      max-width: 1460px;
+      margin: auto;
+      padding: 16px 24px;
+    }
+    h1 {
+      margin: 4px 0;
+      font-size: 25px;
+      font-weight: 650;
+    }
+    p {
+      margin: 6px 0;
+      color: #b8c5c6;
+    }
+    .badge {
+      color: #edc57b;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: #1d292e;
+    }
+    select,
+    button {
+      font: inherit;
+      background: #26363d;
+      color: #f1f0e9;
+      border: 1px solid #5c7077;
+      border-radius: 4px;
+      padding: 5px 9px;
+    }
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    input {
+      accent-color: #dabd7c;
+    }
+    .viewport {
+      padding: 16px;
+      overflow: auto;
+    }
+    .stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin: auto;
+      overflow: hidden;
+      background: #13232d;
+      isolation: isolate;
+    }
+    canvas {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .hud {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      font-size: clamp(10px, 1.05cqw, 22px);
+      color: #fff5dd;
+    }
+    .stage {
+      container-type: inline-size;
+    }
+    .hud[hidden] {
+      display: none;
+    }
+    .panel {
+      background: #17252bef;
+      border: 1px solid #9b9874;
+      border-radius: 0.35em;
+      box-shadow:
+        0 0.14em 0.32em #06101955,
+        inset 0 1px #e9e0b51c;
+    }
+    .turn {
+      position: absolute;
+      left: 1.5%;
+      top: 2.4%;
+      padding: 0.5em 0.9em;
+      font-weight: 650;
+    }
+    .turn small {
+      color: #e0bc74;
+      margin-right: 1em;
+      letter-spacing: 0.08em;
+    }
+    .clock {
+      position: absolute;
+      left: 47%;
+      top: 2.4%;
+      width: 6%;
+      min-width: 3.2em;
+      text-align: center;
+      padding: 0.12em;
+      font:
+        750 1.7em ui-monospace,
+        monospace;
+      color: #f6d28a;
+    }
+    .wind {
+      position: absolute;
+      right: 1.5%;
+      top: 2.4%;
+      padding: 0.5em 0.9em;
+    }
+    .wind span {
+      color: #d6bc7b;
+      margin-right: 0.7em;
+    }
+    .bottom {
+      position: absolute;
+      left: 1.5%;
+      right: 1.5%;
+      bottom: 2.4%;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1em;
+    }
+    .teams {
+      width: 30%;
+      padding: 0.6em 0.85em;
+    }
+    .team {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.15em 1em;
+      font-size: 0.9em;
+    }
+    .team + .team {
+      margin-top: 0.45em;
+    }
+    .team b {
+      font-family: ui-monospace, monospace;
+    }
+    .bar {
+      grid-column: 1 / -1;
+      height: 0.32em;
+      background: #0c151a;
+      border-radius: 0.2em;
+      overflow: hidden;
+    }
+    .bar i {
+      display: block;
+      width: 76%;
+      height: 100%;
+      background: #d86854;
+    }
+    .team.blue .bar i {
+      width: 91%;
+      background: #71a9ce;
+    }
+    .hint {
+      margin-bottom: 0.25em;
+      padding: 0.4em 0.7em;
+      color: #ecdfbe;
+      font-size: 0.82em;
+      text-shadow: 0 1px 3px #000;
+    }
+    kbd {
+      border: 1px solid #989788;
+      padding: 0.1em 0.3em;
+      border-radius: 0.2em;
+      background: #1b2b31;
+      font: inherit;
+    }
+    .weapon {
+      min-width: 19%;
+      padding: 0.65em 0.9em;
+      text-align: right;
+    }
+    .weapon small {
+      display: block;
+      color: #9eb5bc;
+      font-size: 0.76em;
+    }
+    #status {
+      color: #e0bc74;
+    }
+    footer {
+      padding-top: 4px;
+    }
+    footer a {
+      color: #edc57b;
+    }
+    @media (max-width: 700px) {
+      header,
+      .controls,
+      footer {
+        padding: 12px;
+      }
+      h1 {
+        font-size: 21px;
+      }
+      .viewport {
+        padding: 8px;
+      }
+      .hint {
+        display: none;
+      }
+      .teams {
+        width: 39%;
+      }
+    }
+  </style>
+  <header>
+    <div class="badge">Кандидат направления · Не подключено к игре</div>
+    <h1>Единый рисованный стиль — луг</h1>
+    <p>
+      Визуальный прототип: цельная сгенерированная сцена и отдельный HTML-HUD. Не игровая сборка, не
+      набор готовых тайлов или анимаций.
+    </p>
+  </header>
+  <div class="controls">
+    <label
+      >Вариант
+      <select id="variant">
+        <option value="pilot">Пилот v2</option>
+        <option value="before">Текущее оформление — QA-кадр</option>
+      </select></label
+    >
+    <label
+      >Ширина
+      <select id="size">
+        <option value="fit">В окно</option>
+        <option value="1280">1280 px</option>
+        <option value="1920">1920 px</option>
+      </select></label
+    >
+    <label
+      >CRT
+      <select id="crt">
+        <option value="off">Выкл.</option>
+        <option value="soft">Базовый</option>
+        <option value="medium">Средний</option>
+        <option value="strong">Выраженный</option>
+      </select></label
+    >
+    <label><input type="checkbox" id="hud" checked /> HUD пилота</label>
+    <span id="status" role="status">Загрузка…</span>
+  </div>
+  <div class="viewport">
+    <div class="stage" id="stage">
+      <canvas id="world" aria-label="Сравнение текущей графики и рисованного пилота"></canvas>
+      <div class="hud" id="overlay">
+        <div class="turn panel"><small>ХОД 07</small> Червячий спецназ</div>
+        <div class="clock panel">32</div>
+        <div class="wind panel"><span>ВЕТЕР</span> → 3</div>
+        <div class="bottom">
+          <div class="teams panel">
+            <div class="team">
+              <span>Червячий спецназ</span><b>304</b>
+              <div class="bar"><i></i></div>
+            </div>
+            <div class="team blue">
+              <span>Садовые гномы</span><b>364</b>
+              <div class="bar"><i></i></div>
+            </div>
+          </div>
+          <div class="hint">
+            <kbd>↑ ↓</kbd> Прицел · <kbd>Пробел</kbd> Сила · <kbd>ПКМ</kbd> Арсенал
+          </div>
+          <div class="weapon panel">
+            <b>Базука</b><small>Боезапас ∞ · Урон 50 · Ветер влияет</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>
+      CRT: исходный фрагментный шейдер и пресеты игры; HUD остаётся отдельным DOM-слоем. Сначала
+      оценивайте арт без фильтра.
+    </p>
+    <p>
+      Кадры показывают разные сцены и не являются сравнением одного состояния симуляции.
+      <a href="../../visual-direction-v2.md">Стиль-гайд и границы пилота</a> ·
+      <a href="meadow-pilot.png">Исходная сцена без HUD</a>
+    </p>
+  </footer>
+  <script>
+    'use strict';
+    const gameFragment = __GAME_FRAGMENT__;
+    const presets = __GAME_PRESETS__;
+    const stage = document.getElementById('stage'),
+      canvas = document.getElementById('world');
+    const variant = document.getElementById('variant'),
+      crt = document.getElementById('crt');
+    const size = document.getElementById('size'),
+      hud = document.getElementById('hud');
+    const status = document.getElementById('status'),
+      overlay = document.getElementById('overlay');
+    const images = {},
+      gl = canvas.getContext('webgl2', { alpha: false, preserveDrawingBuffer: true });
+    function fail(error) {
+      status.textContent = 'Ошибка: ' + error.message;
+      stage.dataset.error = error.message;
+    }
+    function compile(type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
+        throw new Error(gl.getShaderInfoLog(shader));
+      return shader;
+    }
+    function program(fragment) {
+      const p = gl.createProgram();
+      gl.attachShader(
+        p,
+        compile(
+          gl.VERTEX_SHADER,
+          '#version 300 es\nin vec2 position; out vec2 vTextureCoord; void main(){vTextureCoord=vec2(position.x*.5+.5,.5-position.y*.5);gl_Position=vec4(position,0.,1.);}',
+        ),
+      );
+      gl.attachShader(
+        p,
+        compile(gl.FRAGMENT_SHADER, '#version 300 es\nprecision highp float;\n' + fragment),
+      );
+      gl.linkProgram(p);
+      if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+      return p;
+    }
+    function render() {
+      if (!images[variant.value] || !gl) return;
+      stage.style.width = size.value === 'fit' ? '100%' : size.value + 'px';
+      const width = Math.round(stage.clientWidth * devicePixelRatio),
+        height = Math.round(stage.clientHeight * devicePixelRatio);
+      canvas.width = width;
+      canvas.height = height;
+      const image = images[variant.value],
+        fit = Math.min(width / image.naturalWidth, height / image.naturalHeight);
+      const imageWidth = Math.round(image.naturalWidth * fit),
+        imageHeight = Math.round(image.naturalHeight * fit);
+      gl.viewport(0, 0, width, height);
+      gl.clearColor(0.075, 0.137, 0.176, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.viewport(
+        Math.floor((width - imageWidth) / 2),
+        Math.floor((height - imageHeight) / 2),
+        imageWidth,
+        imageHeight,
+      );
+      const p = crt.value === 'off' ? programs.plain : programs.crt;
+      gl.useProgram(p);
+      gl.bindBuffer(gl.ARRAY_BUFFER, vertices);
+      const position = gl.getAttribLocation(p, 'position');
+      gl.enableVertexAttribArray(position);
+      gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, images[variant.value]);
+      gl.uniform1i(gl.getUniformLocation(p, 'uTexture'), 0);
+      gl.uniform4f(
+        gl.getUniformLocation(p, 'uInputPixel'),
+        imageWidth,
+        imageHeight,
+        1 / imageWidth,
+        1 / imageHeight,
+      );
+      gl.uniform4f(
+        gl.getUniformLocation(p, 'uInputClamp'),
+        0.5 / imageWidth,
+        0.5 / imageHeight,
+        1 - 0.5 / imageWidth,
+        1 - 0.5 / imageHeight,
+      );
+      gl.uniform4f(
+        gl.getUniformLocation(p, 'uInputSize'),
+        imageWidth,
+        imageHeight,
+        1 / imageWidth,
+        1 / imageHeight,
+      );
+      gl.uniform4f(gl.getUniformLocation(p, 'uOutputFrame'), 0, 0, imageWidth, imageHeight);
+      for (const [key, value] of Object.entries(presets[crt.value] || {}))
+        gl.uniform1f(gl.getUniformLocation(p, key), value);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      overlay.hidden = variant.value !== 'pilot' || !hud.checked;
+      hud.disabled = variant.value !== 'pilot';
+      const error = gl.getError();
+      if (error !== gl.NO_ERROR) throw new Error('WebGL ' + error);
+      stage.dataset.ready = variant.value;
+      stage.dataset.crt = crt.value;
+      status.textContent =
+        stage.clientWidth + ' × ' + stage.clientHeight + ' CSS px · DPR ' + devicePixelRatio;
+    }
+    let programs, vertices, texture;
+    try {
+      if (!gl) throw new Error('WebGL2 недоступен; исходные PNG доступны по ссылкам');
+      programs = {
+        plain: program(
+          'in vec2 vTextureCoord; out vec4 finalColor; uniform sampler2D uTexture; void main(){finalColor=texture(uTexture,vTextureCoord);}',
+        ),
+        crt: program(gameFragment),
+      };
+      vertices = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, vertices);
+      gl.bufferData(
+        gl.ARRAY_BUFFER,
+        new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+        gl.STATIC_DRAW,
+      );
+      texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      Promise.all(
+        Object.entries({ pilot: __PILOT_IMAGE__, before: __BEFORE_IMAGE__ }).map(
+          ([key, src]) =>
+            new Promise((resolve, reject) => {
+              const img = new Image();
+              img.onload = () => {
+                images[key] = img;
+                resolve();
+              };
+              img.onerror = () => reject(new Error('Не загружен ' + src));
+              img.src = src;
+            }),
+        ),
+      )
+        .then(render)
+        .catch(fail);
+      for (const control of [variant, crt, size, hud])
+        control.addEventListener('change', () => {
+          try {
+            render();
+          } catch (error) {
+            fail(error);
+          }
+        });
+      new ResizeObserver(() => {
+        try {
+          render();
+        } catch (error) {
+          fail(error);
+        }
+      }).observe(stage);
+    } catch (error) {
+      fail(error);
+    }
+  </script>
+</html>

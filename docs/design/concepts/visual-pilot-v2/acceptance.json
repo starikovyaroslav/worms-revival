@@ -1,0 +1,59 @@
+{
+  "nativePixels": [
+    1672,
+    941
+  ],
+  "shader": "production source and presets",
+  "scenarios": [
+    {
+      "width": 1280,
+      "dpr": 1,
+      "presets": [
+        "off",
+        "soft",
+        "medium",
+        "strong"
+      ],
+      "hud": "inside",
+      "smallText": ">=10 CSS px"
+    },
+    {
+      "width": 1920,
+      "dpr": 1,
+      "presets": [
+        "off",
+        "soft",
+        "medium",
+        "strong"
+      ],
+      "hud": "inside",
+      "smallText": ">=10 CSS px"
+    },
+    {
+      "width": 1280,
+      "dpr": 2,
+      "presets": [
+        "off",
+        "soft",
+        "medium",
+        "strong"
+      ],
+      "hud": "inside",
+      "smallText": ">=10 CSS px"
+    },
+    {
+      "width": 1920,
+      "dpr": 2,
+      "presets": [
+        "off",
+        "soft",
+        "medium",
+        "strong"
+      ],
+      "hud": "inside",
+      "smallText": ">=10 CSS px"
+    }
+  ],
+  "errors": [],
+  "screenshots": "assets-in/previews/visual-pilot-v2"
+}
