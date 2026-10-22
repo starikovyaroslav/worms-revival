@@ -1,0 +1,27 @@
+{
+  "generator": "built-in imagegen",
+  "profile": "nocturne",
+  "identities": {
+    "nocturne-velvet": {
+      "delivered": "costumeJobs",
+      "costume": "opaque black latex, harness, ring choker, coiled belt whip"
+    },
+    "nocturne-crimson": {
+      "delivered": "stageJobs",
+      "costume": "opaque burgundy leather, asymmetric shoulder, buckled belt, choker",
+      "costumeEdit": "refused at input: sexual; no retry",
+      "requestId": "71eead36-7a23-40ba-b718-69b90fc5a2fb"
+    },
+    "nocturne-silver": {
+      "delivered": "costumeJobs",
+      "costume": "opaque black latex, harness, ring choker, coiled belt whip"
+    },
+    "nocturne-violet": {
+      "delivered": "stageJobs",
+      "costume": "opaque plum leather halterneck, gold choker, long gloves",
+      "costumeEdit": "refused at output: sexual; no retry",
+      "requestId": "7f8c9b85-6c1d-4365-b2b5-1a6ee7ea8da2"
+    }
+  },
+  "notes": "Stage masters are in assets-in/skins/stage; delivered masters are assets-in/skins/<id>.png. Final prompts and input roles: skin-nocturne-prompts.mjs. Whips are attached decorative costume details, not weapons. Initial jacket concepts were superseded after owner requested bolder stage outfits."
+}

@@ -167,6 +167,8 @@ const RIGS: Record<SkinProfile, SkinRig> = {
   sick: { hand: [7, -8], shoulder: [0, -9], lowHand: [7, -4], ground: [12, 0] },
   veteran: { hand: [7, -9], shoulder: [0, -10], lowHand: [7, -5], ground: [13, 0] },
   classic: { hand: [7, -10], shoulder: [0, -11], lowHand: [7, -5], ground: [12, 0] },
+  // Painted opera-glove palms sit higher than the classic chest line.
+  nocturne: { hand: [7, -12], shoulder: [0, -12], lowHand: [7, -5], ground: [12, 0] },
 };
 const OVERRIDES: Partial<Record<SkinId, Partial<SkinRig>>> = {
   'commando-femme': { hand: [7, -10], shoulder: [0, -11] },

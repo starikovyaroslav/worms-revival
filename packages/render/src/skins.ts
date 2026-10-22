@@ -33,6 +33,15 @@ export const SKINS = [
   { id: 'veteran-aviator', name: 'Ветеранка-лётчица', profile: 'veteran', sheet: 'v3' },
   { id: 'classic-punk', name: 'Нахальный панк', profile: 'classic', sheet: 'v3' },
   { id: 'classic-scout', name: 'Нахальная разведчица', profile: 'classic', sheet: 'v3' },
+  { id: 'nocturne-velvet', name: 'Бархатная госпожа', profile: 'nocturne', sheet: 'v4' },
+  { id: 'nocturne-crimson', name: 'Багровая бунтарка', profile: 'nocturne', sheet: 'v4' },
+  {
+    id: 'nocturne-silver',
+    name: 'Серебряный церемониймейстер',
+    profile: 'nocturne',
+    sheet: 'v4',
+  },
+  { id: 'nocturne-violet', name: 'Фиолетовая хищница', profile: 'nocturne', sheet: 'v4' },
 ] as const;
 export type SkinId = (typeof SKINS)[number]['id'];
 export type SkinProfile = (typeof SKINS)[number]['profile'];
@@ -68,6 +77,7 @@ export const CHARACTER_CLASSES = [
   { id: 'sick', name: 'Больные' },
   { id: 'veteran', name: 'Ветераны' },
   { id: 'classic', name: 'Классические' },
+  { id: 'nocturne', name: 'Ночные' },
 ] as const;
 export type CharacterClassId = (typeof CHARACTER_CLASSES)[number]['id'];
 export interface CharacterAppearance {
@@ -113,4 +123,5 @@ export const SKIN_MOTION: Record<
   sick: { breathe: 3.1, bob: 0.2, lean: 0.04, recoil: 0.75 },
   veteran: { breathe: 1.8, bob: 0.4, lean: 0.045, recoil: 0.35 },
   classic: { breathe: 2.2, bob: 0.45, lean: 0.025, recoil: 0.55 },
+  nocturne: { breathe: 1.7, bob: 0.2, lean: 0.016, recoil: 0.3 },
 };

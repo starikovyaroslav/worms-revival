@@ -2,6 +2,7 @@
 import { SKINS } from '../../packages/render/src/skins.ts';
 import { readFileSync } from 'node:fs';
 import { rosterJobs } from './skin-roster-prompts.mjs';
+import { nocturneJobs } from './skin-nocturne-prompts.mjs';
 export const acting = {
   heavy:
     'Heavy deliberate acting: braced broad neck, low center of mass, short forceful tail pushes, restrained breathing; hurt is an angry flinch, attack is a planted forceful punch, victory a proud clenched-fist salute.',
@@ -18,7 +19,7 @@ export const acting = {
     'Scrappy nimble acting: elastic elongated neck, clear energetic four-phase inchworm gait with tail compression and stretch, lively jumping and landing, cheeky aiming squint, snappy throw and punch, mischievous fist-pump victory.',
 };
 export const jobs = SKINS.filter(
-  (skin) => skin.id !== 'commander-femme' && skin.sheet !== 'v3',
+  (skin) => skin.id !== 'commander-femme' && skin.sheet !== 'v3' && skin.sheet !== 'v4',
 ).map((skin) => ({
   ...skin,
   reference: `docs/design/concepts/worm-skins-${skin.sheet}/${skin.id}.png`,
@@ -42,3 +43,4 @@ jobs.push({
   prompt: readFileSync(new URL('./skin-commander.prompt.txt', import.meta.url), 'utf8').trim(),
 });
 jobs.push(...rosterJobs);
+jobs.push(...nocturneJobs);

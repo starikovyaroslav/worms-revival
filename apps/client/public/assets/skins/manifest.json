@@ -6658,6 +6658,838 @@
         "h": 192
       }
     },
+    "skins/nocturne-velvet/idle": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/blink": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/walk_0": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/walk_1": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/walk_2": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/walk_3": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/jump": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/fall": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/land": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/hurt": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/aim": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/throw": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/melee": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/rope": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/defeat": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-velvet/win": {
+      "file": "nocturne-velvet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/idle": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/blink": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/walk_0": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/walk_1": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/walk_2": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/walk_3": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/jump": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/fall": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/land": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/hurt": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/aim": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/throw": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/melee": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/rope": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/defeat": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-crimson/win": {
+      "file": "nocturne-crimson.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/idle": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/blink": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/walk_0": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/walk_1": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/walk_2": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/walk_3": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/jump": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/fall": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/land": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/hurt": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/aim": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/throw": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/melee": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/rope": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/defeat": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-silver/win": {
+      "file": "nocturne-silver.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/idle": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/blink": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/walk_0": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/walk_1": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/walk_2": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/walk_3": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/jump": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/fall": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/land": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/hurt": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/aim": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/throw": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/melee": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/rope": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/defeat": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/nocturne-violet/win": {
+      "file": "nocturne-violet.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
     "skins/weapons/bazooka": {
       "file": "weapons.png",
       "w": 32,

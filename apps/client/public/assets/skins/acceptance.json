@@ -13423,5 +13423,1669 @@
     "transparent": 26816,
     "partialAlpha": 9995,
     "alphaLevels": 249
+  },
+  "skins/nocturne-velvet/idle": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 31784,
+      "x": 60,
+      "y": 39,
+      "w": 185,
+      "h": 271
+    },
+    "touchesSourceEdge": false,
+    "colors": 5935,
+    "transparent": 27929,
+    "partialAlpha": 8905,
+    "alphaLevels": 232
+  },
+  "skins/nocturne-velvet/blink": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 31569,
+      "x": 373,
+      "y": 39,
+      "w": 186,
+      "h": 271
+    },
+    "touchesSourceEdge": false,
+    "colors": 5869,
+    "transparent": 27929,
+    "partialAlpha": 8900,
+    "alphaLevels": 233
+  },
+  "skins/nocturne-velvet/walk_0": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 34016,
+      "x": 660,
+      "y": 42,
+      "w": 257,
+      "h": 268
+    },
+    "touchesSourceEdge": false,
+    "colors": 6223,
+    "transparent": 26960,
+    "partialAlpha": 9858,
+    "alphaLevels": 235
+  },
+  "skins/nocturne-velvet/walk_1": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 30140,
+      "x": 1008,
+      "y": 44,
+      "w": 186,
+      "h": 266
+    },
+    "touchesSourceEdge": false,
+    "colors": 5715,
+    "transparent": 28400,
+    "partialAlpha": 8422,
+    "alphaLevels": 222
+  },
+  "skins/nocturne-velvet/walk_2": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 34038,
+      "x": 44,
+      "y": 352,
+      "w": 238,
+      "h": 265
+    },
+    "touchesSourceEdge": false,
+    "colors": 6331,
+    "transparent": 26922,
+    "partialAlpha": 9904,
+    "alphaLevels": 239
+  },
+  "skins/nocturne-velvet/walk_3": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 34596,
+      "x": 353,
+      "y": 352,
+      "w": 263,
+      "h": 263
+    },
+    "touchesSourceEdge": false,
+    "colors": 6375,
+    "transparent": 26660,
+    "partialAlpha": 10171,
+    "alphaLevels": 246
+  },
+  "skins/nocturne-velvet/jump": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 34858,
+      "x": 679,
+      "y": 334,
+      "w": 221,
+      "h": 284
+    },
+    "touchesSourceEdge": false,
+    "colors": 6488,
+    "transparent": 26732,
+    "partialAlpha": 10116,
+    "alphaLevels": 235
+  },
+  "skins/nocturne-velvet/fall": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 29483,
+      "x": 994,
+      "y": 382,
+      "w": 218,
+      "h": 224
+    },
+    "touchesSourceEdge": false,
+    "colors": 5526,
+    "transparent": 28374,
+    "partialAlpha": 8463,
+    "alphaLevels": 228
+  },
+  "skins/nocturne-velvet/land": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 30171,
+      "x": 32,
+      "y": 710,
+      "w": 257,
+      "h": 192
+    },
+    "touchesSourceEdge": false,
+    "colors": 5600,
+    "transparent": 28111,
+    "partialAlpha": 8729,
+    "alphaLevels": 233
+  },
+  "skins/nocturne-velvet/hurt": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 32336,
+      "x": 366,
+      "y": 656,
+      "w": 195,
+      "h": 245
+    },
+    "touchesSourceEdge": false,
+    "colors": 5953,
+    "transparent": 27586,
+    "partialAlpha": 9255,
+    "alphaLevels": 227
+  },
+  "skins/nocturne-velvet/aim": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 28602,
+      "x": 680,
+      "y": 665,
+      "w": 215,
+      "h": 242
+    },
+    "touchesSourceEdge": false,
+    "colors": 5312,
+    "transparent": 28567,
+    "partialAlpha": 8273,
+    "alphaLevels": 232
+  },
+  "skins/nocturne-velvet/throw": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 32450,
+      "x": 985,
+      "y": 663,
+      "w": 265,
+      "h": 252
+    },
+    "touchesSourceEdge": false,
+    "colors": 5736,
+    "transparent": 27448,
+    "partialAlpha": 9373,
+    "alphaLevels": 224
+  },
+  "skins/nocturne-velvet/melee": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 35961,
+      "x": 34,
+      "y": 975,
+      "w": 288,
+      "h": 242
+    },
+    "touchesSourceEdge": false,
+    "colors": 6299,
+    "transparent": 26577,
+    "partialAlpha": 10245,
+    "alphaLevels": 237
+  },
+  "skins/nocturne-velvet/rope": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 32048,
+      "x": 390,
+      "y": 915,
+      "w": 166,
+      "h": 304
+    },
+    "touchesSourceEdge": false,
+    "colors": 5832,
+    "transparent": 27650,
+    "partialAlpha": 9189,
+    "alphaLevels": 228
+  },
+  "skins/nocturne-velvet/defeat": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 17,
+      "count": 28841,
+      "x": 683,
+      "y": 978,
+      "w": 200,
+      "h": 241
+    },
+    "touchesSourceEdge": false,
+    "colors": 5430,
+    "transparent": 28646,
+    "partialAlpha": 8184,
+    "alphaLevels": 226
+  },
+  "skins/nocturne-velvet/win": {
+    "source": "assets-in/skins/nocturne-velvet.png",
+    "profile": "nocturne",
+    "scale": 0.5,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 36182,
+      "x": 1006,
+      "y": 940,
+      "w": 189,
+      "h": 279
+    },
+    "touchesSourceEdge": false,
+    "colors": 6455,
+    "transparent": 26570,
+    "partialAlpha": 10258,
+    "alphaLevels": 235
+  },
+  "skins/nocturne-crimson/idle": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 35996,
+      "x": 61,
+      "y": 33,
+      "w": 206,
+      "h": 274
+    },
+    "touchesSourceEdge": false,
+    "colors": 8360,
+    "transparent": 26821,
+    "partialAlpha": 10010,
+    "alphaLevels": 238
+  },
+  "skins/nocturne-crimson/blink": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 35428,
+      "x": 379,
+      "y": 33,
+      "w": 200,
+      "h": 274
+    },
+    "touchesSourceEdge": false,
+    "colors": 8291,
+    "transparent": 26765,
+    "partialAlpha": 10067,
+    "alphaLevels": 248
+  },
+  "skins/nocturne-crimson/walk_0": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 36963,
+      "x": 665,
+      "y": 34,
+      "w": 272,
+      "h": 273
+    },
+    "touchesSourceEdge": false,
+    "colors": 8748,
+    "transparent": 26217,
+    "partialAlpha": 10625,
+    "alphaLevels": 246
+  },
+  "skins/nocturne-crimson/walk_1": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 35029,
+      "x": 1013,
+      "y": 40,
+      "w": 204,
+      "h": 267
+    },
+    "touchesSourceEdge": false,
+    "colors": 8134,
+    "transparent": 26852,
+    "partialAlpha": 9984,
+    "alphaLevels": 245
+  },
+  "skins/nocturne-crimson/walk_2": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 35,
+      "count": 35596,
+      "x": 38,
+      "y": 354,
+      "w": 241,
+      "h": 267
+    },
+    "touchesSourceEdge": false,
+    "colors": 8310,
+    "transparent": 26501,
+    "partialAlpha": 10350,
+    "alphaLevels": 242
+  },
+  "skins/nocturne-crimson/walk_3": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 33,
+      "count": 36721,
+      "x": 352,
+      "y": 352,
+      "w": 275,
+      "h": 269
+    },
+    "touchesSourceEdge": false,
+    "colors": 8664,
+    "transparent": 25871,
+    "partialAlpha": 10973,
+    "alphaLevels": 250
+  },
+  "skins/nocturne-crimson/jump": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 29,
+      "count": 36342,
+      "x": 679,
+      "y": 322,
+      "w": 203,
+      "h": 303
+    },
+    "touchesSourceEdge": false,
+    "colors": 8545,
+    "transparent": 26240,
+    "partialAlpha": 10604,
+    "alphaLevels": 254
+  },
+  "skins/nocturne-crimson/fall": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 40,
+      "count": 36016,
+      "x": 990,
+      "y": 381,
+      "w": 247,
+      "h": 236
+    },
+    "touchesSourceEdge": false,
+    "colors": 8493,
+    "transparent": 26365,
+    "partialAlpha": 10495,
+    "alphaLevels": 253
+  },
+  "skins/nocturne-crimson/land": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 79,
+      "count": 33277,
+      "x": 35,
+      "y": 710,
+      "w": 262,
+      "h": 200
+    },
+    "touchesSourceEdge": false,
+    "colors": 7978,
+    "transparent": 27303,
+    "partialAlpha": 9544,
+    "alphaLevels": 247
+  },
+  "skins/nocturne-crimson/hurt": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 62,
+      "count": 36793,
+      "x": 372,
+      "y": 651,
+      "w": 214,
+      "h": 258
+    },
+    "touchesSourceEdge": false,
+    "colors": 8649,
+    "transparent": 26195,
+    "partialAlpha": 10660,
+    "alphaLevels": 252
+  },
+  "skins/nocturne-crimson/aim": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 63,
+      "count": 33275,
+      "x": 682,
+      "y": 658,
+      "w": 240,
+      "h": 257
+    },
+    "touchesSourceEdge": false,
+    "colors": 7828,
+    "transparent": 27132,
+    "partialAlpha": 9713,
+    "alphaLevels": 246
+  },
+  "skins/nocturne-crimson/throw": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 64,
+      "count": 34848,
+      "x": 981,
+      "y": 662,
+      "w": 266,
+      "h": 253
+    },
+    "touchesSourceEdge": false,
+    "colors": 8239,
+    "transparent": 26545,
+    "partialAlpha": 10286,
+    "alphaLevels": 252
+  },
+  "skins/nocturne-crimson/melee": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 104,
+      "count": 35255,
+      "x": 49,
+      "y": 977,
+      "w": 272,
+      "h": 248
+    },
+    "touchesSourceEdge": false,
+    "colors": 8326,
+    "transparent": 26643,
+    "partialAlpha": 10208,
+    "alphaLevels": 248
+  },
+  "skins/nocturne-crimson/rope": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 101,
+      "count": 33809,
+      "x": 386,
+      "y": 924,
+      "w": 175,
+      "h": 302
+    },
+    "touchesSourceEdge": false,
+    "colors": 8034,
+    "transparent": 26905,
+    "partialAlpha": 9942,
+    "alphaLevels": 242
+  },
+  "skins/nocturne-crimson/defeat": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 103,
+      "count": 33383,
+      "x": 681,
+      "y": 976,
+      "w": 220,
+      "h": 249
+    },
+    "touchesSourceEdge": false,
+    "colors": 7874,
+    "transparent": 27202,
+    "partialAlpha": 9649,
+    "alphaLevels": 244
+  },
+  "skins/nocturne-crimson/win": {
+    "source": "assets-in/skins/nocturne-crimson.png",
+    "profile": "nocturne",
+    "scale": 0.5015673981191222,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 102,
+      "count": 41185,
+      "x": 1000,
+      "y": 936,
+      "w": 204,
+      "h": 290
+    },
+    "touchesSourceEdge": false,
+    "colors": 9473,
+    "transparent": 25048,
+    "partialAlpha": 11787,
+    "alphaLevels": 244
+  },
+  "skins/nocturne-silver/idle": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 29604,
+      "x": 60,
+      "y": 43,
+      "w": 199,
+      "h": 260
+    },
+    "touchesSourceEdge": false,
+    "colors": 6988,
+    "transparent": 27819,
+    "partialAlpha": 9031,
+    "alphaLevels": 237
+  },
+  "skins/nocturne-silver/blink": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 29499,
+      "x": 374,
+      "y": 44,
+      "w": 200,
+      "h": 259
+    },
+    "touchesSourceEdge": false,
+    "colors": 6936,
+    "transparent": 27865,
+    "partialAlpha": 8981,
+    "alphaLevels": 237
+  },
+  "skins/nocturne-silver/walk_0": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 30828,
+      "x": 669,
+      "y": 50,
+      "w": 269,
+      "h": 253
+    },
+    "touchesSourceEdge": false,
+    "colors": 7443,
+    "transparent": 27208,
+    "partialAlpha": 9649,
+    "alphaLevels": 246
+  },
+  "skins/nocturne-silver/walk_1": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 26038,
+      "x": 1003,
+      "y": 48,
+      "w": 187,
+      "h": 252
+    },
+    "touchesSourceEdge": false,
+    "colors": 6346,
+    "transparent": 28816,
+    "partialAlpha": 8035,
+    "alphaLevels": 241
+  },
+  "skins/nocturne-silver/walk_2": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 30768,
+      "x": 43,
+      "y": 357,
+      "w": 222,
+      "h": 253
+    },
+    "touchesSourceEdge": false,
+    "colors": 7305,
+    "transparent": 27256,
+    "partialAlpha": 9605,
+    "alphaLevels": 245
+  },
+  "skins/nocturne-silver/walk_3": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 31466,
+      "x": 350,
+      "y": 362,
+      "w": 278,
+      "h": 248
+    },
+    "touchesSourceEdge": false,
+    "colors": 7592,
+    "transparent": 26861,
+    "partialAlpha": 9997,
+    "alphaLevels": 243
+  },
+  "skins/nocturne-silver/jump": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 33944,
+      "x": 678,
+      "y": 336,
+      "w": 267,
+      "h": 269
+    },
+    "touchesSourceEdge": false,
+    "colors": 7997,
+    "transparent": 25939,
+    "partialAlpha": 10921,
+    "alphaLevels": 252
+  },
+  "skins/nocturne-silver/fall": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 25948,
+      "x": 1005,
+      "y": 401,
+      "w": 222,
+      "h": 198
+    },
+    "touchesSourceEdge": false,
+    "colors": 6346,
+    "transparent": 28749,
+    "partialAlpha": 8104,
+    "alphaLevels": 243
+  },
+  "skins/nocturne-silver/land": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 36,
+      "count": 28581,
+      "x": 38,
+      "y": 723,
+      "w": 241,
+      "h": 181
+    },
+    "touchesSourceEdge": false,
+    "colors": 6845,
+    "transparent": 28195,
+    "partialAlpha": 8663,
+    "alphaLevels": 237
+  },
+  "skins/nocturne-silver/hurt": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 29,
+      "count": 29691,
+      "x": 382,
+      "y": 660,
+      "w": 198,
+      "h": 246
+    },
+    "touchesSourceEdge": false,
+    "colors": 7173,
+    "transparent": 27693,
+    "partialAlpha": 9161,
+    "alphaLevels": 236
+  },
+  "skins/nocturne-silver/aim": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 30,
+      "count": 30583,
+      "x": 683,
+      "y": 662,
+      "w": 248,
+      "h": 249
+    },
+    "touchesSourceEdge": false,
+    "colors": 7207,
+    "transparent": 27437,
+    "partialAlpha": 9410,
+    "alphaLevels": 243
+  },
+  "skins/nocturne-silver/throw": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 31,
+      "count": 30749,
+      "x": 982,
+      "y": 662,
+      "w": 252,
+      "h": 245
+    },
+    "touchesSourceEdge": false,
+    "colors": 7287,
+    "transparent": 27178,
+    "partialAlpha": 9675,
+    "alphaLevels": 245
+  },
+  "skins/nocturne-silver/melee": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 45,
+      "count": 31717,
+      "x": 57,
+      "y": 972,
+      "w": 257,
+      "h": 244
+    },
+    "touchesSourceEdge": false,
+    "colors": 7517,
+    "transparent": 26848,
+    "partialAlpha": 10012,
+    "alphaLevels": 252
+  },
+  "skins/nocturne-silver/rope": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 43,
+      "count": 30199,
+      "x": 396,
+      "y": 922,
+      "w": 168,
+      "h": 295
+    },
+    "touchesSourceEdge": false,
+    "colors": 6900,
+    "transparent": 27606,
+    "partialAlpha": 9242,
+    "alphaLevels": 230
+  },
+  "skins/nocturne-silver/defeat": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 46,
+      "count": 28244,
+      "x": 679,
+      "y": 988,
+      "w": 206,
+      "h": 228
+    },
+    "touchesSourceEdge": false,
+    "colors": 6785,
+    "transparent": 28126,
+    "partialAlpha": 8727,
+    "alphaLevels": 246
+  },
+  "skins/nocturne-silver/win": {
+    "source": "assets-in/skins/nocturne-silver.png",
+    "profile": "nocturne",
+    "scale": 0.5144694533762058,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 44,
+      "count": 35611,
+      "x": 995,
+      "y": 938,
+      "w": 207,
+      "h": 278
+    },
+    "touchesSourceEdge": false,
+    "colors": 8007,
+    "transparent": 25862,
+    "partialAlpha": 10995,
+    "alphaLevels": 252
+  },
+  "skins/nocturne-violet/idle": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 34824,
+      "x": 59,
+      "y": 34,
+      "w": 197,
+      "h": 265
+    },
+    "touchesSourceEdge": false,
+    "colors": 8732,
+    "transparent": 26519,
+    "partialAlpha": 10315,
+    "alphaLevels": 241
+  },
+  "skins/nocturne-violet/blink": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 34673,
+      "x": 375,
+      "y": 34,
+      "w": 195,
+      "h": 265
+    },
+    "touchesSourceEdge": false,
+    "colors": 8678,
+    "transparent": 26434,
+    "partialAlpha": 10390,
+    "alphaLevels": 242
+  },
+  "skins/nocturne-violet/walk_0": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 34414,
+      "x": 664,
+      "y": 34,
+      "w": 257,
+      "h": 265
+    },
+    "touchesSourceEdge": false,
+    "colors": 8754,
+    "transparent": 26368,
+    "partialAlpha": 10470,
+    "alphaLevels": 246
+  },
+  "skins/nocturne-violet/walk_1": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 31051,
+      "x": 1019,
+      "y": 39,
+      "w": 176,
+      "h": 258
+    },
+    "touchesSourceEdge": false,
+    "colors": 7932,
+    "transparent": 27515,
+    "partialAlpha": 9319,
+    "alphaLevels": 242
+  },
+  "skins/nocturne-violet/walk_2": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 38174,
+      "x": 38,
+      "y": 350,
+      "w": 240,
+      "h": 266
+    },
+    "touchesSourceEdge": false,
+    "colors": 9524,
+    "transparent": 25311,
+    "partialAlpha": 11530,
+    "alphaLevels": 248
+  },
+  "skins/nocturne-violet/walk_3": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 36260,
+      "x": 347,
+      "y": 356,
+      "w": 278,
+      "h": 258
+    },
+    "touchesSourceEdge": false,
+    "colors": 9150,
+    "transparent": 25716,
+    "partialAlpha": 11110,
+    "alphaLevels": 252
+  },
+  "skins/nocturne-violet/jump": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 36926,
+      "x": 673,
+      "y": 331,
+      "w": 243,
+      "h": 294
+    },
+    "touchesSourceEdge": false,
+    "colors": 9269,
+    "transparent": 25510,
+    "partialAlpha": 11314,
+    "alphaLevels": 249
+  },
+  "skins/nocturne-violet/fall": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 32569,
+      "x": 992,
+      "y": 380,
+      "w": 235,
+      "h": 235
+    },
+    "touchesSourceEdge": false,
+    "colors": 8269,
+    "transparent": 26913,
+    "partialAlpha": 9923,
+    "alphaLevels": 249
+  },
+  "skins/nocturne-violet/land": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 31,
+      "count": 31108,
+      "x": 46,
+      "y": 705,
+      "w": 243,
+      "h": 210
+    },
+    "touchesSourceEdge": false,
+    "colors": 7994,
+    "transparent": 27382,
+    "partialAlpha": 9462,
+    "alphaLevels": 249
+  },
+  "skins/nocturne-violet/hurt": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 25,
+      "count": 32506,
+      "x": 384,
+      "y": 664,
+      "w": 185,
+      "h": 251
+    },
+    "touchesSourceEdge": false,
+    "colors": 8145,
+    "transparent": 27100,
+    "partialAlpha": 9730,
+    "alphaLevels": 240
+  },
+  "skins/nocturne-violet/aim": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 27,
+      "count": 33373,
+      "x": 669,
+      "y": 669,
+      "w": 258,
+      "h": 248
+    },
+    "touchesSourceEdge": false,
+    "colors": 8547,
+    "transparent": 26490,
+    "partialAlpha": 10332,
+    "alphaLevels": 241
+  },
+  "skins/nocturne-violet/throw": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 26,
+      "count": 34719,
+      "x": 984,
+      "y": 668,
+      "w": 255,
+      "h": 248
+    },
+    "touchesSourceEdge": false,
+    "colors": 8687,
+    "transparent": 26371,
+    "partialAlpha": 10437,
+    "alphaLevels": 246
+  },
+  "skins/nocturne-violet/melee": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 38,
+      "count": 34799,
+      "x": 54,
+      "y": 969,
+      "w": 259,
+      "h": 259
+    },
+    "touchesSourceEdge": false,
+    "colors": 8717,
+    "transparent": 26282,
+    "partialAlpha": 10536,
+    "alphaLevels": 243
+  },
+  "skins/nocturne-violet/rope": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 36,
+      "count": 33529,
+      "x": 377,
+      "y": 932,
+      "w": 177,
+      "h": 296
+    },
+    "touchesSourceEdge": false,
+    "colors": 8406,
+    "transparent": 26616,
+    "partialAlpha": 10207,
+    "alphaLevels": 244
+  },
+  "skins/nocturne-violet/defeat": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 39,
+      "count": 31234,
+      "x": 686,
+      "y": 977,
+      "w": 192,
+      "h": 251
+    },
+    "touchesSourceEdge": false,
+    "colors": 7957,
+    "transparent": 27356,
+    "partialAlpha": 9487,
+    "alphaLevels": 242
+  },
+  "skins/nocturne-violet/win": {
+    "source": "assets-in/skins/nocturne-violet.png",
+    "profile": "nocturne",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 37,
+      "count": 37975,
+      "x": 996,
+      "y": 951,
+      "w": 197,
+      "h": 277
+    },
+    "touchesSourceEdge": false,
+    "colors": 9458,
+    "transparent": 25346,
+    "partialAlpha": 11474,
+    "alphaLevels": 247
   }
 }
