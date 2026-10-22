@@ -18,7 +18,19 @@ export function audit() {
   walk(base);
   const problems = [],
     packs = [];
-  for (const pack of ['', 'generated', 'arsenal', 'vfx', 'military', 'skins', 'painted-meadow']) {
+  for (const pack of [
+    '',
+    'generated',
+    'arsenal',
+    'vfx',
+    'military',
+    'skins',
+    'painted-meadow',
+    'painted-desert',
+    'painted-arctic',
+    'painted-hell',
+    'painted-common',
+  ]) {
     const manifest = JSON.parse(readFileSync(resolve(base, pack, 'manifest.json')));
     const packFiles = new Set();
     let bytes = 0,

@@ -1,0 +1,2342 @@
+{
+  "version": 2,
+  "style": "painted",
+  "assets": {
+    "painted/common/weapons/icon/grenade": {
+      "file": "weapons--icon--grenade.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 266,
+      "pixelH": 266,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/dynamite": {
+      "file": "weapons--icon--dynamite.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 364,
+      "pixelH": 364,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/mine": {
+      "file": "weapons--icon--mine.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 280,
+      "pixelH": 280,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/bazooka": {
+      "file": "weapons--icon--bazooka.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 392,
+      "pixelH": 392,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/sheep": {
+      "file": "weapons--icon--sheep.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 322,
+      "pixelH": 322,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/homing": {
+      "file": "weapons--icon--homing.png",
+      "w": 32,
+      "h": 25,
+      "pixelW": 416,
+      "pixelH": 325,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/mortar": {
+      "file": "weapons--icon--mortar.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/pigeon": {
+      "file": "weapons--icon--pigeon.png",
+      "w": 32,
+      "h": 23,
+      "pixelW": 384,
+      "pixelH": 276,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/cluster": {
+      "file": "weapons--icon--cluster.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 266,
+      "pixelH": 266,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/banana": {
+      "file": "weapons--icon--banana.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 280,
+      "pixelH": 280,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/shotgun": {
+      "file": "weapons--icon--shotgun.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 462,
+      "pixelH": 462,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/handgun": {
+      "file": "weapons--icon--handgun.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 266,
+      "pixelH": 266,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/uzi": {
+      "file": "weapons--icon--uzi.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/minigun": {
+      "file": "weapons--icon--minigun.png",
+      "w": 32,
+      "h": 24,
+      "pixelW": 416,
+      "pixelH": 312,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/longbow": {
+      "file": "weapons--icon--longbow.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 392,
+      "pixelH": 392,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/firepunch": {
+      "file": "weapons--icon--firepunch.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/prod": {
+      "file": "weapons--icon--prod.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 308,
+      "pixelH": 308,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/supersheep": {
+      "file": "weapons--icon--supersheep.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 322,
+      "pixelH": 322,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/airstrike": {
+      "file": "weapons--icon--airstrike.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 378,
+      "pixelH": 378,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/blowtorch": {
+      "file": "weapons--icon--blowtorch.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 308,
+      "pixelH": 308,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/drill": {
+      "file": "weapons--icon--drill.png",
+      "w": 30,
+      "h": 32,
+      "pixelW": 420,
+      "pixelH": 448,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/girder": {
+      "file": "weapons--icon--girder.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/bat": {
+      "file": "weapons--icon--bat.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 350,
+      "pixelH": 350,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/rope": {
+      "file": "weapons--icon--rope.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 350,
+      "pixelH": 350,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/parachute": {
+      "file": "weapons--icon--parachute.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/teleport": {
+      "file": "weapons--icon--teleport.png",
+      "w": 30,
+      "h": 32,
+      "pixelW": 330,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/hhg": {
+      "file": "weapons--icon--hhg.png",
+      "w": 22,
+      "h": 32,
+      "pixelW": 242,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/skipgo": {
+      "file": "weapons--icon--skipgo.png",
+      "w": 23,
+      "h": 32,
+      "pixelW": 276,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/surrender": {
+      "file": "weapons--icon--surrender.png",
+      "w": 22,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/petrol": {
+      "file": "weapons--icon--petrol.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 308,
+      "pixelH": 308,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/madcow": {
+      "file": "weapons--icon--madcow.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 378,
+      "pixelH": 378,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/skunk": {
+      "file": "weapons--icon--skunk.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 308,
+      "pixelH": 308,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/donkey": {
+      "file": "weapons--icon--donkey.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 350,
+      "pixelH": 350,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/jetpack": {
+      "file": "weapons--icon--jetpack.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 322,
+      "pixelH": 322,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/lowgravity": {
+      "file": "weapons--icon--lowgravity.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 294,
+      "pixelH": 294,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/fastwalk": {
+      "file": "weapons--icon--fastwalk.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 378,
+      "pixelH": 378,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/laser": {
+      "file": "weapons--icon--laser.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 378,
+      "pixelH": 378,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/invisible": {
+      "file": "weapons--icon--invisible.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 308,
+      "pixelH": 308,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/doubledamage": {
+      "file": "weapons--icon--doubledamage.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 308,
+      "pixelH": 308,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/cratespy": {
+      "file": "weapons--icon--cratespy.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/sheeplauncher": {
+      "file": "weapons--icon--sheeplauncher.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 392,
+      "pixelH": 392,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/axe": {
+      "file": "weapons--icon--axe.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/earthquake": {
+      "file": "weapons--icon--earthquake.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 350,
+      "pixelH": 350,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/dragonball": {
+      "file": "weapons--icon--dragonball.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 322,
+      "pixelH": 322,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/kamikaze": {
+      "file": "weapons--icon--kamikaze.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 364,
+      "pixelH": 364,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/suicide": {
+      "file": "weapons--icon--suicide.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/molebomb": {
+      "file": "weapons--icon--molebomb.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 294,
+      "pixelH": 294,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/napalm": {
+      "file": "weapons--icon--napalm.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 308,
+      "pixelH": 308,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/mail": {
+      "file": "weapons--icon--mail.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/minestrike": {
+      "file": "weapons--icon--minestrike.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/molesquad": {
+      "file": "weapons--icon--molesquad.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/girderpack": {
+      "file": "weapons--icon--girderpack.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/bungee": {
+      "file": "weapons--icon--bungee.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 322,
+      "pixelH": 322,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/scales": {
+      "file": "weapons--icon--scales.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 350,
+      "pixelH": 350,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/superbanana": {
+      "file": "weapons--icon--superbanana.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/flamethrower": {
+      "file": "weapons--icon--flamethrower.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/salvation": {
+      "file": "weapons--icon--salvation.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 322,
+      "pixelH": 322,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/mbbomb": {
+      "file": "weapons--icon--mbbomb.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/vase": {
+      "file": "weapons--icon--vase.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/frenchsheep": {
+      "file": "weapons--icon--frenchsheep.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 350,
+      "pixelH": 350,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/carpet": {
+      "file": "weapons--icon--carpet.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/madcows": {
+      "file": "weapons--icon--madcows.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 364,
+      "pixelH": 364,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/oldwoman": {
+      "file": "weapons--icon--oldwoman.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 322,
+      "pixelH": 322,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/nuke": {
+      "file": "weapons--icon--nuke.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/armageddon": {
+      "file": "weapons--icon--armageddon.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 616,
+      "pixelH": 616,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/selectworm": {
+      "file": "weapons--icon--selectworm.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 588,
+      "pixelH": 588,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/freeze": {
+      "file": "weapons--icon--freeze.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 532,
+      "pixelH": 532,
+      "sampling": "linear"
+    },
+    "painted/common/weapons/icon/magicbullet": {
+      "file": "weapons--icon--magicbullet.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 546,
+      "pixelH": 546,
+      "sampling": "linear"
+    },
+    "painted/common/objects/grave_cross": {
+      "file": "objects--grave_cross.png",
+      "w": 11,
+      "h": 12,
+      "pixelW": 275,
+      "pixelH": 300,
+      "sampling": "linear"
+    },
+    "painted/common/objects/grave_round": {
+      "file": "objects--grave_round.png",
+      "w": 11,
+      "h": 9,
+      "pixelW": 352,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/objects/grave_slab": {
+      "file": "objects--grave_slab.png",
+      "w": 11,
+      "h": 4,
+      "pixelW": 770,
+      "pixelH": 280,
+      "sampling": "linear"
+    },
+    "painted/common/objects/grave_skull": {
+      "file": "objects--grave_skull.png",
+      "w": 11,
+      "h": 9,
+      "pixelW": 352,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/objects/crate_weapon": {
+      "file": "objects--crate_weapon.png",
+      "w": 16,
+      "h": 14,
+      "pixelW": 304,
+      "pixelH": 266,
+      "sampling": "linear"
+    },
+    "painted/common/objects/crate_health": {
+      "file": "objects--crate_health.png",
+      "w": 16,
+      "h": 14,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/objects/crate_utility": {
+      "file": "objects--crate_utility.png",
+      "w": 16,
+      "h": 14,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/objects/crate_open": {
+      "file": "objects--crate_open.png",
+      "w": 16,
+      "h": 10,
+      "pixelW": 480,
+      "pixelH": 300,
+      "sampling": "linear"
+    },
+    "painted/common/objects/barrel": {
+      "file": "objects--barrel.png",
+      "w": 11,
+      "h": 14,
+      "pixelW": 231,
+      "pixelH": 294,
+      "sampling": "linear"
+    },
+    "painted/common/objects/barrel_burning": {
+      "file": "objects--barrel_burning.png",
+      "w": 8,
+      "h": 14,
+      "pixelW": 208,
+      "pixelH": 364,
+      "sampling": "linear"
+    },
+    "painted/common/objects/mine_off": {
+      "file": "objects--mine_off.png",
+      "w": 8,
+      "h": 4,
+      "pixelW": 360,
+      "pixelH": 180,
+      "sampling": "linear"
+    },
+    "painted/common/objects/mine_armed": {
+      "file": "objects--mine_armed.png",
+      "w": 6,
+      "h": 5,
+      "pixelW": 270,
+      "pixelH": 225,
+      "sampling": "linear"
+    },
+    "painted/common/objects/parachute": {
+      "file": "objects--parachute.png",
+      "w": 20,
+      "h": 17,
+      "pixelW": 400,
+      "pixelH": 340,
+      "sampling": "linear"
+    },
+    "painted/common/objects/crate_broken": {
+      "file": "objects--crate_broken.png",
+      "w": 16,
+      "h": 9,
+      "pixelW": 448,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/objects/dynamite": {
+      "file": "objects--dynamite.png",
+      "w": 17,
+      "h": 20,
+      "pixelW": 323,
+      "pixelH": 380,
+      "sampling": "linear"
+    },
+    "painted/common/objects/canister": {
+      "file": "objects--canister.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 256,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/sheep_0": {
+      "file": "creatures--sheep_0.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/sheep_1": {
+      "file": "creatures--sheep_1.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/supersheep_0": {
+      "file": "creatures--supersheep_0.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/supersheep_1": {
+      "file": "creatures--supersheep_1.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/pigeon_0": {
+      "file": "creatures--pigeon_0.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/pigeon_1": {
+      "file": "creatures--pigeon_1.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/mole_0": {
+      "file": "creatures--mole_0.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/mole_1": {
+      "file": "creatures--mole_1.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/cow": {
+      "file": "creatures--cow.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/oldwoman": {
+      "file": "creatures--oldwoman.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/donkey": {
+      "file": "creatures--donkey.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/skunk": {
+      "file": "creatures--skunk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/banana_0": {
+      "file": "creatures--banana_0.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/banana_1": {
+      "file": "creatures--banana_1.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/stink": {
+      "file": "creatures--stink.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/donkey_fall": {
+      "file": "creatures--donkey_fall.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/proj/grenade": {
+      "file": "proj--grenade.png",
+      "w": 10,
+      "h": 13,
+      "pixelW": 270,
+      "pixelH": 351,
+      "sampling": "linear"
+    },
+    "painted/common/proj/cluster": {
+      "file": "proj--cluster.png",
+      "w": 14,
+      "h": 12,
+      "pixelW": 336,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/proj/bomblet": {
+      "file": "proj--bomblet.png",
+      "w": 5,
+      "h": 6,
+      "pixelW": 190,
+      "pixelH": 228,
+      "sampling": "linear"
+    },
+    "painted/common/proj/banana": {
+      "file": "proj--banana.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 266,
+      "pixelH": 266,
+      "sampling": "linear"
+    },
+    "painted/common/proj/hhg": {
+      "file": "proj--hhg.png",
+      "w": 9,
+      "h": 14,
+      "pixelW": 234,
+      "pixelH": 364,
+      "sampling": "linear"
+    },
+    "painted/common/proj/dynamite": {
+      "file": "proj--dynamite.png",
+      "w": 13,
+      "h": 16,
+      "pixelW": 351,
+      "pixelH": 432,
+      "sampling": "linear"
+    },
+    "painted/common/proj/rocket": {
+      "file": "proj--rocket.png",
+      "w": 20,
+      "h": 10,
+      "pixelW": 320,
+      "pixelH": 160,
+      "sampling": "linear"
+    },
+    "painted/common/proj/arrow": {
+      "file": "proj--arrow.png",
+      "w": 22,
+      "h": 5,
+      "pixelW": 462,
+      "pixelH": 105,
+      "sampling": "linear"
+    },
+    "painted/common/proj/meteor": {
+      "file": "proj--meteor.png",
+      "w": 8,
+      "h": 5,
+      "pixelW": 512,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/vase": {
+      "file": "proj--vase.png",
+      "w": 8,
+      "h": 11,
+      "pixelW": 240,
+      "pixelH": 330,
+      "sampling": "linear"
+    },
+    "painted/common/proj/shard": {
+      "file": "proj--shard.png",
+      "w": 4,
+      "h": 4,
+      "pixelW": 236,
+      "pixelH": 236,
+      "sampling": "linear"
+    },
+    "painted/common/proj/bullet": {
+      "file": "proj--bullet.png",
+      "w": 4,
+      "h": 2,
+      "pixelW": 220,
+      "pixelH": 110,
+      "sampling": "linear"
+    },
+    "painted/common/proj/mbbomb": {
+      "file": "proj--mbbomb.png",
+      "w": 12,
+      "h": 14,
+      "pixelW": 288,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/proj/dragonball": {
+      "file": "proj--dragonball.png",
+      "w": 10,
+      "h": 7,
+      "pixelW": 370,
+      "pixelH": 259,
+      "sampling": "linear"
+    },
+    "painted/common/proj/napalm": {
+      "file": "proj--napalm.png",
+      "w": 10,
+      "h": 6,
+      "pixelW": 430,
+      "pixelH": 258,
+      "sampling": "linear"
+    },
+    "painted/common/proj/carpet": {
+      "file": "proj--carpet.png",
+      "w": 12,
+      "h": 6,
+      "pixelW": 456,
+      "pixelH": 228,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/bazooka": {
+      "file": "skins--weapons--bazooka.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/handgun": {
+      "file": "skins--weapons--handgun.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 224,
+      "pixelH": 224,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/shotgun": {
+      "file": "skins--weapons--shotgun.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 416,
+      "pixelH": 416,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/uzi": {
+      "file": "skins--weapons--uzi.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/minigun": {
+      "file": "skins--weapons--minigun.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 448,
+      "pixelH": 448,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/longbow": {
+      "file": "skins--weapons--longbow.png",
+      "w": 32,
+      "h": 24,
+      "pixelW": 512,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/flamethrower": {
+      "file": "skins--weapons--flamethrower.png",
+      "w": 32,
+      "h": 24,
+      "pixelW": 384,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/sheeplauncher": {
+      "file": "skins--weapons--sheeplauncher.png",
+      "w": 32,
+      "h": 24,
+      "pixelW": 320,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/blowtorch": {
+      "file": "skins--weapons--blowtorch.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/drill": {
+      "file": "skins--weapons--drill.png",
+      "w": 32,
+      "h": 24,
+      "pixelW": 352,
+      "pixelH": 264,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/rope": {
+      "file": "skins--weapons--rope.png",
+      "w": 32,
+      "h": 24,
+      "pixelW": 384,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/skins/equipment/mortar-base": {
+      "file": "skins--equipment--mortar-base.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/skins/equipment/mortar-barrel": {
+      "file": "skins--equipment--mortar-barrel.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 672,
+      "pixelH": 672,
+      "sampling": "linear"
+    },
+    "painted/common/skins/equipment/radio": {
+      "file": "skins--equipment--radio.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/skins/equipment/detonator": {
+      "file": "skins--equipment--detonator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 256,
+      "pixelH": 256,
+      "sampling": "linear"
+    },
+    "painted/common/objects/jetpack": {
+      "file": "objects--jetpack.png",
+      "w": 7,
+      "h": 9,
+      "pixelW": 315,
+      "pixelH": 405,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/steam_0": {
+      "file": "vfx--steam_0.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 360,
+      "pixelH": 360,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/steam_1": {
+      "file": "vfx--steam_1.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 360,
+      "pixelH": 360,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/steam_2": {
+      "file": "vfx--steam_2.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 360,
+      "pixelH": 360,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/steam_3": {
+      "file": "vfx--steam_3.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 360,
+      "pixelH": 360,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gas_0": {
+      "file": "vfx--gas_0.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gas_1": {
+      "file": "vfx--gas_1.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gas_2": {
+      "file": "vfx--gas_2.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gas_3": {
+      "file": "vfx--gas_3.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/ghost_0": {
+      "file": "vfx--ghost_0.png",
+      "w": 24,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/ghost_1": {
+      "file": "vfx--ghost_1.png",
+      "w": 24,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/ghost_2": {
+      "file": "vfx--ghost_2.png",
+      "w": 24,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/ghost_3": {
+      "file": "vfx--ghost_3.png",
+      "w": 24,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/scorch_0": {
+      "file": "vfx--scorch_0.png",
+      "w": 64,
+      "h": 24,
+      "pixelW": 704,
+      "pixelH": 264,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/scorch_1": {
+      "file": "vfx--scorch_1.png",
+      "w": 64,
+      "h": 24,
+      "pixelW": 704,
+      "pixelH": 264,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/scorch_2": {
+      "file": "vfx--scorch_2.png",
+      "w": 64,
+      "h": 24,
+      "pixelW": 704,
+      "pixelH": 264,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/scorch_3": {
+      "file": "vfx--scorch_3.png",
+      "w": 64,
+      "h": 24,
+      "pixelW": 704,
+      "pixelH": 264,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/incendiary_0": {
+      "file": "vfx--incendiary_0.png",
+      "w": 64,
+      "h": 48,
+      "pixelW": 448,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/incendiary_1": {
+      "file": "vfx--incendiary_1.png",
+      "w": 64,
+      "h": 48,
+      "pixelW": 448,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/incendiary_2": {
+      "file": "vfx--incendiary_2.png",
+      "w": 64,
+      "h": 48,
+      "pixelW": 448,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/incendiary_3": {
+      "file": "vfx--incendiary_3.png",
+      "w": 64,
+      "h": 48,
+      "pixelW": 448,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/energy_0": {
+      "file": "vfx--energy_0.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/energy_1": {
+      "file": "vfx--energy_1.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/energy_2": {
+      "file": "vfx--energy_2.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/energy_3": {
+      "file": "vfx--energy_3.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/nuke_0": {
+      "file": "vfx--nuke_0.png",
+      "w": 96,
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/nuke_1": {
+      "file": "vfx--nuke_1.png",
+      "w": 96,
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/nuke_2": {
+      "file": "vfx--nuke_2.png",
+      "w": 96,
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/nuke_3": {
+      "file": "vfx--nuke_3.png",
+      "w": 96,
+      "h": 96,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/engine_0": {
+      "file": "vfx--engine_0.png",
+      "w": 24,
+      "h": 12,
+      "pixelW": 312,
+      "pixelH": 156,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/engine_1": {
+      "file": "vfx--engine_1.png",
+      "w": 24,
+      "h": 12,
+      "pixelW": 312,
+      "pixelH": 156,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/engine_2": {
+      "file": "vfx--engine_2.png",
+      "w": 24,
+      "h": 12,
+      "pixelW": 312,
+      "pixelH": 156,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/engine_3": {
+      "file": "vfx--engine_3.png",
+      "w": 24,
+      "h": 12,
+      "pixelW": 312,
+      "pixelH": 156,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/letter_0": {
+      "file": "vfx--letter_0.png",
+      "w": 16,
+      "h": 14,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/letter_1": {
+      "file": "vfx--letter_1.png",
+      "w": 16,
+      "h": 14,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/letter_2": {
+      "file": "vfx--letter_2.png",
+      "w": 16,
+      "h": 14,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/letter_3": {
+      "file": "vfx--letter_3.png",
+      "w": 16,
+      "h": 14,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/missile_0": {
+      "file": "vfx--missile_0.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/missile_1": {
+      "file": "vfx--missile_1.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/missile_2": {
+      "file": "vfx--missile_2.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/missile_3": {
+      "file": "vfx--missile_3.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/homing_0": {
+      "file": "vfx--homing_0.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/homing_1": {
+      "file": "vfx--homing_1.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/homing_2": {
+      "file": "vfx--homing_2.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/homing_3": {
+      "file": "vfx--homing_3.png",
+      "w": 22,
+      "h": 12,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/rocket_mk2_0": {
+      "file": "vfx--rocket_mk2_0.png",
+      "w": 30,
+      "h": 14,
+      "pixelW": 540,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/rocket_mk2_1": {
+      "file": "vfx--rocket_mk2_1.png",
+      "w": 30,
+      "h": 14,
+      "pixelW": 540,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/rocket_mk2_2": {
+      "file": "vfx--rocket_mk2_2.png",
+      "w": 30,
+      "h": 14,
+      "pixelW": 540,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/rocket_mk2_3": {
+      "file": "vfx--rocket_mk2_3.png",
+      "w": 30,
+      "h": 14,
+      "pixelW": 540,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/attack_0": {
+      "file": "vfx--attack_0.png",
+      "w": 128,
+      "h": 56,
+      "pixelW": 896,
+      "pixelH": 392,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/attack_1": {
+      "file": "vfx--attack_1.png",
+      "w": 128,
+      "h": 56,
+      "pixelW": 896,
+      "pixelH": 392,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/attack_2": {
+      "file": "vfx--attack_2.png",
+      "w": 128,
+      "h": 56,
+      "pixelW": 896,
+      "pixelH": 392,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/attack_3": {
+      "file": "vfx--attack_3.png",
+      "w": 128,
+      "h": 56,
+      "pixelW": 896,
+      "pixelH": 392,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gunship_0": {
+      "file": "vfx--gunship_0.png",
+      "w": 128,
+      "h": 64,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gunship_1": {
+      "file": "vfx--gunship_1.png",
+      "w": 128,
+      "h": 64,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gunship_2": {
+      "file": "vfx--gunship_2.png",
+      "w": 128,
+      "h": 64,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/gunship_3": {
+      "file": "vfx--gunship_3.png",
+      "w": 128,
+      "h": 64,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/stealth_0": {
+      "file": "vfx--stealth_0.png",
+      "w": 128,
+      "h": 80,
+      "pixelW": 768,
+      "pixelH": 480,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/stealth_1": {
+      "file": "vfx--stealth_1.png",
+      "w": 128,
+      "h": 80,
+      "pixelW": 768,
+      "pixelH": 480,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/stealth_2": {
+      "file": "vfx--stealth_2.png",
+      "w": 128,
+      "h": 80,
+      "pixelW": 768,
+      "pixelH": 480,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/stealth_3": {
+      "file": "vfx--stealth_3.png",
+      "w": 128,
+      "h": 80,
+      "pixelW": 768,
+      "pixelH": 480,
+      "sampling": "linear"
+    },
+    "painted/common/materials/rock": {
+      "file": "materials--rock.png",
+      "w": 128,
+      "h": 128,
+      "pixelW": 627,
+      "pixelH": 627,
+      "sampling": "linear"
+    },
+    "painted/common/materials/steel": {
+      "file": "materials--steel.png",
+      "w": 128,
+      "h": 128,
+      "pixelW": 627,
+      "pixelH": 627,
+      "sampling": "linear"
+    },
+    "painted/common/materials/ash": {
+      "file": "materials--ash.png",
+      "w": 128,
+      "h": 128,
+      "pixelW": 627,
+      "pixelH": 627,
+      "sampling": "linear"
+    },
+    "painted/common/materials/clay": {
+      "file": "materials--clay.png",
+      "w": 128,
+      "h": 128,
+      "pixelW": 627,
+      "pixelH": 627,
+      "sampling": "linear"
+    },
+    "painted/common/ui/logo-menu": {
+      "file": "ui--logo-menu.png",
+      "w": 240,
+      "h": 100.6896551724138,
+      "pixelW": 1914,
+      "pixelH": 803,
+      "sampling": "linear"
+    },
+    "painted/common/ui/logo": {
+      "file": "ui--logo-menu.png",
+      "w": 317,
+      "h": 147,
+      "pixelW": 1914,
+      "pixelH": 803,
+      "sampling": "linear"
+    },
+    "painted/common/objects/petrol-bottle": {
+      "file": "objects--petrol-bottle.png",
+      "w": 10,
+      "h": 14,
+      "pixelW": 400,
+      "pixelH": 560,
+      "sampling": "linear"
+    },
+    "painted/common/proj/frenchsheep": {
+      "file": "proj--frenchsheep.png",
+      "w": 12,
+      "h": 12,
+      "pixelW": 708,
+      "pixelH": 708,
+      "sampling": "linear"
+    },
+    "painted/common/creatures/nun": {
+      "file": "creatures--nun.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 528,
+      "pixelH": 660,
+      "sampling": "linear"
+    },
+    "painted/common/objects/crate-weapon": {
+      "file": "objects--crate_weapon.png",
+      "w": 16,
+      "h": 15,
+      "pixelW": 304,
+      "pixelH": 266,
+      "sampling": "linear"
+    },
+    "painted/common/objects/crate-health": {
+      "file": "objects--crate_health.png",
+      "w": 16,
+      "h": 15,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/objects/mine": {
+      "file": "objects--mine_armed.png",
+      "w": 8,
+      "h": 5,
+      "pixelW": 270,
+      "pixelH": 225,
+      "sampling": "linear"
+    },
+    "painted/common/objects/tombstone": {
+      "file": "objects--grave_cross.png",
+      "w": 11,
+      "h": 15,
+      "pixelW": 275,
+      "pixelH": 300,
+      "sampling": "linear"
+    },
+    "painted/common/proj/sheep": {
+      "file": "creatures--sheep_0.png",
+      "w": 22,
+      "h": 20,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/supersheep": {
+      "file": "creatures--supersheep_0.png",
+      "w": 24,
+      "h": 18,
+      "pixelW": 352,
+      "pixelH": 352,
+      "sampling": "linear"
+    },
+    "painted/common/proj/pigeon": {
+      "file": "creatures--pigeon_0.png",
+      "w": 20,
+      "h": 14,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/letter": {
+      "file": "vfx--letter_0.png",
+      "w": 10,
+      "h": 6,
+      "pixelW": 288,
+      "pixelH": 252,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/rocket_0": {
+      "file": "vfx--missile_0.png",
+      "w": 26,
+      "h": 10,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/rocket_1": {
+      "file": "vfx--missile_1.png",
+      "w": 26,
+      "h": 10,
+      "pixelW": 308,
+      "pixelH": 168,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/bat": {
+      "file": "weapons--icon--bat.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 350,
+      "pixelH": 350,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/axe": {
+      "file": "weapons--icon--axe.png",
+      "w": 14,
+      "h": 14,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/grenade": {
+      "file": "proj--grenade.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 270,
+      "pixelH": 351,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/cluster": {
+      "file": "proj--cluster.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 336,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/banana": {
+      "file": "creatures--banana_0.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 288,
+      "pixelH": 288,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/hhg": {
+      "file": "proj--hhg.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 234,
+      "pixelH": 364,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/dynamite": {
+      "file": "objects--dynamite.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 323,
+      "pixelH": 380,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/mine": {
+      "file": "objects--mine_armed.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 270,
+      "pixelH": 225,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/arrow": {
+      "file": "skins--weapons--arrow.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 462,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/madcow": {
+      "file": "creatures--cow.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/skins/weapons/mortar": {
+      "file": "weapons--icon--mortar.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 336,
+      "pixelH": 336,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/cargo_0": {
+      "file": "vfx--gunship_0.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/cargo_1": {
+      "file": "vfx--gunship_1.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/cargo_2": {
+      "file": "vfx--gunship_2.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/cargo_3": {
+      "file": "vfx--gunship_3.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/mailplane_0": {
+      "file": "vfx--gunship_0.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/mailplane_1": {
+      "file": "vfx--gunship_1.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/mailplane_2": {
+      "file": "vfx--gunship_2.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/mailplane_3": {
+      "file": "vfx--gunship_3.png",
+      "w": 64,
+      "h": 32,
+      "pixelW": 1024,
+      "pixelH": 512,
+      "sampling": "linear"
+    },
+    "painted/common/proj/dynamite_0": {
+      "file": "objects--dynamite.png",
+      "w": 5,
+      "h": 13,
+      "pixelW": 323,
+      "pixelH": 380,
+      "sampling": "linear"
+    },
+    "painted/common/proj/dynamite_1": {
+      "file": "objects--dynamite.png",
+      "w": 6,
+      "h": 13,
+      "pixelW": 323,
+      "pixelH": 380,
+      "sampling": "linear"
+    },
+    "painted/common/proj/sheep_0": {
+      "file": "creatures--sheep_0.png",
+      "w": 16,
+      "h": 12,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/sheep_1": {
+      "file": "creatures--sheep_1.png",
+      "w": 16,
+      "h": 12,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/sheep_2": {
+      "file": "creatures--sheep_0.png",
+      "w": 16,
+      "h": 12,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/sheepwalk_0": {
+      "file": "creatures--sheep_0.png",
+      "w": 16,
+      "h": 12,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/sheepwalk_1": {
+      "file": "creatures--sheep_1.png",
+      "w": 16,
+      "h": 12,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/proj/sheepwalk_2": {
+      "file": "creatures--sheep_0.png",
+      "w": 16,
+      "h": 12,
+      "pixelW": 320,
+      "pixelH": 320,
+      "sampling": "linear"
+    },
+    "painted/common/bg/meadow/sky": {
+      "file": "../painted-meadow/sky.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/meadow/far": {
+      "file": "../painted-meadow/far.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/meadow/mid": {
+      "file": "../painted-meadow/mid.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/meadow/near": {
+      "file": "../painted-meadow/near.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/meadow/fill": {
+      "file": "../painted-meadow/soil.png",
+      "w": 256,
+      "h": 256,
+      "pixelW": 1254,
+      "pixelH": 1254,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/meadow/rim": {
+      "file": "../painted-meadow/rim.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/meadow/under": {
+      "file": "../painted-meadow/under.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/meadow/scorch": {
+      "file": "../painted-meadow/scorch.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/meadow/rock": {
+      "file": "../painted-meadow/rock.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/blast_0": {
+      "file": "../painted-meadow/blast-0.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/blast_1": {
+      "file": "../painted-meadow/blast-1.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/blast_2": {
+      "file": "../painted-meadow/blast-2.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/blast_3": {
+      "file": "../painted-meadow/blast-3.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/smoke_0": {
+      "file": "../painted-meadow/smoke-0.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/smoke_1": {
+      "file": "../painted-meadow/smoke-1.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/smoke_2": {
+      "file": "../painted-meadow/smoke-2.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/smoke_3": {
+      "file": "../painted-meadow/smoke-3.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fragment_0": {
+      "file": "../painted-meadow/fragment-0.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fragment_1": {
+      "file": "../painted-meadow/fragment-1.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fragment_2": {
+      "file": "../painted-meadow/fragment-2.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fragment_3": {
+      "file": "../painted-meadow/fragment-3.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fire_0": {
+      "file": "../painted-meadow/fire-0.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fire_1": {
+      "file": "../painted-meadow/fire-1.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fire_2": {
+      "file": "../painted-meadow/fire-2.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/common/vfx/fire_3": {
+      "file": "../painted-meadow/fire-3.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/common/bg/desert/sky": {
+      "file": "../painted-desert/sky.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/desert/far": {
+      "file": "../painted-desert/far.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/desert/mid": {
+      "file": "../painted-desert/mid.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/desert/near": {
+      "file": "../painted-desert/near.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/desert/fill": {
+      "file": "../painted-desert/soil.png",
+      "w": 256,
+      "h": 256,
+      "pixelW": 1254,
+      "pixelH": 1254,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/desert/rim": {
+      "file": "../painted-desert/rim.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/desert/under": {
+      "file": "../painted-desert/under.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/desert/scorch": {
+      "file": "../painted-desert/scorch.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/desert/rock": {
+      "file": "../painted-desert/rock.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/bg/arctic/sky": {
+      "file": "../painted-arctic/sky.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/arctic/far": {
+      "file": "../painted-arctic/far.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/arctic/mid": {
+      "file": "../painted-arctic/mid.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/arctic/near": {
+      "file": "../painted-arctic/near.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/arctic/fill": {
+      "file": "../painted-arctic/soil.png",
+      "w": 256,
+      "h": 256,
+      "pixelW": 1254,
+      "pixelH": 1254,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/arctic/rim": {
+      "file": "../painted-arctic/rim.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/arctic/under": {
+      "file": "../painted-arctic/under.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/arctic/scorch": {
+      "file": "../painted-arctic/scorch.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/arctic/rock": {
+      "file": "../painted-arctic/rock.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/bg/hell/sky": {
+      "file": "../painted-hell/sky.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/hell/far": {
+      "file": "../painted-hell/far.png",
+      "w": 540.25,
+      "h": 182,
+      "pixelW": 2161,
+      "pixelH": 728,
+      "sampling": "linear"
+    },
+    "painted/common/bg/hell/mid": {
+      "file": "../painted-hell/mid.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/bg/hell/near": {
+      "file": "../painted-hell/near.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/hell/fill": {
+      "file": "../painted-hell/soil.png",
+      "w": 256,
+      "h": 256,
+      "pixelW": 1254,
+      "pixelH": 1254,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/hell/rim": {
+      "file": "../painted-hell/rim.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/hell/under": {
+      "file": "../painted-hell/under.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/hell/scorch": {
+      "file": "../painted-hell/scorch.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/terrain/hell/rock": {
+      "file": "../painted-hell/rock.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/common/fx/flame_0": {
+      "file": "../painted-meadow/fire-0.png",
+      "w": 8,
+      "h": 10,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/common/fx/flame_1": {
+      "file": "../painted-meadow/fire-1.png",
+      "w": 8,
+      "h": 12,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    }
+  }
+}

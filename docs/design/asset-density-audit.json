@@ -1,7 +1,7 @@
 {
   "policy": "all on-disk PNGs: declared native pixels, >=3x display density (icons 6x; other sprites 4x), longest edge >=64; no unregistered leftovers",
-  "totalPng": 762,
-  "registeredPng": 762,
+  "totalPng": 993,
+  "registeredPng": 993,
   "packs": [
     {
       "pack": "legacy paths (rebuilt)",
@@ -51,6 +51,34 @@
       "frames": 26,
       "minimumDensity": 4,
       "pngBytes": 9751999
+    },
+    {
+      "pack": "painted-desert",
+      "images": 10,
+      "frames": 10,
+      "minimumDensity": 4,
+      "pngBytes": 8578870
+    },
+    {
+      "pack": "painted-arctic",
+      "images": 10,
+      "frames": 10,
+      "minimumDensity": 4,
+      "pngBytes": 9771588
+    },
+    {
+      "pack": "painted-hell",
+      "images": 10,
+      "frames": 10,
+      "minimumDensity": 4,
+      "pngBytes": 9301035
+    },
+    {
+      "pack": "painted-common",
+      "images": 253,
+      "frames": 292,
+      "minimumDensity": 4,
+      "pngBytes": 57112987
     }
   ],
   "problems": []

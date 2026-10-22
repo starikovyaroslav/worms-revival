@@ -1,0 +1,105 @@
+{
+  "mode": "built-in imagegen",
+  "prompts": "tools/art/painted-expansion-prompts.json",
+  "masters": {
+    "icons-0": {
+      "path": "assets-in/painted-expansion/icons-0.png",
+      "sha256": "ef2b6493f4fe44f636b2ac6927409c3703dd78c8d40c50d5e8d21f9556cadced",
+      "prompt": "tools/art/painted-expansion-prompts.json#icons-0"
+    },
+    "icons-1": {
+      "path": "assets-in/painted-expansion/icons-1.png",
+      "sha256": "a5063b3c6d85cec4e473935f6089c465e157c0024a0883deccc08c788c2313d2",
+      "prompt": "tools/art/painted-expansion-prompts.json#icons-1"
+    },
+    "icons-2": {
+      "path": "assets-in/painted-expansion/icons-2.png",
+      "sha256": "cbdcaea4f3ac3e0790b2f934c3d1bb134e9eeb1e7dd1325ae5fd7bf088464317",
+      "prompt": "tools/art/painted-expansion-prompts.json#icons-2"
+    },
+    "icons-3": {
+      "path": "assets-in/painted-expansion/icons-3-repair.png",
+      "sha256": "0fa17093251bb7b49f682bbfb04e13eb61abbef12ac7b196d47c97e657e1ac7b",
+      "prompt": "tools/art/painted-icons-3-repair.prompt.txt"
+    },
+    "icons-4": {
+      "path": "assets-in/painted-expansion/icons-4.png",
+      "sha256": "6281463a05762c558788381a910a973028317fdea0f3ca686e0b737037c1e0d9",
+      "prompt": "tools/art/painted-expansion-prompts.json#icons-4"
+    },
+    "props": {
+      "path": "assets-in/painted-expansion/props.png",
+      "sha256": "c93235d53a808cc4d064c06278baa08d19971c06b3147f25ff25ecd46d1e0854",
+      "prompt": "tools/art/painted-expansion-prompts.json#props"
+    },
+    "creatures": {
+      "path": "assets-in/painted-expansion/creatures.png",
+      "sha256": "4c0cdee1a2f2859ba2c69dc5b408beb50ba7b9940161bda6e04c93272046eb2d",
+      "prompt": "tools/art/painted-expansion-prompts.json#creatures"
+    },
+    "projectiles": {
+      "path": "assets-in/painted-expansion/projectiles.png",
+      "sha256": "093798237902730496f493e2915d79e4b43eaca94645b237626e29060114c6ea",
+      "prompt": "tools/art/painted-expansion-prompts.json#projectiles"
+    },
+    "equipment": {
+      "path": "assets-in/painted-expansion/equipment.png",
+      "sha256": "95da09ba4e08939e25de7c0c0957c108801f291a5d502be130423974b0162888",
+      "prompt": "tools/art/painted-expansion-prompts.json#equipment"
+    },
+    "effects-0": {
+      "path": "assets-in/painted-expansion/effects-0.png",
+      "sha256": "99a6cd9b7f9a7e1346f6a9c3fbe73c8f1d0729b539e659659c8372e73edc7c4a",
+      "prompt": "tools/art/painted-expansion-prompts.json#effects-0"
+    },
+    "effects-1": {
+      "path": "assets-in/painted-expansion/effects-1.png",
+      "sha256": "46e04302d32903817985c0f7df768cd6e19c99d6b389509ebc3ab9c9de5e8749",
+      "prompt": "tools/art/painted-expansion-prompts.json#effects-1"
+    },
+    "effects-2": {
+      "path": "assets-in/painted-expansion/effects-2.png",
+      "sha256": "f51894ce98ca3ccb391fc251e56d2f7123fa6aa9247afdda650976bb13d7e625",
+      "prompt": "tools/art/painted-expansion-prompts.json#effects-2"
+    },
+    "aircraft-attack": {
+      "path": "assets-in/painted-expansion/aircraft-attack.png",
+      "sha256": "06bb9e4abebf5301063f32b9d302d303d060e1851de2eb6124555a0e0967d0da",
+      "prompt": "tools/art/painted-expansion-prompts.json#aircraft-attack"
+    },
+    "aircraft-gunship": {
+      "path": "assets-in/painted-expansion/aircraft-gunship.png",
+      "sha256": "529a3411fcd1298e569b01f393b8d9442af1f1948088b61f1398de82d282dcf4",
+      "prompt": "tools/art/painted-expansion-prompts.json#aircraft-gunship"
+    },
+    "aircraft-stealth": {
+      "path": "assets-in/painted-expansion/aircraft-stealth.png",
+      "sha256": "c55e58ba416237c3ba7fb4d7fe499fee86962b164a9cece63efb1b1fb73e376b",
+      "prompt": "tools/art/painted-expansion-prompts.json#aircraft-stealth"
+    },
+    "materials": {
+      "path": "assets-in/painted-expansion/materials.png",
+      "sha256": "ef917cdbe7c50cadf7289a3c28c29408fd6aeeddd25ee2d5f52c5d3557093695",
+      "prompt": "tools/art/painted-expansion-prompts.json#materials"
+    },
+    "logo": {
+      "path": "assets-in/painted-expansion/logo.png",
+      "sha256": "643315ddc0259c3d79c6365e0f892f25ee0e8cdd9ed91c45aa4c3d6e761d54f5",
+      "prompt": "tools/art/painted-expansion-prompts.json#logo"
+    },
+    "supplemental": {
+      "path": "assets-in/painted-expansion/supplemental.png",
+      "sha256": "c4c6adfe2b46095bb095c1c1161764b0e78c6ceef23e704b478e69155d666870",
+      "prompt": "tools/art/painted-expansion-prompts.json#supplemental"
+    }
+  },
+  "export": "tools/art/painted-common.mjs",
+  "processing": {
+    "sprites": "native isolated RGBA copied without resize",
+    "materials": "native quarters with premultiplied seam healing",
+    "aliases": "shared PNGs or native padding",
+    "paletteQuantization": false,
+    "binaryAlpha": false
+  },
+  "partial": false
+}

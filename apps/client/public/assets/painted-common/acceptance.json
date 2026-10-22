@@ -1,0 +1,3017 @@
+{
+  "weapons/icon/grenade": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-1",
+    "pixels": [
+      266,
+      266
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 16832,
+    "transparent": 41596,
+    "partialAlpha": 29044,
+    "alphaLevels": 256
+  },
+  "weapons/icon/dynamite": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-2",
+    "pixels": [
+      364,
+      364
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 23641,
+    "transparent": 94200,
+    "partialAlpha": 38119,
+    "alphaLevels": 256
+  },
+  "weapons/icon/mine": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-3",
+    "pixels": [
+      280,
+      280
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 19099,
+    "transparent": 51218,
+    "partialAlpha": 27089,
+    "alphaLevels": 248
+  },
+  "weapons/icon/bazooka": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-4",
+    "pixels": [
+      392,
+      392
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 15320,
+    "transparent": 130937,
+    "partialAlpha": 22671,
+    "alphaLevels": 256
+  },
+  "weapons/icon/sheep": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-5",
+    "pixels": [
+      322,
+      322
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 15051,
+    "transparent": 58904,
+    "partialAlpha": 44704,
+    "alphaLevels": 256
+  },
+  "weapons/icon/homing": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-6",
+    "pixels": [
+      416,
+      325
+    ],
+    "display": [
+      32,
+      25
+    ],
+    "colors": 25215,
+    "transparent": 90205,
+    "partialAlpha": 44912,
+    "alphaLevels": 256
+  },
+  "weapons/icon/mortar": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-7",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 18085,
+    "transparent": 77095,
+    "partialAlpha": 35728,
+    "alphaLevels": 255
+  },
+  "weapons/icon/pigeon": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-8",
+    "pixels": [
+      384,
+      276
+    ],
+    "display": [
+      32,
+      23
+    ],
+    "colors": 20169,
+    "transparent": 77366,
+    "partialAlpha": 28508,
+    "alphaLevels": 256
+  },
+  "weapons/icon/cluster": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-9",
+    "pixels": [
+      266,
+      266
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 23565,
+    "transparent": 34784,
+    "partialAlpha": 35877,
+    "alphaLevels": 255
+  },
+  "weapons/icon/banana": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-10",
+    "pixels": [
+      280,
+      280
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 11681,
+    "transparent": 55796,
+    "partialAlpha": 22519,
+    "alphaLevels": 254
+  },
+  "weapons/icon/shotgun": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-11",
+    "pixels": [
+      462,
+      462
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 13134,
+    "transparent": 189755,
+    "partialAlpha": 23483,
+    "alphaLevels": 256
+  },
+  "weapons/icon/handgun": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-12",
+    "pixels": [
+      266,
+      266
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 11435,
+    "transparent": 46291,
+    "partialAlpha": 24377,
+    "alphaLevels": 255
+  },
+  "weapons/icon/uzi": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-13",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 8724,
+    "transparent": 82117,
+    "partialAlpha": 30670,
+    "alphaLevels": 255
+  },
+  "weapons/icon/minigun": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-14",
+    "pixels": [
+      416,
+      312
+    ],
+    "display": [
+      32,
+      24
+    ],
+    "colors": 14631,
+    "transparent": 88688,
+    "partialAlpha": 41021,
+    "alphaLevels": 256
+  },
+  "weapons/icon/longbow": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-15",
+    "pixels": [
+      392,
+      392
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 13076,
+    "transparent": 131557,
+    "partialAlpha": 22011,
+    "alphaLevels": 256
+  },
+  "weapons/icon/firepunch": {
+    "source": "assets-in/painted-expansion/icons-0.png#cell-16",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 19174,
+    "transparent": 63868,
+    "partialAlpha": 49025,
+    "alphaLevels": 256
+  },
+  "weapons/icon/prod": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-1",
+    "pixels": [
+      308,
+      308
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 12663,
+    "transparent": 66875,
+    "partialAlpha": 27806,
+    "alphaLevels": 255
+  },
+  "weapons/icon/supersheep": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-2",
+    "pixels": [
+      322,
+      322
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 25327,
+    "transparent": 64892,
+    "partialAlpha": 38709,
+    "alphaLevels": 256
+  },
+  "weapons/icon/airstrike": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-3",
+    "pixels": [
+      378,
+      378
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 24585,
+    "transparent": 106595,
+    "partialAlpha": 36204,
+    "alphaLevels": 255
+  },
+  "weapons/icon/blowtorch": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-4",
+    "pixels": [
+      308,
+      308
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 16702,
+    "transparent": 71843,
+    "partialAlpha": 22960,
+    "alphaLevels": 255
+  },
+  "weapons/icon/drill": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-5",
+    "pixels": [
+      420,
+      448
+    ],
+    "display": [
+      30,
+      32
+    ],
+    "colors": 19135,
+    "transparent": 150439,
+    "partialAlpha": 37600,
+    "alphaLevels": 256
+  },
+  "weapons/icon/girder": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-6",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 22490,
+    "transparent": 76704,
+    "partialAlpha": 36094,
+    "alphaLevels": 254
+  },
+  "weapons/icon/bat": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-7",
+    "pixels": [
+      350,
+      350
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 14106,
+    "transparent": 101993,
+    "partialAlpha": 20392,
+    "alphaLevels": 256
+  },
+  "weapons/icon/rope": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-8",
+    "pixels": [
+      350,
+      350
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 21260,
+    "transparent": 87200,
+    "partialAlpha": 35216,
+    "alphaLevels": 256
+  },
+  "weapons/icon/parachute": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-9",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 22799,
+    "transparent": 59765,
+    "partialAlpha": 53028,
+    "alphaLevels": 256
+  },
+  "weapons/icon/teleport": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-10",
+    "pixels": [
+      330,
+      352
+    ],
+    "display": [
+      30,
+      32
+    ],
+    "colors": 41843,
+    "transparent": 59461,
+    "partialAlpha": 56616,
+    "alphaLevels": 256
+  },
+  "weapons/icon/hhg": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-11",
+    "pixels": [
+      242,
+      352
+    ],
+    "display": [
+      22,
+      32
+    ],
+    "colors": 22306,
+    "transparent": 52043,
+    "partialAlpha": 33064,
+    "alphaLevels": 255
+  },
+  "weapons/icon/skipgo": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-12",
+    "pixels": [
+      276,
+      384
+    ],
+    "display": [
+      23,
+      32
+    ],
+    "colors": 8150,
+    "transparent": 79047,
+    "partialAlpha": 26877,
+    "alphaLevels": 252
+  },
+  "weapons/icon/surrender": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-13",
+    "pixels": [
+      352,
+      512
+    ],
+    "display": [
+      22,
+      32
+    ],
+    "colors": 16668,
+    "transparent": 135638,
+    "partialAlpha": 44392,
+    "alphaLevels": 256
+  },
+  "weapons/icon/petrol": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-14",
+    "pixels": [
+      308,
+      308
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 17167,
+    "transparent": 70448,
+    "partialAlpha": 24340,
+    "alphaLevels": 256
+  },
+  "weapons/icon/madcow": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-15",
+    "pixels": [
+      378,
+      378
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 23233,
+    "transparent": 96276,
+    "partialAlpha": 46453,
+    "alphaLevels": 256
+  },
+  "weapons/icon/skunk": {
+    "source": "assets-in/painted-expansion/icons-1.png#cell-16",
+    "pixels": [
+      308,
+      308
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 12653,
+    "transparent": 53113,
+    "partialAlpha": 41637,
+    "alphaLevels": 255
+  },
+  "weapons/icon/donkey": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-1",
+    "pixels": [
+      350,
+      350
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 17263,
+    "transparent": 79633,
+    "partialAlpha": 42613,
+    "alphaLevels": 256
+  },
+  "weapons/icon/jetpack": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-2",
+    "pixels": [
+      322,
+      322
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 30520,
+    "transparent": 58234,
+    "partialAlpha": 45351,
+    "alphaLevels": 256
+  },
+  "weapons/icon/lowgravity": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-3",
+    "pixels": [
+      294,
+      294
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 13728,
+    "transparent": 58902,
+    "partialAlpha": 27397,
+    "alphaLevels": 254
+  },
+  "weapons/icon/fastwalk": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-4",
+    "pixels": [
+      378,
+      378
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 17237,
+    "transparent": 109880,
+    "partialAlpha": 32893,
+    "alphaLevels": 255
+  },
+  "weapons/icon/laser": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-5",
+    "pixels": [
+      378,
+      378
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 11321,
+    "transparent": 120640,
+    "partialAlpha": 22194,
+    "alphaLevels": 256
+  },
+  "weapons/icon/invisible": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-6",
+    "pixels": [
+      308,
+      308
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 9559,
+    "transparent": 65826,
+    "partialAlpha": 29038,
+    "alphaLevels": 242
+  },
+  "weapons/icon/doubledamage": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-7",
+    "pixels": [
+      308,
+      308
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 20377,
+    "transparent": 52842,
+    "partialAlpha": 41900,
+    "alphaLevels": 256
+  },
+  "weapons/icon/cratespy": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-8",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 26345,
+    "transparent": 63070,
+    "partialAlpha": 49758,
+    "alphaLevels": 256
+  },
+  "weapons/icon/sheeplauncher": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-9",
+    "pixels": [
+      392,
+      392
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 26178,
+    "transparent": 109149,
+    "partialAlpha": 44366,
+    "alphaLevels": 256
+  },
+  "weapons/icon/axe": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-10",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 21651,
+    "transparent": 77235,
+    "partialAlpha": 35527,
+    "alphaLevels": 256
+  },
+  "weapons/icon/earthquake": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-11",
+    "pixels": [
+      350,
+      350
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 17939,
+    "transparent": 74984,
+    "partialAlpha": 47407,
+    "alphaLevels": 256
+  },
+  "weapons/icon/dragonball": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-12",
+    "pixels": [
+      322,
+      322
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 9272,
+    "transparent": 70056,
+    "partialAlpha": 33517,
+    "alphaLevels": 255
+  },
+  "weapons/icon/kamikaze": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-13",
+    "pixels": [
+      364,
+      364
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 22752,
+    "transparent": 91418,
+    "partialAlpha": 40915,
+    "alphaLevels": 256
+  },
+  "weapons/icon/suicide": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-14",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 17906,
+    "transparent": 76535,
+    "partialAlpha": 36201,
+    "alphaLevels": 256
+  },
+  "weapons/icon/molebomb": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-15",
+    "pixels": [
+      294,
+      294
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 22613,
+    "transparent": 44161,
+    "partialAlpha": 42149,
+    "alphaLevels": 256
+  },
+  "weapons/icon/napalm": {
+    "source": "assets-in/painted-expansion/icons-2.png#cell-16",
+    "pixels": [
+      308,
+      308
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 20596,
+    "transparent": 59828,
+    "partialAlpha": 34899,
+    "alphaLevels": 256
+  },
+  "weapons/icon/mail": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-1",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 12716,
+    "transparent": 82714,
+    "partialAlpha": 30000,
+    "alphaLevels": 256
+  },
+  "weapons/icon/minestrike": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-2",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 12636,
+    "transparent": 83733,
+    "partialAlpha": 28964,
+    "alphaLevels": 256
+  },
+  "weapons/icon/molesquad": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-3",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 24401,
+    "transparent": 64423,
+    "partialAlpha": 48307,
+    "alphaLevels": 256
+  },
+  "weapons/icon/girderpack": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-4",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 24955,
+    "transparent": 66043,
+    "partialAlpha": 46567,
+    "alphaLevels": 256
+  },
+  "weapons/icon/bungee": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-5",
+    "pixels": [
+      322,
+      322
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 22756,
+    "transparent": 64360,
+    "partialAlpha": 39038,
+    "alphaLevels": 256
+  },
+  "weapons/icon/scales": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-6",
+    "pixels": [
+      350,
+      350
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 16126,
+    "transparent": 82090,
+    "partialAlpha": 40175,
+    "alphaLevels": 256
+  },
+  "weapons/icon/superbanana": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-7",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 19488,
+    "transparent": 72857,
+    "partialAlpha": 39907,
+    "alphaLevels": 256
+  },
+  "weapons/icon/flamethrower": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-8",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 13267,
+    "transparent": 91787,
+    "partialAlpha": 20904,
+    "alphaLevels": 256
+  },
+  "weapons/icon/salvation": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-9",
+    "pixels": [
+      322,
+      322
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 19873,
+    "transparent": 62438,
+    "partialAlpha": 41022,
+    "alphaLevels": 256
+  },
+  "weapons/icon/mbbomb": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-10",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 21689,
+    "transparent": 61130,
+    "partialAlpha": 51519,
+    "alphaLevels": 256
+  },
+  "weapons/icon/vase": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-11",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 24113,
+    "transparent": 81346,
+    "partialAlpha": 31369,
+    "alphaLevels": 254
+  },
+  "weapons/icon/frenchsheep": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-12",
+    "pixels": [
+      350,
+      350
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 20908,
+    "transparent": 80397,
+    "partialAlpha": 41963,
+    "alphaLevels": 256
+  },
+  "weapons/icon/carpet": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-13",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 28937,
+    "transparent": 65172,
+    "partialAlpha": 47326,
+    "alphaLevels": 256
+  },
+  "weapons/icon/madcows": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-14",
+    "pixels": [
+      364,
+      364
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 21252,
+    "transparent": 86434,
+    "partialAlpha": 45902,
+    "alphaLevels": 256
+  },
+  "weapons/icon/oldwoman": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-15",
+    "pixels": [
+      322,
+      322
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 38023,
+    "transparent": 53604,
+    "partialAlpha": 49921,
+    "alphaLevels": 256
+  },
+  "weapons/icon/nuke": {
+    "source": "assets-in/painted-expansion/icons-3-repair.png#cell-16",
+    "pixels": [
+      336,
+      336
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 16925,
+    "transparent": 59582,
+    "partialAlpha": 53153,
+    "alphaLevels": 256
+  },
+  "weapons/icon/armageddon": {
+    "source": "assets-in/painted-expansion/icons-4.png#cell-1",
+    "pixels": [
+      616,
+      616
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 80773,
+    "transparent": 220628,
+    "partialAlpha": 158696,
+    "alphaLevels": 256
+  },
+  "weapons/icon/selectworm": {
+    "source": "assets-in/painted-expansion/icons-4.png#cell-2",
+    "pixels": [
+      588,
+      588
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 52019,
+    "transparent": 221782,
+    "partialAlpha": 123478,
+    "alphaLevels": 256
+  },
+  "weapons/icon/freeze": {
+    "source": "assets-in/painted-expansion/icons-4.png#cell-3",
+    "pixels": [
+      532,
+      532
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 76005,
+    "transparent": 109453,
+    "partialAlpha": 173053,
+    "alphaLevels": 256
+  },
+  "weapons/icon/magicbullet": {
+    "source": "assets-in/painted-expansion/icons-4.png#cell-4",
+    "pixels": [
+      546,
+      546
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 48407,
+    "transparent": 189399,
+    "partialAlpha": 108549,
+    "alphaLevels": 256
+  },
+  "objects/grave_cross": {
+    "source": "assets-in/painted-expansion/props.png#cell-1",
+    "pixels": [
+      275,
+      300
+    ],
+    "display": [
+      11,
+      12
+    ],
+    "colors": 28660,
+    "transparent": 44755,
+    "partialAlpha": 37665,
+    "alphaLevels": 256
+  },
+  "objects/grave_round": {
+    "source": "assets-in/painted-expansion/props.png#cell-2",
+    "pixels": [
+      352,
+      288
+    ],
+    "display": [
+      11,
+      9
+    ],
+    "colors": 33389,
+    "transparent": 56970,
+    "partialAlpha": 44366,
+    "alphaLevels": 256
+  },
+  "objects/grave_slab": {
+    "source": "assets-in/painted-expansion/props.png#cell-3",
+    "pixels": [
+      770,
+      280
+    ],
+    "display": [
+      11,
+      4
+    ],
+    "colors": 33510,
+    "transparent": 169656,
+    "partialAlpha": 45888,
+    "alphaLevels": 256
+  },
+  "objects/grave_skull": {
+    "source": "assets-in/painted-expansion/props.png#cell-4",
+    "pixels": [
+      352,
+      288
+    ],
+    "display": [
+      11,
+      9
+    ],
+    "colors": 32182,
+    "transparent": 58531,
+    "partialAlpha": 42796,
+    "alphaLevels": 256
+  },
+  "objects/crate_weapon": {
+    "source": "assets-in/painted-expansion/props.png#cell-5",
+    "pixels": [
+      304,
+      266
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "colors": 25316,
+    "transparent": 38080,
+    "partialAlpha": 42709,
+    "alphaLevels": 255
+  },
+  "objects/crate_health": {
+    "source": "assets-in/painted-expansion/props.png#cell-6",
+    "pixels": [
+      288,
+      252
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "colors": 25790,
+    "transparent": 30880,
+    "partialAlpha": 41610,
+    "alphaLevels": 254
+  },
+  "objects/crate_utility": {
+    "source": "assets-in/painted-expansion/props.png#cell-7",
+    "pixels": [
+      288,
+      252
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "colors": 25911,
+    "transparent": 30547,
+    "partialAlpha": 41937,
+    "alphaLevels": 253
+  },
+  "objects/crate_open": {
+    "source": "assets-in/painted-expansion/props.png#cell-8",
+    "pixels": [
+      480,
+      300
+    ],
+    "display": [
+      16,
+      10
+    ],
+    "colors": 22724,
+    "transparent": 97924,
+    "partialAlpha": 46019,
+    "alphaLevels": 256
+  },
+  "objects/barrel": {
+    "source": "assets-in/painted-expansion/props.png#cell-9",
+    "pixels": [
+      231,
+      294
+    ],
+    "display": [
+      11,
+      14
+    ],
+    "colors": 27776,
+    "transparent": 26097,
+    "partialAlpha": 41736,
+    "alphaLevels": 254
+  },
+  "objects/barrel_burning": {
+    "source": "assets-in/painted-expansion/props.png#cell-10",
+    "pixels": [
+      208,
+      364
+    ],
+    "display": [
+      8,
+      14
+    ],
+    "colors": 28327,
+    "transparent": 33307,
+    "partialAlpha": 42336,
+    "alphaLevels": 256
+  },
+  "objects/mine_off": {
+    "source": "assets-in/painted-expansion/props.png#cell-11",
+    "pixels": [
+      360,
+      180
+    ],
+    "display": [
+      8,
+      4
+    ],
+    "colors": 18288,
+    "transparent": 35904,
+    "partialAlpha": 28841,
+    "alphaLevels": 252
+  },
+  "objects/mine_armed": {
+    "source": "assets-in/painted-expansion/props.png#cell-12",
+    "pixels": [
+      270,
+      225
+    ],
+    "display": [
+      6,
+      5
+    ],
+    "colors": 19667,
+    "transparent": 32618,
+    "partialAlpha": 28094,
+    "alphaLevels": 256
+  },
+  "objects/parachute": {
+    "source": "assets-in/painted-expansion/props.png#cell-13",
+    "pixels": [
+      400,
+      340
+    ],
+    "display": [
+      20,
+      17
+    ],
+    "colors": 22888,
+    "transparent": 88647,
+    "partialAlpha": 47244,
+    "alphaLevels": 256
+  },
+  "objects/crate_broken": {
+    "source": "assets-in/painted-expansion/props.png#cell-14",
+    "pixels": [
+      448,
+      252
+    ],
+    "display": [
+      16,
+      9
+    ],
+    "colors": 24834,
+    "transparent": 67408,
+    "partialAlpha": 45353,
+    "alphaLevels": 256
+  },
+  "objects/dynamite": {
+    "source": "assets-in/painted-expansion/props.png#cell-15",
+    "pixels": [
+      323,
+      380
+    ],
+    "display": [
+      17,
+      20
+    ],
+    "colors": 19511,
+    "transparent": 92066,
+    "partialAlpha": 30594,
+    "alphaLevels": 256
+  },
+  "objects/canister": {
+    "source": "assets-in/painted-expansion/props.png#cell-16",
+    "pixels": [
+      256,
+      320
+    ],
+    "display": [
+      16,
+      20
+    ],
+    "colors": 20762,
+    "transparent": 33761,
+    "partialAlpha": 47997,
+    "alphaLevels": 256
+  },
+  "creatures/sheep_0": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-1",
+    "pixels": [
+      320,
+      320
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 20666,
+    "transparent": 60833,
+    "partialAlpha": 41505,
+    "alphaLevels": 256
+  },
+  "creatures/sheep_1": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-2",
+    "pixels": [
+      320,
+      320
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 20300,
+    "transparent": 65003,
+    "partialAlpha": 37357,
+    "alphaLevels": 256
+  },
+  "creatures/supersheep_0": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-3",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 24784,
+    "transparent": 83267,
+    "partialAlpha": 40538,
+    "alphaLevels": 256
+  },
+  "creatures/supersheep_1": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-4",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 20836,
+    "transparent": 91195,
+    "partialAlpha": 32668,
+    "alphaLevels": 255
+  },
+  "creatures/pigeon_0": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-5",
+    "pixels": [
+      320,
+      320
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 22655,
+    "transparent": 62763,
+    "partialAlpha": 39572,
+    "alphaLevels": 256
+  },
+  "creatures/pigeon_1": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-6",
+    "pixels": [
+      320,
+      320
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 16492,
+    "transparent": 76561,
+    "partialAlpha": 25789,
+    "alphaLevels": 253
+  },
+  "creatures/mole_0": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-7",
+    "pixels": [
+      320,
+      320
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 15106,
+    "transparent": 70328,
+    "partialAlpha": 32044,
+    "alphaLevels": 255
+  },
+  "creatures/mole_1": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-8",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 17925,
+    "transparent": 87978,
+    "partialAlpha": 35902,
+    "alphaLevels": 256
+  },
+  "creatures/cow": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-9",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 26799,
+    "transparent": 97961,
+    "partialAlpha": 49384,
+    "alphaLevels": 256
+  },
+  "creatures/oldwoman": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-10",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 38652,
+    "transparent": 75841,
+    "partialAlpha": 47992,
+    "alphaLevels": 256
+  },
+  "creatures/donkey": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-11",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 16022,
+    "transparent": 81271,
+    "partialAlpha": 42570,
+    "alphaLevels": 256
+  },
+  "creatures/skunk": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-12",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 14249,
+    "transparent": 85998,
+    "partialAlpha": 37884,
+    "alphaLevels": 256
+  },
+  "creatures/banana_0": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-13",
+    "pixels": [
+      288,
+      288
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 8680,
+    "transparent": 63599,
+    "partialAlpha": 19304,
+    "alphaLevels": 256
+  },
+  "creatures/banana_1": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-14",
+    "pixels": [
+      288,
+      288
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 16843,
+    "transparent": 52035,
+    "partialAlpha": 30824,
+    "alphaLevels": 255
+  },
+  "creatures/stink": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-15",
+    "pixels": [
+      320,
+      320
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 8548,
+    "transparent": 68351,
+    "partialAlpha": 34000,
+    "alphaLevels": 256
+  },
+  "creatures/donkey_fall": {
+    "source": "assets-in/painted-expansion/creatures.png#cell-16",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 19287,
+    "transparent": 82634,
+    "partialAlpha": 41230,
+    "alphaLevels": 256
+  },
+  "proj/grenade": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-1",
+    "pixels": [
+      270,
+      351
+    ],
+    "display": [
+      10,
+      13
+    ],
+    "colors": 22210,
+    "transparent": 60508,
+    "partialAlpha": 34102,
+    "alphaLevels": 256
+  },
+  "proj/cluster": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-2",
+    "pixels": [
+      336,
+      288
+    ],
+    "display": [
+      14,
+      12
+    ],
+    "colors": 26403,
+    "transparent": 59467,
+    "partialAlpha": 37168,
+    "alphaLevels": 256
+  },
+  "proj/bomblet": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-3",
+    "pixels": [
+      190,
+      228
+    ],
+    "display": [
+      5,
+      6
+    ],
+    "colors": 11488,
+    "transparent": 27679,
+    "partialAlpha": 15559,
+    "alphaLevels": 250
+  },
+  "proj/banana": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-4",
+    "pixels": [
+      266,
+      266
+    ],
+    "display": [
+      14,
+      14
+    ],
+    "colors": 11997,
+    "transparent": 48642,
+    "partialAlpha": 22003,
+    "alphaLevels": 255
+  },
+  "proj/hhg": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-5",
+    "pixels": [
+      234,
+      364
+    ],
+    "display": [
+      9,
+      14
+    ],
+    "colors": 17854,
+    "transparent": 55694,
+    "partialAlpha": 29419,
+    "alphaLevels": 255
+  },
+  "proj/dynamite": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-6",
+    "pixels": [
+      351,
+      432
+    ],
+    "display": [
+      13,
+      16
+    ],
+    "colors": 15196,
+    "transparent": 128400,
+    "partialAlpha": 23148,
+    "alphaLevels": 256
+  },
+  "proj/rocket": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-7",
+    "pixels": [
+      320,
+      160
+    ],
+    "display": [
+      20,
+      10
+    ],
+    "colors": 13328,
+    "transparent": 29794,
+    "partialAlpha": 21258,
+    "alphaLevels": 255
+  },
+  "proj/arrow": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-8",
+    "pixels": [
+      462,
+      105
+    ],
+    "display": [
+      22,
+      5
+    ],
+    "colors": 9845,
+    "transparent": 35368,
+    "partialAlpha": 12998,
+    "alphaLevels": 249
+  },
+  "proj/meteor": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-9",
+    "pixels": [
+      512,
+      320
+    ],
+    "display": [
+      8,
+      5
+    ],
+    "colors": 41493,
+    "transparent": 105539,
+    "partialAlpha": 58222,
+    "alphaLevels": 256
+  },
+  "proj/vase": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-10",
+    "pixels": [
+      240,
+      330
+    ],
+    "display": [
+      8,
+      11
+    ],
+    "colors": 29122,
+    "transparent": 40607,
+    "partialAlpha": 38486,
+    "alphaLevels": 256
+  },
+  "proj/shard": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-11",
+    "pixels": [
+      236,
+      236
+    ],
+    "display": [
+      4,
+      4
+    ],
+    "colors": 16449,
+    "transparent": 35331,
+    "partialAlpha": 20329,
+    "alphaLevels": 245
+  },
+  "proj/bullet": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-12",
+    "pixels": [
+      220,
+      110
+    ],
+    "display": [
+      4,
+      2
+    ],
+    "colors": 8558,
+    "transparent": 12418,
+    "partialAlpha": 11740,
+    "alphaLevels": 234
+  },
+  "proj/mbbomb": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-13",
+    "pixels": [
+      288,
+      336
+    ],
+    "display": [
+      12,
+      14
+    ],
+    "colors": 22186,
+    "transparent": 58920,
+    "partialAlpha": 37683,
+    "alphaLevels": 256
+  },
+  "proj/dragonball": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-14",
+    "pixels": [
+      370,
+      259
+    ],
+    "display": [
+      10,
+      7
+    ],
+    "colors": 18477,
+    "transparent": 54949,
+    "partialAlpha": 40881,
+    "alphaLevels": 255
+  },
+  "proj/napalm": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-15",
+    "pixels": [
+      430,
+      258
+    ],
+    "display": [
+      10,
+      6
+    ],
+    "colors": 16330,
+    "transparent": 86899,
+    "partialAlpha": 23903,
+    "alphaLevels": 250
+  },
+  "proj/carpet": {
+    "source": "assets-in/painted-expansion/projectiles.png#cell-16",
+    "pixels": [
+      456,
+      228
+    ],
+    "display": [
+      12,
+      6
+    ],
+    "colors": 29415,
+    "transparent": 63935,
+    "partialAlpha": 39915,
+    "alphaLevels": 254
+  },
+  "skins/weapons/bazooka": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-1",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 14069,
+    "transparent": 124145,
+    "partialAlpha": 23208,
+    "alphaLevels": 255
+  },
+  "skins/weapons/handgun": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-2",
+    "pixels": [
+      224,
+      224
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 6014,
+    "transparent": 37798,
+    "partialAlpha": 12289,
+    "alphaLevels": 251
+  },
+  "skins/weapons/shotgun": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-3",
+    "pixels": [
+      416,
+      416
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 10544,
+    "transparent": 154401,
+    "partialAlpha": 18500,
+    "alphaLevels": 254
+  },
+  "skins/weapons/uzi": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-4",
+    "pixels": [
+      288,
+      288
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 4896,
+    "transparent": 62578,
+    "partialAlpha": 20177,
+    "alphaLevels": 256
+  },
+  "skins/weapons/minigun": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-5",
+    "pixels": [
+      448,
+      448
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 16740,
+    "transparent": 159347,
+    "partialAlpha": 41259,
+    "alphaLevels": 256
+  },
+  "skins/weapons/longbow": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-6",
+    "pixels": [
+      512,
+      384
+    ],
+    "display": [
+      32,
+      24
+    ],
+    "colors": 8811,
+    "transparent": 181079,
+    "partialAlpha": 15407,
+    "alphaLevels": 256
+  },
+  "skins/weapons/flamethrower": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-7",
+    "pixels": [
+      384,
+      288
+    ],
+    "display": [
+      32,
+      24
+    ],
+    "colors": 18020,
+    "transparent": 78217,
+    "partialAlpha": 32308,
+    "alphaLevels": 256
+  },
+  "skins/weapons/sheeplauncher": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-8",
+    "pixels": [
+      320,
+      240
+    ],
+    "display": [
+      32,
+      24
+    ],
+    "colors": 13887,
+    "transparent": 46343,
+    "partialAlpha": 30355,
+    "alphaLevels": 256
+  },
+  "skins/weapons/blowtorch": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-9",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 19309,
+    "transparent": 117575,
+    "partialAlpha": 29776,
+    "alphaLevels": 256
+  },
+  "skins/weapons/drill": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-10",
+    "pixels": [
+      352,
+      264
+    ],
+    "display": [
+      32,
+      24
+    ],
+    "colors": 12836,
+    "transparent": 68832,
+    "partialAlpha": 23942,
+    "alphaLevels": 256
+  },
+  "skins/weapons/rope": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-11",
+    "pixels": [
+      384,
+      288
+    ],
+    "display": [
+      32,
+      24
+    ],
+    "colors": 11011,
+    "transparent": 86048,
+    "partialAlpha": 24408,
+    "alphaLevels": 256
+  },
+  "skins/equipment/mortar-base": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-12",
+    "pixels": [
+      288,
+      288
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 8649,
+    "transparent": 62298,
+    "partialAlpha": 20568,
+    "alphaLevels": 256
+  },
+  "skins/equipment/mortar-barrel": {
+    "source": "assets-in/painted-expansion/supplemental.png#cell-1",
+    "pixels": [
+      672,
+      672
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 38448,
+    "transparent": 357965,
+    "partialAlpha": 93371,
+    "alphaLevels": 256
+  },
+  "skins/equipment/radio": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-14",
+    "pixels": [
+      352,
+      352
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 9169,
+    "transparent": 103209,
+    "partialAlpha": 20562,
+    "alphaLevels": 254
+  },
+  "skins/equipment/detonator": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-15",
+    "pixels": [
+      256,
+      256
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 13249,
+    "transparent": 40601,
+    "partialAlpha": 24806,
+    "alphaLevels": 254
+  },
+  "objects/jetpack": {
+    "source": "assets-in/painted-expansion/equipment.png#cell-16",
+    "pixels": [
+      315,
+      405
+    ],
+    "display": [
+      7,
+      9
+    ],
+    "colors": 20505,
+    "transparent": 77212,
+    "partialAlpha": 50194,
+    "alphaLevels": 256
+  },
+  "vfx/steam_0": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-1",
+    "pixels": [
+      360,
+      360
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "colors": 4883,
+    "transparent": 117938,
+    "partialAlpha": 11645,
+    "alphaLevels": 255
+  },
+  "vfx/steam_1": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-2",
+    "pixels": [
+      360,
+      360
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "colors": 6806,
+    "transparent": 107477,
+    "partialAlpha": 22093,
+    "alphaLevels": 255
+  },
+  "vfx/steam_2": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-3",
+    "pixels": [
+      360,
+      360
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "colors": 8581,
+    "transparent": 93932,
+    "partialAlpha": 35656,
+    "alphaLevels": 256
+  },
+  "vfx/steam_3": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-4",
+    "pixels": [
+      360,
+      360
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "colors": 6277,
+    "transparent": 82025,
+    "partialAlpha": 47559,
+    "alphaLevels": 256
+  },
+  "vfx/gas_0": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-5",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 12075,
+    "transparent": 129594,
+    "partialAlpha": 17861,
+    "alphaLevels": 256
+  },
+  "vfx/gas_1": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-6",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 21329,
+    "transparent": 114398,
+    "partialAlpha": 33056,
+    "alphaLevels": 255
+  },
+  "vfx/gas_2": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-7",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 37125,
+    "transparent": 91527,
+    "partialAlpha": 55924,
+    "alphaLevels": 256
+  },
+  "vfx/gas_3": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-8",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 47468,
+    "transparent": 73527,
+    "partialAlpha": 73926,
+    "alphaLevels": 256
+  },
+  "vfx/ghost_0": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-9",
+    "pixels": [
+      288,
+      384
+    ],
+    "display": [
+      24,
+      32
+    ],
+    "colors": 11154,
+    "transparent": 95051,
+    "partialAlpha": 15541,
+    "alphaLevels": 254
+  },
+  "vfx/ghost_1": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-10",
+    "pixels": [
+      288,
+      384
+    ],
+    "display": [
+      24,
+      32
+    ],
+    "colors": 15051,
+    "transparent": 85997,
+    "partialAlpha": 24595,
+    "alphaLevels": 255
+  },
+  "vfx/ghost_2": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-11",
+    "pixels": [
+      288,
+      384
+    ],
+    "display": [
+      24,
+      32
+    ],
+    "colors": 19594,
+    "transparent": 74423,
+    "partialAlpha": 36164,
+    "alphaLevels": 256
+  },
+  "vfx/ghost_3": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-12",
+    "pixels": [
+      288,
+      384
+    ],
+    "display": [
+      24,
+      32
+    ],
+    "colors": 23527,
+    "transparent": 58694,
+    "partialAlpha": 51898,
+    "alphaLevels": 255
+  },
+  "vfx/scorch_0": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-13",
+    "pixels": [
+      704,
+      264
+    ],
+    "display": [
+      64,
+      24
+    ],
+    "colors": 4981,
+    "transparent": 176614,
+    "partialAlpha": 9240,
+    "alphaLevels": 256
+  },
+  "vfx/scorch_1": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-14",
+    "pixels": [
+      704,
+      264
+    ],
+    "display": [
+      64,
+      24
+    ],
+    "colors": 9950,
+    "transparent": 168013,
+    "partialAlpha": 17839,
+    "alphaLevels": 256
+  },
+  "vfx/scorch_2": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-15",
+    "pixels": [
+      704,
+      264
+    ],
+    "display": [
+      64,
+      24
+    ],
+    "colors": 14893,
+    "transparent": 157358,
+    "partialAlpha": 28492,
+    "alphaLevels": 256
+  },
+  "vfx/scorch_3": {
+    "source": "assets-in/painted-expansion/effects-0.png#cell-16",
+    "pixels": [
+      704,
+      264
+    ],
+    "display": [
+      64,
+      24
+    ],
+    "colors": 22440,
+    "transparent": 141731,
+    "partialAlpha": 44122,
+    "alphaLevels": 256
+  },
+  "vfx/incendiary_0": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-1",
+    "pixels": [
+      448,
+      336
+    ],
+    "display": [
+      64,
+      48
+    ],
+    "colors": 13747,
+    "transparent": 130804,
+    "partialAlpha": 19714,
+    "alphaLevels": 256
+  },
+  "vfx/incendiary_1": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-2",
+    "pixels": [
+      448,
+      336
+    ],
+    "display": [
+      64,
+      48
+    ],
+    "colors": 26550,
+    "transparent": 112048,
+    "partialAlpha": 38447,
+    "alphaLevels": 256
+  },
+  "vfx/incendiary_2": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-3",
+    "pixels": [
+      448,
+      336
+    ],
+    "display": [
+      64,
+      48
+    ],
+    "colors": 42404,
+    "transparent": 85064,
+    "partialAlpha": 65418,
+    "alphaLevels": 256
+  },
+  "vfx/incendiary_3": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-4",
+    "pixels": [
+      448,
+      336
+    ],
+    "display": [
+      64,
+      48
+    ],
+    "colors": 39332,
+    "transparent": 84877,
+    "partialAlpha": 65612,
+    "alphaLevels": 256
+  },
+  "vfx/energy_0": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-5",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "colors": 14328,
+    "transparent": 126754,
+    "partialAlpha": 20702,
+    "alphaLevels": 254
+  },
+  "vfx/energy_1": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-6",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "colors": 29900,
+    "transparent": 105170,
+    "partialAlpha": 42285,
+    "alphaLevels": 256
+  },
+  "vfx/energy_2": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-7",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "colors": 45513,
+    "transparent": 84471,
+    "partialAlpha": 62985,
+    "alphaLevels": 255
+  },
+  "vfx/energy_3": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-8",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "colors": 52435,
+    "transparent": 74788,
+    "partialAlpha": 72666,
+    "alphaLevels": 256
+  },
+  "vfx/nuke_0": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-9",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      96,
+      96
+    ],
+    "colors": 19863,
+    "transparent": 110851,
+    "partialAlpha": 36575,
+    "alphaLevels": 256
+  },
+  "vfx/nuke_1": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-10",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      96,
+      96
+    ],
+    "colors": 33423,
+    "transparent": 83545,
+    "partialAlpha": 63839,
+    "alphaLevels": 256
+  },
+  "vfx/nuke_2": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-11",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      96,
+      96
+    ],
+    "colors": 48209,
+    "transparent": 73172,
+    "partialAlpha": 74228,
+    "alphaLevels": 256
+  },
+  "vfx/nuke_3": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-12",
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      96,
+      96
+    ],
+    "colors": 36207,
+    "transparent": 77457,
+    "partialAlpha": 69965,
+    "alphaLevels": 256
+  },
+  "vfx/engine_0": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-13",
+    "pixels": [
+      312,
+      156
+    ],
+    "display": [
+      24,
+      12
+    ],
+    "colors": 5808,
+    "transparent": 39056,
+    "partialAlpha": 9590,
+    "alphaLevels": 255
+  },
+  "vfx/engine_1": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-14",
+    "pixels": [
+      312,
+      156
+    ],
+    "display": [
+      24,
+      12
+    ],
+    "colors": 10309,
+    "transparent": 31217,
+    "partialAlpha": 17426,
+    "alphaLevels": 256
+  },
+  "vfx/engine_2": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-15",
+    "pixels": [
+      312,
+      156
+    ],
+    "display": [
+      24,
+      12
+    ],
+    "colors": 14068,
+    "transparent": 26386,
+    "partialAlpha": 22245,
+    "alphaLevels": 256
+  },
+  "vfx/engine_3": {
+    "source": "assets-in/painted-expansion/effects-1.png#cell-16",
+    "pixels": [
+      312,
+      156
+    ],
+    "display": [
+      24,
+      12
+    ],
+    "colors": 12709,
+    "transparent": 29252,
+    "partialAlpha": 19403,
+    "alphaLevels": 256
+  },
+  "vfx/letter_0": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-1",
+    "pixels": [
+      288,
+      252
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "colors": 10504,
+    "transparent": 51062,
+    "partialAlpha": 21442,
+    "alphaLevels": 253
+  },
+  "vfx/letter_1": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-2",
+    "pixels": [
+      288,
+      252
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "colors": 9041,
+    "transparent": 56021,
+    "partialAlpha": 16518,
+    "alphaLevels": 248
+  },
+  "vfx/letter_2": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-3",
+    "pixels": [
+      288,
+      252
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "colors": 7978,
+    "transparent": 59785,
+    "partialAlpha": 12766,
+    "alphaLevels": 239
+  },
+  "vfx/letter_3": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-4",
+    "pixels": [
+      288,
+      252
+    ],
+    "display": [
+      16,
+      14
+    ],
+    "colors": 10122,
+    "transparent": 52664,
+    "partialAlpha": 19867,
+    "alphaLevels": 248
+  },
+  "vfx/missile_0": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-5",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 11863,
+    "transparent": 31585,
+    "partialAlpha": 20020,
+    "alphaLevels": 254
+  },
+  "vfx/missile_1": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-6",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 11845,
+    "transparent": 31751,
+    "partialAlpha": 19866,
+    "alphaLevels": 256
+  },
+  "vfx/missile_2": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-7",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 11797,
+    "transparent": 30202,
+    "partialAlpha": 21411,
+    "alphaLevels": 252
+  },
+  "vfx/missile_3": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-8",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 11626,
+    "transparent": 31187,
+    "partialAlpha": 20433,
+    "alphaLevels": 256
+  },
+  "vfx/homing_0": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-9",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 10424,
+    "transparent": 30210,
+    "partialAlpha": 21453,
+    "alphaLevels": 255
+  },
+  "vfx/homing_1": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-10",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 10272,
+    "transparent": 29818,
+    "partialAlpha": 21863,
+    "alphaLevels": 253
+  },
+  "vfx/homing_2": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-11",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 9762,
+    "transparent": 29608,
+    "partialAlpha": 22025,
+    "alphaLevels": 252
+  },
+  "vfx/homing_3": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-12",
+    "pixels": [
+      308,
+      168
+    ],
+    "display": [
+      22,
+      12
+    ],
+    "colors": 10007,
+    "transparent": 31009,
+    "partialAlpha": 20655,
+    "alphaLevels": 255
+  },
+  "vfx/rocket_mk2_0": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-13",
+    "pixels": [
+      540,
+      252
+    ],
+    "display": [
+      30,
+      14
+    ],
+    "colors": 12850,
+    "transparent": 109009,
+    "partialAlpha": 26963,
+    "alphaLevels": 256
+  },
+  "vfx/rocket_mk2_1": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-14",
+    "pixels": [
+      540,
+      252
+    ],
+    "display": [
+      30,
+      14
+    ],
+    "colors": 13816,
+    "transparent": 107814,
+    "partialAlpha": 28139,
+    "alphaLevels": 256
+  },
+  "vfx/rocket_mk2_2": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-15",
+    "pixels": [
+      540,
+      252
+    ],
+    "display": [
+      30,
+      14
+    ],
+    "colors": 12445,
+    "transparent": 109242,
+    "partialAlpha": 26742,
+    "alphaLevels": 255
+  },
+  "vfx/rocket_mk2_3": {
+    "source": "assets-in/painted-expansion/effects-2.png#cell-16",
+    "pixels": [
+      540,
+      252
+    ],
+    "display": [
+      30,
+      14
+    ],
+    "colors": 12405,
+    "transparent": 108427,
+    "partialAlpha": 27527,
+    "alphaLevels": 255
+  },
+  "vfx/attack_0": {
+    "source": "assets-in/painted-expansion/aircraft-attack.png#cell-1",
+    "pixels": [
+      896,
+      392
+    ],
+    "display": [
+      128,
+      56
+    ],
+    "colors": 56107,
+    "transparent": 257933,
+    "partialAlpha": 93124,
+    "alphaLevels": 256
+  },
+  "vfx/attack_1": {
+    "source": "assets-in/painted-expansion/aircraft-attack.png#cell-2",
+    "pixels": [
+      896,
+      392
+    ],
+    "display": [
+      128,
+      56
+    ],
+    "colors": 55983,
+    "transparent": 257625,
+    "partialAlpha": 93376,
+    "alphaLevels": 256
+  },
+  "vfx/attack_2": {
+    "source": "assets-in/painted-expansion/aircraft-attack.png#cell-3",
+    "pixels": [
+      896,
+      392
+    ],
+    "display": [
+      128,
+      56
+    ],
+    "colors": 57514,
+    "transparent": 253950,
+    "partialAlpha": 97130,
+    "alphaLevels": 256
+  },
+  "vfx/attack_3": {
+    "source": "assets-in/painted-expansion/aircraft-attack.png#cell-4",
+    "pixels": [
+      896,
+      392
+    ],
+    "display": [
+      128,
+      56
+    ],
+    "colors": 59213,
+    "transparent": 248727,
+    "partialAlpha": 102312,
+    "alphaLevels": 256
+  },
+  "vfx/gunship_0": {
+    "source": "assets-in/painted-expansion/aircraft-gunship.png#cell-1",
+    "pixels": [
+      1024,
+      512
+    ],
+    "display": [
+      128,
+      64
+    ],
+    "colors": 39782,
+    "transparent": 420995,
+    "partialAlpha": 103159,
+    "alphaLevels": 256
+  },
+  "vfx/gunship_1": {
+    "source": "assets-in/painted-expansion/aircraft-gunship.png#cell-2",
+    "pixels": [
+      1024,
+      512
+    ],
+    "display": [
+      128,
+      64
+    ],
+    "colors": 39591,
+    "transparent": 421288,
+    "partialAlpha": 102840,
+    "alphaLevels": 256
+  },
+  "vfx/gunship_2": {
+    "source": "assets-in/painted-expansion/aircraft-gunship.png#cell-3",
+    "pixels": [
+      1024,
+      512
+    ],
+    "display": [
+      128,
+      64
+    ],
+    "colors": 41375,
+    "transparent": 417016,
+    "partialAlpha": 107110,
+    "alphaLevels": 256
+  },
+  "vfx/gunship_3": {
+    "source": "assets-in/painted-expansion/aircraft-gunship.png#cell-4",
+    "pixels": [
+      1024,
+      512
+    ],
+    "display": [
+      128,
+      64
+    ],
+    "colors": 42681,
+    "transparent": 414651,
+    "partialAlpha": 109459,
+    "alphaLevels": 256
+  },
+  "vfx/stealth_0": {
+    "source": "assets-in/painted-expansion/aircraft-stealth.png#cell-1",
+    "pixels": [
+      768,
+      480
+    ],
+    "display": [
+      128,
+      80
+    ],
+    "colors": 19754,
+    "transparent": 251953,
+    "partialAlpha": 116208,
+    "alphaLevels": 256
+  },
+  "vfx/stealth_1": {
+    "source": "assets-in/painted-expansion/aircraft-stealth.png#cell-2",
+    "pixels": [
+      768,
+      480
+    ],
+    "display": [
+      128,
+      80
+    ],
+    "colors": 19133,
+    "transparent": 252831,
+    "partialAlpha": 115286,
+    "alphaLevels": 256
+  },
+  "vfx/stealth_2": {
+    "source": "assets-in/painted-expansion/aircraft-stealth.png#cell-3",
+    "pixels": [
+      768,
+      480
+    ],
+    "display": [
+      128,
+      80
+    ],
+    "colors": 22680,
+    "transparent": 247121,
+    "partialAlpha": 121014,
+    "alphaLevels": 256
+  },
+  "vfx/stealth_3": {
+    "source": "assets-in/painted-expansion/aircraft-stealth.png#cell-4",
+    "pixels": [
+      768,
+      480
+    ],
+    "display": [
+      128,
+      80
+    ],
+    "colors": 25475,
+    "transparent": 243601,
+    "partialAlpha": 124477,
+    "alphaLevels": 256
+  },
+  "materials/rock": {
+    "source": "assets-in/painted-expansion/materials.png",
+    "pixels": [
+      627,
+      627
+    ],
+    "display": [
+      128,
+      128
+    ],
+    "colors": 30543,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
+  },
+  "materials/steel": {
+    "source": "assets-in/painted-expansion/materials.png",
+    "pixels": [
+      627,
+      627
+    ],
+    "display": [
+      128,
+      128
+    ],
+    "colors": 56911,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
+  },
+  "materials/ash": {
+    "source": "assets-in/painted-expansion/materials.png",
+    "pixels": [
+      627,
+      627
+    ],
+    "display": [
+      128,
+      128
+    ],
+    "colors": 72345,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
+  },
+  "materials/clay": {
+    "source": "assets-in/painted-expansion/materials.png",
+    "pixels": [
+      627,
+      627
+    ],
+    "display": [
+      128,
+      128
+    ],
+    "colors": 25236,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1
+  },
+  "ui/logo-menu": {
+    "source": "assets-in/painted-expansion/logo.png",
+    "pixels": [
+      1914,
+      803
+    ],
+    "display": [
+      240,
+      100.6896551724138
+    ],
+    "colors": 280328,
+    "transparent": 766590,
+    "partialAlpha": 769264,
+    "alphaLevels": 256
+  },
+  "objects/petrol-bottle": {
+    "source": "assets-in/painted-expansion/supplemental.png#cell-2",
+    "pixels": [
+      400,
+      560
+    ],
+    "display": [
+      10,
+      14
+    ],
+    "colors": 35085,
+    "transparent": 164472,
+    "partialAlpha": 59268,
+    "alphaLevels": 256
+  },
+  "proj/frenchsheep": {
+    "source": "assets-in/painted-expansion/supplemental.png#cell-3",
+    "pixels": [
+      708,
+      708
+    ],
+    "display": [
+      12,
+      12
+    ],
+    "colors": 63619,
+    "transparent": 361114,
+    "partialAlpha": 139827,
+    "alphaLevels": 256
+  },
+  "creatures/nun": {
+    "source": "assets-in/painted-expansion/supplemental.png#cell-4",
+    "pixels": [
+      528,
+      660
+    ],
+    "display": [
+      16,
+      20
+    ],
+    "colors": 39734,
+    "transparent": 170917,
+    "partialAlpha": 176876,
+    "alphaLevels": 256
+  },
+  "skins/weapons/arrow": {
+    "source": "native padded alias of proj/arrow",
+    "pixels": [
+      462,
+      128
+    ],
+    "display": [
+      32,
+      32
+    ],
+    "colors": 9845,
+    "transparent": 45994,
+    "partialAlpha": 12998,
+    "alphaLevels": 249
+  }
+}
