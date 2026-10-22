@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "assets": {
+    "painted/hud/timer": {
+      "file": "timer.png",
+      "w": 137.75,
+      "h": 90.75,
+      "pixelW": 551,
+      "pixelH": 363,
+      "sampling": "linear"
+    },
+    "painted/hud/wind": {
+      "file": "wind.png",
+      "w": 230,
+      "h": 59.25,
+      "pixelW": 920,
+      "pixelH": 237,
+      "sampling": "linear"
+    },
+    "painted/hud/team": {
+      "file": "team.png",
+      "w": 224.25,
+      "h": 77.25,
+      "pixelW": 897,
+      "pixelH": 309,
+      "sampling": "linear"
+    },
+    "painted/hud/weapon": {
+      "file": "weapon.png",
+      "w": 179,
+      "h": 77.5,
+      "pixelW": 716,
+      "pixelH": 310,
+      "sampling": "linear"
+    }
+  }
+}

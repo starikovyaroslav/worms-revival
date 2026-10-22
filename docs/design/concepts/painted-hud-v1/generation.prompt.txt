@@ -1,0 +1,10 @@
+Use case: stylized-concept
+Asset type: production transparent HUD sprite sheet for Worms revival, a painted 2D artillery game.
+Input image: reference image 1 is STYLE ONLY: use its chunky hand-painted cartoon military materials, broad shading, warm highlights and strong dark outlines. Do not copy characters or scenery.
+Primary request: Four separate EMPTY military instrument housings arranged in a strict 2 by 2 grid on a fully transparent canvas. Each asset must sit entirely in its own quadrant with generous transparent gutters and no overlap. This is actual usable game UI artwork, not a screenshot or mood board.
+Top left: squat rounded rectangular field timer housing, aspect ratio about 1.55:1, olive enamel outer shell with brass bevel, four corner screws, dark charcoal inset display occupying most of the center, small red indicator light on the top rim.
+Top right: wide wind instrument housing, about 3.6:1, aged olive and steel, brass bevel, blank dark inset face, tiny engraved tick marks along its lower rim, no needle or numbers.
+Bottom left: wide team status nameplate, about 4.7:1, chunky worn olive military metal frame, subdued brass edges and corner bolts, spacious blank dark interior, narrow recessed empty bar well along bottom.
+Bottom right: wide weapon equipment nameplate, about 3:1, matching military field equipment housing, spacious blank dark interior, discreet diagonal yellow and charcoal hazard marks only at bottom right corner.
+Style: expressive hand-painted early-2000s cartoon game, polished 2D illustration, restrained surface wear, broad readable forms matching reference. Not photoreal, not pixel art, not sci-fi neon. All panels face straight forward, orthographic, no perspective. Smooth RGBA edges. Blank interiors uniformly very dark desaturated green-charcoal so live cream text will be readable. Keep rim thickness restrained. Each panel has its own silhouette and rim details.
+Constraints: exactly four empty panel assets, no writing, no letters, no digits, no logos, no characters, no scenery, no background, no drop shadow outside assets. True transparent background.

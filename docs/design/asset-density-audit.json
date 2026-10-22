@@ -1,7 +1,7 @@
 {
   "policy": "all on-disk PNGs: declared native pixels, >=3x display density (icons 6x; other sprites 4x), longest edge >=64; no unregistered leftovers",
-  "totalPng": 993,
-  "registeredPng": 993,
+  "totalPng": 997,
+  "registeredPng": 997,
   "packs": [
     {
       "pack": "legacy paths (rebuilt)",
@@ -79,6 +79,13 @@
       "frames": 292,
       "minimumDensity": 4,
       "pngBytes": 57112987
+    },
+    {
+      "pack": "painted-hud",
+      "images": 4,
+      "frames": 4,
+      "minimumDensity": 4,
+      "pngBytes": 1102964
     }
   ],
   "problems": []
