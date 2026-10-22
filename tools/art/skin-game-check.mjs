@@ -17,6 +17,10 @@ try {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(base);
+  assert.equal(
+    await page.getByLabel('Класс команды 2').locator('option[value="dominant"]').isDisabled(),
+    false,
+  );
   await page.getByLabel('Класс команды 1').selectOption('heavy');
   await page.getByLabel('Класс команды 2').selectOption('elder');
   await page.locator('.character-roster').first().locator('summary').click();
@@ -142,8 +146,8 @@ try {
       hashUnchanged: before === game.hash(),
     };
   });
-  assert.equal(result.skins, 15);
-  assert.equal(result.combinations, 15 * 67 * 2 * 3);
+  assert.equal(result.skins, 16);
+  assert.equal(result.combinations, 16 * 67 * 2 * 3);
   assert.deepEqual(result.problems, []);
   assert.ok(result.hashUnchanged);
   assert.deepEqual(
@@ -165,7 +169,9 @@ try {
   );
   await page.screenshot({ path: `${output}/match-classes.png` });
   await page.addStyleTag({ content: '#ui {display:none !important}' });
-  for (let start = 0; start < 15; start += 5) {
+  for (let start = 0; start < result.skins; start += 5) {
+    if (result.skins - start < 5)
+      await page.setViewportSize({ width: 1920, height: 80 + (result.skins - start) * 190 });
     await page.evaluate((start) => {
       const { sim, render, pixi, scene, skins } = window.__skinReview;
       for (const child of scene.app.stage.children) child.visible = false;
@@ -205,6 +211,22 @@ try {
     await page.screenshot({ path: `${output}/equipment-matrix-${start / 5 + 1}.png` });
   }
   assert.deepEqual(errors, []);
+  const commander = await browser.newPage();
+  commander.on('pageerror', (error) => errors.push(error.message));
+  await commander.goto(base);
+  await commander.getByLabel('Класс команды 1').selectOption('dominant');
+  await commander.getByRole('button', { name: 'В бой!' }).click();
+  await commander.waitForFunction(() => window.__game?.scene.worms.size > 0);
+  assert.ok(
+    await commander.evaluate(() =>
+      [...window.__game.scene.worms.values()]
+        .filter((view) => view.worm.team === 0)
+        .every((view) => view.skinActor?.id === 'commander-femme'),
+    ),
+    'Closed-uniform family is playable from menu',
+  );
+  await commander.close();
+  result.commanderClass = true;
   const fallback = await browser.newPage();
   fallback.on('pageerror', (error) => errors.push(error.message));
   await fallback.route('**/assets/skins/manifest.json*', (route) =>
@@ -224,7 +246,7 @@ try {
   const preview = await browser.newPage();
   preview.on('pageerror', (error) => errors.push(error.message));
   await preview.goto(pathToFileURL(resolve('docs/design/concepts/worm-skins-animated.html')).href);
-  assert.equal(await preview.locator('.sprite').count(), 15);
+  assert.equal(await preview.locator('.sprite').count(), 16);
   await preview.locator('#mode').selectOption('win');
   await preview.waitForFunction(
     () => document.querySelector('.sprite').style.backgroundPosition === '100% 100%',
