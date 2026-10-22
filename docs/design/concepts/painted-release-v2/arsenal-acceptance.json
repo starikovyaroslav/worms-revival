@@ -1,0 +1,156 @@
+{
+  "skins": 36,
+  "combinations": 14472,
+  "roster": [
+    {
+      "team": 0,
+      "skin": "commando-femme"
+    },
+    {
+      "team": 1,
+      "skin": "elder"
+    },
+    {
+      "team": 0,
+      "skin": "brutal"
+    },
+    {
+      "team": 1,
+      "skin": "elder-femme"
+    },
+    {
+      "team": 0,
+      "skin": "brutal-sapper"
+    },
+    {
+      "team": 1,
+      "skin": "elder-captain"
+    },
+    {
+      "team": 0,
+      "skin": "brutal-brawler"
+    },
+    {
+      "team": 1,
+      "skin": "elder-professor"
+    }
+  ],
+  "recordedRoster": [
+    {
+      "team": 0,
+      "skin": "commando-femme"
+    },
+    {
+      "team": 0,
+      "skin": "brutal"
+    },
+    {
+      "team": 0,
+      "skin": "brutal-sapper"
+    },
+    {
+      "team": 0,
+      "skin": "brutal-brawler"
+    },
+    {
+      "team": 1,
+      "skin": "elder"
+    },
+    {
+      "team": 1,
+      "skin": "elder-femme"
+    },
+    {
+      "team": 1,
+      "skin": "elder-captain"
+    },
+    {
+      "team": 1,
+      "skin": "elder-professor"
+    }
+  ],
+  "problems": [],
+  "hashUnchanged": true,
+  "classRosters": {
+    "heavy": [
+      "brutal",
+      "commando-femme",
+      "brutal-sapper",
+      "brutal-brawler"
+    ],
+    "soft": [
+      "soft",
+      "soft-femme",
+      "soft-cook",
+      "soft-artist"
+    ],
+    "glam": [
+      "glam-femme",
+      "glam-masc",
+      "glam-rocker",
+      "glam-cabaret"
+    ],
+    "dominant": [
+      "commander-femme",
+      "officer-ice",
+      "officer-red",
+      "officer-iron"
+    ],
+    "elder": [
+      "elder",
+      "elder-femme",
+      "elder-captain",
+      "elder-professor"
+    ],
+    "sick": [
+      "sickly",
+      "sickly-femme",
+      "sickly-clerk",
+      "sickly-nurse"
+    ],
+    "veteran": [
+      "veteran",
+      "veteran-femme",
+      "veteran-sailor",
+      "veteran-aviator"
+    ],
+    "classic": [
+      "classic",
+      "classic-femme",
+      "classic-punk",
+      "classic-scout"
+    ],
+    "nocturne": [
+      "nocturne-velvet",
+      "nocturne-crimson",
+      "nocturne-silver",
+      "nocturne-violet"
+    ]
+  },
+  "nocturneReplays": {
+    "automatic": {
+      "identities": [
+        "nocturne-velvet",
+        "nocturne-crimson",
+        "nocturne-silver",
+        "nocturne-violet"
+      ],
+      "ticks": 600,
+      "verified": true,
+      "hashUnchanged": true
+    },
+    "manual-repeated": {
+      "identities": [
+        "nocturne-violet",
+        "nocturne-velvet",
+        "nocturne-violet",
+        "nocturne-crimson"
+      ],
+      "ticks": 600,
+      "verified": true,
+      "hashUnchanged": true
+    }
+  },
+  "legacyFallback": true,
+  "offlinePreview": true
+}
