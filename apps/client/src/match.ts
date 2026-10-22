@@ -8,7 +8,7 @@ import {
   type MatchConfig,
   type Replay,
 } from '@wr/content';
-import { themeById } from '@wr/render';
+import { themeById, assets, SKINS, resolveTeamVariant } from '@wr/render';
 import { FixedLoop } from './loop';
 import { Input } from './input';
 import { settingsStore } from './settings';
@@ -57,8 +57,29 @@ export class Match {
     this.player = replay ? new ReplayPlayer(replay) : null;
     const game = this.player?.game ?? new Game(buildGameSetup(config));
     this.game = game;
-    this.recorder = new ReplayRecorder(config);
-    const scene = new GameScene(app, viewport, game, themeById(config.themeId), config.seed);
+    // Freeze cosmetic member identities in recordings so future additions to a class do not
+    // change the faces in an existing replay. This config never enters GameSetup or its hash.
+    const available = new Set(
+      SKINS.filter((skin) => assets.has(`skins/${skin.id}/idle`)).map((skin) => skin.id),
+    );
+    const presentationConfig = {
+      ...config,
+      teams: config.teams.map((team, index) => ({
+        ...team,
+        characterVariants: game.teams[index]!.wormIds.map(
+          (_, member) => resolveTeamVariant(team, member, available) ?? '',
+        ),
+      })),
+    };
+    this.recorder = new ReplayRecorder(presentationConfig);
+    const scene = new GameScene(
+      app,
+      viewport,
+      game,
+      themeById(config.themeId),
+      config.seed,
+      presentationConfig.teams,
+    );
     this.scene = scene;
     scene.camera.level = 1;
     scene.onMessage = hooks.onMessage;

@@ -671,8 +671,52 @@ body {
 
 .team-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+}
+
+.skin-choice {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+}
+.skin-choice select {
+  max-width: 150px;
+}
+.skin-swatch {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-size: 400% 400%;
+  image-rendering: pixelated;
+}
+
+.character-roster {
+  flex-basis: 100%;
+  font-size: 8px;
+}
+.character-roster summary {
+  cursor: pointer;
+  padding: 6px 0;
+}
+.character-roster p {
+  max-width: 340px;
+  font-size: 8px;
+  line-height: 1.5;
+}
+.character-member {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.character-member > span:first-child {
+  min-width: 80px;
+}
+.character-member select {
+  max-width: 180px;
 }
 
 .team-dot {

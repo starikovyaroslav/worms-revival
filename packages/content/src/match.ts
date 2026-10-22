@@ -9,6 +9,11 @@ export interface TeamConfig {
   worms: string[];
   /** 0 = human player, 1..5 = computer difficulty. */
   cpu: number;
+  /** Presentation only; omitted from buildGameSetup and all simulation hashes. */
+  skin?: string;
+  /** Cosmetic family and per-member identities; never passed into deterministic GameSetup. */
+  characterClass?: string;
+  characterVariants?: string[];
 }
 
 /** Everything needed to recreate a match exactly: the basis for replays and netplay. */

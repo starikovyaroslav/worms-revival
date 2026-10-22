@@ -21,6 +21,10 @@ import {
   labelUnit,
   type LabelScale,
   TEAM_COLORS,
+  SKINS,
+  assets,
+  resolveTeamVariant,
+  type CharacterAppearance,
   TerrainView,
   WaterView,
   WormView,
@@ -88,6 +92,7 @@ export class GameScene {
     private readonly game: Game,
     theme: Theme,
     seed: number,
+    private readonly teamSkins: readonly CharacterAppearance[] = [],
   ) {
     this.viewCtx = createViewContext(game.world, game.rules);
     const terrain = game.world.terrain;
@@ -180,7 +185,14 @@ export class GameScene {
       live.add(e.id);
       if (e instanceof Worm) {
         if (!this.worms.has(e.id)) {
-          const v = new WormView(e);
+          const selected = this.teamSkins[e.team] ?? {};
+          const team = this.game.teams[e.team];
+          const index = team?.wormIds.indexOf(e.id) ?? 0;
+          const available = new Set(
+            SKINS.filter((s) => assets.has(`skins/${s.id}/idle`)).map((s) => s.id),
+          );
+          const skin = resolveTeamVariant(selected, Math.max(0, index), available);
+          const v = new WormView(e, skin);
           v.setLabelScale(this.labelScale);
           this.worms.set(e.id, v);
           this.wormLayer.addChild(v.container);
@@ -524,9 +536,19 @@ export class GameScene {
       const isActive = v.worm.id === game.activeWormId;
       // The active worm shows its weapon while it is that worm's turn to aim.
       const aiming = isActive && (game.phase === 'ready' || game.phase === 'turn');
-      const hold = aiming && game.weapon?.aim === 'angle' ? game.weaponId : '';
+      const hold = aiming ? game.weaponId : '';
       const showArrow = isActive && (game.phase === 'ready' || game.phase === 'turn');
-      v.update(alpha, dtMs, isActive && game.phase !== 'settling', project, hold, showArrow);
+      const endPose =
+        game.phase === 'gameover' ? (game.winner === v.worm.team ? 'win' : 'defeat') : undefined;
+      v.update(
+        alpha,
+        dtMs,
+        isActive && game.phase !== 'settling',
+        project,
+        hold,
+        showArrow,
+        endPose,
+      );
       v.setShownHealth(v.worm.shownHealth);
     }
     this.viewCtx.crateSpy = !!game.activeWorm?.crateSpy;

@@ -12,6 +12,28 @@ const cfg: MatchConfig = {
 };
 
 describe('buildGameSetup', () => {
+  it('cosmetic skin choices do not enter setup, hashes or movement rules', () => {
+    const plain = buildGameSetup(cfg);
+    const skinned = buildGameSetup({
+      ...cfg,
+      teams: cfg.teams.map((team, i) => ({
+        ...team,
+        skin: i ? 'dominatrix' : 'veteran',
+        characterClass: i ? 'heavy' : 'elder',
+        characterVariants: i ? ['brutal', 'commando-femme'] : ['elder', 'elder-femme'],
+      })),
+    });
+    expect(skinned.teams).toEqual(plain.teams);
+    expect(skinned.spawns).toEqual(plain.spawns);
+    const a = new Game(plain),
+      b = new Game(skinned);
+    expect(a.hash()).toBe(b.hash());
+    for (let i = 0; i < 60; i++) {
+      a.step();
+      b.step();
+    }
+    expect(a.hash()).toBe(b.hash());
+  });
   it('places every worm and the scheme objects', () => {
     const setup = buildGameSetup(cfg);
     expect(setup.spawns.length).toBe(3 * setup.scheme.wormsPerTeam);

@@ -10,7 +10,16 @@ import {
   type Replay,
   type ReplayProblem,
 } from '@wr/content';
-import { THEMES, TEAM_COLORS, assets } from '@wr/render';
+import {
+  THEMES,
+  TEAM_COLORS,
+  CHARACTER_CLASSES,
+  variantsForClass,
+  appearanceClass,
+  resolveTeamVariant,
+  SKINS,
+  assets,
+} from '@wr/render';
 import { drawMapPreview } from './mapPreview';
 import { Wormpot } from './Wormpot';
 
@@ -23,7 +32,11 @@ export function defaultConfig(): MatchConfig {
     style: 'island',
     themeId: THEMES[Math.floor(Math.random() * THEMES.length)]!.id,
     schemeId: 'intermediate',
-    teams: [0, 1].map((i) => ({ ...TEAM_PRESETS[i]!, cpu: 0 })),
+    teams: [0, 1].map((i) => ({
+      ...TEAM_PRESETS[i]!,
+      cpu: 0,
+      characterClass: i ? 'classic' : 'heavy',
+    })),
   };
 }
 
@@ -88,16 +101,25 @@ export function Menu({ initial, onStart, onReplay }: Props) {
 
   const setTeam = (i: number, presetIdx: number) => {
     const teams = cfg.teams.slice();
-    teams[i] = { ...TEAM_PRESETS[presetIdx]!, cpu: teams[i]?.cpu ?? 0 };
+    teams[i] = {
+      ...TEAM_PRESETS[presetIdx]!,
+      cpu: teams[i]?.cpu ?? 0,
+      characterClass: appearanceClass(teams[i] ?? {}),
+      characterVariants: teams[i]?.characterVariants,
+    };
     set({ teams });
   };
   const addTeam = () => {
     const used = new Set(cfg.teams.map((t) => t.name));
     const preset = TEAM_PRESETS.find((p) => !used.has(p.name)) ?? TEAM_PRESETS[0]!;
-    set({ teams: [...cfg.teams, { ...preset, cpu: 0 }] });
+    set({ teams: [...cfg.teams, { ...preset, cpu: 0, characterClass: 'classic' }] });
   };
 
   const compactLogo = assets.url('ui/logo-menu');
+  const availableVariants = new Set(
+    SKINS.filter((skin) => assets.has(`skins/${skin.id}/idle`)).map((skin) => skin.id),
+  );
+  const memberCount = SCHEMES.find((s) => s.id === cfg.schemeId)?.wormsPerTeam ?? 4;
   const logo = compactLogo ?? assets.url('ui/logo');
   const layers = ['near', 'mid', 'far', 'sky'].map((name) =>
     assets.url(`bg/${cfg.themeId}/${name}`),
@@ -160,6 +182,86 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                     </option>
                   ))}
                 </select>
+                <label class="skin-choice">
+                  <span>Класс</span>
+                  <select
+                    aria-label={`Класс команды ${i + 1}`}
+                    value={appearanceClass(t)}
+                    onChange={(e) => {
+                      const teams = cfg.teams.slice();
+                      teams[i] = {
+                        ...t,
+                        characterClass: (e.target as HTMLSelectElement).value,
+                        characterVariants: [],
+                      };
+                      set({ teams });
+                    }}
+                  >
+                    <option value="mixed">Смешанный состав</option>
+                    <option value="legacy">Прежний герой</option>
+                    {CHARACTER_CLASSES.map((family) => (
+                      <option
+                        key={family.id}
+                        value={family.id}
+                        disabled={
+                          !variantsForClass(family.id).some((s) => availableVariants.has(s.id))
+                        }
+                      >
+                        {family.name} (
+                        {
+                          variantsForClass(family.id).filter((s) => availableVariants.has(s.id))
+                            .length
+                        }
+                        )
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {appearanceClass(t) !== 'legacy' && (
+                  <details class="character-roster">
+                    <summary>Состав персонажей</summary>
+                    <p>
+                      Автовыбор чередует варианты класса. Если вариантов меньше червей, они
+                      повторяются.
+                    </p>
+                    {t.worms.slice(0, memberCount).map((name, member) => {
+                      const variant = resolveTeamVariant(t, member, availableVariants);
+                      return (
+                        <label class="character-member" key={member}>
+                          <span>{name}</span>
+                          {variant && (
+                            <span
+                              class="skin-swatch"
+                              style={{
+                                backgroundImage: `url(${assets.url(`skins/${variant}/idle`)})`,
+                              }}
+                            />
+                          )}
+                          <select
+                            aria-label={`Персонаж ${member + 1} команды ${i + 1}`}
+                            value={t.characterVariants?.[member] ?? ''}
+                            onChange={(e) => {
+                              const teams = cfg.teams.slice(),
+                                characterVariants = [...(t.characterVariants ?? [])];
+                              characterVariants[member] = (e.target as HTMLSelectElement).value;
+                              teams[i] = { ...t, characterVariants };
+                              set({ teams });
+                            }}
+                          >
+                            <option value="">Авто</option>
+                            {variantsForClass(appearanceClass(t))
+                              .filter((s) => availableVariants.has(s.id))
+                              .map((s) => (
+                                <option key={s.id} value={s.id}>
+                                  {s.name}
+                                </option>
+                              ))}
+                          </select>
+                        </label>
+                      );
+                    })}
+                  </details>
+                )}
                 {cfg.teams.length > 2 && (
                   <button
                     class="icon-btn"
