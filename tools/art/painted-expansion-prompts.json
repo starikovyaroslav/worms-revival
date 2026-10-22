@@ -1,0 +1,1379 @@
+[
+  {
+    "id": "desert-sky",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 seamless panoramic SKY ONLY. Clear warm pale turquoise sky fading to cream at the horizon, a few broad ivory clouds, quiet hot daylight. No sun disk, terrain or silhouettes. Opaque full bleed. Matching left/right colours.",
+    "transparent": false,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/desert-sky.png"
+  },
+  {
+    "id": "desert-far",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: very distant pale dusty rose mesa silhouettes, low contrast warm haze. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/desert-far.png"
+  },
+  {
+    "id": "desert-mid",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: distant muted ochre mesas and broad flat-topped sandstone buttes, calm large shapes. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/desert-mid.png"
+  },
+  {
+    "id": "desert-near",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: still distant muted terracotta sandstone slopes, a few sparse small cactus silhouettes grouped together, no tiny texture. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/desert-near.png"
+  },
+  {
+    "id": "desert-soil",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare seamless underground MATERIAL TILE ONLY: warm ochre sandstone and sand cross-section, broad geological strata, a few large embedded rounded red-brown stones, no speckled noise or roots. Flat front-facing cutaway, not a platform or island. Fill every pixel opaque. Match edges left/right AND top/bottom. NO surface rim, snow cap, grass, sky, horizon, water, bevel, cast shadow or small-grain noise.",
+    "transparent": false,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/desert-soil.png"
+  },
+  {
+    "id": "desert-edges",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 2:1 terrain ribbon SHEET: EXACTLY FOUR full-width HORIZONTAL RIBBONS, centred in four equal rows. Each ribbon only central 45 percent of row height; WIDE transparent horizontal gutters. Cut ends at both side edges for horizontal tiling, matching height/colour left/right. Row 1 TOP EDGE: pale golden sand cap over warm sandstone, broad smooth irregular dunes, NO grass. Row 2 UNDERSIDE: hanging warm ochre sandstone and sand cross-section, broad geological strata, a few large embedded rounded red-brown stones, no speckled noise or roots, material ABOVE irregular lower edge, short roots only in desert, transparent BELOW. Row 3 SCORCHED EDGE: dark charred ash rim, broad readable material, no flame. Row 4 BARE ROCK EDGE: broad rounded muted stone rim matching biome, no surface cap. All four ribbons are straight horizontal material strips, NOT isolated islands. True alpha background.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/desert-edges.png"
+  },
+  {
+    "id": "desert-water",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontally seamless surface STRIP: deep turquoise oasis water with broad white-cream foam crests, no land. Upper25percent fully transparent, painted rolling crest around upperthird, ALL pixels below crest opaque to bottomedge. Bottomedge uniform dark bodycolour. Matching crest height and colour left/right. No side or bottom margins. Broad brush shapes, not photorealistic reflections.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/desert-water.png"
+  },
+  {
+    "id": "arctic-sky",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 seamless panoramic SKY ONLY. Cold blue daylight sky fading to pale icy cyan at the horizon, a few broad soft ivory clouds. No sun disk, terrain or silhouettes. Opaque full bleed. Matching left/right colours.",
+    "transparent": false,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/arctic-sky.png"
+  },
+  {
+    "id": "arctic-far",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: very distant pale desaturated blue angular snowy mountain silhouettes, low contrast atmospheric haze. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/arctic-far.png"
+  },
+  {
+    "id": "arctic-mid",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: distant blue-grey rounded glacier ridges and broad snow fields, calm readable shapes. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/arctic-mid.png"
+  },
+  {
+    "id": "arctic-near",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: still distant muted blue-grey snowy foothills with sparse grouped fir-tree silhouettes, no foreground texture. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/arctic-near.png"
+  },
+  {
+    "id": "arctic-soil",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare seamless underground MATERIAL TILE ONLY: icy blue-grey frozen earth cutaway with a few broad embedded grey boulders, smooth blue ice lenses and large geological strata, no speckled noise. Flat front-facing cutaway, not a platform or island. Fill every pixel opaque. Match edges left/right AND top/bottom. NO surface rim, snow cap, grass, sky, horizon, water, bevel, cast shadow or small-grain noise.",
+    "transparent": false,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/arctic-soil.png"
+  },
+  {
+    "id": "arctic-edges",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 2:1 terrain ribbon SHEET: EXACTLY FOUR full-width HORIZONTAL RIBBONS, centred in four equal rows. Each ribbon only central 45 percent of row height; WIDE transparent horizontal gutters. Cut ends at both side edges for horizontal tiling, matching height/colour left/right. Row 1 TOP EDGE: thick rounded ivory SNOW cap over blue-grey frozen earth with a few short icicles, NO grass. Row 2 UNDERSIDE: hanging icy blue-grey frozen earth cutaway with a few broad embedded grey boulders, smooth blue ice lenses and large geological strata, no speckled noise, material ABOVE irregular lower edge, short roots only in desert, transparent BELOW. Row 3 SCORCHED EDGE: dark charred ash rim, broad readable material, no flame. Row 4 BARE ROCK EDGE: broad rounded muted stone rim matching biome, no surface cap. All four ribbons are straight horizontal material strips, NOT isolated islands. True alpha background.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/arctic-edges.png"
+  },
+  {
+    "id": "arctic-water",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontally seamless surface STRIP: cold deep navy-blue water with broad pale cyan-white foam crests, no land or floating ice objects. Upper25percent fully transparent, painted rolling crest around upperthird, ALL pixels below crest opaque to bottomedge. Bottomedge uniform dark bodycolour. Matching crest height and colour left/right. No side or bottom margins. Broad brush shapes, not photorealistic reflections.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/arctic-water.png"
+  },
+  {
+    "id": "hell-sky",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 seamless panoramic SKY ONLY. Ominous dark purple charcoal NIGHT sky fading to muted burnt red haze at bottom. A few broad purple-grey smoke clouds, no sun, stars, terrain or silhouettes. Background must stay quiet behind gameplay. Opaque full bleed. Matching left/right colours.",
+    "transparent": false,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/hell-sky.png"
+  },
+  {
+    "id": "hell-far",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: very distant muted dark plum volcanic mountain silhouettes, low contrast reddish atmospheric haze. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/hell-far.png"
+  },
+  {
+    "id": "hell-mid",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: distant purple-brown volcanic ridges and a few broad basalt spires, no glowing cracks, quiet large shapes. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/hell-mid.png"
+  },
+  {
+    "id": "hell-near",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontal seamless PARALLAX LAYER ONLY: still distant dark charcoal broad basalt slopes and grouped jagged rock silhouettes, subtle muted red rimlight, no tiny texture. Upper 45 percent genuinely transparent, continuous hill ridge near middle, lower half completely filled to BOTTOM EDGE in muted uniform layer colour. Left/right ridge same height/colour; no margins at sides or bottom. No sky, water, characters, props or UI.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/hell-near.png"
+  },
+  {
+    "id": "hell-soil",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare seamless underground MATERIAL TILE ONLY: dark warm charcoal and purple-brown volcanic rock cutaway, broad readable fractured strata, a FEW muted ember-orange crevices, no uniform glowing lattice, no speckled noise. Flat front-facing cutaway, not a platform or island. Fill every pixel opaque. Match edges left/right AND top/bottom. NO surface rim, snow cap, grass, sky, horizon, water, bevel, cast shadow or small-grain noise.",
+    "transparent": false,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/hell-soil.png"
+  },
+  {
+    "id": "hell-edges",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 2:1 terrain ribbon SHEET: EXACTLY FOUR full-width HORIZONTAL RIBBONS, centred in four equal rows. Each ribbon only central 45 percent of row height; WIDE transparent horizontal gutters. Cut ends at both side edges for horizontal tiling, matching height/colour left/right. Row 1 TOP EDGE: charcoal volcanic ash cap over dark purple-brown cracked basalt with sparse dull embers, NO grass or continuous bright lava border. Row 2 UNDERSIDE: hanging dark warm charcoal and purple-brown volcanic rock cutaway, broad readable fractured strata, a FEW muted ember-orange crevices, no uniform glowing lattice, no speckled noise, material ABOVE irregular lower edge, short roots only in desert, transparent BELOW. Row 3 SCORCHED EDGE: dark charred ash rim, broad readable material, no flame. Row 4 BARE ROCK EDGE: broad rounded muted stone rim matching biome, no surface cap. All four ribbons are straight horizontal material strips, NOT isolated islands. True alpha background.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/hell-edges.png"
+  },
+  {
+    "id": "hell-water",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nLandscape 3:1 horizontally seamless surface STRIP: molten lava SURFACE, deep dark burnt red body with broad rolling orange crests and sparse hot yellow foam-like strokes, not blue water, no land. Upper25percent fully transparent, painted rolling crest around upperthird, ALL pixels below crest opaque to bottomedge. Bottomedge uniform dark bodycolour. Matching crest height and colour left/right. No side or bottom margins. Broad brush shapes, not photorealistic reflections.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/hell-water.png"
+  },
+  {
+    "id": "icons-0",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Inventory ICONS, strong readable symbols, not UI panels, no hands or characters around equipment. Guns point RIGHT.\nCell 1: olive segmented hand grenade with silver pin.\nCell 2: red dynamite bundle and burning fuse.\nCell 3: round olive proximity landmine with red indicator.\nCell 4: olive military shoulder-fired RPG launcher pointing RIGHT, clear grip and sight.\nCell 5: white woolly sheep with black face.\nCell 6: olive guided missile launcher with red targeting lens pointing RIGHT.\nCell 7: military mortar tube on a broad stable bipod base.\nCell 8: grey courier pigeon with tiny harness.\nCell 9: red cluster grenade with dark segmentation.\nCell 10: curved yellow banana.\nCell 11: long wooden-stock pump shotgun pointing RIGHT.\nCell 12: compact dark steel combat pistol pointing RIGHT.\nCell 13: compact black submachine gun pointing RIGHT.\nCell 14: heavy six-barrel rotary gun pointing RIGHT.\nCell 15: curved wooden longbow with an arrow.\nCell 16: clenched cartoon fist surrounded by orange flame.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/icons-0.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "weapons/icon/grenade",
+        "w": 14,
+        "h": 14,
+        "description": "olive segmented hand grenade with silver pin"
+      },
+      {
+        "id": "weapons/icon/dynamite",
+        "w": 14,
+        "h": 14,
+        "description": "red dynamite bundle and burning fuse"
+      },
+      {
+        "id": "weapons/icon/mine",
+        "w": 14,
+        "h": 14,
+        "description": "round olive proximity landmine with red indicator"
+      },
+      {
+        "id": "weapons/icon/bazooka",
+        "w": 14,
+        "h": 14,
+        "description": "olive military shoulder-fired RPG launcher pointing RIGHT, clear grip and sight"
+      },
+      {
+        "id": "weapons/icon/sheep",
+        "w": 14,
+        "h": 14,
+        "description": "white woolly sheep with black face"
+      },
+      {
+        "id": "weapons/icon/homing",
+        "w": 32,
+        "h": 25,
+        "description": "olive guided missile launcher with red targeting lens pointing RIGHT"
+      },
+      {
+        "id": "weapons/icon/mortar",
+        "w": 14,
+        "h": 14,
+        "description": "military mortar tube on a broad stable bipod base"
+      },
+      {
+        "id": "weapons/icon/pigeon",
+        "w": 32,
+        "h": 23,
+        "description": "grey courier pigeon with tiny harness"
+      },
+      {
+        "id": "weapons/icon/cluster",
+        "w": 14,
+        "h": 14,
+        "description": "red cluster grenade with dark segmentation"
+      },
+      {
+        "id": "weapons/icon/banana",
+        "w": 14,
+        "h": 14,
+        "description": "curved yellow banana"
+      },
+      {
+        "id": "weapons/icon/shotgun",
+        "w": 14,
+        "h": 14,
+        "description": "long wooden-stock pump shotgun pointing RIGHT"
+      },
+      {
+        "id": "weapons/icon/handgun",
+        "w": 14,
+        "h": 14,
+        "description": "compact dark steel combat pistol pointing RIGHT"
+      },
+      {
+        "id": "weapons/icon/uzi",
+        "w": 14,
+        "h": 14,
+        "description": "compact black submachine gun pointing RIGHT"
+      },
+      {
+        "id": "weapons/icon/minigun",
+        "w": 32,
+        "h": 24,
+        "description": "heavy six-barrel rotary gun pointing RIGHT"
+      },
+      {
+        "id": "weapons/icon/longbow",
+        "w": 14,
+        "h": 14,
+        "description": "curved wooden longbow with an arrow"
+      },
+      {
+        "id": "weapons/icon/firepunch",
+        "w": 14,
+        "h": 14,
+        "description": "clenched cartoon fist surrounded by orange flame"
+      }
+    ]
+  },
+  {
+    "id": "icons-1",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Inventory ICONS, strong readable symbols, not UI panels, no hands or characters around equipment. Guns point RIGHT.\nCell 1: extended cartoon index finger.\nCell 2: white sheep wearing blue cape.\nCell 3: aggressive A-10 inspired ground-attack jet silhouette.\nCell 4: compact metal blowtorch with nozzle pointing RIGHT.\nCell 5: orange heavy power drill pointing RIGHT.\nCell 6: steel girder section.\nCell 7: wooden baseball bat.\nCell 8: metal grappling pistol pointing RIGHT with coiled rope.\nCell 9: open ivory military parachute canopy.\nCell 10: cyan electric portal device.\nCell 11: ornate gold holy grenade with small cross.\nCell 12: rounded forward arrow.\nCell 13: white cloth flag.\nCell 14: small glass petrol bottle with cloth fuse.\nCell 15: angry black-white cow.\nCell 16: black-white skunk with striped tail.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/icons-1.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "weapons/icon/prod",
+        "w": 14,
+        "h": 14,
+        "description": "extended cartoon index finger"
+      },
+      {
+        "id": "weapons/icon/supersheep",
+        "w": 14,
+        "h": 14,
+        "description": "white sheep wearing blue cape"
+      },
+      {
+        "id": "weapons/icon/airstrike",
+        "w": 14,
+        "h": 14,
+        "description": "aggressive A-10 inspired ground-attack jet silhouette"
+      },
+      {
+        "id": "weapons/icon/blowtorch",
+        "w": 14,
+        "h": 14,
+        "description": "compact metal blowtorch with nozzle pointing RIGHT"
+      },
+      {
+        "id": "weapons/icon/drill",
+        "w": 30,
+        "h": 32,
+        "description": "orange heavy power drill pointing RIGHT"
+      },
+      {
+        "id": "weapons/icon/girder",
+        "w": 14,
+        "h": 14,
+        "description": "steel girder section"
+      },
+      {
+        "id": "weapons/icon/bat",
+        "w": 14,
+        "h": 14,
+        "description": "wooden baseball bat"
+      },
+      {
+        "id": "weapons/icon/rope",
+        "w": 14,
+        "h": 14,
+        "description": "metal grappling pistol pointing RIGHT with coiled rope"
+      },
+      {
+        "id": "weapons/icon/parachute",
+        "w": 14,
+        "h": 14,
+        "description": "open ivory military parachute canopy"
+      },
+      {
+        "id": "weapons/icon/teleport",
+        "w": 30,
+        "h": 32,
+        "description": "cyan electric portal device"
+      },
+      {
+        "id": "weapons/icon/hhg",
+        "w": 22,
+        "h": 32,
+        "description": "ornate gold holy grenade with small cross"
+      },
+      {
+        "id": "weapons/icon/skipgo",
+        "w": 23,
+        "h": 32,
+        "description": "rounded forward arrow"
+      },
+      {
+        "id": "weapons/icon/surrender",
+        "w": 22,
+        "h": 32,
+        "description": "white cloth flag"
+      },
+      {
+        "id": "weapons/icon/petrol",
+        "w": 14,
+        "h": 14,
+        "description": "small glass petrol bottle with cloth fuse"
+      },
+      {
+        "id": "weapons/icon/madcow",
+        "w": 14,
+        "h": 14,
+        "description": "angry black-white cow"
+      },
+      {
+        "id": "weapons/icon/skunk",
+        "w": 14,
+        "h": 14,
+        "description": "black-white skunk with striped tail"
+      }
+    ]
+  },
+  {
+    "id": "icons-2",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Inventory ICONS, strong readable symbols, not UI panels, no hands or characters around equipment. Guns point RIGHT.\nCell 1: grey angry donkey.\nCell 2: a compact grey twin-tank rocket backpack with orange exhaust.\nCell 3: a peach ball floating above a blue upward arrow.\nCell 4: a brown boot with two horizontal speed streaks.\nCell 5: a small grey laser sight projecting a red beam toward a crosshair.\nCell 6: a pale cyan dashed silhouette of a little grub.\nCell 7: a red fist backed by two yellow impact wedges, no numbers.\nCell 8: a wooden crate beside a large open eye.\nCell 9: a small white sheep emerging from a chunky green launcher.\nCell 10: a broad steel battle axe on a brown handle.\nCell 11: a cracked brown ground slab with two vibration marks.\nCell 12: a round orange fireball with a yellow core and a short flame tail.\nCell 13: a peach grub head with a red headband and a forward orange streak.\nCell 14: a round black bomb with a lit red fuse and a white skull.\nCell 15: a brown mole head poking out of a round bomb casing.\nCell 16: a green aerial canister with three orange flame drops.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/icons-2.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "weapons/icon/donkey",
+        "w": 14,
+        "h": 14,
+        "description": "grey angry donkey"
+      },
+      {
+        "id": "weapons/icon/jetpack",
+        "w": 14,
+        "h": 14,
+        "description": "a compact grey twin-tank rocket backpack with orange exhaust"
+      },
+      {
+        "id": "weapons/icon/lowgravity",
+        "w": 14,
+        "h": 14,
+        "description": "a peach ball floating above a blue upward arrow"
+      },
+      {
+        "id": "weapons/icon/fastwalk",
+        "w": 14,
+        "h": 14,
+        "description": "a brown boot with two horizontal speed streaks"
+      },
+      {
+        "id": "weapons/icon/laser",
+        "w": 14,
+        "h": 14,
+        "description": "a small grey laser sight projecting a red beam toward a crosshair"
+      },
+      {
+        "id": "weapons/icon/invisible",
+        "w": 14,
+        "h": 14,
+        "description": "a pale cyan dashed silhouette of a little grub"
+      },
+      {
+        "id": "weapons/icon/doubledamage",
+        "w": 14,
+        "h": 14,
+        "description": "a red fist backed by two yellow impact wedges, no numbers"
+      },
+      {
+        "id": "weapons/icon/cratespy",
+        "w": 14,
+        "h": 14,
+        "description": "a wooden crate beside a large open eye"
+      },
+      {
+        "id": "weapons/icon/sheeplauncher",
+        "w": 14,
+        "h": 14,
+        "description": "a small white sheep emerging from a chunky green launcher"
+      },
+      {
+        "id": "weapons/icon/axe",
+        "w": 14,
+        "h": 14,
+        "description": "a broad steel battle axe on a brown handle"
+      },
+      {
+        "id": "weapons/icon/earthquake",
+        "w": 14,
+        "h": 14,
+        "description": "a cracked brown ground slab with two vibration marks"
+      },
+      {
+        "id": "weapons/icon/dragonball",
+        "w": 14,
+        "h": 14,
+        "description": "a round orange fireball with a yellow core and a short flame tail"
+      },
+      {
+        "id": "weapons/icon/kamikaze",
+        "w": 14,
+        "h": 14,
+        "description": "a peach grub head with a red headband and a forward orange streak"
+      },
+      {
+        "id": "weapons/icon/suicide",
+        "w": 14,
+        "h": 14,
+        "description": "a round black bomb with a lit red fuse and a white skull"
+      },
+      {
+        "id": "weapons/icon/molebomb",
+        "w": 14,
+        "h": 14,
+        "description": "a brown mole head poking out of a round bomb casing"
+      },
+      {
+        "id": "weapons/icon/napalm",
+        "w": 14,
+        "h": 14,
+        "description": "a green aerial canister with three orange flame drops"
+      }
+    ]
+  },
+  {
+    "id": "icons-3",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Inventory ICONS, strong readable symbols, not UI panels, no hands or characters around equipment. Guns point RIGHT.\nCell 1: a white envelope with red seal and two speed streaks.\nCell 2: three dark round mines descending under a small red downward arrow.\nCell 3: three small brown mole heads in a descending triangle.\nCell 4: three stacked grey steel girders.\nCell 5: a coiled tan elastic cord ending in a metal hook.\nCell 6: golden balance scales with two hanging bowls.\nCell 7: a yellow banana bunch wrapped in a red superhero cape.\nCell 8: a stubby grey flamethrower with an orange flame jet.\nCell 9: a small wooden tambourine with silver jingles and a white musical note.\nCell 10: a large grey round bomb with a gold square plate, NO letters.\nCell 11: a blue-and-white porcelain vase with a narrow neck.\nCell 12: a fluffy white sheep with a tiny dark beret and orange exhaust beneath.\nCell 13: a green aerial bomb with a small rolled brown carpet beneath it.\nCell 14: two black-and-white cow heads, one in front of the other.\nCell 15: an elderly woman with grey hair and a brown handbag.\nCell 16: a black radiation trefoil on a yellow round plate.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/icons-3.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "weapons/icon/mail",
+        "w": 14,
+        "h": 14,
+        "description": "a white envelope with red seal and two speed streaks"
+      },
+      {
+        "id": "weapons/icon/minestrike",
+        "w": 14,
+        "h": 14,
+        "description": "three dark round mines descending under a small red downward arrow"
+      },
+      {
+        "id": "weapons/icon/molesquad",
+        "w": 14,
+        "h": 14,
+        "description": "three small brown mole heads in a descending triangle"
+      },
+      {
+        "id": "weapons/icon/girderpack",
+        "w": 14,
+        "h": 14,
+        "description": "three stacked grey steel girders"
+      },
+      {
+        "id": "weapons/icon/bungee",
+        "w": 14,
+        "h": 14,
+        "description": "a coiled tan elastic cord ending in a metal hook"
+      },
+      {
+        "id": "weapons/icon/scales",
+        "w": 14,
+        "h": 14,
+        "description": "golden balance scales with two hanging bowls"
+      },
+      {
+        "id": "weapons/icon/superbanana",
+        "w": 14,
+        "h": 14,
+        "description": "a yellow banana bunch wrapped in a red superhero cape"
+      },
+      {
+        "id": "weapons/icon/flamethrower",
+        "w": 14,
+        "h": 14,
+        "description": "a stubby grey flamethrower with an orange flame jet"
+      },
+      {
+        "id": "weapons/icon/salvation",
+        "w": 14,
+        "h": 14,
+        "description": "a small wooden tambourine with silver jingles and a white musical note"
+      },
+      {
+        "id": "weapons/icon/mbbomb",
+        "w": 14,
+        "h": 14,
+        "description": "a large grey round bomb with a gold square plate, NO letters"
+      },
+      {
+        "id": "weapons/icon/vase",
+        "w": 14,
+        "h": 14,
+        "description": "a blue-and-white porcelain vase with a narrow neck"
+      },
+      {
+        "id": "weapons/icon/frenchsheep",
+        "w": 14,
+        "h": 14,
+        "description": "a fluffy white sheep with a tiny dark beret and orange exhaust beneath"
+      },
+      {
+        "id": "weapons/icon/carpet",
+        "w": 14,
+        "h": 14,
+        "description": "a green aerial bomb with a small rolled brown carpet beneath it"
+      },
+      {
+        "id": "weapons/icon/madcows",
+        "w": 14,
+        "h": 14,
+        "description": "two black-and-white cow heads, one in front of the other"
+      },
+      {
+        "id": "weapons/icon/oldwoman",
+        "w": 14,
+        "h": 14,
+        "description": "an elderly woman with grey hair and a brown handbag"
+      },
+      {
+        "id": "weapons/icon/nuke",
+        "w": 14,
+        "h": 14,
+        "description": "a black radiation trefoil on a yellow round plate"
+      }
+    ]
+  },
+  {
+    "id": "icons-4",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 2 columns x 2 rows. 4 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Inventory ICONS, strong readable symbols, not UI panels, no hands or characters around equipment. Guns point RIGHT.\nCell 1: three red-orange flaming meteors descending diagonally.\nCell 2: two peach grub heads with a cyan curved switching arrow.\nCell 3: a cyan ice cube containing a peach grub silhouette.\nCell 4: a golden bullet with two cyan magical sparkles.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/icons-4.png",
+    "grid": 2,
+    "cells": [
+      {
+        "id": "weapons/icon/armageddon",
+        "w": 14,
+        "h": 14,
+        "description": "three red-orange flaming meteors descending diagonally"
+      },
+      {
+        "id": "weapons/icon/selectworm",
+        "w": 14,
+        "h": 14,
+        "description": "two peach grub heads with a cyan curved switching arrow"
+      },
+      {
+        "id": "weapons/icon/freeze",
+        "w": 14,
+        "h": 14,
+        "description": "a cyan ice cube containing a peach grub silhouette"
+      },
+      {
+        "id": "weapons/icon/magicbullet",
+        "w": 14,
+        "h": 14,
+        "description": "a golden bullet with two cyan magical sparkles"
+      }
+    ]
+  },
+  {
+    "id": "props",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. \nCell 1: rough stone grave cross.\nCell 2: rounded aged stone gravestone.\nCell 3: rectangular stone grave slab.\nCell 4: stone grave with carved cartoon skull.\nCell 5: olive weapon supply crate with small blank ammo emblem.\nCell 6: cream medical supply crate with red cross.\nCell 7: blue utility supply crate with simple cog emblem.\nCell 8: open wooden supply crate with hinged lid.\nCell 9: olive military fuel barrel with yellow warning stripe.\nCell 10: same military fuel barrel with small orange flames at top.\nCell 11: dark olive round proximity mine with unlit indicator.\nCell 12: same round proximity mine with lit red indicator.\nCell 13: open ivory military parachute canopy with taut suspension lines, no passenger.\nCell 14: broken wooden supply crate with snapped planks.\nCell 15: bundle of red dynamite with short burning fuse.\nCell 16: dark metal petrol canister.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/props.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "objects/grave_cross",
+        "w": 11,
+        "h": 12,
+        "description": "rough stone grave cross"
+      },
+      {
+        "id": "objects/grave_round",
+        "w": 11,
+        "h": 9,
+        "description": "rounded aged stone gravestone"
+      },
+      {
+        "id": "objects/grave_slab",
+        "w": 11,
+        "h": 4,
+        "description": "rectangular stone grave slab"
+      },
+      {
+        "id": "objects/grave_skull",
+        "w": 11,
+        "h": 9,
+        "description": "stone grave with carved cartoon skull"
+      },
+      {
+        "id": "objects/crate_weapon",
+        "w": 16,
+        "h": 14,
+        "description": "olive weapon supply crate with small blank ammo emblem"
+      },
+      {
+        "id": "objects/crate_health",
+        "w": 16,
+        "h": 14,
+        "description": "cream medical supply crate with red cross"
+      },
+      {
+        "id": "objects/crate_utility",
+        "w": 16,
+        "h": 14,
+        "description": "blue utility supply crate with simple cog emblem"
+      },
+      {
+        "id": "objects/crate_open",
+        "w": 16,
+        "h": 10,
+        "description": "open wooden supply crate with hinged lid"
+      },
+      {
+        "id": "objects/barrel",
+        "w": 11,
+        "h": 14,
+        "description": "olive military fuel barrel with yellow warning stripe"
+      },
+      {
+        "id": "objects/barrel_burning",
+        "w": 8,
+        "h": 14,
+        "description": "same military fuel barrel with small orange flames at top"
+      },
+      {
+        "id": "objects/mine_off",
+        "w": 8,
+        "h": 4,
+        "description": "dark olive round proximity mine with unlit indicator"
+      },
+      {
+        "id": "objects/mine_armed",
+        "w": 6,
+        "h": 5,
+        "description": "same round proximity mine with lit red indicator"
+      },
+      {
+        "id": "objects/parachute",
+        "w": 20,
+        "h": 17,
+        "description": "open ivory military parachute canopy with taut suspension lines, no passenger"
+      },
+      {
+        "id": "objects/crate_broken",
+        "w": 16,
+        "h": 9,
+        "description": "broken wooden supply crate with snapped planks"
+      },
+      {
+        "id": "objects/dynamite",
+        "w": 17,
+        "h": 20,
+        "description": "bundle of red dynamite with short burning fuse"
+      },
+      {
+        "id": "objects/canister",
+        "w": 16,
+        "h": 20,
+        "description": "dark metal petrol canister"
+      }
+    ]
+  },
+  {
+    "id": "creatures",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. \nCell 1: white woolly sheep facing RIGHT, standing.\nCell 2: same white sheep facing RIGHT, walking step.\nCell 3: white super sheep with blue cape facing RIGHT, wings tucked.\nCell 4: same super sheep flying with cape flowing.\nCell 5: grey courier pigeon facing RIGHT, wings raised.\nCell 6: same pigeon wings lowered.\nCell 7: brown mole with digging claws facing RIGHT.\nCell 8: same mole in digging stride.\nCell 9: angry black-white dairy cow facing RIGHT.\nCell 10: grumpy hunched elderly woman with grey hair and handbag, full body, closed purple dress, cartoon weapon creature.\nCell 11: angry grey donkey standing facing RIGHT.\nCell 12: black-white skunk with fluffy tail facing RIGHT.\nCell 13: yellow banana pointing RIGHT.\nCell 14: same banana with split peel.\nCell 15: small curling green stink cloud with broad lobes.\nCell 16: grey donkey falling feet downward, facing RIGHT.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/creatures.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "creatures/sheep_0",
+        "w": 32,
+        "h": 32,
+        "description": "white woolly sheep facing RIGHT, standing"
+      },
+      {
+        "id": "creatures/sheep_1",
+        "w": 32,
+        "h": 32,
+        "description": "same white sheep facing RIGHT, walking step"
+      },
+      {
+        "id": "creatures/supersheep_0",
+        "w": 32,
+        "h": 32,
+        "description": "white super sheep with blue cape facing RIGHT, wings tucked"
+      },
+      {
+        "id": "creatures/supersheep_1",
+        "w": 32,
+        "h": 32,
+        "description": "same super sheep flying with cape flowing"
+      },
+      {
+        "id": "creatures/pigeon_0",
+        "w": 32,
+        "h": 32,
+        "description": "grey courier pigeon facing RIGHT, wings raised"
+      },
+      {
+        "id": "creatures/pigeon_1",
+        "w": 32,
+        "h": 32,
+        "description": "same pigeon wings lowered"
+      },
+      {
+        "id": "creatures/mole_0",
+        "w": 32,
+        "h": 32,
+        "description": "brown mole with digging claws facing RIGHT"
+      },
+      {
+        "id": "creatures/mole_1",
+        "w": 32,
+        "h": 32,
+        "description": "same mole in digging stride"
+      },
+      {
+        "id": "creatures/cow",
+        "w": 32,
+        "h": 32,
+        "description": "angry black-white dairy cow facing RIGHT"
+      },
+      {
+        "id": "creatures/oldwoman",
+        "w": 32,
+        "h": 32,
+        "description": "grumpy hunched elderly woman with grey hair and handbag, full body, closed purple dress, cartoon weapon creature"
+      },
+      {
+        "id": "creatures/donkey",
+        "w": 32,
+        "h": 32,
+        "description": "angry grey donkey standing facing RIGHT"
+      },
+      {
+        "id": "creatures/skunk",
+        "w": 32,
+        "h": 32,
+        "description": "black-white skunk with fluffy tail facing RIGHT"
+      },
+      {
+        "id": "creatures/banana_0",
+        "w": 32,
+        "h": 32,
+        "description": "yellow banana pointing RIGHT"
+      },
+      {
+        "id": "creatures/banana_1",
+        "w": 32,
+        "h": 32,
+        "description": "same banana with split peel"
+      },
+      {
+        "id": "creatures/stink",
+        "w": 32,
+        "h": 32,
+        "description": "small curling green stink cloud with broad lobes"
+      },
+      {
+        "id": "creatures/donkey_fall",
+        "w": 32,
+        "h": 32,
+        "description": "grey donkey falling feet downward, facing RIGHT"
+      }
+    ]
+  },
+  {
+    "id": "projectiles",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. \nCell 1: olive grenade.\nCell 2: red cluster grenade.\nCell 3: small red bomblet.\nCell 4: yellow banana.\nCell 5: gold holy grenade with small cross.\nCell 6: red dynamite with lit fuse.\nCell 7: olive military rocket red band, POINTING RIGHT, NO exhaust.\nCell 8: wooden arrow steel tip POINTING RIGHT.\nCell 9: large dark meteor with broad orange burning fissures.\nCell 10: ornate blue ceramic vase.\nCell 11: sharp blue ceramic shard.\nCell 12: small brass bullet POINTING RIGHT.\nCell 13: large round dark bomb with lit fuse.\nCell 14: orange glowing energy sphere.\nCell 15: small dark napalm canister with orange band.\nCell 16: rolled red patterned carpet.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/projectiles.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "proj/grenade",
+        "w": 10,
+        "h": 13,
+        "description": "olive grenade"
+      },
+      {
+        "id": "proj/cluster",
+        "w": 14,
+        "h": 12,
+        "description": "red cluster grenade"
+      },
+      {
+        "id": "proj/bomblet",
+        "w": 5,
+        "h": 6,
+        "description": "small red bomblet"
+      },
+      {
+        "id": "proj/banana",
+        "w": 14,
+        "h": 14,
+        "description": "yellow banana"
+      },
+      {
+        "id": "proj/hhg",
+        "w": 9,
+        "h": 14,
+        "description": "gold holy grenade with small cross"
+      },
+      {
+        "id": "proj/dynamite",
+        "w": 13,
+        "h": 16,
+        "description": "red dynamite with lit fuse"
+      },
+      {
+        "id": "proj/rocket",
+        "w": 20,
+        "h": 10,
+        "description": "olive military rocket red band, POINTING RIGHT, NO exhaust"
+      },
+      {
+        "id": "proj/arrow",
+        "w": 22,
+        "h": 5,
+        "description": "wooden arrow steel tip POINTING RIGHT"
+      },
+      {
+        "id": "proj/meteor",
+        "w": 8,
+        "h": 5,
+        "description": "large dark meteor with broad orange burning fissures"
+      },
+      {
+        "id": "proj/vase",
+        "w": 8,
+        "h": 11,
+        "description": "ornate blue ceramic vase"
+      },
+      {
+        "id": "proj/shard",
+        "w": 4,
+        "h": 4,
+        "description": "sharp blue ceramic shard"
+      },
+      {
+        "id": "proj/bullet",
+        "w": 4,
+        "h": 2,
+        "description": "small brass bullet POINTING RIGHT"
+      },
+      {
+        "id": "proj/mbbomb",
+        "w": 12,
+        "h": 14,
+        "description": "large round dark bomb with lit fuse"
+      },
+      {
+        "id": "proj/dragonball",
+        "w": 10,
+        "h": 7,
+        "description": "orange glowing energy sphere"
+      },
+      {
+        "id": "proj/napalm",
+        "w": 10,
+        "h": 6,
+        "description": "small dark napalm canister with orange band"
+      },
+      {
+        "id": "proj/carpet",
+        "w": 12,
+        "h": 6,
+        "description": "rolled red patterned carpet"
+      }
+    ]
+  },
+  {
+    "id": "equipment",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. \nCell 1: RPG shoulder launcher olive tube and steel sight, pointing RIGHT.\nCell 2: small dark combat pistol pointing RIGHT.\nCell 3: long pump shotgun pointing RIGHT.\nCell 4: compact Uzi submachine gun pointing RIGHT.\nCell 5: large six-barrel minigun pointing RIGHT.\nCell 6: wooden recurve bow, vertical, taut string.\nCell 7: heavy flamethrower barrel and handgrip pointing RIGHT.\nCell 8: oversized olive wide-bore launcher pointing RIGHT.\nCell 9: compact brass blowtorch pointing RIGHT.\nCell 10: industrial orange power drill pointing RIGHT.\nCell 11: grappling hook pistol pointing RIGHT.\nCell 12: ground mortar BASE ONLY, low broad bipod and baseplate, no tube.\nCell 13: ground mortar TUBE ONLY pointing RIGHT, no base.\nCell 14: small dark military radio remote with antenna.\nCell 15: compact red-plunger handheld detonator.\nCell 16: military twin tank jet backpack no flame.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/equipment.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "skins/weapons/bazooka",
+        "description": "RPG shoulder launcher olive tube and steel sight, pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/handgun",
+        "description": "small dark combat pistol pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/shotgun",
+        "description": "long pump shotgun pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/uzi",
+        "description": "compact Uzi submachine gun pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/minigun",
+        "description": "large six-barrel minigun pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/longbow",
+        "description": "wooden recurve bow, vertical, taut string",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/flamethrower",
+        "description": "heavy flamethrower barrel and handgrip pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/sheeplauncher",
+        "description": "oversized olive wide-bore launcher pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/blowtorch",
+        "description": "compact brass blowtorch pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/drill",
+        "description": "industrial orange power drill pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/weapons/rope",
+        "description": "grappling hook pistol pointing RIGHT",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/equipment/mortar-base",
+        "description": "ground mortar BASE ONLY, low broad bipod and baseplate, no tube",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/equipment/mortar-barrel",
+        "description": "ground mortar TUBE ONLY pointing RIGHT, no base",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/equipment/radio",
+        "description": "small dark military radio remote with antenna",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "skins/equipment/detonator",
+        "description": "compact red-plunger handheld detonator",
+        "w": 32,
+        "h": 24
+      },
+      {
+        "id": "objects/jetpack",
+        "description": "military twin tank jet backpack no flame",
+        "w": 32,
+        "h": 24
+      }
+    ]
+  },
+  {
+    "id": "effects-0",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. VFX ANIMATION: each ROW is one four-frame chronological sequence. Keep row identity and common scale across all four frames, last stage still visible. Effects only, never characters, floor or panel.\nCell 1: steam, stage 1 of 4: broad soft white steam cloud expanding in four chronological stages.\nCell 2: steam, stage 2 of 4: broad soft white steam cloud expanding in four chronological stages.\nCell 3: steam, stage 3 of 4: broad soft white steam cloud expanding in four chronological stages.\nCell 4: steam, stage 4 of 4: broad soft white steam cloud expanding in four chronological stages.\nCell 5: gas, stage 1 of 4: toxic green gas cloud with purple core expanding in four chronological stages.\nCell 6: gas, stage 2 of 4: toxic green gas cloud with purple core expanding in four chronological stages.\nCell 7: gas, stage 3 of 4: toxic green gas cloud with purple core expanding in four chronological stages.\nCell 8: gas, stage 4 of 4: toxic green gas cloud with purple core expanding in four chronological stages.\nCell 9: ghost, stage 1 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages.\nCell 10: ghost, stage 2 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages.\nCell 11: ghost, stage 3 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages.\nCell 12: ghost, stage 4 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages.\nCell 13: scorch, stage 1 of 4: horizontal charred black ground scar with broad cracks, four spreading stages.\nCell 14: scorch, stage 2 of 4: horizontal charred black ground scar with broad cracks, four spreading stages.\nCell 15: scorch, stage 3 of 4: horizontal charred black ground scar with broad cracks, four spreading stages.\nCell 16: scorch, stage 4 of 4: horizontal charred black ground scar with broad cracks, four spreading stages.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/effects-0.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "vfx/steam_0",
+        "description": "steam, stage 1 of 4: broad soft white steam cloud expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/steam_1",
+        "description": "steam, stage 2 of 4: broad soft white steam cloud expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/steam_2",
+        "description": "steam, stage 3 of 4: broad soft white steam cloud expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/steam_3",
+        "description": "steam, stage 4 of 4: broad soft white steam cloud expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/gas_0",
+        "description": "gas, stage 1 of 4: toxic green gas cloud with purple core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/gas_1",
+        "description": "gas, stage 2 of 4: toxic green gas cloud with purple core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/gas_2",
+        "description": "gas, stage 3 of 4: toxic green gas cloud with purple core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/gas_3",
+        "description": "gas, stage 4 of 4: toxic green gas cloud with purple core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/ghost_0",
+        "description": "ghost, stage 1 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages"
+      },
+      {
+        "id": "vfx/ghost_1",
+        "description": "ghost, stage 2 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages"
+      },
+      {
+        "id": "vfx/ghost_2",
+        "description": "ghost, stage 3 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages"
+      },
+      {
+        "id": "vfx/ghost_3",
+        "description": "ghost, stage 4 of 4: translucent blue cartoon worm ghost rising, mischievous face, four animation stages"
+      },
+      {
+        "id": "vfx/scorch_0",
+        "description": "scorch, stage 1 of 4: horizontal charred black ground scar with broad cracks, four spreading stages"
+      },
+      {
+        "id": "vfx/scorch_1",
+        "description": "scorch, stage 2 of 4: horizontal charred black ground scar with broad cracks, four spreading stages"
+      },
+      {
+        "id": "vfx/scorch_2",
+        "description": "scorch, stage 3 of 4: horizontal charred black ground scar with broad cracks, four spreading stages"
+      },
+      {
+        "id": "vfx/scorch_3",
+        "description": "scorch, stage 4 of 4: horizontal charred black ground scar with broad cracks, four spreading stages"
+      }
+    ]
+  },
+  {
+    "id": "effects-1",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. VFX ANIMATION: each ROW is one four-frame chronological sequence. Keep row identity and common scale across all four frames, last stage still visible. Effects only, never characters, floor or panel.\nCell 1: incendiary, stage 1 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages.\nCell 2: incendiary, stage 2 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages.\nCell 3: incendiary, stage 3 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages.\nCell 4: incendiary, stage 4 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages.\nCell 5: energy, stage 1 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages.\nCell 6: energy, stage 2 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages.\nCell 7: energy, stage 3 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages.\nCell 8: energy, stage 4 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages.\nCell 9: nuke, stage 1 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages.\nCell 10: nuke, stage 2 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages.\nCell 11: nuke, stage 3 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages.\nCell 12: nuke, stage 4 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages.\nCell 13: engine, stage 1 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages.\nCell 14: engine, stage 2 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages.\nCell 15: engine, stage 3 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages.\nCell 16: engine, stage 4 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/effects-1.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "vfx/incendiary_0",
+        "description": "incendiary, stage 1 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages"
+      },
+      {
+        "id": "vfx/incendiary_1",
+        "description": "incendiary, stage 2 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages"
+      },
+      {
+        "id": "vfx/incendiary_2",
+        "description": "incendiary, stage 3 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages"
+      },
+      {
+        "id": "vfx/incendiary_3",
+        "description": "incendiary, stage 4 of 4: broad orange ground flame plume expanding into rolling dark smoke, four chronological stages"
+      },
+      {
+        "id": "vfx/energy_0",
+        "description": "energy, stage 1 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/energy_1",
+        "description": "energy, stage 2 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/energy_2",
+        "description": "energy, stage 3 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/energy_3",
+        "description": "energy, stage 4 of 4: bright cyan violet electrical blast ring with a broad bright core expanding in four chronological stages"
+      },
+      {
+        "id": "vfx/nuke_0",
+        "description": "nuke, stage 1 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages"
+      },
+      {
+        "id": "vfx/nuke_1",
+        "description": "nuke, stage 2 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages"
+      },
+      {
+        "id": "vfx/nuke_2",
+        "description": "nuke, stage 3 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages"
+      },
+      {
+        "id": "vfx/nuke_3",
+        "description": "nuke, stage 4 of 4: huge orange-white mushroom cloud developing then darkening in four chronological stages"
+      },
+      {
+        "id": "vfx/engine_0",
+        "description": "engine, stage 1 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages"
+      },
+      {
+        "id": "vfx/engine_1",
+        "description": "engine, stage 2 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages"
+      },
+      {
+        "id": "vfx/engine_2",
+        "description": "engine, stage 3 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages"
+      },
+      {
+        "id": "vfx/engine_3",
+        "description": "engine, stage 4 of 4: horizontal orange rocket exhaust plume pointing LEFT from nozzle on RIGHT, four flicker stages"
+      }
+    ]
+  },
+  {
+    "id": "effects-2",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 4 columns x 4 rows. 16 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. VFX ANIMATION: each ROW is one four-frame chronological sequence. Keep row identity and common scale across all four frames, last stage still visible. Effects only, never characters, floor or panel.\nCell 1: letter, stage 1 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages.\nCell 2: letter, stage 2 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages.\nCell 3: letter, stage 3 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages.\nCell 4: letter, stage 4 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages.\nCell 5: missile, stage 1 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration.\nCell 6: missile, stage 2 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration.\nCell 7: missile, stage 3 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration.\nCell 8: missile, stage 4 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration.\nCell 9: homing, stage 1 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages.\nCell 10: homing, stage 2 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages.\nCell 11: homing, stage 3 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages.\nCell 12: homing, stage 4 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages.\nCell 13: rocket_mk2, stage 1 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages.\nCell 14: rocket_mk2, stage 2 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages.\nCell 15: rocket_mk2, stage 3 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages.\nCell 16: rocket_mk2, stage 4 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/effects-2.png",
+    "grid": 4,
+    "cells": [
+      {
+        "id": "vfx/letter_0",
+        "description": "letter, stage 1 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages"
+      },
+      {
+        "id": "vfx/letter_1",
+        "description": "letter, stage 2 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages"
+      },
+      {
+        "id": "vfx/letter_2",
+        "description": "letter, stage 3 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages"
+      },
+      {
+        "id": "vfx/letter_3",
+        "description": "letter, stage 4 of 4: sealed cream envelope with red wax seal rotating slightly as it falls, four animation stages"
+      },
+      {
+        "id": "vfx/missile_0",
+        "description": "missile, stage 1 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration"
+      },
+      {
+        "id": "vfx/missile_1",
+        "description": "missile, stage 2 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration"
+      },
+      {
+        "id": "vfx/missile_2",
+        "description": "missile, stage 3 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration"
+      },
+      {
+        "id": "vfx/missile_3",
+        "description": "missile, stage 4 of 4: olive military rocket with red band POINTING RIGHT, no exhaust, four stages with tiny fin vibration"
+      },
+      {
+        "id": "vfx/homing_0",
+        "description": "homing, stage 1 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages"
+      },
+      {
+        "id": "vfx/homing_1",
+        "description": "homing, stage 2 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages"
+      },
+      {
+        "id": "vfx/homing_2",
+        "description": "homing, stage 3 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages"
+      },
+      {
+        "id": "vfx/homing_3",
+        "description": "homing, stage 4 of 4: dark guided missile with yellow band POINTING RIGHT, no exhaust, four fin vibration stages"
+      },
+      {
+        "id": "vfx/rocket_mk2_0",
+        "description": "rocket_mk2, stage 1 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages"
+      },
+      {
+        "id": "vfx/rocket_mk2_1",
+        "description": "rocket_mk2, stage 2 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages"
+      },
+      {
+        "id": "vfx/rocket_mk2_2",
+        "description": "rocket_mk2, stage 3 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages"
+      },
+      {
+        "id": "vfx/rocket_mk2_3",
+        "description": "rocket_mk2, stage 4 of 4: heavy dark aggressive guided rocket with orange band POINTING RIGHT, no exhaust, four fin vibration stages"
+      }
+    ]
+  },
+  {
+    "id": "aircraft-attack",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 2 columns x 2 rows. 4 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Four consistent animation frames, one identical aircraft silhouette and size across all cells. Not cute toy planes, no faces, no logos or insignia, no sky, NO engine trails. Painted stylized military machinery, not a photograph.\nCell 1: The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 1: closed bomb bay, normal navigation lights.\nCell 2: The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 2: closed bomb bay, navigation light blink.\nCell 3: The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 3: opening lower bomb bay doors.\nCell 4: The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 4: open lower bomb bay, one small bomb just below release slot.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/aircraft-attack.png",
+    "grid": 2,
+    "cells": [
+      {
+        "id": "vfx/attack_0",
+        "description": "The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 1: closed bomb bay, normal navigation lights"
+      },
+      {
+        "id": "vfx/attack_1",
+        "description": "The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 2: closed bomb bay, navigation light blink"
+      },
+      {
+        "id": "vfx/attack_2",
+        "description": "The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 3: opening lower bomb bay doors"
+      },
+      {
+        "id": "vfx/attack_3",
+        "description": "The SAME A-10 inspired twin engine straight-wing ground-attack aircraft, aggressive military silhouette, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 4: open lower bomb bay, one small bomb just below release slot"
+      }
+    ]
+  },
+  {
+    "id": "aircraft-gunship",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 2 columns x 2 rows. 4 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Four consistent animation frames, one identical aircraft silhouette and size across all cells. Not cute toy planes, no faces, no logos or insignia, no sky, NO engine trails. Painted stylized military machinery, not a photograph.\nCell 1: The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 1: closed bomb bay, normal navigation lights.\nCell 2: The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 2: closed bomb bay, navigation light blink.\nCell 3: The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 3: opening lower bomb bay doors.\nCell 4: The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 4: open lower bomb bay, one small bomb just below release slot.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/aircraft-gunship.png",
+    "grid": 2,
+    "cells": [
+      {
+        "id": "vfx/gunship_0",
+        "description": "The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 1: closed bomb bay, normal navigation lights"
+      },
+      {
+        "id": "vfx/gunship_1",
+        "description": "The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 2: closed bomb bay, navigation light blink"
+      },
+      {
+        "id": "vfx/gunship_2",
+        "description": "The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 3: opening lower bomb bay doors"
+      },
+      {
+        "id": "vfx/gunship_3",
+        "description": "The SAME AC-130 inspired four turboprop heavy gunship with angular fuselage, side cannon, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 4: open lower bomb bay, one small bomb just below release slot"
+      }
+    ]
+  },
+  {
+    "id": "aircraft-stealth",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 2 columns x 2 rows. 4 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. Four consistent animation frames, one identical aircraft silhouette and size across all cells. Not cute toy planes, no faces, no logos or insignia, no sky, NO engine trails. Painted stylized military machinery, not a photograph.\nCell 1: The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 1: closed bomb bay, normal navigation lights.\nCell 2: The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 2: closed bomb bay, navigation light blink.\nCell 3: The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 3: opening lower bomb bay doors.\nCell 4: The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 4: open lower bomb bay, one small bomb just below release slot.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/aircraft-stealth.png",
+    "grid": 2,
+    "cells": [
+      {
+        "id": "vfx/stealth_0",
+        "description": "The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 1: closed bomb bay, normal navigation lights"
+      },
+      {
+        "id": "vfx/stealth_1",
+        "description": "The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 2: closed bomb bay, navigation light blink"
+      },
+      {
+        "id": "vfx/stealth_2",
+        "description": "The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 3: opening lower bomb bay doors"
+      },
+      {
+        "id": "vfx/stealth_3",
+        "description": "The SAME B-2 inspired sinister black flying-wing stealth bomber, recognisable sawtooth trailing edge, facing RIGHT in strict side-view, entire wings and tail safely inside cell. Stage 4: open lower bomb bay, one small bomb just below release slot"
+      }
+    ]
+  },
+  {
+    "id": "materials",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare texture atlas with EXACTLY TWO COLUMNS and TWO ROWS of opaque full-bleed MATERIAL TILES, no gutters, labels or borders. Top-left: broad rounded neutral grey stone strata, a few large quiet rock masses, no pebbly noise. Top-right: broad dark worn steel plates with a few restrained bevel highlights, no bolts, logos or rivet noise. Bottom-left: dark charred earth with broad ash cracks. Bottom-right: muted warm ochre clay strata. Every quadrant is a flat side-on material, no scene, perspective, object, floor, shadow or outline. All four are horizontally and vertically seamless tiles. Broad painted shapes matching reference, not photographic texture.",
+    "transparent": false,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/materials.png"
+  },
+  {
+    "id": "logo",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nTransparent landscape game LOGO only. Exact title: \"Worms revival\". Big bold sculpted ivory lettering with thin charcoal contour and subtle warm olive metal backing; playful aggressive 2D painted artillery aesthetic matching reference. Title must be correctly spelled and fully readable. One small olive rocket and a broad curl of painted smoke as restrained accents, no characters or scenery. Single horizontal wordmark, generous clear alpha padding around the entire design. No tiny details, pixels, slogans, watermark or additional text.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/logo.png"
+  },
+  {
+    "id": "supplemental",
+    "prompt": "Use case: stylized-concept. Production raster asset for a side-view 2D artillery game. Image 1 is ONLY the approved STYLE REFERENCE. Match its expressive early-2000s hand-painted cartoon, broad volumetric forms, rich unquantized colours, upper-left light, thin coloured contour, readable silhouettes. NOT photorealistic, NOT pixel art. No dithering, posterization, scanlines, noise, text, labels, logos, watermark, ground shadows or scenery unless specifically requested. Preserve continuous soft alpha edges.\nSquare production SPRITE SHEET, EXACTLY 2 columns x 2 rows. 4 isolated complete assets. Read LEFT TO RIGHT, TOP TO BOTTOM. Each object centred and fits only central 60 percent of its cell, generous clear transparent gutters. Strict side-on view unless icon. True transparent background, NO ground line or shadow. Never touch neighbouring cells or canvas edge. \nCell 1: A detached military MORTAR TUBE ONLY. Perfectly HORIZONTAL, axis left-to-right, open muzzle at RIGHT, closed base at LEFT. No diagonal angle, NO vertical tilt, NO bipod or stand, NO hands. The game rotates this horizontal tube to aim..\nCell 2: small green glass petrol bottle with dark liquid and a cloth wick at top, wick gently burning.\nCell 3: white woolly rocket-propelled sheep with red beret facing RIGHT and a compact orange exhaust flame behind it.\nCell 4: grumpy elderly cartoon woman in a fully covered traditional black nun habit and white coif, hunched with handbag, full body, facing RIGHT.",
+    "transparent": true,
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-expansion/supplemental.png",
+    "grid": 2,
+    "cells": [
+      {
+        "id": "skins/equipment/mortar-barrel",
+        "w": 32,
+        "h": 24,
+        "description": "A detached military MORTAR TUBE ONLY. Perfectly HORIZONTAL, axis left-to-right, open muzzle at RIGHT, closed base at LEFT. No diagonal angle, NO vertical tilt, NO bipod or stand, NO hands. The game rotates this horizontal tube to aim."
+      },
+      {
+        "id": "objects/petrol-bottle",
+        "w": 10,
+        "h": 14,
+        "description": "small green glass petrol bottle with dark liquid and a cloth wick at top, wick gently burning"
+      },
+      {
+        "id": "proj/frenchsheep",
+        "w": 16,
+        "h": 16,
+        "description": "white woolly rocket-propelled sheep with red beret facing RIGHT and a compact orange exhaust flame behind it"
+      },
+      {
+        "id": "creatures/nun",
+        "w": 16,
+        "h": 20,
+        "description": "grumpy elderly cartoon woman in a fully covered traditional black nun habit and white coif, hunched with handbag, full body, facing RIGHT"
+      }
+    ]
+  }
+]

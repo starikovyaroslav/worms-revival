@@ -1,0 +1,36 @@
+{
+  "mode": "built-in imagegen",
+  "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+  "prompts": "tools/art/painted-expansion-prompts.json",
+  "masters": {
+    "sky": {
+      "path": "assets-in/painted-expansion/desert-sky.png",
+      "sha256": "3e95b4732a7e9a24f2810b2291dd9071165cd352e5976274dedddefd99937465"
+    },
+    "far": {
+      "path": "assets-in/painted-expansion/desert-far.png",
+      "sha256": "54d0ba9d76e317d4a16ac13f1d9caa61c871aa2b2747fe80c55c1348a53c9df3"
+    },
+    "mid": {
+      "path": "assets-in/painted-expansion/desert-mid.png",
+      "sha256": "96f0e84b6bf7a2119a71e47735c6809a5cbf2ac7a96564da493d02b99509a005"
+    },
+    "near": {
+      "path": "assets-in/painted-expansion/desert-near.png",
+      "sha256": "34126d4e4372a13224fbb73164f9e6e225397b7c5168b492de648b030ca50574"
+    },
+    "soil": {
+      "path": "assets-in/painted-expansion/desert-soil.png",
+      "sha256": "7c96f02b557a5afb8309286799dde22cdbfbfaf7667ad9164a3f36353171fa4d"
+    },
+    "water": {
+      "path": "assets-in/painted-expansion/desert-water.png",
+      "sha256": "6c6c0cad4ff9f97f51ca600269704316d68ccfe45aa219e93d6e95cb55166b34"
+    },
+    "edges": {
+      "path": "assets-in/painted-expansion/desert-edges.png",
+      "sha256": "64901b35d6d9e213e19d23b5e76e05e3067754419bd1e95aa9b1c20d47689ccc"
+    }
+  },
+  "export": "tools/art/painted-biomes.mjs"
+}

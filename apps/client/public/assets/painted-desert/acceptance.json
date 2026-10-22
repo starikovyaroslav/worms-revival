@@ -1,0 +1,152 @@
+{
+  "painted/bg/desert/sky": {
+    "colors": 54707,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/desert/far": {
+    "colors": 25228,
+    "transparent": 781289,
+    "partialAlpha": 791069,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/desert/mid": {
+    "colors": 120780,
+    "transparent": 797581,
+    "partialAlpha": 774858,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/desert/near": {
+    "colors": 33572,
+    "transparent": 842814,
+    "partialAlpha": 729534,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/desert/fill": {
+    "colors": 92968,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      1254,
+      1254
+    ],
+    "display": [
+      256,
+      256
+    ],
+    "seam": "xy"
+  },
+  "painted/water/desert": {
+    "colors": 62858,
+    "transparent": 698421,
+    "partialAlpha": 874041,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      256,
+      80
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/desert/rim": {
+    "colors": 63941,
+    "transparent": 24273,
+    "partialAlpha": 202089,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/desert/under": {
+    "colors": 49831,
+    "transparent": 73736,
+    "partialAlpha": 152672,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/desert/scorch": {
+    "colors": 81864,
+    "transparent": 25730,
+    "partialAlpha": 201332,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/desert/rock": {
+    "colors": 42254,
+    "transparent": 29187,
+    "partialAlpha": 197595,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  }
+}
