@@ -8,7 +8,7 @@ import {
   type MatchConfig,
   type Replay,
 } from '@wr/content';
-import { themeById, assets, SKINS, resolveTeamVariant } from '@wr/render';
+import { themeById, assets, SKINS, resolveTeamVariant, paintedMeadowTheme } from '@wr/render';
 import { FixedLoop } from './loop';
 import { Input } from './input';
 import { settingsStore } from './settings';
@@ -53,6 +53,7 @@ export class Match {
     readonly config: MatchConfig,
     private readonly hooks: MatchHooks,
     replay?: Replay,
+    painted = false,
   ) {
     this.player = replay ? new ReplayPlayer(replay) : null;
     const game = this.player?.game ?? new Game(buildGameSetup(config));
@@ -72,16 +73,18 @@ export class Match {
       })),
     };
     this.recorder = new ReplayRecorder(presentationConfig);
+    const visualTheme = paintedMeadowTheme(themeById(config.themeId), painted);
     const scene = new GameScene(
       app,
       viewport,
       game,
-      themeById(config.themeId),
+      visualTheme,
       config.seed,
       presentationConfig.teams,
     );
     this.scene = scene;
-    scene.camera.level = 1;
+    // Larger presentation is camera zoom, never a larger collision box or sprite footprint.
+    scene.camera.level = visualTheme.artStyle === 'painted' ? 2 : 1;
     scene.onMessage = hooks.onMessage;
     // Effects and big hits may briefly slow the game clock. Only pacing changes, never results.
     scene.onTimeScale = (scale, seconds) => {

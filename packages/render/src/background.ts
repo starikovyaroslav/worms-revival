@@ -31,7 +31,8 @@ export class Background {
   ) {
     this.container.addChild(this.sky);
     const names = ['sky', 'far', 'mid', 'near'];
-    const textures = names.map((name) => assets.get(`bg/${theme.id}/${name}`));
+    const prefix = theme.artStyle === 'painted' ? 'painted/bg' : 'bg';
+    const textures = names.map((name) => assets.get(`${prefix}/${theme.id}/${name}`));
     if (textures.every((tex) => tex !== undefined)) {
       this.artSky = new TilingSprite({
         texture: textures[0]!,
@@ -43,7 +44,7 @@ export class Background {
         const texture = textures[i + 1]!;
         const tile = new TilingSprite({ texture, width: 1, height: texture.height });
         const base = new Graphics();
-        const raster = assets.pixels(`bg/${theme.id}/${names[i + 1]}`);
+        const raster = assets.pixels(`${prefix}/${theme.id}/${names[i + 1]}`);
         const p = raster ? (raster.h - 1) * raster.w * 4 : 0;
         const color = raster
           ? (raster.data[p]! << 16) | (raster.data[p + 1]! << 8) | raster.data[p + 2]!
@@ -144,7 +145,10 @@ export class Background {
   update(camera: Camera, screenW: number, screenH: number): void {
     if (screenW !== this.skyW || screenH !== this.skyH) this.drawSky(screenW, screenH);
     if (this.artSky) {
-      const scale = camera.baseScale;
+      const painted = this.theme.artStyle === 'painted';
+      const scale = painted
+        ? Math.max(camera.baseScale, screenH / assets.sizeOf(this.artSky.texture).h)
+        : camera.baseScale;
       const width = Math.ceil(screenW / scale);
       this.artSky.scale.set(scale);
       this.artSky.width = width;
@@ -154,8 +158,12 @@ export class Background {
         Math.round((screenH - this.artSky.height * scale) * camera.pixelRatio) / camera.pixelRatio;
       this.artSky.tilePosition.x = -Math.round(camera.x * 0.04);
       for (const [i, layer] of this.artLayers.entries()) {
-        const shift = Math.max(-64, Math.min(64, (this.mapHeight * 0.5 - camera.y) * layer.factor));
-        const bottom = Math.round(screenH / scale - (2 - i) * 24 + shift);
+        const limit = painted ? 12 : 64;
+        const shift = Math.max(
+          -limit,
+          Math.min(limit, (this.mapHeight * 0.5 - camera.y) * layer.factor),
+        );
+        const bottom = Math.round(screenH / scale - (2 - i) * (painted ? 12 : 24) + shift);
         layer.tile.scale.set(scale);
         layer.tile.width = width;
         layer.tile.height = assets.sizeOf(layer.tile.texture).h;

@@ -15,12 +15,12 @@ export function clipFrame(
     : Math.min(count - 1, Math.floor((Math.max(0, age) / Math.max(0.001, life)) * count));
 }
 
-export function clipTextures(name: VfxClip): Texture[] {
+export function clipTextures(name: VfxClip, namespace = 'vfx'): Texture[] {
   const count = VFX_CLIPS[name].frames;
   const frames: Texture[] = [];
   for (let i = 0; i < count; i++) {
-    const frame = assets.get(`vfx/${name}_${i}`);
-    if (!frame) return [];
+    const frame = assets.get(`${namespace}/${name}_${i}`);
+    if (!frame) return namespace === 'vfx' ? [] : clipTextures(name);
     frames.push(frame);
   }
   return frames;
@@ -55,6 +55,7 @@ interface ActiveClip {
 
 /** Bounded, pooled, cosmetic flipbooks. No sim objects or texture ownership are retained. */
 export class ClipEffects {
+  constructor(private readonly namespace = 'vfx') {}
   readonly container = new Container();
   private active: ActiveClip[] = [];
   private pool: Sprite[] = [];
@@ -65,7 +66,7 @@ export class ClipEffects {
   }
 
   play(name: VfxClip, x: number, y: number, opts: ClipOptions = {}): boolean {
-    const frames = clipTextures(name);
+    const frames = clipTextures(name, this.namespace);
     if (!frames.length) return false;
     if (this.active.length >= this.limit) this.recycle(this.active.shift()!);
     const sprite = this.pool.pop() ?? new Sprite();

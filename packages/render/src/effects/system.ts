@@ -91,15 +91,20 @@ export class EffectsSystem {
   readonly front = new Container();
   /** Procedural pixel blasts (fireball, splash ring). */
   readonly blasts = new PixelBlasts();
-  readonly clips = new ClipEffects();
+  readonly clips: ClipEffects;
   private ownedTextures = new Set<Texture>();
-  private textures = createFxTextures(this.ownedTextures);
+  private textures: Record<FxTextureId, Texture[]>;
   private particles: Particle[] = [];
   private pending: Pending[] = [];
   private pool: Sprite[] = [];
   private readonly recipes: Record<string, Recipe> = RECIPES;
 
-  constructor(private readonly hooks: FxHooks) {
+  constructor(
+    private readonly hooks: FxHooks,
+    namespace = 'vfx',
+  ) {
+    this.clips = new ClipEffects(namespace);
+    this.textures = createFxTextures(this.ownedTextures, namespace);
     // Under the sparks, over the smoke.
     this.front.addChild(this.blasts.container);
     this.front.addChild(this.clips.container);

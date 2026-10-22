@@ -2,7 +2,9 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Assets, BufferImageSource, Texture } from 'pixi.js';
 import { assets, type AssetEntry } from '../src/assets';
 import { artSprite, scaleArt } from '../src/views/common';
-import { ClipEffects } from '../src/clipEffects';
+import { ClipEffects, clipTextures } from '../src/clipEffects';
+import { paintedMeadowTheme, PAINTED_MEADOW_REQUIRED } from '../src/painted';
+import { themeById } from '../src/theme';
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -34,6 +36,50 @@ async function load(entries: Record<string, AssetEntry>) {
 }
 
 describe('texture density is not game-world size', () => {
+  it('opts in only a complete meadow pack without mutating cached themes', () => {
+    const meadow = themeById('meadow');
+    const spy = vi.spyOn(assets, 'has').mockReturnValue(true);
+    const next = paintedMeadowTheme(meadow, true);
+    expect(next.artStyle).toBe('painted');
+    expect(meadow.artStyle).toBeUndefined();
+    expect(paintedMeadowTheme(meadow, false)).toBe(meadow);
+    const desert = themeById('desert');
+    expect(paintedMeadowTheme(desert, true)).toBe(desert);
+    for (const missing of PAINTED_MEADOW_REQUIRED) {
+      spy.mockImplementation((id) => id !== missing);
+      expect(paintedMeadowTheme(meadow, true)).toBe(meadow);
+    }
+  });
+  it('honours smooth sampling without changing footprint or unrelated legacy sprites', async () => {
+    await load({
+      'sampling/painted': {
+        file: 'painted.png',
+        w: 32,
+        h: 32,
+        pixelW: 128,
+        pixelH: 128,
+        sampling: 'linear',
+      },
+      'sampling/legacy': { file: 'legacy.png', w: 32, h: 32, pixelW: 128, pixelH: 128 },
+    });
+    expect(assets.get('sampling/painted')!.source.scaleMode).toBe('linear');
+    expect(assets.get('sampling/legacy')!.source.scaleMode).toBe('nearest');
+    assets.setSampling('sampling/painted', 'nearest');
+    expect(assets.get('sampling/painted')!.source.scaleMode).toBe('nearest');
+    expect(assets.sizeOf(assets.get('sampling/painted')!)).toEqual({ w: 32, h: 32 });
+  });
+  it('falls back to a complete legacy clip, never a mixture of painted and legacy frames', async () => {
+    await load(
+      Object.fromEntries(
+        [0, 1, 2, 3].map((i) => [
+          `vfx/blast_${i}`,
+          { file: `legacy-blast-${i}.png`, w: 64, h: 64 },
+        ]),
+      ),
+    );
+    await load({ 'painted/vfx/blast_0': { file: 'painted-blast.png', w: 64, h: 64 } });
+    expect(clipTextures('blast', 'painted/vfx')).toEqual(clipTextures('blast'));
+  });
   it('extracts independent native atlas frames sharing one GPU source', async () => {
     const atlas = new Texture({
       source: new BufferImageSource({

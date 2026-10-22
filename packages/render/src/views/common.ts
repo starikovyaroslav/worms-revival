@@ -11,6 +11,7 @@ export interface EntityView {
 
 /** What the scene lends to every view: the world, and per-frame facts that change what a view shows. */
 export interface ViewContext {
+  vfxNamespace?: string;
   readonly world: World;
   readonly rules?: Ruleset;
   /** The active worm has the Crate Spy utility: crates show their contents. Set by the scene each frame. */

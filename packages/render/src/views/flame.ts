@@ -1,4 +1,4 @@
-import { Container, Graphics } from 'pixi.js';
+import { Container, Graphics, type Sprite, type Texture } from 'pixi.js';
 import type { Flame, Gas } from '@wr/sim';
 import { artSprite, place, type EntityView } from './common';
 import { assets } from '../assets';
@@ -10,14 +10,21 @@ export class FlameView implements EntityView {
   readonly container = new Container();
   private g = new Graphics();
   private t = Math.random() * 10;
-  private frames = clipTextures('fire');
-  private art = this.frames.length ? artSprite('vfx/fire_0', 1) : artSprite('fx/flame_0', 1);
+  private frames: Texture[];
+  private art: Sprite | null;
+  private painted: boolean;
   private style: ReturnType<typeof fireStyle>;
 
   constructor(
     private readonly f: Flame,
     ctx: ViewContext,
   ) {
+    const namespace = ctx.vfxNamespace ?? 'vfx';
+    this.painted = namespace === 'painted/vfx' && assets.has(`${namespace}/fire_0`);
+    this.frames = clipTextures('fire', namespace);
+    this.art =
+      artSprite(this.painted ? `${namespace}/fire_0` : 'vfx/fire_0', 1) ??
+      artSprite('fx/flame_0', 1);
     this.style = fireStyle(ctx.world.sourceOf(f));
     this.container.addChild(this.g);
     if (this.art) this.container.addChild(this.art);
@@ -36,7 +43,7 @@ export class FlameView implements EntityView {
       this.art.tint = this.style.tint;
       this.art.scale.set((this.style.width / this.art.texture.width) * (0.5 + fade * 0.5));
       // Step the life fade like the other pixel effects, rather than blurring the source alpha.
-      this.art.alpha = Math.ceil(fade * 4) / 4;
+      this.art.alpha = this.painted ? fade : Math.ceil(fade * 4) / 4;
       return;
     }
     this.g

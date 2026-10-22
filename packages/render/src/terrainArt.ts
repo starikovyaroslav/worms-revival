@@ -2,18 +2,24 @@ import { Material, type Terrain } from '@wr/sim';
 import { assets, type AssetPixels } from './assets';
 
 export interface TerrainArt {
+  painted?: boolean;
   fill: AssetPixels;
   rim: AssetPixels;
   scorch: AssetPixels;
   under: AssetPixels;
 }
 
-export function terrainArtForTheme(id: string): TerrainArt | undefined {
-  const fill = assets.pixels(`terrain/${id}/fill`);
-  const rim = assets.pixels(`terrain/${id}/rim`);
-  const scorch = assets.pixels(`terrain/${id}/scorch`);
-  const under = assets.pixels(`terrain/${id}/under`);
-  return fill && rim && scorch && under ? { fill, rim, scorch, under } : undefined;
+export function terrainArtForTheme(id: string, painted = false): TerrainArt | undefined {
+  const prefix = painted ? 'painted/terrain' : 'terrain';
+  const fill = assets.pixels(`${prefix}/${id}/fill`);
+  const rim = assets.pixels(`${prefix}/${id}/rim`);
+  const scorch = assets.pixels(`${prefix}/${id}/scorch`);
+  const under = assets.pixels(`${prefix}/${id}/under`);
+  return fill && rim && scorch && under
+    ? { fill, rim, scorch, under, ...(painted ? { painted: true } : {}) }
+    : painted
+      ? terrainArtForTheme(id)
+      : undefined;
 }
 
 /** -1 means transparent. Repeat horizontally; the fill may also repeat vertically. */

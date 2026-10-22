@@ -9,7 +9,14 @@ import { render } from 'preact';
 import type { MatchConfig, Replay } from '@wr/content';
 import { App, type UiApi } from './ui/App';
 import { Menu, defaultConfig } from './ui/Menu';
-import { ART_PACKS, ManifestError, ZOOM_LEVELS, assets } from '@wr/render';
+import {
+  ART_PACKS,
+  ManifestError,
+  ZOOM_LEVELS,
+  assets,
+  PAINTED_MEADOW_PACK,
+  paintedMeadowReady,
+} from '@wr/render';
 import { installGlobalHandlers, showFatal, showWarning } from './fatal';
 import { Match } from './match';
 import { settingsStore } from './settings';
@@ -27,6 +34,8 @@ function applyCssVars(vp: Viewport): void {
 }
 
 async function boot() {
+  const params = new URLSearchParams(location.search);
+  const wantsPainted = params.get('visual') === 'painted';
   // Pixel art: every texture is sampled with nearest unless it opts into linear (glows, lights).
   TextureStyle.defaultOptions.scaleMode = 'nearest';
   // One module decides the integer scale; this controller only reports changes (see viewport.ts).
@@ -76,6 +85,11 @@ async function boot() {
   try {
     for (const pack of ART_PACKS)
       await assets.load(`${import.meta.env.BASE_URL}${pack}`.replace(/\/\//g, '/'), __BUILD_ID__);
+    if (wantsPainted)
+      await assets.load(
+        `${import.meta.env.BASE_URL}${PAINTED_MEADOW_PACK}`.replace(/\/\//g, '/'),
+        __BUILD_ID__,
+      );
   } catch (err) {
     showFatal(err instanceof ManifestError ? 'manifest' : 'startup', err);
     return;
@@ -86,6 +100,7 @@ async function boot() {
   let lastConfig = defaultConfig();
 
   const showMenu = () => {
+    delete document.body.dataset.visual;
     match?.destroy();
     match = null;
     app.render();
@@ -110,6 +125,9 @@ async function boot() {
   };
 
   const start = (cfg: MatchConfig, replay?: Replay) => {
+    const painted = wantsPainted && cfg.themeId === 'meadow' && paintedMeadowReady();
+    document.body.dataset.visual = painted ? 'painted' : 'pixel';
+    assets.setSampling('skins/', painted ? 'linear' : 'nearest');
     if (!replay) lastConfig = cfg;
     match?.destroy();
     root.classList.remove('interactive');
@@ -124,6 +142,7 @@ async function boot() {
         onSurrender: () => ui.askSurrender?.(),
       },
       replay,
+      painted,
     );
     // Keep the source replay when watching; record a new one when playing.
     const currentReplay = () => replay ?? m.replay();
@@ -155,7 +174,6 @@ async function boot() {
   };
 
   // ?seed=… skips the menu (handy for testing and sharing maps).
-  const params = new URLSearchParams(location.search);
   if (params.has('seed')) {
     start({
       ...lastConfig,

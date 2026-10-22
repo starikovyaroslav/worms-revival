@@ -7,6 +7,8 @@ import arsenal from '../public/assets/arsenal/manifest.json';
 import vfx from '../public/assets/vfx/manifest.json';
 import military from '../public/assets/military/manifest.json';
 import skins from '../public/assets/skins/manifest.json';
+import painted from '../public/assets/painted-meadow/manifest.json';
+import { PAINTED_MEADOW_REQUIRED } from '@wr/render';
 
 const packs = [legacy, generated, arsenal, vfx, military, skins];
 const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
@@ -15,6 +17,17 @@ const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
 >;
 
 describe('shipped artwork coverage', () => {
+  it('ships an isolated optional painted pack at native density with smooth sampling', () => {
+    expect(Object.keys(painted.assets)).toHaveLength(26);
+    expect(painted.style).toBe('painted');
+    for (const id of PAINTED_MEADOW_REQUIRED) expect(painted.assets).toHaveProperty(id);
+    for (const [id, a] of Object.entries(painted.assets)) {
+      expect(id.startsWith('painted/')).toBe(true);
+      expect(id in merged).toBe(false);
+      expect(a.sampling).toBe('linear');
+      expect(Math.min(a.pixelW / a.w, a.pixelH / a.h)).toBeGreaterThanOrEqual(4);
+    }
+  });
   it('assigns an explicit size and mounting role to every weapon, including non-held utilities', () => {
     expect([...WEAPON_MOUNTS.keys()].sort()).toEqual(RULESET.weapons.map((w) => w.id).sort());
     for (const mount of WEAPON_MOUNTS.values()) {

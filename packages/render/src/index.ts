@@ -20,6 +20,7 @@ export * from './fx';
 export * from './labelScale';
 export * from './lighting';
 export * from './assets';
+export * from './painted';
 export * from './skins';
 export * from './weaponMounts';
 export * from './arsenalArt';

@@ -24,6 +24,8 @@ export interface AssetSize {
   h: number;
 }
 export interface AssetEntry extends AssetSize {
+  /** Explicit per-pack opt-in; legacy pixel art remains nearest. */
+  sampling?: 'nearest' | 'linear';
   file: string;
   /** Physical PNG dimensions; w/h above remain world/display units. Legacy packs omit these. */
   pixelW?: number;
@@ -113,7 +115,7 @@ export class AssetStore {
             ? new Texture({ source: atlas.source, frame: new Rectangle(f.x, f.y, f.w, f.h) })
             : atlas;
           // Pixel art: never blur it when scaled.
-          tex.source.scaleMode = 'nearest';
+          tex.source.scaleMode = a.sampling === 'linear' ? 'linear' : 'nearest';
           this.sizes.set(tex, { w: a.w, h: a.h });
           this.ids.set(tex, id);
           this.textures.set(id, tex);
@@ -171,6 +173,12 @@ export class AssetStore {
 
   has(id: string): boolean {
     return this.textures.has(id);
+  }
+
+  /** Presentation-only switch for shared character atlases when entering/leaving the painted lab. */
+  setSampling(prefix: string, mode: 'nearest' | 'linear'): void {
+    for (const [id, texture] of this.textures)
+      if (id.startsWith(prefix)) texture.source.scaleMode = mode;
   }
 
   /** Display footprint, independent of source pixels. Unregistered procedural textures stay 1:1. */

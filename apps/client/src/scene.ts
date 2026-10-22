@@ -95,6 +95,7 @@ export class GameScene {
     private readonly teamSkins: readonly CharacterAppearance[] = [],
   ) {
     this.viewCtx = createViewContext(game.world, game.rules);
+    this.viewCtx.vfxNamespace = theme.artStyle === 'painted' ? 'painted/vfx' : 'vfx';
     const terrain = game.world.terrain;
     this.camera = new Camera(terrain);
 
@@ -103,17 +104,20 @@ export class GameScene {
     this.burnMarks = new BurnMarks(terrain);
     this.water = new WaterView(theme, terrain);
     this.fx = new Fx(theme.soil.base);
-    this.effects = new EffectsSystem({
-      shake: (p) => this.camera.shake(p),
-      punch: (a) => this.camera.punch(a),
-      timeScale: (s, d) => this.onTimeScale(s, d),
-      light: (x, y, color, radius, life, intensity) =>
-        this.lights.flash(x, y, color, radius, life, intensity),
-      shockwave: (x, y, s) => {
-        const p = this.camera.toScreen(x, y);
-        this.post.shockwave(p.x, p.y, s);
+    this.effects = new EffectsSystem(
+      {
+        shake: (p) => this.camera.shake(p),
+        punch: (a) => this.camera.punch(a),
+        timeScale: (s, d) => this.onTimeScale(s, d),
+        light: (x, y, color, radius, life, intensity) =>
+          this.lights.flash(x, y, color, radius, life, intensity),
+        shockwave: (x, y, s) => {
+          const p = this.camera.toScreen(x, y);
+          this.post.shockwave(p.x, p.y, s);
+        },
       },
-    });
+      theme.artStyle === 'painted' ? 'painted/vfx' : 'vfx',
+    );
     this.dirt = theme.soil.base;
     this.world.addChild(
       this.water.back,

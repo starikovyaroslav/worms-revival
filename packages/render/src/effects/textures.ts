@@ -202,8 +202,11 @@ function puffTexture(n: number, seed: number): Texture {
 }
 
 /** All procedural effect textures. Replace with hand-made atlases later (same ids). */
-export function createFxTextures(owned = new Set<Texture>()): Record<FxTextureId, Texture[]> {
-  const smoke = clipTextures('smoke'),
+export function createFxTextures(
+  owned = new Set<Texture>(),
+  namespace = 'vfx',
+): Record<FxTextureId, Texture[]> {
+  const smoke = clipTextures('smoke', namespace),
     gas = clipTextures('gas');
   const paper = clipTextures('letter');
   const banana = assets.get('creatures/banana_1');

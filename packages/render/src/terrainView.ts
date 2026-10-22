@@ -86,7 +86,7 @@ export class TerrainView {
     private readonly terrain: Terrain,
     private theme: Theme,
   ) {
-    this.art = terrainArtForTheme(theme.id);
+    this.art = terrainArtForTheme(theme.id, theme.artStyle === 'painted');
     this.density = this.art ? terrainDensity(terrain.width, terrain.height) : 1;
     this.cols = Math.ceil(terrain.width / CHUNK);
     const rows = Math.ceil(terrain.height / CHUNK);
@@ -99,7 +99,7 @@ export class TerrainView {
           resource: pixels,
           width: w * this.density,
           height: h * this.density,
-          scaleMode: 'nearest',
+          scaleMode: this.art?.painted ? 'linear' : 'nearest',
         });
         const sprite = new Sprite(new Texture({ source }));
         sprite.position.set(cx * CHUNK, cy * CHUNK);
@@ -114,7 +114,9 @@ export class TerrainView {
 
   setTheme(theme: Theme): void {
     this.theme = theme;
-    this.art = terrainArtForTheme(theme.id);
+    this.art = terrainArtForTheme(theme.id, theme.artStyle === 'painted');
+    for (const chunk of this.chunks)
+      chunk.source.scaleMode = this.art?.painted ? 'linear' : 'nearest';
     this.redrawAll();
   }
 

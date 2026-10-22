@@ -3,6 +3,7 @@ import { Material, type Terrain } from '@wr/sim';
 import { hex, mix, shade } from './color';
 import { snapColor } from './palette';
 import type { Theme } from './theme';
+import { assets } from './assets';
 
 const toNum = (c: [number, number, number]) =>
   (Math.round(c[0]) << 16) | (Math.round(c[1]) << 8) | Math.round(c[2]);
@@ -64,6 +65,8 @@ export class WaterView {
   private profiles = [profile(0.7, 1.5), profile(2.1, 2), profile(4.3, 2.4)];
   private checkerTex = checker();
   private bandSprites: TilingSprite[] = [];
+  private paintedBack: TilingSprite | null = null;
+  private paintedFront: TilingSprite | null = null;
 
   constructor(
     theme: Theme,
@@ -88,6 +91,19 @@ export class WaterView {
       this.ramp[Math.min(2, this.ramp.length - 1)] as number,
       this.ramp[Math.min(3, this.ramp.length - 1)] as number,
     ];
+    const texture = theme.artStyle === 'painted' ? assets.get('painted/water/meadow') : undefined;
+    if (texture) {
+      this.paintedBack = new TilingSprite({ texture, width: 1, height: assets.sizeOf(texture).h });
+      this.paintedFront = new TilingSprite({ texture, width: 1, height: assets.sizeOf(texture).h });
+      this.paintedFront.alpha = 0.62;
+      this.back.addChild(this.paintedBack);
+      this.front.addChild(this.paintedFront);
+      const pixels = assets.pixels('painted/water/meadow');
+      if (pixels) {
+        const p = (pixels.h - 1) * pixels.w * 4;
+        this.deepColor = (pixels.data[p]! << 16) | (pixels.data[p + 1]! << 8) | pixels.data[p + 2]!;
+      }
+    }
   }
 
   /** Wave surface (world y) of layer i at column x. */
@@ -106,6 +122,26 @@ export class WaterView {
     const x1 = Math.ceil((cx + halfView + 16) / COL) * COL;
     const span = x1 - x0;
     const bottom = level + 4000;
+    if (this.paintedBack && this.paintedFront) {
+      const h = assets.sizeOf(this.paintedBack.texture).h;
+      // The painted crest begins about a third down the transparent canvas.
+      for (const [i, tile] of [this.paintedBack, this.paintedFront].entries()) {
+        tile.width = span;
+        tile.height = h;
+        tile.tileScale.set(assets.scaleOf(tile.texture), h / tile.texture.height);
+        tile.position.set(x0, level - h * 0.35 + (i ? 0 : Math.sin(this.time * 1.4) * 1.4));
+        tile.tilePosition.x = -x0 + this.time * (i ? 7 : -9);
+      }
+      this.backBody
+        .clear()
+        .rect(x0, level + h * 0.5, span, bottom - level)
+        .fill(this.deepColor);
+      this.deepTint
+        .clear()
+        .rect(x0, level + h * 0.65, span, bottom - level)
+        .fill({ color: this.deepColor, alpha: 0.62 });
+      return;
+    }
 
     // Back: far wave strip in the first band colour, then flat gradient bands with a dithered seam.
     const b = this.backBody;

@@ -3,6 +3,8 @@ import { makePattern, type PatternSpec } from './pattern';
 import type { GradeSpec } from './postfx';
 
 export interface ThemeSpec {
+  /** Optional presentation variant; never enters the simulation or map generation. */
+  artStyle?: 'painted';
   id: string;
   name: string;
   skyTop: number;
