@@ -1,0 +1,392 @@
+{
+  "painted/bg/meadow/sky": {
+    "colors": 25755,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/meadow/far": {
+    "colors": 25171,
+    "transparent": 922099,
+    "partialAlpha": 649908,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/meadow/mid": {
+    "colors": 90434,
+    "transparent": 878581,
+    "partialAlpha": 693771,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/meadow/near": {
+    "colors": 100718,
+    "transparent": 731482,
+    "partialAlpha": 840939,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/meadow/fill": {
+    "colors": 90349,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      1254,
+      1254
+    ],
+    "display": [
+      256,
+      256
+    ],
+    "seam": "xy"
+  },
+  "painted/water/meadow": {
+    "colors": 60258,
+    "transparent": 630116,
+    "partialAlpha": 942298,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      256,
+      80
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/meadow/rim": {
+    "colors": 81951,
+    "transparent": 13663,
+    "partialAlpha": 213339,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/meadow/under": {
+    "colors": 43114,
+    "transparent": 54662,
+    "partialAlpha": 172378,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/meadow/scorch": {
+    "colors": 53107,
+    "transparent": 37319,
+    "partialAlpha": 189731,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/meadow/rock": {
+    "colors": 47507,
+    "transparent": 18734,
+    "partialAlpha": 208307,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/vfx/blast_0": {
+    "colors": 7537,
+    "transparent": 122518,
+    "partialAlpha": 24925,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/blast_1": {
+    "colors": 23529,
+    "transparent": 97406,
+    "partialAlpha": 50037,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/blast_2": {
+    "colors": 40210,
+    "transparent": 76865,
+    "partialAlpha": 70581,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/blast_3": {
+    "colors": 18043,
+    "transparent": 99597,
+    "partialAlpha": 47823,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/smoke_0": {
+    "colors": 2667,
+    "transparent": 52647,
+    "partialAlpha": 4941,
+    "alphaLevels": 208,
+    "pixels": [
+      240,
+      240
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "seam": null
+  },
+  "painted/vfx/smoke_1": {
+    "colors": 5725,
+    "transparent": 44800,
+    "partialAlpha": 12795,
+    "alphaLevels": 251,
+    "pixels": [
+      240,
+      240
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "seam": null
+  },
+  "painted/vfx/smoke_2": {
+    "colors": 6694,
+    "transparent": 36120,
+    "partialAlpha": 21462,
+    "alphaLevels": 250,
+    "pixels": [
+      240,
+      240
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "seam": null
+  },
+  "painted/vfx/smoke_3": {
+    "colors": 3203,
+    "transparent": 42995,
+    "partialAlpha": 14599,
+    "alphaLevels": 256,
+    "pixels": [
+      240,
+      240
+    ],
+    "display": [
+      40,
+      40
+    ],
+    "seam": null
+  },
+  "painted/vfx/fragment_0": {
+    "colors": 8543,
+    "transparent": 128534,
+    "partialAlpha": 18918,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/fragment_1": {
+    "colors": 15360,
+    "transparent": 100451,
+    "partialAlpha": 46995,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/fragment_2": {
+    "colors": 25430,
+    "transparent": 84065,
+    "partialAlpha": 63371,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/fragment_3": {
+    "colors": 15949,
+    "transparent": 104218,
+    "partialAlpha": 43223,
+    "alphaLevels": 256,
+    "pixels": [
+      384,
+      384
+    ],
+    "display": [
+      64,
+      64
+    ],
+    "seam": null
+  },
+  "painted/vfx/fire_0": {
+    "colors": 809,
+    "transparent": 10274,
+    "partialAlpha": 1243,
+    "alphaLevels": 160,
+    "pixels": [
+      96,
+      120
+    ],
+    "display": [
+      16,
+      20
+    ],
+    "seam": null
+  },
+  "painted/vfx/fire_1": {
+    "colors": 1380,
+    "transparent": 9262,
+    "partialAlpha": 2257,
+    "alphaLevels": 184,
+    "pixels": [
+      96,
+      120
+    ],
+    "display": [
+      16,
+      20
+    ],
+    "seam": null
+  },
+  "painted/vfx/fire_2": {
+    "colors": 2022,
+    "transparent": 8232,
+    "partialAlpha": 3287,
+    "alphaLevels": 194,
+    "pixels": [
+      96,
+      120
+    ],
+    "display": [
+      16,
+      20
+    ],
+    "seam": null
+  },
+  "painted/vfx/fire_3": {
+    "colors": 1268,
+    "transparent": 9543,
+    "partialAlpha": 1976,
+    "alphaLevels": 181,
+    "pixels": [
+      96,
+      120
+    ],
+    "display": [
+      16,
+      20
+    ],
+    "seam": null
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "version": 2,
+  "style": "painted",
+  "assets": {
+    "painted/bg/meadow/sky": {
+      "file": "sky.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/bg/meadow/far": {
+      "file": "far.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/bg/meadow/mid": {
+      "file": "mid.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/bg/meadow/near": {
+      "file": "near.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/terrain/meadow/fill": {
+      "file": "soil.png",
+      "w": 256,
+      "h": 256,
+      "pixelW": 1254,
+      "pixelH": 1254,
+      "sampling": "linear"
+    },
+    "painted/water/meadow": {
+      "file": "water.png",
+      "w": 256,
+      "h": 80,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/terrain/meadow/rim": {
+      "file": "rim.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/terrain/meadow/under": {
+      "file": "under.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/terrain/meadow/scorch": {
+      "file": "scorch.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/terrain/meadow/rock": {
+      "file": "rock.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/vfx/blast_0": {
+      "file": "blast-0.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/blast_1": {
+      "file": "blast-1.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/blast_2": {
+      "file": "blast-2.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/blast_3": {
+      "file": "blast-3.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/smoke_0": {
+      "file": "smoke-0.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/vfx/smoke_1": {
+      "file": "smoke-1.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/vfx/smoke_2": {
+      "file": "smoke-2.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/vfx/smoke_3": {
+      "file": "smoke-3.png",
+      "w": 40,
+      "h": 40,
+      "pixelW": 240,
+      "pixelH": 240,
+      "sampling": "linear"
+    },
+    "painted/vfx/fragment_0": {
+      "file": "fragment-0.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/fragment_1": {
+      "file": "fragment-1.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/fragment_2": {
+      "file": "fragment-2.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/fragment_3": {
+      "file": "fragment-3.png",
+      "w": 64,
+      "h": 64,
+      "pixelW": 384,
+      "pixelH": 384,
+      "sampling": "linear"
+    },
+    "painted/vfx/fire_0": {
+      "file": "fire-0.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/vfx/fire_1": {
+      "file": "fire-1.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/vfx/fire_2": {
+      "file": "fire-2.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    },
+    "painted/vfx/fire_3": {
+      "file": "fire-3.png",
+      "w": 16,
+      "h": 20,
+      "pixelW": 96,
+      "pixelH": 120,
+      "sampling": "linear"
+    }
+  }
+}

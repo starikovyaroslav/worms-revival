@@ -18,7 +18,7 @@
     "test:determinism": "node tools/determinism/run.mjs",
     "art:ingest": "node tools/art/desktop-world.mjs generated",
     "art:review": "node tools/art/density-audit.mjs",
-    "art:test": "node --test tools/art/ingest.test.mjs tools/art/arsenal.test.mjs tools/art/vfx.test.mjs tools/art/military.test.mjs tools/art/desktop-world.test.mjs tools/art/skin-atlas.test.mjs",
+    "art:test": "node --test tools/art/ingest.test.mjs tools/art/arsenal.test.mjs tools/art/vfx.test.mjs tools/art/military.test.mjs tools/art/desktop-world.test.mjs tools/art/skin-atlas.test.mjs tools/art/painted-meadow.test.mjs",
     "art:arsenal": "node tools/art/desktop-world.mjs arsenal",
     "art:vfx": "node tools/art/vfx.mjs",
     "art:military": "node tools/art/military.mjs",

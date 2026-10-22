@@ -1,0 +1,42 @@
+{
+  "mode": "built-in imagegen",
+  "prompts": "tools/art/painted-meadow-prompts.json",
+  "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+  "masters": {
+    "sky": {
+      "path": "assets-in/painted-meadow/sky.png",
+      "sha256": "bdf711ecf7e5d947efce8478cfb835b5e031b5da2e9c66bb4c2acf1093e9692b"
+    },
+    "far": {
+      "path": "assets-in/painted-meadow/far.png",
+      "sha256": "5e93633eb51648dcf6fbf002c9d189638d2e53415e2921728b81619e7ff066a0"
+    },
+    "mid": {
+      "path": "assets-in/painted-meadow/mid.png",
+      "sha256": "33f139daf7eef3d962cccea57e7ef5f9e73c5a960014d1ee4b20c13bd579712e"
+    },
+    "near": {
+      "path": "assets-in/painted-meadow/near.png",
+      "sha256": "31711ca3df2a6642d0a3fe35052a01dcfcad737f0f9d7f90533c4d292792b8f9"
+    },
+    "soil": {
+      "path": "assets-in/painted-meadow/soil.png",
+      "sha256": "fba38dbc12c9953a6c4faa975e758df47e16878cca5b40478014a3d396779a3f"
+    },
+    "water": {
+      "path": "assets-in/painted-meadow/water.png",
+      "sha256": "88d2cf929eec6b6420015c7f46eb5f25f47a2bdc1d0dde455240f9badd7c08d9"
+    },
+    "edges": {
+      "path": "assets-in/painted-meadow/edges.png",
+      "sha256": "da7455806c8b5168acfce90cc96a4d36c8423a27108a28029376ab27fcb55521"
+    },
+    "effects": {
+      "path": "assets-in/painted-meadow/effects.png",
+      "sha256": "cd791476fcc14335a55b320fcbb62ff8d76dfbd4bd1697e8083cf65b82b91d00"
+    }
+  },
+  "export": "tools/art/painted-meadow.mjs",
+  "paletteQuantization": false,
+  "binaryAlphaExport": false
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sky",
+    "transparent": false,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nLandscape 3:1 panoramic SKY ONLY, blue gradient from deep warm azure at top to pale cyan haze at bottom. Few broad rounded painted white clouds only in upper/middle half; quiet open sky, no horizon line, hills, trees, water or ground. Fill every pixel opaque, full bleed. Horizontally tileable, left/right cloud-free edges share same sky colors.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/sky.png"
+  },
+  {
+    "id": "far",
+    "transparent": true,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nLandscape 3:1 panoramic FAR BACKGROUND LAYER only: distant simple rolling BLUE HILLS, soft low-contrast blue atmospheric silhouettes, no sharp foreground texture, no clouds or sky. Upper 45 percent genuinely transparent, continuous irregular hill ridge around middle, lower half completely filled in muted flat blue at bottom edge. Hills enter/exit BOTH left/right edges at SAME HEIGHT and bottom color. Horizontal seamless parallax layer, no isolated island, no margins at bottom or side edges. No objects or characters.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/far.png"
+  },
+  {
+    "id": "mid",
+    "transparent": true,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nLandscape 3:1 panoramic MIDDLE BACKGROUND LAYER only: broad rolling BLUE-GREEN meadow hills with sparse simple grouped tree silhouettes, low contrast and quiet painted grouped shapes, no small foliage detail, no buildings, no water or sky. Upper45 percent true transparent, ridge near middle, lowerhalf filled continuously to bottom in muted blue-green. Ridge enters/exits both left/right edges sameheight andbottomcolor, horizontally seamless, no isolated floating island and no side/bottom margins.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/mid.png"
+  },
+  {
+    "id": "near",
+    "transparent": true,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nLandscape3:1 panoramic NEAR BACKGROUND LAYER (still distant from gameplay): rolling sage-green meadow slopes with a few grouped rounded deciduous tree silhouettes, medium-low contrast, broad painted shapes, no individual grass blades or pebbles, no water/sky/props. Upper50 percent transparent. Lowerhalf continuously filled with muted sage/olive green down to flat bottom edge. Left/right ridge sameheight andcolor for horizontal tiling, no side/bottom margins.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/near.png"
+  },
+  {
+    "id": "soil",
+    "transparent": false,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nSquare1536x1536 seamless TILE of underground meadow SOIL CUTAWAY MATERIAL ONLY. Flat front-facing cross-section, not a terrain island or platform. Broad warm ochre/clay strata with sparse BIG embedded rounded grey-brown boulders, occasional darker roots, lower contrast than characters. Stone forms roughly8-14 percent tilewidth; a FEW big readable stones across entiretile. NO grass, horizon, sky, water, surface edge, dramatic lighting, bevel, cast shadow, little speckled pebbles, photographic noise or dense texture. Fullbleed opaque, seamless left/right AND top/bottom. Calm broad painted volume matching reference soil.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/soil.png"
+  },
+  {
+    "id": "edges",
+    "transparent": true,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nProduction TERRAIN EDGE STRIP SHEET, landscape2048x1024. EXACTLY FOUR horizontal rows of equalheight, each contains ONE long straight painted terrain ribbon spanning full canvaswidth. There must be wide CLEAR TRANSPARENT horizontal gutters between rows. Intentionally cut ribbon ends at left/right edges to tile horizontally, samecolors/height at bothends. NO separate icons or platforms, no floorperspective. Row1 meadow TOP EDGE ribbon: lush large green grass tufts at top, dark brown root crust below, smallroots; opaque bottom soil band. Row2 UNDERSIDE ribbon: irregular hanging ochre soil/rock loweredge, shortroots, soil above, transparent below. Row3 SCORCHED EDGE ribbon: charred darkumber soil rim with softash and a few dullamber accents, no grass/flames. Row4 bare ROCK EDGE ribbon: broad grey-brown roundedstone strata rim, no grass. Keep eachribbon only CENTRAL45percent of its rowheight, no ribbon touches another. True transparentbackground. Fine paintedmaterial shapes, no noise or tiny specks.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/edges.png"
+  },
+  {
+    "id": "water",
+    "transparent": true,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nLandscape3:1 horizontal seamless WATER SURFACE STRIP for strict side-on game. Upper25percent fully transparent. Blue-turquoise stylized water begins along a gently rolling white-cyan FOAM CREST around upperthird, fills ALL pixels below crest to bottomedge. Broad layered wavebands and sparse large whitecurled crest strokes, dark teal lowerthird with bottomedge FLAT uniformdarkteal. Match playful paintedwater in reference, not realistic reflections. Left/right edges have SAME waterheight and matchingwavecolors, horizontally tileable, NO margins on sides/bottom. No land, sky, fish, characters, props or text.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/water.png"
+  },
+  {
+    "id": "effects",
+    "transparent": true,
+    "prompt": "Use case: stylized-concept. Production SEPARATE raster game asset for a playable 2D artillery game. Image1 is the approved ART STYLE REFERENCE ONLY; do not reproduce its worms, UI, weapons, terrain layout or whole scene. Coherent hand-painted grotesque early-2000s 2D cartoon, broad readable forms, rich original color gradients, upper-left daylight, thin organic colored contours. NOT photorealism, NOT chunky pixel art, NO palette quantization, NO noise/dither/scanlines, NO text, labels, logos or watermark.\nSquare1536x1536 production VFX SPRITE SHEET, EXACT4columns x4rows. Sixteen ISOLATED COMPLETE samecanvas-size frames, each centrally fits55percent of its cell with generous clear transparent gutters. Row1 FOUR chronological EXPLOSION frames: compact yellowwhite flash; expanding orangeflame lobes; broad orangefire with curled darksmoke; late charcoalsmoke with smallwarmcore. Row2 FOUR SMOKE PUFF frames: small densegreysmoke; expanding curled lobes; broad softgreypuff; dispersed but stilldistinct readablepuff. Row3 FOUR DIRT/FRAGMENT BLAST frames: little orangeimpact with a FEW broad soilchunks; outward dirtburst; expandingchunkarc andgreysmoke; dissipating dustpuff. Row4 FOUR GROUND FIRE frames: small flame; leftleaning flame; uprightlarger flame; rightleaning flame, samegroundbaseline. Effects match painted reference, NOT photographicfire or squarepixelparticles. Keep lastframes visible enough, opacityatleast60percent inside mainshape; fading handledgamecode. No floors, shadows, props or scenery. True transparentalpha, nocheckerboard, text, gridlines or numberedframes. Do NOT let anyeffect touch neighbor cells or outercanvas; allsparks fitinsidecentral55percent.",
+    "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+    "output": "assets-in/painted-meadow/effects.png"
+  }
+]
