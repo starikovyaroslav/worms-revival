@@ -1,7 +1,7 @@
 {
   "policy": "all on-disk PNGs: declared native pixels, >=3x display density (icons 6x; other sprites 4x), longest edge >=64; no unregistered leftovers",
-  "totalPng": 716,
-  "registeredPng": 716,
+  "totalPng": 732,
+  "registeredPng": 732,
   "packs": [
     {
       "pack": "legacy paths (rebuilt)",
@@ -40,10 +40,10 @@
     },
     {
       "pack": "skins",
-      "images": 18,
-      "frames": 276,
+      "images": 34,
+      "frames": 532,
       "minimumDensity": 6,
-      "pngBytes": 8098769
+      "pngBytes": 15381323
     }
   ],
   "problems": []

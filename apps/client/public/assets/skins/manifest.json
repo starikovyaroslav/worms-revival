@@ -3330,6 +3330,3334 @@
         "h": 192
       }
     },
+    "skins/officer-ice/idle": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/blink": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/walk_0": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/walk_1": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/walk_2": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/walk_3": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/jump": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/fall": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/land": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/hurt": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/aim": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/throw": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/melee": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/rope": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/defeat": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-ice/win": {
+      "file": "officer-ice.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/idle": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/blink": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/walk_0": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/walk_1": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/walk_2": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/walk_3": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/jump": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/fall": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/land": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/hurt": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/aim": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/throw": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/melee": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/rope": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/defeat": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-red/win": {
+      "file": "officer-red.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/idle": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/blink": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/walk_0": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/walk_1": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/walk_2": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/walk_3": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/jump": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/fall": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/land": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/hurt": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/aim": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/throw": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/melee": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/rope": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/defeat": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/officer-iron/win": {
+      "file": "officer-iron.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/idle": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/blink": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/walk_0": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/walk_1": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/walk_2": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/walk_3": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/jump": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/fall": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/land": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/hurt": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/aim": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/throw": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/melee": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/rope": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/defeat": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-sapper/win": {
+      "file": "brutal-sapper.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/idle": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/blink": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/walk_0": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/walk_1": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/walk_2": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/walk_3": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/jump": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/fall": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/land": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/hurt": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/aim": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/throw": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/melee": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/rope": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/defeat": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal-brawler/win": {
+      "file": "brutal-brawler.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/idle": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/blink": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/walk_0": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/walk_1": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/walk_2": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/walk_3": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/jump": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/fall": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/land": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/hurt": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/aim": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/throw": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/melee": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/rope": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/defeat": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-cook/win": {
+      "file": "soft-cook.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/idle": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/blink": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/walk_0": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/walk_1": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/walk_2": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/walk_3": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/jump": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/fall": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/land": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/hurt": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/aim": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/throw": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/melee": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/rope": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/defeat": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-artist/win": {
+      "file": "soft-artist.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/idle": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/blink": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/walk_0": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/walk_1": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/walk_2": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/walk_3": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/jump": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/fall": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/land": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/hurt": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/aim": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/throw": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/melee": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/rope": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/defeat": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-cabaret/win": {
+      "file": "glam-cabaret.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/idle": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/blink": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/walk_0": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/walk_1": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/walk_2": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/walk_3": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/jump": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/fall": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/land": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/hurt": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/aim": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/throw": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/melee": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/rope": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/defeat": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-captain/win": {
+      "file": "elder-captain.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/idle": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/blink": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/walk_0": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/walk_1": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/walk_2": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/walk_3": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/jump": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/fall": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/land": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/hurt": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/aim": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/throw": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/melee": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/rope": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/defeat": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-professor/win": {
+      "file": "elder-professor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/idle": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/blink": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/walk_0": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/walk_1": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/walk_2": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/walk_3": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/jump": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/fall": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/land": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/hurt": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/aim": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/throw": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/melee": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/rope": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/defeat": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-clerk/win": {
+      "file": "sickly-clerk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/idle": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/blink": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/walk_0": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/walk_1": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/walk_2": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/walk_3": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/jump": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/fall": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/land": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/hurt": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/aim": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/throw": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/melee": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/rope": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/defeat": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-nurse/win": {
+      "file": "sickly-nurse.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/idle": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/blink": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/walk_0": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/walk_1": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/walk_2": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/walk_3": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/jump": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/fall": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/land": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/hurt": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/aim": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/throw": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/melee": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/rope": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/defeat": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-sailor/win": {
+      "file": "veteran-sailor.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/idle": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/blink": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/walk_0": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/walk_1": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/walk_2": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/walk_3": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/jump": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/fall": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/land": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/hurt": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/aim": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/throw": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/melee": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/rope": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/defeat": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-aviator/win": {
+      "file": "veteran-aviator.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/idle": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/blink": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/walk_0": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/walk_1": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/walk_2": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/walk_3": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/jump": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/fall": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/land": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/hurt": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/aim": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/throw": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/melee": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/rope": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/defeat": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-punk/win": {
+      "file": "classic-punk.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/idle": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/blink": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/walk_0": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/walk_1": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/walk_2": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/walk_3": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/jump": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/fall": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/land": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/hurt": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/aim": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/throw": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/melee": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/rope": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/defeat": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-scout/win": {
+      "file": "classic-scout.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
     "skins/weapons/bazooka": {
       "file": "weapons.png",
       "w": 32,

@@ -10,6 +10,11 @@ const unavailable = JSON.parse(
   readFileSync(new URL('./skin-animation-status.json', import.meta.url)),
 );
 const repairs = JSON.parse(readFileSync(new URL('./skin-animation-repairs.json', import.meta.url)));
+const layoutRepairs = new Set(
+  JSON.parse(readFileSync(new URL('./skin-roster-repairs.json', import.meta.url))).map(
+    (repair) => repair.id,
+  ),
+);
 
 const out = resolve(root, 'apps/client/public/assets/skins');
 const FRAME = 192,
@@ -91,6 +96,9 @@ for (const skin of SKINS) {
       sourceBounds: b,
       touchesSourceEdge: f.touchesSourceEdge,
       ...(f.repair ? { repair: f.repair } : {}),
+      ...(layoutRepairs.has(skin.id)
+        ? { layoutRepair: `tools/art/skin-roster-repairs.json#${skin.id}` }
+        : {}),
       ...validate(frame),
     };
   });

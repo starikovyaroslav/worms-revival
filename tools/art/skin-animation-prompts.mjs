@@ -1,6 +1,7 @@
 /** Exact reproducible prompts for built-in imagegen; this module itself never calls a service. */
 import { SKINS } from '../../packages/render/src/skins.ts';
 import { readFileSync } from 'node:fs';
+import { rosterJobs } from './skin-roster-prompts.mjs';
 export const acting = {
   heavy:
     'Heavy deliberate acting: braced broad neck, low center of mass, short forceful tail pushes, restrained breathing; hurt is an angry flinch, attack is a planted forceful punch, victory a proud clenched-fist salute.',
@@ -16,7 +17,9 @@ export const acting = {
   classic:
     'Scrappy nimble acting: elastic elongated neck, clear energetic four-phase inchworm gait with tail compression and stretch, lively jumping and landing, cheeky aiming squint, snappy throw and punch, mischievous fist-pump victory.',
 };
-export const jobs = SKINS.filter((skin) => skin.id !== 'commander-femme').map((skin) => ({
+export const jobs = SKINS.filter(
+  (skin) => skin.id !== 'commander-femme' && skin.sheet !== 'v3',
+).map((skin) => ({
   ...skin,
   reference: `docs/design/concepts/worm-skins-${skin.sheet}/${skin.id}.png`,
   output: `assets-in/skins/${skin.id}.png`,
@@ -38,3 +41,4 @@ jobs.push({
   output: 'assets-in/skins/commander-femme.png',
   prompt: readFileSync(new URL('./skin-commander.prompt.txt', import.meta.url), 'utf8').trim(),
 });
+jobs.push(...rosterJobs);

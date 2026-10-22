@@ -26,12 +26,17 @@ describe('character-dependent cosmetic acting', () => {
   it('treats classes as rosters, preserves explicit members and never crosses family boundaries', () => {
     const available = new Set(SKINS.filter((s) => s.id !== 'dominatrix').map((s) => s.id));
     expect(CHARACTER_CLASSES).toHaveLength(8);
-    expect(variantsForClass('heavy').map((s) => s.id)).toEqual(['brutal', 'commando-femme']);
+    expect(variantsForClass('heavy').map((s) => s.id)).toEqual([
+      'brutal',
+      'commando-femme',
+      'brutal-sapper',
+      'brutal-brawler',
+    ]);
     const team = { characterClass: 'heavy' };
     expect([0, 1, 2].map((member) => resolveTeamVariant(team, member, available))).toEqual([
       'brutal',
       'commando-femme',
-      'brutal',
+      'brutal-sapper',
     ]);
     expect(
       resolveTeamVariant({ ...team, characterVariants: ['commando-femme'] }, 0, available),
@@ -59,15 +64,28 @@ describe('character-dependent cosmetic acting', () => {
     expect(WEAPON_MOUNTS.get('airstrike')!.texture).toBe('skins/equipment/radio');
     expect(rigForSkin('soft').shoulder).not.toEqual(rigForSkin('classic').shoulder);
   });
-  it('defines seventeen identities including the blocked concept, sixteen poses and eight profiles', () => {
-    expect(SKINS).toHaveLength(17);
-    expect(new Set(SKINS.map((s) => s.id)).size).toBe(17);
+  it('defines thirty-three identities including the blocked concept, sixteen poses and eight profiles', () => {
+    expect(SKINS).toHaveLength(33);
+    expect(new Set(SKINS.map((s) => s.id)).size).toBe(33);
     expect(new Set(SKINS.map((s) => s.profile)).size).toBe(8);
     expect(new Set(SKIN_POSES).size).toBe(16);
     expect(skinById('dominatrix')?.profile).toBe('dominant');
     expect(skinById('not-a-skin')).toBeUndefined();
     expect(SKIN_MOTION.heavy.bob).toBeLessThan(SKIN_MOTION.soft.bob);
     expect(SKIN_MOTION.veteran.lean).toBeGreaterThan(SKIN_MOTION.glam.lean);
+  });
+  it('provides four unique default members per class, repeats only from the fifth and keeps replay choices', () => {
+    const available = new Set(SKINS.filter((s) => s.id !== 'dominatrix').map((s) => s.id));
+    for (const family of CHARACTER_CLASSES) {
+      const team = { characterClass: family.id };
+      const members = [0, 1, 2, 3].map((index) => resolveTeamVariant(team, index, available));
+      expect(new Set(members).size).toBe(4);
+      expect(members.every((id) => skinById(id)?.profile === family.id)).toBe(true);
+      expect(resolveTeamVariant(team, 4, available)).toBe(members[0]);
+      const recorded = { ...team, characterVariants: members as string[] };
+      for (const index of [0, 1, 2, 3])
+        expect(resolveTeamVariant(recorded, index, available)).toBe(members[index]);
+    }
   });
   it('covers all four painted walk phases using simulation progress, not real-time speed', () => {
     const poses = Array.from({ length: 15 }, (_, walkFrame) =>

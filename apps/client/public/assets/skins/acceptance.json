@@ -6655,5 +6655,6773 @@
     "transparent": 26741,
     "partialAlpha": 10098,
     "alphaLevels": 228
+  },
+  "skins/officer-ice/idle": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 25988,
+      "x": 71,
+      "y": 49,
+      "w": 184,
+      "h": 256
+    },
+    "touchesSourceEdge": false,
+    "colors": 6383,
+    "transparent": 28817,
+    "partialAlpha": 8035,
+    "alphaLevels": 225
+  },
+  "skins/officer-ice/blink": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 25989,
+      "x": 385,
+      "y": 49,
+      "w": 183,
+      "h": 256
+    },
+    "touchesSourceEdge": false,
+    "colors": 6301,
+    "transparent": 28736,
+    "partialAlpha": 8107,
+    "alphaLevels": 230
+  },
+  "skins/officer-ice/walk_0": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 27054,
+      "x": 675,
+      "y": 48,
+      "w": 235,
+      "h": 255
+    },
+    "touchesSourceEdge": false,
+    "colors": 6547,
+    "transparent": 28213,
+    "partialAlpha": 8632,
+    "alphaLevels": 245
+  },
+  "skins/officer-ice/walk_1": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 23814,
+      "x": 1015,
+      "y": 55,
+      "w": 179,
+      "h": 249
+    },
+    "touchesSourceEdge": false,
+    "colors": 5871,
+    "transparent": 29358,
+    "partialAlpha": 7493,
+    "alphaLevels": 233
+  },
+  "skins/officer-ice/walk_2": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 27280,
+      "x": 42,
+      "y": 369,
+      "w": 239,
+      "h": 246
+    },
+    "touchesSourceEdge": false,
+    "colors": 6621,
+    "transparent": 28043,
+    "partialAlpha": 8812,
+    "alphaLevels": 242
+  },
+  "skins/officer-ice/walk_3": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 28372,
+      "x": 365,
+      "y": 363,
+      "w": 259,
+      "h": 252
+    },
+    "touchesSourceEdge": false,
+    "colors": 6763,
+    "transparent": 27736,
+    "partialAlpha": 9116,
+    "alphaLevels": 234
+  },
+  "skins/officer-ice/jump": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 26536,
+      "x": 669,
+      "y": 345,
+      "w": 259,
+      "h": 267
+    },
+    "touchesSourceEdge": false,
+    "colors": 6472,
+    "transparent": 28320,
+    "partialAlpha": 8516,
+    "alphaLevels": 236
+  },
+  "skins/officer-ice/fall": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 21544,
+      "x": 1041,
+      "y": 400,
+      "w": 138,
+      "h": 215
+    },
+    "touchesSourceEdge": false,
+    "colors": 5355,
+    "transparent": 30237,
+    "partialAlpha": 6622,
+    "alphaLevels": 209
+  },
+  "skins/officer-ice/land": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 18,
+      "count": 25957,
+      "x": 60,
+      "y": 716,
+      "w": 211,
+      "h": 203
+    },
+    "touchesSourceEdge": false,
+    "colors": 6248,
+    "transparent": 29052,
+    "partialAlpha": 7800,
+    "alphaLevels": 225
+  },
+  "skins/officer-ice/hurt": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 25982,
+      "x": 402,
+      "y": 685,
+      "w": 175,
+      "h": 231
+    },
+    "touchesSourceEdge": false,
+    "colors": 6373,
+    "transparent": 28712,
+    "partialAlpha": 8140,
+    "alphaLevels": 231
+  },
+  "skins/officer-ice/aim": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 24247,
+      "x": 679,
+      "y": 686,
+      "w": 233,
+      "h": 234
+    },
+    "touchesSourceEdge": false,
+    "colors": 5903,
+    "transparent": 29076,
+    "partialAlpha": 7768,
+    "alphaLevels": 233
+  },
+  "skins/officer-ice/throw": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 17,
+      "count": 26139,
+      "x": 990,
+      "y": 689,
+      "w": 242,
+      "h": 231
+    },
+    "touchesSourceEdge": false,
+    "colors": 6124,
+    "transparent": 28509,
+    "partialAlpha": 8345,
+    "alphaLevels": 240
+  },
+  "skins/officer-ice/melee": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 24,
+      "count": 28471,
+      "x": 36,
+      "y": 1001,
+      "w": 263,
+      "h": 233
+    },
+    "touchesSourceEdge": false,
+    "colors": 6939,
+    "transparent": 27874,
+    "partialAlpha": 8980,
+    "alphaLevels": 240
+  },
+  "skins/officer-ice/rope": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 21,
+      "count": 24797,
+      "x": 413,
+      "y": 937,
+      "w": 143,
+      "h": 296
+    },
+    "touchesSourceEdge": false,
+    "colors": 5796,
+    "transparent": 29100,
+    "partialAlpha": 7747,
+    "alphaLevels": 228
+  },
+  "skins/officer-ice/defeat": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 23,
+      "count": 24992,
+      "x": 688,
+      "y": 1000,
+      "w": 185,
+      "h": 233
+    },
+    "touchesSourceEdge": false,
+    "colors": 6239,
+    "transparent": 28965,
+    "partialAlpha": 7889,
+    "alphaLevels": 230
+  },
+  "skins/officer-ice/win": {
+    "source": "assets-in/skins/officer-ice.png",
+    "profile": "dominant",
+    "scale": 0.5128205128205128,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 26761,
+      "x": 1019,
+      "y": 987,
+      "w": 185,
+      "h": 246
+    },
+    "touchesSourceEdge": false,
+    "colors": 6318,
+    "transparent": 28408,
+    "partialAlpha": 8442,
+    "alphaLevels": 241
+  },
+  "skins/officer-red/idle": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 31860,
+      "x": 55,
+      "y": 51,
+      "w": 200,
+      "h": 262
+    },
+    "touchesSourceEdge": false,
+    "colors": 7660,
+    "transparent": 27332,
+    "partialAlpha": 9497,
+    "alphaLevels": 237
+  },
+  "skins/officer-red/blink": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 31389,
+      "x": 375,
+      "y": 51,
+      "w": 197,
+      "h": 262
+    },
+    "touchesSourceEdge": false,
+    "colors": 7727,
+    "transparent": 27335,
+    "partialAlpha": 9501,
+    "alphaLevels": 245
+  },
+  "skins/officer-red/walk_0": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 32945,
+      "x": 662,
+      "y": 52,
+      "w": 269,
+      "h": 263
+    },
+    "touchesSourceEdge": false,
+    "colors": 8008,
+    "transparent": 26679,
+    "partialAlpha": 10143,
+    "alphaLevels": 241
+  },
+  "skins/officer-red/walk_1": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 29269,
+      "x": 1019,
+      "y": 58,
+      "w": 189,
+      "h": 260
+    },
+    "touchesSourceEdge": false,
+    "colors": 7224,
+    "transparent": 27915,
+    "partialAlpha": 8920,
+    "alphaLevels": 241
+  },
+  "skins/officer-red/walk_2": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 29,
+      "count": 32518,
+      "x": 34,
+      "y": 376,
+      "w": 259,
+      "h": 245
+    },
+    "touchesSourceEdge": false,
+    "colors": 7927,
+    "transparent": 26877,
+    "partialAlpha": 9948,
+    "alphaLevels": 243
+  },
+  "skins/officer-red/walk_3": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 30,
+      "count": 32151,
+      "x": 353,
+      "y": 376,
+      "w": 257,
+      "h": 246
+    },
+    "touchesSourceEdge": false,
+    "colors": 7867,
+    "transparent": 26821,
+    "partialAlpha": 9999,
+    "alphaLevels": 233
+  },
+  "skins/officer-red/jump": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 23,
+      "count": 31187,
+      "x": 657,
+      "y": 350,
+      "w": 268,
+      "h": 266
+    },
+    "touchesSourceEdge": false,
+    "colors": 7806,
+    "transparent": 27181,
+    "partialAlpha": 9654,
+    "alphaLevels": 244
+  },
+  "skins/officer-red/fall": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 35,
+      "count": 26760,
+      "x": 1027,
+      "y": 396,
+      "w": 165,
+      "h": 226
+    },
+    "touchesSourceEdge": false,
+    "colors": 6649,
+    "transparent": 28878,
+    "partialAlpha": 7973,
+    "alphaLevels": 221
+  },
+  "skins/officer-red/land": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 77,
+      "count": 28970,
+      "x": 49,
+      "y": 705,
+      "w": 212,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "colors": 7232,
+    "transparent": 28191,
+    "partialAlpha": 8653,
+    "alphaLevels": 226
+  },
+  "skins/officer-red/hurt": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 63,
+      "count": 31906,
+      "x": 391,
+      "y": 668,
+      "w": 188,
+      "h": 240
+    },
+    "touchesSourceEdge": false,
+    "colors": 7840,
+    "transparent": 27138,
+    "partialAlpha": 9697,
+    "alphaLevels": 241
+  },
+  "skins/officer-red/aim": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 62,
+      "count": 31195,
+      "x": 669,
+      "y": 664,
+      "w": 262,
+      "h": 245
+    },
+    "touchesSourceEdge": false,
+    "colors": 7641,
+    "transparent": 27107,
+    "partialAlpha": 9713,
+    "alphaLevels": 241
+  },
+  "skins/officer-red/throw": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 67,
+      "count": 29757,
+      "x": 998,
+      "y": 674,
+      "w": 238,
+      "h": 237
+    },
+    "touchesSourceEdge": false,
+    "colors": 7162,
+    "transparent": 27687,
+    "partialAlpha": 9149,
+    "alphaLevels": 244
+  },
+  "skins/officer-red/melee": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 107,
+      "count": 35255,
+      "x": 37,
+      "y": 965,
+      "w": 291,
+      "h": 245
+    },
+    "touchesSourceEdge": false,
+    "colors": 8417,
+    "transparent": 26080,
+    "partialAlpha": 10757,
+    "alphaLevels": 245
+  },
+  "skins/officer-red/rope": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 103,
+      "count": 29214,
+      "x": 408,
+      "y": 919,
+      "w": 152,
+      "h": 294
+    },
+    "touchesSourceEdge": false,
+    "colors": 7048,
+    "transparent": 27654,
+    "partialAlpha": 9188,
+    "alphaLevels": 238
+  },
+  "skins/officer-red/defeat": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 109,
+      "count": 31396,
+      "x": 684,
+      "y": 976,
+      "w": 211,
+      "h": 239
+    },
+    "touchesSourceEdge": false,
+    "colors": 7742,
+    "transparent": 27115,
+    "partialAlpha": 9725,
+    "alphaLevels": 239
+  },
+  "skins/officer-red/win": {
+    "source": "assets-in/skins/officer-red.png",
+    "profile": "dominant",
+    "scale": 0.5161290322580645,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 104,
+      "count": 32454,
+      "x": 1018,
+      "y": 951,
+      "w": 201,
+      "h": 260
+    },
+    "touchesSourceEdge": false,
+    "colors": 7761,
+    "transparent": 26930,
+    "partialAlpha": 9909,
+    "alphaLevels": 239
+  },
+  "skins/officer-iron/idle": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 29210,
+      "x": 50,
+      "y": 52,
+      "w": 214,
+      "h": 248
+    },
+    "touchesSourceEdge": false,
+    "colors": 5929,
+    "transparent": 27918,
+    "partialAlpha": 8902,
+    "alphaLevels": 222
+  },
+  "skins/officer-iron/blink": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 29169,
+      "x": 364,
+      "y": 52,
+      "w": 214,
+      "h": 248
+    },
+    "touchesSourceEdge": false,
+    "colors": 6044,
+    "transparent": 27853,
+    "partialAlpha": 8980,
+    "alphaLevels": 210
+  },
+  "skins/officer-iron/walk_0": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 30430,
+      "x": 663,
+      "y": 53,
+      "w": 265,
+      "h": 247
+    },
+    "touchesSourceEdge": false,
+    "colors": 6058,
+    "transparent": 27281,
+    "partialAlpha": 9553,
+    "alphaLevels": 232
+  },
+  "skins/officer-iron/walk_1": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 25998,
+      "x": 1012,
+      "y": 62,
+      "w": 194,
+      "h": 237
+    },
+    "touchesSourceEdge": false,
+    "colors": 5268,
+    "transparent": 28822,
+    "partialAlpha": 8009,
+    "alphaLevels": 221
+  },
+  "skins/officer-iron/walk_2": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 28953,
+      "x": 43,
+      "y": 375,
+      "w": 245,
+      "h": 231
+    },
+    "touchesSourceEdge": false,
+    "colors": 5787,
+    "transparent": 27573,
+    "partialAlpha": 9262,
+    "alphaLevels": 231
+  },
+  "skins/officer-iron/walk_3": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 29782,
+      "x": 350,
+      "y": 368,
+      "w": 257,
+      "h": 243
+    },
+    "touchesSourceEdge": false,
+    "colors": 6042,
+    "transparent": 27503,
+    "partialAlpha": 9320,
+    "alphaLevels": 225
+  },
+  "skins/officer-iron/jump": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 29518,
+      "x": 665,
+      "y": 338,
+      "w": 284,
+      "h": 267
+    },
+    "touchesSourceEdge": false,
+    "colors": 6032,
+    "transparent": 27541,
+    "partialAlpha": 9264,
+    "alphaLevels": 234
+  },
+  "skins/officer-iron/fall": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 22469,
+      "x": 1043,
+      "y": 389,
+      "w": 145,
+      "h": 217
+    },
+    "touchesSourceEdge": false,
+    "colors": 4828,
+    "transparent": 29811,
+    "partialAlpha": 7039,
+    "alphaLevels": 197
+  },
+  "skins/officer-iron/land": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 25686,
+      "x": 51,
+      "y": 704,
+      "w": 201,
+      "h": 204
+    },
+    "touchesSourceEdge": false,
+    "colors": 5538,
+    "transparent": 28896,
+    "partialAlpha": 7952,
+    "alphaLevels": 213
+  },
+  "skins/officer-iron/hurt": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 28114,
+      "x": 395,
+      "y": 666,
+      "w": 174,
+      "h": 241
+    },
+    "touchesSourceEdge": false,
+    "colors": 5822,
+    "transparent": 28148,
+    "partialAlpha": 8679,
+    "alphaLevels": 222
+  },
+  "skins/officer-iron/aim": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 26488,
+      "x": 673,
+      "y": 676,
+      "w": 240,
+      "h": 232
+    },
+    "touchesSourceEdge": false,
+    "colors": 5247,
+    "transparent": 28478,
+    "partialAlpha": 8349,
+    "alphaLevels": 223
+  },
+  "skins/officer-iron/throw": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 27385,
+      "x": 989,
+      "y": 680,
+      "w": 239,
+      "h": 227
+    },
+    "touchesSourceEdge": false,
+    "colors": 5302,
+    "transparent": 28231,
+    "partialAlpha": 8603,
+    "alphaLevels": 223
+  },
+  "skins/officer-iron/melee": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 31125,
+      "x": 33,
+      "y": 982,
+      "w": 277,
+      "h": 235
+    },
+    "touchesSourceEdge": false,
+    "colors": 6330,
+    "transparent": 26874,
+    "partialAlpha": 9962,
+    "alphaLevels": 237
+  },
+  "skins/officer-iron/rope": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 27653,
+      "x": 402,
+      "y": 926,
+      "w": 155,
+      "h": 291
+    },
+    "touchesSourceEdge": false,
+    "colors": 5094,
+    "transparent": 28160,
+    "partialAlpha": 8671,
+    "alphaLevels": 218
+  },
+  "skins/officer-iron/defeat": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 27907,
+      "x": 682,
+      "y": 979,
+      "w": 200,
+      "h": 238
+    },
+    "touchesSourceEdge": false,
+    "colors": 5678,
+    "transparent": 28185,
+    "partialAlpha": 8660,
+    "alphaLevels": 221
+  },
+  "skins/officer-iron/win": {
+    "source": "assets-in/skins/officer-iron.png",
+    "profile": "dominant",
+    "scale": 0.5211726384364821,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 30895,
+      "x": 1010,
+      "y": 953,
+      "w": 213,
+      "h": 263
+    },
+    "touchesSourceEdge": false,
+    "colors": 5685,
+    "transparent": 27098,
+    "partialAlpha": 9750,
+    "alphaLevels": 223
+  },
+  "skins/brutal-sapper/idle": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 23005,
+      "x": 67,
+      "y": 83,
+      "w": 189,
+      "h": 206
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7121,
+    "transparent": 28605,
+    "partialAlpha": 8203,
+    "alphaLevels": 210
+  },
+  "skins/brutal-sapper/blink": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 23404,
+      "x": 374,
+      "y": 82,
+      "w": 191,
+      "h": 207
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7252,
+    "transparent": 28359,
+    "partialAlpha": 8460,
+    "alphaLevels": 220
+  },
+  "skins/brutal-sapper/walk_0": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 24552,
+      "x": 668,
+      "y": 83,
+      "w": 227,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7609,
+    "transparent": 27885,
+    "partialAlpha": 8945,
+    "alphaLevels": 226
+  },
+  "skins/brutal-sapper/walk_1": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 22662,
+      "x": 990,
+      "y": 101,
+      "w": 192,
+      "h": 188
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7050,
+    "transparent": 28571,
+    "partialAlpha": 8238,
+    "alphaLevels": 213
+  },
+  "skins/brutal-sapper/walk_2": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 25224,
+      "x": 65,
+      "y": 404,
+      "w": 202,
+      "h": 191
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7769,
+    "transparent": 27499,
+    "partialAlpha": 9313,
+    "alphaLevels": 225
+  },
+  "skins/brutal-sapper/walk_3": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 23339,
+      "x": 371,
+      "y": 398,
+      "w": 218,
+      "h": 197
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7287,
+    "transparent": 28158,
+    "partialAlpha": 8659,
+    "alphaLevels": 216
+  },
+  "skins/brutal-sapper/jump": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 26776,
+      "x": 692,
+      "y": 375,
+      "w": 194,
+      "h": 223
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 8186,
+    "transparent": 27011,
+    "partialAlpha": 9790,
+    "alphaLevels": 227
+  },
+  "skins/brutal-sapper/fall": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 21966,
+      "x": 1009,
+      "y": 404,
+      "w": 193,
+      "h": 184
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 6809,
+    "transparent": 28972,
+    "partialAlpha": 7838,
+    "alphaLevels": 207
+  },
+  "skins/brutal-sapper/land": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 21941,
+      "x": 61,
+      "y": 706,
+      "w": 204,
+      "h": 154
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 6875,
+    "transparent": 28982,
+    "partialAlpha": 7836,
+    "alphaLevels": 212
+  },
+  "skins/brutal-sapper/hurt": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 22210,
+      "x": 390,
+      "y": 676,
+      "w": 178,
+      "h": 189
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 6916,
+    "transparent": 28571,
+    "partialAlpha": 8262,
+    "alphaLevels": 221
+  },
+  "skins/brutal-sapper/aim": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 21341,
+      "x": 673,
+      "y": 688,
+      "w": 211,
+      "h": 181
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 6718,
+    "transparent": 28943,
+    "partialAlpha": 7870,
+    "alphaLevels": 213
+  },
+  "skins/brutal-sapper/throw": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 20895,
+      "x": 971,
+      "y": 688,
+      "w": 238,
+      "h": 181
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 6583,
+    "transparent": 29043,
+    "partialAlpha": 7772,
+    "alphaLevels": 222
+  },
+  "skins/brutal-sapper/melee": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 26068,
+      "x": 64,
+      "y": 976,
+      "w": 264,
+      "h": 198
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7905,
+    "transparent": 27235,
+    "partialAlpha": 9569,
+    "alphaLevels": 230
+  },
+  "skins/brutal-sapper/rope": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 20971,
+      "x": 418,
+      "y": 933,
+      "w": 139,
+      "h": 241
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 6505,
+    "transparent": 28971,
+    "partialAlpha": 7829,
+    "alphaLevels": 229
+  },
+  "skins/brutal-sapper/defeat": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 22788,
+      "x": 677,
+      "y": 980,
+      "w": 185,
+      "h": 194
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 7083,
+    "transparent": 28472,
+    "partialAlpha": 8330,
+    "alphaLevels": 217
+  },
+  "skins/brutal-sapper/win": {
+    "source": "assets-in/skins/brutal-sapper.png",
+    "profile": "heavy",
+    "scale": 0.5714285714285714,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 26170,
+      "x": 1008,
+      "y": 947,
+      "w": 173,
+      "h": 227
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-sapper",
+    "colors": 8079,
+    "transparent": 27320,
+    "partialAlpha": 9488,
+    "alphaLevels": 229
+  },
+  "skins/brutal-brawler/idle": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 20172,
+      "x": 63,
+      "y": 92,
+      "w": 178,
+      "h": 194
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7603,
+    "transparent": 27878,
+    "partialAlpha": 8932,
+    "alphaLevels": 228
+  },
+  "skins/brutal-brawler/blink": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 20245,
+      "x": 377,
+      "y": 92,
+      "w": 178,
+      "h": 194
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7681,
+    "transparent": 27884,
+    "partialAlpha": 8926,
+    "alphaLevels": 216
+  },
+  "skins/brutal-brawler/walk_0": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 19892,
+      "x": 679,
+      "y": 99,
+      "w": 193,
+      "h": 186
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7447,
+    "transparent": 28030,
+    "partialAlpha": 8794,
+    "alphaLevels": 227
+  },
+  "skins/brutal-brawler/walk_1": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 21091,
+      "x": 1016,
+      "y": 101,
+      "w": 177,
+      "h": 187
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7856,
+    "transparent": 27635,
+    "partialAlpha": 9154,
+    "alphaLevels": 233
+  },
+  "skins/brutal-brawler/walk_2": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 23448,
+      "x": 46,
+      "y": 404,
+      "w": 222,
+      "h": 198
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 8631,
+    "transparent": 26301,
+    "partialAlpha": 10490,
+    "alphaLevels": 234
+  },
+  "skins/brutal-brawler/walk_3": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 22634,
+      "x": 380,
+      "y": 404,
+      "w": 196,
+      "h": 196
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 8421,
+    "transparent": 26726,
+    "partialAlpha": 10087,
+    "alphaLevels": 231
+  },
+  "skins/brutal-brawler/jump": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 22113,
+      "x": 686,
+      "y": 378,
+      "w": 198,
+      "h": 224
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 8231,
+    "transparent": 26879,
+    "partialAlpha": 9928,
+    "alphaLevels": 237
+  },
+  "skins/brutal-brawler/fall": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 22589,
+      "x": 1018,
+      "y": 412,
+      "w": 185,
+      "h": 177
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 8253,
+    "transparent": 26831,
+    "partialAlpha": 9986,
+    "alphaLevels": 223
+  },
+  "skins/brutal-brawler/land": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 22041,
+      "x": 55,
+      "y": 742,
+      "w": 233,
+      "h": 138
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7960,
+    "transparent": 27359,
+    "partialAlpha": 9441,
+    "alphaLevels": 229
+  },
+  "skins/brutal-brawler/hurt": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 22894,
+      "x": 407,
+      "y": 697,
+      "w": 165,
+      "h": 191
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 8406,
+    "transparent": 26636,
+    "partialAlpha": 10164,
+    "alphaLevels": 231
+  },
+  "skins/brutal-brawler/aim": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 20455,
+      "x": 675,
+      "y": 708,
+      "w": 209,
+      "h": 184
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7527,
+    "transparent": 27604,
+    "partialAlpha": 9227,
+    "alphaLevels": 228
+  },
+  "skins/brutal-brawler/throw": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 21131,
+      "x": 995,
+      "y": 710,
+      "w": 229,
+      "h": 181
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7791,
+    "transparent": 27273,
+    "partialAlpha": 9521,
+    "alphaLevels": 233
+  },
+  "skins/brutal-brawler/melee": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 21908,
+      "x": 52,
+      "y": 997,
+      "w": 239,
+      "h": 183
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 8096,
+    "transparent": 27094,
+    "partialAlpha": 9689,
+    "alphaLevels": 233
+  },
+  "skins/brutal-brawler/rope": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 21612,
+      "x": 403,
+      "y": 950,
+      "w": 146,
+      "h": 231
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7865,
+    "transparent": 27181,
+    "partialAlpha": 9603,
+    "alphaLevels": 224
+  },
+  "skins/brutal-brawler/defeat": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 21423,
+      "x": 677,
+      "y": 1012,
+      "w": 178,
+      "h": 170
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 7907,
+    "transparent": 27378,
+    "partialAlpha": 9405,
+    "alphaLevels": 216
+  },
+  "skins/brutal-brawler/win": {
+    "source": "assets-in/skins/brutal-brawler.png",
+    "profile": "heavy",
+    "scale": 0.6274509803921569,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 23564,
+      "x": 1019,
+      "y": 969,
+      "w": 186,
+      "h": 217
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#brutal-brawler",
+    "colors": 8501,
+    "transparent": 26288,
+    "partialAlpha": 10503,
+    "alphaLevels": 236
+  },
+  "skins/soft-cook/idle": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 22017,
+      "x": 72,
+      "y": 95,
+      "w": 185,
+      "h": 214
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7462,
+    "transparent": 27509,
+    "partialAlpha": 9288,
+    "alphaLevels": 229
+  },
+  "skins/soft-cook/blink": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 21416,
+      "x": 369,
+      "y": 94,
+      "w": 175,
+      "h": 214
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7378,
+    "transparent": 27887,
+    "partialAlpha": 8914,
+    "alphaLevels": 234
+  },
+  "skins/soft-cook/walk_0": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 23849,
+      "x": 661,
+      "y": 93,
+      "w": 215,
+      "h": 215
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7958,
+    "transparent": 26758,
+    "partialAlpha": 10051,
+    "alphaLevels": 237
+  },
+  "skins/soft-cook/walk_1": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 21472,
+      "x": 992,
+      "y": 109,
+      "w": 175,
+      "h": 200
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7218,
+    "transparent": 27878,
+    "partialAlpha": 8946,
+    "alphaLevels": 227
+  },
+  "skins/soft-cook/walk_2": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 24810,
+      "x": 58,
+      "y": 403,
+      "w": 209,
+      "h": 209
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 8144,
+    "transparent": 26411,
+    "partialAlpha": 10426,
+    "alphaLevels": 238
+  },
+  "skins/soft-cook/walk_3": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 24684,
+      "x": 376,
+      "y": 397,
+      "w": 205,
+      "h": 215
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 8219,
+    "transparent": 26510,
+    "partialAlpha": 10325,
+    "alphaLevels": 232
+  },
+  "skins/soft-cook/jump": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 21337,
+      "x": 694,
+      "y": 397,
+      "w": 180,
+      "h": 223
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7331,
+    "transparent": 27477,
+    "partialAlpha": 9371,
+    "alphaLevels": 233
+  },
+  "skins/soft-cook/fall": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 20232,
+      "x": 1010,
+      "y": 409,
+      "w": 168,
+      "h": 202
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 6974,
+    "transparent": 28291,
+    "partialAlpha": 8549,
+    "alphaLevels": 221
+  },
+  "skins/soft-cook/land": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 22290,
+      "x": 64,
+      "y": 700,
+      "w": 209,
+      "h": 176
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7506,
+    "transparent": 27498,
+    "partialAlpha": 9343,
+    "alphaLevels": 229
+  },
+  "skins/soft-cook/hurt": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 24015,
+      "x": 398,
+      "y": 681,
+      "w": 192,
+      "h": 195
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 8035,
+    "transparent": 26642,
+    "partialAlpha": 10189,
+    "alphaLevels": 231
+  },
+  "skins/soft-cook/aim": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 21626,
+      "x": 679,
+      "y": 688,
+      "w": 205,
+      "h": 190
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7305,
+    "transparent": 27750,
+    "partialAlpha": 9081,
+    "alphaLevels": 229
+  },
+  "skins/soft-cook/throw": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 24033,
+      "x": 996,
+      "y": 688,
+      "w": 223,
+      "h": 191
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 8103,
+    "transparent": 26655,
+    "partialAlpha": 10162,
+    "alphaLevels": 243
+  },
+  "skins/soft-cook/melee": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 26331,
+      "x": 64,
+      "y": 974,
+      "w": 247,
+      "h": 204
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 8594,
+    "transparent": 25673,
+    "partialAlpha": 11145,
+    "alphaLevels": 239
+  },
+  "skins/soft-cook/rope": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 21270,
+      "x": 408,
+      "y": 947,
+      "w": 162,
+      "h": 231
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7146,
+    "transparent": 27803,
+    "partialAlpha": 8998,
+    "alphaLevels": 230
+  },
+  "skins/soft-cook/defeat": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 22503,
+      "x": 686,
+      "y": 971,
+      "w": 184,
+      "h": 206
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 7632,
+    "transparent": 27277,
+    "partialAlpha": 9538,
+    "alphaLevels": 225
+  },
+  "skins/soft-cook/win": {
+    "source": "assets-in/skins/soft-cook.png",
+    "profile": "soft",
+    "scale": 0.6083650190114068,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 25766,
+      "x": 1006,
+      "y": 958,
+      "w": 182,
+      "h": 218
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#soft-cook",
+    "colors": 8318,
+    "transparent": 25947,
+    "partialAlpha": 10839,
+    "alphaLevels": 237
+  },
+  "skins/soft-artist/idle": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 42198,
+      "x": 52,
+      "y": 6,
+      "w": 242,
+      "h": 290
+    },
+    "touchesSourceEdge": false,
+    "colors": 9196,
+    "transparent": 26409,
+    "partialAlpha": 10431,
+    "alphaLevels": 232
+  },
+  "skins/soft-artist/blink": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 41405,
+      "x": 362,
+      "y": 6,
+      "w": 229,
+      "h": 290
+    },
+    "touchesSourceEdge": false,
+    "colors": 9092,
+    "transparent": 26573,
+    "partialAlpha": 10276,
+    "alphaLevels": 217
+  },
+  "skins/soft-artist/walk_0": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 45105,
+      "x": 658,
+      "y": 6,
+      "w": 280,
+      "h": 291
+    },
+    "touchesSourceEdge": false,
+    "colors": 9799,
+    "transparent": 25661,
+    "partialAlpha": 11179,
+    "alphaLevels": 226
+  },
+  "skins/soft-artist/walk_1": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 37934,
+      "x": 988,
+      "y": 40,
+      "w": 242,
+      "h": 256
+    },
+    "touchesSourceEdge": false,
+    "colors": 8337,
+    "transparent": 27342,
+    "partialAlpha": 9507,
+    "alphaLevels": 222
+  },
+  "skins/soft-artist/walk_2": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 45552,
+      "x": 25,
+      "y": 347,
+      "w": 296,
+      "h": 263
+    },
+    "touchesSourceEdge": false,
+    "colors": 9716,
+    "transparent": 25474,
+    "partialAlpha": 11360,
+    "alphaLevels": 228
+  },
+  "skins/soft-artist/walk_3": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 43728,
+      "x": 354,
+      "y": 321,
+      "w": 268,
+      "h": 290
+    },
+    "touchesSourceEdge": false,
+    "colors": 9442,
+    "transparent": 25965,
+    "partialAlpha": 10877,
+    "alphaLevels": 227
+  },
+  "skins/soft-artist/jump": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 43698,
+      "x": 683,
+      "y": 304,
+      "w": 229,
+      "h": 310
+    },
+    "touchesSourceEdge": false,
+    "colors": 9393,
+    "transparent": 25876,
+    "partialAlpha": 10972,
+    "alphaLevels": 224
+  },
+  "skins/soft-artist/fall": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 39665,
+      "x": 989,
+      "y": 343,
+      "w": 242,
+      "h": 250
+    },
+    "touchesSourceEdge": false,
+    "colors": 8643,
+    "transparent": 27114,
+    "partialAlpha": 9735,
+    "alphaLevels": 214
+  },
+  "skins/soft-artist/land": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 18,
+      "count": 38140,
+      "x": 23,
+      "y": 692,
+      "w": 305,
+      "h": 198
+    },
+    "touchesSourceEdge": false,
+    "colors": 8303,
+    "transparent": 27483,
+    "partialAlpha": 9362,
+    "alphaLevels": 219
+  },
+  "skins/soft-artist/hurt": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 41371,
+      "x": 392,
+      "y": 632,
+      "w": 223,
+      "h": 258
+    },
+    "touchesSourceEdge": false,
+    "colors": 8971,
+    "transparent": 26624,
+    "partialAlpha": 10227,
+    "alphaLevels": 219
+  },
+  "skins/soft-artist/aim": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 41802,
+      "x": 656,
+      "y": 630,
+      "w": 254,
+      "h": 266
+    },
+    "touchesSourceEdge": false,
+    "colors": 9129,
+    "transparent": 26311,
+    "partialAlpha": 10537,
+    "alphaLevels": 235
+  },
+  "skins/soft-artist/throw": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 17,
+      "count": 40326,
+      "x": 966,
+      "y": 636,
+      "w": 283,
+      "h": 259
+    },
+    "touchesSourceEdge": false,
+    "colors": 8842,
+    "transparent": 26774,
+    "partialAlpha": 10066,
+    "alphaLevels": 223
+  },
+  "skins/soft-artist/melee": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 48345,
+      "x": 25,
+      "y": 931,
+      "w": 316,
+      "h": 280
+    },
+    "touchesSourceEdge": false,
+    "colors": 10355,
+    "transparent": 24949,
+    "partialAlpha": 11888,
+    "alphaLevels": 239
+  },
+  "skins/soft-artist/rope": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 20,
+      "count": 42262,
+      "x": 361,
+      "y": 900,
+      "w": 219,
+      "h": 320
+    },
+    "touchesSourceEdge": false,
+    "colors": 9135,
+    "transparent": 26341,
+    "partialAlpha": 10503,
+    "alphaLevels": 223
+  },
+  "skins/soft-artist/defeat": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 23,
+      "count": 41838,
+      "x": 648,
+      "y": 954,
+      "w": 257,
+      "h": 259
+    },
+    "touchesSourceEdge": false,
+    "colors": 9103,
+    "transparent": 26651,
+    "partialAlpha": 10192,
+    "alphaLevels": 224
+  },
+  "skins/soft-artist/win": {
+    "source": "assets-in/skins/soft-artist.png",
+    "profile": "soft",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 21,
+      "count": 47405,
+      "x": 996,
+      "y": 919,
+      "w": 233,
+      "h": 293
+    },
+    "touchesSourceEdge": false,
+    "colors": 10229,
+    "transparent": 25139,
+    "partialAlpha": 11705,
+    "alphaLevels": 223
+  },
+  "skins/glam-cabaret/idle": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 38844,
+      "x": 58,
+      "y": 9,
+      "w": 209,
+      "h": 295
+    },
+    "touchesSourceEdge": false,
+    "colors": 8054,
+    "transparent": 26956,
+    "partialAlpha": 9883,
+    "alphaLevels": 217
+  },
+  "skins/glam-cabaret/blink": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 38842,
+      "x": 371,
+      "y": 10,
+      "w": 210,
+      "h": 294
+    },
+    "touchesSourceEdge": false,
+    "colors": 8135,
+    "transparent": 26817,
+    "partialAlpha": 10024,
+    "alphaLevels": 214
+  },
+  "skins/glam-cabaret/walk_0": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 38892,
+      "x": 660,
+      "y": 9,
+      "w": 252,
+      "h": 294
+    },
+    "touchesSourceEdge": false,
+    "colors": 8201,
+    "transparent": 26538,
+    "partialAlpha": 10308,
+    "alphaLevels": 231
+  },
+  "skins/glam-cabaret/walk_1": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 37513,
+      "x": 999,
+      "y": 13,
+      "w": 214,
+      "h": 291
+    },
+    "touchesSourceEdge": false,
+    "colors": 8002,
+    "transparent": 27213,
+    "partialAlpha": 9636,
+    "alphaLevels": 220
+  },
+  "skins/glam-cabaret/walk_2": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 40763,
+      "x": 43,
+      "y": 324,
+      "w": 244,
+      "h": 293
+    },
+    "touchesSourceEdge": false,
+    "colors": 8470,
+    "transparent": 26145,
+    "partialAlpha": 10693,
+    "alphaLevels": 228
+  },
+  "skins/glam-cabaret/walk_3": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 41149,
+      "x": 343,
+      "y": 325,
+      "w": 304,
+      "h": 291
+    },
+    "touchesSourceEdge": false,
+    "colors": 8657,
+    "transparent": 25798,
+    "partialAlpha": 11036,
+    "alphaLevels": 236
+  },
+  "skins/glam-cabaret/jump": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 38339,
+      "x": 695,
+      "y": 309,
+      "w": 249,
+      "h": 311
+    },
+    "touchesSourceEdge": false,
+    "colors": 8076,
+    "transparent": 26613,
+    "partialAlpha": 10234,
+    "alphaLevels": 239
+  },
+  "skins/glam-cabaret/fall": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 37993,
+      "x": 976,
+      "y": 342,
+      "w": 251,
+      "h": 246
+    },
+    "touchesSourceEdge": false,
+    "colors": 8189,
+    "transparent": 26889,
+    "partialAlpha": 9949,
+    "alphaLevels": 230
+  },
+  "skins/glam-cabaret/land": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 35551,
+      "x": 32,
+      "y": 696,
+      "w": 281,
+      "h": 207
+    },
+    "touchesSourceEdge": false,
+    "colors": 7586,
+    "transparent": 27535,
+    "partialAlpha": 9303,
+    "alphaLevels": 228
+  },
+  "skins/glam-cabaret/hurt": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 37323,
+      "x": 380,
+      "y": 634,
+      "w": 200,
+      "h": 270
+    },
+    "touchesSourceEdge": false,
+    "colors": 7919,
+    "transparent": 26929,
+    "partialAlpha": 9914,
+    "alphaLevels": 221
+  },
+  "skins/glam-cabaret/aim": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 33908,
+      "x": 679,
+      "y": 635,
+      "w": 230,
+      "h": 269
+    },
+    "touchesSourceEdge": false,
+    "colors": 7320,
+    "transparent": 27905,
+    "partialAlpha": 8937,
+    "alphaLevels": 237
+  },
+  "skins/glam-cabaret/throw": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 36106,
+      "x": 962,
+      "y": 635,
+      "w": 272,
+      "h": 270
+    },
+    "touchesSourceEdge": false,
+    "colors": 7434,
+    "transparent": 27139,
+    "partialAlpha": 9696,
+    "alphaLevels": 234
+  },
+  "skins/glam-cabaret/melee": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 37806,
+      "x": 32,
+      "y": 959,
+      "w": 284,
+      "h": 265
+    },
+    "touchesSourceEdge": false,
+    "colors": 7977,
+    "transparent": 26860,
+    "partialAlpha": 9986,
+    "alphaLevels": 230
+  },
+  "skins/glam-cabaret/rope": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 33799,
+      "x": 383,
+      "y": 913,
+      "w": 170,
+      "h": 317
+    },
+    "touchesSourceEdge": false,
+    "colors": 7055,
+    "transparent": 27880,
+    "partialAlpha": 8950,
+    "alphaLevels": 233
+  },
+  "skins/glam-cabaret/defeat": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 34915,
+      "x": 694,
+      "y": 968,
+      "w": 225,
+      "h": 263
+    },
+    "touchesSourceEdge": false,
+    "colors": 7499,
+    "transparent": 27787,
+    "partialAlpha": 9051,
+    "alphaLevels": 219
+  },
+  "skins/glam-cabaret/win": {
+    "source": "assets-in/skins/glam-cabaret.png",
+    "profile": "glam",
+    "scale": 0.4804804804804805,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 41762,
+      "x": 995,
+      "y": 924,
+      "w": 223,
+      "h": 308
+    },
+    "touchesSourceEdge": false,
+    "colors": 8550,
+    "transparent": 25725,
+    "partialAlpha": 11118,
+    "alphaLevels": 236
+  },
+  "skins/elder-captain/idle": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 34314,
+      "x": 38,
+      "y": 15,
+      "w": 220,
+      "h": 284
+    },
+    "touchesSourceEdge": false,
+    "colors": 7419,
+    "transparent": 28145,
+    "partialAlpha": 8712,
+    "alphaLevels": 233
+  },
+  "skins/elder-captain/blink": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 34004,
+      "x": 338,
+      "y": 15,
+      "w": 215,
+      "h": 284
+    },
+    "touchesSourceEdge": false,
+    "colors": 7317,
+    "transparent": 28231,
+    "partialAlpha": 8606,
+    "alphaLevels": 230
+  },
+  "skins/elder-captain/walk_0": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 38042,
+      "x": 630,
+      "y": 15,
+      "w": 304,
+      "h": 283
+    },
+    "touchesSourceEdge": false,
+    "colors": 8090,
+    "transparent": 27168,
+    "partialAlpha": 9677,
+    "alphaLevels": 234
+  },
+  "skins/elder-captain/walk_1": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 36354,
+      "x": 985,
+      "y": 19,
+      "w": 237,
+      "h": 275
+    },
+    "touchesSourceEdge": false,
+    "colors": 7664,
+    "transparent": 27857,
+    "partialAlpha": 8992,
+    "alphaLevels": 233
+  },
+  "skins/elder-captain/walk_2": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 32,
+      "count": 37948,
+      "x": 32,
+      "y": 339,
+      "w": 293,
+      "h": 267
+    },
+    "touchesSourceEdge": false,
+    "colors": 7946,
+    "transparent": 27259,
+    "partialAlpha": 9586,
+    "alphaLevels": 231
+  },
+  "skins/elder-captain/walk_3": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 31,
+      "count": 36758,
+      "x": 350,
+      "y": 328,
+      "w": 264,
+      "h": 277
+    },
+    "touchesSourceEdge": false,
+    "colors": 7811,
+    "transparent": 27400,
+    "partialAlpha": 9458,
+    "alphaLevels": 233
+  },
+  "skins/elder-captain/jump": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 30,
+      "count": 35066,
+      "x": 687,
+      "y": 306,
+      "w": 222,
+      "h": 308
+    },
+    "touchesSourceEdge": false,
+    "colors": 7524,
+    "transparent": 27981,
+    "partialAlpha": 8872,
+    "alphaLevels": 230
+  },
+  "skins/elder-captain/fall": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 33,
+      "count": 34888,
+      "x": 978,
+      "y": 347,
+      "w": 251,
+      "h": 229
+    },
+    "touchesSourceEdge": false,
+    "colors": 7496,
+    "transparent": 28218,
+    "partialAlpha": 8617,
+    "alphaLevels": 227
+  },
+  "skins/elder-captain/land": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 55,
+      "count": 33662,
+      "x": 28,
+      "y": 687,
+      "w": 261,
+      "h": 203
+    },
+    "touchesSourceEdge": false,
+    "colors": 7191,
+    "transparent": 28556,
+    "partialAlpha": 8290,
+    "alphaLevels": 221
+  },
+  "skins/elder-captain/hurt": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 52,
+      "count": 36396,
+      "x": 349,
+      "y": 633,
+      "w": 221,
+      "h": 261
+    },
+    "touchesSourceEdge": false,
+    "colors": 7767,
+    "transparent": 27719,
+    "partialAlpha": 9138,
+    "alphaLevels": 230
+  },
+  "skins/elder-captain/aim": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 53,
+      "count": 35346,
+      "x": 649,
+      "y": 634,
+      "w": 263,
+      "h": 256
+    },
+    "touchesSourceEdge": false,
+    "colors": 7268,
+    "transparent": 27988,
+    "partialAlpha": 8858,
+    "alphaLevels": 223
+  },
+  "skins/elder-captain/throw": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 54,
+      "count": 38264,
+      "x": 962,
+      "y": 634,
+      "w": 279,
+      "h": 261
+    },
+    "touchesSourceEdge": false,
+    "colors": 7860,
+    "transparent": 27144,
+    "partialAlpha": 9709,
+    "alphaLevels": 228
+  },
+  "skins/elder-captain/melee": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 67,
+      "count": 41218,
+      "x": 42,
+      "y": 950,
+      "w": 319,
+      "h": 266
+    },
+    "touchesSourceEdge": false,
+    "colors": 8797,
+    "transparent": 26376,
+    "partialAlpha": 10470,
+    "alphaLevels": 237
+  },
+  "skins/elder-captain/rope": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 65,
+      "count": 36663,
+      "x": 387,
+      "y": 903,
+      "w": 183,
+      "h": 324
+    },
+    "touchesSourceEdge": false,
+    "colors": 7550,
+    "transparent": 27663,
+    "partialAlpha": 9187,
+    "alphaLevels": 222
+  },
+  "skins/elder-captain/defeat": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 68,
+      "count": 37292,
+      "x": 653,
+      "y": 981,
+      "w": 276,
+      "h": 237
+    },
+    "touchesSourceEdge": false,
+    "colors": 7755,
+    "transparent": 27610,
+    "partialAlpha": 9237,
+    "alphaLevels": 222
+  },
+  "skins/elder-captain/win": {
+    "source": "assets-in/skins/elder-captain.png",
+    "profile": "elder",
+    "scale": 0.47058823529411764,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 66,
+      "count": 40196,
+      "x": 1010,
+      "y": 917,
+      "w": 205,
+      "h": 307
+    },
+    "touchesSourceEdge": false,
+    "colors": 8531,
+    "transparent": 26526,
+    "partialAlpha": 10330,
+    "alphaLevels": 234
+  },
+  "skins/elder-professor/idle": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 35063,
+      "x": 58,
+      "y": 11,
+      "w": 233,
+      "h": 278
+    },
+    "touchesSourceEdge": false,
+    "colors": 8186,
+    "transparent": 27785,
+    "partialAlpha": 9060,
+    "alphaLevels": 241
+  },
+  "skins/elder-professor/blink": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 35065,
+      "x": 371,
+      "y": 10,
+      "w": 233,
+      "h": 279
+    },
+    "touchesSourceEdge": false,
+    "colors": 8200,
+    "transparent": 27786,
+    "partialAlpha": 9060,
+    "alphaLevels": 246
+  },
+  "skins/elder-professor/walk_0": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 34297,
+      "x": 666,
+      "y": 12,
+      "w": 262,
+      "h": 278
+    },
+    "touchesSourceEdge": false,
+    "colors": 8092,
+    "transparent": 27742,
+    "partialAlpha": 9103,
+    "alphaLevels": 248
+  },
+  "skins/elder-professor/walk_1": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 33333,
+      "x": 989,
+      "y": 34,
+      "w": 245,
+      "h": 256
+    },
+    "touchesSourceEdge": false,
+    "colors": 7899,
+    "transparent": 28101,
+    "partialAlpha": 8743,
+    "alphaLevels": 247
+  },
+  "skins/elder-professor/walk_2": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 85,
+      "count": 38614,
+      "x": 33,
+      "y": 329,
+      "w": 301,
+      "h": 276
+    },
+    "touchesSourceEdge": false,
+    "colors": 8852,
+    "transparent": 26734,
+    "partialAlpha": 10105,
+    "alphaLevels": 250
+  },
+  "skins/elder-professor/walk_3": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 83,
+      "count": 36292,
+      "x": 366,
+      "y": 326,
+      "w": 267,
+      "h": 280
+    },
+    "touchesSourceEdge": false,
+    "colors": 8466,
+    "transparent": 27174,
+    "partialAlpha": 9679,
+    "alphaLevels": 246
+  },
+  "skins/elder-professor/jump": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 74,
+      "count": 33493,
+      "x": 675,
+      "y": 290,
+      "w": 224,
+      "h": 319
+    },
+    "touchesSourceEdge": false,
+    "colors": 7902,
+    "transparent": 27835,
+    "partialAlpha": 9009,
+    "alphaLevels": 249
+  },
+  "skins/elder-professor/fall": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 104,
+      "count": 33526,
+      "x": 1006,
+      "y": 348,
+      "w": 228,
+      "h": 255
+    },
+    "touchesSourceEdge": false,
+    "colors": 7866,
+    "transparent": 27992,
+    "partialAlpha": 8865,
+    "alphaLevels": 244
+  },
+  "skins/elder-professor/land": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 192,
+      "count": 30964,
+      "x": 37,
+      "y": 693,
+      "w": 259,
+      "h": 219
+    },
+    "touchesSourceEdge": false,
+    "colors": 7263,
+    "transparent": 28745,
+    "partialAlpha": 8103,
+    "alphaLevels": 238
+  },
+  "skins/elder-professor/hurt": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 143,
+      "count": 35771,
+      "x": 363,
+      "y": 642,
+      "w": 241,
+      "h": 266
+    },
+    "touchesSourceEdge": false,
+    "colors": 8514,
+    "transparent": 27145,
+    "partialAlpha": 9705,
+    "alphaLevels": 250
+  },
+  "skins/elder-professor/aim": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 149,
+      "count": 35885,
+      "x": 663,
+      "y": 645,
+      "w": 265,
+      "h": 269
+    },
+    "touchesSourceEdge": false,
+    "colors": 8359,
+    "transparent": 27351,
+    "partialAlpha": 9500,
+    "alphaLevels": 247
+  },
+  "skins/elder-professor/throw": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 145,
+      "count": 36136,
+      "x": 988,
+      "y": 644,
+      "w": 261,
+      "h": 272
+    },
+    "touchesSourceEdge": false,
+    "colors": 8444,
+    "transparent": 27150,
+    "partialAlpha": 9674,
+    "alphaLevels": 245
+  },
+  "skins/elder-professor/melee": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 238,
+      "count": 38230,
+      "x": 38,
+      "y": 961,
+      "w": 286,
+      "h": 275
+    },
+    "touchesSourceEdge": false,
+    "colors": 8819,
+    "transparent": 26773,
+    "partialAlpha": 10070,
+    "alphaLevels": 248
+  },
+  "skins/elder-professor/rope": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 232,
+      "count": 35711,
+      "x": 390,
+      "y": 919,
+      "w": 183,
+      "h": 317
+    },
+    "touchesSourceEdge": false,
+    "colors": 8224,
+    "transparent": 27425,
+    "partialAlpha": 9431,
+    "alphaLevels": 249
+  },
+  "skins/elder-professor/defeat": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 252,
+      "count": 35174,
+      "x": 666,
+      "y": 978,
+      "w": 251,
+      "h": 257
+    },
+    "touchesSourceEdge": false,
+    "colors": 8170,
+    "transparent": 27583,
+    "partialAlpha": 9268,
+    "alphaLevels": 247
+  },
+  "skins/elder-professor/win": {
+    "source": "assets-in/skins/elder-professor.png",
+    "profile": "elder",
+    "scale": 0.47761194029850745,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 233,
+      "count": 38376,
+      "x": 1000,
+      "y": 947,
+      "w": 223,
+      "h": 287
+    },
+    "touchesSourceEdge": false,
+    "colors": 8888,
+    "transparent": 26624,
+    "partialAlpha": 10221,
+    "alphaLevels": 249
+  },
+  "skins/sickly-clerk/idle": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 31856,
+      "x": 40,
+      "y": 7,
+      "w": 236,
+      "h": 286
+    },
+    "touchesSourceEdge": false,
+    "colors": 6757,
+    "transparent": 28907,
+    "partialAlpha": 7949,
+    "alphaLevels": 244
+  },
+  "skins/sickly-clerk/blink": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 31456,
+      "x": 343,
+      "y": 8,
+      "w": 229,
+      "h": 284
+    },
+    "touchesSourceEdge": false,
+    "colors": 6629,
+    "transparent": 28880,
+    "partialAlpha": 7963,
+    "alphaLevels": 239
+  },
+  "skins/sickly-clerk/walk_0": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 35104,
+      "x": 630,
+      "y": 17,
+      "w": 288,
+      "h": 276
+    },
+    "touchesSourceEdge": false,
+    "colors": 7202,
+    "transparent": 28134,
+    "partialAlpha": 8716,
+    "alphaLevels": 245
+  },
+  "skins/sickly-clerk/walk_1": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 31729,
+      "x": 977,
+      "y": 33,
+      "w": 242,
+      "h": 260
+    },
+    "touchesSourceEdge": false,
+    "colors": 6632,
+    "transparent": 28918,
+    "partialAlpha": 7935,
+    "alphaLevels": 233
+  },
+  "skins/sickly-clerk/walk_2": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 62,
+      "count": 37601,
+      "x": 30,
+      "y": 335,
+      "w": 280,
+      "h": 263
+    },
+    "touchesSourceEdge": false,
+    "colors": 7686,
+    "transparent": 27562,
+    "partialAlpha": 9289,
+    "alphaLevels": 240
+  },
+  "skins/sickly-clerk/walk_3": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 61,
+      "count": 35534,
+      "x": 345,
+      "y": 329,
+      "w": 271,
+      "h": 274
+    },
+    "touchesSourceEdge": false,
+    "colors": 7307,
+    "transparent": 27897,
+    "partialAlpha": 8957,
+    "alphaLevels": 245
+  },
+  "skins/sickly-clerk/jump": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 59,
+      "count": 33887,
+      "x": 666,
+      "y": 293,
+      "w": 253,
+      "h": 316
+    },
+    "touchesSourceEdge": false,
+    "colors": 7000,
+    "transparent": 28292,
+    "partialAlpha": 8552,
+    "alphaLevels": 247
+  },
+  "skins/sickly-clerk/fall": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 66,
+      "count": 29595,
+      "x": 977,
+      "y": 348,
+      "w": 245,
+      "h": 216
+    },
+    "touchesSourceEdge": false,
+    "colors": 6182,
+    "transparent": 29440,
+    "partialAlpha": 7408,
+    "alphaLevels": 228
+  },
+  "skins/sickly-clerk/land": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 129,
+      "count": 33211,
+      "x": 32,
+      "y": 677,
+      "w": 276,
+      "h": 200
+    },
+    "touchesSourceEdge": false,
+    "colors": 6731,
+    "transparent": 28797,
+    "partialAlpha": 8055,
+    "alphaLevels": 230
+  },
+  "skins/sickly-clerk/hurt": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 114,
+      "count": 31785,
+      "x": 358,
+      "y": 623,
+      "w": 208,
+      "h": 261
+    },
+    "touchesSourceEdge": false,
+    "colors": 6584,
+    "transparent": 28806,
+    "partialAlpha": 8043,
+    "alphaLevels": 241
+  },
+  "skins/sickly-clerk/aim": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 116,
+      "count": 35726,
+      "x": 636,
+      "y": 625,
+      "w": 286,
+      "h": 264
+    },
+    "touchesSourceEdge": false,
+    "colors": 7099,
+    "transparent": 27895,
+    "partialAlpha": 8953,
+    "alphaLevels": 249
+  },
+  "skins/sickly-clerk/throw": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 121,
+      "count": 34801,
+      "x": 932,
+      "y": 634,
+      "w": 301,
+      "h": 254
+    },
+    "touchesSourceEdge": false,
+    "colors": 6944,
+    "transparent": 28234,
+    "partialAlpha": 8610,
+    "alphaLevels": 242
+  },
+  "skins/sickly-clerk/melee": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 157,
+      "count": 42128,
+      "x": 40,
+      "y": 917,
+      "w": 322,
+      "h": 287
+    },
+    "touchesSourceEdge": false,
+    "colors": 8417,
+    "transparent": 26303,
+    "partialAlpha": 10542,
+    "alphaLevels": 248
+  },
+  "skins/sickly-clerk/rope": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 155,
+      "count": 32701,
+      "x": 389,
+      "y": 891,
+      "w": 187,
+      "h": 329
+    },
+    "touchesSourceEdge": false,
+    "colors": 6593,
+    "transparent": 28818,
+    "partialAlpha": 8031,
+    "alphaLevels": 232
+  },
+  "skins/sickly-clerk/defeat": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 161,
+      "count": 33661,
+      "x": 676,
+      "y": 949,
+      "w": 242,
+      "h": 266
+    },
+    "touchesSourceEdge": false,
+    "colors": 6843,
+    "transparent": 28493,
+    "partialAlpha": 8358,
+    "alphaLevels": 238
+  },
+  "skins/sickly-clerk/win": {
+    "source": "assets-in/skins/sickly-clerk.png",
+    "profile": "sick",
+    "scale": 0.463768115942029,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 156,
+      "count": 41214,
+      "x": 998,
+      "y": 916,
+      "w": 219,
+      "h": 300
+    },
+    "touchesSourceEdge": false,
+    "colors": 8232,
+    "transparent": 26412,
+    "partialAlpha": 10441,
+    "alphaLevels": 246
+  },
+  "skins/sickly-nurse/idle": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 33784,
+      "x": 57,
+      "y": 6,
+      "w": 231,
+      "h": 291
+    },
+    "touchesSourceEdge": false,
+    "colors": 7381,
+    "transparent": 27942,
+    "partialAlpha": 8909,
+    "alphaLevels": 237
+  },
+  "skins/sickly-nurse/blink": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 33437,
+      "x": 369,
+      "y": 7,
+      "w": 210,
+      "h": 290
+    },
+    "touchesSourceEdge": false,
+    "colors": 7300,
+    "transparent": 27943,
+    "partialAlpha": 8908,
+    "alphaLevels": 243
+  },
+  "skins/sickly-nurse/walk_0": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 35358,
+      "x": 647,
+      "y": 5,
+      "w": 261,
+      "h": 292
+    },
+    "touchesSourceEdge": false,
+    "colors": 7693,
+    "transparent": 27564,
+    "partialAlpha": 9288,
+    "alphaLevels": 246
+  },
+  "skins/sickly-nurse/walk_1": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 32161,
+      "x": 985,
+      "y": 17,
+      "w": 231,
+      "h": 281
+    },
+    "touchesSourceEdge": false,
+    "colors": 6948,
+    "transparent": 28437,
+    "partialAlpha": 8422,
+    "alphaLevels": 237
+  },
+  "skins/sickly-nurse/walk_2": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 39138,
+      "x": 33,
+      "y": 303,
+      "w": 279,
+      "h": 305
+    },
+    "touchesSourceEdge": false,
+    "colors": 8378,
+    "transparent": 26591,
+    "partialAlpha": 10256,
+    "alphaLevels": 247
+  },
+  "skins/sickly-nurse/walk_3": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 23,
+      "count": 36954,
+      "x": 357,
+      "y": 310,
+      "w": 260,
+      "h": 299
+    },
+    "touchesSourceEdge": false,
+    "colors": 8009,
+    "transparent": 27052,
+    "partialAlpha": 9793,
+    "alphaLevels": 244
+  },
+  "skins/sickly-nurse/jump": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 21,
+      "count": 38021,
+      "x": 676,
+      "y": 295,
+      "w": 251,
+      "h": 320
+    },
+    "touchesSourceEdge": false,
+    "colors": 7969,
+    "transparent": 26853,
+    "partialAlpha": 9999,
+    "alphaLevels": 245
+  },
+  "skins/sickly-nurse/fall": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 24,
+      "count": 34830,
+      "x": 1021,
+      "y": 321,
+      "w": 184,
+      "h": 287
+    },
+    "touchesSourceEdge": false,
+    "colors": 7380,
+    "transparent": 27824,
+    "partialAlpha": 9033,
+    "alphaLevels": 240
+  },
+  "skins/sickly-nurse/land": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 41,
+      "count": 34765,
+      "x": 26,
+      "y": 679,
+      "w": 275,
+      "h": 221
+    },
+    "touchesSourceEdge": false,
+    "colors": 7506,
+    "transparent": 27859,
+    "partialAlpha": 8995,
+    "alphaLevels": 230
+  },
+  "skins/sickly-nurse/hurt": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 39,
+      "count": 35415,
+      "x": 371,
+      "y": 629,
+      "w": 232,
+      "h": 274
+    },
+    "touchesSourceEdge": false,
+    "colors": 7468,
+    "transparent": 27415,
+    "partialAlpha": 9436,
+    "alphaLevels": 241
+  },
+  "skins/sickly-nurse/aim": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 38,
+      "count": 34358,
+      "x": 665,
+      "y": 627,
+      "w": 250,
+      "h": 276
+    },
+    "touchesSourceEdge": false,
+    "colors": 7391,
+    "transparent": 27746,
+    "partialAlpha": 9108,
+    "alphaLevels": 249
+  },
+  "skins/sickly-nurse/throw": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 40,
+      "count": 36093,
+      "x": 970,
+      "y": 634,
+      "w": 270,
+      "h": 271
+    },
+    "touchesSourceEdge": false,
+    "colors": 7627,
+    "transparent": 27264,
+    "partialAlpha": 9594,
+    "alphaLevels": 250
+  },
+  "skins/sickly-nurse/melee": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 53,
+      "count": 39023,
+      "x": 35,
+      "y": 927,
+      "w": 270,
+      "h": 297
+    },
+    "touchesSourceEdge": false,
+    "colors": 8319,
+    "transparent": 26574,
+    "partialAlpha": 10274,
+    "alphaLevels": 247
+  },
+  "skins/sickly-nurse/rope": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 51,
+      "count": 31513,
+      "x": 383,
+      "y": 909,
+      "w": 150,
+      "h": 319
+    },
+    "touchesSourceEdge": false,
+    "colors": 6458,
+    "transparent": 28653,
+    "partialAlpha": 8189,
+    "alphaLevels": 221
+  },
+  "skins/sickly-nurse/defeat": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 55,
+      "count": 32201,
+      "x": 658,
+      "y": 977,
+      "w": 238,
+      "h": 248
+    },
+    "touchesSourceEdge": false,
+    "colors": 7044,
+    "transparent": 28385,
+    "partialAlpha": 8468,
+    "alphaLevels": 248
+  },
+  "skins/sickly-nurse/win": {
+    "source": "assets-in/skins/sickly-nurse.png",
+    "profile": "sick",
+    "scale": 0.47619047619047616,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 52,
+      "count": 43058,
+      "x": 979,
+      "y": 926,
+      "w": 237,
+      "h": 299
+    },
+    "touchesSourceEdge": false,
+    "colors": 8838,
+    "transparent": 25424,
+    "partialAlpha": 11410,
+    "alphaLevels": 245
+  },
+  "skins/veteran-sailor/idle": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 21071,
+      "x": 66,
+      "y": 114,
+      "w": 181,
+      "h": 213
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8239,
+    "transparent": 27252,
+    "partialAlpha": 9523,
+    "alphaLevels": 230
+  },
+  "skins/veteran-sailor/blink": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 20912,
+      "x": 371,
+      "y": 115,
+      "w": 179,
+      "h": 212
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8102,
+    "transparent": 27381,
+    "partialAlpha": 9385,
+    "alphaLevels": 234
+  },
+  "skins/veteran-sailor/walk_0": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 22075,
+      "x": 660,
+      "y": 117,
+      "w": 210,
+      "h": 210
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8567,
+    "transparent": 26734,
+    "partialAlpha": 10051,
+    "alphaLevels": 227
+  },
+  "skins/veteran-sailor/walk_1": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 21483,
+      "x": 973,
+      "y": 124,
+      "w": 185,
+      "h": 203
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8270,
+    "transparent": 27084,
+    "partialAlpha": 9686,
+    "alphaLevels": 231
+  },
+  "skins/veteran-sailor/walk_2": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 22007,
+      "x": 56,
+      "y": 412,
+      "w": 199,
+      "h": 208
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8586,
+    "transparent": 26602,
+    "partialAlpha": 10216,
+    "alphaLevels": 235
+  },
+  "skins/veteran-sailor/walk_3": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 22318,
+      "x": 376,
+      "y": 412,
+      "w": 207,
+      "h": 208
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8625,
+    "transparent": 26558,
+    "partialAlpha": 10233,
+    "alphaLevels": 240
+  },
+  "skins/veteran-sailor/jump": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 20389,
+      "x": 691,
+      "y": 406,
+      "w": 168,
+      "h": 204
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 7864,
+    "transparent": 27641,
+    "partialAlpha": 9177,
+    "alphaLevels": 222
+  },
+  "skins/veteran-sailor/fall": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 20156,
+      "x": 984,
+      "y": 423,
+      "w": 213,
+      "h": 188
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 7789,
+    "transparent": 27775,
+    "partialAlpha": 9018,
+    "alphaLevels": 221
+  },
+  "skins/veteran-sailor/land": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 20035,
+      "x": 54,
+      "y": 717,
+      "w": 188,
+      "h": 185
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 7793,
+    "transparent": 27765,
+    "partialAlpha": 9040,
+    "alphaLevels": 234
+  },
+  "skins/veteran-sailor/hurt": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 21112,
+      "x": 413,
+      "y": 698,
+      "w": 158,
+      "h": 206
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8119,
+    "transparent": 27316,
+    "partialAlpha": 9488,
+    "alphaLevels": 221
+  },
+  "skins/veteran-sailor/aim": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 22422,
+      "x": 668,
+      "y": 701,
+      "w": 235,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8706,
+    "transparent": 26636,
+    "partialAlpha": 10150,
+    "alphaLevels": 224
+  },
+  "skins/veteran-sailor/throw": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 22022,
+      "x": 990,
+      "y": 700,
+      "w": 227,
+      "h": 202
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8541,
+    "transparent": 26808,
+    "partialAlpha": 9975,
+    "alphaLevels": 242
+  },
+  "skins/veteran-sailor/melee": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 22875,
+      "x": 63,
+      "y": 990,
+      "w": 235,
+      "h": 202
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8772,
+    "transparent": 26527,
+    "partialAlpha": 10265,
+    "alphaLevels": 225
+  },
+  "skins/veteran-sailor/rope": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 18965,
+      "x": 409,
+      "y": 950,
+      "w": 148,
+      "h": 237
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 7454,
+    "transparent": 28242,
+    "partialAlpha": 8555,
+    "alphaLevels": 225
+  },
+  "skins/veteran-sailor/defeat": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 21021,
+      "x": 670,
+      "y": 994,
+      "w": 185,
+      "h": 197
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8133,
+    "transparent": 27226,
+    "partialAlpha": 9559,
+    "alphaLevels": 234
+  },
+  "skins/veteran-sailor/win": {
+    "source": "assets-in/skins/veteran-sailor.png",
+    "profile": "veteran",
+    "scale": 0.6324110671936759,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 22625,
+      "x": 1006,
+      "y": 982,
+      "w": 197,
+      "h": 210
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-sailor",
+    "colors": 8752,
+    "transparent": 26756,
+    "partialAlpha": 10007,
+    "alphaLevels": 231
+  },
+  "skins/veteran-aviator/idle": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 22470,
+      "x": 88,
+      "y": 91,
+      "w": 191,
+      "h": 212
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9536,
+    "transparent": 25663,
+    "partialAlpha": 11139,
+    "alphaLevels": 243
+  },
+  "skins/veteran-aviator/blink": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 22429,
+      "x": 385,
+      "y": 92,
+      "w": 185,
+      "h": 212
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9450,
+    "transparent": 25799,
+    "partialAlpha": 10993,
+    "alphaLevels": 240
+  },
+  "skins/veteran-aviator/walk_0": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 22028,
+      "x": 670,
+      "y": 91,
+      "w": 210,
+      "h": 214
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9317,
+    "transparent": 25901,
+    "partialAlpha": 10911,
+    "alphaLevels": 237
+  },
+  "skins/veteran-aviator/walk_1": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 21119,
+      "x": 994,
+      "y": 110,
+      "w": 185,
+      "h": 194
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 8835,
+    "transparent": 26579,
+    "partialAlpha": 10210,
+    "alphaLevels": 242
+  },
+  "skins/veteran-aviator/walk_2": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 23505,
+      "x": 63,
+      "y": 410,
+      "w": 221,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9820,
+    "transparent": 25261,
+    "partialAlpha": 11561,
+    "alphaLevels": 239
+  },
+  "skins/veteran-aviator/walk_3": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 23032,
+      "x": 381,
+      "y": 405,
+      "w": 203,
+      "h": 209
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9670,
+    "transparent": 25346,
+    "partialAlpha": 11494,
+    "alphaLevels": 242
+  },
+  "skins/veteran-aviator/jump": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 20819,
+      "x": 683,
+      "y": 394,
+      "w": 179,
+      "h": 221
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 8858,
+    "transparent": 26519,
+    "partialAlpha": 10318,
+    "alphaLevels": 239
+  },
+  "skins/veteran-aviator/fall": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 19202,
+      "x": 997,
+      "y": 420,
+      "w": 181,
+      "h": 177
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 8120,
+    "transparent": 27392,
+    "partialAlpha": 9441,
+    "alphaLevels": 229
+  },
+  "skins/veteran-aviator/land": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 12,
+      "count": 21842,
+      "x": 73,
+      "y": 723,
+      "w": 207,
+      "h": 173
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9170,
+    "transparent": 26427,
+    "partialAlpha": 10385,
+    "alphaLevels": 243
+  },
+  "skins/veteran-aviator/hurt": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 24177,
+      "x": 400,
+      "y": 685,
+      "w": 194,
+      "h": 219
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 10076,
+    "transparent": 24882,
+    "partialAlpha": 11949,
+    "alphaLevels": 242
+  },
+  "skins/veteran-aviator/aim": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 22248,
+      "x": 668,
+      "y": 688,
+      "w": 216,
+      "h": 207
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9411,
+    "transparent": 25645,
+    "partialAlpha": 11168,
+    "alphaLevels": 244
+  },
+  "skins/veteran-aviator/throw": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 22455,
+      "x": 986,
+      "y": 689,
+      "w": 229,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9284,
+    "transparent": 25828,
+    "partialAlpha": 10985,
+    "alphaLevels": 248
+  },
+  "skins/veteran-aviator/melee": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 22604,
+      "x": 77,
+      "y": 985,
+      "w": 225,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9408,
+    "transparent": 25777,
+    "partialAlpha": 11035,
+    "alphaLevels": 242
+  },
+  "skins/veteran-aviator/rope": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 21680,
+      "x": 391,
+      "y": 961,
+      "w": 159,
+      "h": 224
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 8988,
+    "transparent": 26319,
+    "partialAlpha": 10473,
+    "alphaLevels": 237
+  },
+  "skins/veteran-aviator/defeat": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 17,
+      "count": 23257,
+      "x": 683,
+      "y": 993,
+      "w": 201,
+      "h": 193
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9735,
+    "transparent": 25289,
+    "partialAlpha": 11524,
+    "alphaLevels": 239
+  },
+  "skins/veteran-aviator/win": {
+    "source": "assets-in/skins/veteran-aviator.png",
+    "profile": "veteran",
+    "scale": 0.6530612244897959,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 22745,
+      "x": 1011,
+      "y": 980,
+      "w": 182,
+      "h": 206
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#veteran-aviator",
+    "colors": 9458,
+    "transparent": 25726,
+    "partialAlpha": 11079,
+    "alphaLevels": 241
+  },
+  "skins/classic-punk/idle": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 16155,
+      "x": 90,
+      "y": 90,
+      "w": 142,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7070,
+    "transparent": 27818,
+    "partialAlpha": 9021,
+    "alphaLevels": 244
+  },
+  "skins/classic-punk/blink": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 16173,
+      "x": 390,
+      "y": 90,
+      "w": 142,
+      "h": 205
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7077,
+    "transparent": 27882,
+    "partialAlpha": 8954,
+    "alphaLevels": 246
+  },
+  "skins/classic-punk/walk_0": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 17034,
+      "x": 685,
+      "y": 89,
+      "w": 177,
+      "h": 206
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7372,
+    "transparent": 27253,
+    "partialAlpha": 9585,
+    "alphaLevels": 249
+  },
+  "skins/classic-punk/walk_1": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 17936,
+      "x": 987,
+      "y": 96,
+      "w": 170,
+      "h": 199
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7702,
+    "transparent": 26794,
+    "partialAlpha": 10041,
+    "alphaLevels": 245
+  },
+  "skins/classic-punk/walk_2": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 19611,
+      "x": 66,
+      "y": 392,
+      "w": 197,
+      "h": 216
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 8258,
+    "transparent": 25548,
+    "partialAlpha": 11292,
+    "alphaLevels": 252
+  },
+  "skins/classic-punk/walk_3": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 18083,
+      "x": 406,
+      "y": 393,
+      "w": 174,
+      "h": 213
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7817,
+    "transparent": 26470,
+    "partialAlpha": 10354,
+    "alphaLevels": 249
+  },
+  "skins/classic-punk/jump": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 16821,
+      "x": 719,
+      "y": 386,
+      "w": 142,
+      "h": 221
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7386,
+    "transparent": 27186,
+    "partialAlpha": 9661,
+    "alphaLevels": 250
+  },
+  "skins/classic-punk/fall": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 18718,
+      "x": 1029,
+      "y": 395,
+      "w": 163,
+      "h": 203
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 8132,
+    "transparent": 26321,
+    "partialAlpha": 10496,
+    "alphaLevels": 250
+  },
+  "skins/classic-punk/land": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 17,
+      "count": 16626,
+      "x": 64,
+      "y": 719,
+      "w": 191,
+      "h": 158
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7299,
+    "transparent": 27511,
+    "partialAlpha": 9335,
+    "alphaLevels": 247
+  },
+  "skins/classic-punk/hurt": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 17098,
+      "x": 415,
+      "y": 688,
+      "w": 161,
+      "h": 191
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7573,
+    "transparent": 27095,
+    "partialAlpha": 9756,
+    "alphaLevels": 251
+  },
+  "skins/classic-punk/aim": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 18902,
+      "x": 683,
+      "y": 688,
+      "w": 206,
+      "h": 197
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 8087,
+    "transparent": 26160,
+    "partialAlpha": 10675,
+    "alphaLevels": 250
+  },
+  "skins/classic-punk/throw": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 17149,
+      "x": 1005,
+      "y": 688,
+      "w": 200,
+      "h": 193
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7542,
+    "transparent": 27063,
+    "partialAlpha": 9772,
+    "alphaLevels": 248
+  },
+  "skins/classic-punk/melee": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 18534,
+      "x": 85,
+      "y": 974,
+      "w": 194,
+      "h": 201
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7788,
+    "transparent": 26305,
+    "partialAlpha": 10511,
+    "alphaLevels": 247
+  },
+  "skins/classic-punk/rope": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 20,
+      "count": 16811,
+      "x": 408,
+      "y": 954,
+      "w": 124,
+      "h": 220
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7078,
+    "transparent": 27450,
+    "partialAlpha": 9374,
+    "alphaLevels": 244
+  },
+  "skins/classic-punk/defeat": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 24,
+      "count": 16986,
+      "x": 693,
+      "y": 982,
+      "w": 154,
+      "h": 193
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 7214,
+    "transparent": 27722,
+    "partialAlpha": 9109,
+    "alphaLevels": 239
+  },
+  "skins/classic-punk/win": {
+    "source": "assets-in/skins/classic-punk.png",
+    "profile": "classic",
+    "scale": 0.6751054852320675,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 21,
+      "count": 18759,
+      "x": 1036,
+      "y": 961,
+      "w": 140,
+      "h": 214
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-punk",
+    "colors": 8028,
+    "transparent": 26363,
+    "partialAlpha": 10438,
+    "alphaLevels": 253
+  },
+  "skins/classic-scout/idle": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 22593,
+      "x": 75,
+      "y": 90,
+      "w": 171,
+      "h": 221
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7006,
+    "transparent": 28178,
+    "partialAlpha": 8666,
+    "alphaLevels": 242
+  },
+  "skins/classic-scout/blink": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 21941,
+      "x": 389,
+      "y": 88,
+      "w": 155,
+      "h": 223
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 6864,
+    "transparent": 28495,
+    "partialAlpha": 8341,
+    "alphaLevels": 242
+  },
+  "skins/classic-scout/walk_0": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 21783,
+      "x": 692,
+      "y": 96,
+      "w": 209,
+      "h": 216
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 6818,
+    "transparent": 28317,
+    "partialAlpha": 8526,
+    "alphaLevels": 251
+  },
+  "skins/classic-scout/walk_1": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 22071,
+      "x": 1014,
+      "y": 105,
+      "w": 188,
+      "h": 207
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 6927,
+    "transparent": 28285,
+    "partialAlpha": 8551,
+    "alphaLevels": 248
+  },
+  "skins/classic-scout/walk_2": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 24354,
+      "x": 52,
+      "y": 398,
+      "w": 212,
+      "h": 220
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7632,
+    "transparent": 27347,
+    "partialAlpha": 9491,
+    "alphaLevels": 249
+  },
+  "skins/classic-scout/walk_3": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 10,
+      "count": 22911,
+      "x": 388,
+      "y": 389,
+      "w": 190,
+      "h": 229
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7185,
+    "transparent": 27864,
+    "partialAlpha": 8972,
+    "alphaLevels": 245
+  },
+  "skins/classic-scout/jump": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 9,
+      "count": 20485,
+      "x": 715,
+      "y": 383,
+      "w": 172,
+      "h": 235
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 6496,
+    "transparent": 28573,
+    "partialAlpha": 8268,
+    "alphaLevels": 239
+  },
+  "skins/classic-scout/fall": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 11,
+      "count": 23120,
+      "x": 1018,
+      "y": 397,
+      "w": 191,
+      "h": 214
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7273,
+    "transparent": 27891,
+    "partialAlpha": 8948,
+    "alphaLevels": 245
+  },
+  "skins/classic-scout/land": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 22991,
+      "x": 42,
+      "y": 715,
+      "w": 224,
+      "h": 174
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7314,
+    "transparent": 28176,
+    "partialAlpha": 8670,
+    "alphaLevels": 246
+  },
+  "skins/classic-scout/hurt": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 18,
+      "count": 23107,
+      "x": 383,
+      "y": 672,
+      "w": 177,
+      "h": 209
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7136,
+    "transparent": 28017,
+    "partialAlpha": 8828,
+    "alphaLevels": 243
+  },
+  "skins/classic-scout/aim": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 19,
+      "count": 22374,
+      "x": 688,
+      "y": 683,
+      "w": 223,
+      "h": 204
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7072,
+    "transparent": 28094,
+    "partialAlpha": 8747,
+    "alphaLevels": 247
+  },
+  "skins/classic-scout/throw": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 20,
+      "count": 22108,
+      "x": 1015,
+      "y": 689,
+      "w": 220,
+      "h": 198
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 6902,
+    "transparent": 28252,
+    "partialAlpha": 8601,
+    "alphaLevels": 250
+  },
+  "skins/classic-scout/melee": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 28,
+      "count": 26544,
+      "x": 62,
+      "y": 960,
+      "w": 269,
+      "h": 224
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 8139,
+    "transparent": 26579,
+    "partialAlpha": 10264,
+    "alphaLevels": 248
+  },
+  "skins/classic-scout/rope": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 26,
+      "count": 21485,
+      "x": 418,
+      "y": 924,
+      "w": 132,
+      "h": 262
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 6653,
+    "transparent": 28584,
+    "partialAlpha": 8239,
+    "alphaLevels": 238
+  },
+  "skins/classic-scout/defeat": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 29,
+      "count": 22111,
+      "x": 695,
+      "y": 971,
+      "w": 206,
+      "h": 213
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7041,
+    "transparent": 28504,
+    "partialAlpha": 8336,
+    "alphaLevels": 246
+  },
+  "skins/classic-scout/win": {
+    "source": "assets-in/skins/classic-scout.png",
+    "profile": "classic",
+    "scale": 0.5614035087719298,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 27,
+      "count": 25800,
+      "x": 1035,
+      "y": 945,
+      "w": 171,
+      "h": 239
+    },
+    "touchesSourceEdge": false,
+    "layoutRepair": "tools/art/skin-roster-repairs.json#classic-scout",
+    "colors": 7903,
+    "transparent": 26816,
+    "partialAlpha": 9995,
+    "alphaLevels": 249
   }
 }

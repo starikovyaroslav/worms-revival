@@ -17,6 +17,22 @@ export const SKINS = [
   { id: 'veteran-femme', name: 'Потрёпанная ветеранка', profile: 'veteran', sheet: 'v2' },
   { id: 'classic-femme', name: 'Классическая нахалка', profile: 'classic', sheet: 'v2' },
   { id: 'commander-femme', name: 'Чёрная командирша', profile: 'dominant', sheet: 'v2' },
+  { id: 'officer-ice', name: 'Ледяная инспекторша', profile: 'dominant', sheet: 'v3' },
+  { id: 'officer-red', name: 'Рыжая надзирательница', profile: 'dominant', sheet: 'v3' },
+  { id: 'officer-iron', name: 'Железная начальница', profile: 'dominant', sheet: 'v3' },
+  { id: 'brutal-sapper', name: 'Брутальный сапёр', profile: 'heavy', sheet: 'v3' },
+  { id: 'brutal-brawler', name: 'Брутальная громила', profile: 'heavy', sheet: 'v3' },
+  { id: 'soft-cook', name: 'Добродушный повар', profile: 'soft', sheet: 'v3' },
+  { id: 'soft-artist', name: 'Мечтательная художница', profile: 'soft', sheet: 'v3' },
+  { id: 'glam-cabaret', name: 'Кабаретная дива', profile: 'glam', sheet: 'v3' },
+  { id: 'elder-captain', name: 'Старый капитан', profile: 'elder', sheet: 'v3' },
+  { id: 'elder-professor', name: 'Старая профессорша', profile: 'elder', sheet: 'v3' },
+  { id: 'sickly-clerk', name: 'Простуженный клерк', profile: 'sick', sheet: 'v3' },
+  { id: 'sickly-nurse', name: 'Усталая санитарка', profile: 'sick', sheet: 'v3' },
+  { id: 'veteran-sailor', name: 'Ветеран-моряк', profile: 'veteran', sheet: 'v3' },
+  { id: 'veteran-aviator', name: 'Ветеранка-лётчица', profile: 'veteran', sheet: 'v3' },
+  { id: 'classic-punk', name: 'Нахальный панк', profile: 'classic', sheet: 'v3' },
+  { id: 'classic-scout', name: 'Нахальная разведчица', profile: 'classic', sheet: 'v3' },
 ] as const;
 export type SkinId = (typeof SKINS)[number]['id'];
 export type SkinProfile = (typeof SKINS)[number]['profile'];

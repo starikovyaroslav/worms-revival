@@ -1,0 +1,51 @@
+[
+  {
+    "id": "brutal-sapper",
+    "reference": "assets-in/skins/repairs/brutal-sapper-crowded.png",
+    "output": "assets-in/skins/brutal-sapper.png",
+    "reason": "Adjacent rows touch in the native sheet; regenerate with clear margins before silhouette extraction.",
+    "prompt": "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: a 16-pose sheet of ONE character. Preserve this character's face, clothes, body, shading and EXACT row-major 16 poses. Change ONLY layout spacing and pose scale. Some sprites touch neighboring rows or outer edges, which is unacceptable for production.\nCreate a square 2048x2048 PNG with TRUE TRANSPARENT alpha. EXACT 4 by 4 grid of 512x512 INVISIBLE cells. REDRAW EACH FULL POSE AT HALF ITS CURRENT RELATIVE SIZE, at most 260px wide AND 260px tall inside each 512px cell, centered horizontally on common ground baseline 390px within its cell. This leaves at least 100px CLEAR TRANSPARENT GUTTERS all around EVERY pose including the hands above head. Hands, fingers, tail and hair FULLY VISIBLE. Reconstruct any fingers clipped at outer canvas edge. Do not crop, touch, overlap or merge poses. No text, gridlines, extra props, floor or cast shadows. SAME sixteen poses and same identity, just MUCH SMALLER WITH MUCH WIDER SEPARATION. Crisp detailed raster, no palette reduction."
+  },
+  {
+    "id": "brutal-brawler",
+    "reference": "assets-in/skins/repairs/brutal-brawler-crowded.png",
+    "output": "assets-in/skins/brutal-brawler.png",
+    "reason": "Adjacent rows touch in the native sheet; regenerate with clear margins before silhouette extraction.",
+    "prompt": "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: a 16-pose sheet of ONE character. Preserve this character's face, clothes, body, shading and EXACT row-major 16 poses. Change ONLY layout spacing and pose scale. Some sprites touch neighboring rows or outer edges, which is unacceptable for production.\nCreate a square 2048x2048 PNG with TRUE TRANSPARENT alpha. EXACT 4 by 4 grid of 512x512 INVISIBLE cells. REDRAW EACH FULL POSE AT HALF ITS CURRENT RELATIVE SIZE, at most 260px wide AND 260px tall inside each 512px cell, centered horizontally on common ground baseline 390px within its cell. This leaves at least 100px CLEAR TRANSPARENT GUTTERS all around EVERY pose including the hands above head. Hands, fingers, tail and hair FULLY VISIBLE. Reconstruct any fingers clipped at outer canvas edge. Do not crop, touch, overlap or merge poses. No text, gridlines, extra props, floor or cast shadows. SAME sixteen poses and same identity, just MUCH SMALLER WITH MUCH WIDER SEPARATION. Crisp detailed raster, no palette reduction."
+  },
+  {
+    "id": "soft-cook",
+    "reference": "assets-in/skins/repairs/soft-cook-crowded.png",
+    "output": "assets-in/skins/soft-cook.png",
+    "reason": "Adjacent rows touch in the native sheet; regenerate with clear margins before silhouette extraction.",
+    "prompt": "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: a 16-pose sheet of ONE character. Preserve this character's face, clothes, body, shading and EXACT row-major 16 poses. Change ONLY layout spacing and pose scale. Some sprites touch neighboring rows or outer edges, which is unacceptable for production.\nCreate a square 2048x2048 PNG with TRUE TRANSPARENT alpha. EXACT 4 by 4 grid of 512x512 INVISIBLE cells. REDRAW EACH FULL POSE AT HALF ITS CURRENT RELATIVE SIZE, at most 260px wide AND 260px tall inside each 512px cell, centered horizontally on common ground baseline 390px within its cell. This leaves at least 100px CLEAR TRANSPARENT GUTTERS all around EVERY pose including the hands above head. Hands, fingers, tail and hair FULLY VISIBLE. Reconstruct any fingers clipped at outer canvas edge. Do not crop, touch, overlap or merge poses. No text, gridlines, extra props, floor or cast shadows. SAME sixteen poses and same identity, just MUCH SMALLER WITH MUCH WIDER SEPARATION. Crisp detailed raster, no palette reduction."
+  },
+  {
+    "id": "veteran-sailor",
+    "reference": "assets-in/skins/repairs/veteran-sailor-crowded.png",
+    "output": "assets-in/skins/veteran-sailor.png",
+    "reason": "Adjacent poses touch in the native sheet; regenerate with clear margins before silhouette extraction.",
+    "prompt": "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: a 16-pose sheet of ONE character. Preserve this character's face, clothes, body, shading and EXACT row-major 16 poses. Change ONLY layout spacing and pose scale. Some sprites touch neighboring rows or outer edges, which is unacceptable for production.\nCreate a square 2048x2048 PNG with TRUE TRANSPARENT alpha. EXACT 4 by 4 grid of 512x512 INVISIBLE cells. REDRAW EACH FULL POSE AT HALF ITS CURRENT RELATIVE SIZE, at most 260px wide AND 260px tall inside each 512px cell, centered horizontally on common ground baseline 390px within its cell. This leaves at least 100px CLEAR TRANSPARENT GUTTERS all around EVERY pose including the hands above head. Hands, fingers, tail and hair FULLY VISIBLE. Reconstruct any fingers clipped at outer canvas edge. Do not crop, touch, overlap or merge poses. No text, gridlines, extra props, floor or cast shadows. SAME sixteen poses and same identity, just MUCH SMALLER WITH MUCH WIDER SEPARATION. Crisp detailed raster, no palette reduction."
+  },
+  {
+    "id": "veteran-aviator",
+    "reference": "assets-in/skins/repairs/veteran-aviator-crowded.png",
+    "output": "assets-in/skins/veteran-aviator.png",
+    "reason": "Adjacent poses touch in the native sheet; regenerate with clear margins before silhouette extraction.",
+    "prompt": "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: a 16-pose sheet of ONE character. Preserve this character's face, clothes, body, shading and EXACT row-major 16 poses. Change ONLY layout spacing and pose scale. Some sprites touch neighboring rows or outer edges, which is unacceptable for production.\nCreate a square 2048x2048 PNG with TRUE TRANSPARENT alpha. EXACT 4 by 4 grid of 512x512 INVISIBLE cells. REDRAW EACH FULL POSE AT HALF ITS CURRENT RELATIVE SIZE, at most 260px wide AND 260px tall inside each 512px cell, centered horizontally on common ground baseline 390px within its cell. This leaves at least 100px CLEAR TRANSPARENT GUTTERS all around EVERY pose including the hands above head. Hands, fingers, tail and hair FULLY VISIBLE. Reconstruct any fingers clipped at outer canvas edge. Do not crop, touch, overlap or merge poses. No text, gridlines, extra props, floor or cast shadows. SAME sixteen poses and same identity, just MUCH SMALLER WITH MUCH WIDER SEPARATION. Crisp detailed raster, no palette reduction."
+  },
+  {
+    "id": "classic-punk",
+    "reference": "assets-in/skins/repairs/classic-punk-crowded.png",
+    "output": "assets-in/skins/classic-punk.png",
+    "reason": "Adjacent poses touch in the native sheet; regenerate with clear margins before silhouette extraction.",
+    "prompt": "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: a 16-pose sheet of ONE character. Preserve this character's face, clothes, body, shading and EXACT row-major 16 poses. Change ONLY layout spacing and pose scale. Some sprites touch neighboring rows or outer edges, which is unacceptable for production.\nCreate a square 2048x2048 PNG with TRUE TRANSPARENT alpha. EXACT 4 by 4 grid of 512x512 INVISIBLE cells. REDRAW EACH FULL POSE AT HALF ITS CURRENT RELATIVE SIZE, at most 260px wide AND 260px tall inside each 512px cell, centered horizontally on common ground baseline 390px within its cell. This leaves at least 100px CLEAR TRANSPARENT GUTTERS all around EVERY pose including the hands above head. Hands, fingers, tail and hair FULLY VISIBLE. Reconstruct any fingers clipped at outer canvas edge. Do not crop, touch, overlap or merge poses. No text, gridlines, extra props, floor or cast shadows. SAME sixteen poses and same identity, just MUCH SMALLER WITH MUCH WIDER SEPARATION. Crisp detailed raster, no palette reduction."
+  },
+  {
+    "id": "classic-scout",
+    "reference": "assets-in/skins/repairs/classic-scout-crowded.png",
+    "output": "assets-in/skins/classic-scout.png",
+    "reason": "Adjacent poses touch in the native sheet; regenerate with clear margins before silhouette extraction.",
+    "prompt": "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: a 16-pose sheet of ONE character. Preserve this character's face, clothes, body, shading and EXACT row-major 16 poses. Change ONLY layout spacing and pose scale. Some sprites touch neighboring rows or outer edges, which is unacceptable for production.\nCreate a square 2048x2048 PNG with TRUE TRANSPARENT alpha. EXACT 4 by 4 grid of 512x512 INVISIBLE cells. REDRAW EACH FULL POSE AT HALF ITS CURRENT RELATIVE SIZE, at most 260px wide AND 260px tall inside each 512px cell, centered horizontally on common ground baseline 390px within its cell. This leaves at least 100px CLEAR TRANSPARENT GUTTERS all around EVERY pose including the hands above head. Hands, fingers, tail and hair FULLY VISIBLE. Reconstruct any fingers clipped at outer canvas edge. Do not crop, touch, overlap or merge poses. No text, gridlines, extra props, floor or cast shadows. SAME sixteen poses and same identity, just MUCH SMALLER WITH MUCH WIDER SEPARATION. Crisp detailed raster, no palette reduction."
+  }
+]

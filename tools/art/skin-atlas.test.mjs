@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
 import { skinCells } from './skin-cells.mjs';
 import { readImage, cut, root } from './ingest.mjs';
 import { validate } from './rgba.mjs';
@@ -62,7 +63,31 @@ test('all shipped painted poses have padding, rich RGB/alpha and one shared disp
       count++;
     }
   }
-  assert.equal(count, 16 * 16);
-  assert.equal(cache.size, 16);
-  assert.equal(new Set(Object.values(manifest.assets).map((a) => a.file)).size, 18);
+  assert.equal(count, 32 * 16);
+  assert.equal(cache.size, 32);
+  assert.equal(new Set(Object.values(manifest.assets).map((a) => a.file)).size, 34);
+});
+test('identities and painted walk phases are not duplicate frames or palette-only placeholders', () => {
+  const dir = resolve(root, 'apps/client/public/assets/skins');
+  const manifest = JSON.parse(readFileSync(resolve(dir, 'manifest.json')));
+  const identities = new Set();
+  const hash = (data) => createHash('sha256').update(data).digest('hex');
+  for (const skin of SKINS) {
+    if (manifest.unavailable[skin.id]) continue;
+    const image = readImage(resolve(dir, `${skin.id}.png`));
+    const idle = manifest.assets[`skins/${skin.id}/idle`].frame;
+    // Alpha silhouettes must differ too, so merely recoloring an existing character cannot pass.
+    const silhouette = Buffer.from(
+      cut(image, idle.x, idle.y, idle.w, idle.h).data.filter((_, i) => i % 4 === 3),
+    );
+    assert.ok(!identities.has(hash(silhouette)), `${skin.id}: duplicate idle silhouette`);
+    identities.add(hash(silhouette));
+    const phases = new Set();
+    for (const pose of ['walk_0', 'walk_1', 'walk_2', 'walk_3']) {
+      const f = manifest.assets[`skins/${skin.id}/${pose}`].frame;
+      phases.add(hash(cut(image, f.x, f.y, f.w, f.h).data));
+    }
+    assert.equal(phases.size, 4, `${skin.id}: four distinct painted walk phases`);
+  }
+  assert.equal(identities.size, 32);
 });
