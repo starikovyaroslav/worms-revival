@@ -25,7 +25,7 @@ const state: SkinPoseState = {
 describe('character-dependent cosmetic acting', () => {
   it('treats classes as rosters, preserves explicit members and never crosses family boundaries', () => {
     const available = new Set(SKINS.filter((s) => s.id !== 'dominatrix').map((s) => s.id));
-    expect(CHARACTER_CLASSES).toHaveLength(8);
+    expect(CHARACTER_CLASSES).toHaveLength(9);
     expect(variantsForClass('heavy').map((s) => s.id)).toEqual([
       'brutal',
       'commando-femme',
@@ -66,10 +66,10 @@ describe('character-dependent cosmetic acting', () => {
     expect(rigForSkin('classic-punk').hand[1]).toBeLessThan(rigForSkin('classic').hand[1]);
     expect(rigForSkin('veteran-sailor').hand[1]).toBeLessThan(rigForSkin('veteran').hand[1]);
   });
-  it('defines thirty-three identities including the blocked concept, sixteen poses and eight profiles', () => {
-    expect(SKINS).toHaveLength(33);
-    expect(new Set(SKINS.map((s) => s.id)).size).toBe(33);
-    expect(new Set(SKINS.map((s) => s.profile)).size).toBe(8);
+  it('defines thirty-seven identities including the blocked concept, sixteen poses and nine profiles', () => {
+    expect(SKINS).toHaveLength(37);
+    expect(new Set(SKINS.map((s) => s.id)).size).toBe(37);
+    expect(new Set(SKINS.map((s) => s.profile)).size).toBe(9);
     expect(new Set(SKIN_POSES).size).toBe(16);
     expect(skinById('dominatrix')?.profile).toBe('dominant');
     expect(skinById('not-a-skin')).toBeUndefined();
@@ -87,7 +87,23 @@ describe('character-dependent cosmetic acting', () => {
       const recorded = { ...team, characterVariants: members as string[] };
       for (const index of [0, 1, 2, 3])
         expect(resolveTeamVariant(recorded, index, available)).toBe(members[index]);
+      const repeated = { ...team, characterVariants: Array<string>(4).fill(members[2]!) };
+      expect([0, 1, 2, 3].map((index) => resolveTeamVariant(repeated, index, available))).toEqual(
+        repeated.characterVariants,
+      );
     }
+  });
+  it('keeps the nocturne roster isolated and falls back within the class for unavailable choices', () => {
+    const ids = ['nocturne-velvet', 'nocturne-crimson', 'nocturne-silver', 'nocturne-violet'];
+    expect(variantsForClass('nocturne').map((skin) => skin.id)).toEqual(ids);
+    const available = new Set(ids.slice(1));
+    const team = { characterClass: 'nocturne', characterVariants: ['nocturne-velvet', 'brutal'] };
+    expect(resolveTeamVariant(team, 0, available)).toBe('nocturne-crimson');
+    expect(resolveTeamVariant(team, 1, available)).toBe('nocturne-silver');
+    expect(resolveTeamVariant(team, 0, new Set(['brutal']))).toBeUndefined();
+    expect(resolveTeamVariant({ skin: 'nocturne-violet' }, 7, available)).toBe('nocturne-violet');
+    expect(variantsForClass('mixed').filter((skin) => skin.profile === 'nocturne')).toHaveLength(4);
+    for (const id of ids) expect(rigForSkin(skinById(id)!.id).hand[1]).toBe(-12);
   });
   it('covers all four painted walk phases using simulation progress, not real-time speed', () => {
     const poses = Array.from({ length: 15 }, (_, walkFrame) =>

@@ -63,9 +63,9 @@ test('all shipped painted poses have padding, rich RGB/alpha and one shared disp
       count++;
     }
   }
-  assert.equal(count, 32 * 16);
-  assert.equal(cache.size, 32);
-  assert.equal(new Set(Object.values(manifest.assets).map((a) => a.file)).size, 34);
+  assert.equal(count, 36 * 16);
+  assert.equal(cache.size, 36);
+  assert.equal(new Set(Object.values(manifest.assets).map((a) => a.file)).size, 38);
 });
 test('identities and painted walk phases are not duplicate frames or palette-only placeholders', () => {
   const dir = resolve(root, 'apps/client/public/assets/skins');
@@ -89,5 +89,5 @@ test('identities and painted walk phases are not duplicate frames or palette-onl
     }
     assert.equal(phases.size, 4, `${skin.id}: four distinct painted walk phases`);
   }
-  assert.equal(identities.size, 32);
+  assert.equal(identities.size, 36);
 });

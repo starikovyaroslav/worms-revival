@@ -71,6 +71,12 @@ try {
               problems.push(`${skin.id}/${weapon.id}: wrong identity`);
             if (actor.weapon.visible && Math.abs(actor.weapon.width - spec.width) > 1e-6)
               problems.push(`${skin.id}/${weapon.id}: size drift`);
+            const expectedHeld =
+              spec.width > 0 && !['grounded', 'none', 'backpack'].includes(spec.mode);
+            if (actor.weapon.visible !== expectedHeld)
+              problems.push(`${skin.id}/${weapon.id}: equipment visibility`);
+            if (![actor.weapon.x, actor.weapon.y, actor.weapon.rotation].every(Number.isFinite))
+              problems.push(`${skin.id}/${weapon.id}: invalid mount transform`);
             if (weapon.id === 'mortar' && (!actor.ground.visible || actor.pose !== 'land'))
               problems.push(`${skin.id}: mortar not grounded`);
             if (weapon.id === 'mortar') {
@@ -147,8 +153,8 @@ try {
       hashUnchanged: before === game.hash(),
     };
   });
-  assert.equal(result.skins, 32);
-  assert.equal(result.combinations, 32 * 67 * 2 * 3);
+  assert.equal(result.skins, 36);
+  assert.equal(result.combinations, 36 * 67 * 2 * 3);
   assert.deepEqual(result.problems, []);
   assert.ok(result.hashUnchanged);
   assert.deepEqual(
@@ -170,9 +176,12 @@ try {
   );
   await page.screenshot({ path: `${output}/match-classes.png` });
   await page.addStyleTag({ content: '#ui {display:none !important}' });
-  for (let start = 0; start < result.skins; start += 5) {
-    if (result.skins - start < 5)
-      await page.setViewportSize({ width: 1920, height: 80 + (result.skins - start) * 190 });
+  const galleryStarts = Array.from(
+    { length: Math.ceil(result.skins / 5) },
+    (_, index) => index * 5,
+  );
+  galleryStarts.push(result.skins - 4);
+  for (const start of galleryStarts) {
     await page.evaluate((start) => {
       const { sim, render, pixi, scene, skins } = window.__skinReview;
       for (const child of scene.app.stage.children) child.visible = false;
@@ -188,7 +197,8 @@ try {
         text.position.set(340 + col * 370, 25);
         gallery.addChild(text);
       });
-      skins.slice(start, start + 5).forEach((skin, row) => {
+      const rows = start === skins.length - 4 ? 4 : 5;
+      skins.slice(start, start + rows).forEach((skin, row) => {
         const label = new pixi.Text({
           text: skin.name,
           style: { fontFamily: 'monospace', fontSize: 18, fill: 0xffffff },
@@ -209,7 +219,12 @@ try {
       });
       scene.app.render();
     }, start);
-    await page.screenshot({ path: `${output}/equipment-matrix-${start / 5 + 1}.png` });
+    await page.screenshot({
+      path:
+        start === result.skins - 4
+          ? `${output}/nocturne-equipment.png`
+          : `${output}/equipment-matrix-${start / 5 + 1}.png`,
+    });
   }
   assert.deepEqual(errors, []);
   result.classRosters = {};
@@ -238,6 +253,114 @@ try {
     result.classRosters[family.id] = roster.visible;
     await teamPage.close();
   }
+  result.nocturneReplays = {};
+  for (const manual of [false, true]) {
+    const name = manual ? 'manual-repeated' : 'automatic';
+    const expected = manual
+      ? ['nocturne-violet', 'nocturne-velvet', 'nocturne-violet', 'nocturne-crimson']
+      : SKINS.filter((skin) => skin.profile === 'nocturne').map((skin) => skin.id);
+    const teamPage = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
+    teamPage.on('pageerror', (error) => errors.push(error.message));
+    await teamPage.goto(base);
+    await teamPage.getByLabel('Класс команды 1').selectOption('nocturne');
+    await teamPage.locator('.character-roster').first().locator('summary').click();
+    if (manual)
+      for (const [member, id] of expected.entries())
+        await teamPage.getByLabel(`Персонаж ${member + 1} команды 1`).selectOption(id);
+    await teamPage.screenshot({ path: `${output}/nocturne-${name}-menu.png` });
+    await teamPage.getByRole('button', { name: 'В бой!' }).click();
+    await teamPage.waitForFunction(() => window.__game?.scene.worms.size > 0);
+    const recorded = await teamPage.evaluate(async () => {
+      const { game, scene, match } = window.__game;
+      match.setPaused(true);
+      match.loop.stop();
+      const urls = window.performance.getEntriesByType('resource').map((entry) => entry.name);
+      const sim = await import(
+        urls.find((url) => /\/packages\/sim\/src\/index\.ts(?:\?|$)/.test(url))
+      );
+      const content = await import(
+        urls.find((url) => /\/packages\/content\/src\/index\.ts(?:\?|$)/.test(url))
+      );
+      const config = match.recorder.config;
+      const plain = new sim.Game(
+        content.buildGameSetup({
+          ...config,
+          teams: config.teams.map(
+            ({ characterClass: _class, characterVariants: _variants, skin: _skin, ...team }) =>
+              team,
+          ),
+        }),
+      );
+      while (plain.world.tick < game.world.tick) plain.step();
+      let hashUnchanged = plain.hash() === game.hash();
+      // Real walk, aim and shot commands, recorded using the running match's recorder.
+      for (let tick = 0; tick < 600; tick++) {
+        const commands =
+          tick === 300
+            ? [{ t: 'move', left: false, right: true, up: true, down: false }]
+            : tick === 330
+              ? [{ t: 'move', left: false, right: false, up: false, down: false }]
+              : tick === 340
+                ? [{ t: 'select', weapon: 'bazooka' }]
+                : tick === 345
+                  ? [{ t: 'fire', down: true }]
+                  : tick === 375
+                    ? [{ t: 'fire', down: false }]
+                    : [];
+        match.recorder.record(game.world.tick, commands);
+        game.step(commands);
+        plain.step(commands);
+        if ([0, 300, 330, 375, 599].includes(tick)) hashUnchanged &&= plain.hash() === game.hash();
+      }
+      const replay = JSON.parse(JSON.stringify(match.replay()));
+      return {
+        visible: [...scene.worms.values()]
+          .filter((view) => view.worm.team === 0)
+          .map((view) => view.skinActor?.id),
+        replay,
+        verified: new content.ReplayPlayer(replay).verify(),
+        hashUnchanged,
+      };
+    });
+    assert.deepEqual(recorded.visible, expected);
+    assert.deepEqual(recorded.replay.config.teams[0].characterVariants, expected);
+    assert.ok(recorded.verified && recorded.hashUnchanged, `${name}: deterministic replay`);
+    await teamPage.close();
+
+    const replayPage = await browser.newPage();
+    replayPage.on('pageerror', (error) => errors.push(error.message));
+    await replayPage.goto(base);
+    await replayPage.locator('input[type="file"]').setInputFiles({
+      name: `nocturne-${name}.wrr`,
+      mimeType: 'application/json',
+      buffer: Buffer.from(JSON.stringify(recorded.replay)),
+    });
+    await replayPage.waitForFunction(() => !!window.__game?.match.player);
+    const playback = await replayPage.evaluate(() => {
+      const { scene, match } = window.__game;
+      match.setPaused(true);
+      match.loop.stop();
+      return {
+        visible: [...scene.worms.values()]
+          .filter((view) => view.worm.team === 0)
+          .map((view) => view.skinActor?.id),
+        verified: match.player.verify(),
+      };
+    });
+    assert.deepEqual(playback.visible, expected, `${name}: identities after UI replay import`);
+    assert.ok(playback.verified, `${name}: imported replay final hash`);
+    writeFileSync(
+      `${output}/nocturne-${name}.wrr`,
+      JSON.stringify(recorded.replay, null, 2) + '\n',
+    );
+    result.nocturneReplays[name] = {
+      identities: playback.visible,
+      ticks: 600,
+      verified: true,
+      hashUnchanged: true,
+    };
+    await replayPage.close();
+  }
   const fallback = await browser.newPage();
   fallback.on('pageerror', (error) => errors.push(error.message));
   await fallback.route('**/assets/skins/manifest.json*', (route) =>
@@ -257,7 +380,7 @@ try {
   const preview = await browser.newPage();
   preview.on('pageerror', (error) => errors.push(error.message));
   await preview.goto(pathToFileURL(resolve('docs/design/concepts/worm-skins-animated.html')).href);
-  assert.equal(await preview.locator('.sprite').count(), 32);
+  assert.equal(await preview.locator('.sprite').count(), 36);
   await preview.locator('#mode').selectOption('win');
   await preview.waitForFunction(
     () => document.querySelector('.sprite').style.backgroundPosition === '100% 100%',

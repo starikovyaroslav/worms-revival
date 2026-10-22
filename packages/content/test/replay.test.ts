@@ -30,6 +30,37 @@ function script(tick: number): Command[] {
 }
 
 describe('replays', () => {
+  it('preserves repeated nocturne identities through JSON and leaves scripted physics unchanged', () => {
+    const identities = [
+      'nocturne-violet',
+      'nocturne-velvet',
+      'nocturne-violet',
+      'nocturne-crimson',
+    ];
+    const styled: MatchConfig = {
+      ...config,
+      teams: config.teams.map((team) => ({
+        ...team,
+        characterClass: 'nocturne',
+        characterVariants: identities,
+      })),
+    };
+    const game = new Game(buildGameSetup(styled));
+    const plain = new Game(buildGameSetup(config));
+    const recorder = new ReplayRecorder(styled);
+    for (let tick = 0; tick < 600; tick++) {
+      const commands = script(tick);
+      recorder.record(tick, commands);
+      game.step(commands);
+      plain.step(commands);
+      if ([0, 300, 330, 375, 599].includes(tick)) expect(game.hash()).toBe(plain.hash());
+    }
+    const replay = JSON.parse(JSON.stringify(recorder.finish(game)));
+    expect(replay.config.teams[0].characterVariants).toEqual(identities);
+    expect(replayProblem(replay)).toBeNull();
+    expect(new ReplayPlayer(replay).verify()).toBe(true);
+  });
+
   it('reproduce the recorded match exactly', () => {
     const game = new Game(buildGameSetup(config));
     const rec = new ReplayRecorder(config);
