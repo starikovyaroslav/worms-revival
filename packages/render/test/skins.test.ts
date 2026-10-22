@@ -63,6 +63,8 @@ describe('character-dependent cosmetic acting', () => {
     expect(actionPose('mine')).toBe('land');
     expect(WEAPON_MOUNTS.get('airstrike')!.texture).toBe('skins/equipment/radio');
     expect(rigForSkin('soft').shoulder).not.toEqual(rigForSkin('classic').shoulder);
+    expect(rigForSkin('classic-punk').hand[1]).toBeLessThan(rigForSkin('classic').hand[1]);
+    expect(rigForSkin('veteran-sailor').hand[1]).toBeLessThan(rigForSkin('veteran').hand[1]);
   });
   it('defines thirty-three identities including the blocked concept, sixteen poses and eight profiles', () => {
     expect(SKINS).toHaveLength(33);

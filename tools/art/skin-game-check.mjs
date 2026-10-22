@@ -4,6 +4,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
+import { SKINS, CHARACTER_CLASSES } from '../../packages/render/src/skins.ts';
 
 const base = process.argv[2] ?? 'http://127.0.0.1:5174/';
 const output = 'assets-in/previews/skin-game';
@@ -146,8 +147,8 @@ try {
       hashUnchanged: before === game.hash(),
     };
   });
-  assert.equal(result.skins, 16);
-  assert.equal(result.combinations, 16 * 67 * 2 * 3);
+  assert.equal(result.skins, 32);
+  assert.equal(result.combinations, 32 * 67 * 2 * 3);
   assert.deepEqual(result.problems, []);
   assert.ok(result.hashUnchanged);
   assert.deepEqual(
@@ -165,7 +166,7 @@ try {
   assert.ok(
     result.roster
       .filter((r) => r.team === 1)
-      .every((r) => ['elder', 'elder-femme'].includes(r.skin)),
+      .every((r) => SKINS.find((skin) => skin.id === r.skin)?.profile === 'elder'),
   );
   await page.screenshot({ path: `${output}/match-classes.png` });
   await page.addStyleTag({ content: '#ui {display:none !important}' });
@@ -211,22 +212,32 @@ try {
     await page.screenshot({ path: `${output}/equipment-matrix-${start / 5 + 1}.png` });
   }
   assert.deepEqual(errors, []);
-  const commander = await browser.newPage();
-  commander.on('pageerror', (error) => errors.push(error.message));
-  await commander.goto(base);
-  await commander.getByLabel('Класс команды 1').selectOption('dominant');
-  await commander.getByRole('button', { name: 'В бой!' }).click();
-  await commander.waitForFunction(() => window.__game?.scene.worms.size > 0);
-  assert.ok(
-    await commander.evaluate(() =>
-      [...window.__game.scene.worms.values()]
-        .filter((view) => view.worm.team === 0)
-        .every((view) => view.skinActor?.id === 'commander-femme'),
-    ),
-    'Closed-uniform family is playable from menu',
-  );
-  await commander.close();
-  result.commanderClass = true;
+  result.classRosters = {};
+  for (const family of CHARACTER_CLASSES) {
+    const teamPage = await browser.newPage();
+    teamPage.on('pageerror', (error) => errors.push(error.message));
+    await teamPage.goto(base);
+    await teamPage.getByLabel('Класс команды 1').selectOption(family.id);
+    await teamPage.getByRole('button', { name: 'В бой!' }).click();
+    await teamPage.waitForFunction(() => window.__game?.scene.worms.size > 0);
+    const roster = await teamPage.evaluate(() => {
+      const { scene, match } = window.__game;
+      match.setPaused(true);
+      return {
+        visible: [...scene.worms.values()]
+          .filter((view) => view.worm.team === 0)
+          .map((view) => view.skinActor?.id),
+        recorded: match.recorder.config.teams[0].characterVariants,
+      };
+    });
+    const expected = SKINS.filter(
+      (skin) => skin.profile === family.id && skin.id !== 'dominatrix',
+    ).map((skin) => skin.id);
+    assert.deepEqual(roster.visible, expected, `${family.id}: four distinct playable members`);
+    assert.deepEqual(roster.recorded, expected, `${family.id}: replay identity snapshot`);
+    result.classRosters[family.id] = roster.visible;
+    await teamPage.close();
+  }
   const fallback = await browser.newPage();
   fallback.on('pageerror', (error) => errors.push(error.message));
   await fallback.route('**/assets/skins/manifest.json*', (route) =>
@@ -246,7 +257,7 @@ try {
   const preview = await browser.newPage();
   preview.on('pageerror', (error) => errors.push(error.message));
   await preview.goto(pathToFileURL(resolve('docs/design/concepts/worm-skins-animated.html')).href);
-  assert.equal(await preview.locator('.sprite').count(), 16);
+  assert.equal(await preview.locator('.sprite').count(), 32);
   await preview.locator('#mode').selectOption('win');
   await preview.waitForFunction(
     () => document.querySelector('.sprite').style.backgroundPosition === '100% 100%',

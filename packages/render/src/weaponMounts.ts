@@ -175,6 +175,9 @@ const OVERRIDES: Partial<Record<SkinId, Partial<SkinRig>>> = {
   'glam-rocker': { hand: [8, -9], shoulder: [0, -10] },
   'elder-femme': { hand: [7, -8], shoulder: [0, -9] },
   'veteran-femme': { hand: [8, -9], ground: [14, 0] },
+  // Their forward hands sit higher than the family's default chest line.
+  'veteran-sailor': { hand: [8, -11.5] },
+  'classic-punk': { hand: [8, -13] },
 };
 export function rigForSkin(id: SkinId): SkinRig {
   return { ...RIGS[skinById(id)!.profile], ...OVERRIDES[id] };
