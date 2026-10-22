@@ -1,5 +1,6 @@
 /** Exact reproducible prompts for built-in imagegen; this module itself never calls a service. */
 import { SKINS } from '../../packages/render/src/skins.ts';
+import { readFileSync } from 'node:fs';
 export const acting = {
   heavy:
     'Heavy deliberate acting: braced broad neck, low center of mass, short forceful tail pushes, restrained breathing; hurt is an angry flinch, attack is a planted forceful punch, victory a proud clenched-fist salute.',
@@ -15,7 +16,7 @@ export const acting = {
   classic:
     'Scrappy nimble acting: elastic elongated neck, clear energetic four-phase inchworm gait with tail compression and stretch, lively jumping and landing, cheeky aiming squint, snappy throw and punch, mischievous fist-pump victory.',
 };
-export const jobs = SKINS.map((skin) => ({
+export const jobs = SKINS.filter((skin) => skin.id !== 'commander-femme').map((skin) => ({
   ...skin,
   reference: `docs/design/concepts/worm-skins-${skin.sheet}/${skin.id}.png`,
   output: `assets-in/skins/${skin.id}.png`,
@@ -31,3 +32,9 @@ ROW3: 9 landing pose visibly compressed; 10 hurt pose visibly wincing and leanin
 ROW4: 13 melee punch pose one hand extended forcefully right; 14 rope hanging pose both hands raised together above head, NO rope drawn; 15 defeat pose alive but slumped, disappointed face; 16 victory pose joyful/proud gesture appropriate to character, NO flag.
 All characters are ADULT. Preserve worm anatomy: segmented body, long upright neck, curling tail, NO human legs. No weapons, scenery, floor, cast shadows, particles, extra objects, text, labels, grids, logos or watermarks. Hands can be floating cartoon hands; keep required costume and crutch/brace. Non-explicit fully clothed glamour, no nudity or sexual actions. Detailed polished early-2000s grotesque raster game art, sharp fine outlines, volumetric multi-tone materials matching reference, NO huge pixel blocks and NO forced 32-color palette. GENUINE transparent alpha background, not a checkerboard. SAME CHARACTER AND SCALE IN EVERY CELL.`,
 }));
+jobs.push({
+  ...SKINS.find((skin) => skin.id === 'commander-femme'),
+  reference: 'docs/design/concepts/worm-skins-v2/commando-femme.png',
+  output: 'assets-in/skins/commander-femme.png',
+  prompt: readFileSync(new URL('./skin-commander.prompt.txt', import.meta.url), 'utf8').trim(),
+});

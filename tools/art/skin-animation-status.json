@@ -1,6 +1,6 @@
 {
   "dominatrix": {
     "state": "blocked",
-    "reason": "The built-in image generator rejected the animation request (sexual moderation). No animation atlas was produced. Awaiting owner choice of a non-erotic costume alternative or concept-only status."
+    "reason": "The original animation request remains blocked and concept-only after a sexual moderation refusal. Owner approved a non-erotic closed-uniform alternative, delivered as a distinct commander-femme identity, not a retry of the rejected costume."
   }
 }

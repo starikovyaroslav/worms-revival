@@ -6239,5 +6239,421 @@
     "transparent": 25969,
     "partialAlpha": 10848,
     "alphaLevels": 249
+  },
+  "skins/commander-femme/idle": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 1,
+      "count": 39801,
+      "x": 44,
+      "y": 24,
+      "w": 233,
+      "h": 293
+    },
+    "touchesSourceEdge": false,
+    "colors": 6392,
+    "transparent": 26704,
+    "partialAlpha": 10138,
+    "alphaLevels": 233
+  },
+  "skins/commander-femme/blink": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 2,
+      "count": 39768,
+      "x": 353,
+      "y": 24,
+      "w": 233,
+      "h": 293
+    },
+    "touchesSourceEdge": false,
+    "colors": 6389,
+    "transparent": 26639,
+    "partialAlpha": 10195,
+    "alphaLevels": 228
+  },
+  "skins/commander-femme/walk_0": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 3,
+      "count": 40854,
+      "x": 654,
+      "y": 26,
+      "w": 306,
+      "h": 291
+    },
+    "touchesSourceEdge": false,
+    "colors": 6441,
+    "transparent": 26223,
+    "partialAlpha": 10612,
+    "alphaLevels": 234
+  },
+  "skins/commander-femme/walk_1": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 4,
+      "count": 36032,
+      "x": 985,
+      "y": 38,
+      "w": 223,
+      "h": 281
+    },
+    "touchesSourceEdge": false,
+    "colors": 5621,
+    "transparent": 27688,
+    "partialAlpha": 9157,
+    "alphaLevels": 228
+  },
+  "skins/commander-femme/walk_2": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 7,
+      "count": 40943,
+      "x": 34,
+      "y": 349,
+      "w": 290,
+      "h": 276
+    },
+    "touchesSourceEdge": false,
+    "colors": 6385,
+    "transparent": 26211,
+    "partialAlpha": 10628,
+    "alphaLevels": 237
+  },
+  "skins/commander-femme/walk_3": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 6,
+      "count": 41224,
+      "x": 342,
+      "y": 336,
+      "w": 314,
+      "h": 287
+    },
+    "touchesSourceEdge": false,
+    "colors": 6649,
+    "transparent": 26027,
+    "partialAlpha": 10803,
+    "alphaLevels": 236
+  },
+  "skins/commander-femme/jump": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 5,
+      "count": 38306,
+      "x": 666,
+      "y": 324,
+      "w": 317,
+      "h": 292
+    },
+    "touchesSourceEdge": false,
+    "colors": 6394,
+    "transparent": 26853,
+    "partialAlpha": 9981,
+    "alphaLevels": 234
+  },
+  "skins/commander-femme/fall": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 8,
+      "count": 33744,
+      "x": 1041,
+      "y": 358,
+      "w": 181,
+      "h": 259
+    },
+    "touchesSourceEdge": false,
+    "colors": 5576,
+    "transparent": 28334,
+    "partialAlpha": 8518,
+    "alphaLevels": 209
+  },
+  "skins/commander-femme/land": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 16,
+      "count": 36442,
+      "x": 38,
+      "y": 674,
+      "w": 266,
+      "h": 227
+    },
+    "touchesSourceEdge": false,
+    "colors": 6089,
+    "transparent": 27692,
+    "partialAlpha": 9150,
+    "alphaLevels": 218
+  },
+  "skins/commander-femme/hurt": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 15,
+      "count": 38093,
+      "x": 369,
+      "y": 645,
+      "w": 216,
+      "h": 255
+    },
+    "touchesSourceEdge": false,
+    "colors": 6566,
+    "transparent": 26950,
+    "partialAlpha": 9901,
+    "alphaLevels": 231
+  },
+  "skins/commander-femme/aim": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 13,
+      "count": 35218,
+      "x": 643,
+      "y": 641,
+      "w": 284,
+      "h": 265
+    },
+    "touchesSourceEdge": false,
+    "colors": 5646,
+    "transparent": 27624,
+    "partialAlpha": 9220,
+    "alphaLevels": 231
+  },
+  "skins/commander-femme/throw": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 14,
+      "count": 36254,
+      "x": 948,
+      "y": 642,
+      "w": 292,
+      "h": 262
+    },
+    "touchesSourceEdge": false,
+    "colors": 5552,
+    "transparent": 27419,
+    "partialAlpha": 9417,
+    "alphaLevels": 238
+  },
+  "skins/commander-femme/melee": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 21,
+      "count": 41154,
+      "x": 34,
+      "y": 951,
+      "w": 317,
+      "h": 272
+    },
+    "touchesSourceEdge": false,
+    "colors": 6546,
+    "transparent": 26331,
+    "partialAlpha": 10504,
+    "alphaLevels": 231
+  },
+  "skins/commander-femme/rope": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 19,
+      "count": 35635,
+      "x": 383,
+      "y": 907,
+      "w": 176,
+      "h": 318
+    },
+    "touchesSourceEdge": false,
+    "colors": 5409,
+    "transparent": 27674,
+    "partialAlpha": 9162,
+    "alphaLevels": 218
+  },
+  "skins/commander-femme/defeat": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 22,
+      "count": 37076,
+      "x": 650,
+      "y": 954,
+      "w": 234,
+      "h": 271
+    },
+    "touchesSourceEdge": false,
+    "colors": 5935,
+    "transparent": 27371,
+    "partialAlpha": 9479,
+    "alphaLevels": 229
+  },
+  "skins/commander-femme/win": {
+    "source": "assets-in/skins/commander-femme.png",
+    "profile": "dominant",
+    "scale": 0.47904191616766467,
+    "display": [
+      32,
+      32
+    ],
+    "pixels": [
+      192,
+      192
+    ],
+    "sourceBounds": {
+      "id": 20,
+      "count": 39489,
+      "x": 989,
+      "y": 933,
+      "w": 228,
+      "h": 292
+    },
+    "touchesSourceEdge": false,
+    "colors": 6022,
+    "transparent": 26741,
+    "partialAlpha": 10098,
+    "alphaLevels": 228
   }
 }

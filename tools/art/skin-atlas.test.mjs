@@ -62,7 +62,7 @@ test('all shipped painted poses have padding, rich RGB/alpha and one shared disp
       count++;
     }
   }
-  assert.equal(count, 15 * 16);
-  assert.equal(cache.size, 15);
-  assert.equal(new Set(Object.values(manifest.assets).map((a) => a.file)).size, 17);
+  assert.equal(count, 16 * 16);
+  assert.equal(cache.size, 16);
+  assert.equal(new Set(Object.values(manifest.assets).map((a) => a.file)).size, 18);
 });

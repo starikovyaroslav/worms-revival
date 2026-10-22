@@ -1,0 +1,12 @@
+Use case: stylized-concept.
+Asset type: production 16-pose game animation sprite sheet, one adult female anthropomorphic worm officer.
+Image 1 is STYLE ONLY: match its finely shaded early-2000s grotesque raster game artwork and segmented worm anatomy, NOT its identity or outfit.
+Subject: a NEW stern adult woman worm with sharp brows, chin-length straight black bob haircut, commanding eyes, muted red lipstick. Practical CLOSED BLACK MILITARY FIELD UNIFORM: loose matte charcoal fabric jacket with high zipped collar, padded shoulders and straight utilitarian seam lines, black gloves; no chest opening, no cleavage, no corset, no harness, no latex, no fetish accessories. Lower body is a curling segmented worm tail, NO human legs. Strict no-nonsense squad commander, not a glamour or erotic character.
+Acting: upright neck, economical deliberate tail strides, controlled gestures, confident commanding gaze. Precise braced aim, sharp throw and punch, narrowed eyes when hurt, proud fist salute victory. Keep EXACT SAME FACE, HAIR, UNIFORM, BODY SCALE in every cell.
+Layout: square 1536x1536, EXACTLY four equal columns and four equal rows, sixteen complete full-body sprites facing RIGHT in side/three-quarter view. Common ground baseline in all cells, including airborne poses (world motion is handled by game). Fit every pose in central 70% of cell with generous fully transparent gutters on ALL sides, especially right of hands. No clipping.
+EXACT ROW-MAJOR POSES:
+ROW1: neutral idle; same idle BOTH EYES CLOSED blink; walk phase1 tail planted body reaching; walk phase2 tail pulling/body compressing.
+ROW2: walk phase3 body arched tail pushing; walk phase4 extending recovery; jump stretched neck hands slightly raised; fall tail tucked under body tense eyes.
+ROW3: landing compressed crouch; hurt flinch leaning back; aim BOTH EMPTY HANDS extended right at chest level (gun rendered separately); throw follow-through ONE EMPTY HAND extended forward after release.
+ROW4: melee punch right; rope-hanging BOTH HANDS raised together above head (NO rope); defeat alive but slumped disappointed; victory proud clenched-fist salute.
+Fine crisp outlines, detailed multitone warm peach skin, volumetric matte fabric, high-resolution painted raster game sprites, no giant pixel blocks, no palette quantization. Fully transparent alpha background, NOT checkerboard. No weapons, rope, particles, flags, props, text, gridlines, floor, shadows, scenery, watermarks, logos, or extra characters. No sexualized pose or clothing.

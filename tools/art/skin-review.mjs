@@ -17,7 +17,7 @@ writeFileSync(
 <html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Worms revival — игровые позы и анимации</title><style>
 *{box-sizing:border-box}body{margin:24px;background:#172127;color:#eee;font:16px system-ui}h1{font-size:24px}h2{font-size:20px;margin-top:32px}h3{font-size:16px}p{max-width:1000px;line-height:1.5;color:#b9c8cd}.controls{position:sticky;top:0;padding:12px;background:#24323a;display:flex;gap:16px;flex-wrap:wrap;z-index:1}select,button{font:inherit;padding:6px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}article{padding:12px;border:1px solid #4b5b64}.stage{height:160px;display:flex;justify-content:center;align-items:end;background:#3d5148;padding-bottom:8px}.sprite{width:96px;height:96px;background-size:400% 400%;image-rendering:pixelated;transform-origin:center 91%}
-</style><h1>Игровые персонажи: ${available.length} вариантов / 7 доступных классов</h1>
+</style><h1>Игровые персонажи: ${available.length} вариантов / ${new Set(available.map((s) => s.profile)).size} доступных классов</h1>
 <p>Это реальные кадры публичных атласов: по 16 поз на персонажа. Просмотр не симулирует физику и не показывает оружие; позы с оружием проверяются в игровом стенде. При составе больше числа вариантов класса персонажи повторяются.</p>
 <div class="controls"><label>Поза <select id="mode"><option value="walk">Ходьба — цикл</option><option value="idle">Ожидание и моргание</option>${SKIN_POSES.filter(
     (p) => !p.startsWith('walk') && p !== 'idle',

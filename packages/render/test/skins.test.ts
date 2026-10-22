@@ -39,7 +39,11 @@ describe('character-dependent cosmetic acting', () => {
     expect(resolveTeamVariant({ ...team, characterVariants: ['elder'] }, 0, available)).toBe(
       'brutal',
     );
-    expect(resolveTeamVariant({ characterClass: 'dominant' }, 0, available)).toBeUndefined();
+    expect(resolveTeamVariant({ characterClass: 'dominant' }, 0, available)).toBe(
+      'commander-femme',
+    );
+    expect(resolveTeamVariant({ characterClass: 'dominant' }, 0, new Set())).toBeUndefined();
+    expect(resolveTeamVariant({ skin: 'dominatrix' }, 0, available)).toBeUndefined();
     expect(resolveTeamVariant({ characterClass: 'garbage' }, 0, available)).toBeUndefined();
     expect(resolveTeamVariant({ skin: 'glam-femme' }, 4, available)).toBe('glam-femme');
     expect(resolveTeamVariant({}, 0, available)).toBeUndefined();
@@ -55,9 +59,9 @@ describe('character-dependent cosmetic acting', () => {
     expect(WEAPON_MOUNTS.get('airstrike')!.texture).toBe('skins/equipment/radio');
     expect(rigForSkin('soft').shoulder).not.toEqual(rigForSkin('classic').shoulder);
   });
-  it('defines sixteen distinct identities, sixteen poses and eight acting profiles', () => {
-    expect(SKINS).toHaveLength(16);
-    expect(new Set(SKINS.map((s) => s.id)).size).toBe(16);
+  it('defines seventeen identities including the blocked concept, sixteen poses and eight profiles', () => {
+    expect(SKINS).toHaveLength(17);
+    expect(new Set(SKINS.map((s) => s.id)).size).toBe(17);
     expect(new Set(SKINS.map((s) => s.profile)).size).toBe(8);
     expect(new Set(SKIN_POSES).size).toBe(16);
     expect(skinById('dominatrix')?.profile).toBe('dominant');

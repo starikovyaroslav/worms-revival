@@ -16,6 +16,7 @@ export const SKINS = [
   { id: 'sickly-femme', name: 'Больная героиня', profile: 'sick', sheet: 'v2' },
   { id: 'veteran-femme', name: 'Потрёпанная ветеранка', profile: 'veteran', sheet: 'v2' },
   { id: 'classic-femme', name: 'Классическая нахалка', profile: 'classic', sheet: 'v2' },
+  { id: 'commander-femme', name: 'Чёрная командирша', profile: 'dominant', sheet: 'v2' },
 ] as const;
 export type SkinId = (typeof SKINS)[number]['id'];
 export type SkinProfile = (typeof SKINS)[number]['profile'];

@@ -3122,6 +3122,214 @@
         "h": 192
       }
     },
+    "skins/commander-femme/idle": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/blink": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/walk_0": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/walk_1": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/walk_2": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/walk_3": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/jump": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/fall": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/land": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/hurt": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/aim": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/throw": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/melee": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/rope": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/defeat": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commander-femme/win": {
+      "file": "commander-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
     "skins/weapons/bazooka": {
       "file": "weapons.png",
       "w": 32,
@@ -3386,7 +3594,7 @@
   "unavailable": {
     "dominatrix": {
       "state": "blocked",
-      "reason": "The built-in image generator rejected the animation request (sexual moderation). No animation atlas was produced. Awaiting owner choice of a non-erotic costume alternative or concept-only status."
+      "reason": "The original animation request remains blocked and concept-only after a sexual moderation refusal. Owner approved a non-erotic closed-uniform alternative, delivered as a distinct commander-femme identity, not a retry of the rejected costume."
     }
   }
 }
