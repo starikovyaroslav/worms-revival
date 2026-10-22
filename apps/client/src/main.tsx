@@ -14,8 +14,10 @@ import {
   ManifestError,
   ZOOM_LEVELS,
   assets,
-  PAINTED_MEADOW_PACK,
-  paintedMeadowReady,
+  PAINTED_PACKS,
+  PAINTED_VARIANT,
+  paintedBiomeReady,
+  paintedCommonReady,
 } from '@wr/render';
 import { installGlobalHandlers, showFatal, showWarning } from './fatal';
 import { Match } from './match';
@@ -35,7 +37,7 @@ function applyCssVars(vp: Viewport): void {
 
 async function boot() {
   const params = new URLSearchParams(location.search);
-  const wantsPainted = params.get('visual') === 'painted';
+  const wantsPainted = params.get('visual') !== 'pixel';
   // Pixel art: every texture is sampled with nearest unless it opts into linear (glows, lights).
   TextureStyle.defaultOptions.scaleMode = 'nearest';
   // One module decides the integer scale; this controller only reports changes (see viewport.ts).
@@ -51,8 +53,8 @@ async function boot() {
       width: vp0.cssW,
       height: vp0.cssH,
       background: '#0b1020',
-      antialias: false,
-      roundPixels: true,
+      antialias: wantsPainted,
+      roundPixels: !wantsPainted,
       preference: 'webgl',
       autoDensity: true,
       resolution: vp0.dpr,
@@ -83,13 +85,20 @@ async function boot() {
     showWarning('Не удалось загрузить шрифты: текст может выглядеть иначе.');
   // Artwork is optional: anything missing falls back to the built-in drawing. A broken manifest is fatal.
   try {
-    for (const pack of ART_PACKS)
-      await assets.load(`${import.meta.env.BASE_URL}${pack}`.replace(/\/\//g, '/'), __BUILD_ID__);
-    if (wantsPainted)
-      await assets.load(
-        `${import.meta.env.BASE_URL}${PAINTED_MEADOW_PACK}`.replace(/\/\//g, '/'),
-        __BUILD_ID__,
-      );
+    const load = (pack: string) =>
+      assets.load(`${import.meta.env.BASE_URL}${pack}`.replace(/\/\//g, '/'), __BUILD_ID__);
+    if (wantsPainted) {
+      // Painted scenes need character atlases, not hundreds of unused legacy body frames.
+      await Promise.all(['assets/skins', ...PAINTED_PACKS].map(load));
+    }
+    if (
+      !wantsPainted ||
+      !assets.has('skins/classic/idle') ||
+      !paintedCommonReady() ||
+      !['meadow', 'desert', 'arctic', 'hell'].every(paintedBiomeReady)
+    ) {
+      for (const pack of ART_PACKS) await load(pack);
+    }
   } catch (err) {
     showFatal(err instanceof ManifestError ? 'manifest' : 'startup', err);
     return;
@@ -100,7 +109,9 @@ async function boot() {
   let lastConfig = defaultConfig();
 
   const showMenu = () => {
-    delete document.body.dataset.visual;
+    const painted = wantsPainted && paintedCommonReady();
+    document.body.dataset.visual = painted ? 'painted' : 'pixel';
+    assets.setVariant(painted ? PAINTED_VARIANT : null);
     match?.destroy();
     match = null;
     app.render();
@@ -125,8 +136,9 @@ async function boot() {
   };
 
   const start = (cfg: MatchConfig, replay?: Replay) => {
-    const painted = wantsPainted && cfg.themeId === 'meadow' && paintedMeadowReady();
+    const painted = wantsPainted && paintedBiomeReady(cfg.themeId) && paintedCommonReady();
     document.body.dataset.visual = painted ? 'painted' : 'pixel';
+    assets.setVariant(painted ? PAINTED_VARIANT : null);
     assets.setSampling('skins/', painted ? 'linear' : 'nearest');
     if (!replay) lastConfig = cfg;
     match?.destroy();

@@ -50,11 +50,11 @@ export class GameScene {
   private water: WaterView;
   private entityLayer = new Container();
   private wormLayer = new Container();
-  private aim = new AimView();
+  private aim: AimView;
   /** Camera-transformed like `world`, but drawn above the lights. */
   private aimLayer = new Container();
   private targetView = new TargetView();
-  private speech = new SpeechView();
+  private speech: SpeechView;
   /** Text drawn at a fixed pixel size above the zoomed world (labels, speech, damage numbers). */
   private labelLayer = new Container();
   /** Arrows at the screen edge for the active worm and crates that are out of view. */
@@ -95,15 +95,17 @@ export class GameScene {
     private readonly teamSkins: readonly CharacterAppearance[] = [],
   ) {
     this.viewCtx = createViewContext(game.world, game.rules);
+    this.aim = new AimView(theme.artStyle === 'painted');
+    this.speech = new SpeechView(theme.artStyle === 'painted');
     this.viewCtx.vfxNamespace = theme.artStyle === 'painted' ? 'painted/vfx' : 'vfx';
     const terrain = game.world.terrain;
     this.camera = new Camera(terrain);
 
     this.background = new Background(theme, terrain.width, terrain.height, seed);
     this.terrainView = new TerrainView(terrain, theme);
-    this.burnMarks = new BurnMarks(terrain);
+    this.burnMarks = new BurnMarks(terrain, theme.artStyle === 'painted');
     this.water = new WaterView(theme, terrain);
-    this.fx = new Fx(theme.soil.base);
+    this.fx = new Fx(theme.soil.base, theme.artStyle === 'painted');
     this.effects = new EffectsSystem(
       {
         shake: (p) => this.camera.shake(p),
@@ -196,7 +198,7 @@ export class GameScene {
             SKINS.filter((s) => assets.has(`skins/${s.id}/idle`)).map((s) => s.id),
           );
           const skin = resolveTeamVariant(selected, Math.max(0, index), available);
-          const v = new WormView(e, skin);
+          const v = new WormView(e, skin, this.viewCtx.vfxNamespace === 'painted/vfx');
           v.setLabelScale(this.labelScale);
           this.worms.set(e.id, v);
           this.wormLayer.addChild(v.container);

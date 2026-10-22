@@ -8,6 +8,91 @@ body {
   user-select: none;
 }
 
+/* Painted UI is a code-native skin; text, focus states and interactions stay real DOM. */
+body[data-visual='painted'] #ui * {
+  font-family: system-ui, sans-serif;
+  image-rendering: auto;
+}
+body[data-visual='painted'] #ui .px-panel {
+  border: 1px solid #92937a;
+  border-radius: 4px;
+  background: #17252bf2;
+  box-shadow: 0 3px 10px #0005;
+}
+body[data-visual='painted'] #ui .btn {
+  border: 1px solid #d4bf85;
+  border-radius: 4px;
+  background: linear-gradient(#e6c87b, #ba9653);
+  box-shadow: 0 2px 4px #0005;
+  color: #19262b;
+  transition:
+    filter 120ms,
+    transform 120ms;
+}
+body[data-visual='painted'] #ui .btn:hover:not(:disabled) {
+  filter: brightness(1.12);
+}
+body[data-visual='painted'] #ui .btn.secondary {
+  background: linear-gradient(#364c58, #263840);
+  border-color: #6d818c;
+  color: #f5ecd2;
+}
+body[data-visual='painted'] #ui .btn.danger {
+  background: linear-gradient(#a64b40, #78362f);
+  border-color: #d38a72;
+  color: #fff0db;
+}
+body[data-visual='painted'] #ui .btn:disabled {
+  opacity: 0.5;
+  filter: grayscale(0.65);
+  cursor: not-allowed;
+}
+body[data-visual='painted'] #ui .btn:focus-visible {
+  outline: 2px solid #9be9ef;
+  outline-offset: 3px;
+}
+body[data-visual='painted'] #ui .menu select,
+body[data-visual='painted'] #ui .menu input {
+  border: 1px solid #7c8c8c;
+  border-radius: 3px;
+  background: #101d26;
+  box-shadow: none;
+  color: #f5ecd2;
+}
+body[data-visual='painted'] #ui .wormpot-slots {
+  background: #101d26;
+  border: 1px solid #92937a;
+  border-radius: 5px;
+  box-shadow: none;
+}
+body[data-visual='painted'] #ui .wormpot-slot {
+  background: linear-gradient(#2e4149, #1b2b34);
+  border: 1px solid #7c8c8c;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #f5ecd2;
+}
+body[data-visual='painted'] #ui .wp-name {
+  font-size: 8px;
+}
+body[data-visual='painted'] #ui .slot {
+  border: 1px solid #61737b;
+  border-radius: 2px;
+  box-shadow: none;
+}
+body[data-visual='painted'] #ui .slot.selected {
+  border-color: #e6c87b;
+  box-shadow: 0 0 0 1px #e6c87b;
+}
+body[data-visual='painted'] #ui .slot-img {
+  mix-blend-mode: normal;
+}
+body[data-visual='painted'] #ui .map-preview {
+  border: 1px solid #61737b;
+  border-radius: 3px;
+  box-shadow: none;
+}
+
 /* Optional painted meadow: live HUD, not text baked into the concept image.
    Keep all sizes in viewport logical units; camera zoom never scales the HUD. */
 body[data-visual='painted'] .hud {

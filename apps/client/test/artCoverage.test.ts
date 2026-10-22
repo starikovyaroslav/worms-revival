@@ -9,6 +9,11 @@ import military from '../public/assets/military/manifest.json';
 import skins from '../public/assets/skins/manifest.json';
 import painted from '../public/assets/painted-meadow/manifest.json';
 import { PAINTED_MEADOW_REQUIRED } from '@wr/render';
+import { PAINTED_PACKS, PAINTED_COMMON_REQUIRED, PAINTED_VARIANT } from '@wr/render';
+import paintedDesert from '../public/assets/painted-desert/manifest.json';
+import paintedArctic from '../public/assets/painted-arctic/manifest.json';
+import paintedHell from '../public/assets/painted-hell/manifest.json';
+import paintedCommon from '../public/assets/painted-common/manifest.json';
 
 const packs = [legacy, generated, arsenal, vfx, military, skins];
 const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
@@ -17,6 +22,40 @@ const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
 >;
 
 describe('shipped artwork coverage', () => {
+  it('covers every active arsenal icon, prop, creature, equipment assembly and VFX in the painted overlay', () => {
+    expect(PAINTED_PACKS).toHaveLength(5);
+    const entries = paintedCommon.assets as Record<
+      string,
+      { w: number; h: number; sampling: string }
+    >;
+    for (const id of PAINTED_COMMON_REQUIRED) expect(entries[id], id).toBeDefined();
+    for (const weapon of RULESET.weapons)
+      expect(entries[`${PAINTED_VARIANT}weapons/icon/${weapon.id}`]).toBeDefined();
+    for (const [id, a] of Object.entries(entries)) {
+      expect(id.startsWith(PAINTED_VARIANT)).toBe(true);
+      expect(a.sampling).toBe('linear');
+      if (
+        merged[id.slice(PAINTED_VARIANT.length)] &&
+        !id.includes('/ui/') &&
+        !id.includes('/bg/') &&
+        !id.includes('/terrain/')
+      )
+        expect([a.w, a.h], id).toEqual([
+          merged[id.slice(PAINTED_VARIANT.length)]!.w,
+          merged[id.slice(PAINTED_VARIANT.length)]!.h,
+        ]);
+    }
+    for (const [theme, pack] of [
+      ['desert', paintedDesert],
+      ['arctic', paintedArctic],
+      ['hell', paintedHell],
+    ] as const) {
+      expect(Object.keys(pack.assets)).toHaveLength(10);
+      for (const layer of ['sky', 'far', 'mid', 'near'])
+        expect(pack.assets).toHaveProperty(`painted/bg/${theme}/${layer}`);
+      expect(pack.assets).toHaveProperty(`painted/water/${theme}`);
+    }
+  });
   it('ships an isolated optional painted pack at native density with smooth sampling', () => {
     expect(Object.keys(painted.assets)).toHaveLength(26);
     expect(painted.style).toBe('painted');

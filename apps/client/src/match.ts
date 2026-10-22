@@ -8,7 +8,7 @@ import {
   type MatchConfig,
   type Replay,
 } from '@wr/content';
-import { themeById, assets, SKINS, resolveTeamVariant, paintedMeadowTheme } from '@wr/render';
+import { themeById, assets, SKINS, resolveTeamVariant, paintedTheme } from '@wr/render';
 import { FixedLoop } from './loop';
 import { Input } from './input';
 import { settingsStore } from './settings';
@@ -73,7 +73,7 @@ export class Match {
       })),
     };
     this.recorder = new ReplayRecorder(presentationConfig);
-    const visualTheme = paintedMeadowTheme(themeById(config.themeId), painted);
+    const visualTheme = paintedTheme(themeById(config.themeId), painted);
     const scene = new GameScene(
       app,
       viewport,

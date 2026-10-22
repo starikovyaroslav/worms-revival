@@ -11,7 +11,14 @@ export function drawMapPreview(
   const map = generateMap({ seed, style });
   const t = map.terrain;
   const theme = THEMES.find((x) => x.id === themeId) ?? THEMES[0]!;
-  const scale = Math.ceil(t.width / canvas.width);
+  const painted = !!assets.variantPrefix;
+  const target = painted
+    ? Math.max(
+        320,
+        Math.min(1280, Math.round(canvas.getBoundingClientRect().width * window.devicePixelRatio)),
+      )
+    : canvas.width;
+  const scale = painted ? t.width / target : Math.ceil(t.width / target);
   const w = Math.floor(t.width / scale);
   const h = Math.floor(t.height / scale);
   canvas.width = w;
@@ -38,7 +45,14 @@ export function drawMapPreview(
         c = sampled >= 0 ? rgb(sampled) : surface ? grass : soil;
       } else if (wy >= map.waterLevel) c = water;
       else {
-        if (skyArt) c = rgb(artPixel(skyArt, wx, Math.floor((y / h) * (skyArt.h - 1))));
+        if (skyArt)
+          c = rgb(
+            artPixel(
+              skyArt,
+              (x / w) * ((skyArt.logicalW ?? skyArt.w) - 1),
+              (y / h) * ((skyArt.logicalH ?? skyArt.h) - 1),
+            ),
+          );
         else {
           const k = y / h;
           c = skyTop.map((v, i) => v + ((sky[i] as number) - v) * k);
