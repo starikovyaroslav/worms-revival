@@ -1,0 +1,36 @@
+{
+  "mode": "built-in imagegen",
+  "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+  "prompts": "tools/art/painted-expansion-prompts.json",
+  "masters": {
+    "sky": {
+      "path": "assets-in/painted-expansion/hell-sky.png",
+      "sha256": "ad4827a2d923184180bf046132d76a67f344a29ab0121c876bd7137cb9c4ec6c"
+    },
+    "far": {
+      "path": "assets-in/painted-expansion/hell-far.png",
+      "sha256": "c0787fbb82d848aa271e59ef2a95bb136e37e28faa68389363a6218a87188699"
+    },
+    "mid": {
+      "path": "assets-in/painted-expansion/hell-mid.png",
+      "sha256": "0f6604805e7582c0ccab9524aec59db278741c1755a7b14b87889c708e6e5110"
+    },
+    "near": {
+      "path": "assets-in/painted-expansion/hell-near.png",
+      "sha256": "317349ddae4e58301a8a1fa6c8e568b4f881775103a295843111e708530ccf94"
+    },
+    "soil": {
+      "path": "assets-in/painted-expansion/hell-soil.png",
+      "sha256": "ed01ddf9503352140febf38d95af7ad3e4b2af13b0e91a12257f5d8ec9ee4aa9"
+    },
+    "water": {
+      "path": "assets-in/painted-expansion/hell-water.png",
+      "sha256": "331a4639f820f9120db805bd679b60d17b867b207a8f35c93566f53cdf25e409"
+    },
+    "edges": {
+      "path": "assets-in/painted-expansion/hell-edges.png",
+      "sha256": "86f9ea6b58094566449e88ea82bf5dc3b08c5341953758184275da8bd4672425"
+    }
+  },
+  "export": "tools/art/painted-biomes.mjs"
+}

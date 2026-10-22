@@ -1,0 +1,152 @@
+{
+  "painted/bg/hell/sky": {
+    "colors": 46686,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/hell/far": {
+    "colors": 16719,
+    "transparent": 855967,
+    "partialAlpha": 717077,
+    "alphaLevels": 256,
+    "pixels": [
+      2161,
+      728
+    ],
+    "display": [
+      540.25,
+      182
+    ],
+    "seam": "x"
+  },
+  "painted/bg/hell/mid": {
+    "colors": 24188,
+    "transparent": 716837,
+    "partialAlpha": 855509,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/hell/near": {
+    "colors": 14005,
+    "transparent": 708688,
+    "partialAlpha": 863636,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/hell/fill": {
+    "colors": 163026,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      1254,
+      1254
+    ],
+    "display": [
+      256,
+      256
+    ],
+    "seam": "xy"
+  },
+  "painted/water/hell": {
+    "colors": 32144,
+    "transparent": 547052,
+    "partialAlpha": 1025443,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      256,
+      80
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/hell/rim": {
+    "colors": 45491,
+    "transparent": 22083,
+    "partialAlpha": 203675,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/hell/under": {
+    "colors": 24056,
+    "transparent": 71321,
+    "partialAlpha": 155724,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/hell/scorch": {
+    "colors": 40026,
+    "transparent": 36332,
+    "partialAlpha": 190722,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/hell/rock": {
+    "colors": 36379,
+    "transparent": 33680,
+    "partialAlpha": 193192,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  }
+}

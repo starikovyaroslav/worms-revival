@@ -1,0 +1,86 @@
+{
+  "version": 2,
+  "style": "painted",
+  "assets": {
+    "painted/bg/hell/sky": {
+      "file": "sky.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/bg/hell/far": {
+      "file": "far.png",
+      "w": 540.25,
+      "h": 182,
+      "pixelW": 2161,
+      "pixelH": 728,
+      "sampling": "linear"
+    },
+    "painted/bg/hell/mid": {
+      "file": "mid.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/bg/hell/near": {
+      "file": "near.png",
+      "w": 543,
+      "h": 181,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/terrain/hell/fill": {
+      "file": "soil.png",
+      "w": 256,
+      "h": 256,
+      "pixelW": 1254,
+      "pixelH": 1254,
+      "sampling": "linear"
+    },
+    "painted/water/hell": {
+      "file": "water.png",
+      "w": 256,
+      "h": 80,
+      "pixelW": 2172,
+      "pixelH": 724,
+      "sampling": "linear"
+    },
+    "painted/terrain/hell/rim": {
+      "file": "rim.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/terrain/hell/under": {
+      "file": "under.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/terrain/hell/scorch": {
+      "file": "scorch.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    },
+    "painted/terrain/hell/rock": {
+      "file": "rock.png",
+      "w": 256,
+      "h": 16,
+      "pixelW": 1774,
+      "pixelH": 128,
+      "sampling": "linear"
+    }
+  }
+}
