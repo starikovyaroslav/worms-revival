@@ -20,6 +20,8 @@ export * from './fx';
 export * from './labelScale';
 export * from './lighting';
 export * from './assets';
+export * from './skins';
+export * from './weaponMounts';
 export * from './arsenalArt';
 export * from './clipEffects';
 export * from './vfxCatalog';

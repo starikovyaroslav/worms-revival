@@ -34,6 +34,54 @@ async function load(entries: Record<string, AssetEntry>) {
 }
 
 describe('texture density is not game-world size', () => {
+  it('extracts independent native atlas frames sharing one GPU source', async () => {
+    const atlas = new Texture({
+      source: new BufferImageSource({
+        resource: new Uint8Array(8 * 4 * 4),
+        width: 8,
+        height: 4,
+      }),
+    });
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          version: 2,
+          assets: {
+            'atlas/one': {
+              file: 'shared.png',
+              w: 24,
+              h: 24,
+              pixelW: 4,
+              pixelH: 4,
+              frame: { x: 0, y: 0, w: 4, h: 4 },
+            },
+            'atlas/two': {
+              file: 'shared.png',
+              w: 24,
+              h: 24,
+              pixelW: 4,
+              pixelH: 4,
+              frame: { x: 4, y: 0, w: 4, h: 4 },
+            },
+            'atlas/bad': { file: 'shared.png', w: 24, h: 24, frame: { x: 7, y: 0, w: 4, h: 4 } },
+          },
+        }),
+      }),
+    );
+    vi.spyOn(Assets, 'load').mockImplementation((async () => atlas) as typeof Assets.load);
+    await assets.load('test-atlas');
+    const first = assets.get('atlas/one')!,
+      second = assets.get('atlas/two')!;
+    expect(first).not.toBe(second);
+    expect(first.source).toBe(second.source);
+    expect(first.width).toBe(4);
+    expect(second.frame.x).toBe(4);
+    expect(artSprite('atlas/two')!.width).toBe(24);
+    expect(assets.has('atlas/bad')).toBe(false);
+    expect(atlas.destroyed).toBe(false);
+  });
   it('preserves facing, frame footprint and matching tint layers after texture swaps', async () => {
     await load({
       'density/pose': { file: 'pose.png', w: 32, h: 32, pixelW: 128, pixelH: 128 },

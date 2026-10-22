@@ -1,4 +1,4 @@
-import { Assets, type Texture } from 'pixi.js';
+import { Assets, Rectangle, Texture } from 'pixi.js';
 
 /** Ordered overlays: supplemental packs never replace files in the previous packs. */
 export const ART_PACKS = [
@@ -7,6 +7,7 @@ export const ART_PACKS = [
   'assets/arsenal',
   'assets/vfx',
   'assets/military',
+  'assets/skins',
 ] as const;
 
 /** Decoded art for the CPU-painted destructible terrain and map preview. */
@@ -27,6 +28,8 @@ export interface AssetEntry extends AssetSize {
   /** Physical PNG dimensions; w/h above remain world/display units. Legacy packs omit these. */
   pixelW?: number;
   pixelH?: number;
+  /** A native-pixel rectangle in a shared atlas; pixelW/H describe this frame, not the atlas. */
+  frame?: { x: number; y: number; w: number; h: number };
 }
 
 /** Resolution-independent manifest: image pixels never define collision or display size. */
@@ -90,7 +93,25 @@ export class AssetStore {
     await Promise.all(
       Object.entries(manifest.assets).map(async ([id, a]) => {
         try {
-          const tex = (await Assets.load(`${baseUrl}/${a.file}${q}`)) as Texture;
+          const atlas = (await Assets.load(`${baseUrl}/${a.file}${q}`)) as Texture;
+          const f = a.frame;
+          if (
+            f &&
+            (!Number.isInteger(f.x) ||
+              !Number.isInteger(f.y) ||
+              !Number.isInteger(f.w) ||
+              !Number.isInteger(f.h) ||
+              f.x < 0 ||
+              f.y < 0 ||
+              f.w <= 0 ||
+              f.h <= 0 ||
+              f.x + f.w > atlas.width ||
+              f.y + f.h > atlas.height)
+          )
+            throw new Error(`Invalid atlas frame: ${id}`);
+          const tex = f
+            ? new Texture({ source: atlas.source, frame: new Rectangle(f.x, f.y, f.w, f.h) })
+            : atlas;
           // Pixel art: never blur it when scaled.
           tex.source.scaleMode = 'nearest';
           this.sizes.set(tex, { w: a.w, h: a.h });
@@ -122,7 +143,18 @@ export class AssetStore {
       canvas.height = tex.height;
       const ctx = canvas.getContext('2d', { willReadFrequently: true });
       if (!ctx) return undefined;
-      ctx.drawImage(tex.source.resource as CanvasImageSource, 0, 0);
+      const f = tex.frame;
+      ctx.drawImage(
+        tex.source.resource as CanvasImageSource,
+        f.x,
+        f.y,
+        f.width,
+        f.height,
+        0,
+        0,
+        canvas.width,
+        canvas.height,
+      );
       const result = {
         w: canvas.width,
         h: canvas.height,

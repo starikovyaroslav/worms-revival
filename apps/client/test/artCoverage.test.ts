@@ -1,19 +1,41 @@
 import { describe, expect, it } from 'vitest';
 import { RULESET } from '@wr/content';
-import { ART_PACKS, GENERATED_PROJECTILES } from '@wr/render';
+import { ART_PACKS, GENERATED_PROJECTILES, SKINS, SKIN_POSES, WEAPON_MOUNTS } from '@wr/render';
 import legacy from '../public/assets/manifest.json';
 import generated from '../public/assets/generated/manifest.json';
 import arsenal from '../public/assets/arsenal/manifest.json';
 import vfx from '../public/assets/vfx/manifest.json';
 import military from '../public/assets/military/manifest.json';
+import skins from '../public/assets/skins/manifest.json';
 
-const packs = [legacy, generated, arsenal, vfx, military];
+const packs = [legacy, generated, arsenal, vfx, military, skins];
 const merged = Object.assign({}, ...packs.map((p) => p.assets)) as Record<
   string,
   { file: string; w: number; h: number }
 >;
 
 describe('shipped artwork coverage', () => {
+  it('assigns an explicit size and mounting role to every weapon, including non-held utilities', () => {
+    expect([...WEAPON_MOUNTS.keys()].sort()).toEqual(RULESET.weapons.map((w) => w.id).sort());
+    for (const mount of WEAPON_MOUNTS.values()) {
+      expect(Number.isFinite(mount.width)).toBe(true);
+      expect(mount.width).toBeGreaterThanOrEqual(0);
+      expect(mount.grip.every((v) => v >= 0 && v <= 1)).toBe(true);
+    }
+  });
+  it('ships a full pose set for each available identity and explicitly reports unavailable art', () => {
+    for (const skin of SKINS) {
+      if (skin.id === 'dominatrix') {
+        expect(skins.unavailable.dominatrix.state).toBe('blocked');
+        expect(Object.keys(skins.assets).some((id) => id.startsWith(`skins/${skin.id}/`))).toBe(
+          false,
+        );
+      } else
+        for (const pose of SKIN_POSES) {
+          expect(skins.assets).toHaveProperty(`skins/${skin.id}/${pose}`);
+        }
+    }
+  });
   it('checks the same ordered packs that startup actually loads', () => {
     expect(ART_PACKS).toEqual([
       'assets',
@@ -21,6 +43,7 @@ describe('shipped artwork coverage', () => {
       'assets/arsenal',
       'assets/vfx',
       'assets/military',
+      'assets/skins',
     ]);
     expect(packs.every((p) => p.version === 2 && p.style === 'pixel')).toBe(true);
   });

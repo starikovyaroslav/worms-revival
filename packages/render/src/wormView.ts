@@ -2,6 +2,7 @@ import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import { assets } from './assets';
 import { clipTextures } from './clipEffects';
 import { scaleArt } from './views/common';
+import { SkinActor } from './skinActor';
 import { cos, sin, type Worm } from '@wr/sim';
 import {
   DEFAULT_LABEL_SCALE,
@@ -59,8 +60,12 @@ export class WormView {
   /** Use animation (`act/<weapon>_N`) that is playing, and how long it has been going. */
   private act: { weapon: string; t: number } | null = null;
   private wasAirborne = false;
+  readonly skinActor: SkinActor | null;
 
-  constructor(readonly worm: Worm) {
+  constructor(
+    readonly worm: Worm,
+    skinId?: string,
+  ) {
     const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
     const font = {
       fontFamily: '"Press Start 2P", monospace',
@@ -84,7 +89,10 @@ export class WormView {
     this.drawPlates();
     this.drawArrow(color);
     this.label.addChild(this.arrow);
-    if (assets.has('worm/idle_0')) {
+    this.skinActor = SkinActor.create(skinId, color);
+    if (this.skinActor) {
+      this.container.addChild(this.skinActor.container, this.ice);
+    } else if (assets.has('worm/idle_0')) {
       const body = new Sprite();
       const band = new Sprite();
       for (const s of [body, band]) s.anchor.set(0.5, 22 / 24);
@@ -171,6 +179,10 @@ export class WormView {
 
   /** Starts the use animation of a weapon (throw, punch, torch...), if the art has one. */
   playAct(weapon: string): void {
+    if (this.skinActor) {
+      this.skinActor.playAct(weapon);
+      return;
+    }
     if (assets.has(`act/${weapon}_0`)) this.act = { weapon, t: 0 };
   }
 
@@ -239,6 +251,7 @@ export class WormView {
     hold = '',
     /** Show the turn arrow above this worm. */
     arrow = false,
+    endPose?: 'win' | 'defeat',
   ): void {
     const w = this.worm;
     const dt = dtMs / 1000;
@@ -250,8 +263,11 @@ export class WormView {
     else this.container.position.set(x, y);
     this.container.visible = w.alive || !w.drowned;
     if (!w.alive) {
-      this.container.visible = false;
+      this.skinActor?.update(w, dtMs, '', 'defeat');
+      this.container.visible = !!this.skinActor?.container.visible;
       this.label.visible = false;
+      this.poison.visible = false;
+      this.ice.visible = false;
       return;
     }
     this.poison.visible = w.poisoned && this.poisonFrames.length > 0;
@@ -269,7 +285,9 @@ export class WormView {
     if (w.state === 'airborne' && w.blasted) this.spin += (w.vx >= 0 ? 1 : -1) * dt * 14;
     else this.spin = 0;
 
-    if (this.pixel) {
+    if (this.skinActor) {
+      this.skinActor.update(w, dtMs, hold, endPose);
+    } else if (this.pixel) {
       // Short reactions: flinch when hurt, squash when landing.
       if (w.health < this.lastHealth) this.hurtTimer = 0.45;
       this.lastHealth = w.health;
