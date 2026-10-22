@@ -1,0 +1,8 @@
+Use case: stylized-concept.
+Asset type: production 2x2 game-equipment PARTS sprite sheet for a detailed early-2000s raster artillery game.
+Composition: square 1024x1024, EXACT two equal columns and two equal rows, four isolated objects, each complete and centered in its cell, generous truly transparent gutters, no object touches a cell edge.
+ROW1 LEFT: an olive military mortar BASE ONLY, side view facing right. Flat heavy baseplate on the ground with two short bipod supports and a small pivot socket on top. NO barrel attached. Mechanical steel/olive material detail, readable squat silhouette.
+ROW1 RIGHT: the matching separate mortar BARREL ONLY, horizontal pointing RIGHT, a single long thick hollow olive steel tube, visible dark open muzzle at the right end, small mounting lug near the left/breech end. NO baseplate, legs or bipod. This tube will be rotated around its breech lug independently in the game. Straight side view.
+ROW2 LEFT: small rugged olive handheld military RADIO with short antenna, dark speaker grille, silver knobs and a small amber display, side/three-quarter view. No text.
+ROW2 RIGHT: compact handheld electrical DETONATOR remote with a large red covered button, small coiled cable and dark steel casing, side/three-quarter view. No text.
+Style: crisp fine raster/pixel-controlled outlines and volumetric detailed painted shading, olive military steel, worn edges, muted material highlights, clear silhouette. Rich RGB and continuous alpha, not a forced 32-color palette or huge pixels. No characters, hands, scene, ground, cast shadows, muzzle flashes, explosions, lettering, numbers, labels, grids, borders or watermark. GENUINELY TRANSPARENT alpha background. Do not combine the four objects.

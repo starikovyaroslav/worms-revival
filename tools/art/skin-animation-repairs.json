@@ -1,0 +1,8 @@
+{
+  "classic/throw": {
+    "source": "assets-in/skins/repairs/classic-throw.png",
+    "reason": "The native 4x4 sheet clipped the rightmost fingers of the throw pose at its outer canvas edge.",
+    "reference": "docs/design/concepts/worm-skins-v1/classic.png",
+    "prompt": "Use case: identity-preserve. Asset type: one production game character THROW FOLLOW-THROUGH sprite. Image1 is the exact adult classic scrappy male worm identity reference. Preserve his red headband, face, body segmentation, skin colors and cartoon raster shading. Draw one complete full-body worm facing RIGHT in side/three-quarter view, leaning forward with ONE EMPTY HAND extended right after throwing, other hand bent at chest. No thrown object. Keep worm tail curled trailing left, no legs. Genuinely transparent alpha, square canvas, character occupies only central 65 percent with wide transparent margins on every side, especially beyond outstretched fingers. All fingers, tail and headband fully visible, no cropping. No floor, shadows, text, extra characters, props or scenery. Fine crisp outlines, high-resolution shaded early-2000s raster game art, no forced palette or large pixel blocks."
+  }
+}

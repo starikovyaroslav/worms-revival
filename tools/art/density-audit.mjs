@@ -18,17 +18,26 @@ export function audit() {
   walk(base);
   const problems = [],
     packs = [];
-  for (const pack of ['', 'generated', 'arsenal', 'vfx', 'military']) {
+  for (const pack of ['', 'generated', 'arsenal', 'vfx', 'military', 'skins']) {
     const manifest = JSON.parse(readFileSync(resolve(base, pack, 'manifest.json')));
+    const packFiles = new Set();
     let bytes = 0,
       minimumDensity = Infinity;
     for (const [id, a] of Object.entries(manifest.assets)) {
       const path = resolve(base, pack, a.file),
         png = readFileSync(path);
       referenced.add(path);
-      bytes += png.length;
-      const w = png.readUInt32BE(16),
-        h = png.readUInt32BE(20);
+      if (!packFiles.has(path)) bytes += png.length;
+      packFiles.add(path);
+      const atlasW = png.readUInt32BE(16),
+        atlasH = png.readUInt32BE(20);
+      const w = a.frame?.w ?? atlasW,
+        h = a.frame?.h ?? atlasH;
+      if (
+        a.frame &&
+        (a.frame.x < 0 || a.frame.y < 0 || a.frame.x + w > atlasW || a.frame.y + h > atlasH)
+      )
+        problems.push({ pack, id, invalidFrame: a.frame, atlas: [atlasW, atlasH] });
       const density = Math.min(w / a.w, h / a.h);
       const expected =
         pack === 'military' || id.startsWith('bg/') || id.startsWith('ui/')
@@ -50,7 +59,8 @@ export function audit() {
     }
     packs.push({
       pack: pack || 'legacy paths (rebuilt)',
-      images: Object.keys(manifest.assets).length,
+      images: packFiles.size,
+      frames: Object.keys(manifest.assets).length,
       minimumDensity,
       pngBytes: bytes,
     });

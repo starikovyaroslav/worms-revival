@@ -1,0 +1,3392 @@
+{
+  "version": 2,
+  "style": "pixel",
+  "assets": {
+    "skins/brutal/idle": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/blink": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/walk_0": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/walk_1": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/walk_2": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/walk_3": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/jump": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/fall": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/land": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/hurt": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/aim": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/throw": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/melee": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/rope": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/defeat": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/brutal/win": {
+      "file": "brutal.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/idle": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/blink": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/walk_0": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/walk_1": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/walk_2": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/walk_3": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/jump": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/fall": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/land": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/hurt": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/aim": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/throw": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/melee": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/rope": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/defeat": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft/win": {
+      "file": "soft.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/idle": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/blink": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/walk_0": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/walk_1": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/walk_2": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/walk_3": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/jump": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/fall": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/land": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/hurt": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/aim": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/throw": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/melee": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/rope": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/defeat": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-femme/win": {
+      "file": "glam-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/idle": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/blink": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/walk_0": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/walk_1": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/walk_2": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/walk_3": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/jump": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/fall": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/land": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/hurt": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/aim": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/throw": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/melee": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/rope": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/defeat": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-masc/win": {
+      "file": "glam-masc.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/idle": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/blink": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/walk_0": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/walk_1": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/walk_2": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/walk_3": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/jump": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/fall": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/land": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/hurt": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/aim": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/throw": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/melee": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/rope": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/defeat": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder/win": {
+      "file": "elder.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/idle": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/blink": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/walk_0": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/walk_1": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/walk_2": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/walk_3": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/jump": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/fall": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/land": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/hurt": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/aim": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/throw": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/melee": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/rope": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/defeat": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly/win": {
+      "file": "sickly.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/idle": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/blink": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/walk_0": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/walk_1": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/walk_2": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/walk_3": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/jump": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/fall": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/land": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/hurt": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/aim": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/throw": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/melee": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/rope": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/defeat": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran/win": {
+      "file": "veteran.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/idle": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/blink": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/walk_0": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/walk_1": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/walk_2": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/walk_3": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/jump": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/fall": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/land": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/hurt": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/aim": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/throw": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/melee": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/rope": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/defeat": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic/win": {
+      "file": "classic.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/idle": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/blink": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/walk_0": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/walk_1": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/walk_2": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/walk_3": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/jump": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/fall": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/land": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/hurt": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/aim": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/throw": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/melee": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/rope": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/defeat": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/commando-femme/win": {
+      "file": "commando-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/idle": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/blink": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/walk_0": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/walk_1": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/walk_2": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/walk_3": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/jump": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/fall": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/land": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/hurt": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/aim": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/throw": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/melee": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/rope": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/defeat": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/soft-femme/win": {
+      "file": "soft-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/idle": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/blink": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/walk_0": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/walk_1": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/walk_2": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/walk_3": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/jump": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/fall": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/land": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/hurt": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/aim": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/throw": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/melee": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/rope": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/defeat": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/glam-rocker/win": {
+      "file": "glam-rocker.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/idle": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/blink": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/walk_0": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/walk_1": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/walk_2": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/walk_3": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/jump": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/fall": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/land": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/hurt": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/aim": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/throw": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/melee": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/rope": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/defeat": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/elder-femme/win": {
+      "file": "elder-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/idle": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/blink": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/walk_0": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/walk_1": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/walk_2": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/walk_3": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/jump": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/fall": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/land": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/hurt": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/aim": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/throw": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/melee": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/rope": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/defeat": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/sickly-femme/win": {
+      "file": "sickly-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/idle": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/blink": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/walk_0": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/walk_1": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/walk_2": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/walk_3": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/jump": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/fall": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/land": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/hurt": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/aim": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/throw": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/melee": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/rope": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/defeat": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/veteran-femme/win": {
+      "file": "veteran-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/idle": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/blink": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/walk_0": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/walk_1": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/walk_2": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/walk_3": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/jump": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/fall": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/land": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/hurt": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/aim": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/throw": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/melee": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/rope": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/defeat": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/classic-femme/win": {
+      "file": "classic-femme.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/bazooka": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/shotgun": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/handgun": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/uzi": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/minigun": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/mortar": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/blowtorch": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/prod": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/grenade": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/cluster": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/banana": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/hhg": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/dynamite": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/mine": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/arrow": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/weapons/madcow": {
+      "file": "weapons.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/equipment/mortar-base": {
+      "file": "equipment.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/equipment/mortar-barrel": {
+      "file": "equipment.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/equipment/radio": {
+      "file": "equipment.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "skins/equipment/detonator": {
+      "file": "equipment.png",
+      "w": 32,
+      "h": 32,
+      "pixelW": 192,
+      "pixelH": 192,
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      }
+    }
+  },
+  "unavailable": {
+    "dominatrix": {
+      "state": "blocked",
+      "reason": "The built-in image generator rejected the animation request (sexual moderation). No animation atlas was produced. Awaiting owner choice of a non-erotic costume alternative or concept-only status."
+    }
+  }
+}
