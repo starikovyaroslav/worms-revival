@@ -2,18 +2,20 @@
 
 ## Current production pipeline
 
-Use `npm run art:desktop` to rebuild **all 716 PNGs** from native masters, preserving RGB and
+Use `npm run art:desktop` to rebuild **all 732 PNGs** from native masters, preserving RGB and
 continuous alpha. `npm run art:audit` inventories every on-disk PNG; `npm run art:test` checks
 dimensions, visibility, crop/animation contracts and RGBA preservation.
 See [current delivery](../../docs/design/asset-delivery.md) for sources, scope and browser QA.
 The historical `ingest.mjs` / `arsenal.mjs` quantized CLI entrypoints below are disabled.
 Their helpers remain only for old algorithm regression tests and source IO/geometry.
 
-`npm run art:skins` rebuilds 16 character atlases and two equipment atlases, plus the offline
+`npm run art:skins` rebuilds 32 character atlases and two equipment atlases, plus the offline
 pose viewer. Masters: ignored `assets-in/skins/`; exact built-in-imagegen prompts:
 `skin-animation-prompts.mjs`, `skin-animation-repairs.json`, `skin-equipment.prompt.txt`.
 The blocked dominatrix costume remains concept-only. A distinct closed-uniform commander
 was approved and added to that family; its exact prompt is `skin-commander.prompt.txt`.
+Four-member families: `skin-roster-prompts.mjs` adds 16 identities; spacing corrections
+are recorded in `skin-roster-repairs.json`. No crowded/ambiguous sheet is silently sliced.
 See [animation delivery](../../docs/design/worm-animations.md) for class capacities and limitations.
 Browser acceptance: `node tools/art/skin-game-check.mjs http://127.0.0.1:5174/`.
 
