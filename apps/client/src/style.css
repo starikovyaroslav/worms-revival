@@ -8,7 +8,8 @@ body {
   user-select: none;
 }
 
-/* Painted UI is a code-native skin; text, focus states and interactions stay real DOM. */
+/* Shared painted menu defaults. The HUD art pilot is in hud-painted.css.
+   Text, focus states and interactions stay real DOM. */
 body[data-visual='painted'] #ui * {
   font-family: system-ui, sans-serif;
   image-rendering: auto;

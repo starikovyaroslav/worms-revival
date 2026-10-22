@@ -27,6 +27,7 @@ export interface HudState {
   teams: TeamBar[];
   maxHp: number;
   weapon: {
+    id: string;
     name: string;
     fuse: number | null;
     bounce: string | null;
@@ -82,6 +83,7 @@ export function hudState(
     maxHp: game.scheme.wormHealth * game.scheme.wormsPerTeam,
     weapon: def
       ? {
+          id: def.id,
           name: weaponInfo(def.id).name,
           fuse: def.fuse ? game.fuseSeconds : null,
           bounce: def.bounce ? (game.bounceHigh ? 'Макс' : 'Мин') : null,

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import type { Game } from '@wr/sim';
+import { assets } from '@wr/render';
 import { hudState, type HudState } from './hudState';
 
 export interface Announcement {
@@ -14,7 +15,11 @@ function Wind({ wind }: { wind: number }) {
   const strength = Math.abs(wind);
   const bar = <div class="wind-bar" style={{ width: `${strength * 100}%` }} />;
   return (
-    <div class="wind px-panel" title="Ветер">
+    <div
+      class="wind px-panel"
+      title="Ветер"
+      aria-label={`Ветер: ${wind < 0 ? 'влево' : wind > 0 ? 'вправо' : 'штиль'}, ${Math.round(strength * 10)}`}
+    >
       <span class="wind-label">ВЕТЕР</span>
       <div class="wind-track">
         <div class="wind-half left">{wind < 0 && bar}</div>
@@ -135,7 +140,7 @@ export function Hud({
         <div class="teams">
           {s.teams.map((t) => (
             <div class={`team px-panel ${t.active ? 'active' : ''}`} key={t.name}>
-              <span class="team-name">
+              <span class="team-name" title={t.name}>
                 <i class="team-flag" style={{ background: t.color }} />
                 <span>{t.name}</span>
               </span>
@@ -156,9 +161,15 @@ export function Hud({
         <div class="right-box">
           {s.weapon && (
             <div class="weapon px-panel">
-              <b>{s.weapon.name}</b>
-              {s.weapon.fuse !== null && <span> · {s.weapon.fuse} с</span>}
-              {s.weapon.bounce && <span> · {s.weapon.bounce}</span>}
+              <img class="hud-weapon-icon" src={assets.url(`weapons/icon/${s.weapon.id}`)} alt="" />
+              <div class="hud-weapon-copy">
+                <span class="hud-weapon-label">ВООРУЖЕНИЕ</span>
+                <b>{s.weapon.name}</b>
+                <span class="hud-weapon-details">
+                  {s.weapon.fuse !== null && <span>Взрыватель · {s.weapon.fuse} с</span>}
+                  {s.weapon.bounce && <span> · Отскок: {s.weapon.bounce}</span>}
+                </span>
+              </div>
             </div>
           )}
           {s.firstTurn && <div class="weapon-hint first-hint">ПКМ / F1–F12 — выбор оружия</div>}

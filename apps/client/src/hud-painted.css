@@ -1,0 +1,198 @@
+/* Painted HUD pilot. Native RGBA art; all text and indicators remain live DOM.
+   Measurements are logical viewport pixels, independent of the world camera. */
+.hud-weapon-icon,
+.hud-weapon-label {
+  display: none;
+}
+body[data-visual='painted'] #ui .hud .timer-box,
+body[data-visual='painted'] #ui .hud .wind,
+body[data-visual='painted'] #ui .hud .team,
+body[data-visual='painted'] #ui .hud .weapon {
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  background: transparent center / 100% 100% no-repeat;
+  box-shadow: none;
+  filter: drop-shadow(0 2px 2px #0007);
+  color: #fff0ca;
+}
+body[data-visual='painted'] #ui .hud .timer-box {
+  background-image: url('/assets/painted-hud/timer.png');
+  top: 6px;
+  width: 76px;
+  height: 50px;
+  padding: 14px 12px 9px;
+  grid-template-columns: 1fr auto;
+  gap: 0 4px;
+}
+body[data-visual='painted'] #ui .hud .timer {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 1px 1px #000;
+}
+body[data-visual='painted'] #ui .hud .cap {
+  font-size: 6px;
+  letter-spacing: 0.6px;
+  color: #c6b98d;
+  text-align: left;
+}
+body[data-visual='painted'] #ui .hud .round {
+  font-size: 7px;
+  margin: 0;
+}
+body[data-visual='painted'] #ui .hud .wind {
+  background-image: url('/assets/painted-hud/wind.png');
+  width: 132px;
+  height: 34px;
+  top: 8px;
+  right: 9px;
+  padding: 8px 13px 10px;
+  gap: 4px;
+  font-size: 8px;
+}
+body[data-visual='painted'] #ui .hud .wind-label {
+  font-size: 6px;
+  color: #c6b98d;
+  letter-spacing: 0.5px;
+}
+body[data-visual='painted'] #ui .hud .wind-track {
+  width: 58px;
+  height: 5px;
+  background: #0b1312;
+  border-radius: 2px;
+}
+body[data-visual='painted'] #ui .hud .wind-bar {
+  background: linear-gradient(#f8de86, #a58039);
+  animation: none;
+}
+body[data-visual='painted'] #ui .hud .wind-num {
+  min-width: 14px;
+  font-size: 8px;
+}
+body[data-visual='painted'] #ui .hud .teams {
+  width: 178px;
+  left: 8px;
+  bottom: 9px;
+  gap: 3px;
+}
+body[data-visual='painted'] #ui .hud .team {
+  position: relative;
+  background-image: url('/assets/painted-hud/team.png');
+  height: 46px;
+  padding: 11px 14px 8px;
+  grid-template-columns: minmax(0, 1fr) 23px;
+  gap: 7px 4px;
+}
+body[data-visual='painted'] #ui .hud .team.active::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 18px;
+  width: 3px;
+  height: 10px;
+  background: #ffe49a;
+  border-radius: 1px;
+  box-shadow: 0 0 4px #ffd36b;
+}
+body[data-visual='painted'] #ui .hud .team-name {
+  font-size: 8px;
+  font-weight: 650;
+  color: #fff0ca;
+  gap: 4px;
+}
+body[data-visual='painted'] #ui .hud .team-flag {
+  width: 3px;
+  height: 7px;
+  border-radius: 1px;
+  box-shadow: none;
+}
+body[data-visual='painted'] #ui .hud .team-hp {
+  min-width: 0;
+  font-size: 9px;
+  font-weight: 750;
+}
+body[data-visual='painted'] #ui .hud .team-trough {
+  height: 4px;
+  margin: 0 7px;
+  background: #090f0c;
+  box-shadow: none;
+  border-radius: 1px;
+  overflow: hidden;
+}
+body[data-visual='painted'] #ui .hud .team-bar {
+  transition: width 250ms ease;
+}
+body[data-visual='painted'] #ui .hud .weapon {
+  background-image: url('/assets/painted-hud/weapon.png');
+  width: 148px;
+  max-width: none;
+  height: 58px;
+  bottom: 9px;
+  right: 8px;
+  padding: 12px 16px 12px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+body[data-visual='painted'] #ui .hud .hud-weapon-icon {
+  display: block;
+  width: 36px;
+  height: 28px;
+  object-fit: contain;
+}
+body[data-visual='painted'] #ui .hud .hud-weapon-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+body[data-visual='painted'] #ui .hud .hud-weapon-label {
+  display: block;
+  font-size: 5px;
+  letter-spacing: 0.7px;
+  color: #c6b98d;
+}
+body[data-visual='painted'] #ui .hud .weapon b {
+  font-size: 8px;
+  font-weight: 750;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+body[data-visual='painted'] #ui .hud .hud-weapon-details {
+  font-size: 6px;
+  color: #d2c6a6;
+}
+body[data-visual='painted'] #ui .hud .first-hint {
+  bottom: 70px;
+  right: 12px;
+  font-size: 6px;
+  color: #fff0ca;
+}
+body[data-visual='painted'] #ui .hud .hud-mods {
+  top: 47px;
+  right: 12px;
+}
+body[data-visual='painted'] #ui .hud .hint-line {
+  max-width: 222px;
+  bottom: 10px;
+  padding: 4px 7px;
+  border: 0;
+  border-top: 1px solid #c4a65a88;
+  border-radius: 2px;
+  background: #18201cd9;
+  font-size: 7px;
+  color: #f2dfad;
+}
+body[data-visual='painted'] #ui .hud .hint-line.warn {
+  color: #ffb19c;
+  border-color: #dd7157;
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-visual='painted'] #ui .hud .timer.urgent {
+    animation: none;
+  }
+  body[data-visual='painted'] #ui .hud .team-bar {
+    transition: none;
+  }
+}

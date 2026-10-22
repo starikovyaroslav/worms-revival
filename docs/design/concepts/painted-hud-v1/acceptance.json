@@ -1,0 +1,448 @@
+{
+  "results": [
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 482,
+          "right": 798,
+          "top": 665.21875,
+          "bottom": 700,
+          "background": "none"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 564,
+          "right": 716,
+          "top": 12,
+          "bottom": 112,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 372,
+          "top": 512,
+          "bottom": 604,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 372,
+          "top": 610,
+          "bottom": 702,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 968,
+          "right": 1264,
+          "top": 586,
+          "bottom": 702,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/weapon.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 998,
+          "right": 1262,
+          "top": 16,
+          "bottom": 84,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/wind.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 723,
+          "right": 1197,
+          "top": 997.828125,
+          "bottom": 1050,
+          "background": "none"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 846,
+          "right": 1074,
+          "top": 18,
+          "bottom": 168,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 24,
+          "right": 558,
+          "top": 768,
+          "bottom": 906,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 24,
+          "right": 558,
+          "top": 915,
+          "bottom": 1053,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1452,
+          "right": 1896,
+          "top": 879,
+          "bottom": 1053,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/weapon.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1497,
+          "right": 1893,
+          "top": 24,
+          "bottom": 126,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/wind.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "theme": "arctic",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 718.59375,
+          "right": 1201.40625,
+          "top": 997.828125,
+          "bottom": 1050,
+          "background": "none"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 846,
+          "right": 1074,
+          "top": 18,
+          "bottom": 168,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 24,
+          "right": 558,
+          "top": 768,
+          "bottom": 906,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 24,
+          "right": 558,
+          "top": 915,
+          "bottom": 1053,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1452,
+          "right": 1896,
+          "top": 879,
+          "bottom": 1053,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/weapon.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1497,
+          "right": 1893,
+          "top": 24,
+          "bottom": 126,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/wind.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "dpr": 1,
+      "theme": "hell",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 964,
+          "right": 1596,
+          "top": 1330.4375,
+          "bottom": 1400,
+          "background": "none"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 1128,
+          "right": 1432,
+          "top": 24,
+          "bottom": 224,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 32,
+          "right": 744,
+          "top": 1024,
+          "bottom": 1208,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 32,
+          "right": 744,
+          "top": 1220,
+          "bottom": 1404,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1936,
+          "right": 2528,
+          "top": 1172,
+          "bottom": 1404,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/weapon.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1996,
+          "right": 2524,
+          "top": 32,
+          "bottom": 168,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/wind.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "theme": "desert",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 482,
+          "right": 798,
+          "top": 665.21875,
+          "bottom": 700,
+          "background": "none"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 564,
+          "right": 716,
+          "top": 12,
+          "bottom": 112,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 372,
+          "top": 512,
+          "bottom": 604,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 372,
+          "top": 610,
+          "bottom": 702,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 968,
+          "right": 1264,
+          "top": 586,
+          "bottom": 702,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/weapon.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 998,
+          "right": 1262,
+          "top": 16,
+          "bottom": 84,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/wind.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 482,
+          "right": 798,
+          "top": 905.21875,
+          "bottom": 940,
+          "background": "none"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 564,
+          "right": 716,
+          "top": 12,
+          "bottom": 112,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 372,
+          "top": 752,
+          "bottom": 844,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 372,
+          "top": 850,
+          "bottom": 942,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 968,
+          "right": 1264,
+          "top": 826,
+          "bottom": 942,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/weapon.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 998,
+          "right": 1262,
+          "top": 16,
+          "bottom": 84,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/wind.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 4,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 482,
+          "right": 798,
+          "top": 665.21875,
+          "bottom": 700,
+          "background": "none"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 564,
+          "right": 716,
+          "top": 12,
+          "bottom": 112,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 372,
+          "top": 316,
+          "bottom": 408,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 372,
+          "top": 414,
+          "bottom": 506,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 372,
+          "top": 512,
+          "bottom": 604,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 372,
+          "top": 610,
+          "bottom": 702,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/team.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 968,
+          "right": 1264,
+          "top": 586,
+          "bottom": 702,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/weapon.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 998,
+          "right": 1262,
+          "top": 16,
+          "bottom": 84,
+          "background": "url(\"http://127.0.0.1:5174/assets/painted-hud/wind.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    }
+  ],
+  "errors": []
+}
