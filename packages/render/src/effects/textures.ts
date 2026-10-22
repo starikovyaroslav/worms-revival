@@ -211,19 +211,48 @@ export function createFxTextures(
   const paper = clipTextures('letter');
   const banana = assets.get('creatures/banana_1');
   const shared = new Set([...smoke, ...gas, ...paper, ...(banana ? [banana] : [])]);
+  const painted = namespace === 'painted/vfx';
+  const smooth = (texture: Texture) => {
+    texture.source.scaleMode = 'linear';
+    return texture;
+  };
+  const clod = (seed: number) => {
+    const [c, g] = canvas(48, 48);
+    const random = rng(seed),
+      gradient = g.createLinearGradient(0, 0, 48, 48);
+    gradient.addColorStop(0, '#ffffff');
+    gradient.addColorStop(1, '#777777');
+    g.fillStyle = gradient;
+    g.beginPath();
+    for (let i = 0; i < 7; i++) {
+      const angle = (i * Math.PI * 2) / 7,
+        radius = 13 + random() * 7;
+      const x = 24 + Math.cos(angle) * radius,
+        y = 24 + Math.sin(angle) * radius;
+      if (i === 0) g.moveTo(x, y);
+      else g.lineTo(x, y);
+    }
+    g.closePath();
+    g.fill();
+    return smooth(Texture.from(c));
+  };
   const result: Record<FxTextureId, Texture[]> = {
-    soft: [pixelate(softTexture(), 16, 16, 0.4)],
+    soft: [painted ? smooth(softTexture()) : pixelate(softTexture(), 16, 16, 0.4)],
     smoke: smoke.length ? smoke : [1, 2, 3, 4].map((n) => pixelate(smokeTexture(n), 16, 16, 0.3)),
-    spark: [pixelate(sparkTexture(), 8, 2, 0.35)],
-    ring: [pixelate(ringTexture(), 48, 48, 0.35)],
-    chunk: [1, 2, 3, 4].map((n) => clodTexture(n)),
-    ember: [pixelate(emberTexture(), 2, 2, 0.4)],
-    px: [pxTexture()],
+    spark: [painted ? smooth(sparkTexture()) : pixelate(sparkTexture(), 8, 2, 0.35)],
+    ring: [painted ? smooth(ringTexture()) : pixelate(ringTexture(), 48, 48, 0.35)],
+    chunk: [1, 2, 3, 4].map((n) => (painted ? clod(n) : clodTexture(n))),
+    ember: [painted ? smooth(emberTexture()) : pixelate(emberTexture(), 2, 2, 0.4)],
+    px: [painted ? smooth(softTexture()) : pxTexture()],
     // Smoke life stages, small to large (see BurstLayer.stages).
     puff: smoke.length ? smoke : [12, 18, 24, 30].map((n, i) => puffTexture(n, 7 + i)),
     paper: paper.length ? paper : [pxTexture()],
-    wool: [puffTexture(5, 3)],
-    metal: [fromPixels(3, 2, (x, y) => (x === 0 ? 0x696a6a : y === 0 ? 0xcbdbfc : 0x9badb7))],
+    wool: [painted ? smooth(smokeTexture(3)) : puffTexture(5, 3)],
+    metal: [
+      painted
+        ? clod(42)
+        : fromPixels(3, 2, (x, y) => (x === 0 ? 0x696a6a : y === 0 ? 0xcbdbfc : 0x9badb7)),
+    ],
     banana: banana ? [banana] : [pxTexture()],
     toxic: gas.length ? gas : [puffTexture(8, 4)],
   };

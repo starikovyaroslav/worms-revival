@@ -98,11 +98,13 @@ export class EffectsSystem {
   private pending: Pending[] = [];
   private pool: Sprite[] = [];
   private readonly recipes: Record<string, Recipe> = RECIPES;
+  private painted: boolean;
 
   constructor(
     private readonly hooks: FxHooks,
     namespace = 'vfx',
   ) {
+    this.painted = namespace === 'painted/vfx';
     this.clips = new ClipEffects(namespace);
     this.textures = createFxTextures(this.ownedTextures, namespace);
     // Under the sparks, over the smoke.
@@ -156,10 +158,27 @@ export class EffectsSystem {
             !this.clips.play(layer.clip ?? 'blast', x, y, {
               life: layer.life ?? 0.55,
               width: layer.size * k * 100,
+              fade: this.painted,
             })
           )
             this.blasts.fireball(x, y, layer.size * k * 50);
-        } else this.blasts.splash(x, y, layer.size * k * 50);
+        } else if (this.painted)
+          this.flash(
+            {
+              type: 'flash',
+              tex: 'ring',
+              blend: 'normal',
+              color: ctx.accent ?? 0xb5eff2,
+              scale: [0.15, layer.size],
+              life: layer.life ?? 0.5,
+              alpha: 0.75,
+            },
+            x,
+            y,
+            k,
+            0.3,
+          );
+        else this.blasts.splash(x, y, layer.size * k * 50);
         break;
       case 'burst':
         this.burst(layer, x, y, k, ctx);
@@ -181,7 +200,7 @@ export class EffectsSystem {
     return list[Math.floor(Math.random() * list.length)] as Texture;
   }
 
-  private flash(l: FlashLayer, x: number, y: number, k: number): void {
+  private flash(l: FlashLayer, x: number, y: number, k: number, scaleY = 1): void {
     if (this.particles.length >= 768) return;
     const sprite = this.take(this.pickTex(l.tex));
     sprite.blendMode = l.blend;
@@ -211,7 +230,7 @@ export class EffectsSystem {
       pool: this.pool,
       frames: [],
       sx: 1,
-      sy: 1,
+      sy: scaleY,
     });
   }
 
@@ -269,6 +288,20 @@ export class EffectsSystem {
       const base = this.textureSize(sprite);
       // Hard pixels: whole world pixels per texel instead of k-relative scales.
       const fixed = l.fixed ? Math.round(rand(l.fixed)) : 0;
+      const footprint: Partial<Record<FxTextureId, number>> = {
+        px: 1,
+        ember: 2,
+        chunk: 3,
+        metal: 3,
+        wool: 10,
+        soft: 16,
+        spark: 8,
+        ring: 48,
+      };
+      const fixedScale =
+        this.painted && this.ownedTextures.has(sprite.texture)
+          ? (footprint[l.tex] ?? 1) / sprite.texture.width
+          : assets.scaleOf(sprite.texture);
       const a0 = Math.random() * Math.PI * 2;
       const r0 = Math.sqrt(Math.random()) * l.spread * k * 50;
       const px = x + Math.cos(a0) * r0;
@@ -299,14 +332,10 @@ export class EffectsSystem {
         spin: 0,
         // Big blasts get bigger puffs, never fractional texels.
         scale0: fixed
-          ? fixed *
-            assets.scaleOf(sprite.texture) *
-            (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
+          ? fixed * fixedScale * (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
           : (rand(l.scaleStart) * k * 100) / base,
         scale1: fixed
-          ? fixed *
-            assets.scaleOf(sprite.texture) *
-            (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
+          ? fixed * fixedScale * (l.stages ? Math.max(1, Math.round(k * 0.8)) : 1)
           : (rand(l.scaleEnd) * k * 100) / base,
         colors,
         fade: l.fade,
@@ -363,12 +392,12 @@ export class EffectsSystem {
       p.y += p.vy * dt;
       const s = p.sprite;
       // Whole world pixels only.
-      s.position.set(Math.round(p.x), Math.round(p.y));
+      s.position.set(this.painted ? p.x : Math.round(p.x), this.painted ? p.y : Math.round(p.y));
       if (p.frames.length)
         s.texture = p.frames[
           Math.min(p.frames.length - 1, Math.floor(t * p.frames.length))
         ] as Texture;
-      s.tint = snapColor(lerpColor(p.colors, t));
+      s.tint = this.painted ? lerpColor(p.colors, t) : snapColor(lerpColor(p.colors, t));
       const scale = p.frames.length
         ? p.scale0
         : p.scale0 + (p.scale1 - p.scale0) * (1 - (1 - t) * (1 - t));

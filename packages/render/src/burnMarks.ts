@@ -11,13 +11,15 @@ export function paintScorch(
   art: AssetPixels,
   solid: (x: number, y: number) => boolean,
   ember: number,
+  density = 1,
 ): void {
   out.fill(0);
-  for (let j = 0; j < size; j++) {
-    for (let i = 0; i < size; i++) {
-      if (!solid(x + i, y + j)) continue;
-      const src = (Math.floor((j * art.h) / size) * art.w + Math.floor((i * art.w) / size)) * 4;
-      const dst = (j * size + i) * 4;
+  const pixels = size * density;
+  for (let j = 0; j < pixels; j++) {
+    for (let i = 0; i < pixels; i++) {
+      if (!solid(x + i / density, y + j / density)) continue;
+      const src = (Math.floor((j * art.h) / pixels) * art.w + Math.floor((i * art.w) / pixels)) * 4;
+      const dst = (j * pixels + i) * 4;
       if (!art.data[src + 3]) continue;
       const hot = art.data[src]! > 120 && art.data[src]! > art.data[src + 1]! * 1.4;
       const glow = hot ? ember : 1;
@@ -45,7 +47,10 @@ export class BurnMarks {
   private clock = 0;
   private serial = 0;
 
-  constructor(private readonly terrain: Terrain) {}
+  constructor(
+    private readonly terrain: Terrain,
+    private readonly painted = false,
+  ) {}
 
   get activeCount(): number {
     return this.marks.length;
@@ -58,14 +63,16 @@ export class BurnMarks {
     const size = Math.max(16, Math.min(160, Math.round(radius * 3.2)));
     x = Math.round(x - size / 2);
     y = Math.round(y - size / 2);
-    const pixels = new Uint8Array(size * size * 4);
+    const density = this.painted ? 3 : 1;
+    const pixels = new Uint8Array(size * size * density ** 2 * 4);
     const source = new BufferImageSource({
       resource: pixels,
-      width: size,
-      height: size,
-      scaleMode: 'nearest',
+      width: size * density,
+      height: size * density,
+      scaleMode: this.painted ? 'linear' : 'nearest',
     });
     const sprite = new Sprite(new Texture({ source }));
+    sprite.scale.set(1 / density);
     sprite.position.set(x, y);
     this.container.addChild(sprite);
     const mark = { sprite, source, pixels, art, size, x, y, age: 0 };
@@ -83,6 +90,7 @@ export class BurnMarks {
       mark.art,
       (x, y) => this.terrain.isSolid(x, y),
       ember,
+      this.painted ? 3 : 1,
     );
     mark.source.update();
   }

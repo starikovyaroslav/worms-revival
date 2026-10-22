@@ -25,7 +25,10 @@ export class Fx {
   private popupList: Popup[] = [];
   private ls: LabelScale = DEFAULT_LABEL_SCALE;
 
-  constructor(_dirtColor: number) {}
+  constructor(
+    _dirtColor: number,
+    private readonly painted = false,
+  ) {}
 
   /** New label size (viewport change); texts on screen are restyled too. */
   setLabelScale(ls: LabelScale): void {
@@ -36,7 +39,11 @@ export class Fx {
   private style(text: Text, base: number): void {
     text.style.fontSize = labelFont(base, this.ls);
     // DB32 ink outline.
-    text.style.stroke = { color: 0x222034, width: 4 * labelUnit(this.ls), join: 'miter' };
+    text.style.stroke = {
+      color: 0x17252b,
+      width: (this.painted ? 1.5 : 4) * labelUnit(this.ls),
+      join: 'round',
+    };
   }
 
   POP = 0.3;
@@ -46,7 +53,7 @@ export class Fx {
     const text = new Text({
       text: String(amount),
       style: {
-        fontFamily: '"Press Start 2P", monospace',
+        fontFamily: this.painted ? 'Arial, sans-serif' : '"Press Start 2P", monospace',
         fontSize: 16,
         fontWeight: '400',
         fill: color,

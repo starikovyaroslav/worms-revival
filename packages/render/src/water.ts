@@ -91,14 +91,15 @@ export class WaterView {
       this.ramp[Math.min(2, this.ramp.length - 1)] as number,
       this.ramp[Math.min(3, this.ramp.length - 1)] as number,
     ];
-    const texture = theme.artStyle === 'painted' ? assets.get('painted/water/meadow') : undefined;
+    const texture =
+      theme.artStyle === 'painted' ? assets.get(`painted/water/${theme.id}`) : undefined;
     if (texture) {
       this.paintedBack = new TilingSprite({ texture, width: 1, height: assets.sizeOf(texture).h });
       this.paintedFront = new TilingSprite({ texture, width: 1, height: assets.sizeOf(texture).h });
       this.paintedFront.alpha = 0.62;
       this.back.addChild(this.paintedBack);
       this.front.addChild(this.paintedFront);
-      const pixels = assets.pixels('painted/water/meadow');
+      const pixels = assets.pixels(`painted/water/${theme.id}`);
       if (pixels) {
         const p = (pixels.h - 1) * pixels.w * 4;
         this.deepColor = (pixels.data[p]! << 16) | (pixels.data[p + 1]! << 8) | pixels.data[p + 2]!;

@@ -48,7 +48,7 @@ export class AimView {
   private k = 2;
   private frame = 0;
 
-  constructor() {
+  constructor(private readonly painted = false) {
     this.container.addChild(this.g);
   }
 
@@ -77,6 +77,53 @@ export class AimView {
     const dx = Math.cos(worm.aim) * worm.facing;
     const dy = -Math.sin(worm.aim);
     const maxPower = power >= 0.999;
+    if (this.painted) {
+      const unit = 1 / Math.max(0.01, zoom),
+        cx = x + dx * CROSSHAIR_DIST,
+        cy = y + dy * CROSSHAIR_DIST;
+      const color = maxPower ? 0xffd66b : 0x9be9ef;
+      if (worm.laser && terrain) {
+        let distance = 12;
+        while (distance < 900 && !terrain.isSolid(x + dx * distance, y + dy * distance))
+          distance += 2;
+        g.moveTo(x + dx * 12, y + dy * 12)
+          .lineTo(x + dx * distance, y + dy * distance)
+          .stroke({ color: 0xff5353, width: 1.2 * unit, alpha: 0.8 });
+      }
+      if (charging && power > 0) {
+        const reach = WEDGE_START + WEDGE_LEN * power,
+          spread = 4 * power;
+        g.poly([
+          x + dx * WEDGE_START,
+          y + dy * WEDGE_START,
+          x + dx * reach - dy * spread,
+          y + dy * reach + dx * spread,
+          x + dx * reach + dy * spread,
+          y + dy * reach - dx * spread,
+        ])
+          .fill({ color: maxPower ? 0xffc261 : 0xe47946, alpha: 0.75 })
+          .stroke({ color: 0x17252b, width: unit });
+      }
+      const path = () => {
+        g.circle(cx, cy, 8 * unit);
+        for (const [a, b] of [
+          [1, 0],
+          [-1, 0],
+          [0, 1],
+          [0, -1],
+        ] as const)
+          g.moveTo(cx + a * 11 * unit, cy + b * 11 * unit).lineTo(
+            cx + a * 5 * unit,
+            cy + b * 5 * unit,
+          );
+      };
+      path();
+      g.stroke({ color: 0x17252b, width: 4 * unit, alpha: 0.8 });
+      path();
+      g.stroke({ color, width: 1.5 * unit });
+      g.circle(cx, cy, 1.5 * unit).fill(0xfff4d9);
+      return;
+    }
 
     if (worm.laser && terrain) {
       // Laser sight: a thin dark red line out to the first solid pixel.

@@ -7,6 +7,7 @@ import { paintedMeadowTheme, PAINTED_MEADOW_REQUIRED } from '../src/painted';
 import { themeById } from '../src/theme';
 
 afterEach(() => {
+  assets.setVariant(null);
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
 });
@@ -36,6 +37,77 @@ async function load(entries: Record<string, AssetEntry>) {
 }
 
 describe('texture density is not game-world size', () => {
+  it('canonicalizes cross-pack paths before the GPU cache lookup', async () => {
+    const atlas = new Texture({
+      source: new BufferImageSource({ resource: new Uint8Array(4 * 4 * 4), width: 4, height: 4 }),
+    });
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          version: 2,
+          assets: {
+            'cache/one': { file: '../shared.png', w: 4, h: 4 },
+            'cache/two': { file: '../other/../shared.png', w: 4, h: 4 },
+          },
+        }),
+      }),
+    );
+    const loader = vi
+      .spyOn(Assets, 'load')
+      .mockImplementation((async () => atlas) as typeof Assets.load);
+    await assets.load('painted-pack');
+    expect(loader.mock.calls.map((args) => args[0])).toEqual([
+      'http://assets.invalid/shared.png',
+      'http://assets.invalid/shared.png',
+    ]);
+    expect(assets.get('cache/one')!.source).toBe(assets.get('cache/two')!.source);
+  });
+  it('keeps each alias footprint independent while sharing the GPU source', async () => {
+    await load({
+      'alias/small': { file: 'shared-alias.png', w: 16, h: 16, pixelW: 128, pixelH: 128 },
+      'alias/large': { file: 'shared-alias.png', w: 32, h: 32, pixelW: 128, pixelH: 128 },
+    });
+    const small = assets.get('alias/small')!,
+      large = assets.get('alias/large')!;
+    expect(small).not.toBe(large);
+    expect(small.source).toBe(large.source);
+    expect(artSprite('alias/small')!.width).toBe(16);
+    expect(artSprite('alias/large')!.width).toBe(32);
+  });
+  it('switches reversible overlays for textures, URLs and numbered frames without destroying originals', async () => {
+    await load({
+      'overlay/base_0': { file: 'base-zero.png', w: 12, h: 8, pixelW: 48, pixelH: 32 },
+      'painted/common/overlay/base_0': {
+        file: 'painted-zero.png',
+        w: 12,
+        h: 8,
+        pixelW: 144,
+        pixelH: 96,
+        sampling: 'linear',
+      },
+      'painted/common/overlay/base_1': {
+        file: 'painted-one.png',
+        w: 12,
+        h: 8,
+        pixelW: 144,
+        pixelH: 96,
+        sampling: 'linear',
+      },
+    });
+    const legacy = assets.get('overlay/base_0')!;
+    expect(assets.count('overlay/base_')).toBe(1);
+    assets.setVariant('painted/common/');
+    expect(assets.get('overlay/base_0')).not.toBe(legacy);
+    expect(assets.url('overlay/base_0')).toContain('painted-zero.png');
+    expect(assets.count('overlay/base_')).toBe(2);
+    expect(assets.sizeOf(assets.get('overlay/base_0')!)).toEqual({ w: 12, h: 8 });
+    assets.setVariant(null);
+    expect(assets.get('overlay/base_0')).toBe(legacy);
+    expect(legacy.destroyed).toBe(false);
+    expect(assets.url('overlay/base_0')).toContain('base-zero.png');
+  });
   it('opts in only a complete meadow pack without mutating cached themes', () => {
     const meadow = themeById('meadow');
     const spy = vi.spyOn(assets, 'has').mockReturnValue(true);

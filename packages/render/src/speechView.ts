@@ -31,6 +31,7 @@ export class SpeechView {
   readonly container = new Container();
   private bubbles: Bubble[] = [];
   private ls: LabelScale = DEFAULT_LABEL_SCALE;
+  constructor(private readonly painted = false) {}
 
   /** New label size; applies to bubbles created from now on (they only live ~2 s). */
   setLabelScale(ls: LabelScale): void {
@@ -44,8 +45,8 @@ export class SpeechView {
     const label = new Text({
       text,
       style: {
-        fontFamily: '"Press Start 2P", monospace',
-        fontSize: labelFont(8, this.ls),
+        fontFamily: this.painted ? 'Arial, sans-serif' : '"Press Start 2P", monospace',
+        fontSize: labelFont(this.painted ? 10 : 8, this.ls),
         fontWeight: '400',
         fill: INK,
       },
@@ -59,16 +60,23 @@ export class SpeechView {
     const g = new Graphics();
     const x = -w / 2;
     const y = -h / 2;
-    g.rect(x - 2, y - 2, w + 4, h + 4).fill(INK);
-    g.rect(x, y, w, h).fill(PAPER);
-    g.rect(x, y, w, 2).fill(PAPER_HI);
-    g.rect(x, y, 2, h).fill(PAPER_HI);
-    g.rect(x, y + h - 2, w, 2).fill(PAPER_LO);
-    g.rect(x + w - 2, y, 2, h).fill(PAPER_LO);
-    for (let i = 0; i < 3; i++) {
-      const inkW = (2 - i) * 4 + 4;
-      g.rect(-inkW / 2, h / 2 + i * 2, inkW, 2).fill(INK);
-      if (inkW > 4) g.rect(-(inkW - 4) / 2, h / 2 + i * 2, inkW - 4, 2).fill(PAPER);
+    if (this.painted) {
+      g.roundRect(x, y, w, h, 4).fill(PAPER).stroke({ color: 0x17252b, width: 1 });
+      g.poly([-4, h / 2 - 1, 3, h / 2 + 5, 4, h / 2 - 1])
+        .fill(PAPER)
+        .stroke({ color: 0x17252b, width: 0.75 });
+    } else {
+      g.rect(x - 2, y - 2, w + 4, h + 4).fill(INK);
+      g.rect(x, y, w, h).fill(PAPER);
+      g.rect(x, y, w, 2).fill(PAPER_HI);
+      g.rect(x, y, 2, h).fill(PAPER_HI);
+      g.rect(x, y + h - 2, w, 2).fill(PAPER_LO);
+      g.rect(x + w - 2, y, 2, h).fill(PAPER_LO);
+      for (let i = 0; i < 3; i++) {
+        const inkW = (2 - i) * 4 + 4;
+        g.rect(-inkW / 2, h / 2 + i * 2, inkW, 2).fill(INK);
+        if (inkW > 4) g.rect(-(inkW - 4) / 2, h / 2 + i * 2, inkW - 4, 2).fill(PAPER);
+      }
     }
     g.scale.set(u);
     const box = new Container();

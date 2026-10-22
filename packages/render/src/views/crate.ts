@@ -39,7 +39,10 @@ export class CrateView implements EntityView {
       const text = new Text({
         text: c.content === 'health' ? `+${c.amount}` : c.weaponId,
         style: {
-          fontFamily: '"Press Start 2P", monospace',
+          fontFamily:
+            this.ctx.vfxNamespace === 'painted/vfx'
+              ? 'Arial, sans-serif'
+              : '"Press Start 2P", monospace',
           fontSize: 8,
           fill: c.content === 'health' ? 0x7cff7c : 0xffffff,
           stroke: { color: 0x222034, width: 3, join: 'miter' as const },

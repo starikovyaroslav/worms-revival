@@ -61,6 +61,21 @@ export class AssetStore {
   private sizes = new WeakMap<Texture, AssetSize>();
   private ids = new WeakMap<Texture, string>();
   manifest: AssetManifest | null = null;
+  private variant: string | null = null;
+
+  /** Reversible presentation overlay. Never overwrites or destroys legacy textures. */
+  setVariant(prefix: string | null): void {
+    this.variant = prefix;
+  }
+
+  get variantPrefix(): string | null {
+    return this.variant;
+  }
+
+  private resolveId(id: string): string {
+    const alternate = this.variant ? this.variant + id : '';
+    return alternate && this.textures.has(alternate) ? alternate : id;
+  }
 
   /** Loads a manifest and its images; later loads override earlier ones with the same id. */
   async load(baseUrl: string, version = ''): Promise<void> {
@@ -95,7 +110,12 @@ export class AssetStore {
     await Promise.all(
       Object.entries(manifest.assets).map(async ([id, a]) => {
         try {
-          const atlas = (await Assets.load(`${baseUrl}/${a.file}${q}`)) as Texture;
+          // Normalize ../ aliases before the GPU cache lookup, not just in the browser request.
+          const url = new URL(
+            `${baseUrl}/${a.file}${q}`,
+            typeof document === 'undefined' ? 'http://assets.invalid/' : document.baseURI,
+          ).href;
+          const atlas = (await Assets.load(url)) as Texture;
           const f = a.frame;
           if (
             f &&
@@ -111,15 +131,17 @@ export class AssetStore {
               f.y + f.h > atlas.height)
           )
             throw new Error(`Invalid atlas frame: ${id}`);
-          const tex = f
-            ? new Texture({ source: atlas.source, frame: new Rectangle(f.x, f.y, f.w, f.h) })
-            : atlas;
+          // One view per id: aliases may share PNG pixels but have different logical footprints.
+          const tex = new Texture({
+            source: atlas.source,
+            frame: f ? new Rectangle(f.x, f.y, f.w, f.h) : atlas.frame.clone(),
+          });
           // Pixel art: never blur it when scaled.
           tex.source.scaleMode = a.sampling === 'linear' ? 'linear' : 'nearest';
           this.sizes.set(tex, { w: a.w, h: a.h });
           this.ids.set(tex, id);
           this.textures.set(id, tex);
-          this.urls.set(id, `${baseUrl}/${a.file}${q}`);
+          this.urls.set(id, url);
           this.decoded.delete(id);
         } catch {
           // A broken file just means "use the fallback".
@@ -130,11 +152,12 @@ export class AssetStore {
 
   /** URL of an asset's image (for DOM UI), or undefined when it does not exist. */
   url(id: string): string | undefined {
-    return this.urls.get(id);
+    return this.urls.get(this.resolveId(id));
   }
 
   /** Lazily read a loaded image once; unavailable art keeps its procedural fallback. */
   pixels(id: string): AssetPixels | undefined {
+    id = this.resolveId(id);
     const cached = this.decoded.get(id);
     if (cached) return cached;
     const tex = this.textures.get(id);
@@ -172,7 +195,7 @@ export class AssetStore {
   }
 
   has(id: string): boolean {
-    return this.textures.has(id);
+    return this.textures.has(this.resolveId(id));
   }
 
   /** Presentation-only switch for shared character atlases when entering/leaving the painted lab. */
@@ -198,12 +221,12 @@ export class AssetStore {
   /** How many numbered frames `prefix0`, `prefix1`... exist (so sheets may have fewer frames). */
   count(prefix: string): number {
     let n = 0;
-    while (this.textures.has(`${prefix}${n}`)) n++;
+    while (this.has(`${prefix}${n}`)) n++;
     return n;
   }
 
   get(id: string): Texture | undefined {
-    return this.textures.get(id);
+    return this.textures.get(this.resolveId(id));
   }
 }
 

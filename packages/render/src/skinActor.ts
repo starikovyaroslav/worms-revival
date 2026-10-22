@@ -158,14 +158,21 @@ export class SkinActor {
         ? Math.sin(Math.min(1, this.action.time / 0.42) * Math.PI) * p.recoil
         : 0;
       const point =
-        mount.mode === 'shoulder'
-          ? rig.shoulder
-          : mount.mode === 'placed' || (mount.mode === 'tool' && mount.pose === 'land')
-            ? rig.lowHand
-            : rig.hand;
+        assets.variantPrefix && mount.mode === 'heavy'
+          ? rig.lowHand
+          : assets.variantPrefix && mount.mode === 'shoulder'
+            ? rig.hand
+            : mount.mode === 'shoulder'
+              ? rig.shoulder
+              : mount.mode === 'placed' || (mount.mode === 'tool' && mount.pose === 'land')
+                ? rig.lowHand
+                : rig.hand;
       // Move the launcher to the forward shoulder as it rises, keeping the face behind the tube.
       const shoulderClearance = mount.mode === 'shoulder' ? 5 + Math.abs(Math.sin(w.aim)) * 6 : 0;
-      this.weapon.position.set(point[0] + shoulderClearance - recoil, point[1]);
+      this.weapon.position.set(
+        point[0] + shoulderClearance - recoil,
+        point[1] + (assets.variantPrefix && mount.mode === 'shoulder' ? 1.5 : 0),
+      );
       this.weapon.rotation = mount.aim ? -w.aim : (mount.angle ?? 0);
     }
     // This assembly is outside the breathing/stride rig: its supports stay on the world ground.

@@ -2,7 +2,7 @@ import { BufferImageSource, Container, Sprite, Texture } from 'pixi.js';
 import { Material, type Terrain } from '@wr/sim';
 import { snap } from './palette';
 import type { Theme } from './theme';
-import { terrainArtForTheme, terrainArtPixel, type TerrainArt } from './terrainArt';
+import { terrainArtForTheme, terrainArtPixel, terrainArtRGBA, type TerrainArt } from './terrainArt';
 
 const CHUNK = 256;
 /** At most ~64 MB each of CPU/GPU terrain pixels, independently of collision resolution. */
@@ -283,39 +283,34 @@ export class TerrainView {
       const y = oy + ly;
       for (let lx = lx0; lx <= lx1; lx++) {
         const x = ox + lx;
-        const write = (color: number, sx: number, sy: number) => {
+        const write = (color: number, sx: number, sy: number, rgba = false) => {
           const o = ((ly * density + sy) * stride + lx * density + sx) * 4;
-          px[o + 3] = color < 0 ? 0 : 255;
+          px[o + 3] = color < 0 ? 0 : rgba ? color >>> 24 : 255;
           if (color >= 0) {
             px[o] = color >>> 16;
             px[o + 1] = (color >>> 8) & 255;
             px[o + 2] = color & 255;
           }
         };
-        const fill = (color: number) => {
+        const fill = (color: number, rgba = false) => {
           for (let sy = 0; sy < density; sy++)
-            for (let sx = 0; sx < density; sx++) write(color, sx, sy);
+            for (let sx = 0; sx < density; sx++) write(color, sx, sy, rgba);
         };
         const m = t.data[y * t.width + x] as Material;
         if (this.art) {
-          const color = terrainArtPixel(t, this.art, x, y, m);
+          const sample = this.art.painted ? terrainArtRGBA : terrainArtPixel;
+          const color = sample(t, this.art, x, y, m);
           if (color !== undefined) {
-            if (density === 1) fill(color);
+            if (density === 1) fill(color, this.art.painted);
             else
               for (let sy = 0; sy < density; sy++)
                 for (let sx = 0; sx < density; sx++)
                   write(
-                    terrainArtPixel(
-                      t,
-                      this.art,
-                      x,
-                      y,
-                      m,
-                      (sx + 0.5) / density,
-                      (sy + 0.5) / density,
-                    ) ?? color,
+                    sample(t, this.art, x, y, m, (sx + 0.5) / density, (sy + 0.5) / density) ??
+                      color,
                     sx,
                     sy,
+                    this.art.painted,
                   );
             continue;
           }

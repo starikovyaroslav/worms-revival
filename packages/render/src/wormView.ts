@@ -65,10 +65,11 @@ export class WormView {
   constructor(
     readonly worm: Worm,
     skinId?: string,
+    private readonly painted = false,
   ) {
     const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
     const font = {
-      fontFamily: '"Press Start 2P", monospace',
+      fontFamily: painted ? 'Arial, sans-serif' : '"Press Start 2P", monospace',
       fontSize: 8,
       fontWeight: '400' as const,
     };
@@ -115,8 +116,8 @@ export class WormView {
     this.ls = ls;
     const u = labelUnit(ls);
     for (const t of [this.nameText, this.hpText]) {
-      t.style.fontSize = labelFont(8, ls);
-      t.style.stroke = { color: INK, width: 2 * u, join: 'miter' };
+      t.style.fontSize = labelFont(this.painted ? 10 : 8, ls);
+      t.style.stroke = { color: INK, width: (this.painted ? 0.75 : 2) * u, join: 'round' };
     }
     this.plates.scale.set(u);
     this.arrow.scale.set(u);
@@ -133,6 +134,21 @@ export class WormView {
     const h = compact ? 16 : 30;
     const x = -w / 2;
     const y = -h;
+    if (this.painted) {
+      const width = compact ? 34 : Math.max(44, this.nameText.width / u + 12);
+      const height = compact ? 17 : 31;
+      g.roundRect(-width / 2, -height, width, height, 3)
+        .fill({ color: 0x17252b, alpha: 0.94 })
+        .stroke({ color: 0x9b9874, width: 0.75 });
+      const barWidth = width - 10;
+      g.roundRect(-barWidth / 2, -5, barWidth, 2, 1).fill(0x0d1720);
+      const health = barWidth * Math.max(0, Math.min(1, this.shown / this.maxHp));
+      if (health > 0) g.roundRect(-barWidth / 2, -5, health, 2, 1).fill(this.color);
+      this.nameText.visible = !compact;
+      this.nameText.position.set(0, -23 * u);
+      this.hpText.position.set(0, (compact ? -10 : -12) * u);
+      return;
+    }
     // Ink outline, panel fill, light edge top-left and dark edge bottom-right (like the HUD panels).
     g.rect(x - 2, y - 2, w + 4, h + 4).fill(INK);
     g.rect(x, y, w, h).fill(PANEL);
@@ -159,6 +175,10 @@ export class WormView {
 
   /** A chunky pixel arrow pointing down: dark outline, team-coloured fill, light top edge. */
   private drawArrow(color: number): void {
+    if (this.painted) {
+      this.arrow.poly([-5, -12, 5, -12, 0, -5]).fill(color).stroke({ color: 0x17252b, width: 1 });
+      return;
+    }
     const u = 2;
     const g = this.arrow;
     // Rows of the arrow, widest at the top of the head; [halfWidth] per row, top to bottom.

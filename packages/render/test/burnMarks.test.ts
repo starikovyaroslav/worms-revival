@@ -3,6 +3,13 @@ import { paintScorch } from '../src/burnMarks';
 import { fireStyle } from '../src/fireStyles';
 
 describe('cosmetic terrain and fire', () => {
+  it('keeps painted scorch density separate from world coordinates and continuous alpha', () => {
+    const art = { w: 1, h: 1, data: new Uint8ClampedArray([90, 80, 70, 73]) };
+    const pixels = new Uint8Array(4 * 4 * 4);
+    paintScorch(pixels, 2, 10, 20, art, (x) => x < 11, 1, 2);
+    for (let y = 0; y < 4; y++)
+      for (let x = 0; x < 4; x++) expect(pixels[(y * 4 + x) * 4 + 3]).toBe(x < 2 ? 73 : 0);
+  });
   it('clips soot to live terrain, including terrain erased after the blast', () => {
     const art = { w: 1, h: 1, data: new Uint8ClampedArray([160, 70, 20, 255]) };
     const pixels = new Uint8Array(16);

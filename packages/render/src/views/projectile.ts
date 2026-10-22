@@ -144,7 +144,10 @@ export class ProjectileView implements EntityView {
         }
       }
     }
-    const generated = GENERATED_PROJECTILES[p.look];
+    const generated =
+      p.look === 'petrol' && assets.variantPrefix && assets.has('objects/petrol-bottle')
+        ? 'objects/petrol-bottle'
+        : GENERATED_PROJECTILES[p.look];
     this.art = generated ? artSprite(generated) : null;
     if (this.art) {
       if (p.look === 'banana' || p.look === 'bananalet') {
@@ -162,7 +165,7 @@ export class ProjectileView implements EntityView {
       this.container.addChild(g);
       return;
     }
-    if (look.spin) {
+    if (look.spin && !assets.variantPrefix) {
       const n = assets.count(look.spin.prefix);
       for (let i = 0; i < n; i++)
         this.frames.push(assets.get(`${look.spin.prefix}${i}`) as Texture);

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { Material, Terrain } from '@wr/sim';
-import { artPixel, terrainArtPixel, type TerrainArt } from '../src/terrainArt';
+import { artPixel, terrainArtPixel, terrainArtRGBA, type TerrainArt } from '../src/terrainArt';
 import type { AssetPixels } from '../src/assets';
 import { terrainDensity } from '../src/terrainView';
 
@@ -29,6 +29,20 @@ function island(): Terrain {
 }
 
 describe('generated art on destructible terrain', () => {
+  it('preserves painted edge alpha and full RGB without changing collision resolution', () => {
+    const t = island(),
+      before = t.data.slice(),
+      rim = image(0x739b45);
+    for (let i = 3; i < rim.data.length; i += 4) rim.data[i] = 73;
+    const painted = { ...art, painted: true, rim, rock: image(0x889099), steel: image(0x596572) };
+    const sample = terrainArtRGBA(t, painted, 30, 9, Material.Air)!;
+    expect(sample >>> 24).toBe(73);
+    expect(sample & 0xffffff).toBe(0x739b45);
+    expect(terrainArtRGBA(t, painted, 30, 10, Material.Soil)! >>> 24).toBe(255);
+    expect(terrainArtRGBA(t, painted, 30, 32, Material.Rock)! & 0xffffff).toBe(0x889099);
+    expect(terrainArtRGBA(t, painted, 30, 32, Material.Girder)! & 0xffffff).toBe(0x596572);
+    expect(t.data).toEqual(before);
+  });
   it('samples native subpixels while keeping the logical tile period', () => {
     const texture = image(0x37946e);
     texture.logicalW = 4;
