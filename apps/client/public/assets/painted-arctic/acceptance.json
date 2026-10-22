@@ -1,0 +1,152 @@
+{
+  "painted/bg/arctic/sky": {
+    "colors": 38383,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/arctic/far": {
+    "colors": 27785,
+    "transparent": 775004,
+    "partialAlpha": 797395,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/arctic/mid": {
+    "colors": 43422,
+    "transparent": 686838,
+    "partialAlpha": 885649,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/bg/arctic/near": {
+    "colors": 43385,
+    "transparent": 819384,
+    "partialAlpha": 753001,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      543,
+      181
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/arctic/fill": {
+    "colors": 187117,
+    "transparent": 0,
+    "partialAlpha": 0,
+    "alphaLevels": 1,
+    "pixels": [
+      1254,
+      1254
+    ],
+    "display": [
+      256,
+      256
+    ],
+    "seam": "xy"
+  },
+  "painted/water/arctic": {
+    "colors": 74215,
+    "transparent": 598210,
+    "partialAlpha": 974192,
+    "alphaLevels": 256,
+    "pixels": [
+      2172,
+      724
+    ],
+    "display": [
+      256,
+      80
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/arctic/rim": {
+    "colors": 71984,
+    "transparent": 12862,
+    "partialAlpha": 214101,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/arctic/under": {
+    "colors": 67101,
+    "transparent": 58409,
+    "partialAlpha": 168649,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/arctic/scorch": {
+    "colors": 82320,
+    "transparent": 27435,
+    "partialAlpha": 199635,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  },
+  "painted/terrain/arctic/rock": {
+    "colors": 54362,
+    "transparent": 19225,
+    "partialAlpha": 207744,
+    "alphaLevels": 256,
+    "pixels": [
+      1774,
+      128
+    ],
+    "display": [
+      256,
+      16
+    ],
+    "seam": "x"
+  }
+}

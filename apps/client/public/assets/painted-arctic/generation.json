@@ -1,0 +1,36 @@
+{
+  "mode": "built-in imagegen",
+  "reference": "docs/design/concepts/visual-pilot-v2/meadow-pilot-v1.png",
+  "prompts": "tools/art/painted-expansion-prompts.json",
+  "masters": {
+    "sky": {
+      "path": "assets-in/painted-expansion/arctic-sky.png",
+      "sha256": "43ad058e143976e8e27671969212872c1d274ee3bdafdb5679bd0b1a28544281"
+    },
+    "far": {
+      "path": "assets-in/painted-expansion/arctic-far.png",
+      "sha256": "074753029757ae11ac2974f5d09f3c6343f39391e6257b41e684eeff266fe0a0"
+    },
+    "mid": {
+      "path": "assets-in/painted-expansion/arctic-mid.png",
+      "sha256": "f7e0a984f241bea5f2204b1981c680969946879ad3684fbdeb61fbb3d719df78"
+    },
+    "near": {
+      "path": "assets-in/painted-expansion/arctic-near.png",
+      "sha256": "7afa6afead6241bc65e1ee19c531e2e738713028798abc1e51a7796d415cdeb9"
+    },
+    "soil": {
+      "path": "assets-in/painted-expansion/arctic-soil.png",
+      "sha256": "0fe8909024397a7015ec26f088feb66c3efb8f8034671511c3e35032b8d0a470"
+    },
+    "water": {
+      "path": "assets-in/painted-expansion/arctic-water.png",
+      "sha256": "82b442c1536f5b17cf7f1c216bbddd7faf67b96a5597f69c46ee8fa87821e940"
+    },
+    "edges": {
+      "path": "assets-in/painted-expansion/arctic-edges.png",
+      "sha256": "487385a44c9958b4f9286b8a1d1fb7915f61b8b824cb62d5e81f91908d83ff90"
+    }
+  },
+  "export": "tools/art/painted-biomes.mjs"
+}
