@@ -1,10 +1,10 @@
-/** Live DOM + native art acceptance for the HUD pilot, not a mock screenshot. */
+/** Live acceptance for the compact HUD; the ornate v1 is archived, not active. */
 import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 
 const base = process.argv[2] ?? 'http://127.0.0.1:5174/';
-const output = 'docs/design/concepts/painted-hud-v1';
+const output = 'docs/design/concepts/quiet-ui-v2';
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({
   channel: 'chrome',
@@ -50,20 +50,6 @@ try {
     await page.waitForFunction(
       () => document.querySelector('.hud .weapon b')?.textContent === 'Базука',
     );
-    // CSS backgrounds are separate from Pixi: explicitly await all four resources.
-    await page.evaluate(async () => {
-      await Promise.all(
-        ['timer', 'wind', 'team', 'weapon'].map(
-          (name) =>
-            new Promise((resolve, reject) => {
-              const image = new Image();
-              image.onload = resolve;
-              image.onerror = reject;
-              image.src = `/assets/painted-hud/${name}.png`;
-            }),
-        ),
-      );
-    });
     const state = await page.evaluate(() => {
       const selector = '.hud .timer-box, .hud .wind, .hud .team, .hud .weapon, .hud .hint-line';
       const panels = [...document.querySelectorAll(selector)].map((e) => {
@@ -107,7 +93,7 @@ try {
     assert.ok(
       state.panels
         .filter((p) => !p.name.includes('hint-line'))
-        .every((p) => p.background.includes('/painted-hud/')),
+        .every((p) => p.background === 'none'),
     );
     await page.screenshot({
       path: `${output}/match-${theme}-${width}x${height}-dpr${dpr}${teamCount === 4 ? '-4teams' : ''}.png`,
