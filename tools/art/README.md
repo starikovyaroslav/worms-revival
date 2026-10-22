@@ -2,12 +2,19 @@
 
 ## Current production pipeline
 
-Use `npm run art:desktop` to rebuild **all 698 PNGs** from native masters, preserving RGB and
+Use `npm run art:desktop` to rebuild **all 715 PNGs** from native masters, preserving RGB and
 continuous alpha. `npm run art:audit` inventories every on-disk PNG; `npm run art:test` checks
 dimensions, visibility, crop/animation contracts and RGBA preservation.
 See [current delivery](../../docs/design/asset-delivery.md) for sources, scope and browser QA.
 The historical `ingest.mjs` / `arsenal.mjs` quantized CLI entrypoints below are disabled.
 Their helpers remain only for old algorithm regression tests and source IO/geometry.
+
+`npm run art:skins` rebuilds 15 character atlases and two equipment atlases, plus the offline
+pose viewer. Masters: ignored `assets-in/skins/`; exact built-in-imagegen prompts:
+`skin-animation-prompts.mjs`, `skin-animation-repairs.json`, `skin-equipment.prompt.txt`.
+The blocked dominatrix request is explicitly excluded, not replaced with a placeholder.
+See [animation delivery](../../docs/design/worm-animations.md) for class capacities and limitations.
+Browser acceptance: `node tools/art/skin-game-check.mjs http://127.0.0.1:5174/`.
 
 ## Historical first-batch pipeline (superseded)
 

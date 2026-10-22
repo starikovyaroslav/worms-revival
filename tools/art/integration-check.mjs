@@ -154,7 +154,9 @@ try {
       for (const facing of [-1, 1]) {
         worm.facing = facing;
         view.update(1, 0, true, (x, y) => ({ x, y }), hold);
-        if (Math.abs(view.pixel.body.width - 32) > 1e-6 || !view.pixel.band.visible)
+        const body = view.skinActor?.body ?? view.pixel.body;
+        const teamLayer = view.skinActor?.team ?? view.pixel.band;
+        if (Math.abs(body.width - 32) > 1e-6 || !teamLayer.visible)
           problems.push(`${hold}: live body density/team layer`);
       }
     }
