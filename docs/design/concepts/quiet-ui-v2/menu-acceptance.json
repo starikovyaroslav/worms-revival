@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "horizontalOverflow": false,
+      "left": 410,
+      "right": 1510,
+      "controls": "passed",
+      "matchStarted": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "horizontalOverflow": false,
+      "left": 90,
+      "right": 1190,
+      "controls": "passed",
+      "matchStarted": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "horizontalOverflow": false,
+      "left": 38.390625,
+      "right": 729.609375,
+      "controls": "passed",
+      "matchStarted": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "horizontalOverflow": false,
+      "left": 16,
+      "right": 374,
+      "controls": "passed",
+      "matchStarted": true
+    }
+  ],
+  "errors": []
+}

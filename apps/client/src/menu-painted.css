@@ -1,0 +1,313 @@
+/* Responsive match setup, intentionally quiet beside the painted world. */
+.menu-header {
+  width: 100%;
+}
+.menu-heading,
+.section-index,
+.optional-label {
+  display: none;
+}
+body[data-visual='painted'] #ui .menu {
+  box-sizing: border-box;
+  padding: clamp(20px, 4vh, 52px) clamp(18px, 5vw, 90px);
+  align-items: center;
+  isolation: isolate;
+  color: #ecf0e9;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body[data-visual='painted'] .menu::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, #0c161eee 0%, #0c161ed9 55%, #0c161e93 100%);
+}
+body[data-visual='painted'] #ui .menu-stage {
+  zoom: 1;
+  transform: none;
+  width: 1100px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+}
+body[data-visual='painted'] .menu-header {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid #ffffff16;
+}
+body[data-visual='painted'] #ui .menu .logo {
+  flex: none;
+  margin: 0;
+}
+body[data-visual='painted'] .menu .logo img {
+  width: 180px;
+  height: auto;
+}
+body[data-visual='painted'] .menu-heading {
+  display: block;
+}
+body[data-visual='painted'] .menu-eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b9c79e;
+}
+body[data-visual='painted'] .menu-heading h2 {
+  font-size: 30px;
+  font-weight: 650;
+  margin: 4px 0;
+  letter-spacing: -0.6px;
+}
+body[data-visual='painted'] .menu-heading p {
+  font-size: 13px;
+  color: #aab8bc;
+  margin: 0;
+}
+body[data-visual='painted'] #ui .menu-body {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 20px;
+}
+body[data-visual='painted'] #ui .menu .menu-card {
+  background: #14232bd9;
+  border: 1px solid #ffffff10;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 22px;
+  gap: 14px;
+  min-width: 0;
+}
+body[data-visual='painted'] #ui .menu-card h2,
+body[data-visual='painted'] #ui .modifiers-card > summary {
+  font-size: 16px;
+  font-weight: 600;
+  color: #eef1e8;
+  margin: 0;
+}
+body[data-visual='painted'] .section-index {
+  display: inline;
+  color: #8d9e98;
+  font-size: 10px;
+  margin-right: 8px;
+  font-weight: 400;
+}
+body[data-visual='painted'] #ui .menu .team-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  gap: 10px;
+  padding: 0 0 14px 12px;
+  border-bottom: 1px solid #ffffff0d;
+}
+body[data-visual='painted'] .team-dot {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 3px;
+  height: 16px;
+  border: 0;
+  border-radius: 2px;
+}
+body[data-visual='painted'] #ui .menu label {
+  font-size: 11px;
+  color: #9fafb4;
+  gap: 5px;
+}
+body[data-visual='painted'] #ui .menu select,
+body[data-visual='painted'] #ui .menu input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+  border: 1px solid #ffffff16;
+  border-radius: 4px;
+  background: #0b1820;
+  padding: 7px 9px;
+  font-size: 12px;
+  color: #e9eee8;
+  box-shadow: none;
+}
+body[data-visual='painted'] #ui .menu select:focus-visible,
+body[data-visual='painted'] #ui .menu input:focus-visible {
+  outline: 2px solid #b7c795;
+  outline-offset: 2px;
+}
+body[data-visual='painted'] #ui .menu .skin-choice {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+body[data-visual='painted'] .skin-choice select {
+  max-width: none;
+  flex: 1;
+}
+body[data-visual='painted'] .character-roster {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  color: #afbdbe;
+}
+body[data-visual='painted'] .character-roster summary {
+  padding: 2px 0;
+}
+body[data-visual='painted'] .character-roster p {
+  font-size: 11px;
+  max-width: none;
+  color: #8d9fa6;
+}
+body[data-visual='painted'] #ui .menu .character-member {
+  display: grid;
+  grid-template-columns: 80px 32px minmax(0, 1fr);
+  align-items: center;
+}
+body[data-visual='painted'] .character-member select {
+  max-width: none;
+}
+body[data-visual='painted'] .team-row .icon-btn {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  font-size: 12px;
+  color: #b6c0c1;
+}
+body[data-visual='painted'] #ui .menu .map-preview {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 4px;
+  background: #0b1820;
+}
+body[data-visual='painted'] #ui .menu .row {
+  gap: 12px;
+}
+body[data-visual='painted'] #ui .menu .row > label {
+  flex: 1;
+  min-width: 0;
+}
+body[data-visual='painted'] #ui .menu .scheme-desc {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #98aaaf;
+  margin: 0;
+}
+body[data-visual='painted'] #ui .menu .modifiers-card {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 16px 22px;
+}
+body[data-visual='painted'] .modifiers-card > summary {
+  cursor: pointer;
+  list-style: none;
+}
+body[data-visual='painted'] .modifiers-card > summary::after {
+  content: '+';
+  float: right;
+  color: #9facac;
+}
+body[data-visual='painted'] .modifiers-card[open] > summary::after {
+  content: '−';
+}
+body[data-visual='painted'] .modifiers-card[open] > summary {
+  margin-bottom: 16px;
+}
+body[data-visual='painted'] .optional-label {
+  display: inline;
+  font-size: 10px;
+  margin-left: 8px;
+  color: #899b9f;
+  font-weight: 400;
+}
+body[data-visual='painted'] #ui .menu .btn {
+  min-height: 34px;
+  border: 1px solid #ffffff1c;
+  border-radius: 4px;
+  background: #26383f;
+  box-shadow: none;
+  color: #e2e9e7;
+  font-size: 12px;
+  padding: 8px 14px;
+}
+body[data-visual='painted'] #ui .menu .btn:hover:not(:disabled) {
+  background: #334950;
+  filter: none;
+}
+body[data-visual='painted'] #ui .menu .btn.big {
+  background: #c4d59a;
+  color: #1b2927;
+  padding: 12px 40px;
+  font-size: 16px;
+  border: 0;
+  min-height: 46px;
+}
+body[data-visual='painted'] #ui .menu .btn.big:hover {
+  background: #d5e4b2;
+}
+body[data-visual='painted'] #ui .menu .btn.secondary {
+  background: transparent;
+  border-color: #ffffff1c;
+}
+body[data-visual='painted'] #ui .menu-actions {
+  justify-content: flex-end;
+  gap: 12px;
+}
+body[data-visual='painted'] #ui .menu-actions .btn.big {
+  order: 2;
+}
+body[data-visual='painted'] #ui .menu .controls-help {
+  color: #8da0a7;
+  font-size: 10px;
+  line-height: 1.7;
+  margin: 0;
+  text-align: right;
+  max-width: none;
+}
+body[data-visual='painted'] #ui .menu .wormpot-slots {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  gap: 8px;
+}
+body[data-visual='painted'] #ui .menu .wormpot-slot {
+  background: #0b1820;
+  border: 1px solid #ffffff12;
+  box-shadow: none;
+  min-width: 0;
+  flex: 1;
+}
+body[data-visual='painted'] #ui .menu .wp-name {
+  font-size: 9px;
+}
+@media (max-width: 760px) {
+  body[data-visual='painted'] #ui .menu {
+    padding: 20px 16px;
+  }
+  body[data-visual='painted'] #ui .menu-stage {
+    gap: 16px;
+  }
+  body[data-visual='painted'] .menu-header {
+    gap: 18px;
+  }
+  body[data-visual='painted'] .menu .logo img {
+    width: 110px;
+  }
+  body[data-visual='painted'] .menu-heading h2 {
+    font-size: 24px;
+  }
+  body[data-visual='painted'] .menu-heading p {
+    font-size: 11px;
+  }
+  body[data-visual='painted'] #ui .menu-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  body[data-visual='painted'] #ui .menu-stage .menu-body > .menu-card {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  body[data-visual='painted'] #ui .menu .menu-card {
+    padding: 18px;
+  }
+}

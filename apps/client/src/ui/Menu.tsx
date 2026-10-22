@@ -134,23 +134,32 @@ export function Menu({ initial, onStart, onReplay }: Props) {
       }
     >
       <div class="menu-stage">
-        <h1 class="logo">
-          {logo ? (
-            <img
-              src={logo}
-              alt="Worms revival"
-              width={compactLogo ? 159 : 317}
-              height={compactLogo ? 74 : 147}
-            />
-          ) : (
-            <>
-              Worms <span>revival</span>
-            </>
-          )}
-        </h1>
+        <header class="menu-header">
+          <h1 class="logo">
+            {logo ? (
+              <img
+                src={logo}
+                alt="Worms revival"
+                width={compactLogo ? 159 : 317}
+                height={compactLogo ? 74 : 147}
+              />
+            ) : (
+              <>
+                Worms <span>revival</span>
+              </>
+            )}
+          </h1>
+          <div class="menu-heading">
+            <span class="menu-eyebrow">ЛОКАЛЬНАЯ ИГРА</span>
+            <h2>Новый матч</h2>
+            <p>Собери команды, выбери поле боя — и вперёд.</p>
+          </div>
+        </header>
         <div class="menu-body">
           <section class="menu-card px-panel">
-            <h2>Команды</h2>
+            <h2>
+              <span class="section-index">01</span> Команды
+            </h2>
             {cfg.teams.map((t, i) => (
               <div class="team-row" key={i}>
                 <span
@@ -158,6 +167,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                   style={{ background: hex(TEAM_COLORS[i % TEAM_COLORS.length]!) }}
                 />
                 <select
+                  aria-label={`Название команды ${i + 1}`}
                   value={TEAM_PRESETS.findIndex((p) => p.name === t.name)}
                   onChange={(e) => setTeam(i, Number((e.target as HTMLSelectElement).value))}
                 >
@@ -168,6 +178,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                   ))}
                 </select>
                 <select
+                  aria-label={`Управление командой ${i + 1}`}
                   value={t.cpu}
                   onChange={(e) => {
                     const teams = cfg.teams.slice();
@@ -265,6 +276,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                 {cfg.teams.length > 2 && (
                   <button
                     class="icon-btn"
+                    aria-label={`Удалить команду ${i + 1}`}
                     onClick={() => set({ teams: cfg.teams.filter((_, j) => j !== i) })}
                   >
                     ✕
@@ -280,7 +292,9 @@ export function Menu({ initial, onStart, onReplay }: Props) {
           </section>
 
           <section class="menu-card px-panel">
-            <h2>Карта</h2>
+            <h2>
+              <span class="section-index">02</span> Поле боя
+            </h2>
             <canvas ref={preview} class="map-preview" width={320} height={140} />
             <div class="row">
               <label>
@@ -323,7 +337,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                 title="Случайная карта"
                 onClick={() => set({ seed: randomSeed() })}
               >
-                🎲
+                Новая карта
               </button>
             </div>
             <label>
@@ -346,10 +360,13 @@ export function Menu({ initial, onStart, onReplay }: Props) {
             <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
           </section>
 
-          <section class="menu-card px-panel">
-            <h2>Wormpot</h2>
+          <details class="menu-card px-panel modifiers-card">
+            <summary>
+              <span class="section-index">03</span> Особые правила{' '}
+              <span class="optional-label">необязательно</span>
+            </summary>
             <Wormpot value={cfg.wormpot ?? []} onChange={(wormpot) => set({ wormpot })} />
-          </section>
+          </details>
         </div>
         <div class="menu-actions">
           <button class="btn big" onClick={() => onStart(cfg)}>
