@@ -1,0 +1,152 @@
+{
+  "results": [
+    {
+      "width": 1280,
+      "dpr": 1,
+      "visual": "painted",
+      "ready": true,
+      "zoom": 2,
+      "renderingIsCosmetic": true,
+      "footprintUnchanged": true,
+      "skins": [
+        "brutal",
+        "elder",
+        "commando-femme",
+        "elder-femme",
+        "brutal-sapper",
+        "elder-captain",
+        "brutal-brawler",
+        "elder-professor"
+      ],
+      "panelsInside": true,
+      "paintedSampling": "linear",
+      "crater": {
+        "removed": 41,
+        "hashChanged": true,
+        "maskUnchanged": true,
+        "incrementalMatchesFull": true,
+        "activeClips": 2
+      },
+      "water": {
+        "back": true,
+        "front": true,
+        "hashUnchanged": true
+      }
+    },
+    {
+      "width": 1280,
+      "dpr": 2,
+      "visual": "painted",
+      "ready": true,
+      "zoom": 2,
+      "renderingIsCosmetic": true,
+      "footprintUnchanged": true,
+      "skins": [
+        "brutal",
+        "elder",
+        "commando-femme",
+        "elder-femme",
+        "brutal-sapper",
+        "elder-captain",
+        "brutal-brawler",
+        "elder-professor"
+      ],
+      "panelsInside": true,
+      "paintedSampling": "linear",
+      "crater": {
+        "removed": 386,
+        "hashChanged": true,
+        "maskUnchanged": true,
+        "incrementalMatchesFull": true,
+        "activeClips": 2
+      },
+      "water": {
+        "back": true,
+        "front": true,
+        "hashUnchanged": true
+      }
+    },
+    {
+      "width": 1920,
+      "dpr": 1,
+      "visual": "painted",
+      "ready": true,
+      "zoom": 2,
+      "renderingIsCosmetic": true,
+      "footprintUnchanged": true,
+      "skins": [
+        "brutal",
+        "elder",
+        "commando-femme",
+        "elder-femme",
+        "brutal-sapper",
+        "elder-captain",
+        "brutal-brawler",
+        "elder-professor"
+      ],
+      "panelsInside": true,
+      "paintedSampling": "linear",
+      "crater": {
+        "removed": 630,
+        "hashChanged": true,
+        "maskUnchanged": true,
+        "incrementalMatchesFull": true,
+        "activeClips": 2
+      },
+      "water": {
+        "back": true,
+        "front": true,
+        "hashUnchanged": true
+      }
+    },
+    {
+      "width": 1920,
+      "dpr": 2,
+      "visual": "painted",
+      "ready": true,
+      "zoom": 2,
+      "renderingIsCosmetic": true,
+      "footprintUnchanged": true,
+      "skins": [
+        "brutal",
+        "elder",
+        "commando-femme",
+        "elder-femme",
+        "brutal-sapper",
+        "elder-captain",
+        "brutal-brawler",
+        "elder-professor"
+      ],
+      "panelsInside": true,
+      "paintedSampling": "linear",
+      "crater": {
+        "removed": 1723,
+        "hashChanged": true,
+        "maskUnchanged": true,
+        "incrementalMatchesFull": true,
+        "activeClips": 2
+      },
+      "water": {
+        "back": true,
+        "front": true,
+        "hashUnchanged": true
+      }
+    },
+    {
+      "scenario": "normal",
+      "visual": "pixel",
+      "zoom": 1
+    },
+    {
+      "scenario": "other-biome",
+      "visual": "pixel",
+      "zoom": 1
+    },
+    {
+      "scenario": "missing-pack",
+      "visual": "pixel",
+      "zoom": 1
+    }
+  ],
+  "errors": []
+}
