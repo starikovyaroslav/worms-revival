@@ -30,6 +30,20 @@ function script(tick: number): Command[] {
 }
 
 describe('replays', () => {
+  it('records the map generator version and rejects unknown terrain versions', () => {
+    const cfg = { ...config, mapVersion: 2 as const };
+    const game = new Game(buildGameSetup(cfg));
+    const rec = new ReplayRecorder(cfg);
+    for (let i = 0; i < 240; i++) {
+      rec.record(i, []);
+      game.step();
+    }
+    const replay = JSON.parse(JSON.stringify(rec.finish(game)));
+    expect(replay.config.mapVersion).toBe(2);
+    expect(new ReplayPlayer(replay).verify()).toBe(true);
+    replay.config.mapVersion = 999;
+    expect(replayProblem(replay)).toEqual({ kind: 'malformed' });
+  });
   it('preserves repeated nocturne identities through JSON and leaves scripted physics unchanged', () => {
     const identities = [
       'nocturne-violet',

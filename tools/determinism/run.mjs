@@ -46,3 +46,6 @@ if (!ok) {
   process.exit(1);
 }
 console.log('Deterministic across all engines.');
+console.log(
+  `Island v2 masks: ${results.node.islandV2.join(', ')}; settled v2 match: ${results.node.islandGameHash}`,
+);

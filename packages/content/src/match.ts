@@ -18,6 +18,8 @@ export interface TeamConfig {
 
 /** Everything needed to recreate a match exactly: the basis for replays and netplay. */
 export interface MatchConfig {
+  /** Missing means legacy v1, so old replay seeds keep their original terrain. */
+  mapVersion?: 1 | 2;
   seed: number;
   style: MapStyle;
   themeId: string;
@@ -30,7 +32,7 @@ export interface MatchConfig {
 /** Builds the deterministic starting state for a match: map, worm spawns, mines and drums. */
 export function buildGameSetup(cfg: MatchConfig): GameSetup {
   const scheme = applyWormpot(schemeById(cfg.schemeId), cfg.wormpot ?? []);
-  const map = generateMap({ seed: cfg.seed, style: cfg.style });
+  const map = generateMap({ seed: cfg.seed, style: cfg.style, version: cfg.mapVersion ?? 1 });
   const surfaces = findSurfaces(map.terrain, {
     halfWidth: WORM_HALF_W,
     height: WORM_H,

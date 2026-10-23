@@ -29,6 +29,7 @@ const randomSeed = () => Math.floor(Math.random() * 1e9);
 
 export function defaultConfig(): MatchConfig {
   return {
+    mapVersion: 2,
     seed: randomSeed(),
     style: 'island',
     themeId: THEMES[Math.floor(Math.random() * THEMES.length)]!.id,
@@ -96,10 +97,11 @@ export function Menu({ initial, onStart, onReplay }: Props) {
   useEffect(() => {
     // Let the UI paint before the (slightly slow) map generation.
     const id = setTimeout(() => {
-      if (preview.current) drawMapPreview(preview.current, cfg.seed, cfg.style, cfg.themeId);
+      if (preview.current)
+        drawMapPreview(preview.current, cfg.seed, cfg.style, cfg.themeId, cfg.mapVersion ?? 1);
     }, 30);
     return () => clearTimeout(id);
-  }, [cfg.seed, cfg.style, cfg.themeId]);
+  }, [cfg.seed, cfg.style, cfg.themeId, cfg.mapVersion]);
 
   const setTeam = (i: number, presetIdx: number) => {
     const teams = cfg.teams.slice();

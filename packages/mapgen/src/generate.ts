@@ -1,10 +1,13 @@
 import { Material, Terrain, Rng } from '@wr/sim';
 import { fbm } from './noise';
 import { removeSmallRegions } from './cleanup';
+import { archipelago, type ArchipelagoFeatures } from './archipelago';
 
 export type MapStyle = 'island' | 'cavern';
 
 export interface MapParams {
+  /** Explicit version preserves the exact terrain of older recorded matches. */
+  version: 1 | 2;
   seed: number;
   width: number;
   height: number;
@@ -16,6 +19,7 @@ export interface MapParams {
 }
 
 export const DEFAULT_MAP_PARAMS: MapParams = {
+  version: 2,
   seed: 1,
   width: 1920,
   height: 800,
@@ -28,6 +32,7 @@ export interface GeneratedMap {
   params: MapParams;
   terrain: Terrain;
   waterLevel: number;
+  features?: ArchipelagoFeatures;
 }
 
 /** Height above the bottom edge that is under water at the start of the game. */
@@ -38,6 +43,10 @@ const WARP = 90;
 export function generateMap(input: Partial<MapParams> = {}): GeneratedMap {
   const p: MapParams = { ...DEFAULT_MAP_PARAMS, ...input };
   const { width, height } = p;
+  if (p.version === 2 && p.style === 'island') {
+    const waterLevel = height - WATER_DEPTH;
+    return { params: p, waterLevel, ...archipelago(p, waterLevel) };
+  }
   const rng = new Rng(p.seed);
   const noiseSeed = rng.nextU32() | 0;
   const terrain = new Terrain(width, height);

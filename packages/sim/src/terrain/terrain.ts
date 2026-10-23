@@ -10,6 +10,8 @@ export const Material = {
   Scorched: 3,
   /** Placed girder. Destructible, rendered as steel. */
   Girder: 4,
+  /** Destructible wooden crossing generated with an island map. */
+  Bridge: 5,
 } as const;
 export type Material = (typeof Material)[keyof typeof Material];
 

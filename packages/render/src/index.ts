@@ -1,6 +1,7 @@
 export * from './color';
 export * from './theme';
 export * from './terrainView';
+export * from './bridgeArt';
 export { artPixel } from './terrainArt';
 export * from './camera';
 export * from './background';

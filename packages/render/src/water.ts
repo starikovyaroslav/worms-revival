@@ -96,7 +96,7 @@ export class WaterView {
     if (texture) {
       this.paintedBack = new TilingSprite({ texture, width: 1, height: assets.sizeOf(texture).h });
       this.paintedFront = new TilingSprite({ texture, width: 1, height: assets.sizeOf(texture).h });
-      this.paintedFront.alpha = 0.62;
+      this.paintedFront.alpha = 1;
       this.back.addChild(this.paintedBack);
       this.front.addChild(this.paintedFront);
       const pixels = assets.pixels(`painted/water/${theme.id}`);
@@ -139,8 +139,9 @@ export class WaterView {
         .fill(this.deepColor);
       this.deepTint
         .clear()
-        .rect(x0, level + h * 0.65, span, bottom - level)
-        .fill({ color: this.deepColor, alpha: 0.62 });
+        // Occlude submerged terrain/entities; the transparent crest stays above this solid body.
+        .rect(x0, level + 8, span, bottom - level)
+        .fill(this.deepColor);
       return;
     }
 
@@ -185,9 +186,12 @@ export class WaterView {
     const skin = this.ramp[0] as number;
     for (let x = x0; x < x1; x += COL) f.rect(x, this.waveY(level, 1, x), COL, 2);
     f.fill({ color: skin, alpha: 0.6 });
-    // Darker depth tint, a flat palette colour at low alpha.
+    // Opaque depth also in the legacy renderer: submerged terrain is not playable scenery.
     this.deepTint.clear();
-    this.deepTint.rect(x0, level + 70, span, 4000).fill({ color: this.deepColor, alpha: 0.28 });
+    for (let i = 0; i < n; i++) {
+      const y = level + 8 + i * BAND;
+      this.deepTint.rect(x0, y, span, i === n - 1 ? bottom - y : BAND).fill(r(i));
+    }
 
     // Foam: crest sparkles on the front wave, and a 2-row lap wherever the surface touches land.
     const m = this.foam;

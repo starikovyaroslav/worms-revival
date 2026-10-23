@@ -1,5 +1,6 @@
 import { Material, type Terrain } from '@wr/sim';
 import { assets, type AssetPixels } from './assets';
+import { bridgeColor } from './bridgeArt';
 
 export interface TerrainArt {
   painted?: boolean;
@@ -80,6 +81,10 @@ export function terrainArtPixel(
   }
   if (material === Material.Rock && art.rock) return sample(art.rock, y);
   if (material === Material.Girder && art.steel) return sample(art.steel, y);
+  if (material === Material.Bridge) {
+    const color = bridgeColor(x + subX, y + subY);
+    return art.painted ? 0xff000000 + color : color;
+  }
   if (!soil(material)) return undefined;
   let top = 13,
     bottom = 13;

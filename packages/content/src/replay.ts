@@ -72,6 +72,7 @@ function isReplayShape(raw: unknown): raw is Replay {
     teamsOk &&
     logOk &&
     isNum(c.seed) &&
+    (c.mapVersion === undefined || c.mapVersion === 1 || c.mapVersion === 2) &&
     isStr(c.style) &&
     isStr(c.themeId) &&
     isStr(c.schemeId) &&

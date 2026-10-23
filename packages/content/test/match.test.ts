@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { Game } from '@wr/sim';
 import { buildGameSetup, type MatchConfig } from '../src/match';
 import { TEAM_PRESETS } from '../src/teams';
+import { generateMap } from '@wr/mapgen';
 
 const cfg: MatchConfig = {
   seed: 77,
@@ -12,6 +13,23 @@ const cfg: MatchConfig = {
 };
 
 describe('buildGameSetup', () => {
+  it('uses v1 for old recorded configs and records explicit v2 geometry for new matches', () => {
+    const old = buildGameSetup(cfg);
+    expect(
+      Buffer.from(old.terrain.data).equals(
+        Buffer.from(generateMap({ seed: cfg.seed, style: cfg.style, version: 1 }).terrain.data),
+      ),
+    ).toBe(true);
+    const next = buildGameSetup({ ...cfg, mapVersion: 2 });
+    expect(
+      Buffer.from(next.terrain.data).equals(
+        Buffer.from(generateMap({ seed: cfg.seed, style: cfg.style, version: 2 }).terrain.data),
+      ),
+    ).toBe(true);
+    expect(Buffer.from(next.terrain.data).equals(Buffer.from(old.terrain.data))).toBe(false);
+    expect(next.spawns).toHaveLength(3 * next.scheme.wormsPerTeam);
+    expect(next.objects).toHaveLength(next.scheme.mines + next.scheme.barrels);
+  });
   it('cosmetic skin choices do not enter setup, hashes or movement rules', () => {
     const plain = buildGameSetup(cfg);
     const skinned = buildGameSetup({

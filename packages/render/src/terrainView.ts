@@ -1,7 +1,8 @@
-import { BufferImageSource, Container, Sprite, Texture } from 'pixi.js';
+import { BufferImageSource, Container, Sprite, Texture, Graphics } from 'pixi.js';
 import { Material, type Terrain } from '@wr/sim';
 import { snap } from './palette';
 import type { Theme } from './theme';
+import { bridgeColor, bridgeRuns } from './bridgeArt';
 import { terrainArtForTheme, terrainArtPixel, terrainArtRGBA, type TerrainArt } from './terrainArt';
 
 const CHUNK = 256;
@@ -79,6 +80,7 @@ export class TerrainView {
   private cols: number;
   private art: TerrainArt | undefined;
   private density: number;
+  private rails = new Graphics();
   /** Distance-to-air field for the region currently being repainted. */
   private field = { x0: 0, y0: 0, w: 0, h: 0, data: new Uint8Array(0) };
 
@@ -108,6 +110,7 @@ export class TerrainView {
         this.chunks.push({ cx, cy, w, h, pixels, source });
       }
     }
+    this.container.addChild(this.rails);
     this.redrawAll();
     terrain.dirty.length = 0;
   }
@@ -122,6 +125,7 @@ export class TerrainView {
 
   redrawAll(): void {
     this.redraw(0, 0, this.terrain.width - 1, this.terrain.height - 1);
+    this.drawBridgeRails();
   }
 
   /** Applies all terrain changes since the last call. */
@@ -129,7 +133,33 @@ export class TerrainView {
     const dirty = this.terrain.dirty;
     if (!dirty.length) return;
     for (const r of dirty) this.redraw(r.x0 - MARGIN, r.y0 - MARGIN, r.x1 + MARGIN, r.y1 + MARGIN);
+    this.drawBridgeRails();
     dirty.length = 0;
+  }
+
+  private drawBridgeRails(): void {
+    const g = this.rails.clear();
+    for (const run of bridgeRuns(this.terrain)) {
+      for (let i = 0; i < run.length; i += 30) {
+        const p = run[i]!;
+        g.moveTo(p.x, p.y)
+          .lineTo(p.x, p.y - 17)
+          .stroke({ color: 0x503324, width: 3 });
+        g.moveTo(p.x - 0.6, p.y - 1)
+          .lineTo(p.x - 0.6, p.y - 17)
+          .stroke({ color: 0xae7a48, width: 1 });
+      }
+      const draw = () => {
+        run.forEach((p, i) => {
+          if (!i) g.moveTo(p.x, p.y - 14);
+          else g.lineTo(p.x, p.y - 14);
+        });
+      };
+      draw();
+      g.stroke({ color: 0x493323, width: 2.5 });
+      draw();
+      g.stroke({ color: 0xd0ac71, width: 1 });
+    }
   }
 
   private redraw(x0: number, y0: number, x1: number, y1: number): void {
@@ -297,6 +327,10 @@ export class TerrainView {
             for (let sx = 0; sx < density; sx++) write(color, sx, sy, rgba);
         };
         const m = t.data[y * t.width + x] as Material;
+        if (m === Material.Bridge && !this.art) {
+          fill(bridgeColor(x, y));
+          continue;
+        }
         if (this.art) {
           const sample = this.art.painted ? terrainArtRGBA : terrainArtPixel;
           const color = sample(t, this.art, x, y, m);
