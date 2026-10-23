@@ -1,0 +1,453 @@
+{
+  "results": [
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 489,
+          "right": 791,
+          "top": 675.625,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 561.8536987304688,
+          "right": 718.1463012695312,
+          "top": 6.081397533416748,
+          "bottom": 99.91860151290894,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 324,
+          "top": 604,
+          "bottom": 654,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 324,
+          "top": 656,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1010,
+          "right": 1266,
+          "top": 636,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1044,
+          "right": 1266,
+          "top": 14,
+          "bottom": 54,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true,
+      "weapons": {
+        "count": 67,
+        "overflow": [],
+        "fontReady": true
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 733.5,
+          "right": 1186.5,
+          "top": 1013.4375,
+          "bottom": 1059,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 842.780517578125,
+          "right": 1077.219482421875,
+          "top": 9.122096061706543,
+          "bottom": 149.8778944015503,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 24,
+          "right": 486,
+          "top": 906,
+          "bottom": 981,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 24,
+          "right": 486,
+          "top": 984,
+          "bottom": 1059,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1515,
+          "right": 1899,
+          "top": 954,
+          "bottom": 1059,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1566,
+          "right": 1899,
+          "top": 21,
+          "bottom": 81,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "theme": "arctic",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 738.0703125,
+          "right": 1181.9296875,
+          "top": 1013.4375,
+          "bottom": 1059,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 842.780517578125,
+          "right": 1077.219482421875,
+          "top": 9.122096061706543,
+          "bottom": 149.8778944015503,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 24,
+          "right": 486,
+          "top": 906,
+          "bottom": 981,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 24,
+          "right": 486,
+          "top": 984,
+          "bottom": 1059,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1515,
+          "right": 1899,
+          "top": 954,
+          "bottom": 1059,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1566,
+          "right": 1899,
+          "top": 21,
+          "bottom": 81,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "dpr": 1,
+      "theme": "hell",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 978,
+          "right": 1582,
+          "top": 1351.25,
+          "bottom": 1412,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 1123.7073974609375,
+          "right": 1436.2926025390625,
+          "top": 12.162795066833496,
+          "bottom": 199.83720302581787,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 32,
+          "right": 648,
+          "top": 1208,
+          "bottom": 1308,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 32,
+          "right": 648,
+          "top": 1312,
+          "bottom": 1412,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 2020,
+          "right": 2532,
+          "top": 1272,
+          "bottom": 1412,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 2088,
+          "right": 2532,
+          "top": 28,
+          "bottom": 108,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "theme": "desert",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 489,
+          "right": 791,
+          "top": 675.625,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 561.8536987304688,
+          "right": 718.1463012695312,
+          "top": 6.081397533416748,
+          "bottom": 99.91860151290894,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 324,
+          "top": 604,
+          "bottom": 654,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 324,
+          "top": 656,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1010,
+          "right": 1266,
+          "top": 636,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1044,
+          "right": 1266,
+          "top": 14,
+          "bottom": 54,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 2,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 489,
+          "right": 791,
+          "top": 915.625,
+          "bottom": 946,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 561.8536987304688,
+          "right": 718.1463012695312,
+          "top": 6.081397533416748,
+          "bottom": 99.91860151290894,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 324,
+          "top": 844,
+          "bottom": 894,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 324,
+          "top": 896,
+          "bottom": 946,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1010,
+          "right": 1266,
+          "top": 876,
+          "bottom": 946,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1044,
+          "right": 1266,
+          "top": 14,
+          "bottom": 54,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "theme": "meadow",
+      "teamCount": 4,
+      "visual": "painted",
+      "panels": [
+        {
+          "name": "hint-line px-panel ",
+          "left": 489,
+          "right": 791,
+          "top": 675.625,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "timer-box px-panel",
+          "left": 561.8536987304688,
+          "right": 718.1463012695312,
+          "top": 6.081397533416748,
+          "bottom": 99.91860151290894,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/timer.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 324,
+          "top": 500,
+          "bottom": 550,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 324,
+          "top": 552,
+          "bottom": 602,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel active",
+          "left": 16,
+          "right": 324,
+          "top": 604,
+          "bottom": 654,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "team px-panel ",
+          "left": 16,
+          "right": 324,
+          "top": 656,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "weapon px-panel",
+          "left": 1010,
+          "right": 1266,
+          "top": 636,
+          "bottom": 706,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        },
+        {
+          "name": "wind px-panel",
+          "left": 1044,
+          "right": 1266,
+          "top": 14,
+          "bottom": 54,
+          "background": "url(\"http://127.0.0.1:5174/assets/comic-ui/ink.png\")"
+        }
+      ],
+      "overlaps": [],
+      "inside": true,
+      "iconLoaded": true
+    }
+  ],
+  "errors": []
+}

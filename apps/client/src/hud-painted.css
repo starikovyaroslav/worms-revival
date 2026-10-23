@@ -1,40 +1,57 @@
-/* Quiet HUD: painted scenery stays the focal point. All sizes are logical units. */
+/* Combat comic HUD: native brush art + live text. Units are viewport logical pixels. */
+@font-face {
+  font-family: 'Comic Hand';
+  src: url('/fonts/caveat-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 .hud-weapon-icon,
-.hud-weapon-label {
+.hud-weapon-label,
+.hud-arsenal-key {
   display: none;
 }
 body[data-visual='painted'] #ui .hud {
-  color: #f0f1e8;
-  font-variant-numeric: tabular-nums;
+  color: #fff5db;
 }
 body[data-visual='painted'] #ui .hud .timer-box,
 body[data-visual='painted'] #ui .hud .wind,
 body[data-visual='painted'] #ui .hud .team,
 body[data-visual='painted'] #ui .hud .weapon {
   box-sizing: border-box;
-  border: 1px solid #ffffff14;
-  border-radius: 3px;
-  background: #121d23df;
-  box-shadow: 0 1px 4px #0002;
-  color: inherit;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent url('/assets/comic-ui/ink.png') center / 100% 100% no-repeat;
+  color: #fff5db;
 }
 body[data-visual='painted'] #ui .hud .timer-box {
-  top: 7px;
-  width: 58px;
-  height: 35px;
-  padding: 4px 7px;
-  gap: 0 3px;
+  background-image: url('/assets/comic-ui/timer.png');
+  top: 5px;
+  width: 76px;
+  height: 43px;
+  padding: 6px 13px 8px;
+  gap: 0 2px;
   grid-template-columns: 1fr auto;
+  transform: translateX(-50%) rotate(-3deg);
+}
+body[data-visual='painted'] #ui .hud .timer,
+body[data-visual='painted'] #ui .hud .team-name,
+body[data-visual='painted'] #ui .hud .team-hp,
+body[data-visual='painted'] #ui .hud .weapon b,
+body[data-visual='painted'] #ui .hud .wind-num {
+  font-family: 'Comic Hand', sans-serif;
+  font-weight: 700;
 }
 body[data-visual='painted'] #ui .hud .timer {
-  font-size: 18px;
-  font-weight: 750;
-  line-height: 1;
+  font-size: 29px;
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
 }
 body[data-visual='painted'] #ui .hud .cap {
-  font-size: 5px;
-  letter-spacing: 0.45px;
-  color: #b3bec0;
+  font-size: 6px;
+  font-style: italic;
+  color: #fff0cf;
   text-align: left;
 }
 body[data-visual='painted'] #ui .hud .round {
@@ -42,70 +59,79 @@ body[data-visual='painted'] #ui .hud .round {
   margin: 0;
 }
 body[data-visual='painted'] #ui .hud .wind {
-  width: 110px;
-  height: 23px;
+  width: 111px;
+  height: 20px;
   top: 7px;
-  right: 8px;
-  padding: 5px 7px;
-  gap: 4px;
-  font-size: 7px;
+  right: 7px;
+  padding: 5px 9px;
+  gap: 3px;
 }
 body[data-visual='painted'] #ui .hud .wind-label {
-  font-size: 5px;
-  color: #b3bec0;
+  font-size: 6px;
+  color: #fff5db;
+  font-style: italic;
 }
 body[data-visual='painted'] #ui .hud .wind-track {
-  width: 50px;
-  height: 3px;
-  background: #ffffff10;
-  border-radius: 1px;
+  width: 45px;
+  height: 4px;
+  background: #fff4d222;
 }
 body[data-visual='painted'] #ui .hud .wind-bar {
-  background: #d3dfa5;
+  background: #b5d664;
   animation: none;
 }
 body[data-visual='painted'] #ui .hud .wind-num {
-  min-width: 12px;
-  font-size: 7px;
+  min-width: 13px;
+  font-size: 10px;
 }
 body[data-visual='painted'] #ui .hud .teams {
-  width: 153px;
+  width: 154px;
   left: 8px;
-  bottom: 8px;
-  gap: 2px;
+  bottom: 7px;
+  gap: 1px;
 }
 body[data-visual='painted'] #ui .hud .team {
   position: relative;
   height: 25px;
-  padding: 4px 7px;
-  grid-template-columns: minmax(0, 1fr) 20px;
-  gap: 4px;
-  border-left: 2px solid transparent;
+  padding: 3px 13px 5px;
+  grid-template-columns: minmax(0, 1fr) 21px;
+  gap: 0 3px;
 }
-body[data-visual='painted'] #ui .hud .team.active {
-  border-left-color: #d3dfa5;
+body[data-visual='painted'] #ui .hud .team.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid #e0ed8a;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  filter: drop-shadow(1px 1px 0 #101315);
 }
 body[data-visual='painted'] #ui .hud .team-name {
-  font-size: 7px;
-  font-weight: 550;
-  gap: 4px;
-  color: #e4e9e6;
+  font-size: 10px;
+  color: #fff5db;
+  gap: 0;
+  line-height: 1;
+}
+body[data-visual='painted'] #ui .hud .team-name span {
+  font-family: inherit;
+  font-weight: inherit;
 }
 body[data-visual='painted'] #ui .hud .team-flag {
-  width: 3px;
-  height: 6px;
-  box-shadow: none;
-  border-radius: 1px;
+  display: none;
 }
 body[data-visual='painted'] #ui .hud .team-hp {
-  font-size: 7px;
+  font-size: 11px;
   min-width: 0;
+  line-height: 1;
 }
 body[data-visual='painted'] #ui .hud .team-trough {
-  height: 2px;
-  background: #ffffff12;
+  height: 3px;
+  background: #fff5db20;
   box-shadow: none;
-  overflow: hidden;
+  mask: url('/assets/comic-ui/underline.png') center / 100% 100% no-repeat;
 }
 body[data-visual='painted'] #ui .hud .team-bar {
   box-shadow: none;
@@ -114,59 +140,75 @@ body[data-visual='painted'] #ui .hud .team-bar {
 body[data-visual='painted'] #ui .hud .weapon {
   width: 128px;
   max-width: none;
-  min-height: 35px;
-  bottom: 8px;
-  right: 8px;
-  padding: 6px 8px;
+  min-height: 34px;
+  bottom: 7px;
+  right: 7px;
+  padding: 6px 12px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 body[data-visual='painted'] #ui .hud .hud-weapon-icon {
   display: block;
-  width: 28px;
-  height: 22px;
+  width: 33px;
+  height: 23px;
   object-fit: contain;
 }
 body[data-visual='painted'] #ui .hud .hud-weapon-copy {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 body[data-visual='painted'] #ui .hud .weapon b {
-  font-size: 7px;
-  font-weight: 650;
-  line-height: 1.2;
+  font-size: 11px;
+  line-height: 1;
   overflow-wrap: anywhere;
 }
 body[data-visual='painted'] #ui .hud .hud-weapon-details {
   font-size: 5px;
-  color: #b3bec0;
+  color: #fff0c9;
 }
 body[data-visual='painted'] #ui .hud .first-hint {
-  bottom: 49px;
-  right: 9px;
+  display: none;
+  bottom: 46px;
+  right: 10px;
   font-size: 5px;
-  color: #e4e9e6;
+  color: #fff5db;
+}
+body[data-visual='painted'] #ui .hud .hud-arsenal-key {
+  display: block;
+  font-size: 5px;
+  color: #fff0c9;
 }
 body[data-visual='painted'] #ui .hud .hud-mods {
-  top: 34px;
+  top: 31px;
   right: 8px;
 }
 body[data-visual='painted'] #ui .hud .hint-line {
   max-width: 220px;
-  bottom: 8px;
-  padding: 4px 6px;
+  bottom: 7px;
+  padding: 4px 11px;
   border: 0;
-  border-radius: 3px;
-  background: #121d23c9;
+  border-radius: 0;
   box-shadow: none;
+  background: transparent url('/assets/comic-ui/ink.png') center / 100% 100% no-repeat;
   font-size: 6px;
-  color: #e2e6d5;
+  color: #fff5db;
 }
 body[data-visual='painted'] #ui .hud .hint-line.warn {
   color: #ffb4a4;
+}
+body[data-visual='painted'] #ui .hud .turn-prompt,
+body[data-visual='painted'] #ui .hud .turn-banner {
+  font-family: 'Comic Hand', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow:
+    1px 1px #101315,
+    -1px -1px #101315,
+    1px -1px #101315,
+    -1px 1px #101315;
 }
 @media (prefers-reduced-motion: reduce) {
   body[data-visual='painted'] #ui .hud .timer.urgent {

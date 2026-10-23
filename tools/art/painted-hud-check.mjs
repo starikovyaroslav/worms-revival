@@ -1,10 +1,10 @@
-/** Live acceptance for the compact HUD; the ornate v1 is archived, not active. */
+/** Live acceptance for the combat-comic HUD. */
 import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 
 const base = process.argv[2] ?? 'http://127.0.0.1:5174/';
-const output = 'docs/design/concepts/quiet-ui-v2';
+const output = 'docs/design/concepts/combat-comic-ui-v1/live';
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({
   channel: 'chrome',
@@ -30,6 +30,7 @@ try {
     await page.goto(base);
     await page.getByLabel('Тема').selectOption(theme);
     await page.getByLabel('Seed', { exact: true }).fill('42');
+    await page.getByLabel('Seed', { exact: true }).press('Tab');
     for (let i = 2; i < teamCount; i++)
       await page.getByRole('button', { name: '+ команда', exact: true }).click();
     await page.getByRole('button', { name: 'В бой!' }).click();
@@ -44,8 +45,10 @@ try {
       scene.setCrt('off');
       scene.userScrolled = true;
       scene.camera.lookAt(game.activeWorm.x, game.activeWorm.y - 40);
+      const hash = game.hash();
       scene.render(1, 16);
       scene.app.render();
+      if (game.hash() !== hash) throw new Error('Rendering changed simulation state');
     });
     await page.waitForFunction(
       () => document.querySelector('.hud .weapon b')?.textContent === 'Базука',
@@ -93,12 +96,38 @@ try {
     assert.ok(
       state.panels
         .filter((p) => !p.name.includes('hint-line'))
-        .every((p) => p.background === 'none'),
+        .every((p) => p.background.includes('/assets/comic-ui/')),
     );
     await page.screenshot({
       path: `${output}/match-${theme}-${width}x${height}-dpr${dpr}${teamCount === 4 ? '-4teams' : ''}.png`,
     });
     results.push({ width, height, dpr, theme, teamCount, ...state });
+    if (width === 1280 && height === 720 && theme === 'meadow' && teamCount === 2) {
+      const coverage = await page.evaluate(async () => {
+        const { game } = window.__game;
+        const original = game.weaponId;
+        const errors = [];
+        for (const weapon of game.rules.weapons) {
+          game.weaponId = weapon.id;
+          await new Promise(window.requestAnimationFrame);
+          await new Promise(window.requestAnimationFrame);
+          const panel = document.querySelector('.hud .weapon').getBoundingClientRect();
+          const copy = document.querySelector('.hud-weapon-copy').getBoundingClientRect();
+          if (copy.top < panel.top || copy.bottom > panel.bottom || copy.right > panel.right)
+            errors.push(weapon.id);
+        }
+        game.weaponId = original;
+        return {
+          count: game.rules.weapons.length,
+          overflow: errors,
+          fontReady: document.fonts.check('700 16px "Comic Hand"'),
+        };
+      });
+      assert.equal(coverage.count, 67);
+      assert.deepEqual(coverage.overflow, []);
+      assert.equal(coverage.fontReady, true);
+      results[results.length - 1].weapons = coverage;
+    }
     await page.close();
   }
   assert.deepEqual(errors, []);

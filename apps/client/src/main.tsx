@@ -38,6 +38,7 @@ function applyCssVars(vp: Viewport): void {
 async function boot() {
   const params = new URLSearchParams(location.search);
   const wantsPainted = params.get('visual') !== 'pixel';
+  if (wantsPainted) await document.fonts.load('700 16px "Comic Hand"').catch(() => []);
   // Pixel art: every texture is sampled with nearest unless it opts into linear (glows, lights).
   TextureStyle.defaultOptions.scaleMode = 'nearest';
   // One module decides the integer scale; this controller only reports changes (see viewport.ts).

@@ -69,9 +69,9 @@ export class WormView {
   ) {
     const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
     const font = {
-      fontFamily: painted ? 'Arial, sans-serif' : '"Press Start 2P", monospace',
+      fontFamily: painted ? '"Comic Hand", Arial, sans-serif' : '"Press Start 2P", monospace',
       fontSize: 8,
-      fontWeight: '400' as const,
+      fontWeight: painted ? ('700' as const) : ('400' as const),
     };
     this.color = color;
     // One bevelled tag in the HUD's panel style: the name on top, a health bar with the number below.
@@ -116,7 +116,7 @@ export class WormView {
     this.ls = ls;
     const u = labelUnit(ls);
     for (const t of [this.nameText, this.hpText]) {
-      t.style.fontSize = labelFont(this.painted ? 10 : 8, ls);
+      t.style.fontSize = labelFont(this.painted ? 13 : 8, ls);
       t.style.stroke = { color: INK, width: (this.painted ? 0.75 : 2) * u, join: 'round' };
     }
     this.plates.scale.set(u);
@@ -137,9 +137,20 @@ export class WormView {
     if (this.painted) {
       const width = compact ? 34 : Math.max(44, this.nameText.width / u + 12);
       const height = compact ? 17 : 31;
-      g.roundRect(-width / 2, -height, width, height, 3)
-        .fill({ color: 0x17252b, alpha: 0.94 })
-        .stroke({ color: 0x9b9874, width: 0.75 });
+      g.poly([
+        -width / 2 - 2,
+        -height + 2,
+        width / 2,
+        -height,
+        width / 2 - 2,
+        -height + 4,
+        width / 2 + 1,
+        -3,
+        -width / 2,
+        0,
+        -width / 2 + 2,
+        -5,
+      ]).fill({ color: 0x0b1117, alpha: 0.96 });
       const barWidth = width - 10;
       g.roundRect(-barWidth / 2, -5, barWidth, 2, 1).fill(0x0d1720);
       const health = barWidth * Math.max(0, Math.min(1, this.shown / this.maxHp));

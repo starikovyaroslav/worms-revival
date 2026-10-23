@@ -169,6 +169,7 @@ export function Hud({
                   {s.weapon.fuse !== null && <span>Взрыватель · {s.weapon.fuse} с</span>}
                   {s.weapon.bounce && <span> · Отскок: {s.weapon.bounce}</span>}
                 </span>
+                <span class="hud-arsenal-key">ПКМ · АРСЕНАЛ</span>
               </div>
             </div>
           )}
