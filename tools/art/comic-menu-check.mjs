@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 
-const output = 'docs/design/concepts/quiet-ui-v2';
+const output = 'docs/design/concepts/combat-comic-ui-v1/live';
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({
   channel: 'chrome',
@@ -23,10 +23,19 @@ try {
     await page.goto(process.argv[2] ?? 'http://127.0.0.1:5174/');
     await page.getByLabel('Тема').selectOption('meadow');
     await page.getByLabel('Seed', { exact: true }).fill('42');
+    await page.getByLabel('Seed', { exact: true }).press('Tab');
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForFunction(
+      () => document.querySelector('canvas.map-preview')?.dataset.previewKey === '42/island/meadow',
+    );
+    await page.evaluate(() => {
+      document.activeElement?.blur();
+      document.querySelector('.menu').scrollTop = 0;
+    });
     await page.screenshot({ path: `${output}/menu-${width}.png`, fullPage: true });
     const bounds = await page.evaluate(() => {
       const menu = document.querySelector('.menu');
-      const body = document.querySelector('.menu-body').getBoundingClientRect();
+      const body = document.querySelector('.menu-stage').getBoundingClientRect();
       return {
         horizontalOverflow: menu.scrollWidth > menu.clientWidth + 1,
         left: body.left,
@@ -39,7 +48,21 @@ try {
     await page.getByRole('button', { name: '+ команда', exact: true }).click();
     await page.getByRole('button', { name: '+ команда', exact: true }).click();
     await page.getByLabel('Класс команды 1').selectOption('elder');
-    await page.locator('.character-roster summary').first().click();
+    if (width >= 1280) {
+      await page.evaluate(() => {
+        document.activeElement?.blur();
+        document.querySelector('.menu').scrollTop = 0;
+      });
+      await page.screenshot({ path: `${output}/menu-${width}-4teams.png` });
+    }
+    await page
+      .getByRole('button', { name: 'Настроить персонажа 1 команды 1', exact: true })
+      .click();
+    assert.equal(await page.locator('.character-roster').first().getAttribute('open'), '');
+    assert.equal(
+      await page.getByLabel('Персонаж 1 команды 1').evaluate((e) => e === document.activeElement),
+      true,
+    );
     await page.getByLabel('Персонаж 1 команды 1').selectOption('');
     await page.locator('.modifiers-card > summary').click();
     await page.locator('.wormpot-slot').first().click();
@@ -49,6 +72,10 @@ try {
     assert.equal(await page.locator('.team-row').count(), 3);
     await page.getByRole('button', { name: 'В бой!', exact: true }).click();
     await page.waitForFunction(() => window.__game?.scene.worms.size > 0);
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'Выйти в меню', exact: true }).click();
+    await page.getByRole('button', { name: 'Да, выйти', exact: true }).click();
+    await page.getByRole('button', { name: 'В бой!', exact: true }).waitFor();
     results.push({ width, height, ...bounds, controls: 'passed', matchStarted: true });
     await page.close();
   }

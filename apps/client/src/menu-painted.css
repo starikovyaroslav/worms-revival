@@ -1,4 +1,8 @@
-/* Responsive match setup, intentionally quiet beside the painted world. */
+/* Combat-comic setup: a live character lineup and real map, not a baked screenshot. */
+.comic-wordmark,
+.team-lineup {
+  display: none;
+}
 .menu-header {
   width: 100%;
 }
@@ -9,136 +13,228 @@
 }
 body[data-visual='painted'] #ui .menu {
   box-sizing: border-box;
-  padding: clamp(20px, 4vh, 52px) clamp(18px, 5vw, 90px);
-  align-items: center;
+  padding: clamp(18px, 3vh, 36px) clamp(18px, 4vw, 70px);
+  color: #151b1e;
+  background: #f4efdc !important;
   isolation: isolate;
-  color: #ecf0e9;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 body[data-visual='painted'] .menu::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(110deg, #0c161eee 0%, #0c161ed9 55%, #0c161e93 100%);
+  pointer-events: none;
+  background-image: radial-gradient(#88784c15 0.7px, transparent 0.7px);
+  background-size: 5px 5px;
 }
 body[data-visual='painted'] #ui .menu-stage {
   zoom: 1;
   transform: none;
-  width: 1100px;
+  width: 1360px;
   max-width: 100%;
-  align-items: stretch;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+  gap: 12px 42px;
+  align-items: start;
 }
 body[data-visual='painted'] .menu-header {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
-  align-items: center;
-  gap: 34px;
-  padding: 0 0 20px;
-  border-bottom: 1px solid #ffffff16;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 body[data-visual='painted'] #ui .menu .logo {
-  flex: none;
   margin: 0;
+  width: 100%;
+  line-height: 0.8;
+  text-align: left;
 }
 body[data-visual='painted'] .menu .logo img {
-  width: 180px;
+  display: none;
+}
+body[data-visual='painted'] #ui .menu .comic-wordmark {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  font-size: 0;
+  line-height: 0;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+  transform: rotate(-2deg);
+}
+body[data-visual='painted'] #ui .menu .comic-wordmark img {
+  display: block;
+  width: 100%;
   height: auto;
 }
 body[data-visual='painted'] .menu-heading {
   display: block;
+  background: url('/assets/comic-ui/ink.png') center / 100% 100% no-repeat;
+  padding: 8px 32px;
+  transform: rotate(-2deg);
 }
-body[data-visual='painted'] .menu-eyebrow {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #b9c79e;
-}
-body[data-visual='painted'] .menu-heading h2 {
-  font-size: 30px;
-  font-weight: 650;
-  margin: 4px 0;
-  letter-spacing: -0.6px;
-}
+body[data-visual='painted'] .menu-heading .menu-eyebrow,
 body[data-visual='painted'] .menu-heading p {
-  font-size: 13px;
-  color: #aab8bc;
+  display: none;
+}
+body[data-visual='painted'] #ui .menu-heading h2 {
+  font-family: 'Comic Hand', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
   margin: 0;
+  color: #fff3d7;
 }
 body[data-visual='painted'] #ui .menu-body {
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: 20px;
+  display: contents;
 }
 body[data-visual='painted'] #ui .menu .menu-card {
-  background: #14232bd9;
-  border: 1px solid #ffffff10;
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 22px;
-  gap: 14px;
+  box-sizing: border-box;
   min-width: 0;
+  padding: 0;
+  gap: 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body[data-visual='painted'] #ui .menu-stage .menu-body > .menu-card:first-child {
+  grid-column: 1;
+  grid-row: 2;
+}
+body[data-visual='painted'] #ui .menu-stage .menu-body > .menu-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  border-left: 2px solid #182022;
+  padding-left: 25px;
+}
+body[data-visual='painted'] #ui .menu-stage .menu-body > .menu-card:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
 }
 body[data-visual='painted'] #ui .menu-card h2,
 body[data-visual='painted'] #ui .modifiers-card > summary {
-  font-size: 16px;
-  font-weight: 600;
-  color: #eef1e8;
+  font-family: 'Comic Hand', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #151b1e;
   margin: 0;
+  text-transform: uppercase;
+}
+body[data-visual='painted'] .menu-card:first-child > h2 {
+  display: none;
 }
 body[data-visual='painted'] .section-index {
-  display: inline;
-  color: #8d9e98;
-  font-size: 10px;
-  margin-right: 8px;
-  font-weight: 400;
+  display: none;
 }
 body[data-visual='painted'] #ui .menu .team-row {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 112px;
-  gap: 10px;
-  padding: 0 0 14px 12px;
-  border-bottom: 1px solid #ffffff0d;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 5px 12px;
+  padding: 0 0 12px;
 }
 body[data-visual='painted'] .team-dot {
+  display: none;
+}
+body[data-visual='painted'] .team-lineup {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: flex-end;
+  height: 145px;
+  position: relative;
+}
+body[data-visual='painted'] .team-lineup::after {
+  content: '';
   position: absolute;
-  left: 0;
-  top: 10px;
-  width: 3px;
-  height: 16px;
+  inset: auto -4px 2px;
+  height: 9px;
+  background: var(--team-color);
+  mask: url('/assets/comic-ui/underline.png') center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+body[data-visual='painted'] #ui .menu .member-portrait {
+  flex: 1;
+  min-width: 0;
+  height: 145px;
+  padding: 0;
   border: 0;
-  border-radius: 2px;
+  background: none;
+  cursor: pointer;
+  transition: transform 140ms ease;
+  color: #151b1e;
+}
+body[data-visual='painted'] .member-portrait:hover {
+  transform: translateY(-5px) rotate(-3deg);
+}
+body[data-visual='painted'] .member-portrait:focus-visible {
+  outline: 2px dashed #c94c28;
+  outline-offset: 1px;
+}
+body[data-visual='painted'] .member-portrait > span:last-child {
+  display: none;
+}
+body[data-visual='painted'] .skin-portrait {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: block;
+  filter: drop-shadow(1px 2px 0 #1113);
 }
 body[data-visual='painted'] #ui .menu label {
-  font-size: 11px;
-  color: #9fafb4;
-  gap: 5px;
+  font-size: 12px;
+  color: #343d39;
+  gap: 3px;
 }
 body[data-visual='painted'] #ui .menu select,
 body[data-visual='painted'] #ui .menu input {
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
-  min-height: 34px;
-  border: 1px solid #ffffff16;
-  border-radius: 4px;
-  background: #0b1820;
-  padding: 7px 9px;
-  font-size: 12px;
-  color: #e9eee8;
+  min-height: 30px;
+  padding: 3px 5px;
+  font-size: 14px;
+  color: #171d1d;
+  border: 0;
+  border-bottom: 1px solid #19212060;
+  border-radius: 0;
+  background: transparent;
   box-shadow: none;
+}
+body[data-visual='painted'] #ui .menu select option {
+  background: #f4efdc;
+  color: #171d1d;
 }
 body[data-visual='painted'] #ui .menu select:focus-visible,
 body[data-visual='painted'] #ui .menu input:focus-visible {
-  outline: 2px solid #b7c795;
+  outline: 2px solid #b34f2d;
   outline-offset: 2px;
 }
-body[data-visual='painted'] #ui .menu .skin-choice {
+body[data-visual='painted'] #ui .menu .team-row > select:first-of-type {
   grid-column: 1 / -1;
+  font-family: 'Comic Hand', sans-serif;
+  font-size: 29px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0;
+  line-height: 1;
+  padding: 0 22px 0 0;
+}
+body[data-visual='painted'] #ui .menu .team-row > select:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 3;
+}
+body[data-visual='painted'] #ui .menu .skin-choice {
+  grid-column: 2;
+  grid-row: 3;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+}
+body[data-visual='painted'] .skin-choice > span {
+  display: none;
 }
 body[data-visual='painted'] .skin-choice select {
   max-width: none;
@@ -146,168 +242,237 @@ body[data-visual='painted'] .skin-choice select {
 }
 body[data-visual='painted'] .character-roster {
   grid-column: 1 / -1;
-  font-size: 11px;
-  color: #afbdbe;
+  font-size: 12px;
 }
 body[data-visual='painted'] .character-roster summary {
+  cursor: pointer;
   padding: 2px 0;
 }
 body[data-visual='painted'] .character-roster p {
-  font-size: 11px;
   max-width: none;
-  color: #8d9fa6;
+  font-size: 11px;
 }
 body[data-visual='painted'] #ui .menu .character-member {
   display: grid;
-  grid-template-columns: 80px 32px minmax(0, 1fr);
+  grid-template-columns: 70px 32px minmax(0, 1fr);
   align-items: center;
 }
 body[data-visual='painted'] .character-member select {
   max-width: none;
+  font-size: 12px;
 }
 body[data-visual='painted'] .team-row .icon-btn {
   position: absolute;
   right: -15px;
-  top: -15px;
-  font-size: 12px;
-  color: #b6c0c1;
+  top: 105px;
+  color: #75281e;
 }
 body[data-visual='painted'] #ui .menu .map-preview {
+  --preview-aspect: 1.45;
   width: 100%;
   height: auto;
+  aspect-ratio: var(--preview-aspect);
+  object-fit: contain;
+  background: #97c9d5;
+  border: 3px solid #172021;
+  border-radius: 0;
   box-sizing: border-box;
-  border: 0;
-  border-radius: 4px;
-  background: #0b1820;
+  transform: rotate(0.4deg);
 }
 body[data-visual='painted'] #ui .menu .row {
-  gap: 12px;
+  gap: 14px;
 }
 body[data-visual='painted'] #ui .menu .row > label {
   flex: 1;
   min-width: 0;
 }
 body[data-visual='painted'] #ui .menu .scheme-desc {
-  font-size: 11px;
-  line-height: 1.6;
-  color: #98aaaf;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #4b5044;
   margin: 0;
-}
-body[data-visual='painted'] #ui .menu .modifiers-card {
-  grid-column: 1;
-  grid-row: 2;
-  padding: 16px 22px;
 }
 body[data-visual='painted'] .modifiers-card > summary {
   cursor: pointer;
   list-style: none;
 }
 body[data-visual='painted'] .modifiers-card > summary::after {
-  content: '+';
-  float: right;
-  color: #9facac;
+  content: ' +';
+  color: #a94629;
 }
 body[data-visual='painted'] .modifiers-card[open] > summary::after {
-  content: '−';
+  content: ' −';
 }
 body[data-visual='painted'] .modifiers-card[open] > summary {
-  margin-bottom: 16px;
-}
-body[data-visual='painted'] .optional-label {
-  display: inline;
-  font-size: 10px;
-  margin-left: 8px;
-  color: #899b9f;
-  font-weight: 400;
+  margin-bottom: 14px;
 }
 body[data-visual='painted'] #ui .menu .btn {
-  min-height: 34px;
-  border: 1px solid #ffffff1c;
-  border-radius: 4px;
-  background: #26383f;
+  min-height: 32px;
+  padding: 5px 10px;
+  font-family: 'Comic Hand', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #172021;
+  border: 0;
+  border-bottom: 1px solid #17202160;
+  border-radius: 0;
+  background: transparent;
   box-shadow: none;
-  color: #e2e9e7;
-  font-size: 12px;
-  padding: 8px 14px;
 }
 body[data-visual='painted'] #ui .menu .btn:hover:not(:disabled) {
-  background: #334950;
+  color: #b83c20;
   filter: none;
+  background-color: transparent;
+}
+body[data-visual='painted'] #ui .menu .btn:focus-visible {
+  outline: 2px dashed #aa3d26;
+  outline-offset: 3px;
 }
 body[data-visual='painted'] #ui .menu .btn.big {
-  background: #c4d59a;
-  color: #1b2927;
-  padding: 12px 40px;
-  font-size: 16px;
+  min-width: 225px;
+  min-height: 78px;
+  padding: 12px 35px;
+  font-size: 44px;
+  color: #fff4d5;
+  background: transparent url('/assets/comic-ui/action.png') center / 100% 100% no-repeat;
   border: 0;
-  min-height: 46px;
+  transform: rotate(-3deg);
 }
 body[data-visual='painted'] #ui .menu .btn.big:hover {
-  background: #d5e4b2;
-}
-body[data-visual='painted'] #ui .menu .btn.secondary {
-  background: transparent;
-  border-color: #ffffff1c;
+  color: #fff;
+  filter: brightness(1.08);
 }
 body[data-visual='painted'] #ui .menu-actions {
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  align-items: center;
+  gap: 20px;
 }
 body[data-visual='painted'] #ui .menu-actions .btn.big {
   order: 2;
 }
 body[data-visual='painted'] #ui .menu .controls-help {
-  color: #8da0a7;
-  font-size: 10px;
-  line-height: 1.7;
+  grid-column: 1 / -1;
+  font-size: 11px;
+  color: #555a50;
   margin: 0;
-  text-align: right;
   max-width: none;
+  text-align: right;
+}
+body[data-visual='painted'] #ui .menu .menu-error {
+  grid-column: 1 / -1;
+  font-family: system-ui, sans-serif;
 }
 body[data-visual='painted'] #ui .menu .wormpot-slots {
-  border: 0;
   background: transparent;
+  border: 0;
   padding: 0;
-  gap: 8px;
+  gap: 6px;
 }
 body[data-visual='painted'] #ui .menu .wormpot-slot {
-  background: #0b1820;
-  border: 1px solid #ffffff12;
+  background: #e6dec2;
+  border: 1px solid #3e433b60;
   box-shadow: none;
-  min-width: 0;
   flex: 1;
+  min-width: 0;
 }
 body[data-visual='painted'] #ui .menu .wp-name {
-  font-size: 9px;
+  font-size: 10px;
+  color: #1b2320;
 }
-@media (max-width: 760px) {
-  body[data-visual='painted'] #ui .menu {
-    padding: 20px 16px;
+@media (min-width: 961px) {
+  body[data-visual='painted'] #ui .large-roster .menu-body > .menu-card:first-child {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
   }
-  body[data-visual='painted'] #ui .menu-stage {
-    gap: 16px;
+  body[data-visual='painted'] #ui .large-roster .team-lineup,
+  body[data-visual='painted'] #ui .large-roster .member-portrait {
+    height: 100px;
   }
-  body[data-visual='painted'] .menu-header {
-    gap: 18px;
+  body[data-visual='painted'] #ui .large-roster .team-row > select:first-of-type {
+    font-size: 21px;
   }
-  body[data-visual='painted'] .menu .logo img {
-    width: 110px;
-  }
-  body[data-visual='painted'] .menu-heading h2 {
-    font-size: 24px;
-  }
-  body[data-visual='painted'] .menu-heading p {
-    font-size: 11px;
-  }
-  body[data-visual='painted'] #ui .menu-body {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-  }
-  body[data-visual='painted'] #ui .menu-stage .menu-body > .menu-card {
-    grid-column: 1;
+  body[data-visual='painted'] #ui .large-roster .team-row > select:nth-of-type(2),
+  body[data-visual='painted'] #ui .large-roster .skin-choice {
+    grid-column: 1 / -1;
     grid-row: auto;
   }
-  body[data-visual='painted'] #ui .menu .menu-card {
+  body[data-visual='painted'] #ui .large-roster .menu-card:first-child > .btn {
+    grid-column: 1 / -1;
+  }
+  body[data-visual='painted'] #ui .large-roster .character-member {
+    grid-template-columns: 1fr;
+  }
+  body[data-visual='painted'] #ui .large-roster .character-member .skin-swatch {
+    display: none;
+  }
+}
+@media (min-width: 961px) and (max-height: 800px) {
+  body[data-visual='painted'] #ui .menu-stage {
+    gap: 8px 28px;
+  }
+  body[data-visual='painted'] #ui .menu .comic-wordmark {
+    max-width: 260px;
+  }
+  body[data-visual='painted'] #ui .menu .map-preview {
+    --preview-aspect: 1.95;
+  }
+  body[data-visual='painted'] #ui .menu .team-lineup,
+  body[data-visual='painted'] #ui .menu .member-portrait {
+    height: 95px;
+  }
+  body[data-visual='painted'] #ui .large-roster .team-lineup,
+  body[data-visual='painted'] #ui .large-roster .member-portrait {
+    height: 75px;
+  }
+}
+@media (max-width: 960px) {
+  body[data-visual='painted'] #ui .menu {
     padding: 18px;
+  }
+  body[data-visual='painted'] #ui .menu-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  body[data-visual='painted'] .menu-header {
+    max-width: 320px;
+  }
+  body[data-visual='painted'] #ui .menu-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+  body[data-visual='painted'] #ui .menu-stage .menu-body > .menu-card {
+    width: 100%;
+    padding: 0;
+    border-left: 0;
+  }
+  body[data-visual='painted'] #ui .menu-stage .menu-body > .menu-card:nth-child(2) {
+    padding: 0;
+    border-left: 0;
+  }
+  body[data-visual='painted'] #ui .menu-actions {
+    flex-wrap: wrap;
+  }
+  body[data-visual='painted'] #ui .menu-actions {
+    width: 100%;
+    gap: 10px;
+  }
+  body[data-visual='painted'] #ui .menu .btn.big {
+    min-width: 160px;
+    font-size: 35px;
+  }
+  body[data-visual='painted'] #ui .menu .comic-wordmark {
+    font-size: 65px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-visual='painted'] .member-portrait {
+    transition: none;
   }
 }

@@ -22,6 +22,7 @@ import {
 } from '@wr/render';
 import { drawMapPreview } from './mapPreview';
 import { Wormpot } from './Wormpot';
+import { SkinPortrait } from './SkinPortrait';
 
 const hex = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
 const randomSeed = () => Math.floor(Math.random() * 1e9);
@@ -89,6 +90,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
   };
   const [cfg, setCfg] = useState<MatchConfig>(initial);
   const preview = useRef<HTMLCanvasElement>(null);
+  const replayInput = useRef<HTMLInputElement>(null);
   const set = (patch: Partial<MatchConfig>) => setCfg((c) => ({ ...c, ...patch }));
 
   useEffect(() => {
@@ -128,14 +130,19 @@ export function Menu({ initial, onStart, onReplay }: Props) {
 
   return (
     <div
-      class={`menu${hasArt ? ' has-art' : ''}`}
+      class={`menu${hasArt ? ' has-art' : ''}${cfg.teams.length > 2 ? ' large-roster' : ''}`}
       style={
         hasArt ? { backgroundImage: layers.map((url) => `url("${url}")`).join(',') } : undefined
       }
     >
       <div class="menu-stage">
         <header class="menu-header">
-          <h1 class="logo">
+          <h1 class="logo" aria-label="Worms revival">
+            {assets.variantPrefix && (
+              <span class="comic-wordmark" aria-hidden="true">
+                <img src="/assets/comic-ui/logo.png" alt="" />
+              </span>
+            )}
             {logo ? (
               <img
                 src={logo}
@@ -161,7 +168,37 @@ export function Menu({ initial, onStart, onReplay }: Props) {
               <span class="section-index">01</span> Команды
             </h2>
             {cfg.teams.map((t, i) => (
-              <div class="team-row" key={i}>
+              <div
+                class="team-row"
+                key={i}
+                style={{ '--team-color': hex(TEAM_COLORS[i % TEAM_COLORS.length]!) }}
+              >
+                <div class="team-lineup">
+                  {t.worms.slice(0, memberCount).map((name, member) => {
+                    const variant = resolveTeamVariant(t, member, availableVariants);
+                    return (
+                      <button
+                        class="member-portrait"
+                        disabled={appearanceClass(t) === 'legacy'}
+                        key={member}
+                        title={`${name} — выбрать персонажа`}
+                        aria-label={`Настроить персонажа ${member + 1} команды ${i + 1}`}
+                        onClick={(event) => {
+                          const roster = event.currentTarget
+                            .closest('.team-row')
+                            ?.querySelector<HTMLDetailsElement>('.character-roster');
+                          if (roster) {
+                            roster.open = true;
+                            roster.querySelectorAll('select')[member]?.focus();
+                          }
+                        }}
+                      >
+                        <SkinPortrait id={variant ?? 'classic'} compact={cfg.teams.length > 2} />
+                        <span>{name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
                 <span
                   class="team-dot"
                   style={{ background: hex(TEAM_COLORS[i % TEAM_COLORS.length]!) }}
@@ -372,10 +409,16 @@ export function Menu({ initial, onStart, onReplay }: Props) {
           <button class="btn big" onClick={() => onStart(cfg)}>
             В бой!
           </button>
-          <label class="btn small secondary file-btn">
+          <button class="btn small secondary file-btn" onClick={() => replayInput.current?.click()}>
             Открыть повтор…
-            <input type="file" accept=".wrr,application/json" onChange={openReplay} hidden />
-          </label>
+          </button>
+          <input
+            ref={replayInput}
+            type="file"
+            accept=".wrr,application/json"
+            onChange={openReplay}
+            hidden
+          />
         </div>
         {replayError && (
           <p class="menu-error" role="alert">
