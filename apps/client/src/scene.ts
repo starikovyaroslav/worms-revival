@@ -554,6 +554,7 @@ export class GameScene {
         hold,
         showArrow,
         endPose,
+        game.world.waterLevel,
       );
       v.setShownHealth(v.worm.shownHealth);
     }
@@ -570,6 +571,7 @@ export class GameScene {
       game.charging,
       game.world.terrain,
       this.camera.zoom,
+      this.worms.get(game.activeWormId)?.skinActor?.aimRay,
     );
     const secLeft = game.timer / TPS;
     this.post.setDanger(game.phase === 'turn' && secLeft <= 5 ? 1 - secLeft / 5 : 0);

@@ -283,6 +283,7 @@ export class WormView {
     /** Show the turn arrow above this worm. */
     arrow = false,
     endPose?: 'win' | 'defeat',
+    waterLevel?: number,
   ): void {
     const w = this.worm;
     const dt = dtMs / 1000;
@@ -294,7 +295,7 @@ export class WormView {
     else this.container.position.set(x, y);
     this.container.visible = w.alive || !w.drowned;
     if (!w.alive) {
-      this.skinActor?.update(w, dtMs, '', 'defeat');
+      this.skinActor?.update(w, dtMs, '', 'defeat', waterLevel);
       this.container.visible = !!this.skinActor?.container.visible;
       this.label.visible = false;
       this.poison.visible = false;
@@ -317,7 +318,7 @@ export class WormView {
     else this.spin = 0;
 
     if (this.skinActor) {
-      this.skinActor.update(w, dtMs, hold, endPose);
+      this.skinActor.update(w, dtMs, hold, endPose, waterLevel);
     } else if (this.pixel) {
       // Short reactions: flinch when hurt, squash when landing.
       if (w.health < this.lastHealth) this.hurtTimer = 0.45;

@@ -24,7 +24,7 @@ try {
   );
   await page.getByLabel('Класс команды 1').selectOption('heavy');
   await page.getByLabel('Класс команды 2').selectOption('elder');
-  await page.locator('.character-roster').first().locator('summary').click();
+  await page.getByRole('button', { name: 'Настроить состав команды 1', exact: true }).click();
   await page.getByLabel('Персонаж 1 команды 1').selectOption('commando-femme');
   await page.getByLabel('Персонаж 2 команды 1').selectOption('brutal');
   await page.screenshot({ path: `${output}/class-roster-menu.png` });
@@ -67,7 +67,12 @@ try {
             worm.aim = aim;
             view.update(1, 0, true, (x, y) => ({ x, y }), weapon.id);
             const spec = render.WEAPON_MOUNTS.get(weapon.id);
-            if (actor.body.texture !== render.assets.get(`skins/${skin.id}/${actor.pose}`))
+            if (
+              actor.body.texture !==
+              render.assets.get(
+                actor.weapon.visible ? `rig/body/${skin.id}` : `skins/${skin.id}/${actor.pose}`,
+              )
+            )
               problems.push(`${skin.id}/${weapon.id}: wrong identity`);
             if (actor.weapon.visible && Math.abs(actor.weapon.width - spec.width) > 1e-6)
               problems.push(`${skin.id}/${weapon.id}: size drift`);
@@ -118,7 +123,7 @@ try {
               ? 'melee'
               : ['mortar', 'sheep', 'mine'].includes(weapon)
                 ? 'land'
-                : 'aim';
+                : 'idle';
         if (actor.pose !== expected) problems.push(`${skin.id}/${weapon}: action pose`);
         if (weapon === 'grenade' && actor.weapon.visible)
           problems.push(`${skin.id}: duplicate thrown object`);
@@ -263,7 +268,7 @@ try {
     teamPage.on('pageerror', (error) => errors.push(error.message));
     await teamPage.goto(base);
     await teamPage.getByLabel('Класс команды 1').selectOption('nocturne');
-    await teamPage.locator('.character-roster').first().locator('summary').click();
+    await teamPage.getByRole('button', { name: 'Настроить состав команды 1', exact: true }).click();
     if (manual)
       for (const [member, id] of expected.entries())
         await teamPage.getByLabel(`Персонаж ${member + 1} команды 1`).selectOption(id);

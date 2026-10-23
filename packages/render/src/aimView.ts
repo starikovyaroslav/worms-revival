@@ -67,15 +67,17 @@ export class AimView {
     charging: boolean,
     terrain?: Terrain,
     zoom = 1,
+    ray?: { x: number; y: number; angle: number } | null,
   ): void {
     const g = this.g.clear();
     if (!worm || !show || !(worm.grounded || worm.state === 'roped')) return;
     this.frame++;
     const k = this.pixelSize(zoom);
-    const x = worm.prevX + (worm.x - worm.prevX) * alpha;
-    const y = worm.prevY + (worm.y - worm.prevY) * alpha - 6.5;
-    const dx = Math.cos(worm.aim) * worm.facing;
-    const dy = -Math.sin(worm.aim);
+    const x = worm.prevX + (worm.x - worm.prevX) * alpha + (ray?.x ?? 0);
+    const y = worm.prevY + (worm.y - worm.prevY) * alpha + (ray?.y ?? -6.5);
+    const angle = ray?.angle ?? worm.aim;
+    const dx = Math.cos(angle) * worm.facing;
+    const dy = -Math.sin(angle);
     const maxPower = power >= 0.999;
     if (this.painted) {
       const unit = 1 / Math.max(0.01, zoom),

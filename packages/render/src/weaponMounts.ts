@@ -18,6 +18,8 @@ export interface WeaponMount {
   /** Visible equipment width in world units, independent of PNG or character size. */
   width: number;
   grip: readonly [number, number];
+  /** Barrel centre within the tightly cropped art; independent from the lower pistol grip. */
+  barrelY?: number;
   pose: SkinPose;
   aim: boolean;
   texture?: string;
@@ -35,11 +37,19 @@ add('uzi', { mode: 'sidearm', width: 13, grip: [0.32, 0.58], pose: 'aim', aim: t
 add('magicbullet', { mode: 'sidearm', width: 10, grip: [0.28, 0.5], pose: 'aim', aim: true });
 add('shotgun', { mode: 'longgun', width: 22, grip: [0.36, 0.56], pose: 'aim', aim: true });
 add('longbow', { mode: 'longgun', width: 19, grip: [0.5, 0.5], pose: 'aim', aim: true });
-add('bazooka', { mode: 'shoulder', width: 27, grip: [0.35, 0.6], pose: 'aim', aim: true });
+add('bazooka', {
+  mode: 'shoulder',
+  width: 30,
+  grip: [0.28, 0.76],
+  barrelY: 0.39,
+  pose: 'aim',
+  aim: true,
+});
 add('homing', {
   mode: 'shoulder',
   width: 29,
-  grip: [0.35, 0.6],
+  grip: [0.28, 0.76],
+  barrelY: 0.39,
   pose: 'aim',
   aim: true,
   texture: 'skins/weapons/bazooka',
@@ -48,7 +58,22 @@ add('sheeplauncher', { mode: 'shoulder', width: 31, grip: [0.35, 0.6], pose: 'ai
 add('minigun', { mode: 'heavy', width: 29, grip: [0.3, 0.48], pose: 'aim', aim: true });
 add('flamethrower', { mode: 'heavy', width: 24, grip: [0.3, 0.52], pose: 'aim', aim: true });
 add('mortar', { mode: 'grounded', width: 21, grip: [0.15, 0.5], pose: 'land', aim: true });
-add('grenade cluster', { mode: 'throwable', width: 6, grip: [0.5, 0.7], pose: 'aim', aim: false });
+add('grenade', {
+  mode: 'throwable',
+  width: 9,
+  grip: [0.5, 0.7],
+  pose: 'aim',
+  aim: false,
+  texture: 'proj/grenade',
+});
+add('cluster', {
+  mode: 'throwable',
+  width: 9,
+  grip: [0.5, 0.7],
+  pose: 'aim',
+  aim: false,
+  texture: 'proj/cluster',
+});
 add('hhg', { mode: 'throwable', width: 7, grip: [0.5, 0.7], pose: 'aim', aim: false });
 add('banana petrol', { mode: 'throwable', width: 8, grip: [0.5, 0.7], pose: 'aim', aim: false });
 add('superbanana salvation vase', {
