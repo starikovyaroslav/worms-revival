@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "style": "painted",
+  "assets": {
+    "comic/ui/ink": {
+      "file": "ink.png",
+      "w": 262.75,
+      "h": 49.25,
+      "pixelW": 1051,
+      "pixelH": 197,
+      "sampling": "linear"
+    },
+    "comic/ui/timer": {
+      "file": "timer.png",
+      "w": 137.75,
+      "h": 79,
+      "pixelW": 551,
+      "pixelH": 316,
+      "sampling": "linear"
+    },
+    "comic/ui/action": {
+      "file": "action.png",
+      "w": 239.5,
+      "h": 55.5,
+      "pixelW": 958,
+      "pixelH": 222,
+      "sampling": "linear"
+    },
+    "comic/ui/underline": {
+      "file": "underline.png",
+      "w": 188.75,
+      "h": 20.25,
+      "pixelW": 755,
+      "pixelH": 81,
+      "sampling": "linear"
+    },
+    "comic/ui/logo": {
+      "file": "logo.png",
+      "w": 406.25,
+      "h": 216.75,
+      "pixelW": 1625,
+      "pixelH": 867,
+      "sampling": "linear"
+    }
+  }
+}

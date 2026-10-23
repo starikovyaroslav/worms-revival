@@ -1,0 +1,5 @@
+Use case: logo-brand
+Asset type: transparent RGBA production game wordmark.
+Reference image is the approved menu art direction. Create ONLY the wordmark seen in its upper left, separated on true transparent background, no page and no interface.
+Exact text: "Worms" on first line, "revival" on second line. Both words complete and correctly spelled, no other text.
+Chunky expressive comic lettering. "Worms" orange-red with confident near-black ink outline, "revival" muted yellow-olive with ink outline, second line slightly slanted. A tiny mischievous cartoon worm face integrated in the O of Worms, matching reference's ink drawing. Controlled irregularity and subtle sparse printed halftone INSIDE the letters only. Compact two-line silhouette, lively but legible. No large splatter outside, no shadows, no metallic bevels, no gradients, no scenery, no underlining brush label. Smooth high-resolution edges. Generous transparent margins with nothing clipped. Match reference lettering closely rather than inventing a fantasy emblem.

@@ -1,0 +1,9 @@
+Use case: stylized-concept
+Asset type: production RGBA game UI brush swatches, not a mockup.
+Reference image 1 is STYLE ONLY: the approved combat-comic HUD. Extract its crisp dry-brush ink language.
+Create EXACTLY FOUR separate solid brush swatches arranged in a 2x2 grid with wide transparent gutters. Fully transparent background. No text, numbers, icons, letters, objects, portraits or page.
+TOP LEFT: long horizontal nearly-black ink brush stroke, aspect about 5:1, broad uniformly opaque centre suitable for white live text, fine bristle ends, restrained ragged edges.
+TOP RIGHT: squat nearly-black ink brush swatch, aspect about 1.5:1, opaque centre, subtle diagonal brush movement, for the timer. No orange inside.
+BOTTOM LEFT: long horizontal burnt-orange paint brush swash, aspect about 3.5:1, opaque centre for a primary button, expressive ends, very thin near-black ink accent along bottom edge only.
+BOTTOM RIGHT: long horizontal coral-red paint underline brush swash, aspect about 8:1, solid opaque band with thin natural dry-brush ends. No dark frame.
+High-resolution authentic 2D painted comic graphics; mostly flat ink with small natural edge imperfections. NO gradients, NO shadows, NO isolated splatter dots outside the main silhouette, NO metal, NO scenery. Entirety of each stroke must fit its own quadrant and not touch the canvas edge. Preserve true smooth alpha edges.

@@ -31,6 +31,7 @@ export function audit() {
     'painted-hell',
     'painted-common',
     'painted-hud',
+    'comic-ui',
   ]) {
     const manifest = JSON.parse(readFileSync(resolve(base, pack, 'manifest.json')));
     const packFiles = new Set();

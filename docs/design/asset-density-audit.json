@@ -1,7 +1,7 @@
 {
   "policy": "all on-disk PNGs: declared native pixels, >=3x display density (icons 6x; other sprites 4x), longest edge >=64; no unregistered leftovers",
-  "totalPng": 997,
-  "registeredPng": 997,
+  "totalPng": 1002,
+  "registeredPng": 1002,
   "packs": [
     {
       "pack": "legacy paths (rebuilt)",
@@ -86,6 +86,13 @@
       "frames": 4,
       "minimumDensity": 4,
       "pngBytes": 1102964
+    },
+    {
+      "pack": "comic-ui",
+      "images": 5,
+      "frames": 5,
+      "minimumDensity": 4,
+      "pngBytes": 1564331
     }
   ],
   "problems": []
