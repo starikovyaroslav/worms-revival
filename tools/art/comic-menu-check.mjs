@@ -45,6 +45,13 @@ try {
     });
     assert.equal(bounds.horizontalOverflow, false);
     assert.ok(bounds.left >= 0 && bounds.right <= bounds.width + 1);
+    if (width >= 961 && height <= 800) {
+      const launch = await page.getByRole('button', { name: 'В бой!', exact: true }).boundingBox();
+      assert.ok(
+        launch && launch.y >= 0 && launch.y + launch.height <= height,
+        'Launch stays visible on short desktop',
+      );
+    }
     await page.getByRole('button', { name: '+ команда', exact: true }).click();
     await page.getByRole('button', { name: '+ команда', exact: true }).click();
     await page.getByLabel('Класс команды 1').selectOption('elder');
