@@ -1,4 +1,4 @@
-import type { Worm } from '@wr/sim';
+import { TICKS_PER_SECOND, type Worm, type WormMotionEvent } from '@wr/sim';
 import type { SkinPose } from './skins';
 
 export type ReactionClip = 'blast' | 'land-hard' | 'hit-light' | 'hit-heavy' | 'water';
@@ -12,65 +12,71 @@ export const REACTION_CLIPS = {
   ReactionClip,
   { frames: number; seconds: number; loop: boolean; fallback: SkinPose }
 >;
-type Sample = Pick<Worm, 'health' | 'state' | 'vx' | 'vy' | 'blasted' | 'drowned'> & { y?: number };
+type Sample = Pick<Worm, 'health' | 'state' | 'blasted'>;
+/** Same previous→current interval as interpolated worm positions; pause keeps both inputs fixed. */
+export function wormPresentationSeconds(tick: number, alpha: number): number {
+  return Math.max(0, tick - 1 + alpha) / TICKS_PER_SECOND;
+}
 export interface ReactionFrame {
   clip: ReactionClip;
   frame: number;
   progress: number;
 }
-/** Presentation events from consecutive snapshots, never writes to the simulation. */
+/** Event-driven playback on absolute simulation time; render frequency never starts a clip. */
 export class WormReactions {
-  private previous: Sample | null = null;
-  private active: { clip: ReactionClip; elapsed: number } | null = null;
-  update(w: Sample, dt: number, waterLevel?: number): ReactionFrame | null {
-    const old = this.previous;
-    if (this.active) this.active.elapsed += Math.max(0, dt);
-    let start: ReactionClip | undefined;
-    if (old) {
-      const enteredWater =
-        waterLevel !== undefined &&
-        w.y !== undefined &&
-        old.y !== undefined &&
-        old.y < waterLevel &&
-        w.y >= waterLevel;
-      if ((enteredWater || (w.drowned && !old.drowned)) && this.active?.clip !== 'water')
-        start = 'water';
-      else if (w.state === 'airborne' && w.blasted && !(old.state === 'airborne' && old.blasted))
-        start = 'blast';
-      else if (
-        old.state === 'airborne' &&
-        (w.state === 'idle' || w.state === 'walking') &&
-        !w.drowned &&
-        w.health > 0
-      )
-        start = Math.abs(old.vy) >= 3 || old.blasted ? 'land-hard' : undefined;
-      else if (w.health < old.health && w.state !== 'airborne' && w.health > 0)
-        start = old.health - w.health >= 20 ? 'hit-heavy' : 'hit-light';
-    } else if (w.state === 'airborne' && w.blasted) start = 'blast';
-    if (start) this.active = { clip: start, elapsed: 0 };
-    if ((w.health <= 0 || w.state === 'dead') && this.active?.clip !== 'water') this.active = null;
-    if (w.state === 'roped' && this.active?.clip !== 'water') this.active = null;
-    this.previous = {
-      health: w.health,
-      state: w.state,
-      vx: w.vx,
-      vy: w.vy,
-      blasted: w.blasted,
-      drowned: w.drowned,
-      ...(w.y !== undefined ? { y: w.y } : {}),
-    };
+  private active: { clip: ReactionClip; start: number } | null = null;
+  private tumbleStart: number | null = null;
+  private lastSequence = -1;
+  private enteredWater = false;
+
+  handle(event: WormMotionEvent): void {
+    if (event.sequence <= this.lastSequence) return;
+    this.lastSequence = event.sequence;
+    const start = event.tick / TICKS_PER_SECOND;
+    const m = event.motion;
+    if (m.kind === 'water-entry') {
+      // Drowning can emit a later terminal cue after first touching the surface.
+      if (!this.enteredWater) this.active = { clip: 'water', start };
+      this.enteredWater = true;
+      this.tumbleStart = null;
+      return;
+    }
+    if (this.enteredWater) return;
+    if (m.kind === 'impulse') {
+      this.tumbleStart = start;
+      this.active = { clip: 'blast', start };
+      return;
+    }
+    const speed = Math.max(0, -(m.vx * m.nx + m.vy * m.ny));
+    if (!m.airborne) this.tumbleStart = null;
+    if (m.ny < -0.55 && !m.airborne) {
+      this.active = speed >= 3 ? { clip: 'land-hard', start } : null;
+    } else if (speed > 2) {
+      // Dedicated wall/ceiling art is not supplied yet. Use a flinch, never a floor squash.
+      this.active = { clip: speed >= 6 ? 'hit-heavy' : 'hit-light', start };
+    }
+  }
+
+  update(w: Sample, simulationSeconds: number): ReactionFrame | null {
+    if ((w.health <= 0 || w.state === 'dead' || w.state === 'roped') && !this.enteredWater) {
+      this.active = null;
+      this.tumbleStart = null;
+    }
+    const flying = w.state === 'airborne' && w.blasted;
+    if (!flying) {
+      this.tumbleStart = null;
+      if (this.active?.clip === 'blast') this.active = null;
+    }
+    if (this.active) {
+      const spec = REACTION_CLIPS[this.active.clip];
+      if (!spec.loop && simulationSeconds - this.active.start >= spec.seconds) this.active = null;
+    }
+    if (!this.active && flying && this.tumbleStart !== null)
+      this.active = { clip: 'blast', start: this.tumbleStart };
     if (!this.active) return null;
     const spec = REACTION_CLIPS[this.active.clip];
-    if (
-      (this.active.clip === 'blast' && (w.state !== 'airborne' || !w.blasted)) ||
-      (!spec.loop && this.active.elapsed >= spec.seconds)
-    ) {
-      this.active = null;
-      return null;
-    }
-    const progress = spec.loop
-      ? (this.active.elapsed % spec.seconds) / spec.seconds
-      : this.active.elapsed / spec.seconds;
+    const elapsed = Math.max(0, simulationSeconds - this.active.start);
+    const progress = spec.loop ? (elapsed % spec.seconds) / spec.seconds : elapsed / spec.seconds;
     return {
       clip: this.active.clip,
       // The first source drawing is the airborne brace; impact starts with the squash,

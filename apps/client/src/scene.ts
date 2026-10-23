@@ -28,6 +28,7 @@ import {
   TerrainView,
   WaterView,
   WormView,
+  wormPresentationSeconds,
   createEntityView,
   createViewContext,
   mixColor,
@@ -224,6 +225,11 @@ export class GameScene {
   handleEvents(): void {
     for (const ev of this.game.world.drainEvents()) {
       switch (ev.type) {
+        case 'worm-motion':
+          // The first fixed steps may run before the first render creates the actors.
+          if (!this.worms.has(ev.wormId)) this.sync();
+          this.worms.get(ev.wormId)?.skinActor?.motion(ev);
+          break;
         case 'airRaid':
           this.transports.play(ev);
           this.sfx.cinematic(`flyby-${aircraftFor(ev.source)}`, ev.dir * -0.5);
@@ -308,7 +314,9 @@ export class GameScene {
           this.camera.shake(ev.amount);
           break;
         case 'fired':
-          this.worms.get(ev.wormId)?.playAct(ev.weapon);
+          this.worms
+            .get(ev.wormId)
+            ?.playAct(ev.weapon, wormPresentationSeconds(this.game.world.tick, 0));
           if (ev.weapon === 'nuke') {
             const w = this.game.world.byId(ev.wormId);
             if (w instanceof Worm) {
@@ -555,6 +563,7 @@ export class GameScene {
         showArrow,
         endPose,
         game.world.waterLevel,
+        wormPresentationSeconds(game.world.tick, alpha),
       );
       v.setShownHealth(v.worm.shownHealth);
     }

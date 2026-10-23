@@ -45,7 +45,7 @@ export class Arrow extends PhysBody {
         HIT_RADIUS * HIT_RADIUS
       ) {
         w.takeDamage(world, this.damage);
-        w.push(this.vx * 0.35, this.vy * 0.35 - 1);
+        w.push(this.vx * 0.35, this.vy * 0.35 - 1, world);
         world.emit({ type: 'sound', id: 'punch', x: this.x, y: this.y });
         this.removed = true;
         return;

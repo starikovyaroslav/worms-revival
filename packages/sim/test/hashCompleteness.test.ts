@@ -283,6 +283,7 @@ describe('hash completeness', () => {
         make: () => new World({ seed: 5, terrain: flatTerrain(), waterLevel: 380 }),
         excluded: {
           events: 'presentation events, drained by the renderer',
+          motionSequence: 'cosmetic event ordering only; never read by physics or rules',
           presentationSources: 'cosmetic weapon lineage only; never read by rules or physics',
           presentationSource: 'temporary cosmetic event scope, restored after each callback',
           presentationVariants: 'cosmetic upgrade appearance; never read by rules or physics',

@@ -3,11 +3,37 @@ import type { SoundId } from '../weapons/spec';
 export type SpeechLine = 'turn' | 'hurt' | 'fall' | 'drown' | 'death' | 'win' | 'fire' | 'kill';
 export type PresentationVariant = 'standard' | 'mk2';
 
+/** Sim measurements, not render snapshots. Contact velocity is captured before the response. */
+export type WormMotion =
+  | { kind: 'impulse'; vx: number; vy: number }
+  | {
+      kind: 'contact';
+      vx: number;
+      vy: number;
+      nx: number;
+      ny: number;
+      airborne: boolean;
+    }
+  | { kind: 'water-entry'; vx: number; vy: number };
+
+export interface WormMotionEvent {
+  type: 'worm-motion';
+  wormId: number;
+  /** Start of the fixed step containing the event. */
+  tick: number;
+  /** Cosmetic ordering/deduplication key, independent of event drains. */
+  sequence: number;
+  x: number;
+  y: number;
+  motion: WormMotion;
+}
+
 /**
  * Fire-and-forget notifications for presentation (render, audio, camera).
  * They never feed back into the simulation and are not part of the state hash.
  */
 export type SimEvent =
+  | WormMotionEvent
   | {
       type: 'explosion';
       x: number;

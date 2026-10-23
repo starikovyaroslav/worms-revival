@@ -155,7 +155,7 @@ export class Worm extends Entity {
   }
 
   /** Sets the worm flying. `blasted` marks explosion knockback (bouncy, no fall damage). */
-  launch(vx: number, vy: number, blasted: boolean): void {
+  launch(vx: number, vy: number, blasted: boolean, world?: World): void {
     if (!this.alive) return;
     // A worm already flying from a blast stays "blasted" until it settles.
     this.blasted = blasted || (this.blasted && this.state === 'airborne');
@@ -163,13 +163,14 @@ export class Worm extends Entity {
     this.vy = vy;
     this.state = 'airborne';
     this.jumpTimer = 0;
+    if (blasted) world?.emitWormMotion(this.id, this.x, this.y, { kind: 'impulse', vx, vy });
   }
 
   /** Adds explosion knockback on top of current motion. */
-  push(vx: number, vy: number): void {
+  push(vx: number, vy: number, world?: World): void {
     if (!this.alive) return;
     const flying = this.state === 'airborne';
-    this.launch((flying ? this.vx : 0) + vx, (flying ? this.vy : 0) + vy, true);
+    this.launch((flying ? this.vx : 0) + vx, (flying ? this.vy : 0) + vy, true, world);
   }
 
   takeDamage(world: World, amount: number): void {
@@ -191,7 +192,7 @@ export class Worm extends Entity {
     if (dmg <= 0) return;
     this.takeDamage(world, dmg);
     const v = blastImpulse(b, this.cx, this.cy, dmg);
-    this.push(v.x, v.y);
+    this.push(v.x, v.y, world);
   }
 
   update(world: World): void {
@@ -216,7 +217,15 @@ export class Worm extends Entity {
       }
     }
 
-    if (this.y - WORM_H > world.waterLevel) this.drown(world);
+    if (this.y - WORM_H > world.waterLevel) {
+      // Capture incoming velocity before drown clears it (also covers underwater spawns).
+      world.emitWormMotion(this.id, this.x, world.waterLevel, {
+        kind: 'water-entry',
+        vx: this.vx,
+        vy: this.vy,
+      });
+      this.drown(world);
+    }
   }
 
   private resetWalk(): void {
@@ -330,10 +339,18 @@ export class Worm extends Entity {
     const n = world.terrain.normalAt(nx, ny - WORM_H / 2, 9) ?? { x: 0, y: -1 };
     const vn = this.vx * n.x + this.vy * n.y;
     const groundLike = n.y < -0.55;
+    const incoming = { vx: this.vx, vy: this.vy, nx: n.x, ny: n.y };
+    const contact = () =>
+      world.emitWormMotion(this.id, this.x, this.y, {
+        kind: 'contact',
+        ...incoming,
+        airborne: this.state === 'airborne',
+      });
 
     if (groundLike && !this.blasted) {
       const dmg = world.physics.fallDamage ? fallDamage(this.vy) : 0;
       this.land(world);
+      contact();
       if (dmg > 0) {
         world.emit({ type: 'speech', wormId: this.id, line: 'fall' });
         this.takeDamage(world, dmg);
@@ -362,6 +379,7 @@ export class Worm extends Entity {
     ) {
       this.land(world);
     }
+    contact();
   }
 
   /** Snaps the worm onto the ground below it and stops. `force` settles even without support. */

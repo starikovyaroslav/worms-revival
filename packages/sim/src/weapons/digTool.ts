@@ -73,7 +73,11 @@ export class DigTool extends Entity implements RemoteControlled {
       if (dx * dx + dy * dy < (spec.radius + 6) * (spec.radius + 6)) {
         this.hit.push(w.id);
         w.takeDamage(world, spec.damage);
-        w.push(this.dirX * 2 + (this.mode === 'drill' ? (w.cx > worm.cx ? 1.5 : -1.5) : 0), -1.5);
+        w.push(
+          this.dirX * 2 + (this.mode === 'drill' ? (w.cx > worm.cx ? 1.5 : -1.5) : 0),
+          -1.5,
+          world,
+        );
       }
     }
 

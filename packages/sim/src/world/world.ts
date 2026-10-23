@@ -2,7 +2,7 @@ import { Hasher } from '../core/hash';
 import { Rng } from '../core/rng';
 import type { Terrain } from '../terrain/terrain';
 import type { Entity } from './entity';
-import type { SimEvent, PresentationVariant } from './events';
+import type { SimEvent, PresentationVariant, WormMotion } from './events';
 
 export interface PhysicsConfig {
   /** px / tick². */
@@ -52,6 +52,7 @@ export class World {
 
   /** Presentation events produced since the last drain. */
   events: SimEvent[] = [];
+  private motionSequence = 0;
   /** Cosmetic lineage only: not hashed, not read by physics or rules. */
   private readonly presentationSources = new Map<number, string>();
   private presentationSource: string | undefined;
@@ -114,6 +115,19 @@ export class World {
     );
   }
 
+  /** Cosmetic only: never read by physics, rules, commands or the state hash. */
+  emitWormMotion(wormId: number, x: number, y: number, motion: WormMotion): void {
+    this.emit({
+      type: 'worm-motion',
+      wormId,
+      x,
+      y,
+      motion,
+      tick: this.tick,
+      sequence: this.motionSequence++,
+    });
+  }
+
   drainEvents(): SimEvent[] {
     const out = this.events;
     this.events = [];
@@ -161,6 +175,16 @@ export class World {
       const e = current[i] as Entity;
       if (!e.removed)
         this.withPresentationSource(this.sourceOf(e), () => e.update(this), this.variantOf(e));
+    }
+    // Observe after ALL movers: rope/jetpack can move a worm after its own update.
+    // Cosmetic only; this must not decide drowning or otherwise change the body.
+    for (const e of current) {
+      if (!e.removed && e.kind === 'worm' && e.prevY < this.waterLevel && e.y >= this.waterLevel)
+        this.emitWormMotion(e.id, e.x, this.waterLevel, {
+          kind: 'water-entry',
+          vx: e.vx,
+          vy: e.vy,
+        });
     }
     this.compact();
     this.flushPending();

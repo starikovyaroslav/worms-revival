@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
-const output = 'docs/design/concepts/combat-motion-v1/live';
+const output = process.argv[3] ?? 'docs/design/concepts/combat-motion-v1/live';
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({
   channel: 'chrome',
@@ -80,37 +80,51 @@ try {
     reactionWorm.state = 'airborne';
     reactionWorm.blasted = true;
     reactionWorm.vy = 6;
+    const motion = (tick, sequence, detail) =>
+      reactionActor.motion({
+        type: 'worm-motion',
+        wormId: reactionWorm.id,
+        tick,
+        sequence,
+        x: 0,
+        y: 0,
+        motion: detail,
+      });
+    motion(0, 0, { kind: 'impulse', vx: 0, vy: 6 });
     for (let i = 0; i < 4; i++) {
-      reactionActor.update(reactionWorm, i ? 115 : 0, '');
+      reactionActor.update(reactionWorm, 999, '', undefined, 100, i * 0.115);
       if (reactionActor.body.texture !== render.assets.get(`reactions/brutal/blast_${i}`))
         problems.push(`Blast actor playback ${i}`);
       if (Math.abs(reactionActor.rig.rotation) > 0.25) problems.push('Rigid sprite spin');
     }
     reactionWorm.state = 'idle';
     reactionWorm.vy = 0;
-    reactionActor.update(reactionWorm, 16, '');
+    motion(20, 1, { kind: 'contact', vx: 0, vy: 7, nx: 0, ny: -1, airborne: false });
+    reactionActor.update(reactionWorm, 999, '', undefined, 100, 0.4);
     if (reactionActor.body.texture !== render.assets.get('reactions/brutal/land-hard_1'))
       problems.push('Landing does not start with contact squash');
-    reactionActor.update(reactionWorm, 500, '');
+    reactionActor.update(reactionWorm, 999, '', undefined, 100, 0.9);
     reactionWorm.state = 'airborne';
     reactionWorm.blasted = false;
     reactionWorm.y = 99;
-    reactionActor.update(reactionWorm, 0, '', undefined, 100);
+    reactionActor.update(reactionWorm, 0, '', undefined, 100, 0.9);
     reactionWorm.y = 101;
-    reactionActor.update(reactionWorm, 0, '', undefined, 100);
+    motion(50, 2, { kind: 'water-entry', vx: 0, vy: 7 });
+    reactionActor.update(reactionWorm, 999, '', undefined, 100, 1);
     if (reactionActor.body.texture !== render.assets.get('reactions/brutal/water_0'))
       problems.push('Water starts below surface');
     reactionWorm.health = 0;
     reactionWorm.state = 'dead';
     reactionWorm.drowned = true;
     reactionWorm.y = 114;
-    reactionActor.update(reactionWorm, 300, '', undefined, 100);
+    motion(65, 3, { kind: 'water-entry', vx: 0, vy: 8 });
+    reactionActor.update(reactionWorm, 999, '', undefined, 100, 1.3);
     if (
       !reactionActor.container.visible ||
       reactionActor.body.texture !== render.assets.get('reactions/brutal/water_2')
     )
       problems.push('Water entry restarts/disappears on death');
-    reactionActor.update(reactionWorm, 300, '', undefined, 100);
+    reactionActor.update(reactionWorm, 999, '', undefined, 100, 1.6);
     if (reactionActor.container.visible) problems.push('Water animation never ends');
     reactionActor.container.destroy({ children: true });
     const waterOpaque = [];

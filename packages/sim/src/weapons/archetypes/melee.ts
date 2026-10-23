@@ -50,7 +50,7 @@ export function fireMelee(ctx: FireContext, sim: MeleeSim, view: ViewSpec): void
   const victims = wormsNear(world, hx, hy, sim.reach, worm);
   for (const v of victims) {
     v.takeDamage(world, sim.damage * powerScale(ctx.setting.power));
-    v.push(vx, vy);
+    v.push(vx, vy, world);
   }
   const sound = victims.length ? view.sound : view.missSound;
   if (sound) world.emit({ type: 'sound', id: sound, x: hx, y: hy });

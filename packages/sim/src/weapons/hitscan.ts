@@ -32,7 +32,7 @@ export function hitscan(
       const dy = w.cy - y;
       if (dx * dx + dy * dy <= HIT_RADIUS * HIT_RADIUS) {
         w.takeDamage(world, spec.damage);
-        w.push(dirX * spec.push, dirY * spec.push - spec.push * 0.45);
+        w.push(dirX * spec.push, dirY * spec.push - spec.push * 0.45, world);
         world.emit({ type: 'tracer', x0: sx, y0: sy, x1: x, y1: y });
         world.emit({ type: 'explosion', x, y, radius: 4 });
         return;

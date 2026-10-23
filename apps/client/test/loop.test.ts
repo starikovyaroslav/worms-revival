@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { TICK_MS } from '@wr/sim';
 import { FixedLoop } from '../src/loop';
+import { WormReactions, wormPresentationSeconds } from '@wr/render';
 
 /** Drives FixedLoop with a fake clock: each `frame(ms)` advances time and runs one animation frame. */
 function harness() {
@@ -61,5 +62,40 @@ describe('FixedLoop pause', () => {
       return steps.n;
     };
     expect(run(200)).toBe(run(0));
+  });
+
+  it('drives motion from the same interpolated simulation time at different FPS/speeds and on pause', () => {
+    for (const hz of [30, 60, 144])
+      for (const speed of [0.25, 1, 2]) {
+        const { loop, steps, renders, frame } = harness();
+        loop.speed = speed;
+        const reaction = new WormReactions();
+        reaction.handle({
+          type: 'worm-motion',
+          wormId: 1,
+          tick: 0,
+          sequence: 0,
+          x: 0,
+          y: 0,
+          motion: { kind: 'impulse', vx: 2, vy: -5 },
+        });
+        const air = { health: 100, state: 'airborne' as const, blasted: true };
+        const duration = 380 / speed;
+        let elapsed = 0;
+        while (elapsed < duration - 1e-8) {
+          const dt = Math.min(1000 / hz, duration - elapsed);
+          frame(dt);
+          elapsed += dt;
+          reaction.update(air, wormPresentationSeconds(steps.n, renders.at(-1)!.alpha));
+        }
+        const time = wormPresentationSeconds(steps.n, renders.at(-1)!.alpha);
+        expect(time).toBeCloseTo(0.36, 10);
+        expect(reaction.update(air, time)?.frame).toBe(3);
+        loop.paused = true;
+        for (let i = 0; i < 5; i++) frame(100);
+        expect(wormPresentationSeconds(steps.n, renders.at(-1)!.alpha)).toBe(time);
+        expect(reaction.update(air, time)?.frame).toBe(3);
+        loop.stop();
+      }
   });
 });

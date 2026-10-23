@@ -1,5 +1,5 @@
 import { Container, Graphics, Sprite } from 'pixi.js';
-import type { Worm } from '@wr/sim';
+import type { Worm, WormMotionEvent } from '@wr/sim';
 import { assets } from './assets';
 import { scaleArt } from './views/common';
 import { SKIN_MOTION, skinById, type SkinId, type SkinPose } from './skins';
@@ -70,11 +70,8 @@ export class SkinActor {
   private canopy = new Sprite();
   private team = new Graphics();
   private clock = 0;
-  private hurt = 0;
-  private landing = 0;
-  private health: number | null = null;
-  private airborne = false;
-  private action: { weapon: string; time: number } | null = null;
+  private sampledTime: number | null = null;
+  private action: { weapon: string; time: number; start: number } | null = null;
   private death = 0;
   pose: SkinPose = 'idle';
   readonly profile;
@@ -109,27 +106,38 @@ export class SkinActor {
     const skin = skinById(id);
     return skin && assets.has(`skins/${skin.id}/idle`) ? new SkinActor(skin.id, color) : null;
   }
-  playAct(weapon: string): void {
-    this.action = { weapon, time: 0 };
+  playAct(weapon: string, simulationSeconds = this.clock): void {
+    this.action = { weapon, time: 0, start: simulationSeconds };
   }
-  update(w: Worm, dtMs: number, hold: string, end?: 'win' | 'defeat', waterLevel?: number): void {
-    const dt = Math.max(0, dtMs) / 1000;
-    this.reaction = this.reactions.update(w, dt, waterLevel);
+  motion(event: WormMotionEvent): void {
+    this.reactions.handle(event);
+  }
+  update(
+    w: Worm,
+    dtMs: number,
+    hold: string,
+    end?: 'win' | 'defeat',
+    waterLevel?: number,
+    simulationSeconds?: number,
+  ): void {
+    const now = simulationSeconds ?? this.clock + Math.max(0, dtMs) / 1000;
+    const dt =
+      simulationSeconds === undefined
+        ? Math.max(0, dtMs) / 1000
+        : this.sampledTime === null
+          ? 0
+          : Math.max(0, now - this.sampledTime);
+    this.sampledTime = now;
+    this.clock = now;
+    this.reaction = this.reactions.update(w, now);
     const key = `${hold}/${w.facing}`;
     this.aimAngle =
       this.aimAngle === null || key !== this.equipmentKey || dt === 0 || this.action?.time === 0
         ? w.aim
         : smoothAim(this.aimAngle, w.aim, dt);
     this.equipmentKey = key;
-    this.clock += dt;
-    if (this.health !== null && w.health < this.health) this.hurt = 0.45;
-    this.health = w.health;
-    if (this.airborne && w.state !== 'airborne') this.landing = 0.18;
-    this.airborne = w.state === 'airborne';
-    this.hurt = Math.max(0, this.hurt - dt);
-    this.landing = Math.max(0, this.landing - dt);
     if (this.action) {
-      this.action.time += dt;
+      this.action.time = Math.max(0, now - this.action.start);
       if (this.action.time >= 0.42) this.action = null;
     }
     this.death = w.alive ? 0 : this.death + dt;
@@ -142,8 +150,8 @@ export class SkinActor {
       vy: w.vy,
       walkFrame: w.walkFrame,
       blasted: w.blasted,
-      hurt: this.hurt > 0,
-      landing: this.landing > 0,
+      hurt: false,
+      landing: false,
       blink: this.clock % 3.7 > 3.58,
       hold,
       holdPose: WEAPON_MOUNTS.get(hold)?.pose ?? 'idle',
@@ -158,9 +166,7 @@ export class SkinActor {
     const reactionTexture =
       this.reaction && !w.invulnerable
         ? assets.get(`reactions/${this.id}/${this.reaction.clip}_${this.reaction.frame}`)
-        : w.state === 'airborne' && w.vy > 3 && !w.blasted && !w.invulnerable
-          ? assets.get(`reactions/${this.id}/land-hard_0`)
-          : undefined;
+        : undefined;
     this.drawnReaction = !!reactionTexture;
     const weaponId = this.action?.weapon ?? hold;
     const mount = WEAPON_MOUNTS.get(weaponId);
