@@ -4,7 +4,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 
 const base = process.argv[2] ?? 'http://127.0.0.1:5174/';
-const output = 'docs/design/concepts/combat-comic-ui-v1/live';
+const output = 'docs/design/concepts/comic-menu-v2/live';
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({
   channel: 'chrome',
@@ -29,6 +29,7 @@ try {
     });
     await page.goto(base);
     await page.getByLabel('Тема').selectOption(theme);
+    await page.locator('.map-details > summary').click();
     await page.getByLabel('Seed', { exact: true }).fill('42');
     await page.getByLabel('Seed', { exact: true }).press('Tab');
     for (let i = 2; i < teamCount; i++)
@@ -120,7 +121,9 @@ try {
         return {
           count: game.rules.weapons.length,
           overflow: errors,
-          fontReady: document.fonts.check('700 16px "Comic Hand"'),
+          fontReady: [...document.fonts].some(
+            (face) => face.family.includes('Revival Brush') && face.status === 'loaded',
+          ),
         };
       });
       assert.equal(coverage.count, 67);

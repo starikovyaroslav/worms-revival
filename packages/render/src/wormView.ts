@@ -69,7 +69,7 @@ export class WormView {
   ) {
     const color = TEAM_COLORS[worm.team % TEAM_COLORS.length] as number;
     const font = {
-      fontFamily: painted ? '"Comic Hand", Arial, sans-serif' : '"Press Start 2P", monospace',
+      fontFamily: painted ? '"Revival Brush", Arial, sans-serif' : '"Press Start 2P", monospace',
       fontSize: 8,
       fontWeight: painted ? ('700' as const) : ('400' as const),
     };

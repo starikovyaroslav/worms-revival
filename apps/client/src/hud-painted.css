@@ -1,7 +1,7 @@
 /* Combat comic HUD: native brush art + live text. Units are viewport logical pixels. */
 @font-face {
-  font-family: 'Comic Hand';
-  src: url('/fonts/caveat-bold.ttf') format('truetype');
+  font-family: 'Revival Brush';
+  src: url('/fonts/revival-brush-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -40,7 +40,7 @@ body[data-visual='painted'] #ui .hud .team-name,
 body[data-visual='painted'] #ui .hud .team-hp,
 body[data-visual='painted'] #ui .hud .weapon b,
 body[data-visual='painted'] #ui .hud .wind-num {
-  font-family: 'Comic Hand', sans-serif;
+  font-family: 'Revival Brush', sans-serif;
   font-weight: 700;
 }
 body[data-visual='painted'] #ui .hud .timer {
@@ -201,7 +201,7 @@ body[data-visual='painted'] #ui .hud .hint-line.warn {
 }
 body[data-visual='painted'] #ui .hud .turn-prompt,
 body[data-visual='painted'] #ui .hud .turn-banner {
-  font-family: 'Comic Hand', sans-serif;
+  font-family: 'Revival Brush', sans-serif;
   font-size: 16px;
   font-weight: 700;
   text-shadow:

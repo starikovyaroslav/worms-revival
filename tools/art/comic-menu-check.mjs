@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 
-const output = 'docs/design/concepts/combat-comic-ui-v1/live';
+const output = 'docs/design/concepts/comic-menu-v2/live';
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({
   channel: 'chrome',
@@ -22,8 +22,10 @@ try {
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(process.argv[2] ?? 'http://127.0.0.1:5174/');
     await page.getByLabel('Тема').selectOption('meadow');
+    await page.locator('.map-details > summary').click();
     await page.getByLabel('Seed', { exact: true }).fill('42');
     await page.getByLabel('Seed', { exact: true }).press('Tab');
+    await page.locator('.map-details > summary').click();
     await page.evaluate(() => document.fonts.ready);
     await page.waitForFunction(
       () => document.querySelector('canvas.map-preview')?.dataset.previewKey === '42/island/meadow',
@@ -52,6 +54,32 @@ try {
         'Launch stays visible on short desktop',
       );
     }
+    if (width === 1920) {
+      for (const family of [
+        'heavy',
+        'soft',
+        'glam',
+        'dominant',
+        'elder',
+        'sick',
+        'veteran',
+        'classic',
+        'nocturne',
+        'mixed',
+      ]) {
+        await page.getByLabel('Класс команды 1').selectOption(family);
+        const portrait = page.locator('.team-preview img').first();
+        await portrait.evaluate((image) => image.decode());
+        const state = await portrait.evaluate((image) => ({
+          src: image.src,
+          width: image.naturalWidth,
+          height: image.naturalHeight,
+        }));
+        assert.ok(state.src.endsWith(`/team-previews/${family}.png`));
+        assert.ok(state.width >= 1500 && state.height >= 500);
+      }
+      await page.getByLabel('Класс команды 1').selectOption('heavy');
+    }
     await page.getByRole('button', { name: '+ команда', exact: true }).click();
     await page.getByRole('button', { name: '+ команда', exact: true }).click();
     await page.getByLabel('Класс команды 1').selectOption('elder');
@@ -62,9 +90,7 @@ try {
       });
       await page.screenshot({ path: `${output}/menu-${width}-4teams.png` });
     }
-    await page
-      .getByRole('button', { name: 'Настроить персонажа 1 команды 1', exact: true })
-      .click();
+    await page.getByRole('button', { name: 'Настроить состав команды 1', exact: true }).click();
     assert.equal(await page.locator('.character-roster').first().getAttribute('open'), '');
     assert.equal(
       await page.getByLabel('Персонаж 1 команды 1').evaluate((e) => e === document.activeElement),

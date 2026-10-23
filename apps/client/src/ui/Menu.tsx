@@ -22,7 +22,7 @@ import {
 } from '@wr/render';
 import { drawMapPreview } from './mapPreview';
 import { Wormpot } from './Wormpot';
-import { SkinPortrait } from './SkinPortrait';
+import { teamPreviewUrl } from './teamPreviews';
 
 const hex = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
 const randomSeed = () => Math.floor(Math.random() * 1e9);
@@ -33,10 +33,10 @@ export function defaultConfig(): MatchConfig {
     style: 'island',
     themeId: THEMES[Math.floor(Math.random() * THEMES.length)]!.id,
     schemeId: 'intermediate',
-    teams: [0, 1].map((i) => ({
-      ...TEAM_PRESETS[i]!,
+    teams: [0, 2].map((preset, i) => ({
+      ...TEAM_PRESETS[preset]!,
       cpu: 0,
-      characterClass: i ? 'classic' : 'heavy',
+      characterClass: i ? 'elder' : 'heavy',
     })),
   };
 }
@@ -174,30 +174,23 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                 style={{ '--team-color': hex(TEAM_COLORS[i % TEAM_COLORS.length]!) }}
               >
                 <div class="team-lineup">
-                  {t.worms.slice(0, memberCount).map((name, member) => {
-                    const variant = resolveTeamVariant(t, member, availableVariants);
-                    return (
-                      <button
-                        class="member-portrait"
-                        disabled={appearanceClass(t) === 'legacy'}
-                        key={member}
-                        title={`${name} — выбрать персонажа`}
-                        aria-label={`Настроить персонажа ${member + 1} команды ${i + 1}`}
-                        onClick={(event) => {
-                          const roster = event.currentTarget
-                            .closest('.team-row')
-                            ?.querySelector<HTMLDetailsElement>('.character-roster');
-                          if (roster) {
-                            roster.open = true;
-                            roster.querySelectorAll('select')[member]?.focus();
-                          }
-                        }}
-                      >
-                        <SkinPortrait id={variant ?? 'classic'} compact={cfg.teams.length > 2} />
-                        <span>{name}</span>
-                      </button>
-                    );
-                  })}
+                  <button
+                    class="team-preview"
+                    disabled={appearanceClass(t) === 'legacy'}
+                    aria-label={`Настроить состав команды ${i + 1}`}
+                    title="Иллюстрация класса. Нажмите, чтобы настроить точный состав."
+                    onClick={(event) => {
+                      const roster = event.currentTarget
+                        .closest('.team-row')
+                        ?.querySelector<HTMLDetailsElement>('.character-roster');
+                      if (roster) {
+                        roster.open = true;
+                        roster.querySelector('select')?.focus();
+                      }
+                    }}
+                  >
+                    <img src={teamPreviewUrl(appearanceClass(t))} alt="" />
+                  </button>
                 </div>
                 <span
                   class="team-dot"
@@ -210,7 +203,7 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                 >
                   {TEAM_PRESETS.map((p, pi) => (
                     <option value={pi} key={p.name}>
-                      {p.name}
+                      {p.name === 'Червячий спецназ' ? 'Спецназ' : p.name}
                     </option>
                   ))}
                 </select>
@@ -333,10 +326,25 @@ export function Menu({ initial, onStart, onReplay }: Props) {
               <span class="section-index">02</span> Поле боя
             </h2>
             <canvas ref={preview} class="map-preview" width={320} height={140} />
-            <div class="row">
+            <div class="row map-toolbar">
               <label>
-                Тип
+                <span class="map-field-label">Тема</span>
                 <select
+                  aria-label="Тема"
+                  value={cfg.themeId}
+                  onChange={(e) => set({ themeId: (e.target as HTMLSelectElement).value })}
+                >
+                  {THEMES.map((theme) => (
+                    <option value={theme.id} key={theme.id}>
+                      {theme.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                <span class="map-field-label">Тип</span>
+                <select
+                  aria-label="Тип"
                   value={cfg.style}
                   onChange={(e) =>
                     set({ style: (e.target as HTMLSelectElement).value as MatchConfig['style'] })
@@ -347,20 +355,33 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                 </select>
               </label>
               <label>
-                Тема
+                <span class="map-field-label">Схема</span>
                 <select
-                  value={cfg.themeId}
-                  onChange={(e) => set({ themeId: (e.target as HTMLSelectElement).value })}
+                  aria-label="Схема"
+                  value={cfg.schemeId}
+                  onChange={(e) => {
+                    const schemeId = (e.target as HTMLSelectElement).value;
+                    const style = SCHEME_INFO[schemeId]?.style;
+                    set(style ? { schemeId, style } : { schemeId });
+                  }}
                 >
-                  {THEMES.map((t) => (
-                    <option value={t.id} key={t.id}>
-                      {t.name}
+                  {SCHEMES.map((scheme) => (
+                    <option value={scheme.id} key={scheme.id}>
+                      {scheme.id === 'intermediate' ? 'Классика' : scheme.name}
                     </option>
                   ))}
                 </select>
               </label>
+              <button
+                class="btn small"
+                title="Случайная карта"
+                onClick={() => set({ seed: randomSeed() })}
+              >
+                Другая карта
+              </button>
             </div>
-            <div class="row">
+            <details class="map-details">
+              <summary>Параметры карты</summary>
               <label>
                 Seed
                 <input
@@ -369,32 +390,8 @@ export function Menu({ initial, onStart, onReplay }: Props) {
                   onChange={(e) => set({ seed: Number((e.target as HTMLInputElement).value) || 0 })}
                 />
               </label>
-              <button
-                class="btn small"
-                title="Случайная карта"
-                onClick={() => set({ seed: randomSeed() })}
-              >
-                Новая карта
-              </button>
-            </div>
-            <label>
-              Схема
-              <select
-                value={cfg.schemeId}
-                onChange={(e) => {
-                  const schemeId = (e.target as HTMLSelectElement).value;
-                  const style = SCHEME_INFO[schemeId]?.style;
-                  set(style ? { schemeId, style } : { schemeId });
-                }}
-              >
-                {SCHEMES.map((s) => (
-                  <option value={s.id} key={s.id}>
-                    {s.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
+              <p class="scheme-desc">{SCHEME_INFO[cfg.schemeId]?.description}</p>
+            </details>
           </section>
 
           <details class="menu-card px-panel modifiers-card">

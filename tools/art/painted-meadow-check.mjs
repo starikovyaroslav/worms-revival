@@ -25,6 +25,7 @@ try {
         page.on('pageerror', (e) => errors.push(e.message));
         await page.goto(`${base}?visual=painted`);
         await page.getByLabel('Тема').selectOption(theme);
+        await page.locator('.map-details > summary').click();
         await page.getByLabel('Seed', { exact: true }).fill('42');
         await page.getByLabel('Класс команды 1').selectOption('heavy');
         await page.getByLabel('Класс команды 2').selectOption('elder');
