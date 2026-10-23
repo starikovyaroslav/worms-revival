@@ -1,0 +1,75 @@
+{
+  "reviewedOn": "2026-10-23",
+  "scope": "Block 1: character motion only; video cadence is not animation cadence",
+  "videos": [
+    {
+      "id": "wwp-remastered",
+      "title": "Worms World Party Remastered — official trailer",
+      "page": "https://store.steampowered.com/app/270910/Worms_World_Party_Remastered/",
+      "movieId": "2040056",
+      "stream": "https://video.akamai.steamstatic.com/store_trailers/270910/37597/a6f48ff35a1a3099496f3c32ef2d12de7ef45574/1750499604/dash_h264.mpd?t=1447376301",
+      "localFile": "assets-in/research/worm-motion/wwp-remastered-trailer.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fpsNumerator": 30000,
+      "fpsDenominator": 1001,
+      "frames": 2728,
+      "durationSeconds": 91.024267,
+      "ranges": [
+        {
+          "start": 63,
+          "end": 66.6,
+          "label": "Water surface / setup; no confirmed isolated worm water-entry cycle"
+        },
+        {
+          "start": 66.6,
+          "end": 68.3,
+          "label": "Explosions / flight / splashes; small and occluded subjects"
+        }
+      ]
+    },
+    {
+      "id": "wmd-launch",
+      "title": "Worms W.M.D — official launch trailer",
+      "page": "https://store.steampowered.com/app/327030/Worms_WMD/",
+      "movieId": "256669378",
+      "stream": "https://video.akamai.steamstatic.com/store_trailers/327030/69910/74375e5351b025ff4112ce6f3beb713f1e4cee20/1750509133/dash_h264.mpd?t=1471967745",
+      "localFile": "assets-in/research/worm-motion/wmd-launch.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fpsNumerator": 30000,
+      "fpsDenominator": 1001,
+      "frames": 3924,
+      "durationSeconds": 130.9308,
+      "ranges": [
+        {
+          "start": 15,
+          "end": 34,
+          "label": "Staged close-up: expression reference, not normal gameplay timing"
+        },
+        {
+          "start": 36,
+          "end": 39.4,
+          "label": "Grenade approach / silhouette changes; cause of pose changes unconfirmed"
+        },
+        {
+          "start": 39.5,
+          "end": 40.3,
+          "label": "Explosion / airborne poses; obscured start, montage cut afterwards"
+        }
+      ]
+    }
+  ],
+  "unreviewedVideoCandidates": [
+    {
+      "game": "Worms Armageddon PC",
+      "url": "https://www.youtube.com/watch?v=_FtlsF7GHcE",
+      "status": "Not watched; no accessible video stream in this environment"
+    },
+    {
+      "game": "Worms World Party PC original",
+      "url": "https://www.youtube.com/watch?v=7gcS71QDhCA",
+      "status": "Not watched; attempted stream download returned HTTP 403"
+    }
+  ]
+}

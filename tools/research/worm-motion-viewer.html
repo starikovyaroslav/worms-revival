@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Worm motion — просмотр референсов</title>
+  <style>
+    body {
+      margin: 24px auto;
+      padding: 0 16px;
+      max-width: 1280px;
+      background: #20232a;
+      color: #eee;
+      font: 16px/1.5 system-ui;
+    }
+    video {
+      width: 100%;
+      max-height: 72vh;
+      background: #101216;
+    }
+    label,
+    button,
+    select,
+    input {
+      margin: 4px;
+      font: inherit;
+    }
+    button,
+    select {
+      padding: 6px 10px;
+    }
+    input[type='number'] {
+      width: 100px;
+    }
+    output {
+      display: block;
+      font-variant-numeric: tabular-nums;
+    }
+    p {
+      color: #c7cbd3;
+    }
+  </style>
+  <h1>Блок 1: просмотр референсов</h1>
+  <p>
+    Локальный MP4, без отправки файлов и сетевых запросов. Время — от начала трейлера. Шаг ≈ один
+    кодированный видеокадр: браузерный seek не гарантирует точную покадровую декодировку. Частота
+    видео не равна частоте рисунков игры.
+  </p>
+  <label>Видео <input id="file" type="file" accept="video/*" /></label>
+  <label
+    >Эпизод
+    <select id="clip">
+      <option value="0,0">Весь файл</option>
+      <option value="63,66.6">WWP Remastered: поверхность воды, 63–66,6 с</option>
+      <option value="66.6,68.3">WWP Remastered: взрыв/разлёт, 66,6–68,3 с</option>
+      <option value="15,34">W.M.D: постановочный крупный план, 15–34 с</option>
+      <option value="36,39.4">W.M.D: перед взрывом, 36–39,4 с</option>
+      <option value="39.5,40.3">W.M.D: разлёт, 39,5–40,3 с</option>
+    </select>
+  </label>
+  <video id="video" controls muted playsinline></video>
+  <div>
+    <button id="back" type="button">← Шаг</button>
+    <button id="forward" type="button">Шаг →</button>
+    <label
+      >Видеокадров/с
+      <input id="fps" type="number" value="29.97002997002997" min="1" max="240" step="any"
+    /></label>
+    <label
+      >Скорость
+      <select id="speed">
+        <option>0.25</option>
+        <option>0.5</option>
+        <option selected>1</option>
+      </select>
+    </label>
+    <label><input id="loop" type="checkbox" /> Повтор эпизода</label>
+  </div>
+  <output id="time" aria-live="off">Выберите локальный файл.</output>
+  <p>
+    Файлы: <code>assets-in/research/worm-motion/wwp-remastered-trailer.mp4</code> и
+    <code>wmd-launch.mp4</code>. Выбор эпизода не меняет выбранное видео — проверьте название файла.
+    Для точного анализа экспортируйте последовательность PNG через ffmpeg; не считайте число
+    уникальных рисунков по уменьшенному контакт-листу.
+  </p>
+  <script type="module">
+    const video = document.querySelector('#video');
+    const file = document.querySelector('#file');
+    const clip = document.querySelector('#clip');
+    const fps = document.querySelector('#fps');
+    const time = document.querySelector('#time');
+    const loop = document.querySelector('#loop');
+    let objectURL;
+    let loadedName = '';
+    let start = 0;
+    let end = 0;
+    function show() {
+      const rate = Number(fps.value);
+      time.textContent = `${loadedName || 'Нет файла'} · ${video.currentTime.toFixed(4)} с · сетка кадра ≈ ${Number.isFinite(rate) && rate > 0 ? Math.floor(video.currentTime * rate) : '—'}`;
+    }
+    function selectRange() {
+      [start, end] = clip.value.split(',').map(Number);
+      video.pause();
+      if (video.readyState) video.currentTime = Math.min(start, video.duration);
+      show();
+    }
+    file.addEventListener('change', () => {
+      const selected = file.files[0];
+      if (!selected) return;
+      video.pause();
+      if (objectURL) URL.revokeObjectURL(objectURL);
+      loadedName = selected.name;
+      objectURL = URL.createObjectURL(selected);
+      video.src = objectURL;
+      show();
+    });
+    function step(direction) {
+      const rate = Number(fps.value);
+      if (!video.readyState || !Number.isFinite(rate) || rate <= 0) return;
+      video.pause();
+      video.currentTime = Math.max(
+        0,
+        Math.min(video.duration, video.currentTime + direction / rate),
+      );
+    }
+    document.querySelector('#back').addEventListener('click', () => step(-1));
+    document.querySelector('#forward').addEventListener('click', () => step(1));
+    document.querySelector('#speed').addEventListener('change', (event) => {
+      video.playbackRate = Number(event.target.value);
+    });
+    clip.addEventListener('change', selectRange);
+    video.addEventListener('loadedmetadata', selectRange);
+    video.addEventListener('timeupdate', () => {
+      if (loop.checked && end > start && video.currentTime >= Math.min(end, video.duration)) {
+        video.currentTime = Math.min(start, video.duration);
+      }
+      show();
+    });
+    video.addEventListener('seeked', show);
+    video.addEventListener('error', () => {
+      time.textContent = 'Не удалось декодировать видео. Выберите MP4/H.264.';
+    });
+    window.addEventListener('pagehide', () => {
+      if (objectURL) URL.revokeObjectURL(objectURL);
+    });
+  </script>
+</html>
