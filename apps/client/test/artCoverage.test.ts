@@ -96,6 +96,7 @@ describe('shipped artwork coverage', () => {
       'assets/vfx',
       'assets/military',
       'assets/skins',
+      'assets/reactions',
     ]);
     expect(packs.every((p) => p.version === 2 && p.style === 'pixel')).toBe(true);
   });

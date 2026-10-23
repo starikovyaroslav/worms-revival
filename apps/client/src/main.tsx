@@ -90,7 +90,7 @@ async function boot() {
       assets.load(`${import.meta.env.BASE_URL}${pack}`.replace(/\/\//g, '/'), __BUILD_ID__);
     if (wantsPainted) {
       // Painted scenes need character atlases, not hundreds of unused legacy body frames.
-      await Promise.all(['assets/skins', ...PAINTED_PACKS].map(load));
+      await Promise.all(['assets/skins', 'assets/reactions', ...PAINTED_PACKS].map(load));
     }
     if (
       !wantsPainted ||

@@ -1,7 +1,7 @@
 {
   "policy": "all on-disk PNGs: declared native pixels, >=3x display density (icons 6x; other sprites 4x), longest edge >=64; no unregistered leftovers",
-  "totalPng": 1012,
-  "registeredPng": 1012,
+  "totalPng": 1065,
+  "registeredPng": 1065,
   "packs": [
     {
       "pack": "legacy paths (rebuilt)",
@@ -44,6 +44,13 @@
       "frames": 596,
       "minimumDensity": 6,
       "pngBytes": 17254305
+    },
+    {
+      "pack": "reactions",
+      "images": 53,
+      "frames": 68,
+      "minimumDensity": 8,
+      "pngBytes": 6953881
     },
     {
       "pack": "painted-meadow",

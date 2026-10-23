@@ -25,6 +25,7 @@ export function audit() {
     'vfx',
     'military',
     'skins',
+    'reactions',
     'painted-meadow',
     'painted-desert',
     'painted-arctic',

@@ -8,6 +8,7 @@ export const ART_PACKS = [
   'assets/vfx',
   'assets/military',
   'assets/skins',
+  'assets/reactions',
 ] as const;
 
 /** Decoded art for the CPU-painted destructible terrain and map preview. */
@@ -62,6 +63,7 @@ export class AssetStore {
   private ids = new WeakMap<Texture, string>();
   manifest: AssetManifest | null = null;
   private variant: string | null = null;
+  private tightTextures = new WeakMap<Texture, Texture>();
 
   /** Reversible presentation overlay. Never overwrites or destroys legacy textures. */
   setVariant(prefix: string | null): void {
@@ -227,6 +229,44 @@ export class AssetStore {
 
   get(id: string): Texture | undefined {
     return this.textures.get(this.resolveId(id));
+  }
+
+  /** Equipment widths refer to visible art, not arbitrary transparent atlas padding. No resampling. */
+  tight(id: string): Texture | undefined {
+    const texture = this.get(id);
+    if (!texture) return undefined;
+    const cached = this.tightTextures.get(texture);
+    if (cached) return cached;
+    const pixels = this.pixels(id);
+    if (!pixels) return texture;
+    let left = pixels.w,
+      top = pixels.h,
+      right = -1,
+      bottom = -1;
+    for (let y = 0; y < pixels.h; y++)
+      for (let x = 0; x < pixels.w; x++) {
+        if (pixels.data[(y * pixels.w + x) * 4 + 3]! < 8) continue;
+        left = Math.min(left, x);
+        top = Math.min(top, y);
+        right = Math.max(right, x);
+        bottom = Math.max(bottom, y);
+      }
+    if (right < left) return texture;
+    left = Math.max(0, left - 2);
+    top = Math.max(0, top - 2);
+    right = Math.min(pixels.w - 1, right + 2);
+    bottom = Math.min(pixels.h - 1, bottom + 2);
+    const cropped = new Texture({
+      source: texture.source,
+      frame: new Rectangle(
+        texture.frame.x + left,
+        texture.frame.y + top,
+        right - left + 1,
+        bottom - top + 1,
+      ),
+    });
+    this.tightTextures.set(texture, cropped);
+    return cropped;
   }
 }
 

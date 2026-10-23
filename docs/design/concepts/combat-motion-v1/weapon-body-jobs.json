@@ -1,0 +1,62 @@
+[
+  {
+    "grid": 4,
+    "members": [
+      "brutal",
+      "soft",
+      "glam-femme",
+      "glam-masc",
+      "elder",
+      "sickly",
+      "veteran",
+      "classic",
+      "commando-femme",
+      "soft-femme",
+      "glam-rocker",
+      "elder-femme",
+      "sickly-femme",
+      "veteran-femme",
+      "classic-femme",
+      "commander-femme"
+    ],
+    "reference": "docs/design/concepts/combat-motion-v1/weapon-bodies-1-reference.png",
+    "output": "docs/design/concepts/combat-motion-v1/weapon-bodies-1.png",
+    "prompt": "docs/design/concepts/combat-motion-v1/weapon-bodies-1.prompt.txt"
+  },
+  {
+    "grid": 4,
+    "members": [
+      "officer-ice",
+      "officer-red",
+      "officer-iron",
+      "brutal-sapper",
+      "brutal-brawler",
+      "soft-cook",
+      "soft-artist",
+      "glam-cabaret",
+      "elder-captain",
+      "elder-professor",
+      "sickly-clerk",
+      "sickly-nurse",
+      "veteran-sailor",
+      "veteran-aviator",
+      "classic-punk",
+      "classic-scout"
+    ],
+    "reference": "docs/design/concepts/combat-motion-v1/weapon-bodies-2-reference.png",
+    "output": "docs/design/concepts/combat-motion-v1/weapon-bodies-2.png",
+    "prompt": "docs/design/concepts/combat-motion-v1/weapon-bodies-2.prompt.txt"
+  },
+  {
+    "grid": 2,
+    "members": [
+      "nocturne-velvet",
+      "nocturne-crimson",
+      "nocturne-silver",
+      "nocturne-violet"
+    ],
+    "reference": "docs/design/concepts/combat-motion-v1/weapon-bodies-3-reference.png",
+    "output": "docs/design/concepts/combat-motion-v1/weapon-bodies-3.png",
+    "prompt": "docs/design/concepts/combat-motion-v1/weapon-bodies-3.prompt.txt"
+  }
+]

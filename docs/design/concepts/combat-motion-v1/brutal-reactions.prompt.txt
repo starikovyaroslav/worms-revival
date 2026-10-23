@@ -1,0 +1,11 @@
+Use case: identity-preserve
+Asset type: production 2D game reaction animation sprite sheet, transparent background.
+Reference image: the attached 4x4 existing sprite atlas defines the exact character identity and painterly comic rendering, not the desired poses.
+Primary request: make a NEW 4x4 sprite sheet of sixteen genuinely different sequential reaction drawings of this SAME adult male commando worm: orange segmented worm body and curled tail, olive bandana with trailing ends, stubble, eyebrow, small scar; no legs, no weapons. Side view, facing right throughout except natural head/body twists. Preserve identity, line thickness, proportions, colors, costume and painted shading.
+Composition: square 2048x2048 transparent PNG, exactly four equal columns and four equal rows; each 512px cell contains one complete character with generous transparent margins, no crossing cell borders. Keep consistent character scale across all cells; do not enlarge short squashed poses. No labels, no grid lines, no ground, no shadows or particles.
+Read order left to right, then top to bottom:
+Row 1: blast knockback sequence: explosive startled recoil with arms flung forward; curled body with cheeks dragged back; twisted sideways curled body with arms spread; flailing arched body recovering. Actual redrawn body articulation, NOT a rigid rotation of the same drawing.
+Row 2: hard landing sequence: downward stretch bracing for impact; very wide low pancake squash face scrunched; elastic recoil upward with compressed tail; settling back into low crouch.
+Row 3: reactions: light impact small wince and shoulder recoil; light impact recovery; heavy impact full torso whiplash eyes shut; heavy impact curled protective dazed recoil.
+Row 4: water impact sequence: alarmed downward dive arms raised; wide belly-first water contact squash; submerged-to-chest pose cheeks puffed arms paddling; low sinking head and raised hand. Draw the character ONLY, no actual water, so the game can mask him under its water surface.
+Constraints: every pose is a distinct hand-painted drawing; transparent true alpha; no text, no watermark, no scenery, no additional characters. Family-friendly slapstick, no gore. Full body silhouettes fully inside every cell.
