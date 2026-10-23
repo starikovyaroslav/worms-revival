@@ -1,7 +1,7 @@
 {
   "policy": "all on-disk PNGs: declared native pixels, >=3x display density (icons 6x; other sprites 4x), longest edge >=64; no unregistered leftovers",
-  "totalPng": 1002,
-  "registeredPng": 1002,
+  "totalPng": 1012,
+  "registeredPng": 1012,
   "packs": [
     {
       "pack": "legacy paths (rebuilt)",
@@ -93,6 +93,13 @@
       "frames": 5,
       "minimumDensity": 4,
       "pngBytes": 1564331
+    },
+    {
+      "pack": "team-previews",
+      "images": 10,
+      "frames": 10,
+      "minimumDensity": 4,
+      "pngBytes": 22724441
     }
   ],
   "problems": []

@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "style": "painted",
+  "assets": {
+    "menu/team-preview/heavy": {
+      "file": "heavy.png",
+      "w": 497,
+      "h": 184.25,
+      "pixelW": 1988,
+      "pixelH": 737,
+      "sampling": "linear"
+    },
+    "menu/team-preview/soft": {
+      "file": "soft.png",
+      "w": 490.75,
+      "h": 202.75,
+      "pixelW": 1963,
+      "pixelH": 811,
+      "sampling": "linear"
+    },
+    "menu/team-preview/glam": {
+      "file": "glam.png",
+      "w": 497.25,
+      "h": 200.5,
+      "pixelW": 1989,
+      "pixelH": 802,
+      "sampling": "linear"
+    },
+    "menu/team-preview/dominant": {
+      "file": "dominant.png",
+      "w": 495.5,
+      "h": 202.25,
+      "pixelW": 1982,
+      "pixelH": 809,
+      "sampling": "linear"
+    },
+    "menu/team-preview/elder": {
+      "file": "elder.png",
+      "w": 499.75,
+      "h": 168.75,
+      "pixelW": 1999,
+      "pixelH": 675,
+      "sampling": "linear"
+    },
+    "menu/team-preview/sick": {
+      "file": "sick.png",
+      "w": 489.75,
+      "h": 195,
+      "pixelW": 1959,
+      "pixelH": 780,
+      "sampling": "linear"
+    },
+    "menu/team-preview/veteran": {
+      "file": "veteran.png",
+      "w": 496.25,
+      "h": 195.75,
+      "pixelW": 1985,
+      "pixelH": 783,
+      "sampling": "linear"
+    },
+    "menu/team-preview/classic": {
+      "file": "classic.png",
+      "w": 487,
+      "h": 192.5,
+      "pixelW": 1948,
+      "pixelH": 770,
+      "sampling": "linear"
+    },
+    "menu/team-preview/nocturne": {
+      "file": "nocturne.png",
+      "w": 492.25,
+      "h": 196,
+      "pixelW": 1969,
+      "pixelH": 784,
+      "sampling": "linear"
+    },
+    "menu/team-preview/mixed": {
+      "file": "mixed.png",
+      "w": 499.75,
+      "h": 192.75,
+      "pixelW": 1999,
+      "pixelH": 771,
+      "sampling": "linear"
+    }
+  }
+}
