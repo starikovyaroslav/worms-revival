@@ -1,0 +1,12 @@
+Use case: stylized-concept
+Asset type: ORIGINAL FONT GLYPH SOURCE SHEET for a real scalable game typeface.
+Reference image is STYLE ONLY. Match its HEAVY angular dry-brush CAPITAL lettering, especially "ПОЛЕ БОЯ". NOT cursive, NOT script.
+Strict 6 columns by 6 rows grid of INDIVIDUAL isolated solid black glyphs on truly transparent background, no grid lines. Each cell has one glyph with wide transparent gutters. Exactly these rows, left to right:
+A B C D E F
+G H I J K L
+M N O P Q R
+S T U V W X
+Y Z 0 1 2 3
+4 5 6 7 8 9
+Bold condensed comic brush capitals, broad solid strokes, slight 10-degree right lean, sharp wedge terminals, clearly open counters. Consistent weight, cap height and baseline. Small deliberate edge nicks, not splatter, not texture holes. Numbers equal cap height, easy to distinguish 0/O, 1/I, 5/S, 8/B. Entire glyphs inside cells, no clipping.
+No words, labels, extra characters, shadows, decorations or paper. Square image, native high resolution.

@@ -1,0 +1,13 @@
+Use case: stylized-concept
+Asset type: ORIGINAL FONT GLYPH SOURCE SHEET for a real scalable game typeface.
+Reference image is STYLE ONLY: match the HEAVY angular dry-brush CAPITAL lettering in "ПОЛЕ БОЯ", "СПЕЦНАЗ", "ПЕНСИОНЕРЫ". NOT cursive, NOT script, NOT thin handwriting.
+Draw a strict 6 columns by 6 rows grid of INDIVIDUAL black glyphs on a truly transparent background. No grid lines. Each cell has exactly ONE isolated glyph with wide transparent gutters. Precisely centered cells. Exactly these rows, left to right:
+А Б В Г Д Е
+Ё Ж З И Й К
+Л М Н О П Р
+С Т У Ф Х Ц
+Ч Ш Щ Ъ Ы Ь
+Э Ю Я 0 1 2
+Glyph design: bold condensed brush-cut comic display capitals, slightly right-leaning 10 degrees, broad solid strokes, sharp wedge terminals, strong readable counters, a few controlled brush nicks along edges. Consistent cap height, consistent stroke weight, consistent baseline across rows. Natural hand-cut character but excellent legibility. Uniform solid black ink. NO texture holes inside main strokes, NO splatter or decorative marks outside glyphs.
+Preserve correct Cyrillic forms: Ё has TWO dots, Й has a breve, Ж has crossed strokes, Д has feet, Ц and Щ have descenders, Ы is one glyph with two components, Ь and Ъ have different shapes. Digits 0 1 2 at the END of row six are separate cells.
+No words, no labels, no shadows, no paper, no extra characters. Entire glyph silhouettes must remain inside their cells with generous gutters. Square image, high-resolution smooth edges.
